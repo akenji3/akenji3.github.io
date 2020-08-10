@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Kenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/</link>
+    <description>Recent content in Tags on Kenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jupyterlab</title>
+      <link>https://akenji3.github.io/tags/jupyterlab/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/jupyterlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>singularity</title>
+      <link>https://akenji3.github.io/tags/singularity/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/singularity/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

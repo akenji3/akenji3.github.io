@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>jupyterlabをsingularityコンテナで起動する - Kenji&#39;s lab</title>
+  <meta name="description" content="jupyterlabをsingularityコンテナで起動する 目的   Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う
+  コンテナは、dockerも作成するが、通常使用としてはsingularityとする。
+  今回は、家庭内のLAN環境内での使用とする。
+  使用環境 サーバ（HP-Z820）  GPU0: Geforce GTX 1080 GPU1: Quadro K2000 driver ver.: 440.95.01 Ubuntu 18.04.4 LTS  クライアント（Mac Book Pro）  macOS Catalina 10.15.5  参考ページ このページを参考にした。大変参考になり、感謝。
+手順 作業用ディレクトリを作成、必要ファイルを準備 $ mkdir pytorch-lab $ cd pytorch-lab 上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。
+FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime # Install required libraries RUN conda config --add channels pytorch \ &amp;&amp; conda config --append channels conda-forge \ &amp;&amp; conda update --all --yes --quiet \ &amp;&amp; conda install --yes --quiet \ ipywidgets \ jupyterlab \ matplotlib \ nodejs \ opencv \ pandas \ scikit-learn \ seaborn \ sympy \ &amp;&amp; conda clean --all -f -y # Install jupyter extensions RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \ &amp;&amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager COPY jupyter_notebook_config.">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Kenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
+          "name": "Jupyterlabをsingularityコンテナで起動する"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "jupyterlabをsingularityコンテナで起動する",
+  "description" : "jupyterlabをsingularityコンテナで起動する 目的   Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う\n  コンテナは、dockerも作成するが、通常使用としてはsingularityとする。\n  今回は、家庭内のLAN環境内での使用とする。\n  使用環境 サーバ（HP-Z820）  GPU0: Geforce GTX 1080 GPU1: Quadro K2000 driver ver.: 440.95.01 Ubuntu 18.04.4 LTS  クライアント（Mac Book Pro）  macOS Catalina 10.15.5  参考ページ このページを参考にした。大変参考になり、感謝。\n手順 作業用ディレクトリを作成、必要ファイルを準備 $ mkdir pytorch-lab $ cd pytorch-lab 上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。\nFROM pytorch\/pytorch:1.5.1-cuda10.1-cudnn7-runtime # Install required libraries RUN conda config --add channels pytorch \\ \u0026amp;\u0026amp; conda config --append channels conda-forge \\ \u0026amp;\u0026amp; conda update --all --yes --quiet \\ \u0026amp;\u0026amp; conda install --yes --quiet \\ ipywidgets \\ jupyterlab \\ matplotlib \\ nodejs \\ opencv \\ pandas \\ scikit-learn \\ seaborn \\ sympy \\ \u0026amp;\u0026amp; conda clean --all -f -y # Install jupyter extensions RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \\ \u0026amp;\u0026amp; jupyter labextension install @jupyter-widgets\/jupyterlab-manager COPY jupyter_notebook_config.",
+  "inLanguage" : "ja",
+  "wordCount":  402 ,
+  "datePublished" : "2020-08-10T00:00:00",
+  "dateModified" : "2020-08-10T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "jupyterlab, singularity" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="jupyterlabをsingularityコンテナで起動する" />
+<meta property="og:description" content="jupyterlabをsingularityコンテナで起動する 目的   Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う
+  コンテナは、dockerも作成するが、通常使用としてはsingularityとする。
+  今回は、家庭内のLAN環境内での使用とする。
+  使用環境 サーバ（HP-Z820）  GPU0: Geforce GTX 1080 GPU1: Quadro K2000 driver ver.: 440.95.01 Ubuntu 18.04.4 LTS  クライアント（Mac Book Pro）  macOS Catalina 10.15.5  参考ページ このページを参考にした。大変参考になり、感謝。
+手順 作業用ディレクトリを作成、必要ファイルを準備 $ mkdir pytorch-lab $ cd pytorch-lab 上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。
+FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime # Install required libraries RUN conda config --add channels pytorch \ &amp;&amp; conda config --append channels conda-forge \ &amp;&amp; conda update --all --yes --quiet \ &amp;&amp; conda install --yes --quiet \ ipywidgets \ jupyterlab \ matplotlib \ nodejs \ opencv \ pandas \ scikit-learn \ seaborn \ sympy \ &amp;&amp; conda clean --all -f -y # Install jupyter extensions RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \ &amp;&amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager COPY jupyter_notebook_config.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20200810_jupyterlab/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Kenji&#39;s lab" />
+
+  <meta name="twitter:title" content="jupyterlabをsingularityコンテナで起動する" />
+  <meta name="twitter:description" content="jupyterlabをsingularityコンテナで起動する 目的   Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う
+  コンテナは、dockerも作成するが、通常使用としてはsingularityとする。
+  今回は、家庭内のLAN環境内での使用とする。
+  使用環境 サーバ（HP-Z820）  GPU0: Geforce GTX 1080 …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="Kenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">Kenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Kenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="Kenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>jupyterlabをsingularityコンテナで起動する</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;分間
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;402&nbsp;言葉
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="jupyterlabをsingularityコンテナで起動する">jupyterlabをsingularityコンテナで起動する</h1>
+<h2 id="目的">目的</h2>
+<ul>
+<li>
+<p>Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う</p>
+</li>
+<li>
+<p>コンテナは、dockerも作成するが、通常使用としてはsingularityとする。</p>
+</li>
+<li>
+<p>今回は、家庭内のLAN環境内での使用とする。</p>
+</li>
+</ul>
+<h2 id="使用環境">使用環境</h2>
+<h3 id="サーバhp-z820">サーバ（HP-Z820）</h3>
+<ul>
+<li>GPU0: Geforce GTX 1080</li>
+<li>GPU1: Quadro K2000</li>
+<li>driver ver.: 440.95.01</li>
+<li>Ubuntu 18.04.4 LTS</li>
+</ul>
+<h3 id="クライアントmac-book-pro">クライアント（Mac Book Pro）</h3>
+<ul>
+<li>macOS Catalina 10.15.5</li>
+</ul>
+<h2 id="参考ページ">参考ページ</h2>
+<p><a href="https://qiita.com/radiol/items/48909d69ba8114edcbf2">このページ</a>を参考にした。大変参考になり、感謝。</p>
+<h2 id="手順">手順</h2>
+<h3 id="作業用ディレクトリを作成必要ファイルを準備">作業用ディレクトリを作成、必要ファイルを準備</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir pytorch-lab
+$ cd pytorch-lab
+</code></pre></div><p>上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime
+
+# Install required libraries
+RUN conda config --add channels pytorch \
+ &amp;&amp; conda config --append channels conda-forge \
+ &amp;&amp; conda update --all --yes --quiet \
+ &amp;&amp; conda install --yes --quiet \
+    ipywidgets \
+    jupyterlab \
+    matplotlib \
+    nodejs \
+    opencv \
+    pandas \
+    scikit-learn \
+    seaborn \
+    sympy \
+ &amp;&amp; conda clean --all -f -y
+
+# Install jupyter extensions
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \
+ &amp;&amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+COPY jupyter_notebook_config.py /root/.jupyter/
+</code></pre></div><p>同じく、上記記事を参考に、jupyter_notebook_configを作業用ディレクトリに配置。記事のとおり、次の2行を追加した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">c.NotebookApp.allow_root = True
+c.NotebookApp.password = &#39;sha1:・・・&#39;
+</code></pre></div><p>「sh1:」以下のハッシュ値は、次のようにして求めた。自分の環境には、ipythonが入っていなかったので、先ずはipythonをインストール。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install ipython
+</code></pre></div><p>次に、ハッシュ値を得て、jupyter_notebook_config.pyに挿入した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ipython
+
+In [1]: from IPython.lib import passwd
+
+In [2]: passwd()
+Enter password:
+Verify password:
+Out[2]: &#39;sha1:ここにハッシュ値が表示されている&#39;
+</code></pre></div><p>上記で求めたハッシュ値を埋め込んだJupiter_notebook_config.pyは、次のとおり。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
+from jupyter_core.paths import jupyter_data_dir
+import subprocess
+import os
+import errno
+import stat
+
+c = get_config()
+c.NotebookApp.ip = &#39;0.0.0.0&#39;
+c.NotebookApp.port = 8888
+c.NotebookApp.open_browser = False
+c.NotebookApp.allow_root = True
+c.NotebookApp.password = &#39;sha1:ここにハッシュ値をコピペする&#39;
+
+# https://github.com/jupyter/notebook/issues/3130
+c.FileContentsManager.delete_to_trash = False
+
+# Generate a self-signed certificate
+if &#39;GEN_CERT&#39; in os.environ:
+    dir_name = jupyter_data_dir()
+    pem_file = os.path.join(dir_name, &#39;notebook.pem&#39;)
+    try:
+        os.makedirs(dir_name)
+    except OSError as exc:  # Python &gt;2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(dir_name):
+            pass
+        else:
+            raise
+
+    # Generate an openssl.cnf file to set the distinguished name
+    cnf_file = os.path.join(os.getenv(&#39;CONDA_DIR&#39;, &#39;/usr/lib&#39;), &#39;ssl&#39;, &#39;openssl.cnf&#39;)
+    if not os.path.isfile(cnf_file):
+        with open(cnf_file, &#39;w&#39;) as fh:
+            fh.write(&#39;&#39;&#39;\
+[req]
+distinguished_name = req_distinguished_name
+[req_distinguished_name]
+&#39;&#39;&#39;)
+
+    # Generate a certificate if one doesn&#39;t exist on disk
+    subprocess.check_call([&#39;openssl&#39;, &#39;req&#39;, &#39;-new&#39;,
+                           &#39;-newkey&#39;, &#39;rsa:2048&#39;,
+                           &#39;-days&#39;, &#39;365&#39;,
+                           &#39;-nodes&#39;, &#39;-x509&#39;,
+                           &#39;-subj&#39;, &#39;/C=XX/ST=XX/L=XX/O=generated/CN=generated&#39;,
+                           &#39;-keyout&#39;, pem_file,
+                           &#39;-out&#39;, pem_file])
+    # Restrict access to the file
+    os.chmod(pem_file, stat.S_IRUSR | stat.S_IWUSR)
+    c.NotebookApp.certfile = pem_file
+
+# Change default umask for all subprocesses of the notebook server if set in
+# the environment
+if &#39;NB_UMASK&#39; in os.environ:
+    os.umask(int(os.environ[&#39;NB_UMASK&#39;], 8))
+</code></pre></div><h3 id="dockerイメージの作成と確認">Dockerイメージの作成と確認</h3>
+<ul>
+<li>Dockerイメージをビルド</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker build -t pytorch-lab ./
+</code></pre></div><ul>
+<li>Dockerイメージを起動</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -d --rm --gpus all -v ~/ml:/workspace -p 8888:8888 --name pytorch pytorch-lab jupyter lab
+</code></pre></div><ul>
+<li>接続確認</li>
+</ul>
+<p>Dockerイメージを起動したサーバーのブラウザで、&ldquo;http://localhost:8888&quot;と入力し、接続する。パスワード入力して&quot;log in&quot;を押下すると、jupyterlabがブラウザ上に立ち上がる。</p>
+<h3 id="singularityイメージの作成">singularityイメージの作成</h3>
+<ul>
+<li>Dockerイメージからsingularityイメージを作成</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif docker-daemon://pytorch-lab:latest
+</code></pre></div><p>この時、ローカルdockerファイルを指定する場合には、&ldquo;docker-daemon:&ldquo;とする事に注意。</p>
+<h3 id="singularityコンテナの起動と接続確認">singularityコンテナの起動と接続確認</h3>
+<ul>
+<li>作成したsingularityイメージを起動</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity exec --nv sifs/pytorch-lab.sif jupyter lab
+</code></pre></div><p>接続確認は、Dockerの時と同様。但し、パスワード入力画面が開いて、そこでパスワードを入力しても上手くいかず、TOKENを入力したら上手くいった。</p>
+<h3 id="リモートからの接続">リモートからの接続</h3>
+<ul>
+<li>リモート（Mac Book Pro）からjupyterlab起動</li>
+</ul>
+<p>以下、MBP側での操作でポートフォワードする。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -N -L 8888:localhost:8888 user名@サーバのIPアドレス
+</code></pre></div><p>パスワード入力を促されるので、サーバのuser名に対するパスワードを入力する。</p>
+<p>次に、MBPのブラウザで、<code>http://localhost:8888</code>と入力すると、接続できた。</p>
+<p>ここでも、パスワードではなく、TOKENしか受け付けないようだ。</p>
+<h3 id="サーバでのsingularityコンテナ起動をコマンド化">サーバでのsingularityコンテナ起動をコマンド化</h3>
+<p>サーバでのjupyterlabコンテナ起動を簡便にするために、シェルスクリプトする。</p>
+<p>$HOME/binには、PATHが通っており、以下のファイルには、実行権を付与する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$cat $HOME/bin/jupyterlab
+cd $HOME/jupyterlab
+export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
+singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
+</code></pre></div><p>$HOME/jupyterlabに作成したノートが保存される。</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;text=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;description=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">Kenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
