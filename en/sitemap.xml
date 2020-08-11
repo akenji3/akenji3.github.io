@@ -4,6 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -14,6 +15,71 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/github-pages/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/github-pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/github-pages/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/hugo/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/hugo/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
                 />
   </url>
   
@@ -56,20 +122,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/page/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/en/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
                 />
   </url>
   
