@@ -9,10 +9,10 @@
 
   <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 - akenji&#39;s lab</title>
   <meta name="description" content="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
-そのように考えている時に、マークダウンならGitHubとの連想が思い浮かび、GitHub Pagesに保管／公開する事にした。
+そのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。
 GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）
 参照ページに感謝 このページを参考にした。感謝。
-更に、こちらのページも参考にした。同じ感謝。
+更に、こちらのページも参考にした。同じく感謝。
 また、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。
 クライアント環境 自分のクライアント環境は、次のとおり。
  MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。
@@ -70,7 +70,7 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
     "name" : "Kenji Arai"
   },
   "headline": "GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用",
-  "description" : "GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。\nそのように考えている時に、マークダウンならGitHubとの連想が思い浮かび、GitHub Pagesに保管／公開する事にした。\nGitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）\n参照ページに感謝 このページを参考にした。感謝。\n更に、こちらのページも参考にした。同じ感謝。\nまた、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。\nクライアント環境 自分のクライアント環境は、次のとおり。\n MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。\n前提として、GitHubのアカウントは既に持っているものとする。\n\u0026ldquo;GitHub アカウント作成\u0026quot;で、検索すれば、qiitaのページ等、かず多くのページが参考にできる。\n次の手順で、GitHub Pagesで使用するリポジトリを作成する。\n GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:\tfoo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。\n次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。\n$ brew install hugo $ cd ~\/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。",
+  "description" : "GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。\nそのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。\nGitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）\n参照ページに感謝 このページを参考にした。感謝。\n更に、こちらのページも参考にした。同じく感謝。\nまた、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。\nクライアント環境 自分のクライアント環境は、次のとおり。\n MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。\n前提として、GitHubのアカウントは既に持っているものとする。\n\u0026ldquo;GitHub アカウント作成\u0026quot;で、検索すれば、qiitaのページ等、かず多くのページが参考にできる。\n次の手順で、GitHub Pagesで使用するリポジトリを作成する。\n GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:\tfoo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。\n次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。\n$ brew install hugo $ cd ~\/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。",
   "inLanguage" : "ja",
   "wordCount":  216 ,
   "datePublished" : "2020-08-11T00:00:00",
@@ -93,10 +93,10 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
 
 <meta property="og:title" content="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用" />
 <meta property="og:description" content="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
-そのように考えている時に、マークダウンならGitHubとの連想が思い浮かび、GitHub Pagesに保管／公開する事にした。
+そのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。
 GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）
 参照ページに感謝 このページを参考にした。感謝。
-更に、こちらのページも参考にした。同じ感謝。
+更に、こちらのページも参考にした。同じく感謝。
 また、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。
 クライアント環境 自分のクライアント環境は、次のとおり。
  MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。
@@ -113,7 +113,7 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
 
   <meta name="twitter:title" content="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用" />
   <meta name="twitter:description" content="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
-そのように考えている時に、マークダウンならGitHubとの連 …">
+そのように考えている時に、マークダウンならGitHubが思い …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -309,11 +309,11 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
         <h1 id="github-pagesにブログを公開---静的サイトジェネレータhugo使用">GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</h1>
 <h1 id="モチベーション">モチベーション</h1>
 <p>自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。</p>
-<p>そのように考えている時に、マークダウンならGitHubとの連想が思い浮かび、GitHub Pagesに保管／公開する事にした。</p>
+<p>そのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。</p>
 <p>GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）</p>
 <h2 id="参照ページに感謝">参照ページに感謝</h2>
 <p><a href="https://uzimihsr.github.io/post/2019-08-07-create-blog-1/">このページ</a>を参考にした。感謝。</p>
-<p>更に、<a href="https://dev.to/mshr_h/hugo-github-pages-35me">こちらのページ</a>も参考にした。同じ感謝。</p>
+<p>更に、<a href="https://dev.to/mshr_h/hugo-github-pages-35me">こちらのページ</a>も参考にした。同じく感謝。</p>
 <p>また、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかを<a href="https://themes.gohugo.io/">こちらのページ</a>参考に考えておく。</p>
 <h1 id="クライアント環境">クライアント環境</h1>
 <p>自分のクライアント環境は、次のとおり。</p>
