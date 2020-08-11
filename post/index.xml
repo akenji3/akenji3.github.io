@@ -7,10 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
+      <link>https://akenji3.github.io/post/20200811_github%E3%81%AB%E3%83%95%E3%82%99%E3%83%AD%E3%82%AF%E3%82%99/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20200811_github%E3%81%AB%E3%83%95%E3%82%99%E3%83%AD%E3%82%AF%E3%82%99/</guid>
+      <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
+そのように考えている時に、マークダウンならGitHubとの連想が思い浮かび、GitHub Pagesに保管／公開する事にした。
+GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）
+参照ページに感謝 このページを参考にした。感謝。
+更に、こちらのページも参考にした。同じ感謝。
+また、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。
+クライアント環境 自分のクライアント環境は、次のとおり。
+ MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。
+前提として、GitHubのアカウントは既に持っているものとする。
+&amp;ldquo;GitHub アカウント作成&amp;quot;で、検索すれば、qiitaのページ等、かず多くのページが参考にできる。
+次の手順で、GitHub Pagesで使用するリポジトリを作成する。
+ GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:	foo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。
+次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。
+$ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。</description>
+    </item>
     
     <item>
       <title>jupyterlabをsingularityコンテナで起動する</title>
