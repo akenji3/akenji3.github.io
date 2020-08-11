@@ -98,20 +98,6 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/page/about/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/page/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/page/about/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/en/page/</loc>
     <xhtml:link
                 rel="alternate"
@@ -122,6 +108,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/page/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/page/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/page/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/page/about/"
                 />
   </url>
   
