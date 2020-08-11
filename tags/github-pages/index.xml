@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/post/</link>
-    <description>Recent content in Posts on akenji&#39;s lab</description>
+    <title>GitHub Pages on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/github-pages/</link>
+    <description>Recent content in GitHub Pages on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
     <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akenji3.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -32,20 +32,6 @@ GitHub Pagesは、GitHubがユーザーに提供している静的なウェブ�
  GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:	foo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。
 次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。
 $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。</description>
-    </item>
-    
-    <item>
-      <title>jupyterlabをsingularityコンテナで起動する</title>
-      <link>https://akenji3.github.io/post/20200810_jupyterlab/</link>
-      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
-      <description>jupyterlabをsingularityコンテナで起動する 目的   Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う
-  コンテナは、dockerも作成するが、通常使用としてはsingularityとする。
-  今回は、家庭内のLAN環境内での使用とする。
-  使用環境 サーバ（HP-Z820）  GPU0: Geforce GTX 1080 GPU1: Quadro K2000 driver ver.: 440.95.01 Ubuntu 18.04.4 LTS  クライアント（Mac Book Pro）  macOS Catalina 10.15.5  参考ページ このページを参考にした。大変参考になり、感謝。
-手順 作業用ディレクトリを作成、必要ファイルを準備 $ mkdir pytorch-lab $ cd pytorch-lab 上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。
-FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime # Install required libraries RUN conda config --add channels pytorch \ &amp;amp;&amp;amp; conda config --append channels conda-forge \ &amp;amp;&amp;amp; conda update --all --yes --quiet \ &amp;amp;&amp;amp; conda install --yes --quiet \ ipywidgets \ jupyterlab \ matplotlib \ nodejs \ opencv \ pandas \ scikit-learn \ seaborn \ sympy \ &amp;amp;&amp;amp; conda clean --all -f -y # Install jupyter extensions RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \ &amp;amp;&amp;amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager COPY jupyter_notebook_config.</description>
     </item>
     
   </channel>
