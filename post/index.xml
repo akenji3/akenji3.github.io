@@ -14,10 +14,10 @@
     
     <item>
       <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
-      <link>https://akenji3.github.io/post/20200811_github%E3%81%AB%E3%83%95%E3%82%99%E3%83%AD%E3%82%AF%E3%82%99/</link>
+      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20200811_github%E3%81%AB%E3%83%95%E3%82%99%E3%83%AD%E3%82%AF%E3%82%99/</guid>
+      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
       <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
 そのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。
 GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）
