@@ -227,6 +227,61 @@
           
           
             <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">
+        <h2 class="post-title">Raspberry PiのディスクをNFSマウントして使う</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;August 12, 2020に投稿
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;分間
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;170&nbsp;言葉
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
+文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
+今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。
+環境 NFSマウントするサーバ、クライアント、および各々のディレクトリは、以下のとおり。
+NFSサーバ  Raspberry Pi 3B+  raspberrypi 4.19.66-v7- /export/nfs配下をNFSマウント用に公開    NFSクライアント  HP Z820  Ubuntu 18.02.2 NFSマウントする自分のディレクトリは/mnt/nfs   HP Z620  Ubuntu 18.04.2 NFSマウントする自分のディレクトリは/mnt/nfs   MacBook Pro  macOS Catalina バージョン 10.15.6 NFSマウントする自分のディレクトリは/opt/nfs マウントするディレクトリが、他のクライアント異なっている理由は後述する。    NFSサーバの設定 外部ディスクを接続 詳細は省略するが、新規の外部ディスク（USB接続）をRaspberry Piから使うには、次のような手順で行う。
+ パーティション設定（例えば、sudo fdisk /dev/sdc) フォーマット（ext4でフォーマットするには、sudo mkfs.ext4 /dev/sdc1） 必要ならボリュームラベル設定（例えば、sudo e2label /dev/sdc1 ssd480）  上記の例でのデバイス/dev/sdc1と後で説明で出てくるデバイス/dev/sda1と異なっているのは、使用している外付けUSBデバイスを変更したため。
+設定手順の概要 NFSサーバー設定手順の概要は次の通り。
+        <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+        <a href="https://akenji3.github.io/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
+        
+        <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
+        
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://akenji3.github.io/post/20200811_blog_ongithub/">
         <h2 class="post-title">GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</h2>
         
