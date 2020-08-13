@@ -66,7 +66,7 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
   "headline": "MESA(Modules for Experiments in Stellar Astrophysics)のインストール",
   "description" : "MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。\n星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。\nMESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。\nMESAインストール手順 MESAのインストールは、次の2つのステップで完了する。\n MESA SDKのインストール MESA本体のインストール  以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。\nMESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。\n手順は次の通り。\n 最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。 ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。  $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~\/  PATHを設定する。例えば、次の.bashrcに追加する。  export MESASDK_ROOT=~\/mesasdk  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。  $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh  SDKの初期化のため、以下を実行。  $ source $MESASDK_ROOT\/bin\/mesasdk_init.",
   "inLanguage" : "ja",
-  "wordCount":  185 ,
+  "wordCount":  184 ,
   "datePublished" : "2020-08-13T00:00:00",
   "dateModified" : "2020-08-13T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -269,7 +269,7 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;分間
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;185&nbsp;言葉
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;184&nbsp;言葉
   
   
     
@@ -381,7 +381,7 @@ $ cd tutorial
 $ ./mk
 </code></pre></div><p>以下で実行すると、モデルに従った星の進化過程のグラフが表示される。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ./rn
-</code></pre></div><p><img src="/images/20200813_MESA_install/Densitiy_Temp.png" alt="実行時グラフ">グラフのスナップショット。</p>
+</code></pre></div><p><img src="/images/20200813_MESA_install/Density_Temp.png" alt="表示されたグラフ"></p>
 <p>モデルの意味、記述方法など、全く理解できていないので、今後学んで行こう。</p>
 <p>結果は、またここにポストする。全て英語なので、時間がかかりそうだけど。</p>
 
