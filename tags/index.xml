@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Wed, 12 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>astrophysics</title>
+      <link>https://akenji3.github.io/tags/astrophysics/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/astrophysics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MESA</title>
+      <link>https://akenji3.github.io/tags/mesa/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/mesa/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>NFS</title>

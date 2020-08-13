@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MESA on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/mesa/</link>
+    <description>Recent content in MESA on akenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/tags/mesa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MESA(Modules for Experiments in Stellar Astrophysics)のインストール</title>
+      <link>https://akenji3.github.io/post/20200813_mesa_install/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20200813_mesa_install/</guid>
+      <description>MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で作られたものだ。天文学に興味を持った頃、そのような事実を知って興味を持って、今に至っている。
+星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。
+MESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。
+MESAインストール手順 MESAのインストールは、次の2つのステップで完了する。
+ MESA SDKのインストールと環境変数設定 MESA本体のインストール  以下の説明の前提として、自分は、Ubuntu 18.04.5にインストールしたので、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。
+MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。
+手順は次の通り。
+  最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。
+  ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。 $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/
+  PATHを設定する。例えば、次の.bashrcに追加する。 export MESASDK_ROOT=~/mesasdk
+  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。 $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh</description>
+    </item>
+    
+  </channel>
+</rss>
