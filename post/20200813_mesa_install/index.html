@@ -8,17 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>MESA(Modules for Experiments in Stellar Astrophysics)のインストール - akenji&#39;s lab</title>
-  <meta name="description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだ。その興味そのまま、今に至っている。
+  <meta name="description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
 星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。
 MESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。
 MESAインストール手順 MESAのインストールは、次の2つのステップで完了する。
- MESA SDKのインストールと環境変数設定 MESA本体のインストール  以下の説明の前提として、自分は、Ubuntu 18.04.5にインストールしたので、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。
+ MESA SDKのインストール MESA本体のインストール  以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。
 MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。
 手順は次の通り。
-  最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。
-  ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。 $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/
-  PATHを設定する。例えば、次の.bashrcに追加する。 export MESASDK_ROOT=~/mesasdk
-  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。 $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh">
+ 最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。 ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。  $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/  PATHを設定する。例えば、次の.bashrcに追加する。  export MESASDK_ROOT=~/mesasdk  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。  $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh  SDKの初期化のため、以下を実行。  $ source $MESASDK_ROOT/bin/mesasdk_init.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -67,7 +64,7 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
     "name" : "Kenji Arai"
   },
   "headline": "MESA(Modules for Experiments in Stellar Astrophysics)のインストール",
-  "description" : "MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだ。その興味そのまま、今に至っている。\n星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。\nMESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。\nMESAインストール手順 MESAのインストールは、次の2つのステップで完了する。\n MESA SDKのインストールと環境変数設定 MESA本体のインストール  以下の説明の前提として、自分は、Ubuntu 18.04.5にインストールしたので、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。\nMESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。\n手順は次の通り。\n  最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。\n  ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。 $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~\/\n  PATHを設定する。例えば、次の.bashrcに追加する。 export MESASDK_ROOT=~\/mesasdk\n  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。 $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh",
+  "description" : "MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。\n星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。\nMESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。\nMESAインストール手順 MESAのインストールは、次の2つのステップで完了する。\n MESA SDKのインストール MESA本体のインストール  以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。\nMESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。\n手順は次の通り。\n 最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。 ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。  $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~\/  PATHを設定する。例えば、次の.bashrcに追加する。  export MESASDK_ROOT=~\/mesasdk  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。  $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh  SDKの初期化のため、以下を実行。  $ source $MESASDK_ROOT\/bin\/mesasdk_init.",
   "inLanguage" : "ja",
   "wordCount":  184 ,
   "datePublished" : "2020-08-13T00:00:00",
@@ -89,24 +86,21 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
 </script>
 
 <meta property="og:title" content="MESA(Modules for Experiments in Stellar Astrophysics)のインストール" />
-<meta property="og:description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだ。その興味そのまま、今に至っている。
+<meta property="og:description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
 星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。
 MESA関連情報  MESAのページ　本家のページ MESA SDKのページ　MESAインストールに必要なSDKのページ MESAマーケットプレイス　MESAを使ったモデルの共有場所 2019 MESA Summer School　ここから過去のSummer Schoolも参照できる。  全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。
 MESAインストール手順 MESAのインストールは、次の2つのステップで完了する。
- MESA SDKのインストールと環境変数設定 MESA本体のインストール  以下の説明の前提として、自分は、Ubuntu 18.04.5にインストールしたので、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。
+ MESA SDKのインストール MESA本体のインストール  以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。
 MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。
 手順は次の通り。
-  最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。
-  ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。 $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/
-  PATHを設定する。例えば、次の.bashrcに追加する。 export MESASDK_ROOT=~/mesasdk
-  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。 $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh">
+ 最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。 ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。  $ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/  PATHを設定する。例えば、次の.bashrcに追加する。  export MESASDK_ROOT=~/mesasdk  事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。 自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。 ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。  $ sudo apt install libx11-dev $ sudo apt install zlib1g-dev $ sudo apt install tcsh  SDKの初期化のため、以下を実行。  $ source $MESASDK_ROOT/bin/mesasdk_init.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20200813_mesa_install/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="MESA(Modules for Experiments in Stellar Astrophysics)のインストール" />
-  <meta name="twitter:description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだ。その興味そのまま、今に至っている。
+  <meta name="twitter:description" content="MESAをインストールする はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
 星の進化をシミュレーションするソフトウェアが、 …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -300,9 +294,9 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h3 id="mesaをインストールする">MESAをインストールする</h3>
+        <h1 id="mesaをインストールする">MESAをインストールする</h1>
 <h2 id="はじめに">はじめに</h2>
-<p>我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）が進化の過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだ。その興味そのまま、今に至っている。</p>
+<p>我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。</p>
 <p>星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。</p>
 <h2 id="mesa関連情報">MESA関連情報</h2>
 <ul>
@@ -315,55 +309,53 @@ MESA SDKのインストール MESA SDKのページの「Linux(Intel)」の記述
 <h2 id="mesaインストール手順">MESAインストール手順</h2>
 <p>MESAのインストールは、次の2つのステップで完了する。</p>
 <ul>
-<li>MESA SDKのインストールと環境変数設定</li>
+<li>MESA SDKのインストール</li>
 <li>MESA本体のインストール</li>
 </ul>
-<p>以下の説明の前提として、自分は、Ubuntu 18.04.5にインストールしたので、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。</p>
+<p>以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。</p>
 <h2 id="mesa-sdkのインストール">MESA SDKのインストール</h2>
 <p>MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。</p>
 <p>手順は次の通り。</p>
 <ul>
-<li>
-<p>最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。</p>
-</li>
-<li>
-<p>ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。
-$ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/</p>
-</li>
-<li>
-<p>PATHを設定する。例えば、次の.bashrcに追加する。
-export MESASDK_ROOT=~/mesasdk</p>
-</li>
-<li>
-<p>事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。
-自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。
-ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。
-$ sudo apt install libx11-dev
-$ sudo apt install zlib1g-dev
-$ sudo apt install tcsh</p>
-</li>
-<li>
-<p>SDKの初期化のため、以下を実行。
-$ source $MESASDK_ROOT/bin/mesasdk_init.sh</p>
-<p>※ 実は、上記コマンドは、ここで一回実行すれば終わりではなく、MESAに関連する環境変数設定時に実行する必要がある。
-※ 自分は、これに気づかず、MESAのコンパイル時に、「ndiffをインストール必要がある」とのエラーが発生した。</p>
-</li>
-<li>
-<p>インストール確認する。自分の実行結果は次の通り。
-$ fortran &ndash;version
-GNU Fortran (GCC) 9.2.0</p>
-<p>Copyright (C) 2019 Free Software Foundation, Inc.</p>
-<p>This is free software; see the source for copying conditions. There is NO</p>
-<p>warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
-</li>
+<li>最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。</li>
+<li>ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。</li>
 </ul>
-<h2 id="mesaのインストール">MESAのインストール</h2>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/
+</code></pre></div><ul>
+<li>PATHを設定する。例えば、次の.bashrcに追加する。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">export MESASDK_ROOT=~/mesasdk
+</code></pre></div><ul>
+<li>事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。
+自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。
+ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install libx11-dev
+$ sudo apt install zlib1g-dev
+$ sudo apt install tcsh
+</code></pre></div><ul>
+<li>SDKの初期化のため、以下を実行。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ source $MESASDK_ROOT/bin/mesasdk_init.sh
+</code></pre></div><p>※ 実は、上記コマンドは、ここで一回実行すれば終わりではなく、MESAに関連する環境変数設定時に実行する必要がある。</p>
+<p>※ 自分は、これに気づかず、MESAのコンパイル時に、「ndiffをインストール必要がある」とのエラーが発生した。</p>
+<ul>
+<li>インストール確認する。自分の実行結果は次の通り。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ fortran --version
+GNU Fortran (GCC) 9.2.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions. There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre></div><h2 id="mesaのインストール">MESAのインストール</h2>
 <p>MESAのインストールは、本家のページに従って実行すれば良い。</p>
 <p>自分が実行した手順は、次の通り。</p>
 <ul>
 <li>MESAをダウンロードする。自分がダウンロードしたzipファイルは、mesa-r12778.zip。</li>
-<li>自分のホームディレクトリに解凍する。次を実行すると、ホームディレクトリにmesa-r1228ディレクトが作成され、そこに解凍される。
-$ unzip mesa-r12778.zip -d ~/</li>
+<li>自分のホームディレクトリに解凍する。次を実行すると、ホームディレクトリにmesa-r1228ディレクトが作成され、そこに解凍される。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ unzip mesa-r12778.zip -d ~/
+</code></pre></div><ul>
 <li>環境変数に、MESA_DIRとOMP_NUM_THREADSを設定する。MESA関連で.bashrcに追加した内容は次の通り。</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">export MESA_DIR=~/mesa-r12778
@@ -372,15 +364,13 @@ export MESASDK_ROOT=~/mesasdk
 soruce $MESASDK_ROOT/bin/mesasdk_init.sh
 </code></pre></div><p>最下行のsource行は、MESA SDKで実行したからと言って忘れずに記述すること。さもないと、MESAコンパイルでエラーとなる（MESA SDKで説明済）。</p>
 <ul>
-<li>
-<p>MESAのコンパイル。
-$ cd $MESA_DIR
-$ ./install</p>
-<p>・・・暫く待つと、次のようが表示され、正常にインストールされた。</p>
-<p>MESA installation was successful</p>
-</li>
+<li>MESAのコンパイル。</li>
 </ul>
-<h2 id="チュートリアルの実行">チュートリアルの実行</h2>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd $MESA_DIR
+$ ./install
+</code></pre></div><p>・・・暫く待つと、次のようが表示され、正常にインストールされた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MESA installation was successful
+</code></pre></div><h2 id="チュートリアルの実行">チュートリアルの実行</h2>
 <p>MESAのページの「getting started」の「How do you get started using MESA star?」に従って、チュートリアルを実行する。</p>
 <p>以下の手順で、チュートリアルのモデルのmakeする。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd $HOME
