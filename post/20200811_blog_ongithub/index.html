@@ -72,7 +72,7 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
   "headline": "GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用",
   "description" : "GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。\nそのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。\nGitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）\n参照ページに感謝 このページを参考にした。感謝。\n更に、こちらのページも参考にした。同じく感謝。\nまた、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。\nクライアント環境 自分のクライアント環境は、次のとおり。\n MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。\n前提として、GitHubのアカウントは既に持っているものとする。\n\u0026ldquo;GitHub アカウント作成\u0026quot;で、検索すれば、qiitaのページ等、かず多くのページが参考にできる。\n次の手順で、GitHub Pagesで使用するリポジトリを作成する。\n GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:\tfoo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。\n次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。\n$ brew install hugo $ cd ~\/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。",
   "inLanguage" : "ja",
-  "wordCount":  216 ,
+  "wordCount":  220 ,
   "datePublished" : "2020-08-11T00:00:00",
   "dateModified" : "2020-08-11T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -156,6 +156,12 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
           
             <li>
               <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
             </li>
           
         
@@ -278,10 +284,6 @@ $ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポ
   <i class="fas fa-calendar"></i>&nbsp;August 11, 2020に投稿
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;分間
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;216&nbsp;言葉
   
   
     
@@ -405,7 +407,12 @@ git commit -m <span class="s2">&#34;</span><span class="nv">$msg</span><span cla
 git push origin master
 </code></pre></div><p>書き上げた記事を所定のディレクトリに格納して、以下を実行。カレントディレクトリにシェルプロがある場合。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ./deploy.sh
-</code></pre></div>
+</code></pre></div><h2 id="気付いたこと">気付いたこと</h2>
+<p>以下に、気付いたことを列挙する。今は一つのみ。これで少しハマった。</p>
+<ul>
+<li>ブログ記事のファイル名をhoge.mdとした場合に、hogeに日本語を含むと、GitHub Pagesでは、トップに要約は掲載されるが、そこから「続きを読む」でページを表示する際に、404のエラーとなる。</li>
+</ul>
+
 
         
           <div class="blog-tags">
@@ -476,6 +483,17 @@ git push origin master
 
         
           
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20200814_hugo_image_category/">Hugoで画像ファイルを扱う、カテゴリ追加</a></li>
+                
+              </ul>
 
           
         
@@ -497,9 +515,6 @@ git push origin master
       
 
 
-      
-        
-        
       
 
     </div>

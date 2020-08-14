@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>category on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/category/</link>
+    <description>Recent content in category on akenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/tags/category/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugoで画像ファイルを扱う、カテゴリ追加</title>
+      <link>https://akenji3.github.io/post/20200814_hugo_image_category/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20200814_hugo_image_category/</guid>
+      <description>Hugoで画像ファイルを埋め込んだ記事、カテゴリを追加 モチベーション GitHub PagesとHugoで記事を書き始めたのが、数日前。
+何通かポスト（記事を書いて）して、次の2つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。
+ 記事の画像ファイルを埋め込む 記事をカテゴリで分類する  自分が使用しているテーマは、&amp;ldquo;beautifulhugo&amp;quot;なので、その環境下での試したこと。
+画像ファイルを記事に埋め込む ローカルな環境で、画像ファイルを埋め込む場合は、例えば次のように記述すると思う。
+![画像名](格納ファイルへのパス/画像ファイル.pgn) Hugoでは、画像ファイルは、config.tomlのあるディレクトリ（自分の場合、~/workspace/blog）直下にある、staticディレクトリ配下に格納するのが普通らしい。
+自分は、static配下にimagesディレクトリを作成し、その下に記事毎のディレクトを作成して、その配下にイメージファイルを格納した。例えば、この記事の画像の場合は、次の通り。
+~/workspace/blog/static/images/20200813_MESA_install/Density_Temp.png Typoraで記事を作成中に、画像のURL入力を求められるが、その際は、上記のフルパスを入力する。GitHub Pagesにデプロイするまでに、/images以下のみとする（・・・/staticまでを削除する）。
+カテゴリ分類を追加する カテゴリを追加するには、config.tomlに以下を追加するだけでOK。
+もちろん記事のYAML front matterに&amp;quot;Categories: [&amp;ldquo;category1&amp;rdquo;,&amp;hellip;]&amp;ldquo;が必要。
+[taxonomies] category = &amp;#34;categories&amp;#34; tag = &amp;#34;tags&amp;#34; 右上のメニューに&amp;quot;CATEGORIES&amp;quot;と表示するため、同じくconfig.tomlに以下を追加。
+[[menu.main]] name = &amp;#34;Categories&amp;#34; url = &amp;#34;categories&amp;#34; weight = 3 urlの&amp;quot;categories&amp;quot;は必ず小文字。これは/pabulic/categoriesに対応しているからだと思われる。
+自分は、これを&amp;quot;Categories&amp;quot;としていて、正常に動作せず、少しハマった。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,7 +19,102 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/astrophysics/</loc>
+    <loc>https://akenji3.github.io/categories/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/category/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/hugo/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/hugo/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20200814_hugo_image_category/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/image/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/software/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/software/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/software/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/astropysics/</loc>
+    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/install/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,33 +129,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/post/"
-                />
+    <loc>https://akenji3.github.io/categories/hardware/</loc>
+    <lastmod>2020-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
-                />
+    <loc>https://akenji3.github.io/categories/network/</loc>
+    <lastmod>2020-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -99,17 +174,17 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/hugo/</loc>
+    <loc>https://akenji3.github.io/categories/service/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://akenji3.github.io/en/tags/hugo/"
+                href="https://akenji3.github.io/en/categories/service/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://akenji3.github.io/tags/hugo/"
+                href="https://akenji3.github.io/categories/service/"
                 />
   </url>
   
@@ -126,20 +201,6 @@
   <url>
     <loc>https://akenji3.github.io/tags/singularity/</loc>
     <lastmod>2020-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/"
-                />
   </url>
   
   <url>

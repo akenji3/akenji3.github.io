@@ -7,17 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>astrophysics</title>
-      <link>https://akenji3.github.io/tags/astrophysics/</link>
+      <title>category</title>
+      <link>https://akenji3.github.io/tags/category/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/category/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://akenji3.github.io/tags/hugo/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image</title>
+      <link>https://akenji3.github.io/tags/image/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>install</title>
+      <link>https://akenji3.github.io/tags/install/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/astrophysics/</guid>
+      <guid>https://akenji3.github.io/tags/install/</guid>
       <description></description>
     </item>
     
@@ -54,15 +81,6 @@
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/github-pages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://akenji3.github.io/tags/hugo/</link>
-      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     

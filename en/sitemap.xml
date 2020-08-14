@@ -19,6 +19,21 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/en/categories/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/en/tags/github-pages/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -69,6 +84,36 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/en/categories/service/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/service/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/categories/software/</loc>
+    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/software/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/software/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/en/tags/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -80,20 +125,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/en/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/"
                 />
   </url>
   
