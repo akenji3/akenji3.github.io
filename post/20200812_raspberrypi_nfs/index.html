@@ -8,13 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Raspberry PiのディスクをNFSマウントして使う - akenji&#39;s lab</title>
-  <meta name="description" content="Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
+  <meta name="description" content="Raspberry PiのディスクをNFSマウントして使う
+モチベーション
+家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
 文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
-今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。
-環境 NFSマウントするサーバ、クライアント、および各々のディレクトリは、以下のとおり。
-NFSサーバ  Raspberry Pi 3B&#43;  raspberrypi 4.19.66-v7- /export/nfs配下をNFSマウント用に公開    NFSクライアント  HP Z820  Ubuntu 18.02.2 NFSマウントする自分のディレクトリは/mnt/nfs   HP Z620  Ubuntu 18.04.2 NFSマウントする自分のディレクトリは/mnt/nfs   MacBook Pro  macOS Catalina バージョン 10.15.6 NFSマウントする自分のディレクトリは/opt/nfs マウントするディレクトリが、他のクライアント異なっている理由は後述する。    NFSサーバの設定 外部ディスクを接続 詳細は省略するが、新規の外部ディスク（USB接続）をRaspberry Piから使うには、次のような手順で行う。
- パーティション設定（例えば、sudo fdisk /dev/sdc) フォーマット（ext4でフォーマットするには、sudo mkfs.ext4 /dev/sdc1） 必要ならボリュームラベル設定（例えば、sudo e2label /dev/sdc1 ssd480）  上記の例でのデバイス/dev/sdc1と後で説明で出てくるデバイス/dev/sda1と異なっているのは、使用している外付けUSBデバイスを変更したため。
-設定手順の概要 NFSサーバー設定手順の概要は次の通り。">
+今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,9 +61,9 @@ NFSサーバ  Raspberry Pi 3B&#43;  raspberrypi 4.19.66-v7- /export/nfs配下を
     "name" : "Kenji Arai"
   },
   "headline": "Raspberry PiのディスクをNFSマウントして使う",
-  "description" : "Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。\n文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。\n今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。\n環境 NFSマウントするサーバ、クライアント、および各々のディレクトリは、以下のとおり。\nNFSサーバ  Raspberry Pi 3B\u002b  raspberrypi 4.19.66-v7- \/export\/nfs配下をNFSマウント用に公開    NFSクライアント  HP Z820  Ubuntu 18.02.2 NFSマウントする自分のディレクトリは\/mnt\/nfs   HP Z620  Ubuntu 18.04.2 NFSマウントする自分のディレクトリは\/mnt\/nfs   MacBook Pro  macOS Catalina バージョン 10.15.6 NFSマウントする自分のディレクトリは\/opt\/nfs マウントするディレクトリが、他のクライアント異なっている理由は後述する。    NFSサーバの設定 外部ディスクを接続 詳細は省略するが、新規の外部ディスク（USB接続）をRaspberry Piから使うには、次のような手順で行う。\n パーティション設定（例えば、sudo fdisk \/dev\/sdc) フォーマット（ext4でフォーマットするには、sudo mkfs.ext4 \/dev\/sdc1） 必要ならボリュームラベル設定（例えば、sudo e2label \/dev\/sdc1 ssd480）  上記の例でのデバイス\/dev\/sdc1と後で説明で出てくるデバイス\/dev\/sda1と異なっているのは、使用している外付けUSBデバイスを変更したため。\n設定手順の概要 NFSサーバー設定手順の概要は次の通り。",
+  "description" : "Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。\n文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。\n今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。\n",
   "inLanguage" : "ja",
-  "wordCount":  170 ,
+  "wordCount":  1787 ,
   "datePublished" : "2020-08-12T00:00:00",
   "dateModified" : "2020-08-12T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -85,20 +83,20 @@ NFSサーバ  Raspberry Pi 3B&#43;  raspberrypi 4.19.66-v7- /export/nfs配下を
 </script>
 
 <meta property="og:title" content="Raspberry PiのディスクをNFSマウントして使う" />
-<meta property="og:description" content="Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
+<meta property="og:description" content="Raspberry PiのディスクをNFSマウントして使う
+モチベーション
+家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
 文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
-今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。
-環境 NFSマウントするサーバ、クライアント、および各々のディレクトリは、以下のとおり。
-NFSサーバ  Raspberry Pi 3B&#43;  raspberrypi 4.19.66-v7- /export/nfs配下をNFSマウント用に公開    NFSクライアント  HP Z820  Ubuntu 18.02.2 NFSマウントする自分のディレクトリは/mnt/nfs   HP Z620  Ubuntu 18.04.2 NFSマウントする自分のディレクトリは/mnt/nfs   MacBook Pro  macOS Catalina バージョン 10.15.6 NFSマウントする自分のディレクトリは/opt/nfs マウントするディレクトリが、他のクライアント異なっている理由は後述する。    NFSサーバの設定 外部ディスクを接続 詳細は省略するが、新規の外部ディスク（USB接続）をRaspberry Piから使うには、次のような手順で行う。
- パーティション設定（例えば、sudo fdisk /dev/sdc) フォーマット（ext4でフォーマットするには、sudo mkfs.ext4 /dev/sdc1） 必要ならボリュームラベル設定（例えば、sudo e2label /dev/sdc1 ssd480）  上記の例でのデバイス/dev/sdc1と後で説明で出てくるデバイス/dev/sda1と異なっているのは、使用している外付けUSBデバイスを変更したため。
-設定手順の概要 NFSサーバー設定手順の概要は次の通り。">
+今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Raspberry PiのディスクをNFSマウントして使う" />
-  <meta name="twitter:description" content="Raspberry PiのディスクをNFSマウントして使う モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
+  <meta name="twitter:description" content="Raspberry PiのディスクをNFSマウントして使う
+モチベーション
+家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
 文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
 今回、上記 …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />

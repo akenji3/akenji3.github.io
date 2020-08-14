@@ -13,23 +13,20 @@
     
     
     <item>
-      <title>Hugoで画像ファイルを扱う、カテゴリ追加</title>
-      <link>https://akenji3.github.io/post/20200814_hugo_image_category/</link>
+      <title>Hugoで設定３種</title>
+      <link>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</link>
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20200814_hugo_image_category/</guid>
-      <description>Hugoで画像ファイルを埋め込んだ記事、カテゴリを追加 モチベーション GitHub PagesとHugoで記事を書き始めたのが、数日前。
-何通かポスト（記事を書いて）して、次の2つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。
- 記事の画像ファイルを埋め込む 記事をカテゴリで分類する  自分が使用しているテーマは、&amp;ldquo;beautifulhugo&amp;quot;なので、その環境下での試したこと。
-画像ファイルを記事に埋め込む ローカルな環境で、画像ファイルを埋め込む場合は、例えば次のように記述すると思う。
-![画像名](格納ファイルへのパス/画像ファイル.pgn) Hugoでは、画像ファイルは、config.tomlのあるディレクトリ（自分の場合、~/workspace/blog）直下にある、staticディレクトリ配下に格納するのが普通らしい。
-自分は、static配下にimagesディレクトリを作成し、その下に記事毎のディレクトを作成して、その配下にイメージファイルを格納した。例えば、この記事の画像の場合は、次の通り。
-~/workspace/blog/static/images/20200813_MESA_install/Density_Temp.png Typoraで記事を作成中に、画像のURL入力を求められるが、その際は、上記のフルパスを入力する。GitHub Pagesにデプロイするまでに、/images以下のみとする（・・・/staticまでを削除する）。
-カテゴリ分類を追加する カテゴリを追加するには、config.tomlに以下を追加するだけでOK。
-もちろん記事のYAML front matterに&amp;quot;Categories: [&amp;ldquo;category1&amp;rdquo;,&amp;hellip;]&amp;ldquo;が必要。
-[taxonomies] category = &amp;#34;categories&amp;#34; tag = &amp;#34;tags&amp;#34; 右上のメニューに&amp;quot;CATEGORIES&amp;quot;と表示するため、同じくconfig.tomlに以下を追加。
-[[menu.main]] name = &amp;#34;Categories&amp;#34; url = &amp;#34;categories&amp;#34; weight = 3 urlの&amp;quot;categories&amp;quot;は必ず小文字。これは/pabulic/categoriesに対応しているからだと思われる。
-自分は、これを&amp;quot;Categories&amp;quot;としていて、正常に動作せず、少しハマった。</description>
+      <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
+      <description>&lt;h1 id=&#34;hugoで３種の設定&#34;&gt;Hugoで３種の設定&lt;/h1&gt;
+&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;
+&lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;記事の画像ファイルを埋め込む&lt;/li&gt;
+&lt;li&gt;記事をカテゴリ（category）で分類する&lt;/li&gt;
+&lt;li&gt;ブログトップでの記事要約（summary）を短くする&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -38,20 +35,7 @@
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
-      <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。
-そのように考えている時に、マークダウンならGitHubが思い浮かび、GitHub Pagesに保管／公開する事にした。
-GitHub Pagesは、GitHubがユーザーに提供している静的なウェブページのためのウェブホスティングサービスである。（ウィキペディアより）
-参照ページに感謝 このページを参考にした。感謝。
-更に、こちらのページも参考にした。同じく感謝。
-また、これからの作業を始める前にどのようなページにしたいかを考え、どんなテーマにするかをこちらのページ参考に考えておく。
-クライアント環境 自分のクライアント環境は、次のとおり。
- MacBook Pro（2016） macOS Catalina バージョン10.15.6  GitHub Pages用のリポジトリ作成 先ずは、公開先のリポジトリを用意する。この節の作業は、ブラウザで行う。
-前提として、GitHubのアカウントは既に持っているものとする。
-&amp;ldquo;GitHub アカウント作成&amp;quot;で、検索すれば、qiitaのページ等、かず多くのページが参考にできる。
-次の手順で、GitHub Pagesで使用するリポジトリを作成する。
- GitHubにサインインし、「Your repositories」に（トップレベルに）移動 右上の＋マークのメニューから「New repository」でリポジトリ作成へ 「Create a new repository」のページで次を入力する  Repository name:	foo.github.io（fooは自分のアカウント名） その他は、ディフォルトのまま 「Create repository」でリポジトリ作成    Hugoをインストール、hugoのプロジェクトを作成 ここからは、Macのターミナルでの作業。
-次の手順で、hugoをインストールし、作業するプロジェクト（この例では、blogとのディレクトリ）を作成する。
-$ brew install hugo $ cd ~/workspace $ mkdir blog $ hugo new site blog gitリポジトリの初期化とテーマ選定 自分は、「beautifulhugo」と言うシンプルなテーマを選定した。以下は、このテーマを前提に進める。</description>
+      <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ</description>
     </item>
     
   </channel>
