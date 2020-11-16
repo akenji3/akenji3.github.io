@@ -18,8 +18,7 @@
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
-      <description>&lt;h1 id=&#34;hugoで３種の設定&#34;&gt;Hugoで３種の設定&lt;/h1&gt;
-&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;
 &lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;
 &lt;ul&gt;
@@ -35,7 +34,7 @@
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
-      <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ</description>
+      <description>モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー</description>
     </item>
     
   </channel>

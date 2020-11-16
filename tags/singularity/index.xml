@@ -18,7 +18,7 @@
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
-      <description>jupyterlabをsingularityコンテナで起動する 目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyt</description>
+      <description>目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用</description>
     </item>
     
   </channel>

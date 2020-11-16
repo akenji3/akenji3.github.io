@@ -18,8 +18,7 @@
       <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</guid>
-      <description>&lt;h1 id=&#34;raspberry-piのディスクをnfsマウントして使う&#34;&gt;Raspberry PiのディスクをNFSマウントして使う&lt;/h1&gt;
-&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。&lt;/p&gt;
 &lt;p&gt;文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。&lt;/p&gt;
 &lt;p&gt;今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。&lt;/p&gt;</description>

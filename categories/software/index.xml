@@ -18,8 +18,7 @@
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
-      <description>&lt;h1 id=&#34;hugoで３種の設定&#34;&gt;Hugoで３種の設定&lt;/h1&gt;
-&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;
 &lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;
 &lt;ul&gt;
@@ -35,8 +34,7 @@
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200813_mesa_install/</guid>
-      <description>&lt;h1 id=&#34;mesaをインストールする&#34;&gt;MESAをインストールする&lt;/h1&gt;
-&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。&lt;/p&gt;
 &lt;p&gt;星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。&lt;/p&gt;</description>
     </item>
@@ -47,8 +45,7 @@
       <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</guid>
-      <description>&lt;h1 id=&#34;raspberry-piのディスクをnfsマウントして使う&#34;&gt;Raspberry PiのディスクをNFSマウントして使う&lt;/h1&gt;
-&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。&lt;/p&gt;
 &lt;p&gt;文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。&lt;/p&gt;
 &lt;p&gt;今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。&lt;/p&gt;</description>
@@ -60,7 +57,7 @@
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
-      <description>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用 モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ</description>
+      <description>モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー</description>
     </item>
     
     <item>
@@ -69,7 +66,7 @@
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
-      <description>jupyterlabをsingularityコンテナで起動する 目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyt</description>
+      <description>目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用</description>
     </item>
     
   </channel>
