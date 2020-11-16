@@ -59,7 +59,7 @@
   "headline": "jupyterlabをsingularityコンテナで起動する",
   "description" : "jupyterlabをsingularityコンテナで起動する 目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyt",
   "inLanguage" : "ja",
-  "wordCount":  1745 ,
+  "wordCount":  1759 ,
   "datePublished" : "2020-08-10T00:00:00",
   "dateModified" : "2020-08-10T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -101,6 +101,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
   </head>
@@ -435,7 +446,7 @@ if &#39;NB_UMASK&#39; in os.environ:
 </code></pre></div><p>接続確認は、Dockerの時と同様。但し、パスワード入力画面が開いて、そこでパスワードを入力しても上手くいかず、TOKENを入力したら上手くいった。</p>
 <h3 id="リモートからの接続">リモートからの接続</h3>
 <ul>
-<li>リモート（Mac Book Pro）からjupyterlab起動</li>
+<li>リモート（Mac Book Pro）から上記で起動したサーバ上のjupyterlabに接続。</li>
 </ul>
 <p>以下、MBP側での操作でポートフォワードする。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -N -L 8888:localhost:8888 user名@サーバのIPアドレス
