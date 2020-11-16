@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>YAML front matter</title>
+      <link>https://akenji3.github.io/post/20201116_yaml_front_matter/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20201116_yaml_front_matter/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;久しぶりに、記事を書こうとして、マークアップエディタ（Typora）を起動するも、記事書けない。というのも、冒頭にタイトル、日付、タグ付けの入れ方を忘れたのだ。&lt;/p&gt;
+&lt;p&gt;3ヶ月も経つと、以前にやったことを忘れてしまう。そのためのこのブログなので、細かいことも書いておこうと思い、今回は、ブログ記事の冒頭、いわゆる「YAML front matter」について簡単にまとめる。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hugoで設定３種</title>
