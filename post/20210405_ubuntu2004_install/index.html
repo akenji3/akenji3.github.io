@@ -7,10 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>MESA(Modules for Experiments in Stellar Astrophysics)のインストール - akenji&#39;s lab</title>
+  <title>Ubuntu 20.04をHP Z620にクリーン・インストール - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
-星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。">
+2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
+今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
+自分自身の備忘のため、ここに記事としてまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +47,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20200813_mesa_install\/",
-          "name": "M e s a( modules for experiments in stellar astrophysics)のインストール"
+          "@id": "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
+          "name": "Ubuntu 20.04を h p z620にクリーン・インストール"
         }
     }]
 }
@@ -58,15 +59,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "MESA(Modules for Experiments in Stellar Astrophysics)のインストール",
-  "description" : "はじめに 我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。\n星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。\n",
+  "headline": "Ubuntu 20.04をHP Z620にクリーン・インストール",
+  "description" : "はじめに 2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。\n今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。 自分自身の備忘のため、ここに記事としてまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  1758 ,
-  "datePublished" : "2020-08-13T00:00:00",
-  "dateModified" : "2020-08-13T00:00:00",
+  "wordCount":  1940 ,
+  "datePublished" : "2021-04-05T00:00:00",
+  "dateModified" : "2021-04-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "MESA, install" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20200813_mesa_install\/",
+  "keywords" : [ "ubuntu, install" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,19 +81,21 @@
 }
 </script>
 
-<meta property="og:title" content="MESA(Modules for Experiments in Stellar Astrophysics)のインストール" />
+<meta property="og:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
 <meta property="og:description" content="はじめに
-我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
-星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。">
+2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
+今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
+自分自身の備忘のため、ここに記事としてまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20200813_mesa_install/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210405_ubuntu2004_install/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="MESA(Modules for Experiments in Stellar Astrophysics)のインストール" />
+  <meta name="twitter:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
   <meta name="twitter:description" content="はじめに
-我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。
-星の進化をシミュレーションするソフトウェアが、今回のテーマであ …">
+2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
+今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
+自分自身の備忘のた …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -266,7 +269,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>MESA(Modules for Experiments in Stellar Astrophysics)のインストール</h1>
+                <h1>Ubuntu 20.04をHP Z620にクリーン・インストール</h1>
               
               
               
@@ -274,7 +277,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;August 13, 2020に投稿
+  <i class="fas fa-calendar"></i>&nbsp;April 5, 2021に投稿
   
   
   
@@ -302,99 +305,80 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。</p>
-<p>星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。</p>
-<h2 id="mesa関連情報">MESA関連情報</h2>
+<p>2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。</p>
+<p>今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
+自分自身の備忘のため、ここに記事としてまとめる。</p>
+<h2 id="インストール手順">インストール手順</h2>
 <ul>
-<li><a href="http://mesa.sourceforge.net/index.html">MESAのページ</a>　本家のページ</li>
-<li><a href="http://www.astro.wisc.edu/~townsend/static.php?ref=mesasdk">MESA SDKのページ</a>　MESAインストールに必要なSDKのページ</li>
-<li><a href="http://cococubed.asu.edu/mesa_market/">MESAマーケットプレイス</a>　MESAを使ったモデルの共有場所</li>
-<li><a href="http://cococubed.asu.edu/mesa_summer_school_2019/">2019 MESA Summer School</a>　ここから過去のSummer Schoolも参照できる。</li>
+<li>Ubuntu 20.04 LTS 日本語Remixのisoファイルをダウンロードし、ライブUSBを作成する。「ubuntu 20.04 日本語Rimix ライブUSB」とかでネット検索するば、記事が出てくる。自分は、<a href="https://linuxfan.info/ubuntu-20-04-install-guide">こちらのページ</a>を参考にさせてもらった。</li>
+<li>ライブUSBを全面パネルのUSBの口（最上位）に挿し込み、電源投入。「F9」を押下し、ブートメニューの選択を開き、USBメモリから起動する。</li>
+<li>Ubuntuが立ち上がったら、「試す／インストール」の「インストール」を選び、インストールを開始する。</li>
+<li>自分は、HHKBの英語配列を使っているので、「キーボードレイアウト」で「English(US)」を選ぶ。</li>
+<li>一つ重要なことは、「アップデートと他のソフトウェア」画面で、「グラフィックスとWi-Fiハードウェアと追加のメディアフォーマットのサードパーティ製ソフトウェアをインストールする」に<strong>必ずチェック</strong>する。これを忘れると、nvidia-driverがインストール出来ない！</li>
+<li>「インストールの種類」の画面では、「ディスクを削除してUbuntuをインストール」を選んだ。</li>
 </ul>
-<p>全て、本家のページから辿れる。今後、興味深いページを見つけたらここに追加する。</p>
-<h2 id="mesaインストール手順">MESAインストール手順</h2>
-<p>MESAのインストールは、次の2つのステップで完了する。</p>
+<h2 id="インストール直後に実施すること">インストール直後に実施すること</h2>
+<h3 id="ホームディレクトリの日本語表示を英語表示に変更する">ホームディレクトリの日本語表示を英語表示に変更する</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ LANG=C xdg-user-dirs-gtk-update
+</code></pre></div><h3 id="mozc関連の設定">Mozc関連の設定</h3>
+<p>英語配列キーボードの場合、「半角／全角」キーはなく、「Control+Space」で相当機能を実現している。この場合、以下ような設定が必要。</p>
 <ul>
-<li>MESA SDKのインストール</li>
-<li>MESA本体のインストール</li>
+<li>「設定」の「地域と言語」の「入力ソース」で、「日本語（Mozc）」を「英語（US）」より上位に移動し、「日本語（Mozc）」の優先順を上げる。</li>
+<li>「Mozcの設定」を検索し、「Mozcのプロパティ」を開き、更に「キー設定の選択」の「編集」をクリックして、「Mozc設定」の画面を開く。ここで、次の４つのモードで、「Ctrl Space」キーに対するコマンドを「Hankaku/Zenkaku」のそれと同じように設定する。
+「変換前入入力中」、「変換中」、「直接入力」、「入力文字なし」の４つのモード。
+「直接入力」と「入力文字なし」では、「Ctrl Space」がなかったので、「編集」のメニューから「エントリーの追加」を選んで、エントリーを追加した。</li>
 </ul>
-<p>以下の説明は、自分の使用環境であるUbuntu 18.04.5を前提としいる。したがって、「Linux(Intel)」の節に従って実行した。またシェルについてはbashを使っているので、Bourne shellの項に従った。</p>
-<h2 id="mesa-sdkのインストール">MESA SDKのインストール</h2>
-<p>MESA SDKのページの「Linux(Intel)」の記述通りに進めれば、特に問題もなく、インストールできた。</p>
-<p>手順は次の通り。</p>
-<ul>
-<li>最新版（current）のMESA SDKをダウンロードする。現時点の最新版は、March 25 2020のリリース12778である。自分もこれをダウンロードした。</li>
-<li>ダウンロードしたtarファイルを解凍。次のコマンドは、自分のホームディレクトリにmesasdkディレクトを作成しそこに解凍する。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ tar xvfz mesasdk-x86_64-linux-20.3.2.tar.gz -C ~/
-</code></pre></div><ul>
-<li>PATHを設定する。例えば、次の.bashrcに追加する。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">export MESASDK_ROOT=~/mesasdk
-</code></pre></div><ul>
-<li>事前に必要なこと「Prerequisites」の表に従って、パッケージをインストールする。
-自分の場合は、既にインストールされていたパッケージもあるので、実質的には、次を実行したことになる。
-ともかく、何も考えずに、上から順番にパッケージ名をインストールすれば良い。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install libx11-dev
-$ sudo apt install zlib1g-dev
-$ sudo apt install tcsh
-</code></pre></div><ul>
-<li>SDKの初期化のため、以下を実行。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ source $MESASDK_ROOT/bin/mesasdk_init.sh
-</code></pre></div><p>※ 実は、上記コマンドは、ここで一回実行すれば終わりではなく、MESAに関連する環境変数設定と共に実行する必要がある（.bashrcに記述する必要ある）。</p>
-<p>※ 自分は、これに気づかず、MESAのコンパイル時に、「ndiffをインストール必要がある」とのエラーが発生した。</p>
-<ul>
-<li>インストール確認する。自分の実行結果は次の通り。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ fortran --version
-GNU Fortran (GCC) 9.2.0
-Copyright (C) 2019 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions. There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-</code></pre></div><h2 id="mesaのインストール">MESAのインストール</h2>
-<p>MESAのインストールは、本家のページに従って実行すれば良い。</p>
-<p>自分が実行した手順は、次の通り。</p>
-<ul>
-<li>MESAをダウンロードする。自分がダウンロードしたzipファイルは、mesa-r12778.zip。</li>
-<li>自分のホームディレクトリに解凍する。次を実行すると、ホームディレクトリにmesa-r1228ディレクトが作成され、そこに解凍される。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ unzip mesa-r12778.zip -d ~/
-</code></pre></div><ul>
-<li>環境変数に、MESA_DIRとOMP_NUM_THREADSを設定する。MESA関連で.bashrcに追加した内容は次の通り。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">export MESA_DIR=~/mesa-r12778
-export OMP_NUM_THREADS=4
-export MESASDK_ROOT=~/mesasdk
-soruce $MESASDK_ROOT/bin/mesasdk_init.sh
-</code></pre></div><p>最下行のsource行は、MESA SDKで実行したからと言って忘れずに記述すること。さもないと、MESAコンパイルでエラーとなる（MESA SDKで説明済）。</p>
-<ul>
-<li>MESAのコンパイル。</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd $MESA_DIR
-$ ./install
-</code></pre></div><p>・・・暫く待つと、次のようが表示され、正常にインストールされた。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MESA installation was successful
-</code></pre></div><h2 id="チュートリアルの実行">チュートリアルの実行</h2>
-<p>MESAのページの「getting started」の「How do you get started using MESA star?」に従って、チュートリアルを実行する。</p>
-<p>以下の手順で、チュートリアルのモデルのmakeする。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd $HOME
-$ mkdir workspace/mesa
-$ cd workspace/mesa
-$ cp -r $MESA_DIR/star/work tutorial
-$ cd tutorial
-$ ./mk
-</code></pre></div><p>以下で実行すると、モデルに従った星の進化過程のグラフが表示される。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ./rn
-</code></pre></div><p><img src="/images/20200813_MESA_install/Density_Temp.png" alt="表示されたグラフ"></p>
-<p>モデルの意味、記述方法など、全く理解できていないので、今後学んで行こう。</p>
-<p>結果は、またここにポストする。全て英語なので、時間がかかりそうだけど。</p>
+<h3 id="chromeをインストール">Chromeをインストール</h3>
+<p>UbuntuのディフォルトのブラウザFirefoxで、「chrome」を検索し、ダウンロードメニューで、64ビット.debを選び、「同意してインストールする」でダウンロードする。</p>
+<p>ダウンロードファイルをダブルクリックすると、インストールされる。</p>
+<h3 id="emacsをインストール">emacsをインストール</h3>
+<p>自分はviの方が使い慣れてはいるけど、日本語文章を入力する際は、モード切替がないemacsの方が、入力し易いと思っているので、emacsをインストール。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install emacs-nox
+</code></pre></div><p>後は、好みの設定を~/.emacs.dディレクトリ配下のinit.elで設定する。その中で、バックアップファイルを指定のディレクトリ（~/.ehist）に作るように指定しているので、そのディレクトリも作成。</p>
+<h3 id="nfsをインストール設定">NFSをインストール、設定</h3>
+<p>以前<a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">こちら</a>にポストしたように、自分の環境では、raspberry PiのディスクをNFSマウントして複数のマシンから共通的に使っている。そのため、次の通りNFSモジュールをインストール。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install nfs-common
+</code></pre></div><p>更に次の通り、/etc/fstabにnfsマウントの行を追記する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">192.168.xxx.yyy:/export/nfs  /mnt/nfs    nfs
+</code></pre></div><h3 id="nvidiaドライバーのインストール更新">NVIDIAドライバーのインストール（更新）</h3>
+<p>インストールした時点で、次の通りNVIDIAドライバーがインストールされている！</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nvidia-smi
+Fri Apr  2 23:07:36 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TITAN   Off  | 00000000:04:00.0 Off |                  N/A |
+| 30%   31C    P8    13W / 250W |     12MiB /  6083MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  Quadro K2000        Off  | 00000000:05:00.0  On |                  N/A |
+| 30%   30C    P8    N/A /  N/A |    242MiB /  1996MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                  4MiB |
+|    0   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                  4MiB |
+|    1   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                 19MiB |
+|    1   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                 70MiB |
+|    1   N/A  N/A      1865      G   /usr/bin/gnome-shell              101MiB |
+|    1   N/A  N/A      3790      G   ...AAAAAAAAA= --shared-files       40MiB |
++-----------------------------------------------------------------------------+
+</code></pre></div><p>「NVIDIA X Server Settings」も正常に動いている。自分は、これを「お気に入り」に登録している。</p>
+<p>自分がUbuntu 20.04をインストールした時点では、上記の通り、ドライバーのバージョンは450.102.04。</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://akenji3.github.io/tags/mesa/">MESA</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
             
               <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
             
@@ -411,42 +395,42 @@ $ ./mk
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f&amp;text=MESA%28Modules%20for%20Experiments%20in%20Stellar%20Astrophysics%29%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;text=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f&amp;title=MESA%28Modules%20for%20Experiments%20in%20Stellar%20Astrophysics%29%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f&amp;title=MESA%28Modules%20for%20Experiments%20in%20Stellar%20Astrophysics%29%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f&amp;title=MESA%28Modules%20for%20Experiments%20in%20Stellar%20Astrophysics%29%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200813_mesa_install%2f&amp;description=MESA%28Modules%20for%20Experiments%20in%20Stellar%20Astrophysics%29%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;description=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -468,7 +452,7 @@ $ ./mk
                   <ul>
                 
                 
-                    <li><a href="/post/20210405_ubuntu2004_install/">Ubuntu 20.04をHP Z620にクリーン・インストール</a></li>
+                    <li><a href="/post/20200813_mesa_install/">MESA(Modules for Experiments in Stellar Astrophysics)のインストール</a></li>
                 
               </ul>
 
@@ -480,13 +464,9 @@ $ ./mk
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" data-toggle="tooltip" data-placement="top" title="Raspberry PiのディスクをNFSマウントして使う">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20201116_yaml_front_matter/" data-toggle="tooltip" data-placement="top" title="YAML front matter">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20200814_hugo_image_category_summary/" data-toggle="tooltip" data-placement="top" title="Hugoで設定３種">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
