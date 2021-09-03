@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,23 +34,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/hugo/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/hugo/"
-                />
+    <loc>https://akenji3.github.io/tags/install/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -65,7 +55,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -80,7 +70,7 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -90,6 +80,31 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/ubuntu/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20210405_ubuntu2004_install/</loc>
+    <lastmod>2021-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/hugo/</loc>
+    <lastmod>2020-11-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/hugo/"
                 />
   </url>
   
@@ -120,11 +135,6 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/astropysics/</loc>
-    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/install/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
   </url>
   

@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>install</title>
+      <link>https://akenji3.github.io/tags/install/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://akenji3.github.io/tags/ubuntu/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo</title>
@@ -45,15 +63,6 @@
       <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/summary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>install</title>
-      <link>https://akenji3.github.io/tags/install/</link>
-      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/install/</guid>
       <description></description>
     </item>
     
