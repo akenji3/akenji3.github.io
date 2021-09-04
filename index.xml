@@ -23,6 +23,17 @@
     </item>
     
     <item>
+      <title>Githubの認証方式が変更に！！！</title>
+      <link>https://akenji3.github.io/post/20210904_github_authentication/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210904_github_authentication/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;久しぶりに、このgithubのブログページに記事をアップしようとしたら、エラーとなって、記事がアップできなかった。&lt;/p&gt;
+&lt;p&gt;githubの認証方式が変更になったようで、自分は、以下のように対応して、記事がアップできるようになった。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Ubuntu 20.04をHP Z620にクリーン・インストール</title>
       <link>https://akenji3.github.io/post/20210405_ubuntu2004_install/</link>
       <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>

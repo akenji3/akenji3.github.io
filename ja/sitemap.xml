@@ -19,6 +19,11 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/tags/authentication/</loc>
+    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/categories/</loc>
     <lastmod>2021-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -44,6 +49,16 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/tags/github/</loc>
+    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20210904_github_authentication/</loc>
+    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/tags/install/</loc>
     <lastmod>2021-09-04T00:00:00+00:00</lastmod>
   </url>
@@ -60,6 +75,21 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/service/</loc>
+    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/service/"
                 />
   </url>
   
@@ -206,21 +236,6 @@
   <url>
     <loc>https://akenji3.github.io/post/20200811_blog_ongithub/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/service/</loc>
-    <lastmod>2020-08-11T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/service/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/service/"
-                />
   </url>
   
   <url>

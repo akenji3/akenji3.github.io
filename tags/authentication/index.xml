@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>service on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/categories/service/</link>
-    <description>Recent content in service on akenji&#39;s lab</description>
+    <title>authentication on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/authentication/</link>
+    <description>Recent content in authentication on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
     <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akenji3.github.io/categories/service/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akenji3.github.io/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,15 +21,6 @@
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;久しぶりに、このgithubのブログページに記事をアップしようとしたら、エラーとなって、記事がアップできなかった。&lt;/p&gt;
 &lt;p&gt;githubの認証方式が変更になったようで、自分は、以下のように対応して、記事がアップできるようになった。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
-      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
-      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
-      <description>モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー</description>
     </item>
     
   </channel>
