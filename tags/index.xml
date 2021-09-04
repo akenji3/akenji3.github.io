@@ -7,24 +7,42 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>docker</title>
+      <link>https://akenji3.github.io/tags/docker/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>install</title>
       <link>https://akenji3.github.io/tags/install/</link>
-      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/install/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>singularity</title>
+      <link>https://akenji3.github.io/tags/singularity/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/singularity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ubuntu</title>
       <link>https://akenji3.github.io/tags/ubuntu/</link>
-      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/ubuntu/</guid>
       <description></description>
@@ -108,15 +126,6 @@
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/jupyterlab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>singularity</title>
-      <link>https://akenji3.github.io/tags/singularity/</link>
-      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/singularity/</guid>
       <description></description>
     </item>
     

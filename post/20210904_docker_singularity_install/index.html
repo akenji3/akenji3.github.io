@@ -7,11 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Ubuntu 20.04をHP Z620にクリーン・インストール - akenji&#39;s lab</title>
+  <title>Docker,SingularityをUbuntu20.04にインストール - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。">
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -47,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
-          "name": "Ubuntu 20.04を h p z620にクリーン・インストール"
+          "@id": "https:\/\/akenji3.github.io\/post\/20210904_docker_singularity_install\/",
+          "name": "Docker, singularityを ubuntu20.04にインストール"
         }
     }]
 }
@@ -59,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Ubuntu 20.04をHP Z620にクリーン・インストール",
-  "description" : "はじめに 2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。\n今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。 自分自身の備忘のため、ここに記事としてまとめる。\n",
+  "headline": "Docker,SingularityをUbuntu20.04にインストール",
+  "description" : "はじめに 以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  1940 ,
-  "datePublished" : "2021-04-05T00:00:00",
-  "dateModified" : "2021-04-05T00:00:00",
+  "wordCount":  1282 ,
+  "datePublished" : "2021-09-04T00:00:00",
+  "dateModified" : "2021-09-04T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "ubuntu, install" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
+  "keywords" : [ "ubuntu, install, docker, singularity" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210904_docker_singularity_install\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -81,21 +79,17 @@
 }
 </script>
 
-<meta property="og:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
+<meta property="og:title" content="Docker,SingularityをUbuntu20.04にインストール" />
 <meta property="og:description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。">
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20210405_ubuntu2004_install/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210904_docker_singularity_install/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
+  <meta name="twitter:title" content="Docker,SingularityをUbuntu20.04にインストール" />
   <meta name="twitter:description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のた …">
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -269,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Ubuntu 20.04をHP Z620にクリーン・インストール</h1>
+                <h1>Docker,SingularityをUbuntu20.04にインストール</h1>
               
               
               
@@ -277,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;April 5, 2021に投稿
+  <i class="fas fa-calendar"></i>&nbsp;September 4, 2021に投稿
   
   
   
@@ -305,58 +299,76 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。</p>
-<p>今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。</p>
-<h2 id="インストール手順">インストール手順</h2>
+<p><a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/">以前この記事</a>でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。</p>
+<h2 id="参考ページ">参考ページ</h2>
 <ul>
-<li>Ubuntu 20.04 LTS 日本語Remixのisoファイルをダウンロードし、ライブUSBを作成する。「ubuntu 20.04 日本語Rimix ライブUSB」とかでネット検索するば、記事が出てくる。自分は、<a href="https://linuxfan.info/ubuntu-20-04-install-guide">こちらのページ</a>を参考にさせてもらった。</li>
-<li>ライブUSBを全面パネルのUSBの口（最上位）に挿し込み、電源投入。「F9」を押下し、ブートメニューの選択を開き、USBメモリから起動する。</li>
-<li>Ubuntuが立ち上がったら、「試す／インストール」の「インストール」を選び、インストールを開始する。</li>
-<li>自分は、HHKBの英語配列を使っているので、「キーボードレイアウト」で「English(US)」を選ぶ。</li>
-<li>一つ重要なことは、「アップデートと他のソフトウェア」画面で、「グラフィックスとWi-Fiハードウェアと追加のメディアフォーマットのサードパーティ製ソフトウェアをインストールする」に<strong>必ずチェック</strong>する。これを忘れると、nvidia-driverがインストール出来ない！</li>
-<li>「インストールの種類」の画面では、「ディスクを削除してUbuntuをインストール」を選んだ。</li>
+<li>それぞれのテーマによって、次のページを参考にさせてもらった。感謝。</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja">Dockerインストール</a></li>
+<li>Dockerで「&ndash;gpus all」オプションでエラーの場合の対処方法は、<a href="https://qiita.com/tomp/items/50081b99df7963462488">このページ</a>。</li>
+<li>Singuralityのインストールは、<a href="https://sylabs.io/guides/3.8/admin-guide/installation.html#installation-on-linux">本家のマニュアルページ</a></li>
 </ul>
-<h2 id="インストール直後に実施すること">インストール直後に実施すること</h2>
-<h3 id="ホームディレクトリの日本語表示を英語表示に変更する">ホームディレクトリの日本語表示を英語表示に変更する</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ LANG=C xdg-user-dirs-gtk-update
-</code></pre></div><h3 id="mozc関連の設定">Mozc関連の設定</h3>
-<p>英語配列キーボードの場合、「半角／全角」キーはなく、「Control+Space」で相当機能を実現している。この場合、以下ような設定が必要。</p>
-<ul>
-<li>「設定」の「地域と言語」の「入力ソース」で、「日本語（Mozc）」を「英語（US）」より上位に移動し、「日本語（Mozc）」の優先順を上げる。</li>
-<li>「Mozcの設定」を検索し、「Mozcのプロパティ」を開き、更に「キー設定の選択」の「編集」をクリックして、「Mozc設定」の画面を開く。ここで、次の４つのモードで、「Ctrl Space」キーに対するコマンドを「Hankaku/Zenkaku」のそれと同じように設定する。
-「変換前入入力中」、「変換中」、「直接入力」、「入力文字なし」の４つのモード。
-「直接入力」と「入力文字なし」では、「Ctrl Space」がなかったので、「編集」のメニューから「エントリーの追加」を選んで、エントリーを追加した。</li>
-</ul>
-<h3 id="chromeをインストール">Chromeをインストール</h3>
-<p>UbuntuのディフォルトのブラウザFirefoxで、「chrome」を検索し、ダウンロードメニューで、64ビット.debを選び、「同意してインストールする」でダウンロードする。</p>
-<p>ダウンロードファイルをダブルクリックすると、インストールされる。</p>
-<h3 id="emacsをインストール">emacsをインストール</h3>
-<p>自分はviの方が使い慣れてはいるけど、日本語文章を入力する際は、モード切替がないemacsの方が、入力し易いと思っているので、emacsをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install emacs-nox
-</code></pre></div><p>後は、好みの設定を~/.emacs.dディレクトリ配下のinit.elで設定する。その中で、バックアップファイルを指定のディレクトリ（~/.ehist）に作るように指定しているので、そのディレクトリも作成。</p>
-<h3 id="nfsをインストール設定">NFSをインストール、設定</h3>
-<p>以前<a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">こちら</a>にポストしたように、自分の環境では、raspberry PiのディスクをNFSマウントして複数のマシンから共通的に使っている。そのため、次の通りNFSモジュールをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install nfs-common
-</code></pre></div><p>更に次の通り、/etc/fstabにnfsマウントの行を追記する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">192.168.xxx.yyy:/export/nfs  /mnt/nfs    nfs
-</code></pre></div><h3 id="nvidiaドライバーのインストール更新">NVIDIAドライバーのインストール（更新）</h3>
-<p>インストールした時点で、次の通りNVIDIAドライバーがインストールされている！</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nvidia-smi
-Fri Apr  2 23:07:36 2021       
+<h2 id="dockerインストール">Dockerインストール</h2>
+<h3 id="パッケージリストを更新インストールに必要なパッケージをインストール">パッケージリストを更新、インストールに必要なパッケージをインストール</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt update
+$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+</code></pre></div><h3 id="公式dockerリポジトリのgpgキーを追加">公式DockerリポジトリのGPGキーを追加</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre></div><h3 id="dockerリポジトリを追加パッケージングデータベースを更新">Dockerリポジトリを追加、パッケージングデータベースを更新</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo add-apt-repository &#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&#34;
+$ sudo apt update
+</code></pre></div><h3 id="dockerリポジトリよりインストール">Dockerリポジトリよりインストール</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install docker-ce
+</code></pre></div><h3 id="デーモン起動確認でインストールを確認">デーモン起動確認でインストールを確認</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset&gt;
+     Active: active (running) since Tue 2021-08-24 10:34:27 JST; 1min 8s ago
+TriggeredBy: ● docker.socket
+・・・以下略・・・
+</code></pre></div><h3 id="起動確認">起動確認</h3>
+<p>※ sudoなしで、Dockerを起動できる設定はしなかったので、dockerコマンドの前にsudo必須。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run hello-world
+[sudo] xxxx のパスワード: 
+Unable to find image &#39;hello-world:latest&#39; locally
+latest: Pulling from library/hello-world
+b8dfde127a29: Pull complete 
+Digest: sha256:0fe98d7debd9049c50b597ef1f85b7c1e8cc81f59c8d623fcb2250e8bec85b38
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+・・・以下略・・・
+</code></pre></div><h3 id="--gpus-allオプションで次のようなエラーが発生した場合">「&ndash;gpus all」オプションで次のようなエラーが発生した場合</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">docker: Error response from daemon: could not select device driver &#34;&#34; with capabilities: [[gpu]].
+
+</code></pre></div><p>上にあげた記事を参考に、次のシェルスクリプト（nvidia-container-runtime-script.sh）を用意し、</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
+  sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+sudo apt-get update
+# Execute the script
+</code></pre></div><p>その上で、次を順次実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sh nvidia-container-runtime-script.sh
+$ sudo apt-get install nvidia-container-runtime
+</code></pre></div><p>正常に終了すれば、次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -it --rm --gpus all ubuntu nvidia-smi
+[sudo] xxxx のパスワード: 
+Fri Sep  3 14:47:38 2021       
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+| NVIDIA-SMI 460.91.03    Driver Version: 460.91.03    CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  GeForce GTX TITAN   Off  | 00000000:04:00.0 Off |                  N/A |
-| 30%   31C    P8    13W / 250W |     12MiB /  6083MiB |      0%      Default |
+| 30%   33C    P8    13W / 250W |     11MiB /  6083MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  Quadro K2000        Off  | 00000000:05:00.0  On |                  N/A |
-| 30%   30C    P8    N/A /  N/A |    242MiB /  1996MiB |      0%      Default |
+| 30%   31C    P8    N/A /  N/A |    101MiB /  1996MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -365,15 +377,43 @@ Fri Apr  2 23:07:36 2021
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
 |=============================================================================|
-|    0   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                 19MiB |
-|    1   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                 70MiB |
-|    1   N/A  N/A      1865      G   /usr/bin/gnome-shell              101MiB |
-|    1   N/A  N/A      3790      G   ...AAAAAAAAA= --shared-files       40MiB |
 +-----------------------------------------------------------------------------+
-</code></pre></div><p>「NVIDIA X Server Settings」も正常に動いている。自分は、これを「お気に入り」に登録している。</p>
-<p>自分がUbuntu 20.04をインストールした時点では、上記の通り、ドライバーのバージョンは450.102.04。</p>
+</code></pre></div><h2 id="singularityインストール">Singularityインストール</h2>
+<h3 id="関連するパッケージをインストール">関連するパッケージをインストール</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get update &amp;&amp; sudo apt-get install -y \
+&gt; build-essential \
+&gt; uuid-dev \
+&gt; libgpgme-dev \
+&gt; squashfs-tools \
+&gt; libseccomp-dev \
+&gt; wget \
+&gt; pkg-config \
+&gt; git \
+&gt; cryptsetup-bin
+</code></pre></div><h3 id="goをインストール">goをインストール</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export VERSION=1.14.12 OS=linux ARCH=amd64 &amp;&amp; \
+wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz &amp;&amp; \
+sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz &amp;&amp; \
+rm go$VERSION.$OS-$ARCH.tar.gz
+</code></pre></div><h3 id="goのpathを設定">goのPATHを設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ echo &#39;export GOPATH=${HOME}/go&#39; &gt;&gt; ~/.bashrc &amp;&amp; \
+&gt; echo &#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39; &gt;&gt; ~/.bashrc &amp;&amp; \
+&gt; source ~/.bashrc
+</code></pre></div><h3 id="singularityをダウンロード">singularityをダウンロード</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export VERSION=3.8.0 &amp;&amp; # adjust this as necessary \
+&gt; wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz &amp;&amp; \
+&gt; tar -xzf singularity-ce-${VERSION}.tar.gz &amp;&amp; \
+&gt; cd singularity-ce-${VERSION}
+</code></pre></div><h3 id="singularityをコンパイル">singularityをコンパイル</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ./mconfig &amp;&amp; \
+&gt; make -C ./builddir &amp;&amp; \
+&gt; sudo make -C ./builddir install
+</code></pre></div><h3 id="インストール確認のためsylabs-cloud-libraryのコンテナを起動">インストール確認のため、Sylabs Cloud libraryのコンテナを起動</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity exec library://alpine cat /etc/alpine-release
+3.14.0
+</code></pre></div><h2 id="今後について">今後について</h2>
+<p>およそ一年前、<a href="https://akenji3.github.io/post/20200810_jupyterlab/">この記事</a>では、dockerコンテナからsingularityコンテナ（sifファイル）を作る記事を書いた。</p>
+<p>今後は、jupyterlabやNVIDIA HPC SDKのsingularityコンテナをdefinition fileから作りたい。</p>
 
         
           <div class="blog-tags">
@@ -381,6 +421,10 @@ Fri Apr  2 23:07:36 2021
               <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
             
               <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
             
           </div>
         
@@ -395,42 +439,42 @@ Fri Apr  2 23:07:36 2021
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;text=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;text=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;description=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;description=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -452,9 +496,11 @@ Fri Apr  2 23:07:36 2021
                   <ul>
                 
                 
-                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                    <li><a href="/post/20210405_ubuntu2004_install/">Ubuntu 20.04をHP Z620にクリーン・インストール</a></li>
                 
                     <li><a href="/post/20200813_mesa_install/">MESA(Modules for Experiments in Stellar Astrophysics)のインストール</a></li>
+                
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
                 
               </ul>
 
@@ -466,13 +512,9 @@ Fri Apr  2 23:07:36 2021
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20201116_yaml_front_matter/" data-toggle="tooltip" data-placement="top" title="YAML front matter">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/" data-toggle="tooltip" data-placement="top" title="Ubuntu 20.04をHP Z620にクリーン・インストール">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20210904_docker_singularity_install/" data-toggle="tooltip" data-placement="top" title="Docker,SingularityをUbuntu20.04にインストール">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
