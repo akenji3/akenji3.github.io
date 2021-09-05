@@ -61,7 +61,7 @@
   "headline": "Jupyterlabのsingularityコンテナを作る",
   "description" : "モチベーション 以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。\n今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。\n",
   "inLanguage" : "ja",
-  "wordCount":  2334 ,
+  "wordCount":  2526 ,
   "datePublished" : "2021-09-05T00:00:00",
   "dateModified" : "2021-09-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -316,10 +316,10 @@ if (!doNotTrack) {
 <h2 id="参考ページ">参考ページ</h2>
 <p>definitionファイルを作るために、次の記事のdockerファイルを参考にした。感謝。</p>
 <ul>
-<li>作成方針の1.の部分を<a href="https://qiita.com/conankonnako/items/787b69cd8cbfe7d7cb88">この記事</a>のdockerファイルを参考にした</li>
-<li>作成方針の2.から5.の部分は、<a href="https://qiita.com/tkNag/items/a9cc7fdd5dc5c01a52c1">この記事</a>のdockerファイルを参考にした</li>
+<li>定義ファイルの構成の1.の部分を<a href="https://qiita.com/conankonnako/items/787b69cd8cbfe7d7cb88">この記事</a>のdockerファイルを参考にした</li>
+<li>定義ファイルの構成の2.から5.の部分は、<a href="https://qiita.com/tkNag/items/a9cc7fdd5dc5c01a52c1">この記事</a>のdockerファイルを参考にした</li>
 </ul>
-<p>上記参考にしたdockerfileを理解するために、次のページを参考にした。</p>
+<p>上記のdockerfileを理解するために、次のページを参考にした。</p>
 <ul>
 <li>Dockerfileの全般的な理解のための<a href="https://docs.docker.jp/engine/articles/dockerfile_best-practice.html">Dockerfileのベストプラクティス</a></li>
 <li>ENTRYPOINT,CMDを理解するため<a href="https://docs.docker.jp/engine/reference/builder.html">Dockerfileリファレンス</a></li>
@@ -329,7 +329,7 @@ if (!doNotTrack) {
 <li><a href="https://sylabs.io/guides/3.8/user-guide/definition_files.html">Definition Files</a></li>
 </ul>
 <h2 id="dockerファイルからコンテナ作成">dockerファイルからコンテナ作成</h2>
-<p>先ずは手始めとして、定義ファイルの構成をdockerファイルを作成し、そこからdockerコンテナを作成し、更にsingularityコンテナ（sifファイル）を作成し、動作を確認した。</p>
+<p>先ずは手始めとして、上記定義ファイルの構成に従ったdockerファイルを作成し、そこからdockerコンテナを作成し、更にsingularityコンテナ（sifファイル）を作成し、動作を確認した。</p>
 <p>dockerfile：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># pytorchが使える、jupyterlabを作成する。
 
@@ -370,15 +370,17 @@ ENTRYPOINT [&#34;jupyter-lab&#34;, &#34;--ip=0.0.0.0&#34;, &#34;--port=8888&#34;
 
 # Jupyterlabのルートとなるディレクトリを指定
 CMD [&#34;--notebook-dir=/workdir&#34;]
-</code></pre></div><p>次の手順でdocker/singularityコンテナを作成する。dockerfileのあるディレクトリでdockerコンテナを作成。</p>
+</code></pre></div><p>dockerfileのあるディレクトリでdockerコンテナを作成。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker build -t pytorch-lab ./
 </code></pre></div><p>dockerコンテナを起動</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -d --rm --gpus all -v /mnt/nfs/jupyterlab:/workdir -p 8888:8888 --name pt-lab pytorch-lab
-</code></pre></div><p>singularityコンテナを作成</p>
+</code></pre></div><p>正常に動いていることを確認した。この時に作成したnotebookのowerはrootになっていることに注意。既に作成しているものを更新すると、後でower/groupを修正する必要あり。</p>
+<p>singularityコンテナを作成</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif docker-daemon://pytorch-lab:latest
 </code></pre></div><p>作成したsifファイルを指定してsingularityコンテナを起動。自分の環境では、${COMMON_AREA}/jupyterlab配下に、jupyter notebook（.ipynbファイル）を格納している。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir pytorch-lab.sif
 </code></pre></div><h2 id="definitionファイル">definitionファイル</h2>
+<p>ずいぶんと前置きが長くなったが、ここからがこの記事のテーマであるdefファイルからコンテナ作成。</p>
 <p>前節のdockerfileを元にして、作成したdefinition file（pytor-ch-lab.def）が次の通り。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># pytorchベースのjupyterlabが動く、singularityコンテナを作成する。
 
@@ -404,7 +406,7 @@ FROM:	nvidia/cuda:11.0-devel-ubuntu20.04
 
 %runscript
 	jupyter-lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=&#39;&#39; --notebook-dir=/workdir
-</code></pre></div><p>「jupyter serverextension enable &ndash;py jupyterlab」はjupyter notebookのバージョンが5.3より低い場合の時に必要との記事を見た記憶があり、自分の環境のバージョンは、6.4.3だったので、コメントアウトした。</p>
+</code></pre></div><p>「jupyter serverextension enable &ndash;py jupyterlab」の行については、jupyter notebookのバージョンが5.3より低い場合の時に必要との記事を見た記憶があり、自分の環境のバージョンは、6.4.3だったので不要と判断し、コメントアウトした。</p>
 <h2 id="コンテナ作成手順">コンテナ作成手順</h2>
 <p>前節で作成したdefinition fileから次のようにして、コンテナ（sifファイル）を作成する。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif pytorch-lab.def
@@ -412,7 +414,8 @@ FROM:	nvidia/cuda:11.0-devel-ubuntu20.04
 <p>作成したコンテナ（sifファイル）を次のように起動した。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
 $ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir ${COMMON_AREA}/sifs/pytorch-lab.sif
-</code></pre></div><p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
+</code></pre></div><p>※ 変なところで折り返しており、singularity  run ・・・ /pytorch-lab.sifが別の2行に見えるけど1行。</p>
+<p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
 <h3 id="ブラウザ側での確認">ブラウザ側での確認</h3>
 <p>Chromeで、「http://localhost:8888」と入力すると、jupyterlabが立ち上がる。ここで、セルに以下を入力して実行する。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import torch
