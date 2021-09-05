@@ -61,7 +61,7 @@
   "headline": "Jupyterlabのsingularityコンテナを作る",
   "description" : "モチベーション 以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。\n今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。\n",
   "inLanguage" : "ja",
-  "wordCount":  2526 ,
+  "wordCount":  2466 ,
   "datePublished" : "2021-09-05T00:00:00",
   "dateModified" : "2021-09-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -414,8 +414,7 @@ FROM:	nvidia/cuda:11.0-devel-ubuntu20.04
 <p>作成したコンテナ（sifファイル）を次のように起動した。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
 $ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir ${COMMON_AREA}/sifs/pytorch-lab.sif
-</code></pre></div><p>※ 変なところで折り返しており、singularity  run ・・・ /pytorch-lab.sifが別の2行に見えるけど1行。</p>
-<p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
+</code></pre></div><p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
 <h3 id="ブラウザ側での確認">ブラウザ側での確認</h3>
 <p>Chromeで、「http://localhost:8888」と入力すると、jupyterlabが立ち上がる。ここで、セルに以下を入力して実行する。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import torch
