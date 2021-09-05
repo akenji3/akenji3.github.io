@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>def on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/def/</link>
+    <description>Recent content in def on akenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/tags/def/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jupyterlabのsingularityコンテナを作る</title>
+      <link>https://akenji3.github.io/post/20210905_definition_file/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210905_definition_file/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;以前の &lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;この記事&lt;/a&gt;で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。&lt;/p&gt;
+&lt;p&gt;今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

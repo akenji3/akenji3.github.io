@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>jupyterlabをsingularityコンテナで起動する - akenji&#39;s lab</title>
-  <meta name="description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+  <title>Jupyterlabのsingularityコンテナを作る - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
-          "name": "Jupyterlabをsingularityコンテナで起動する"
+          "@id": "https:\/\/akenji3.github.io\/post\/20210905_definition_file\/",
+          "name": "Jupyterlabのsingularityコンテナを作る"
         }
     }]
 }
@@ -56,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "jupyterlabをsingularityコンテナで起動する",
-  "description" : "目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用",
+  "headline": "Jupyterlabのsingularityコンテナを作る",
+  "description" : "モチベーション 以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。\n今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。\n",
   "inLanguage" : "ja",
-  "wordCount":  1728 ,
-  "datePublished" : "2020-08-10T00:00:00",
-  "dateModified" : "2020-08-10T00:00:00",
+  "wordCount":  2335 ,
+  "datePublished" : "2021-09-05T00:00:00",
+  "dateModified" : "2021-09-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "jupyterlab, singularity" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
+  "keywords" : [ "singularity, def" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210905_definition_file\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,15 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="jupyterlabをsingularityコンテナで起動する" />
-<meta property="og:description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+<meta property="og:title" content="Jupyterlabのsingularityコンテナを作る" />
+<meta property="og:description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20200810_jupyterlab/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210905_definition_file/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="jupyterlabをsingularityコンテナで起動する" />
-  <meta name="twitter:description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+  <meta name="twitter:title" content="Jupyterlabのsingularityコンテナを作る" />
+  <meta name="twitter:description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -260,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>jupyterlabをsingularityコンテナで起動する</h1>
+                <h1>Jupyterlabのsingularityコンテナを作る</h1>
               
               
               
@@ -268,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
+  <i class="fas fa-calendar"></i>&nbsp;September 5, 2021に投稿
   
   
   
@@ -295,182 +301,151 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="目的">目的</h2>
-<ul>
-<li>
-<p>Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う</p>
-</li>
-<li>
-<p>コンテナは、dockerも作成するが、通常使用としてはsingularityとする。</p>
-</li>
-<li>
-<p>今回は、家庭内のLAN環境内での使用とする。</p>
-</li>
-</ul>
-<h2 id="使用環境">使用環境</h2>
-<h3 id="サーバhp-z820">サーバ（HP-Z820）</h3>
-<ul>
-<li>GPU0: Geforce GTX 1080</li>
-<li>GPU1: Quadro K2000</li>
-<li>driver ver.: 440.95.01</li>
-<li>Ubuntu 18.04.4 LTS</li>
-</ul>
-<h3 id="クライアントmac-book-pro">クライアント（Mac Book Pro）</h3>
-<ul>
-<li>macOS Catalina 10.15.5</li>
-</ul>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>以前の <a href="https://akenji3.github.io/post/20200810_jupyterlab/">この記事</a>で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。</p>
+<p>今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。</p>
+<h2 id="定義ファイルの構成">定義ファイルの構成</h2>
+<p>作成するコンテナは、次のような構成を考えた。（以下に示す `ca参考にしたdockerfileを元に考えた）</p>
+<ol>
+<li>ベースはubuntu20.04+CUDA11.4のコンテナ</li>
+<li>そこにpytochをインストール</li>
+<li>jupyterlabからも使う可能性のあるLinuxコマンド、unzip, wgetをインストール</li>
+<li>python関連のライブラリをpipでインストール</li>
+<li>jupyterlabを起動</li>
+</ol>
 <h2 id="参考ページ">参考ページ</h2>
-<p><a href="https://qiita.com/radiol/items/48909d69ba8114edcbf2">このページ</a>を参考にした。大変参考になり、感謝。</p>
-<h2 id="手順">手順</h2>
-<h3 id="作業用ディレクトリを作成必要ファイルを準備">作業用ディレクトリを作成、必要ファイルを準備</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir pytorch-lab
-$ cd pytorch-lab
-</code></pre></div><p>上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime
-
-# Install required libraries
-RUN conda config --add channels pytorch \
- &amp;&amp; conda config --append channels conda-forge \
- &amp;&amp; conda update --all --yes --quiet \
- &amp;&amp; conda install --yes --quiet \
-    ipywidgets \
-    jupyterlab \
-    matplotlib \
-    nodejs \
-    opencv \
-    pandas \
-    scikit-learn \
-    seaborn \
-    sympy \
- &amp;&amp; conda clean --all -f -y
-
-# Install jupyter extensions
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \
- &amp;&amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager
-
-COPY jupyter_notebook_config.py /root/.jupyter/
-</code></pre></div><p>同じく、上記記事を参考に、jupyter_notebook_configを作業用ディレクトリに配置。記事のとおり、次の2行を追加した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">c.NotebookApp.allow_root = True
-c.NotebookApp.password = &#39;sha1:・・・&#39;
-</code></pre></div><p>「sh1:」以下のハッシュ値は、次のようにして求めた。自分の環境には、ipythonが入っていなかったので、先ずはipythonをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install ipython
-</code></pre></div><p>次に、ハッシュ値を得て、jupyter_notebook_config.pyに挿入した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ipython
-
-In [1]: from IPython.lib import passwd
-
-In [2]: passwd()
-Enter password:
-Verify password:
-Out[2]: &#39;sha1:ここにハッシュ値が表示されている&#39;
-</code></pre></div><p>上記で求めたハッシュ値を埋め込んだJupiter_notebook_config.pyは、次のとおり。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
-
-from jupyter_core.paths import jupyter_data_dir
-import subprocess
-import os
-import errno
-import stat
-
-c = get_config()
-c.NotebookApp.ip = &#39;0.0.0.0&#39;
-c.NotebookApp.port = 8888
-c.NotebookApp.open_browser = False
-c.NotebookApp.allow_root = True
-c.NotebookApp.password = &#39;sha1:ここにハッシュ値をコピペする&#39;
-
-# https://github.com/jupyter/notebook/issues/3130
-c.FileContentsManager.delete_to_trash = False
-
-# Generate a self-signed certificate
-if &#39;GEN_CERT&#39; in os.environ:
-    dir_name = jupyter_data_dir()
-    pem_file = os.path.join(dir_name, &#39;notebook.pem&#39;)
-    try:
-        os.makedirs(dir_name)
-    except OSError as exc:  # Python &gt;2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(dir_name):
-            pass
-        else:
-            raise
-
-    # Generate an openssl.cnf file to set the distinguished name
-    cnf_file = os.path.join(os.getenv(&#39;CONDA_DIR&#39;, &#39;/usr/lib&#39;), &#39;ssl&#39;, &#39;openssl.cnf&#39;)
-    if not os.path.isfile(cnf_file):
-        with open(cnf_file, &#39;w&#39;) as fh:
-            fh.write(&#39;&#39;&#39;\
-[req]
-distinguished_name = req_distinguished_name
-[req_distinguished_name]
-&#39;&#39;&#39;)
-
-    # Generate a certificate if one doesn&#39;t exist on disk
-    subprocess.check_call([&#39;openssl&#39;, &#39;req&#39;, &#39;-new&#39;,
-                           &#39;-newkey&#39;, &#39;rsa:2048&#39;,
-                           &#39;-days&#39;, &#39;365&#39;,
-                           &#39;-nodes&#39;, &#39;-x509&#39;,
-                           &#39;-subj&#39;, &#39;/C=XX/ST=XX/L=XX/O=generated/CN=generated&#39;,
-                           &#39;-keyout&#39;, pem_file,
-                           &#39;-out&#39;, pem_file])
-    # Restrict access to the file
-    os.chmod(pem_file, stat.S_IRUSR | stat.S_IWUSR)
-    c.NotebookApp.certfile = pem_file
-
-# Change default umask for all subprocesses of the notebook server if set in
-# the environment
-if &#39;NB_UMASK&#39; in os.environ:
-    os.umask(int(os.environ[&#39;NB_UMASK&#39;], 8))
-</code></pre></div><h3 id="dockerイメージの作成と確認">Dockerイメージの作成と確認</h3>
+<p>definitionファイルを作るために、次の記事のdockerファイルを参考にした。感謝。</p>
 <ul>
-<li>Dockerイメージをビルド</li>
+<li>作成方針の1.の部分を<a href="https://qiita.com/conankonnako/items/787b69cd8cbfe7d7cb88">この記事</a>のdockerファイルを参考にした</li>
+<li>作成方針の2.から5.の部分は、<a href="https://qiita.com/tkNag/items/a9cc7fdd5dc5c01a52c1">この記事</a>のdockerファイルを参考にした</li>
 </ul>
+<p>上記参考にしたdockerfileを理解するために、次のページを参考にした。</p>
+<ul>
+<li>Dockerfileの全般的な理解のための<a href="https://docs.docker.jp/engine/articles/dockerfile_best-practice.html">Dockerfileのベストプラクティス</a></li>
+<li>ENTRYPOINT,CMDを理解するため<a href="https://docs.docker.jp/engine/reference/builder.html">Dockerfileリファレンス</a></li>
+</ul>
+<p>definitionファイルを書くために本家<a href="https://sylabs.io/">sylabs.io</a>の次のドキュメントページ</p>
+<ul>
+<li><a href="https://sylabs.io/guides/3.8/user-guide/definition_files.html">Definition Files</a></li>
+</ul>
+<h2 id="dockerファイルからコンテナ作成">dockerファイルからコンテナ作成</h2>
+<p>先ずは手始めとして、定義ファイルの構成をdockerファイルを作成し、そこからdockerコンテナを作成し、更にsingularityコンテナ（sifファイル）を作成し、動作を確認した。</p>
+<p>dockerfile：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># pytorchが使える、jupyterlabを作成する。
+
+FROM nvidia/cuda:11.0-devel-ubuntu20.04
+
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip
+RUN pip3 install torch torchvision
+
+RUN apt-get update &amp;&amp; apt-get install -y \
+    curl \
+    git \
+    tree \
+    vim \
+# The following packages are added.
+	wget \
+	unzip
+
+# RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip setuptools
+RUN pip3 install jupyterlab
+RUN pip3 install matplotlib
+RUN pip3 install pandas
+RUN pip3 install scikit-learn
+RUN pip3 install seaborn
+RUN pip3 install sympy
+RUN pip3 install pydotplus
+
+RUN jupyter serverextension enable --py jupyterlab
+
+# 作業ディレクトリを指定
+WORKDIR /workdir
+
+# コンテナ側のポート番号
+EXPOSE 8888
+
+ENTRYPOINT [&#34;jupyter-lab&#34;, &#34;--ip=0.0.0.0&#34;, &#34;--port=8888&#34;, &#34;--no-browser&#34;, &#34;--allow-root&#34;, &#34;--NotebookApp.token=&#39;&#39;&#34;]
+
+# Jupyterlabのルートとなるディレクトリを指定
+CMD [&#34;--notebook-dir=/workdir&#34;]
+</code></pre></div><p>次の手順でdocker/singularityコンテナを作成する。dockerfileのあるディレクトリでdockerコンテナを作成。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker build -t pytorch-lab ./
-</code></pre></div><ul>
-<li>Dockerイメージを起動</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -d --rm --gpus all -v ~/ml:/workspace -p 8888:8888 --name pytorch pytorch-lab jupyter lab
-</code></pre></div><ul>
-<li>接続確認</li>
-</ul>
-<p>Dockerイメージを起動したサーバーのブラウザで、&ldquo;http://localhost:8888&quot;と入力し、接続する。パスワード入力して&quot;log in&quot;を押下すると、jupyterlabがブラウザ上に立ち上がる。</p>
-<h3 id="singularityイメージの作成">singularityイメージの作成</h3>
-<ul>
-<li>Dockerイメージからsingularityイメージを作成</li>
-</ul>
+</code></pre></div><p>dockerコンテナを起動</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -d --rm --gpus all -v /mnt/nfs/jupyterlab:/workdir -p 8888:8888 --name pt-lab pytorch-lab
+</code></pre></div><p>singularityコンテナを作成</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif docker-daemon://pytorch-lab:latest
-</code></pre></div><p>この時、ローカルdockerファイルを指定する場合には、&ldquo;docker-daemon:&ldquo;とする事に注意。</p>
-<h3 id="singularityコンテナの起動と接続確認">singularityコンテナの起動と接続確認</h3>
-<ul>
-<li>作成したsingularityイメージを起動</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity exec --nv sifs/pytorch-lab.sif jupyter lab
-</code></pre></div><p>接続確認は、Dockerの時と同様。但し、パスワード入力画面が開いて、そこでパスワードを入力しても上手くいかず、TOKENを入力したら上手くいった。</p>
-<h3 id="リモートからの接続">リモートからの接続</h3>
-<ul>
-<li>リモート（Mac Book Pro）から上記で起動したサーバ上のjupyterlabに接続。</li>
-</ul>
-<p>以下、MBP側での操作でポートフォワードする。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -N -L 8888:localhost:8888 user名@サーバのIPアドレス
-</code></pre></div><p>パスワード入力を促されるので、サーバのuser名に対するパスワードを入力する。</p>
-<p>次に、MBPのブラウザで、<code>http://localhost:8888</code>と入力すると、接続できた。</p>
-<p>ここでも、パスワードではなく、TOKENしか受け付けないようだ。</p>
-<h3 id="サーバでのsingularityコンテナ起動をコマンド化">サーバでのsingularityコンテナ起動をコマンド化</h3>
-<p>サーバでのjupyterlabコンテナ起動を簡便にするために、シェルスクリプトする。</p>
-<p>$HOME/binには、PATHが通っており、以下のファイルには、実行権を付与する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$cat $HOME/bin/jupyterlab
-cd $HOME/jupyterlab
-export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
-singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
-</code></pre></div><p>$HOME/jupyterlabに作成したノートが保存される。</p>
+</code></pre></div><p>作成したsifファイルを指定してsingularityコンテナを起動。自分の環境では、${COMMON_AREA}/jupyterlab配下に、jupyter notebook（.ipynbファイル）を格納している。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir pytorch-lab.sif
+</code></pre></div><h2 id="definitionファイル">definitionファイル</h2>
+<p>前節のdockerfileを元にして、作成したdefinition file（pytor-ch-lab.def）が次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># pytorchベースのjupyterlabが動く、singularityコンテナを作成する。
 
+Bootstrap:	docker
+FROM:	nvidia/cuda:11.0-devel-ubuntu20.04
+
+%post
+	apt update -y &amp;&amp; apt -y install python3 python3-pip
+	pip3 install torch torchvision
+	apt update -y &amp;&amp; apt -y install ¥
+		curl git tree unzip vim wget
+
+	pip3 install --upgrade pip setuptools
+	pip3 install jupyterlab
+	pip3 install matplotlib
+	pip3 install pandas
+	pip3 install scikit-learn
+	pip3 install seaborn
+	pip3 install sympy
+	pip3 install pydotplus
+
+#	jupyter serverextension enable --py jupyterlab
+
+%runscript
+	jupyter-lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=&#39;&#39; --notebook-dir=/workdir
+</code></pre></div><p>「jupyter serverextension enable &ndash;py jupyterlab」はjupyter notebookのバージョンが5.3より低い場合の時に必要との記事を見た記憶があり、自分の環境のバージョンは、6.4.3だったので、コメントアウトした。</p>
+<h2 id="コンテナ作成手順">コンテナ作成手順</h2>
+<p>前節で作成したdefinition fileから次のようにして、コンテナ（sifファイル）を作成する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif pytorch-lab.def
+</code></pre></div><h2 id="コンテナ起動">コンテナ起動</h2>
+<p>作成したコンテナ（sifファイル）を次のように起動した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
+$ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir ${COMMON_AREA}/sifs/pytorch-lab.sif
+</code></pre></div><p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
+<h3 id="ブラウザ側での確認">ブラウザ側での確認</h3>
+<p>Chromeで、「http://localhost:8888」と入力すると、jupyterlabが立ち上がる。ここで、セルに以下を入力して実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import torch
+
+print(torch.__version__)
+torch.cuda.get_device_name(0)
+</code></pre></div><p>すると、以下の通りのメッセージ。WSのGTX TITANは、もはやサポートしていないようだ。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1.9.0+cu102
+/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:83: UserWarning: 
+    Found GPU%d %s which is of cuda capability %d.%d.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is %d.%d.
+    
+  warnings.warn(old_gpu_warn.format(d, name, major, minor, min_arch // 10, min_arch % 10))
+&#39;GeForce GTX TITAN&#39;
+</code></pre></div><p>最初の行の「1.9.0+cu102」は、pytorchのバージョン。<code>print(torch.__version__)</code>の結果と同じ。</p>
+<p>GTX TITANのcompute capabilityは、<a href="https://developer.nvidia.com/cuda-gpus">このページ</a>でチェックすると3.5。上記メッセージは、pythorch(torch)が出しているので、組み込んだpytorchのバイナリがcompute capability 3.5をサポートしていないと理解。
+ソースからpytorchをビルトすれば、良いのか？　もう少し調べてみる必要あり。</p>
+<p>もう一台のWorkStationは、GTX 1080（compute capability 6.1）なので、そっちではワーニングは出ないのかな？
+早速確かめたら、エラーなく次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1.9.0+cu102
+&#39;GeForce GTX 1080&#39;
+</code></pre></div><h2 id="最後に">最後に</h2>
+<p>次は、NVIDIA HPC SDKのsingularityコンテナを作成しようと考えている。
+このWorkStationのGPUが上記の通り古い（2013年発売）ので、適切なバージョンを調べておく必要が先ずありそうだ。
+Titan Vとか欲しいけど、ヤフオクでたまに見るけど落札価格は20万円越えで、ちょっと手が出ない。</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
-            
               <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/def/">def</a>&nbsp;
             
           </div>
         
@@ -485,42 +460,42 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;text=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;text=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;description=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;description=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -542,9 +517,9 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
                   <ul>
                 
                 
-                    <li><a href="/post/20210905_definition_file/">Jupyterlabのsingularityコンテナを作る</a></li>
-                
                     <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
                 
               </ul>
 
@@ -555,10 +530,10 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
       
         <ul class="pager blog-pager">
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" data-toggle="tooltip" data-placement="top" title="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用">次ページ &rarr;</a>
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210904_docker_singularity_install/" data-toggle="tooltip" data-placement="top" title="Docker,SingularityをUbuntu20.04にインストール">&larr; 前ページ</a>
             </li>
+          
           
         </ul>
       
