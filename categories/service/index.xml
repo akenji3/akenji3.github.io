@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/service/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ブログ記事でインライン形式の数式を表示させる</title>
+      <link>https://akenji3.github.io/post/20210912_display_inline_math/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210912_display_inline_math/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;で数式を使った記事を書いた。この時2つの問題が起こった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;インライン形式で記述した数式が表示されない。ディスプレイ形式では表示されている。&lt;/li&gt;
+&lt;li&gt;ディスプレイ形式の場合に、alignで複数行にならない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここでは、上記の解決策をアップする。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Githubの認証方式が変更に！！！</title>

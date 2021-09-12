@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GitHub Pages on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/tags/github-pages/</link>
-    <description>Recent content in GitHub Pages on akenji&#39;s lab</description>
+    <title>math on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/math/</link>
+    <description>Recent content in math on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
     <lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akenji3.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akenji3.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,15 +25,6 @@
 &lt;li&gt;ディスプレイ形式の場合に、alignで複数行にならない。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;ここでは、上記の解決策をアップする。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
-      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
-      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
-      <description>モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー</description>
     </item>
     
   </channel>
