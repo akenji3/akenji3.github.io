@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>akenji&#39;s lab - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20210911_appliedmathematics\/",
+          "name": ""
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "",
+  "description" : "はじめに JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。\n",
+  "inLanguage" : "ja",
+  "wordCount":  4147 ,
+  "datePublished" : "2021-09-11T00:00:00",
+  "dateModified" : "2021-09-11T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "応用数学" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210911_appliedmathematics\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="akenji&#39;s lab" />
+<meta property="og:description" content="はじめに
+JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210911_appliedmathematics/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="akenji&#39;s lab" />
+  <meta name="twitter:description" content="はじめに
+JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="intro-header"></div>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。</p>
+<h2 id="背景">背景</h2>
+<p>AIスキルを有していることの一つの証として、<a href="https://www.jdla.org/">JDLA</a> E資格に挑戦することにした。
+<a href="https://www.jdla.org/certificate/engineer/">JDLAのE資格</a>を受験資格として、<a href="https://www.jdla.org/certificate/engineer/#certificate_No04">JDLA認定プログラム</a>を修了することが条件となっている。その認定講座は、様々な会社が実施しているが、どれもそれなりの値段がする。まあ、会社での受験が前提となっているからだと思う。自分は個人で受験しようと考えているので、価格が重要なポイント。そこで見つけたのが、この<a href="https://ai999.careers/rabbit/">ラビッドチャレンジ</a>。
+各ステージ毎のテストは修了したのだが、レポート提出が必要なことに気づかず、慌てて取り組んでいる。
+レポートは、Webに掲載して、そのURLを通知するシステムになっている。</p>
+<p>上記の理由により、これから数回レポートをここに掲載する。本記事は「応用数学」の範囲をまとめたものである。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>シラバスの応用数学（線形代数、確率・統計、情報理論）に関連する参考文献として、自分が使っているものを以下に列挙する。</p>
+<ul>
+<li>線形代数入門　齋藤正彦 著　東京大学出版会
+→ 理工系学生の教科書レベル。厳密に定義されており、初めての分野では理解が難しい（自分には）。</li>
+<li>線形代数 ーキャンパス・ゼミー　馬場敬之 著　マセマ出版社
+→ 高校生レベルの数学が理解できていれば、理解できる。自分もアッそういう事かという部分多。</li>
+<li>情報理論のエッセンス　平田廣則 著　オーム社
+→ エントロピーについて理解を深めるために参考にした。</li>
+<li>東京大学のデータサイエンティスト育成講座　塚本邦尊・山田典一・大澤文孝 著　マイナビ出版
+→ Chapter 4「確率と統計の基礎」の部分を参考にした。</li>
+</ul>
+<h2 id="線形代数">線形代数</h2>
+<h3 id="固有値と固有ベクトル">固有値と固有ベクトル</h3>
+<p>線形代数のパートでは、「固有値と固有ベクトル」の部分について、新たに学び直したと感じており、その部分をまとめる。</p>
+<h4 id="定義">定義</h4>
+<p>ある行列$A$に対して、$A\boldsymbol{x}=\lambda \boldsymbol{x}$ が成り立つ時、$\lambda$を$A$の固有値（eigenvalue）といい、$\boldsymbol{x}$を固有ベクトル（eigenvector）という。固有値$\lambda$は正・負、$0$であっても良い。一方、固有ベクトル$\boldsymbol{x}$は、$0$を除くものとする。</p>
+<p>固有値$\lambda$と固有ベクトル$\boldsymbol{x}$は、次の手順で求める。</p>
+<ol>
+<li>固有方程式から、（複数の）固有値$\lambda_1, \lambda_2, \cdots$ を計算する。</li>
+<li>それぞれの固有値$\lambda_1, \lambda_2, \cdots$ に対応する固有ベクトル$\boldsymbol{x_1}, \boldsymbol{x_2}, \cdots$ を求める。</li>
+</ol>
+<h4 id="求め方">求め方</h4>
+<p>2次正方行列$A= \left( \begin{matrix} 1 &amp; 4 \ 2 &amp; 3 \ \end{matrix} \right)$ の固有値・固有ベクトルを求める。</p>
+<h5 id="ステップ1">ステップ1</h5>
+<p>固有値の定義の式$A\boldsymbol{x}=\lambda \boldsymbol{x}$ を変形すると、$A\boldsymbol{x}-\lambda \boldsymbol{x}=0$ 、すなわち$(A-\lambda I)\boldsymbol{x} = 0$ となる。自明な解以外の解を持つ（$\boldsymbol{x} \neq 0$  ）ことより、$|A - \lambda I| = 0$との固有方程式を得る。ここから$\lambda$を求める。</p>
+<p>固有方程式を解くと、$\lambda = 5, -1$が得られる。</p>
+<h5 id="ステップ2">ステップ2</h5>
+<p>得られた2つの固有値を$(A-\lambda I)\boldsymbol{x} = 0$ にそれぞれ代入して、固有ベクトルを得る。</p>
+<ul>
+<li>$\lambda = 5$の時、$\boldsymbol{x} = k_1\left( \begin{matrix} 1  \ 1 \ \end{matrix} \right)$。ここで$k_1$は任意の実数。</li>
+<li>$\lambda = -1$の時、$\boldsymbol{x} = k_2\left( \begin{matrix} 2  \ -1 \ \end{matrix} \right)$。ここで$k_2$は任意の実数。</li>
+</ul>
+<h4 id="固有値固有ベクトルを学ぶ意義">固有値・固有ベクトルを学ぶ意義</h4>
+<p>ここで学んだ固有値・固有ベクトルが、機械学習・深層学習でどのように利用されているのか考えてみた。</p>
+<ul>
+<li>正方行列の場合、固有値による対角化することで、行列のn乗が簡単に行える。これは実際の演習でも実感したが、現実の問題として行列のn乗が簡単に行えることの利便性については、よく分からない。</li>
+<li>正方行列以外の場合、固有値が特異値分解（singular value decomposition;SVD)に使われることが教材により理解できた。さらに特異値分解が画像圧縮に使われる例も教材にあり、高ランクの元画像を特異値分解により低ランクの行列で近似できるようになると理解。</li>
+</ul>
+<h2 id="確率統計">確率・統計</h2>
+<p>確率・統計のパートについては、ステージテストを受けて、よく理解しておいた方がより、重要な公式を中心にまとめる。</p>
+<h3 id="条件付き確率">条件付き確率</h3>
+<p>事象$A$が生じた条件の下で事象$B$が生じる確率を、$A$が与えられた下での$B$の条件付き確率といい、
+$$
+P(B|A) = \frac{P(A \cap B)}{P(A)}
+$$
+と表す。この式は、次の通り変形することができる。この式を<strong>乗法定理</strong>という。
+$$
+P(A\cap B) = P(B|A)P(A)
+$$</p>
+<h3 id="ベイズの定理ベイズ則">ベイズの定理（ベイズ則）</h3>
+<p>事象$A$が起こるという条件の下で、$k$種の事象$B$（$B_1, B_2, \cdots, B_k$ ；但し互いに排反）が起こる時、事象Aが起こるという条件の下で、事象$B_i$が起こる条件付き確率は、前節の説明の通り、次で与えられる。
+$$
+P(B_i|A) = \frac {P(A \cap B_i)}{P(A)}
+$$
+上式に前節の乗法定理$P(A\cap B_i) = P(A|B_i)P(B_i)$ を代入すると、ベイズの定理が得られる。
+$$
+P(B_i|A) = \frac {P(A \cap B_i)}{P(A)} = \frac {P(A|B_i)P(B_i)}{P(A)}
+$$</p>
+<h3 id="ベルヌーイ分布">ベルヌーイ分布</h3>
+<p>ベルヌーイ分布は、離散確率分布の一種であり、確率変数$X$が確率$p$で$1$、確率$q = 1 - p$で$0$を取るような分布をいう。勝ち／負け、表／裏、成功／失敗等、2種類のみの結果しか得られないような試行の結果を$0$と$1$で現した分布である。確率質量関数は次の式で表される。
+$$
+f(k;p) = p^{k}(1-p)^{1-k}
+$$
+ここで、$k$は成功／失敗を表し、$1$か$0$である。</p>
+<h3 id="二項分布">二項分布</h3>
+<p>二項分布は、互いに独立したベルヌーイ試行を$n$回行った時に、ある事象が何回起こるかの確率分布をいう。確率質量関数は次の式で表される。
+$$
+f(x) = {}_nC_x p^x (1-p)^{n-x}
+$$</p>
+<h3 id="正規分布ガウス分布">正規分布（ガウス分布）</h3>
+<p>確率変数$X$が、平均$\mu$、分散$\sigma ^{2}$の正規分布に従うとき、その確率密度関数は次の式で表される。
+$$
+f(x) = \frac {1}{\sqrt{2\pi\sigma^2}}\exp(- \frac{(x - \mu)^{2}}{2\sigma^2})
+$$</p>
+<h3 id="期待値平均">期待値（平均）</h3>
+<p>期待値とは、ある試行を行った時、その結果として得られる数値の平均値のことである。すなわち、試行によって得られる数値$X$が$x_1, x_2, \cdots, x_n$ であり、それぞれの値をとる確率が$p_1, p_2, \cdots, p_n$ とすると、$X$の期待値$E(X)$を次の通りである。
+$$
+E(X) = \sum_{x} x f(x)
+$$
+サイコロの目は1から6の値をとり、それぞれの確率は$1/6$であるから、期待値は$1\times1/6 + 2\times1/6 + \cdots + 5\times1/6 + 6\times1/6 = 3.5$ となる。</p>
+<p>上記は、離散型確率分布、すなわち$f(x)$が確率質量関数の場合である。連続型確率分布の場合も同様に、連続型確率変数$X$、確率密度関数$f(x)$ の期待値$E(X)$は、次の通り。
+$$
+E(X) = \int _{-\infty}^{\infty} x f(x) dx
+$$</p>
+<h3 id="分散">分散</h3>
+<p>分散は、「確率変数のとり得る値と期待値（平均値）の差の2乗」と「確率」との積を全て足し合わせたもので、確率変数$X$の分散$V(X)$は、次で与えられる。
+$$
+V(X) = \sum_{i=1}^{n} (x_i - \mu)^2 p_i
+$$
+ここで、$\mu$は期待値（平均値）$E(X)$で、$p_i$は$x_i$の起こる確率を表す。</p>
+<p>先の節で例に出したサイコロの場合を上式に当てはめてみると次の通り。
+$$
+\begin{align}
+V(x) &amp;= \sum_{i=1}^{n} (x_i - \mu)^2 p_i \<br>
+&amp;= \sum_{i=1}^{n} (x_i - 3.5)^2 p_i \<br>
+&amp;= \frac{(1-3.5)^2}{6} + \frac{(2-3.5)^2}{6} + \cdots + \frac{(5-3.5)^2}{6} + \frac{(6-3.5)^2}{6} \<br>
+&amp;= \frac{1}{6}(6.25+2.25+0.25+0.25+2.25+6.25) \<br>
+&amp;= \frac{17.5}{6} = \frac{35}{12}
+\end{align}
+$$
+同様に連続型確率変数$X$の分散は、次の式で与えられる。
+$$
+V(X) = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)dx
+$$</p>
+<h3 id="分散と期待値">分散と期待値</h3>
+<p>分散は期待値を用いて、次の式から求められる。
+$$
+V(X) = E(X^2) - {E(X)}^2
+$$
+上式は、分散の定義から次の通り変形することで求められる（$\mu=E(X)$であることに留意）。
+$$
+\begin{align}
+V(X) &amp;= \int_{-\infty}^{\infty} (X-\mu)^2 f(X)dX \<br>
+&amp;= \int_{-\infty}^{\infty} (X^2-2X\mu+\mu^2) f(X)dX \<br>
+&amp;= \int_{-\infty}^{\infty} X^2f(X)dX -\int_{-\infty}^{\infty} 2X\mu f(X)d(X)+ \int_{-\infty}^{\infty} \mu^2f(X)dX \<br>
+&amp;= E(X^2)-2\mu \int_{-\infty}^{\infty}Xf(X)dX + \mu^2 \<br>
+&amp;= E(X^2)-2\mu \times E(X) +\mu^2 \<br>
+&amp;= E(X^2)-2{E(X)}^2 + {E(X)}^2 \<br>
+&amp;= E(X^2)-{E(X)}^2
+\end{align}
+$$</p>
+<h2 id="情報理論">情報理論</h2>
+<p>情報理論のパートについても、ステージテストを受けて、よく理解しておいた方がより、重要な公式を中心にまとめる。</p>
+<h3 id="情報量自己情報量">情報量（自己情報量）</h3>
+<p>次の２つの条件を満たす情報量を定義する。</p>
+<ul>
+<li>発生する確率が低いこと（珍しいこと）が分かった時の方が、情報量が多い</li>
+<li>情報量は足し算で増えていく</li>
+</ul>
+<p>あることが分かった際の「そのことの情報量」を自己情報量と呼び、以下で定義する。
+$$
+自己情報量：I(x) = -\log_2P(x)
+$$
+ここで、$P(x)$は、あることが起こる確率を表す。</p>
+<h3 id="シャノンエントロピー">シャノンエントロピー</h3>
+<p>$X$が起こると分かった時に得られる情報量の期待値をエントロピーという。また、エントロピーは平均情報量ともいい、事象$X$が起こったと分かった時に得られ情報量の期待値を指す。エントリピー$H(x)$を式で表すと次の通り。
+$$
+\begin{align}
+H(x) &amp;= E(I(x)) \<br>
+&amp;= -E(\log(P(x))) \<br>
+&amp;= -\sum(P(x)\log(P(x)))
+\end{align}
+$$</p>
+<h3 id="相互情報量">相互情報量</h3>
+<p>2つの事象$X,Y$がある時、$Y$を知ることによって$X$のエントロピーがどれだけ減少したかを相互情報量という。相互情報量$I(X,Y)$は、次の式が表される。
+$$
+I(X,Y) = H(X) - H(X|Y)
+$$
+ここで、$H(X)$は$X$のエントロピー、$H(X|Y)$は$Y$が分かった上での$X$のエントロピーを表す。</p>
+<h3 id="カルバックライブラー-ダイバージェンス">カルバック・ライブラー ダイバージェンス</h3>
+<p>KLダイバージェンスは、２つの確率分布の擬距離を定量化する指標である。$P,Q$を連続型確率変数$X$についても確率分布$p(x),q(x)$を$P,Q$の確率密度関数とすると、KLダイバージェンスは、以下で求められる。
+$$
+\begin{align}
+D_{KL}(P||Q) &amp;= E_{x\sim P}\left[ \log\frac{P(x)}{Q(x)} \right] \<br>
+&amp;= E_{x\sim P}\left[ \log P(x) - \log Q(x) \right] \<br>
+&amp;= \int_x P(x) \left(\log P(x) - \log Q(x) \right) \<br>
+&amp;= \int p(x) \frac{p(x)}{q(x)}dx \<br>
+\end{align}
+$$
+このKLダイバージェンスは、次の特性を持つ。</p>
+<ul>
+<li>同じ確率分布だと$0$となる</li>
+<li>確率分布が似ていないと、正の大きな値となる</li>
+</ul>
+<p>また、KLダイバージェンス$D(P||Q)$は、$P$と$Q$を入れ替えると値が変わる（対称性がない）ので不便であり、対称となるように定義した指標がJensen-Shannon(JS)ダイバージェンスである。
+$$
+D_{JS} = \frac{1}{2}D_{KL}(P||M) + \frac{1}{2} D_{KL}(Q||M)
+$$
+ここで、$M(x) = \frac{P(x) + Q(X)}{2}$である。</p>
+<h3 id="交差エントロピー">交差エントロピー</h3>
+<p>同じ確率空間における2つの分布$P$と$Q$において、$Q$の$P$に対する交差エントロピーは、以下の通り定義される。
+$$
+H(P,Q) = -E_{X\sim P} \log Q(x) = H(P) + D_{KL}(P||Q)
+$$
+ここで、$H(P)$は$P$のエントロピー、$D_{KL}(P||Q)$のKLダイバージェンスである。</p>
+<p>$P$と$Q$が離散型確率変数なら、次の通り。
+$$
+H(P,Q) = - \sum_x P(x) \log Q(x)
+$$
+連続型確率変数なら、同様に次の通り。
+$$
+H(P,Q) = \int_x P(x) \log Q(x) dx
+$$</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/%E5%BF%9C%E7%94%A8%E6%95%B0%E5%AD%A6/">応用数学</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f&amp;text=&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f&amp;title=" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f&amp;title=" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f&amp;title=" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210911_appliedmathematics%2f&amp;description=" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210905_definition_file/" data-toggle="tooltip" data-placement="top" title="Jupyterlabのsingularityコンテナを作る">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 05 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://akenji3.github.io/post/20210911_appliedmathematics/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210911_appliedmathematics/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Jupyterlabのsingularityコンテナを作る</title>
