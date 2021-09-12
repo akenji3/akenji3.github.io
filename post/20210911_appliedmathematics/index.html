@@ -60,7 +60,7 @@ JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載す�
   "headline": "応用数学レポート",
   "description" : "はじめに JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。今回は「応用数学」編。\n",
   "inLanguage" : "ja",
-  "wordCount":  4055 ,
+  "wordCount":  4056 ,
   "datePublished" : "2021-09-11T00:00:00",
   "dateModified" : "2021-09-11T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -329,15 +329,15 @@ if (!doNotTrack) {
 <li>それぞれの固有値$ \lambda_1, \lambda_2, \cdots $ に対応する固有ベクトル$ \boldsymbol{x_1}, \boldsymbol{x_2}, \cdots $ を求める。</li>
 </ol>
 <h4 id="求め方">求め方</h4>
-<p>2次正方行列$ A= \left( \begin{matrix} 1 &amp; 4\2 &amp; 3\ \end{matrix} \right) $ の固有値・固有ベクトルを求める。</p>
+<p>2次正方行列$ A= \left( \begin{matrix} 1 &amp; 4\\ 2 &amp; 3\\ \end{matrix} \right) $ の固有値・固有ベクトルを求める。</p>
 <h5 id="ステップ1">ステップ1</h5>
 <p>固有値の定義の式$A\boldsymbol{x}=\lambda \boldsymbol{x}$ を変形すると、$A\boldsymbol{x}-\lambda \boldsymbol{x}=0$ 、すなわち$(A-\lambda I)\boldsymbol{x} = 0$ となる。自明な解以外の解を持つ（$\boldsymbol{x} \neq 0$）ことより、$|A - \lambda I| = 0$との固有方程式を得る。ここから$\lambda$を求める。
 固有方程式を解くと、$\lambda = 5, -1$が得られる。</p>
 <h5 id="ステップ2">ステップ2</h5>
 <p>得られた2つの固有値を$(A-\lambda I)\boldsymbol{x} = 0$ にそれぞれ代入して、固有ベクトルを得る。</p>
 <ul>
-<li>$\lambda = 5$の時、$\boldsymbol{x} = k_1\left( \begin{matrix} 1  \ 1 \ \end{matrix} \right)$。ここで$k_1$は任意の実数。</li>
-<li>$\lambda = -1$の時、$\boldsymbol{x} = k_2\left( \begin{matrix} 2  \ -1 \ \end{matrix} \right)$。ここで$k_2$は任意の実数。</li>
+<li>$\lambda = 5$の時、$\boldsymbol{x} = k_1\left( \begin{matrix} 1  \\ 1 \\ \end{matrix} \right)$。ここで$k_1$は任意の実数。</li>
+<li>$\lambda = -1$の時、$\boldsymbol{x} = k_2\left( \begin{matrix} 2  \\ -1 \\ \end{matrix} \right)$。ここで$k_2$は任意の実数。</li>
 </ul>
 <h4 id="固有値固有ベクトルを学ぶ意義">固有値・固有ベクトルを学ぶ意義</h4>
 <p>ここで学んだ固有値・固有ベクトルが、機械学習・深層学習でどのように利用されているのか考えてみた。</p>
@@ -400,10 +400,10 @@ $$
 <p>先の節で例に出したサイコロの場合を上式に当てはめてみると次の通り。
 $$
 \begin{align}
-V(x) &amp;= \sum_{i=1}^{n} (x_i - \mu)^2 p_i \<br>
-&amp;= \sum_{i=1}^{n} (x_i - 3.5)^2 p_i \<br>
-&amp;= \frac{(1-3.5)^2}{6} + \frac{(2-3.5)^2}{6} + \cdots + \frac{(5-3.5)^2}{6} + \frac{(6-3.5)^2}{6} \<br>
-&amp;= \frac{1}{6}(6.25+2.25+0.25+0.25+2.25+6.25) \<br>
+V(x) &amp;= \sum_{i=1}^{n} (x_i - \mu)^2 p_i \\<br>
+&amp;= \sum_{i=1}^{n} (x_i - 3.5)^2 p_i \\<br>
+&amp;= \frac{(1-3.5)^2}{6} + \frac{(2-3.5)^2}{6} + \cdots + \frac{(5-3.5)^2}{6} + \frac{(6-3.5)^2}{6} \\<br>
+&amp;= \frac{1}{6}(6.25+2.25+0.25+0.25+2.25+6.25) \\<br>
 &amp;= \frac{17.5}{6} = \frac{35}{12}
 \end{align}
 $$
@@ -419,12 +419,12 @@ $$
 上式は、分散の定義から次の通り変形することで求められる（$\mu=E(X)$であることに留意）。
 $$
 \begin{align}
-V(X) &amp;= \int_{-\infty}^{\infty} (X-\mu)^2 f(X)dX \<br>
-&amp;= \int_{-\infty}^{\infty} (X^2-2X\mu+\mu^2) f(X)dX \<br>
-&amp;= \int_{-\infty}^{\infty} X^2f(X)dX -\int_{-\infty}^{\infty} 2X\mu f(X)d(X)+ \int_{-\infty}^{\infty} \mu^2f(X)dX \<br>
-&amp;= E(X^2)-2\mu \int_{-\infty}^{\infty}Xf(X)dX + \mu^2 \<br>
-&amp;= E(X^2)-2\mu \times E(X) +\mu^2 \<br>
-&amp;= E(X^2)-2{E(X)}^2 + {E(X)}^2 \<br>
+V(X) &amp;= \int_{-\infty}^{\infty} (X-\mu)^2 f(X)dX \\<br>
+&amp;= \int_{-\infty}^{\infty} (X^2-2X\mu+\mu^2) f(X)dX \\<br>
+&amp;= \int_{-\infty}^{\infty} X^2f(X)dX -\int_{-\infty}^{\infty} 2X\mu f(X)d(X)+ \int_{-\infty}^{\infty} \mu^2f(X)dX \\<br>
+&amp;= E(X^2)-2\mu \int_{-\infty}^{\infty}Xf(X)dX + \mu^2 \\<br>
+&amp;= E(X^2)-2\mu \times E(X) +\mu^2 \\<br>
+&amp;= E(X^2)-2{E(X)}^2 + {E(X)}^2 \\<br>
 &amp;= E(X^2)-{E(X)}^2
 \end{align}
 $$</p>
@@ -445,8 +445,8 @@ $$
 <p>$X$が起こると分かった時に得られる情報量の期待値をエントロピーという。また、エントロピーは平均情報量ともいい、事象$X$が起こったと分かった時に得られ情報量の期待値を指す。エントリピー$H(x)$を式で表すと次の通り。
 $$
 \begin{align}
-H(x) &amp;= E(I(x)) \<br>
-&amp;= -E(\log(P(x))) \<br>
+H(x) &amp;= E(I(x)) \\<br>
+&amp;= -E(\log(P(x))) \\<br>
 &amp;= -\sum(P(x)\log(P(x)))
 \end{align}
 $$</p>
@@ -460,10 +460,10 @@ $$
 <p>KLダイバージェンスは、２つの確率分布の擬距離を定量化する指標である。$P,Q$を連続型確率変数$X$についても確率分布$p(x),q(x)$を$P,Q$の確率密度関数とすると、KLダイバージェンスは、以下で求められる。
 $$
 \begin{align}
-D_{KL}(P||Q) &amp;= E_{x\sim P}\left[ \log\frac{P(x)}{Q(x)} \right] \<br>
-&amp;= E_{x\sim P}\left[ \log P(x) - \log Q(x) \right] \<br>
-&amp;= \int_x P(x) \left(\log P(x) - \log Q(x) \right) \<br>
-&amp;= \int p(x) \frac{p(x)}{q(x)}dx \<br>
+D_{KL}(P||Q) &amp;= E_{x\sim P}\left[ \log\frac{P(x)}{Q(x)} \right] \\<br>
+&amp;= E_{x\sim P}\left[ \log P(x) - \log Q(x) \right] \\<br>
+&amp;= \int_x P(x) \left(\log P(x) - \log Q(x) \right) \\<br>
+&amp;= \int p(x) \frac{p(x)}{q(x)}dx \\<br>
 \end{align}
 $$
 このKLダイバージェンスは、次の特性を持つ。</p>
