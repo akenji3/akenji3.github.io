@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -31,6 +31,56 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/e%E8%B3%87%E6%A0%BC/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20210919_machinelearning/</loc>
+    <lastmod>2021-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -51,21 +101,6 @@
   <url>
     <loc>https://akenji3.github.io/tags/math/</loc>
     <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/post/"
-                />
   </url>
   
   <url>
@@ -99,33 +134,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/post/20210912_display_inline_math/</loc>
     <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/e%E8%B3%87%E6%A0%BC/</loc>
-    <lastmod>2021-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/</loc>
-    <lastmod>2021-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
