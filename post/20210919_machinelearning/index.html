@@ -60,7 +60,7 @@
   "headline": "機械学習レポート",
   "description" : "はじめに この記事に引き続き、JDLA E資格のシラバスの範囲をまとめたもので、今回は「機械学習」に関するもの。\n",
   "inLanguage" : "ja",
-  "wordCount":  8664 ,
+  "wordCount":  8682 ,
   "datePublished" : "2021-09-19T00:00:00",
   "dateModified" : "2021-09-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -758,7 +758,7 @@ $$</p>
 <p>「n_neighbors = 3」を「n_neighbors = 8」とした時の決定境界をプロットしたものが以下の通り。<img src="/images/20210919_MachineLearning/20210919_kNN_3.png" alt="kNN_3"></p>
 <p>上記の2つのプロットを比べてみると、kが大きい方が、決定境界が滑らかになることが分かる。</p>
 <h2 id="サポートベクターマシーン">サポートベクターマシーン</h2>
-<h3 id="概要">概要</h3>
+<h3 id="svmハードマージンソフトマージン">SVM（ハードマージン・ソフトマージン）</h3>
 <p>サポートベクターマシン（Support Vector Machine; SVM）は、教師あり学習であり、分類にも回帰にも使われるが、2値分類に使われることが多い。</p>
 <p>2値分類においては、データ点$\boldsymbol{x}$を$y(x)=\boldsymbol{w}^T\phi(\boldsymbol{x})+b$の正負によって分類する。$\phi(\boldsymbol{x})$は特徴ベクトル。</p>
 <p>境界$y(x)=\boldsymbol{w}^T\phi(\boldsymbol{x})+b=0$によって、各クラスのデータを分類する。各クラスのデータ点と境界との最短距離をマージンと呼ぶ。SVMでは、マージンが最大となる境界$y(x)=\boldsymbol{w}^T\phi(\boldsymbol{x})+b(=0)$におけるバラメータ$\boldsymbol{w},b$を学習する。この時、マージン上にある点をサポートベクトルと呼ぶ。</p>
