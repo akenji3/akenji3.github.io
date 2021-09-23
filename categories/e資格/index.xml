@@ -23,6 +23,16 @@
     </item>
     
     <item>
+      <title>活性化関数の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_activationfunction/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210923_activationfunction/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;深層学習day1の「活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>機械学習レポート</title>
       <link>https://akenji3.github.io/post/20210919_machinelearning/</link>
       <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>

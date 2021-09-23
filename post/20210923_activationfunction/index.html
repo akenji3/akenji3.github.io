@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>ラビット・チャレンジ - akenji&#39;s lab</title>
+  <title>活性化関数の実装演習 - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+深層学習day1の「活性化関数」の実装演習を以下にまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +30,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20210923_activationfunction\/",
+          "name": "活性化関数の実装演習"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "活性化関数の実装演習",
+  "description" : "はじめに 深層学習day1の「活性化関数」の実装演習を以下にまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  206 ,
+  "datePublished" : "2021-09-23T00:00:00",
+  "dateModified" : "2021-09-23T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "深層学習, 実装演習" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210923_activationfunction\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="ラビット・チャレンジ" />
+<meta property="og:title" content="活性化関数の実装演習" />
+<meta property="og:description" content="はじめに
+深層学習day1の「活性化関数」の実装演習を以下にまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210923_activationfunction/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="ラビット・チャレンジ" />
+  <meta name="twitter:title" content="活性化関数の実装演習" />
+  <meta name="twitter:description" content="はじめに
+深層学習day1の「活性化関数」の実装演習を以下にまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -207,14 +261,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="categories-heading">
+            <div class="post-heading">
               
-                <h1>ラビット・チャレンジ</h1>
-              
-              
-                <hr class="small">
+                <h1>活性化関数の実装演習</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 23, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -225,211 +294,158 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210923_input-output-layer/">
-        <h2 class="post-title">入力層〜中間層の実装演習</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 23, 2021に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>深層学習day1の「Section1：入力層〜中間層」の実装演習を以下にまとめる。</p>
-        <a href="https://akenji3.github.io/post/20210923_input-output-layer/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/">実装演習</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210923_activationfunction/">
-        <h2 class="post-title">活性化関数の実装演習</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 23, 2021に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
 <p>深層学習day1の「活性化関数」の実装演習を以下にまとめる。</p>
-        <a href="https://akenji3.github.io/post/20210923_activationfunction/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
+<h2 id="実装演習">実装演習</h2>
+<h3 id="活性化関数">活性化関数</h3>
+<p>本文で説明した、3つの活性化関数の特徴をつかむために、グラフを描画する。</p>
+<h3 id="ステップ関数">ステップ関数</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ステップ関数のグラフ</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
 
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/">実装演習</a>&nbsp;
-        
-    </div>
-    
+<span class="k">def</span> <span class="nf">step_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
 
-</article>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">step_function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div><p><img src="/images/20210923_ActivationFunction/20210923_StepFunction.png" alt="StepFunction"></p>
+<h3 id="シグモイド関数">シグモイド関数</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># シグモイド関数のグラフ</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div><p><img src="/images/20210923_ActivationFunction/20210923_SigmoidFunction.png" alt="SigmoidFunction"></p>
+<h3 id="relu関数">ReLU関数</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ReLU関数のグラフ</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">relu</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div><p><img src="/images/20210923_ActivationFunction/20210923_ReLUfunction.png" alt="ReLUfunction"></p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/">実装演習</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f&amp;text=%e6%b4%bb%e6%80%a7%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f&amp;title=%e6%b4%bb%e6%80%a7%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f&amp;title=%e6%b4%bb%e6%80%a7%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f&amp;title=%e6%b4%bb%e6%80%a7%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_activationfunction%2f&amp;description=%e6%b4%bb%e6%80%a7%e5%8c%96%e9%96%a2%e6%95%b0%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210919_machinelearning/">
-        <h2 class="post-title">機械学習レポート</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 19, 2021に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20210911_appliedmathematics/">この記事</a>に引き続き、JDLA E資格のシラバスの範囲をまとめたもので、今回は「機械学習」に関するもの。</p>
-        <a href="https://akenji3.github.io/post/20210919_machinelearning/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92/">機械学習</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0/">線形回帰</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E9%9D%9E%E7%B7%9A%E5%BD%A2%E5%9B%9E%E5%B8%B0/">非線形回帰</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E3%83%AD%E3%82%B8%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E5%9B%9E%E5%B8%B0/">ロジスティック回帰</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90/">主成分分析</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/k%E8%BF%91%E5%82%8D%E6%B3%95/">k近傍法</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/k%E5%B9%B3%E5%9D%87%E6%B3%95/">k平均法</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/svm/">SVM</a>&nbsp;
-        
-    </div>
-    
-
-</article>
+            
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210911_appliedmathematics/">
-        <h2 class="post-title">応用数学レポート</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 11, 2021に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。この記事は「応用数学」についてのもの。</p>
-        <a href="https://akenji3.github.io/post/20210911_appliedmathematics/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/%E5%BF%9C%E7%94%A8%E6%95%B0%E5%AD%A6/">応用数学</a>&nbsp;
-        
-    </div>
-    
-
-</article>
           
-        </div>
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20210923_input-output-layer/">入力層〜中間層の実装演習</a></li>
+                
+              </ul>
+
+          
         
-      </div>
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210919_machinelearning/" data-toggle="tooltip" data-placement="top" title="機械学習レポート">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20210923_input-output-layer/" data-toggle="tooltip" data-placement="top" title="入力層〜中間層の実装演習">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
     </div>
   </div>
+</div>
 
       
 <footer>
@@ -480,7 +496,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
