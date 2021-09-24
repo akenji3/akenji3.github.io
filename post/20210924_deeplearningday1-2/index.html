@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>深層学習day1・day2レポート - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+この記事に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20210924_deeplearningday1-2\/",
+          "name": "深層学習day1・day2レポート"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "深層学習day1・day2レポート",
+  "description" : "はじめに この記事に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。\n",
+  "inLanguage" : "ja",
+  "wordCount":  3853 ,
+  "datePublished" : "2021-09-24T00:00:00",
+  "dateModified" : "2021-09-24T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "深層学習" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210924_deeplearningday1-2\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="深層学習day1・day2レポート" />
+<meta property="og:description" content="はじめに
+この記事に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210924_deeplearningday1-2/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="深層学習day1・day2レポート" />
+  <meta name="twitter:description" content="はじめに
+この記事に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲であ …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>深層学習day1・day2レポート</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 24, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p><a href="https://akenji3.github.io/post/20210919_machinelearning/">この記事</a>に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>深層学習では、以下を参考としている。</p>
+<ul>
+<li>ゼロから作るDeep Learning　斎藤康毅著　オライリー・ジャパン<br>
+→ 実際にjupyter notebookでコードを試しながら学べる。数学的背景の説明は少ないが、最初に学ぶにはぴったりの一冊。誤差逆伝播法の「計算グラフ（computational graph）」の部分は分かりやすかった。Stage4のE資格受験資格認定テストの練習用にも、「E 5-2 誤差逆伝播法およびその他の微分アルゴリズム」でも同様の説明がある。</li>
+<li>深層学習　Ian Goodfellow, Yoshua Bengio, AronCourville 著　岩澤有祐、鈴木雅大、中山浩太郎、松尾豊　監訳　ドワンゴ<br>
+→ Deep Learningの教科書的書籍。上記書籍で若干説明不足の数学的背景が追える。自分は、部分的にしか参照できていない。</li>
+</ul>
+<h1 id="深層学習day1">深層学習day1</h1>
+<h2 id="section1入力層中間層">Section1：入力層〜中間層</h2>
+<h3 id="概要">概要</h3>
+<p>次のような入力層と中間層を構成するネットワーク（テキストのネットワーク図）において、$\boldsymbol{x}$が入力層に与えられた時、中間層の出力$z$は、次のようになる。<img src="/Users/kenji/OneDrive/99_work/20210506_StudyAI/%E3%83%AC%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%88%E8%AA%B2%E9%A1%8C/3_%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92_%E5%89%8D%E7%B7%A8/images/20210923_Input-Hidden-Layer.png" alt="InputHiddenLayer">
+$$
+\begin{align}
+u &amp;= w_1x_1+w_2x_2+w_3x_3+w_4x_4+b \\<br>
+&amp;= \boldsymbol{W}\boldsymbol{x} + b \\<br>
+z &amp;= f(u)
+\end{align}
+$$
+ここで、$\boldsymbol{W} = (w_1, \cdots, w_i)^T, \boldsymbol{x}=(x_1,\cdots, x_i)^T$である。</p>
+<h3 id="確認テスト">確認テスト</h3>
+<h4 id="u1-npdotxw1b1について">u1 =np.dot(x,W1)+b1について</h4>
+<p>内積部分の$np.dot(x,W1)$の$x$と$W1$は、上図（$\boldsymbol{W}$と$\boldsymbol{x}$が１次元のベクトル）においては、入れ替えても成り立つが、次の理由により、この順序は重要である。</p>
+<p>上図で中間層が3ノードと仮定すると、$\boldsymbol{W}$は4行3列の行列となる。この場合、$np.dot(x,W1)$と記述しなければ、内積計算は成り立たない。</p>
+<h3 id="実装演習">実装演習</h3>
+<p>実装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20210923_input-output-layer/">このページ</a>に記載した。</p>
+<h2 id="section2活性化関数">Section2：活性化関数</h2>
+<h3 id="概要-1">概要</h3>
+<p>活性化関数は、ニューラルネットワークにおいて、次の層への出力の大きさを決める<strong>非線形の関数</strong>のことである。この非線形の関数であることが重要である。</p>
+<p>線形関数$h(x)=cx$を活性化関数とする。これを3層と層を重ねる（深くする）と、$y(x)=h(h(h(x)))$で表される。この計算結果は$y(x)=c\times c\times c\times x$、すなわち、$y(x)=c^3x=ax$となる。ここで$a=c^3$である。これでは、層を深くする意味がなくなってしまう。</p>
+<p>活性化関数として、以下があげられる。</p>
+<h4 id="ステップ関数">ステップ関数</h4>
+<p>$$
+f(x) = \begin{cases}
+1 &amp; (x\ge 0) \\<br>
+0 &amp; (x &lt; 0)
+\end{cases}
+$$</p>
+<h4 id="シグモイド関数">シグモイド関数</h4>
+<p>$$
+f(x) = \frac{1}{1 + \exp(-x)}
+$$</p>
+<h4 id="relu関数">ReLU関数</h4>
+<p>$$
+f(x) = \begin{cases}
+x &amp; (x\ge 0) \\<br>
+0 &amp; (x &lt; 0)
+\end{cases}
+$$</p>
+<h3 id="実装演習-1">実装演習</h3>
+<p>実装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20210923_activationfunction/">こちらのページ</a>に記載した。</p>
+<h2 id="section3出力層">Section3：出力層</h2>
+<h3 id="概要-2">概要</h3>
+<p>ニューラルネットワークは、回帰問題と分類問題の何にも用いることができる。回帰問題、分類問題のどちらに対応させるかにより、出力層の活性化関数を変更する必要がある。一般的に、回帰問題では恒等関数を、分類問題ではソフトマックス関数を使う。</p>
+<h4 id="誤差関数損失関数loss-function">誤差関数（損失関数；loss function）</h4>
+<p>誤差関数は、予想データと正解データの出力の間にどのくらいの誤差があるのかを評価する関数である。誤差関数は、扱う問題によって次のように使い分けられる。</p>
+<ul>
+<li>回帰問題：平均二乗誤差（MSE）関数</li>
+<li>分類問題：クロスエントロピー誤差</li>
+</ul>
+<h5 id="平均二乗誤差">平均二乗誤差</h5>
+<p>平均二乗誤差は、次の式で表される。
+$$
+E_n(w) = \frac{1}{2}\sum_{i=1}^N (y_i - d_i)^2 = \frac{1}{2}||(y-d)||^2
+$$
+ここで、$y_i$はニューラルネットワークの出力、$d_i$は教師データを表し、$N$はデータの次元数である。</p>
+<p>この平均二乗誤差で、2乗することにより全て正の値の凸関数となる。$\frac{1}{2}$は誤差関数を微分した際、式を簡潔にするためである。</p>
+<h5 id="クロスエントロピー誤差">クロスエントロピー誤差</h5>
+<p>クロスエントロピー誤差は、次の式で表される。
+$$
+E_n(w) = - \sum_{i=1}^N d_i \log y_i
+$$
+ここで、$y_i$はニューラルネットワークの出力、$d_i$は教師データを表し、$N$はデータの次元数である。</p>
+<h3 id="確認テスト-1">確認テスト</h3>
+<h4 id="ソフトマックス関数">ソフトマックス関数</h4>
+<p>次のソフトマックス関数を実装したソースコードで処理を説明する。
+$$
+f(i,u) = \frac{\exp(u_i)}{\sum_{k=1}^K \exp(u_k)}
+$$</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 出力層の活性化関数</span>
+<span class="c1"># ソフトマックス関数</span>
+<span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># オーバーフロー対策</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div><p>If x.ndim == 2:のブロックは、ミニバッチに対応するための処理。本質的には、return行のup.exp(x)/np.sum(np.exp(x)がソフトマックス関数の式を処理している。</p>
+<p>その直前のx = x - np.max(x)は、オーバーフロー対策のため。その根拠は、次の式の通りである。
+$$
+\frac{\exp(a_k)}{\sum_{i=1}^n \exp(a_i)} = \frac{C\exp(a_k)}{C\sum_{i=1}^n\exp(a_i)}=\frac{\exp(a_k+\log C)}{\sum_{i=1}^n\exp(a_i+\log C)}=\frac{\exp(a_k+C&rsquo;)}{\sum_{i=1}^n\exp(a_i+C&rsquo;)}
+$$
+ここで、$C,C'$は共に任意の実数。変形中には$a^{log_a b}=b$であるを利用している。</p>
+<h4 id="交差エントロピー">交差エントロピー</h4>
+<p>次の交差エントロピーを実装したソースコードを説明する。
+$$
+E_n(w) = - \sum_{i=1}^N d_i \log y_i
+$$</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># クロスエントロピー</span>
+<span class="k">def</span> <span class="nf">cross_entropy_error</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        
+    <span class="c1"># 教師データがone-hot-vectorの場合、正解ラベルのインデックスに変換</span>
+    <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+             
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">batch_size</span><span class="p">),</span> <span class="n">d</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-7</span><span class="p">))</span> <span class="o">/</span> <span class="n">batch_size</span>
+</code></pre></div><p>上のコードで、if y.ndim == 1:で、１次元の場合の処理を行う。次のif d.size == y.size:では、one-hot-vectorの場合に、1が立っているインデックスを求めている。交差エントロピーの本質的な処理部分は、最後のreturn文の-np.sum(np.log(y[np.arange(batch_size), d] + 1e-7)) である。1e-7は、$\log 0$が$-\infty$になることを防ぐため、小さな値を加えることで、ゲタをはかして（嵩上げして）いる。</p>
+<h2 id="section4勾配降下法">Section4：勾配降下法</h2>
+<h3 id="概要-3">概要</h3>
+<h4 id="勾配降下法gradient-descent">勾配降下法（Gradient descent）</h4>
+<p>勾配降下法は、誤差関数$E(w)$を最小化するパラメータ$w$を発見する手法であり、次の式により求める。
+$$
+\boldsymbol{w^{(t+1)}} = \boldsymbol{w^{(t)}} - \epsilon\nabla E
+$$
+ここで、$\epsilon$は学習率である。学習率$\epsilon$はハイパーパラメータの一つであり、学習率$\epsilon$の値により学習の効率が大きく異なる。</p>
+<p>学習率$\epsilon$が小さい場合、発散することはないが、小さすぎると収束するまでに時間がかかる。学習率$\epsilon$が大き過ぎると極小値にたどり着かず発散する可能性がある。勾配降下法のアルゴリズムには次のようなものがある。</p>
+<ul>
+<li>Momentum</li>
+<li>AdaGrad</li>
+<li>Adam</li>
+</ul>
+<h4 id="確率的勾配降下法stochastic-gradient-descent-sgd">確率的勾配降下法（Stochastic Gradient descent; SGD）</h4>
+<p>確率的勾配降下法は、ランダムに抽出したサンプル誤差を用いて、パラメータを更新する手法であり、次の式により求める。
+$$
+\boldsymbol{w^{(t+1)}} = \boldsymbol{w^{(t)}} - \epsilon\nabla E_n
+$$
+勾配降下法に比べて、次のようなメリットがある。</p>
+<ul>
+<li>データが冗長な場合の計算コストが削減できる。</li>
+<li>望まない局所極小解に収束するリスクが軽減するする。</li>
+<li>（データが逐次増加するような）オンライン学習に対応できる。</li>
+</ul>
+<h4 id="ミニバッチ勾配降下法">ミニバッチ勾配降下法</h4>
+<p>ミニバッチ勾配降下法は、ランダムに分割したデータの集合（ミニバッチ）$D_t$に属するサンプルの平均誤差により、パラメータを更新する手法であり、次の式により求める。
+$$
+\begin{align}
+\boldsymbol{w^{(t+1)}} &amp;= \boldsymbol{w^{(t)}} - \epsilon\nabla E_t \\<br>
+E_t &amp;= \frac{1}{N_t}\sum_{n\in D_t} E_n \\<br>
+N_t &amp;= |D_t|
+\end{align}
+$$
+ミニバッチ勾配降下法は、確率的勾配降下法のメリットを損わず、並列処理することができ、計算資源を有効利用ができる。CPUでのスレッドやGPUのSMを使った並列化が可能な手法である。</p>
+<h3 id="確認テスト-2">確認テスト</h3>
+<h4 id="勾配降下法の意味を図示">勾配降下法の意味を図示</h4>
+<p>次の式の意味を図示する。
+$$
+\boldsymbol{w^{(t+1)}} = \boldsymbol{w^{(t)}} - \epsilon\nabla E_t
+$$
+<img src="/Users/kenji/workspace/blog/static/images/20210923_DeepLearning1-2/20210923_MiniBatch_GD.png" alt="MiniBatch_GD"></p>
+<h2 id="section5誤差逆伝播法backpropagation">Section5：誤差逆伝播法（Backpropagation）</h2>
+<h3 id="概要-4">概要</h3>
+<p>誤差逆伝播法は、算出された誤差を、出力層から順に微分し、前の層へと伝播させることで、最小限の計算で各パラメータでの微分値を解析的に計算する手法である。</p>
+<p>計算結果（＝誤差）から微分を逆算することで、不要な再帰的計算を避けて微分を算出できる。</p>
+<h3 id="確認テスト-3">確認テスト</h3>
+<h4 id="誤差逆伝播法で既に行った計算結果を保持しているコードを抽出">誤差逆伝播法で、既に行った計算結果を保持しているコードを抽出</h4>
+<p>以下は、確率的勾配降下法の節で使った誤差逆伝播関数のコードである。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 誤差逆伝播</span>
+<span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="c1"># print(&#34;\n##### 誤差逆伝播開始 #####&#34;)    </span>
+
+    <span class="n">grad</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W1&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;W2&#39;</span><span class="p">]</span>
+    <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">],</span> <span class="n">network</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span>
+
+    <span class="c1"># 出力層でのデルタ</span>
+    <span class="n">delta2</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="n">d_mean_squared_error</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="c1"># b2の勾配</span>
+    <span class="n">grad</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">delta2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># W2の勾配</span>
+    <span class="n">grad</span><span class="p">[</span><span class="s1">&#39;W2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">z1</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">delta2</span><span class="p">)</span>
+    <span class="c1"># 中間層でのデルタ</span>
+    <span class="c1">#delta1 = np.dot(delta2, W2.T) * functions.d_relu(z1)</span>
+
+    <span class="c1">## 試してみよう</span>
+    <span class="n">delta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">delta2</span><span class="p">,</span> <span class="n">W2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">functions</span><span class="o">.</span><span class="n">d_sigmoid</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
+
+    <span class="n">delta1</span> <span class="o">=</span> <span class="n">delta1</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="c1"># b1の勾配</span>
+    <span class="n">grad</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">delta1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="c1"># W1の勾配</span>
+    <span class="n">grad</span><span class="p">[</span><span class="s1">&#39;W1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">delta1</span><span class="p">)</span>
+    
+    <span class="c1"># print_vec(&#34;偏微分_重み1&#34;, grad[&#34;W1&#34;])</span>
+    <span class="c1"># print_vec(&#34;偏微分_重み2&#34;, grad[&#34;W2&#34;])</span>
+    <span class="c1"># print_vec(&#34;偏微分_バイアス1&#34;, grad[&#34;b1&#34;])</span>
+    <span class="c1"># print_vec(&#34;偏微分_バイアス2&#34;, grad[&#34;b2&#34;])</span>
+
+    <span class="k">return</span> <span class="n">grad</span>
+</code></pre></div><p>上のコードで、出力層において、順伝播による予測値と教師データとから微分結果がdelta2である。このdelta2は、前の層（中間層）の微分結果delta1を求める時に使われている。</p>
+<h3 id="実装演習-2">実装演習</h3>
+<p>装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20210923_backpropagation/">こちらのページ</a>に記載している。</p>
+<h1 id="深層学習day2">深層学習day2</h1>
+<h2 id="section1勾配消失問題">Section1：勾配消失問題</h2>
+<h2 id="section2学習率最適化手法">Section2：学習率最適化手法</h2>
+<h2 id="section3過学習">Section3：過学習</h2>
+<h2 id="section4畳み込みニューラルネットワークの概念">Section4：畳み込みニューラルネットワークの概念</h2>
+<h2 id="section5最新のcnn">Section5：最新のCNN</h2>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f&amp;text=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day1%e3%83%bbday2%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day1%e3%83%bbday2%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day1%e3%83%bbday2%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day1%e3%83%bbday2%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_deeplearningday1-2%2f&amp;description=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day1%e3%83%bbday2%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20210923_input-output-layer/">入力層〜中間層の実装演習</a></li>
+                
+                    <li><a href="/post/20210923_activationfunction/">活性化関数の実装演習</a></li>
+                
+                    <li><a href="/post/20210923_backpropagation/">誤差逆伝播法の実習演習</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210923_input-output-layer/" data-toggle="tooltip" data-placement="top" title="入力層〜中間層の実装演習">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+

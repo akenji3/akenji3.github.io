@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,12 +35,12 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/e%E8%B3%87%E6%A0%BC/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +55,7 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -70,7 +70,17 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/</loc>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20210924_deeplearningday1-2/</loc>
+    <lastmod>2021-09-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -85,11 +95,6 @@
   
   <url>
     <loc>https://akenji3.github.io/post/20210923_activationfunction/</loc>
-    <lastmod>2021-09-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/</loc>
     <lastmod>2021-09-23T00:00:00+00:00</lastmod>
   </url>
   

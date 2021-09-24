@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>深層学習day1・day2レポート</title>
+      <link>https://akenji3.github.io/post/20210924_deeplearningday1-2/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210924_deeplearningday1-2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210919_machinelearning/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>入力層〜中間層の実装演習</title>
@@ -29,7 +39,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20210923_activationfunction/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;深層学習day1の「活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+&lt;p&gt;深層学習day1の「Section2：活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -39,7 +49,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20210923_backpropagation/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;深層学習day1の「誤差逆伝播法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+&lt;p&gt;深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
     </item>
     
   </channel>
