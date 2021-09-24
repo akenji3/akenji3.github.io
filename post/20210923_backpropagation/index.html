@@ -60,7 +60,7 @@
   "headline": "誤差逆伝播法の実習演習",
   "description" : "はじめに 深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  787 ,
+  "wordCount":  1131 ,
   "datePublished" : "2021-09-23T00:00:00",
   "dateModified" : "2021-09-23T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -381,7 +381,10 @@ if (!doNotTrack) {
     <span class="n">grad</span><span class="p">[</span><span class="s1">&#39;W1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">delta1</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">grad</span>
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># パラメータの初期化</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 時間測定のため追加</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># パラメータの初期化</span>
 <span class="n">network</span> <span class="o">=</span> <span class="n">init_network</span><span class="p">()</span>
 
 
@@ -395,6 +398,10 @@ if (!doNotTrack) {
     <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">accuracy</span>
+
+<span class="c1"># 開始時間</span>
+<span class="n">time_start</span> <span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters_num</span><span class="p">):</span>
     <span class="c1"># ランダムにバッチを取得    </span>
@@ -423,6 +430,11 @@ if (!doNotTrack) {
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;W1&#39;</span><span class="p">,</span> <span class="s1">&#39;W2&#39;</span><span class="p">,</span> <span class="s1">&#39;b1&#39;</span><span class="p">,</span> <span class="s1">&#39;b2&#39;</span><span class="p">):</span>
         <span class="n">network</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>  <span class="o">-=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">grad</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
+<span class="c1"># 終了時間</span>
+<span class="n">time_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># 経過時間をプリント</span>
+<span class="n">time_lap</span> <span class="o">=</span> <span class="n">time_end</span> <span class="o">-</span> <span class="n">time_start</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;経過時間 = &#34;</span><span class="p">,</span><span class="n">time_lap</span><span class="p">)</span>
 
 <span class="n">lists</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">iters_num</span><span class="p">,</span> <span class="n">plot_interval</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="n">accuracies_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;training set&#34;</span><span class="p">)</span>
@@ -431,8 +443,34 @@ if (!doNotTrack) {
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Accuracies&#34;</span><span class="p">)</span>
 <span class="c1"># グラフの表示</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><p>テストデータでの正答率は、ほぼ92%となった。</p>
+</code></pre></div><p>テストデータでの正答率は、ほぼ92%となった。また経過時間は、7.80秒であった。</p>
 <p><img src="/images/20210923_Backpropagation/20210923_Accuracy_graph.png" alt="Backpropagation_graph"></p>
+<p>ソースコード中の学習率（Learning_rate）を0.1から1.0、10.0、更に0.01に変更してみた。</p>
+<p>経過時間については、学習率を大きすると処理が速くなる傾向はあるが、今回の測定範囲では、明らかな差とはならなかった。</p>
+<table>
+<thead>
+<tr>
+<th align="right">学習率</th>
+<th align="center">0.01</th>
+<th align="center">0.1</th>
+<th align="center">1</th>
+<th align="center">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">経過時間（秒）</td>
+<td align="center">7.85</td>
+<td align="center">7.80</td>
+<td align="center">7.68</td>
+<td align="center">7.61</td>
+</tr>
+</tbody>
+</table>
+<p>一方、成果率のグラフについては、次の通りで、学習率が10になると収束していないように見える。また、学習率が0.01では、収束までにさらに回数を回す必要がありそうである。</p>
+<p>「学習率 ＝1」の時の正答率グラフ<img src="/images/20210923_Backpropagation/20210924_Accuracy_lr1.png" alt="Accuracy_lr1"></p>
+<p>「学習率 ＝10」の時の正答率グラフ<img src="/images/20210923_Backpropagation/20210924_Accuracy_lr10.png" alt="Accuracy_lr10"></p>
+<p>「学習率 ＝0.01」の時の正答率グラフ<img src="/images/20210923_Backpropagation/20210924_Accuracy_lr001.png" alt="Accuracy_lr001"></p>
 
         
           <div class="blog-tags">
