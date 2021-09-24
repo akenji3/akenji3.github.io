@@ -438,9 +438,9 @@ plt.ylabel(&#34;accuracy&#34;)
 plt.ylim(0, 1.0)
 # グラフの表示
 plt.show()
-</code></pre></div><p>この時の実行結果のグラフは次の通り。<img src="/Users/kenji/workspace/blog/static/images/20210924_BatchNormalization/20210924_BatchNormalizationOn.png" alt="BatchNormalizationOn"></p>
+</code></pre></div><p>この時の実行結果のグラフは次の通り。<img src="/images/20210924_BatchNormalization/20210924_BatchNormalizationOn.png" alt="BatchNormalizationOn"></p>
 <p>次に、上記のコード中の「use_batchnorm = False」として実行した時のグラフは次の通り。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20210924_BatchNormalization/20210924_BatchNormalizationOff.png" alt="BatchNormalizationOff"></p>
+<p><img src="/images/20210924_BatchNormalization/20210924_BatchNormalizationOff.png" alt="BatchNormalizationOff"></p>
 <p>「use_batchnorm」フラグは、MultiLayerNetクラス（multi_layer_net.pyに実装）に渡され、バッチ正規化を行っている。</p>
 <p>上記のように、バッチ正規化により学習が安定して収束していることがわかる。</p>
 
