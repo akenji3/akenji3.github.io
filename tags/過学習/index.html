@@ -7,9 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>学習率最適化手法の実装演習 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。">
+  <title>過学習 - akenji&#39;s lab</title>
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -30,66 +28,14 @@
   
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/akenji3.github.io",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20210924_optimizer\/",
-          "name": "学習率最適化手法の実装演習"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "Kenji Arai"
-  },
-  "headline": "学習率最適化手法の実装演習",
-  "description" : "はじめに 深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。\n",
-  "inLanguage" : "ja",
-  "wordCount":  540 ,
-  "datePublished" : "2021-09-24T00:00:00",
-  "dateModified" : "2021-09-24T00:00:00",
-  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "深層学習, 実装演習, 最適化手法" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210924_optimizer\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "https:\/\/akenji3.github.io",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
 
-<meta property="og:title" content="学習率最適化手法の実装演習" />
-<meta property="og:description" content="はじめに
-深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。">
+<meta property="og:title" content="過学習" />
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20210924_optimizer/" />
+<meta property="og:url" content="https://akenji3.github.io/tags/%E9%81%8E%E5%AD%A6%E7%BF%92/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="学習率最適化手法の実装演習" />
-  <meta name="twitter:description" content="はじめに
-深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。">
+  <meta name="twitter:title" content="過学習" />
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -261,14 +207,40 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
+            <div class="tags-heading">
               
-                <h1>学習率最適化手法の実装演習</h1>
-              
-              
+                <h1>過学習</h1>
               
               
-                <span class="post-meta">
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20210924_overfitting/">
+        <h2 class="post-title">過学習の実装演習</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
   
   
   <i class="fas fa-calendar"></i>&nbsp;September 24, 2021に投稿
@@ -284,158 +256,34 @@ if (!doNotTrack) {
 </span>
 
 
-              
-            </div>
-          </div>
-        </div>
-      </div>
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>深層学習day2の「Section3：過学習」の実装演習を以下にまとめる。</p>
+        <a href="https://akenji3.github.io/post/20210924_overfitting/" class="post-read-more">[続きを読む]</a>
+        
     </div>
-  </header>
-
 
     
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。</p>
-<h2 id="実装演習">実装演習</h2>
-<p>「2_4_optimize.ipynb」のコードを参照した。</p>
-<p>試したのは、確率的勾配降下法（SGD）、モメンタム、AdaGrad、RMSProp、Adamについて、各々で「use_batchnorm」をTrue/False（即ちバッチ正規化をOn/Off）の 2通りを試した。</p>
-<p>コードについては、今回は掲載しない。結果を正答率のグラフのみを示す。</p>
-<h3 id="sgd">SGD</h3>
-<p>バッチ正規化が無効の場合は学習は全く進まなかったが、バッチ正規化を有効にすると学習が進む事がわかる。</p>
-<p><img src="/images/20210924_Optimizer/20210924_SGD.png" alt="SGD"></p>
-<h3 id="モメンタム">モメンタム</h3>
-<p>SGDと同じくバッチ正規化が無効の場合は学習は進まなかった。バッチ正規化を有効にすると学習が進む。SGDよりも良い結果を示している。</p>
-<p><img src="/images/20210924_Optimizer/20210924_Momentum.png" alt="Momentum"></p>
-<h3 id="adagrad">AdaGrad</h3>
-<p>SGD、モメンタムと同じくバッチ正規化が無効の場合は学習は進まなかった。バッチ正規化を有効にすると学習が進む。モメンタムより少し学習が早く進んでいるように見える。</p>
-<p><img src="/images/20210924_Optimizer/20210924_AdaGrad.png" alt="AdaGrad"></p>
-<h3 id="rmsprop">RMSProp</h3>
-<p>バッチ正規化を有効にせずとも学習は進んでいる事がわかる。更にバッチ正規化すると、非常に短期間で学習が進んでいることが分かる。</p>
-<p><img src="/images/20210924_Optimizer/20210924_RMSProp.png" alt="RMSProp"></p>
-<h3 id="adam">Adam</h3>
-<p>RSMPropと同じく、バッチ正規化せずとも学習が進む。バッチ正規化すると、急速に学習が進む事がわかる。</p>
-<p><img src="/images/20210924_Optimizer/20210924_Adam.png" alt="Adam"></p>
-
+    <div class="blog-tags">
         
-          <div class="blog-tags">
-            
-              <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
-            
-              <a href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/">実装演習</a>&nbsp;
-            
-              <a href="https://akenji3.github.io/tags/%E6%9C%80%E9%81%A9%E5%8C%96%E6%89%8B%E6%B3%95/">最適化手法</a>&nbsp;
-            
-          </div>
+        <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
         
-
+        <a href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/">実装演習</a>&nbsp;
         
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f&amp;text=%e5%ad%a6%e7%bf%92%e7%8e%87%e6%9c%80%e9%81%a9%e5%8c%96%e6%89%8b%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92&amp;via=akenji3" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f&amp;title=%e5%ad%a6%e7%bf%92%e7%8e%87%e6%9c%80%e9%81%a9%e5%8c%96%e6%89%8b%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f&amp;title=%e5%ad%a6%e7%bf%92%e7%8e%87%e6%9c%80%e9%81%a9%e5%8c%96%e6%89%8b%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f&amp;title=%e5%ad%a6%e7%bf%92%e7%8e%87%e6%9c%80%e9%81%a9%e5%8c%96%e6%89%8b%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210924_optimizer%2f&amp;description=%e5%ad%a6%e7%bf%92%e7%8e%87%e6%9c%80%e9%81%a9%e5%8c%96%e6%89%8b%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
+        <a href="https://akenji3.github.io/tags/%E9%81%8E%E5%AD%A6%E7%BF%92/">過学習</a>&nbsp;
         
+    </div>
+    
 
+</article>
+          
+        </div>
         
-          
-            
-          
-
-          
-                  <h4 class="see-also">も参照してください</h4>
-                  <ul>
-                
-                
-                    <li><a href="/post/20210924_batchnormalization/">バッチ正規化の実装演習</a></li>
-                
-                    <li><a href="/post/20210924_deeplearningday1-2/">深層学習day1・day2レポート</a></li>
-                
-                    <li><a href="/post/20210924_overfitting/">過学習の実装演習</a></li>
-                
-                    <li><a href="/post/20210923_input-output-layer/">入力層〜中間層の実装演習</a></li>
-                
-                    <li><a href="/post/20210923_activationfunction/">活性化関数の実装演習</a></li>
-                
-              </ul>
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://akenji3.github.io/post/20210924_deeplearningday1-2/" data-toggle="tooltip" data-placement="top" title="深層学習day1・day2レポート">&larr; 前ページ</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20210924_batchnormalization/" data-toggle="tooltip" data-placement="top" title="バッチ正規化の実装演習">次ページ &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-
+      </div>
     </div>
   </div>
-</div>
 
       
 <footer>
@@ -486,7 +334,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="" title="RSS">
+            <a href="/tags/%E9%81%8E%E5%AD%A6%E7%BF%92/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
