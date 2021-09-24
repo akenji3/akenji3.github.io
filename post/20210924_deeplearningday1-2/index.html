@@ -311,7 +311,7 @@ if (!doNotTrack) {
 <h1 id="深層学習day1">深層学習day1</h1>
 <h2 id="section1入力層中間層">Section1：入力層〜中間層</h2>
 <h3 id="概要">概要</h3>
-<p>次のような入力層と中間層を構成するネットワーク（テキストのネットワーク図）において、$\boldsymbol{x}$が入力層に与えられた時、中間層の出力$z$は、次のようになる。<img src="/Users/kenji/OneDrive/99_work/20210506_StudyAI/%E3%83%AC%E3%83%9B%E3%82%9A%E3%83%BC%E3%83%88%E8%AA%B2%E9%A1%8C/3_%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92_%E5%89%8D%E7%B7%A8/images/20210923_Input-Hidden-Layer.png" alt="InputHiddenLayer">
+<p>次のような入力層と中間層を構成するネットワーク（テキストのネットワーク図）において、$\boldsymbol{x}$が入力層に与えられた時、中間層の出力$z$は、次のようになる。<img src="/images/20210923_DeepLearning1-2/20210923_Input-Hidden-Layer.png" alt="InputHiddenLayer">
 $$
 \begin{align}
 u &amp;= w_1x_1+w_2x_2+w_3x_3+w_4x_4+b \\<br>
@@ -455,7 +455,7 @@ $$
 $$
 \boldsymbol{w^{(t+1)}} = \boldsymbol{w^{(t)}} - \epsilon\nabla E_t
 $$
-<img src="/Users/kenji/workspace/blog/static/images/20210923_DeepLearning1-2/20210923_MiniBatch_GD.png" alt="MiniBatch_GD"></p>
+<img src="/images/20210923_DeepLearning1-2/20210923_MiniBatch_GD.png" alt="MiniBatch_GD"></p>
 <h2 id="section5誤差逆伝播法backpropagation">Section5：誤差逆伝播法（Backpropagation）</h2>
 <h3 id="概要-4">概要</h3>
 <p>誤差逆伝播法は、算出された誤差を、出力層から順に微分し、前の層へと伝播させることで、最小限の計算で各パラメータでの微分値を解析的に計算する手法である。</p>
