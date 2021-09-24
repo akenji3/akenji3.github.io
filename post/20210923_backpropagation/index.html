@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>誤差逆伝播法の実習演習 - akenji&#39;s lab</title>
+  <title>誤差逆伝播法の実装演習 - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
 深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
@@ -46,7 +46,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/akenji3.github.io\/post\/20210923_backpropagation\/",
-          "name": "誤差逆伝播法の実習演習"
+          "name": "誤差逆伝播法の実装演習"
         }
     }]
 }
@@ -57,7 +57,7 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "誤差逆伝播法の実習演習",
+  "headline": "誤差逆伝播法の実装演習",
   "description" : "はじめに 深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。\n",
   "inLanguage" : "ja",
   "wordCount":  1131 ,
@@ -79,7 +79,7 @@
 }
 </script>
 
-<meta property="og:title" content="誤差逆伝播法の実習演習" />
+<meta property="og:title" content="誤差逆伝播法の実装演習" />
 <meta property="og:description" content="はじめに
 深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
@@ -87,7 +87,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="誤差逆伝播法の実習演習" />
+  <meta name="twitter:title" content="誤差逆伝播法の実装演習" />
   <meta name="twitter:description" content="はじめに
 深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
@@ -263,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>誤差逆伝播法の実習演習</h1>
+                <h1>誤差逆伝播法の実装演習</h1>
               
               
               
@@ -494,7 +494,7 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;text=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e7%bf%92%e6%bc%94%e7%bf%92&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;text=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -508,28 +508,28 @@ if (!doNotTrack) {
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e7%bf%92%e6%bc%94%e7%bf%92" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e7%bf%92%e6%bc%94%e7%bf%92" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e7%bf%92%e6%bc%94%e7%bf%92" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;title=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;description=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e7%bf%92%e6%bc%94%e7%bf%92" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210923_backpropagation%2f&amp;description=%e8%aa%a4%e5%b7%ae%e9%80%86%e4%bc%9d%e6%92%ad%e6%b3%95%e3%81%ae%e5%ae%9f%e8%a3%85%e6%bc%94%e7%bf%92" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -550,6 +550,8 @@ if (!doNotTrack) {
                   <h4 class="see-also">も参照してください</h4>
                   <ul>
                 
+                
+                    <li><a href="/post/20210924_batchnormalization/">バッチ正規化の実装演習</a></li>
                 
                     <li><a href="/post/20210924_deeplearningday1-2/">深層学習day1・day2レポート</a></li>
                 
