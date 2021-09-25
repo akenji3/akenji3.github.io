@@ -60,9 +60,9 @@
   "headline": "深層学習day1・day2レポート",
   "description" : "はじめに この記事に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1-2」（「深層学習 day1およびday2」）は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。\n",
   "inLanguage" : "ja",
-  "wordCount":  7175 ,
-  "datePublished" : "2021-09-24T00:00:00",
-  "dateModified" : "2021-09-24T00:00:00",
+  "wordCount":  8106 ,
+  "datePublished" : "2021-09-25T00:00:00",
+  "dateModified" : "2021-09-25T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "深層学習" ],
   "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210924_deeplearningday1-2\/",
@@ -271,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;September 24, 2021に投稿
+  <i class="fas fa-calendar"></i>&nbsp;September 25, 2021に投稿
   
   
   
@@ -685,8 +685,31 @@ OH = \frac{IH+2\times P - F H }{S} + 1= \frac {6 + 2\times 1 -  2}{1}+1 = 7
 $$
 同様に幅も求めて、出力サイズとして、7×7を得る。</p>
 <h3 id="実装演習-6">実装演習</h3>
-<p>実装演習の結果、考察などについては、こちらの記事にまとめた。</p>
+<p>実装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/">こちらの記事</a>にまとめた。</p>
 <h2 id="section5最新のcnn">Section5：最新のCNN</h2>
+<h3 id="概要-9">概要</h3>
+<p>本節は、「最新のCNN」とのタイトルではあるが、2012年のAlexNetに関するものである。最新は複雑になりすぎているので、この世界では古典的なAlexNetについて学んだようが初学者には理解しやすいとのこと。</p>
+<h3 id="alexnetの構成">AlexNetの構成</h3>
+<p><img src="/images/20210923_DeepLearning1-2/20210925_AlexNet.png" alt="AlexNet"></p>
+<p>入力層は、224×224の3チャンネルカラー画像。</p>
+<p>出力層は、（ISLVRC 2012において1000クラスの画像を識別するため）softmax関数で確率を示す1000次元のベクトル（各次元の出力確率）。</p>
+<p>畳み込み層が5層（Conv1-5）、プーリング層が3層（P1-3）（畳み込み層の1層目Conv1、 2層目Conv 2、5層目Conv5の直後）、全結合層（F C6-7）が3層から成る。</p>
+<p>活性化関数にはReLUが使われている。</p>
+<h4 id="alexnetの特徴">AlexNetの特徴</h4>
+<h5 id="reluの導入">ReLUの導入</h5>
+<p>従来のニューラルネットワークでは、シグモイド関数やtanh関数が用いられていたが、勾配損失の回避、学習の高速化のため、ReLU関数が用いられている。</p>
+<h5 id="過学習の削減">過学習の削減</h5>
+<p>パラメータ数が多いAlexNetにおいては、過学習をいかに抑えるかが非常にポイントであった。そのために、いくつかの過学習抑制のための手法が使われている。</p>
+<p>ここでは、Dropoutによる正則化について説明する。</p>
+<p>ネットワーク終盤の全結合層2つ（FC6、FC7）のニューロンに対し、ドロップ確率0.5でドロップアウトし、過学習を大幅に削減している。</p>
+<h5 id="gpuを使用">GPUを使用</h5>
+<p>畳み込み層をチャンネル方向に 2分割し、2つのGPUに処理を分散させ、並列処理を実施している。今日では、深層学習ではGPUが当然のように用いられており、その先鞭である。</p>
+<h4 id="まとめ">まとめ</h4>
+<p>AlexNetは、大規模モデルの画像認識をCNNで実現できることを示した意味で歴史的である。そこには過学習をいかに抑制するかが非常に重要であった。</p>
+<p>AlexNetはCNNの層をシンプルに積み上げることで、画像認識精度を高めたものであったが、その後、先端の研究者がさまざまなモデルに取り組み、GoogLenet、ReSNetなどに発展していく。</p>
+<p>以上にように、AlexNetは、大規模なCNNで実現する上での多くの貢献を残した。</p>
+<h3 id="実装演習-7">実装演習</h3>
+<p>実装演習の結果、考察などについては、こちらの記事にまとめた。</p>
 
         
           <div class="blog-tags">
@@ -763,6 +786,8 @@ $$
                   <ul>
                 
                 
+                    <li><a href="/post/20210925_alexnet/">最新のCNNの実装演習</a></li>
+                
                     <li><a href="/post/20210925_convolutionalneuralnetwork/">畳み込みニューラルネットネットワークの実装演習</a></li>
                 
                     <li><a href="/post/20210924_batchnormalization/">バッチ正規化の実装演習</a></li>
@@ -770,8 +795,6 @@ $$
                     <li><a href="/post/20210924_optimizer/">学習率最適化手法の実装演習</a></li>
                 
                     <li><a href="/post/20210924_overfitting/">過学習の実装演習</a></li>
-                
-                    <li><a href="/post/20210923_input-output-layer/">入力層〜中間層の実装演習</a></li>
                 
               </ul>
 
@@ -783,12 +806,12 @@ $$
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20210924_overfitting/" data-toggle="tooltip" data-placement="top" title="過学習の実装演習">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/" data-toggle="tooltip" data-placement="top" title="畳み込みニューラルネットネットワークの実装演習">&larr; 前ページ</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/post/20210924_optimizer/" data-toggle="tooltip" data-placement="top" title="学習率最適化手法の実装演習">次ページ &rarr;</a>
+              <a href="https://akenji3.github.io/post/20210925_alexnet/" data-toggle="tooltip" data-placement="top" title="最新のCNNの実装演習">次ページ &rarr;</a>
             </li>
           
         </ul>

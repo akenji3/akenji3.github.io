@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>最新のCNNの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_alexnet/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210925_alexnet/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;深層学習day2の「Section5：最新のCNN」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>畳み込みニューラルネットネットワークの実装演習</title>
       <link>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</link>
       <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
