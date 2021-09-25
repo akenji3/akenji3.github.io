@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>畳み込みニューラルネットネットワークの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;深層学習day2の「Section4：畳み込みニューラルネットワーク」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>バッチ正規化の実装演習</title>

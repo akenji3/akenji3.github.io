@@ -60,7 +60,7 @@
   "headline": "過学習の実装演習",
   "description" : "はじめに 深層学習day2の「Section3：過学習」の実装演習を以下にまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  487 ,
+  "wordCount":  671 ,
   "datePublished" : "2021-09-24T00:00:00",
   "dateModified" : "2021-09-24T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -303,7 +303,7 @@ if (!doNotTrack) {
 <h2 id="実装演習">実装演習</h2>
 <p>「2_5_overfiting.ipynb」のコードを参照した。</p>
 <h3 id="weight-decay-l2">weight decay L2</h3>
-<p>「weight_decay_lambda」を0.08, 0.1, 0.15, 0.2と変化させて、結果がどう変わるかを試した。</p>
+<p>正則化強度パラメータ「weight_decay_lambda」の値を0.08, 0.1, 0.15, 0.2と変化させて、結果がどう変わるかを試した。</p>
 <p>コードは、以下の通り。</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 自分の環境で、ダウンロードした共通関数の格納フォルダのパス</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -383,6 +383,8 @@ if (!doNotTrack) {
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div><p>グラフ表示の結果は、次の通り。</p>
 <p><img src="/images/20210924_OverFitting/20210924_WeightDecay_L2.png" alt="WeightDecay_L2"></p>
+<p>$0.08〜0.2$の少しの変化で、学習結果（正解率）に大きな変化が出ることがわかった。</p>
+<p>正則化強度パラメータ（weight_decay_lambda）がある値（この例では、0.1と0.15の間）以上になると、学習結果が低下し、更に正則化強度パラメータを上げていくと（これ例では、0.15と0. 2の間）、学習を進めても下がり始める現象も見られた。</p>
 
         
           <div class="blog-tags">
@@ -463,6 +465,8 @@ if (!doNotTrack) {
                   <ul>
                 
                 
+                    <li><a href="/post/20210925_convolutionalneuralnetwork/">畳み込みニューラルネットネットワークの実装演習</a></li>
+                
                     <li><a href="/post/20210924_batchnormalization/">バッチ正規化の実装演習</a></li>
                 
                     <li><a href="/post/20210924_optimizer/">学習率最適化手法の実装演習</a></li>
@@ -470,8 +474,6 @@ if (!doNotTrack) {
                     <li><a href="/post/20210924_deeplearningday1-2/">深層学習day1・day2レポート</a></li>
                 
                     <li><a href="/post/20210923_input-output-layer/">入力層〜中間層の実装演習</a></li>
-                
-                    <li><a href="/post/20210923_activationfunction/">活性化関数の実装演習</a></li>
                 
               </ul>
 
