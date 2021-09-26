@@ -60,7 +60,7 @@
   "headline": "最新のCNNの実装演習",
   "description" : "はじめに 深層学習day2の「Section5：最新のCNN」の実装演習を以下にまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  891 ,
+  "wordCount":  1467 ,
   "datePublished" : "2021-09-25T00:00:00",
   "dateModified" : "2021-09-25T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -480,6 +480,15 @@ if (!doNotTrack) {
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div><p><img src="/images/20210925_AlexNet/20210925_DeepCNN.png" alt="DeepCNN"></p>
 <p>正解率が97%と非常に精度が高いことが分かる。</p>
+<h2 id="深層学習day1およびday2の実装を通じての所感">深層学習day1およびday2の実装を通じての所感</h2>
+<p>深層学習day2の「Section3：過学習について」までの実装演習は、比較的短時間で実行が完了したが、「Section4：畳み込みニューラルネットワーク」および「Section5：最新のCNN」の実装演習では、それまでに比較して比較的長時間（約1時間程度）かかった。</p>
+<p>高速化のための一つの方法としてGPUを利用することが考えられる。実は自分のローカル環境でもGPUが利用できる。これまでの実装は、numpyを使っての実装なので、コードをGPU化するには、cupyを使いそれに合わせてコードを変更する必要がある。それは、単にimport文のnumpyをcupyに変えるだけでなく、コード中の変数をCPU側とデバイス（GPU）側にうまく分離する必要がある。中々一筋縄ではいかない。</p>
+<p>PytorchやTensoFlowというフレームワークを使うメリットは、その点（コードのGPU化との観点）においてもあると考える。</p>
+<p>例えば、Pytorchの場合、次のような判定を入れる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div><p>とすれば、GPUが使える環境では、変数aはGPU側で処理されるように成る。</p>
+<p>Pytorchで定義したネットワークモデルを上記例のようにGPU側で使えるように考慮して記述しておけば、コードを変更することなくGPUを使用できる。</p>
 
         
           <div class="blog-tags">
