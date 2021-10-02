@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>GRUの実装演習</title>
+      <link>https://akenji3.github.io/post/20211002_gru/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20211002_gru/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;深層学習day3の「Section3：GRU」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>再帰型ニューラルネットワークの概念の実装演習</title>
       <link>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</link>
       <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
