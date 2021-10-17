@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 02 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/e%E8%B3%87%E6%A0%BC/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>深層学習day3・day4レポート</title>
+      <link>https://akenji3.github.io/post/20211002_deeplearningday3-4/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20211002_deeplearningday3-4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;前回の&lt;a href=&#34;https://akenji3.github.io/post/20210924_deeplearningday1-2/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。&lt;/p&gt;
+&lt;p&gt;この記事がこのラビットチャレンジのレポートのシリーズ最終回である。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GRUの実装演習</title>
