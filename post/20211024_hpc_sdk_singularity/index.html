@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>NVIDIA HPC SDKをSingularityコンテナ化する - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「NVIDIA HPC SDK」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20211024_hpc_sdk_singularity\/",
+          "name": "N v i d i a h p c s d kを singularityコンテナ化する"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "NVIDIA HPC SDKをSingularityコンテナ化する",
+  "description" : "モチベーション High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「NVIDIA HPC SDK」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2779 ,
+  "datePublished" : "2021-10-24T00:00:00",
+  "dateModified" : "2021-10-24T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "singularity, def" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211024_hpc_sdk_singularity\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="NVIDIA HPC SDKをSingularityコンテナ化する" />
+<meta property="og:description" content="モチベーション
+High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「NVIDIA HPC SDK」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211024_hpc_sdk_singularity/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="NVIDIA HPC SDKをSingularityコンテナ化する" />
+  <meta name="twitter:description" content="モチベーション
+High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「NVIDIA HPC SDK」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>NVIDIA HPC SDKをSingularityコンテナ化する</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;October 24, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「<a href="https://developer.nvidia.com/hpc-sdk">NVIDIA HPC SDK</a>」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。</p>
+<p>NGCから持ってくれば早いよ！との声もあるけど、Singularity理解を深めるため自力で作成することにした。</p>
+<h2 id="参考資料">参考資料</h2>
+<p>以下のページを参考にした。</p>
+<ul>
+<li>本家、NVIDIAのdeveloper Webサイト配下にある、<a href="https://developer.nvidia.com/hpc-sdk">NVIDIA HPC SDK</a>のページ。</li>
+<li>GPU Technology Users Communityが公開している<a href="https://hpcworld.jp/nvidia-hpc-sdk/">NVIDIA HPC SDK技術情報</a>のページ。インストール手順や環境構築後のサンプルソース等が役に立った。</li>
+<li>sylabsのWebサイトにある「Docs」のUser Guideの<a href="https://sylabs.io/guides/3.8/user-guide/definition_files.html">Definition Files</a>のページ。</li>
+<li>ABCI User GroupのWebサイトに公開されている<a href="https://abciug.abci.ai/%e4%b8%ad%e7%b4%9a%e3%80%9c%e4%b8%8a%e7%b4%9a%e7%b7%a8/singularity%e3%82%92%e4%bd%bf%e3%81%84%e3%81%93%e3%81%aa%e3%81%99_i76">この動画</a>がSingularityの基礎を学ぶには良い。自分は、fakerootの本当の意味を知った。</li>
+</ul>
+<h2 id="手順">手順</h2>
+<h3 id="考え方">考え方</h3>
+<p>NVIDIA HPC SDKのSingularityコンテナをどうやって作成したら良いのか、分からなかったので、以下の手順で作成することにした。</p>
+<ol>
+<li>SingularityのSandbox上で、目的のコンテナを作成する。</li>
+<li>1.で作成した手順を基にしてDefinition Fileを作成し、sifファイルを作る。</li>
+</ol>
+<p>sandboxはミュータブル（mutable）で、指定したディレクトリ配下にファイルシステムのように作成される。作成されたディレクトリ、ファイルは作成したユーザ権限になっている。一方、sifファイルはイミュータブル（immutable）で、一旦作成したら、（例えば、pipでパッケージを）追加できない。</p>
+<p>sandboxからsifを作成できるが、今回は、sandboxでの作成方法からDefinition Fileを作って、defファイルからsifファイルを作成する。モチベーションでも述べたが、このやり方を理解すれば、今後Singularityコンテナを作成する際に役立つと考えた。</p>
+<h3 id="sandboxでnvidia-hpc-sdkを作成">SandboxでNVIDIA HPC SDKを作成</h3>
+<h4 id="sandboxを作成するまで">Sandboxを作成するまで</h4>
+<p>ベースとなるdockerイメージを<a href="https://hub.docker.com/r/nvidia/cuda">nvidia/cuda</a>のdockerhubから選択する。今回は「11.4.2-cudnn8-devel-ubuntu20.04」をベースとしたsandboxを作成する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity build --sandbox ubuntu2004 docker:nvidia/cuda:11.4.2-cudnn8-devel-ubuntu20.04
+</code></pre></div><p>これによって、ubuntu2004ディレクトが作成される。</p>
+<p>次に、作成したsandboxイメージを起動する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity shell --nv -f -w ubuntu2004
+</code></pre></div><p>「-f」は「&mdash;fakeroot」、「-w」は「&mdash;writable」のことで、「-f」が重要でコンテナに追加されるようになる。</p>
+<p>NVIDIA HPC SDKをインストールするのに、wgetが必要なこと、作成後にプログラムを試すために、viが必要になるので、次を実行。なお、ここからは、上記で起動したsingularity内での実行である。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; apt update
+Singularity&gt; apt install wget
+Singularity&gt; apt install vim
+</code></pre></div><p>いよいよ、SDKをダウンロードし、インストールする。<a href="https://hpcworld.jp/nvidia-hpc-sdk-install/">NVIDIA HPC SDKのインストール</a>ページの「Download」をクリックすると、<a href="https://developer.nvidia.com/nvidia-hpc-sdk-downloads">NVIDIA HPC SDK 21.9 Download</a>ページに移動する。</p>
+<p>このページで、license agreementをacceptし「Linux x86-64 DEB」をクリックすると、インストール手順が表示されるので、その通りをsandboxで実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; wget https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-21-9_21.9_amd64.deb \
+https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-2021_21.9_amd64.deb
+</code></pre></div><p>上記を実行すると、ホームディレクトリに、nvhpc-2021_21.9_amd64.deb、nvhpc-21-9_21.9_amd64.debがダウンロードされている。引き続き、インストール手順の 2つ目を実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; apt-get install ./nvhpc-21-9_21.9_amd64.deb ./nvhpc-2021_21.9_amd64.deb
+</code></pre></div><h4 id="環境変数を設定する">環境変数を設定する</h4>
+<p><a href="https://hpcworld.jp/nvidia-hpc-sdk-install/">NVIDIA HPC SDKのインストール</a>ページの下の方にある、「1.3 エンドユーザー環境設定」の通り、環境変数を設定する。 なお、「21.9」の部分はインストールするSDKのバージョンである。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; NVARCH=`uname -s`_`uname -m`; export NVARCH
+Singularity&gt; NVCOMPILERS=/opt/nvidia/hpc_sdk; export NVCOMPILERS
+Singularity&gt; MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/21.9/compilers/man; export MANPATH
+Singularity&gt; PATH=$NVCOMPILERS/$NVARCH/21.9/compilers/bin:$PATH; export PATH
+
+export PATH=$NVCOMPILERS/$NVARCH/21.9/comm_libs/mpi/bin:$PATH
+export LD_LIBRARY_PATH=$NVCOMPILERS/$NVARCH/21.9/compilers/lib:$LD_LIBRARY_PATH
+export MANPATH=$MANPATH:$NVCOMPILERS/$NVARCH/21.9/comm_libs/mpi/man
+</code></pre></div><h4 id="作成したsandboxを試すコンパイルしてみる">作成したSandboxを試す（コンパイルしてみる）</h4>
+<p>上記で環境変数を設定することで、関連のコマンドへのPATHが設定され、次の通り実行できる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; nvaccelinfo
+
+CUDA Driver Version:           11020
+NVRM version:                  NVIDIA UNIX x86_64 Kernel Module  460.91.03  Fri Jul  2 06:04:10 UTC 2021
+
+Device Number:                 0
+Device Name:                   GeForce GTX TITAN
+Device Revision Number:        3.5
+Global Memory Size:            6379143168
+Number of Multiprocessors:     14
+Concurrent Copy and Execution: Yes
+Total Constant Memory:         65536
+Total Shared Memory per Block: 49152
+Registers per Block:           65536
+Warp Size:                     32
+Maximum Threads per Block:     1024
+Maximum Block Dimensions:      1024, 1024, 64
+Maximum Grid Dimensions:       2147483647 x 65535 x 65535
+Maximum Memory Pitch:          2147483647B
+Texture Alignment:             512B
+Clock Rate:                    875 MHz
+Execution Timeout:             Yes
+Integrated Device:             No
+Can Map Host Memory:           Yes
+Compute Mode:                  default
+Concurrent Kernels:            Yes
+ECC Enabled:                   No
+Memory Clock Rate:             3004 MHz
+Memory Bus Width:              384 bits
+L2 Cache Size:                 1572864 bytes
+Max Threads Per SMP:           2048
+Async Engines:                 1
+Unified Addressing:            Yes
+Managed Memory:                Yes
+Concurrent Managed Memory:     No
+Default Target:                cc35
+
+Device Number:                 1
+Device Name:                   Quadro K2000
+Device Revision Number:        3.0
+Global Memory Size:            2093809664
+Number of Multiprocessors:     2
+Concurrent Copy and Execution: Yes
+Total Constant Memory:         65536
+Total Shared Memory per Block: 49152
+Registers per Block:           65536
+Warp Size:                     32
+Maximum Threads per Block:     1024
+Maximum Block Dimensions:      1024, 1024, 64
+Maximum Grid Dimensions:       2147483647 x 65535 x 65535
+Maximum Memory Pitch:          2147483647B
+Texture Alignment:             512B
+Clock Rate:                    954 MHz
+Execution Timeout:             Yes
+Integrated Device:             No
+Can Map Host Memory:           Yes
+Compute Mode:                  default
+Concurrent Kernels:            Yes
+ECC Enabled:                   No
+Memory Clock Rate:             2000 MHz
+Memory Bus Width:              128 bits
+L2 Cache Size:                 262144 bytes
+Max Threads Per SMP:           2048
+Async Engines:                 1
+Unified Addressing:            Yes
+Managed Memory:                Yes
+Concurrent Managed Memory:     No
+Default Target:                cc30
+</code></pre></div><p>自分の環境の 2枚差しの情報が表示される。ご覧の通りkepler世代、最新のGPUカードが欲しい！</p>
+<p><a href="https://docs.nvidia.com/hpc-sdk/hpc-sdk-release-notes/index.html">NVIDIA HPC SDK 21.9のリリースノート</a>には、Keplerアーキテクチャのサポートは、21.3以降、非推奨（deprecated）だった、とある。</p>
+<p>次に、「1.4 コンパイラの利用」の通り、C、C++、Fortranのプログラムを実行してみた。</p>
+<p>C、C++に関しては、include文を修正した。</p>
+<h5 id="c">C</h5>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">include</span> <span class="o">&lt;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">&#34;hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; nvc -o c_hello hello.c
+</code></pre></div><h5 id="c-1">C++</h5>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;hello, world!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; nvc++ -o cpp_hello hello.cpp
+</code></pre></div><h5 id="fortran">Fortran</h5>
+<div class="highlight"><pre class="chroma"><code class="language-fortran" data-lang="fortran"><span class="k">print</span> <span class="o">*</span><span class="p">,</span> <span class="s2">&#34;Hello, world!&#34;</span>
+<span class="k">end</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Singularity&gt; nvfortran -o f_hello hello.f90 -V
+</code></pre></div><h3 id="definition-fileからsifファイルを作成">Definition Fileからsifファイルを作成</h3>
+<h4 id="defファイル">Defファイル</h4>
+<p>前節で実行した、sandbox作成までの手順を振り返って、次のhpc_sdk.defファイルを作成。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># NVIDIA HPC SDK 21.9（現時点の最新版）が動く、singularityコンテナを作成する。</span>
+
+Bootstrap:	docker
+FROM:	nvidia/cuda:11.4.2-cudnn8-devel-ubuntu20.04
+
+%post
+	apt update -y <span class="o">&amp;&amp;</span> apt -y install wget vim
+	wget https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-21-9_21.9_amd64.deb <span class="se">\
+</span><span class="se"></span>	https://developer.download.nvidia.com/hpc-sdk/21.9/nvhpc-2021_21.9_amd64.deb
+	apt-get -y install ./nvhpc-21-9_21.9_amd64.deb ./nvhpc-2021_21.9_amd64.deb
+
+%environment
+	<span class="nv">NVARCH</span><span class="o">=</span><span class="sb">`</span>uname -s<span class="sb">`</span>_<span class="sb">`</span>uname -m<span class="sb">`</span><span class="p">;</span> <span class="nb">export</span> NVARCH
+	<span class="nv">NVCOMPILERS</span><span class="o">=</span>/opt/nvidia/hpc_sdk<span class="p">;</span> <span class="nb">export</span> NVCOMPILERS
+	<span class="nv">MANPATH</span><span class="o">=</span><span class="nv">$MANPATH</span>:<span class="nv">$NVCOMPILERS</span>/<span class="nv">$NVARCH</span>/21.9/compilers/man<span class="p">;</span> <span class="nb">export</span> MANPATH
+	<span class="nv">PATH</span><span class="o">=</span><span class="nv">$NVCOMPILERS</span>/<span class="nv">$NVARCH</span>/21.9/compilers/bin:<span class="nv">$PATH</span><span class="p">;</span> <span class="nb">export</span> PATH
+	<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$NVCOMPILERS</span>/<span class="nv">$NVARCH</span>/21.9/comm_libs/mpi/bin:<span class="nv">$PATH</span>
+	<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$NVCOMPILERS</span>/<span class="nv">$NVARCH</span>/21.9/compilers/lib:<span class="nv">$LD_LIBRARY_PATH</span>
+	<span class="nb">export</span> <span class="nv">MANPATH</span><span class="o">=</span><span class="nv">$MANPATH</span>:<span class="nv">$NVCOMPILERS</span>/<span class="nv">$NVARCH</span>/21.9/comm_libs/mpi/man
+</code></pre></div><h4 id="sifファイル作成">sifファイル作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build hpc_sdk.sif hpc_sdk.def
+</code></pre></div><p>viのmanページの作成辺りでwarningが出てたが、以下でSingularityコンテナが動いた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity shell --nv hpc_sdk.sif
+</code></pre></div><p>起動したsingularityで、nvaccelinfoを実行すると、正常に実行された。環境変数もきちんと設定されている。</p>
+<h2 id="今後に向けて">今後に向けて</h2>
+<p>今回のSingularityコンテナ作成を通じて、sandbox環境で試行錯誤しながら目的のコンテナを作成し、通常運用ではsifファイルを用意して実行させるという、一通りの手順を学んだ。</p>
+<p>AI系ではコンテナ環境を作成後も必要なパッケージがあり、追加でインストールすることがある。暫くsandbox環境で試して、頃合いを見てsifにするという、流れを想定した手順を理解できた。実際にはハマること（hustleする必要）もあるとは思うが。</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+            
+              <a href="https://akenji3.github.io/tags/def/">def</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f&amp;text=NVIDIA%20HPC%20SDK%e3%82%92Singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e5%8c%96%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f&amp;title=NVIDIA%20HPC%20SDK%e3%82%92Singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e5%8c%96%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f&amp;title=NVIDIA%20HPC%20SDK%e3%82%92Singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e5%8c%96%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f&amp;title=NVIDIA%20HPC%20SDK%e3%82%92Singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e5%8c%96%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211024_hpc_sdk_singularity%2f&amp;description=NVIDIA%20HPC%20SDK%e3%82%92Singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e5%8c%96%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20210905_definition_file/">Jupyterlabのsingularityコンテナを作る</a></li>
+                
+                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211002_deeplearningday3-4/" data-toggle="tooltip" data-placement="top" title="深層学習day3・day4レポート">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
