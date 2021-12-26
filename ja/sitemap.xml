@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,18 +34,18 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/def/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/openmpi/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20211226_openmpi_install/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -59,13 +59,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/singularity/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -80,7 +75,7 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -91,6 +86,21 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/def/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/singularity/</loc>
+    <lastmod>2021-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>akenji&#39;s lab - akenji&#39;s lab</title>
-  <meta name="description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+  <title>OpenMPIをインストール - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,16 +31,68 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20211226_openmpi_install\/",
+          "name": "Open m p iをインストール"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "OpenMPIをインストール",
+  "description" : "モチベーション 分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。 ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1436 ,
+  "datePublished" : "2021-12-26T00:00:00",
+  "dateModified" : "2021-12-26T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "OpenMPI" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211226_openmpi_install\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="akenji&#39;s lab" />
-<meta property="og:description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+<meta property="og:title" content="OpenMPIをインストール" />
+<meta property="og:description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211226_openmpi_install/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="akenji&#39;s lab" />
-  <meta name="twitter:description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+  <meta name="twitter:title" content="OpenMPIをインストール" />
+  <meta name="twitter:description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -210,18 +264,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
+            <div class="post-heading">
               
-                <h1>akenji&#39;s lab</h1>
-              
-              
-                <hr class="small">
+                <h1>OpenMPIをインストール</h1>
               
               
-                
-                  <span class="page-subheading">Try some pages</span>
-                
               
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;December 26, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -232,379 +297,169 @@ if (!doNotTrack) {
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-          <div class="well">
-            <h2 id="概要">概要</h2>
-<p>自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。</p>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。</p>
+<h2 id="はじめに---typora正式版リリース有償化">はじめに - Typora正式版リリース（有償化）</h2>
+<p>久しぶりに、記事を書こうかと、Typoraを起動すると、バージョンアップするか聞かれたので、バージョンアップしたところ、起動時にライセンスキーの入力を求められた。遂に有償になったかと思いネット上を検索する。2021年11月23日に正式版がリリースされ、有料化された。</p>
+<p>税抜きで14.99$で、日本円で税込で2,000円弱。PayPalで支払い、ライセンスキーを入力した。</p>
+<p>バージョンは、1.0.5（6032）となっていた。</p>
+<h2 id="参考資料">参考資料</h2>
+<p>SingularityからOpenMPIを使う場合に、どのようなインストール形態になるのか、そのように構築すれば良いのか分からなかったので、次の記事を参考にした。</p>
+<ul>
+<li>
+<p><a href="https://www.slideshare.net/htsst/singularity-85959573">Singularityで分散深層学習</a></p>
+<p>上記スライドの13ページには、次の二つの方式を説明していた。</p>
+<ol>
+<li>
+<p>ホストのMPIをコンテナ側に見せる（コンテナのメリットが薄い）</p>
+</li>
+<li>
+<p>コンテナ内にMPIをインストールし、コンテナの外からキックする。</p>
+<p>この場合、ホスト側と同じMPIを使用し、Buildも同じにする必要がある、との記載があった。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="https://sylabs.io/guides/3.8/user-guide/mpi.html">Singularity本家のページ</a></p>
+<p>上記のページでは、次の二つのアプローチがあると。</p>
+<ol>
+<li>
+<p>Host MPI、Hybridモデル</p>
+<p>上記の2.の方式のことだと理解。</p>
+</li>
+<li>
+<p>Bindモデル</p>
+<p>上記の1.の方式のことだと理解。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="方向性">方向性</h2>
+<p>前節・参考資料を参考に、Hybridモデルでインストールすることにした。
+上記本家のページには、テスト用のアプリケーションプログラムも掲載されていたので、Singularityアプリとしてそのテストアプリケーションを動かすところまでを今回のゴールとする。</p>
+<h2 id="ホストにopenmpiをインストール">ホストにOpenMPIをインストール</h2>
+<p><a href="https://www.open-mpi.org/software/ompi/v4.1/">OpenMPIのダウンロードページ</a>から最新の4.1をホスト・ホームディレクトリのDownloadsにダウンロードし、その後、次の手順でOpenMPIをコンパイル、インストールした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cd ~/Downloads
+$ tar -xjf openmpi-4.1.1.tar.bz2
+$ cd openmpi-4.1.1
+$ ./configure --prefix=/opt/ompi
+$ make all install
+</code></pre></div><p>上記では、makeの最終版の/opt/ompiにインストール（コピー）する際に次のようにエラーとなる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">/usr/bin/mkdir -p &#39;/opt/ompi/share/openmpi/amca-param-sets&#39;
+/usr/bin/mkdir: ディレクトリ `/opt/ompi&#39; を作成できません: 許可がありません
+</code></pre></div><p>そこで、次でインストールを強行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo make install
+</code></pre></div><p>ホストの.bashrcで、/opt/ompi/binにパスを通しておく。</p>
+<h2 id="singularity版のテストアプリケーションを構築">Singularity版のテストアプリケーションを構築</h2>
+<p>参考資料を示した、Singulariy本家のページから、mpitest.cとmpi_test.defをダウンロードし、次の手順でsingularityアプリを構築する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build mpi_test.sif mpi_test.def
+</code></pre></div><p>出来上がったsifファイルを次の様にして実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mpirun -n 4 singularity run mpi_test.sif /opt/mpitest
+Hello, I am rank 3/4
+Hello, I am rank 0/4
+Hello, I am rank 1/4
+Hello, I am rank 2/4
+</code></pre></div><p>自分の実行環境では、8スロットでは動作しないので、上記の通り「-n 4」で実行した。</p>
+<h2 id="今後について">今後について</h2>
+<p>上記の手順で、MPIを使ったアプリケーションをSingularityコンテナとして動作させることができたので、今後は、別のアプリケーションの実行などを試してみたい。</p>
+<p>出来上がったsifファイルは、約1,600MB（1.6GB）と巨大、これで良いのか、ちょっと疑問。</p>
 
+        
+          <div class="blog-tags">
+            
+              <a href="https://akenji3.github.io/tags/openmpi/">OpenMPI</a>&nbsp;
+            
           </div>
         
 
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/">
-        <h2 class="post-title">Ubuntu 20.04をHP Z620にクリーン・インストール</h2>
         
-        
-        
-    </a>
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
 
-    <p class="post-meta">
-        <span class="post-meta">
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;text=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
   
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
   
-  <i class="fas fa-calendar"></i>&nbsp;April 5, 2021に投稿
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
   
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
   
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
   
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。</p>
-<p>今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。</p>
-        <a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20201116_yaml_front_matter/">
-        <h2 class="post-title">YAML front matter</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;November 16, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>久しぶりに、記事を書こうとして、マークアップエディタ（Typora）を起動するも、記事書けない。というのも、冒頭にタイトル、日付、タグ付けの入れ方を忘れたのだ。</p>
-<p>3ヶ月も経つと、以前にやったことを忘れてしまう。そのためのこのブログなので、細かいことも書いておこうと思い、今回は、ブログ記事の冒頭、いわゆる「YAML front matter」について簡単にまとめる。</p>
-        <a href="https://akenji3.github.io/post/20201116_yaml_front_matter/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/hugo/">hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200814_hugo_image_category_summary/">
-        <h2 class="post-title">Hugoで設定３種</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 14, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>GitHub PagesとHugoで記事を書き始めたのが、数日前。</p>
-<p>何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。</p>
-<ul>
-<li>記事の画像ファイルを埋め込む</li>
-<li>記事をカテゴリ（category）で分類する</li>
-<li>ブログトップでの記事要約（summary）を短くする</li>
-</ul>
-        <a href="https://akenji3.github.io/post/20200814_hugo_image_category_summary/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/hugo/">Hugo</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/image/">image</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/category/">category</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/summary/">summary</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200813_mesa_install/">
-        <h2 class="post-title">MESA(Modules for Experiments in Stellar Astrophysics)のインストール</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 13, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。</p>
-<p>星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。</p>
-        <a href="https://akenji3.github.io/post/20200813_mesa_install/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/mesa/">MESA</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">
-        <h2 class="post-title">Raspberry PiのディスクをNFSマウントして使う</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 12, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。</p>
-<p>文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。</p>
-<p>今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。</p>
-        <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200811_blog_ongithub/">
-        <h2 class="post-title">GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 11, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー
-        <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/github-pages/">GitHub Pages</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200810_jupyterlab/">
-        <h2 class="post-title">jupyterlabをsingularityコンテナで起動する</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用
-        <a href="https://akenji3.github.io/post/20200810_jupyterlab/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-        </div>
-
-        
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="https://akenji3.github.io/page/2/">&larr; 新しいページ</a>
-              </li>
-            
-            
-          </ul>
-        
-      </div>
-    </div>
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;description=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
   </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
 
       
-    <div class="page-meta">
-  
-  
-  
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211024_hpc_sdk_singularity/" data-toggle="tooltip" data-placement="top" title="NVIDIA HPC SDKをSingularityコンテナ化する">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
 </div>
 
-
-  
+      
 <footer>
   <div class="container">
     <div class="row">
@@ -653,7 +508,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

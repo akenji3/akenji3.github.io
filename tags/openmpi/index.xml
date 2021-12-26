@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenMPI on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/openmpi/</link>
+    <description>Recent content in OpenMPI on akenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/tags/openmpi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OpenMPIをインストール</title>
+      <link>https://akenji3.github.io/post/20211226_openmpi_install/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20211226_openmpi_install/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
