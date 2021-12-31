@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>jupyterlabをsingularityコンテナで起動する - akenji&#39;s lab</title>
-  <meta name="description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+  <title>Amazon SageMaker Studio Labを試す - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
-          "name": "Jupyterlabをsingularityコンテナで起動する"
+          "@id": "https:\/\/akenji3.github.io\/post\/20211231_sagemakerstudiolab\/",
+          "name": "Amazon sage maker studio labを試す"
         }
     }]
 }
@@ -56,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "jupyterlabをsingularityコンテナで起動する",
-  "description" : "目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用",
+  "headline": "Amazon SageMaker Studio Labを試す",
+  "description" : "モチベーション 自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。\nこの記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。\n",
   "inLanguage" : "ja",
-  "wordCount":  1728 ,
-  "datePublished" : "2020-08-10T00:00:00",
-  "dateModified" : "2020-08-10T00:00:00",
+  "wordCount":  1172 ,
+  "datePublished" : "2021-12-31T00:00:00",
+  "dateModified" : "2021-12-31T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "jupyterlab, singularity" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20200810_jupyterlab\/",
+  "keywords" : [ "AWS, jupyterlab" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211231_sagemakerstudiolab\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,15 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="jupyterlabをsingularityコンテナで起動する" />
-<meta property="og:description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+<meta property="og:title" content="Amazon SageMaker Studio Labを試す" />
+<meta property="og:description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20200810_jupyterlab/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211231_sagemakerstudiolab/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="jupyterlabをsingularityコンテナで起動する" />
-  <meta name="twitter:description" content="目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用">
+  <meta name="twitter:title" content="Amazon SageMaker Studio Labを試す" />
+  <meta name="twitter:description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -260,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>jupyterlabをsingularityコンテナで起動する</h1>
+                <h1>Amazon SageMaker Studio Labを試す</h1>
               
               
               
@@ -268,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
+  <i class="fas fa-calendar"></i>&nbsp;December 31, 2021に投稿
   
   
   
@@ -295,182 +301,44 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="目的">目的</h2>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（<a href="https://akenji3.github.io/post/20200810_jupyterlab/">こちら</a>や<a href="https://akenji3.github.io/post/20210905_definition_file/">こちら</a>）。そうは言っても、GCPから提供されている<a href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja">Google Colaboratory</a>を使ったこともある。</p>
+<p>この記事では、最近発表された<a href="https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/">Amazon SageMaker Studio Lab</a>を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。</p>
+<h2 id="参考情報">参考情報</h2>
 <ul>
-<li>
-<p>Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う</p>
-</li>
-<li>
-<p>コンテナは、dockerも作成するが、通常使用としてはsingularityとする。</p>
-</li>
-<li>
-<p>今回は、家庭内のLAN環境内での使用とする。</p>
-</li>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2112/20/news035.html">atmarkITの記事</a>　この記事でSageMaker Studio Labのことを初めて知る。</li>
+<li><a href="https://dev.classmethod.jp/articles/sagemaker-studio-lab-free/">DevelopersIOの記事</a>　公開直後に書かれた記事、こちらのページの様々な記事はとても参考になる。</li>
+<li>こちらの<a href="https://tech.opst.co.jp/2021/12/03/sagemaker-studio-lab-%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/">SageMaker Studio Labを触ってみた</a>　マシンスペックを確かめたりするのに役立った。Git連携についても記載があり、後々参考になりそう。</li>
 </ul>
-<h2 id="使用環境">使用環境</h2>
-<h3 id="サーバhp-z820">サーバ（HP-Z820）</h3>
-<ul>
-<li>GPU0: Geforce GTX 1080</li>
-<li>GPU1: Quadro K2000</li>
-<li>driver ver.: 440.95.01</li>
-<li>Ubuntu 18.04.4 LTS</li>
-</ul>
-<h3 id="クライアントmac-book-pro">クライアント（Mac Book Pro）</h3>
-<ul>
-<li>macOS Catalina 10.15.5</li>
-</ul>
-<h2 id="参考ページ">参考ページ</h2>
-<p><a href="https://qiita.com/radiol/items/48909d69ba8114edcbf2">このページ</a>を参考にした。大変参考になり、感謝。</p>
-<h2 id="手順">手順</h2>
-<h3 id="作業用ディレクトリを作成必要ファイルを準備">作業用ディレクトリを作成、必要ファイルを準備</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir pytorch-lab
-$ cd pytorch-lab
-</code></pre></div><p>上記参考ページの記事を参考に、Dockerfileをこのディレクトリに作成。ベースとなるイメージは、ドライバーバージョンに合う比較的に新しいCUDAバージョンアップのpytorchを選択した。以下がDockerfileの内容。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime
-
-# Install required libraries
-RUN conda config --add channels pytorch \
- &amp;&amp; conda config --append channels conda-forge \
- &amp;&amp; conda update --all --yes --quiet \
- &amp;&amp; conda install --yes --quiet \
-    ipywidgets \
-    jupyterlab \
-    matplotlib \
-    nodejs \
-    opencv \
-    pandas \
-    scikit-learn \
-    seaborn \
-    sympy \
- &amp;&amp; conda clean --all -f -y
-
-# Install jupyter extensions
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension \
- &amp;&amp; jupyter labextension install @jupyter-widgets/jupyterlab-manager
-
-COPY jupyter_notebook_config.py /root/.jupyter/
-</code></pre></div><p>同じく、上記記事を参考に、jupyter_notebook_configを作業用ディレクトリに配置。記事のとおり、次の2行を追加した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">c.NotebookApp.allow_root = True
-c.NotebookApp.password = &#39;sha1:・・・&#39;
-</code></pre></div><p>「sh1:」以下のハッシュ値は、次のようにして求めた。自分の環境には、ipythonが入っていなかったので、先ずはipythonをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install ipython
-</code></pre></div><p>次に、ハッシュ値を得て、jupyter_notebook_config.pyに挿入した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ipython
-
-In [1]: from IPython.lib import passwd
-
-In [2]: passwd()
-Enter password:
-Verify password:
-Out[2]: &#39;sha1:ここにハッシュ値が表示されている&#39;
-</code></pre></div><p>上記で求めたハッシュ値を埋め込んだJupiter_notebook_config.pyは、次のとおり。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
-
-from jupyter_core.paths import jupyter_data_dir
-import subprocess
-import os
-import errno
-import stat
-
-c = get_config()
-c.NotebookApp.ip = &#39;0.0.0.0&#39;
-c.NotebookApp.port = 8888
-c.NotebookApp.open_browser = False
-c.NotebookApp.allow_root = True
-c.NotebookApp.password = &#39;sha1:ここにハッシュ値をコピペする&#39;
-
-# https://github.com/jupyter/notebook/issues/3130
-c.FileContentsManager.delete_to_trash = False
-
-# Generate a self-signed certificate
-if &#39;GEN_CERT&#39; in os.environ:
-    dir_name = jupyter_data_dir()
-    pem_file = os.path.join(dir_name, &#39;notebook.pem&#39;)
-    try:
-        os.makedirs(dir_name)
-    except OSError as exc:  # Python &gt;2.5
-        if exc.errno == errno.EEXIST and os.path.isdir(dir_name):
-            pass
-        else:
-            raise
-
-    # Generate an openssl.cnf file to set the distinguished name
-    cnf_file = os.path.join(os.getenv(&#39;CONDA_DIR&#39;, &#39;/usr/lib&#39;), &#39;ssl&#39;, &#39;openssl.cnf&#39;)
-    if not os.path.isfile(cnf_file):
-        with open(cnf_file, &#39;w&#39;) as fh:
-            fh.write(&#39;&#39;&#39;\
-[req]
-distinguished_name = req_distinguished_name
-[req_distinguished_name]
-&#39;&#39;&#39;)
-
-    # Generate a certificate if one doesn&#39;t exist on disk
-    subprocess.check_call([&#39;openssl&#39;, &#39;req&#39;, &#39;-new&#39;,
-                           &#39;-newkey&#39;, &#39;rsa:2048&#39;,
-                           &#39;-days&#39;, &#39;365&#39;,
-                           &#39;-nodes&#39;, &#39;-x509&#39;,
-                           &#39;-subj&#39;, &#39;/C=XX/ST=XX/L=XX/O=generated/CN=generated&#39;,
-                           &#39;-keyout&#39;, pem_file,
-                           &#39;-out&#39;, pem_file])
-    # Restrict access to the file
-    os.chmod(pem_file, stat.S_IRUSR | stat.S_IWUSR)
-    c.NotebookApp.certfile = pem_file
-
-# Change default umask for all subprocesses of the notebook server if set in
-# the environment
-if &#39;NB_UMASK&#39; in os.environ:
-    os.umask(int(os.environ[&#39;NB_UMASK&#39;], 8))
-</code></pre></div><h3 id="dockerイメージの作成と確認">Dockerイメージの作成と確認</h3>
-<ul>
-<li>Dockerイメージをビルド</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker build -t pytorch-lab ./
-</code></pre></div><ul>
-<li>Dockerイメージを起動</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo docker run -d --rm --gpus all -v ~/ml:/workspace -p 8888:8888 --name pytorch pytorch-lab jupyter lab
-</code></pre></div><ul>
-<li>接続確認</li>
-</ul>
-<p>Dockerイメージを起動したサーバーのブラウザで、&ldquo;http://localhost:8888&quot;と入力し、接続する。パスワード入力して&quot;log in&quot;を押下すると、jupyterlabがブラウザ上に立ち上がる。</p>
-<h3 id="singularityイメージの作成">singularityイメージの作成</h3>
-<ul>
-<li>Dockerイメージからsingularityイメージを作成</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo singularity build pytorch-lab.sif docker-daemon://pytorch-lab:latest
-</code></pre></div><p>この時、ローカルdockerファイルを指定する場合には、&ldquo;docker-daemon:&ldquo;とする事に注意。</p>
-<h3 id="singularityコンテナの起動と接続確認">singularityコンテナの起動と接続確認</h3>
-<ul>
-<li>作成したsingularityイメージを起動</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ singularity exec --nv sifs/pytorch-lab.sif jupyter lab
-</code></pre></div><p>接続確認は、Dockerの時と同様。但し、パスワード入力画面が開いて、そこでパスワードを入力しても上手くいかず、TOKENを入力したら上手くいった。</p>
-<h3 id="リモートからの接続">リモートからの接続</h3>
-<ul>
-<li>リモート（Mac Book Pro）から上記で起動したサーバ上のjupyterlabに接続。</li>
-</ul>
-<p>以下、MBP側での操作でポートフォワードする。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -N -L 8888:localhost:8888 user名@サーバのIPアドレス
-</code></pre></div><p>パスワード入力を促されるので、サーバのuser名に対するパスワードを入力する。</p>
-<p>次に、MBPのブラウザで、<code>http://localhost:8888</code>と入力すると、接続できた。</p>
-<p>ここでも、パスワードではなく、TOKENしか受け付けないようだ。</p>
-<h3 id="サーバでのsingularityコンテナ起動をコマンド化">サーバでのsingularityコンテナ起動をコマンド化</h3>
-<p>サーバでのjupyterlabコンテナ起動を簡便にするために、シェルスクリプトする。</p>
-<p>$HOME/binには、PATHが通っており、以下のファイルには、実行権を付与する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$cat $HOME/bin/jupyterlab
-cd $HOME/jupyterlab
-export SINGULARITYENV_CUDA_VISIBLE_DEVICES=0
-singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
-</code></pre></div><p>$HOME/jupyterlabに作成したノートが保存される。</p>
-
+<h2 id="使えるようになるまで">使えるようになるまで</h2>
+<h3 id="アカウントの取得">アカウントの取得</h3>
+<p>先ずは、<a href="https://studiolab.sagemaker.aws/">こちらのページ</a>から「Request free account」ボタンをクリックし、メールアドレス、氏名等の必要事項を記入し、送信（Submit request）する。</p>
+<p>「Verify your email」とのタイトルのメールが直ぐに届くので、ボタンをクリックすると直ぐに「Account request confirmed」とのメールが届く。そこには待ち行列（wait list）に加えたとあったので、次にメールが来るまで待つ。</p>
+<p>自分の場合は、約12時間後に「Account request approved」とメールが届いたいので、そこに書かれているリンクからメールアドレス、パスワード、ユーザ名を入力すると、「Verify your email」、「Your account is ready」とのメールによりアカウントが使えるようになった。</p>
+<p>多少記憶が曖昧だけど、以上のように何度かやりとりして、アカウントが取得できた。</p>
+<h3 id="ログインと終了">ログインと終了</h3>
+<p>作成したアカウントにログインすると次のような画面が表示され、SageMaker Studio Labが使えるようなる。<img src="/static/images/20211231_SageMakerStudioLab/20211227_AfterLogin.png" alt="ログイン直後"></p>
+<p>上記の画面で、「CPU /GPU」を選んで、「Start runtime」を押すと、その右側の丸い「Open project」の色が変わるので、クリックすると、ブラウザの新たなタブで、Jupyterlabが使える。</p>
+<p>終了時は、jupyterlabメニューの「logout」で終わった後、上記のページで、「Stop runtime」すると終了する。</p>
+<h2 id="使ってみる">使ってみる</h2>
+<h3 id="課題">課題</h3>
+<p>9月、10月に取り組んだラビット・チャレンジの<a href="https://akenji3.github.io/post/20210925_alexnet/">この課題</a>に取り組むことにする。</p>
+<h3 id="共通関数の扱い">共通関数の扱い</h3>
+<p>メインの処理で使用する共通関数（common, dataフォルダに格納されている）をSageMaker Studio Labにアップし、メイン処理の前に、以下を実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 共通関数の格納フォルダのパス
+import sys
+sys.path.append(&#39;/common&#39;)
+sys.path.append(&#39;/data&#39;)
+</code></pre></div><p>メイン処理は、上記の課題で使ったものをそのまま使用する。</p>
+<p>実行結果は、次のとおり。<img src="/static/images/20211231_SageMakerStudioLab/20211231_Alexnet_result.jpg" alt="Alexnet_result"></p>
+<p>以前試したのと同様、高い正解率で収束していることがわかる。</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/aws/">AWS</a>&nbsp;
             
-              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
             
           </div>
         
@@ -485,42 +353,42 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;text=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;text=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;title=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200810_jupyterlab%2f&amp;description=jupyterlab%e3%82%92singularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%a7%e8%b5%b7%e5%8b%95%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;description=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -542,13 +410,7 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
                   <ul>
                 
                 
-                    <li><a href="/post/20211231_sagemakerstudiolab/">Amazon SageMaker Studio Labを試す</a></li>
-                
-                    <li><a href="/post/20211024_hpc_sdk_singularity/">NVIDIA HPC SDKをSingularityコンテナ化する</a></li>
-                
-                    <li><a href="/post/20210905_definition_file/">Jupyterlabのsingularityコンテナを作る</a></li>
-                
-                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
                 
               </ul>
 
@@ -559,10 +421,10 @@ singularity exec --nv $HOME/sifs/pytorch-lab.sif jupyter lab
       
         <ul class="pager blog-pager">
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" data-toggle="tooltip" data-placement="top" title="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用">次ページ &rarr;</a>
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211226_openmpi_install/" data-toggle="tooltip" data-placement="top" title="OpenMPIをインストール">&larr; 前ページ</a>
             </li>
+          
           
         </ul>
       
