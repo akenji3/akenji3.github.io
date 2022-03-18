@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,13 +19,18 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/categories/ai/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/aws/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,18 +44,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20220318_dcgan_tutorial/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/gan/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -61,36 +61,6 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/post/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/aws/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -120,6 +90,21 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
                 />
   </url>
   
