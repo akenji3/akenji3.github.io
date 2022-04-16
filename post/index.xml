@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Apr 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【失敗】Ubuntu 20.04でのChrome Remote Desktop</title>
+      <link>https://akenji3.github.io/post/20220416_chromeremotedesktop/</link>
+      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20220416_chromeremotedesktop/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
+自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>DCGANで人物画像を生成</title>
