@@ -79,38 +79,18 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/openmpi/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/aws/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/service/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/service/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/service/"
-                />
+    <loc>https://akenji3.github.io/post/20211226_openmpi_install/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -121,16 +101,6 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/openmpi/</loc>
-    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/post/20211226_openmpi_install/</loc>
-    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -334,6 +304,21 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/categories/service/</loc>
+    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/service/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/post/20210912_display_inline_math/</loc>
     <lastmod>2021-09-12T00:00:00+00:00</lastmod>
   </url>
@@ -476,6 +461,11 @@
   <url>
     <loc>https://akenji3.github.io/post/20200811_blog_ongithub/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
+    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>

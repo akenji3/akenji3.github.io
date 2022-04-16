@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Amazon SageMaker Studio Labを試す</title>
-      <link>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</link>
-      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</guid>
-      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
-&lt;p&gt;自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（&lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;こちら&lt;/a&gt;や&lt;a href=&#34;https://akenji3.github.io/post/20210905_definition_file/&#34;&gt;こちら&lt;/a&gt;）。そうは言っても、GCPから提供されている&lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja&#34;&gt;Google Colaboratory&lt;/a&gt;を使ったこともある。&lt;/p&gt;
-&lt;p&gt;この記事では、最近発表された&lt;a href=&#34;https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/&#34;&gt;Amazon SageMaker Studio Lab&lt;/a&gt;を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>OpenMPIをインストール</title>
