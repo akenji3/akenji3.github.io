@@ -7,11 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Ubuntu 20.04をHP Z620にクリーン・インストール - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。">
+  <title>Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】 - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
+自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -47,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
-          "name": "Ubuntu 20.04を h p z620にクリーン・インストール"
+          "@id": "https:\/\/akenji3.github.io\/post\/20220416_chromeremotedesktop\/",
+          "name": "Ubuntu 20.04での chrome remote desktop 【失敗！！】"
         }
     }]
 }
@@ -59,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Ubuntu 20.04をHP Z620にクリーン・インストール",
-  "description" : "はじめに 2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。\n今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。 自分自身の備忘のため、ここに記事としてまとめる。\n",
+  "headline": "Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】",
+  "description" : "モチベーション とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。 自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。\n",
   "inLanguage" : "ja",
-  "wordCount":  1940 ,
-  "datePublished" : "2021-04-05T00:00:00",
-  "dateModified" : "2021-04-05T00:00:00",
+  "wordCount":  1878 ,
+  "datePublished" : "2022-04-16T00:00:00",
+  "dateModified" : "2022-04-16T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "ubuntu, install" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210405_ubuntu2004_install\/",
+  "keywords" : [ "ubuntu, Remote Desktop" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220416_chromeremotedesktop\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -81,21 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
-<meta property="og:description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。">
+<meta property="og:title" content="Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】" />
+<meta property="og:description" content="モチベーション
+とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
+自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20210405_ubuntu2004_install/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20220416_chromeremotedesktop/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Ubuntu 20.04をHP Z620にクリーン・インストール" />
-  <meta name="twitter:description" content="はじめに
-2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。
-今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のた …">
+  <meta name="twitter:title" content="Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】" />
+  <meta name="twitter:description" content="モチベーション
+とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
+自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -269,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Ubuntu 20.04をHP Z620にクリーン・インストール</h1>
+                <h1>Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】</h1>
               
               
               
@@ -277,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;April 5, 2021に投稿
+  <i class="fas fa-calendar"></i>&nbsp;April 16, 2022に投稿
   
   
   
@@ -304,83 +301,81 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。</p>
-<p>今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。
-自分自身の備忘のため、ここに記事としてまとめる。</p>
-<h2 id="インストール手順">インストール手順</h2>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
+自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。</p>
+<h2 id="参照ページ">参照ページ</h2>
+<p>参考にした順に参考ページを以下に列挙する。貴重な情報に感謝。</p>
 <ul>
-<li>Ubuntu 20.04 LTS 日本語Remixのisoファイルをダウンロードし、ライブUSBを作成する。「ubuntu 20.04 日本語Rimix ライブUSB」とかでネット検索するば、記事が出てくる。自分は、<a href="https://linuxfan.info/ubuntu-20-04-install-guide">こちらのページ</a>を参考にさせてもらった。</li>
-<li>ライブUSBを全面パネルのUSBの口（最上位）に挿し込み、電源投入。「F9」を押下し、ブートメニューの選択を開き、USBメモリから起動する。</li>
-<li>Ubuntuが立ち上がったら、「試す／インストール」の「インストール」を選び、インストールを開始する。</li>
-<li>自分は、HHKBの英語配列を使っているので、「キーボードレイアウト」で「English(US)」を選ぶ。</li>
-<li>一つ重要なことは、「アップデートと他のソフトウェア」画面で、「グラフィックスとWi-Fiハードウェアと追加のメディアフォーマットのサードパーティ製ソフトウェアをインストールする」に<strong>必ずチェック</strong>する。これを忘れると、nvidia-driverがインストール出来ない！</li>
-<li>「インストールの種類」の画面では、「ディスクを削除してUbuntuをインストール」を選んだ。</li>
+<li><a href="https://zenn.dev/ushknn/articles/9d72f115846246">ubuntu20.04のホストにchrome-remote-desktop接続</a> 自分がやろうとしていた内容そのもののタイトル。このページをメインにインストール・環境設定をした。</li>
+<li><a href="https://idroot.us/install-chrome-remote-desktop-ubuntu-20-04/">上記ページからも参照している設定のメイン部分</a> 手順を追ってインストール／設定を記述している英語のページ。</li>
+<li><a href="https://www.orzs.tech/solve-black-screen-when-ubuntu-remote-desktop/">リモートデスクトップで真っ黒の画面</a>が表示された際に、ログイン画面に戻るコマンドの記載がある。但し、これでは自分の場合、根本的には解決できなかった。</li>
+<li><a href="https://qiita.com/161abcd/items/bba7220cf2e9511a0f33">コンソールからログイン出来なくなった</a>時（上記では解決できなかった時）に、chrome-remote-desktopをアンインストールする方法が記載されている。</li>
+<li><a href="https://webnetforce.net/ubuntu-chrome-remote-trouble/">X window周りの設定</a>についての記述がある。自分にとっては再トライした際に参考にした。</li>
 </ul>
-<h2 id="インストール直後に実施すること">インストール直後に実施すること</h2>
-<h3 id="ホームディレクトリの日本語表示を英語表示に変更する">ホームディレクトリの日本語表示を英語表示に変更する</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ LANG=C xdg-user-dirs-gtk-update
-</code></pre></div><h3 id="mozc関連の設定">Mozc関連の設定</h3>
-<p>英語配列キーボードの場合、「半角／全角」キーはなく、「Control+Space」で相当機能を実現している。この場合、以下ような設定が必要。</p>
+<h2 id="インストールと設定">インストールと設定</h2>
+<p>上記参照ページに２番目の英語記事に沿って、インストール、設定を次のように行った。</p>
+<h3 id="サーバ側">サーバ側</h3>
+<h4 id="step-1-パッケージの更新最新化">Step 1. パッケージの更新（最新化）</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt update
+$ sudo apt upgrade
+</code></pre></div><h4 id="step-2-chromeのインストール">Step 2. Chromeのインストール</h4>
+<p>Chromeは既にインストール済みなので、ここはスキップ。</p>
+<h4 id="step-3-chrome-remote-desktopをインストール">Step 3. Chrome Remote Desktopをインストール</h4>
+<p>コピペしてインストールスクリプト（シェル）を実行。　その後、再起動。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ bash &lt;(wget -qO- https://raw.githubusercontent.com/KeithIMyers/Chrome-Remote-Desktop-Ubuntu-Setup/master/chrome-remote-desktop-setup.sh)
+</code></pre></div><h4 id="step-4-設定">Step 4. 設定</h4>
 <ul>
-<li>「設定」の「地域と言語」の「入力ソース」で、「日本語（Mozc）」を「英語（US）」より上位に移動し、「日本語（Mozc）」の優先順を上げる。</li>
-<li>「Mozcの設定」を検索し、「Mozcのプロパティ」を開き、更に「キー設定の選択」の「編集」をクリックして、「Mozc設定」の画面を開く。ここで、次の４つのモードで、「Ctrl Space」キーに対するコマンドを「Hankaku/Zenkaku」のそれと同じように設定する。
-「変換前入入力中」、「変換中」、「直接入力」、「入力文字なし」の４つのモード。
-「直接入力」と「入力文字なし」では、「Ctrl Space」がなかったので、「編集」のメニューから「エントリーの追加」を選んで、エントリーを追加した。</li>
+<li>再起動後、先ずはChromeにRemote-Desktop拡張機能を追加する。
+Chromeを起動し、<a href="https://chrome.google.com/webstore/detail/chrome-remote-desktop/inomeogfingihgjfjlpeplalcfajhgai/">このページ</a>を開き、「Chromeに追加」をクリックする。
+「Chrome Remote Desktop」を追加しますか？のウィンドウが開くので、「拡張機能を追加」をクリックする。</li>
+<li>次にChrome Remote Desktop機能を起動し、サーバ名、PINを入力する。
+<a href="https://remotedesktop.google.com/">このページ</a>を開き、「パソコンにアクセス」をクリック。
+その後、リモートアクセスの設定の「オンにする」をクリック。
+名前の選択で、ホスト名（自分の場合、既にホスト名が入っていた）を入力。
+次に、PIN（6桁以上の数字）を入力すると、Chrome Remote Desktopが起動され、パスワード入力が求められた。</li>
 </ul>
-<h3 id="chromeをインストール">Chromeをインストール</h3>
-<p>UbuntuのディフォルトのブラウザFirefoxで、「chrome」を検索し、ダウンロードメニューで、64ビット.debを選び、「同意してインストールする」でダウンロードする。</p>
-<p>ダウンロードファイルをダブルクリックすると、インストールされる。</p>
-<h3 id="emacsをインストール">emacsをインストール</h3>
-<p>自分はviの方が使い慣れてはいるけど、日本語文章を入力する際は、モード切替がないemacsの方が、入力し易いと思っているので、emacsをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install emacs-nox
-</code></pre></div><p>後は、好みの設定を~/.emacs.dディレクトリ配下のinit.elで設定する。その中で、バックアップファイルを指定のディレクトリ（~/.ehist）に作るように指定しているので、そのディレクトリも作成。</p>
-<h3 id="nfsをインストール設定">NFSをインストール、設定</h3>
-<p>以前<a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">こちら</a>にポストしたように、自分の環境では、raspberry PiのディスクをNFSマウントして複数のマシンから共通的に使っている。そのため、次の通りNFSモジュールをインストール。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install nfs-common
-</code></pre></div><p>更に次の通り、/etc/fstabにnfsマウントの行を追記する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">192.168.xxx.yyy:/export/nfs  /mnt/nfs    nfs
-</code></pre></div><h3 id="nvidiaドライバーのインストール更新">NVIDIAドライバーのインストール（更新）</h3>
-<p>インストールした時点で、次の通りNVIDIAドライバーがインストールされている！</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ nvidia-smi
-Fri Apr  2 23:07:36 2021       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  GeForce GTX TITAN   Off  | 00000000:04:00.0 Off |                  N/A |
-| 30%   31C    P8    13W / 250W |     12MiB /  6083MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-|   1  Quadro K2000        Off  | 00000000:05:00.0  On |                  N/A |
-| 30%   30C    P8    N/A /  N/A |    242MiB /  1996MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                  4MiB |
-|    0   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                  4MiB |
-|    1   N/A  N/A      1206      G   /usr/lib/xorg/Xorg                 19MiB |
-|    1   N/A  N/A      1739      G   /usr/lib/xorg/Xorg                 70MiB |
-|    1   N/A  N/A      1865      G   /usr/bin/gnome-shell              101MiB |
-|    1   N/A  N/A      3790      G   ...AAAAAAAAA= --shared-files       40MiB |
-+-----------------------------------------------------------------------------+
-</code></pre></div><p>「NVIDIA X Server Settings」も正常に動いている。自分は、これを「お気に入り」に登録している。</p>
-<p>自分がUbuntu 20.04をインストールした時点では、上記の通り、ドライバーのバージョンは450.102.04。</p>
+<h3 id="クライアント側自分はmacのchrome">クライアント側（自分はMacのChrome）</h3>
+<ul>
+<li><a href="https://remotedesktop.google.com/access">次のページ</a>を開くと、リモートのデバイスの部分に、上記で設定したホスト名が表示されているので、それをクリック。</li>
+<li>PIN入力画面が表示されるので、PINを入力。</li>
+<li>真っ黒い画面となった。</li>
+<li>ここで、以下の通り、クライアント側から、以下を実行。</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -l hogehoge 192.168.xxx.yyy
+###サーバ側に接続されるので、続けて以下を実行。
+$ pkill gnome-session
+</code></pre></div><h3 id="サーバコンソールからのログイン">サーバコンソールからのログイン</h3>
+<p>上記により、サーバのコンソールから、ログインができるものの、ログインすると再び、真っ黒画面。</p>
+<p>このタイミングだったと思うが、クライアントからChrome Remote Desktopで接続ができた。そのスクリーンショットを撮っておけば良かった。それなりの画面サイズで表示されていたが、Dockのアイコンの形状がコンソールからログインした時のものと異なっていることは憶えている。</p>
+<h3 id="クライアントから作業">クライアントから作業</h3>
+<p>再び、クライアントからサーバに入っての作業。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ ssh -l hogehoge 192.168.xxx.yyy
+###サーバ側に接続されるので、続けて以下を実行。
+$ sudo apt-get autoremove chrome-remote-desktop
+</code></pre></div><p>これで、サーバ・コンソールからログインが正常に行えるようになった。</p>
+<h2 id="現状">現状</h2>
+<p>どうもログインする際のX window周りが上手く動いていなように思われる。</p>
+<p>Chrome-Remote-Desktopを再インストールし、参照ページの最後のこのページを参考に、「/opt/google/chrome-remote-desktop/chrome-remote-desktop」に次の処置。</p>
+<ul>
+<li>FIRST_X_DISPLAY_NUMBERを20から0に変更。</li>
+<li>X_LOCK_FILE_TEMPLATEのあるwhile文をコメントアウト。（自分のものと行番号が異なる）</li>
+</ul>
+<p>その他は、自分のものと、処理が異なっていたので、修正せず。</p>
+<p>この状態で、次のようになり、クライアントから使える状態にならない。但し、コンソールログインは正常に行える。</p>
+<h3 id="サーバ側-1">サーバ側</h3>
+<p>サーバ側のChromeは、次のような状態。</p>
+<p><img src="/images/20220416_ChromeRemoteDesktop/20220416_Server-Chrome-Remote-Desktop.png" alt="サーバ側"></p>
+<h3 id="クライアント側">クライアント側</h3>
+<p>クライアント側のChromeは、次のような状態で、結局クライアントから使える状態にない！！！</p>
+<p><img src="/images/20220416_ChromeRemoteDesktop/20220416_Client-Chrome-Remote-Desktop.png" alt="クライアント側"></p>
 
         
           <div class="blog-tags">
             
               <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
             
-              <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/remote-desktop/">Remote Desktop</a>&nbsp;
             
           </div>
         
@@ -395,42 +390,42 @@ Fri Apr  2 23:07:36 2021
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;text=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f&amp;text=Ubuntu%2020.04%e3%81%a7%e3%81%aeChrome%20Remote%20Desktop%20%e3%80%90%e5%a4%b1%e6%95%97%ef%bc%81%ef%bc%81%e3%80%91&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f&amp;title=Ubuntu%2020.04%e3%81%a7%e3%81%aeChrome%20Remote%20Desktop%20%e3%80%90%e5%a4%b1%e6%95%97%ef%bc%81%ef%bc%81%e3%80%91" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f&amp;title=Ubuntu%2020.04%e3%81%a7%e3%81%aeChrome%20Remote%20Desktop%20%e3%80%90%e5%a4%b1%e6%95%97%ef%bc%81%ef%bc%81%e3%80%91" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;title=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f&amp;title=Ubuntu%2020.04%e3%81%a7%e3%81%aeChrome%20Remote%20Desktop%20%e3%80%90%e5%a4%b1%e6%95%97%ef%bc%81%ef%bc%81%e3%80%91" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210405_ubuntu2004_install%2f&amp;description=Ubuntu%2020.04%e3%82%92HP%20Z620%e3%81%ab%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%83%bb%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220416_chromeremotedesktop%2f&amp;description=Ubuntu%2020.04%e3%81%a7%e3%81%aeChrome%20Remote%20Desktop%20%e3%80%90%e5%a4%b1%e6%95%97%ef%bc%81%ef%bc%81%e3%80%91" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -452,11 +447,9 @@ Fri Apr  2 23:07:36 2021
                   <ul>
                 
                 
-                    <li><a href="/post/20220416_chromeremotedesktop/">Ubuntu 20.04でのChrome Remote Desktop 【失敗！！】</a></li>
-                
                     <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
                 
-                    <li><a href="/post/20200813_mesa_install/">MESA(Modules for Experiments in Stellar Astrophysics)のインストール</a></li>
+                    <li><a href="/post/20210405_ubuntu2004_install/">Ubuntu 20.04をHP Z620にクリーン・インストール</a></li>
                 
               </ul>
 
@@ -468,13 +461,9 @@ Fri Apr  2 23:07:36 2021
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20201116_yaml_front_matter/" data-toggle="tooltip" data-placement="top" title="YAML front matter">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/" data-toggle="tooltip" data-placement="top" title="DCGANで人物画像を生成">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20210904_github_authentication/" data-toggle="tooltip" data-placement="top" title="Githubの認証方式が変更に！！！">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
