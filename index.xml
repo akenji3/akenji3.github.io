@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 16 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Mar 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>【失敗】Ubuntu 20.04でのChrome Remote Desktop</title>
-      <link>https://akenji3.github.io/post/20220416_chromeremotedesktop/</link>
-      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20220416_chromeremotedesktop/</guid>
-      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
-&lt;p&gt;とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。
-自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>DCGANで人物画像を生成</title>
@@ -31,6 +20,17 @@
       <guid>https://akenji3.github.io/post/20220318_dcgan_tutorial/</guid>
       <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;JDLA E資格の学習は終わった。学習中にGANに興味を持った。GeneratorとDiscriminatorに競わせる、noiseから画像を生成するという点が興味深い。チュートリアルを見ながら手を動かしてみることにした。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Amazon SageMaker Studio Labを試す</title>
+      <link>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（&lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;こちら&lt;/a&gt;や&lt;a href=&#34;https://akenji3.github.io/post/20210905_definition_file/&#34;&gt;こちら&lt;/a&gt;）。そうは言っても、GCPから提供されている&lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja&#34;&gt;Google Colaboratory&lt;/a&gt;を使ったこともある。&lt;/p&gt;
+&lt;p&gt;この記事では、最近発表された&lt;a href=&#34;https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/&#34;&gt;Amazon SageMaker Studio Lab&lt;/a&gt;を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。&lt;/p&gt;</description>
     </item>
     
     <item>

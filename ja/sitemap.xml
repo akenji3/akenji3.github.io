@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,8 +19,13 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/categories/ai/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,8 +39,18 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/post/20220318_dcgan_tutorial/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/gan/</loc>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -49,28 +64,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/remote-desktop/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/software/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/software/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -84,28 +79,48 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/ubuntu/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20220416_chromeremotedesktop/</loc>
-    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/aws/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/categories/ai/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20220318_dcgan_tutorial/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/categories/service/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/service/"
+                />
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/gan/</loc>
-    <lastmod>2022-03-18T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/categories/software/</loc>
+    <lastmod>2021-12-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/software/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/software/"
+                />
   </url>
   
   <url>
@@ -319,21 +334,6 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/categories/service/</loc>
-    <lastmod>2021-09-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/service/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/service/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/post/20210912_display_inline_math/</loc>
     <lastmod>2021-09-12T00:00:00+00:00</lastmod>
   </url>
@@ -380,6 +380,11 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/install/</loc>
+    <lastmod>2021-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/ubuntu/</loc>
     <lastmod>2021-09-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -471,11 +476,6 @@
   <url>
     <loc>https://akenji3.github.io/post/20200811_blog_ongithub/</loc>
     <lastmod>2020-08-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/jupyterlab/</loc>
-    <lastmod>2020-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
