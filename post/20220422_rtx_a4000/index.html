@@ -61,7 +61,7 @@
   "headline": "NVIDIA RTX A4000 (sm_86)上でPytorchを使う",
   "description" : "はじめに 先日、ジーデップ・アドバンス（以下、GDEP）より、NVIDIA RTX A4000を購入した。GDEPは法人メインの取引だと思ってたので、個人購入可能かを質問し、可能と分かったので、何回かやり取り（見積り、入金）の後、先日入手した。\n早速A4000を使って、このDCGANを試した。自分の環境で、A4000上でPytorchを使ったら、少しハマった。状況、原因、対応などについて、ここにまとめる。タイトルにある「sm_86」は今回のキーワード！\n",
   "inLanguage" : "ja",
-  "wordCount":  1725 ,
+  "wordCount":  1729 ,
   "datePublished" : "2022-04-22T00:00:00",
   "dateModified" : "2022-04-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -307,8 +307,8 @@ if (!doNotTrack) {
 <h2 id="起動まで">起動まで</h2>
 <p>GDEPのホームページの「お問い合わせ」から、個人で購入可能かと問い合わせたところ、可能とのことだった。購入への最終判断の後、送付された「注文確認書」に必要事項を記入・送付（メール）した。いわゆる発注した。その後請求書が届いた（メール）ので、振込先に見積り金額を振り込んだ。
 翌ビジネス日には送付され、翌々ビジネス日には手元に届いた。タイミングが良かったのか、非常に短い手番で入手できた。</p>
-<p><img src="/static/images/20220421_RTX_A4000/20220421_RTX_A4000_box.png" alt="packaging">輸送用の箱から取り出した状態、コンシューマ（ゲーマー)向けのGeforceの箱と比べるとシンプル。</p>
-<p><img src="/static/images/20220421_RTX_A4000/20220421_RTX_A4000_inZ820.png" alt="inside_Z820"> Z820のPCIスロット7に装着した状態（一番下で、背が金色に輝いているボード)。気が焦っていたためか、6ピン補助電源の接続を忘れてた。サーバ起動してもGPUが認識されずに焦った。その後補助電源を（写真の右側に挿してあるケーブルを)接続した。</p>
+<p><img src="/images/20220421_RTX_A4000/20220421_RTX_A4000_box.png" alt="packaging">輸送用の箱から取り出した状態、コンシューマ（ゲーマー)向けのGeforceの箱と比べるとシンプル。</p>
+<p><img src="/images/20220421_RTX_A4000/20220421_RTX_A4000_inZ820.png" alt="inside_Z820"> Z820のPCIスロット7に装着した状態（一番下で、背が金色に輝いているボード)。気が焦っていたためか、6ピン補助電源の接続を忘れてた。サーバ起動してもGPUが認識されずに焦った。その後補助電源を（写真の右側に挿してあるケーブルを)接続した。</p>
 <h2 id="jupyterlabでエラー">jupyterlabでエラー</h2>
 <p>ワークステーションの電源を入れ、「NVIDIA X Server Setting」を起動すると、「NVIDIA RTX A4000」と表示された。きちんと認識されているようなので、早速<a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/">この記事</a>の内容を実行。</p>
 <p>そうすると、イメージからdatasetを作り、dataloaderを作り、device（この場合A4000）に転送する部分（imshowのためtransposeする箇所）でエラーが発生。</p>
@@ -350,10 +350,10 @@ print(torch.cuda.get_arch_list())
 <p>もう一度、サンプルコードの実行時のメッセージをよく見る。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">If you want to use the NVIDIA RTX A4000 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
 </code></pre></div><p>チェックしろ！と言われたページは、次のとおり。（自分の環境用に選択している）</p>
-<p><img src="/static/images/20220421_RTX_A4000/20220421_pytorch_start_locally.png" alt="get-started_locally"></p>
+<p><img src="/images/20220421_RTX_A4000/20220421_pytorch_start_locally.png" alt="get-started_locally"></p>
 <p>アッそうか！　Run this Command欄でのインストールコマンドの通りにインストール必要がある！！</p>
-<p>defファイルは次のとおり。</p>
-<p>一番のポイントは、「pip3 install torch torchvision torchaudio &ndash;extra-index-url <a href="https://download.pytorch.org/whl/cu113">https://download.pytorch.org/whl/cu113</a>」とインストールする版を指定している部分。</p>
+<p>defファイルを次のように変更した。</p>
+<p>今回の一番のポイントは、「pip3 install torch torchvision torchaudio &ndash;extra-index-url <a href="https://download.pytorch.org/whl/cu113">https://download.pytorch.org/whl/cu113</a>」とインストールする版を指定している部分。</p>
 <p>更に、これまでjupyterlabを使っていて必要となったパッケージを追加し、全体を整理した。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># pytorchベースのjupyterlabが動く、singularityコンテナを作成する。
 
@@ -374,7 +374,7 @@ FRom:	nvidia/cuda:11.6.2-cudnn8-devel-ubuntu20.04
 	jupyter-lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=&#39;&#39; --notebook-dir=/workdir
 
 </code></pre></div><h2 id="まとめ今後について">まとめ、今後について</h2>
-<p>今回のことで改めて痛感したことは、「ちゃんとメッセージは読まなくっちゃ！」ということ。</p>
+<p>今回のことで痛感したことは、「ちゃんとメッセージは読まなくっちゃ！」ということ。</p>
 <p>実行してみて、体感的に（GTX 1080と比べて）速くなったように感じたので、今後計測する。</p>
 
         
