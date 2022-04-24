@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GPU on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/tags/gpu/</link>
-    <description>Recent content in GPU on akenji&#39;s lab</description>
+    <title>DCGAN on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/dcgan/</link>
+    <description>Recent content in DCGAN on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
     <lastBuildDate>Sat, 23 Apr 2022 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akenji3.github.io/tags/gpu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akenji3.github.io/tags/dcgan/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,17 +22,6 @@
 &lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20220422_rtx_a4000/&#34;&gt;この記事&lt;/a&gt;で&lt;a href=&#34;https://akenji3.github.io/post/20220318_dcgan_tutorial/&#34;&gt;DCGAN&lt;/a&gt;を実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
 また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。&lt;/p&gt;
 &lt;p&gt;今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>NVIDIA RTX A4000 (sm_86)上でPytorchを使う</title>
-      <link>https://akenji3.github.io/post/20220422_rtx_a4000/</link>
-      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20220422_rtx_a4000/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;先日、&lt;a href=&#34;https://www.gdep.co.jp/&#34;&gt;ジーデップ・アドバンス&lt;/a&gt;（以下、GDEP）より、NVIDIA RTX A4000を購入した。GDEPは法人メインの取引だと思ってたので、個人購入可能かを質問し、可能と分かったので、何回かやり取り（見積り、入金）の後、先日入手した。&lt;/p&gt;
-&lt;p&gt;早速A4000を使って、&lt;a href=&#34;https://akenji3.github.io/post/20220318_dcgan_tutorial/&#34;&gt;このDCGAN&lt;/a&gt;を試した。自分の環境で、A4000上でPytorchを使ったら、少しハマった。状況、原因、対応などについて、ここにまとめる。タイトルにある「sm_86」は今回のキーワード！&lt;/p&gt;</description>
     </item>
     
   </channel>

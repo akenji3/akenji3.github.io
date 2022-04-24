@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,12 +20,12 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/a4000/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,23 +39,23 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/tags/ctx-1080/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/dcgan/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/tags/gpu/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/hardware/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/post/20220422_rtx_a4000/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -69,13 +69,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/pytorch/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20220424_wssperformance/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -90,7 +90,7 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -101,6 +101,21 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/hardware/</loc>
+    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20220422_rtx_a4000/</loc>
+    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/pytorch/</loc>
+    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
