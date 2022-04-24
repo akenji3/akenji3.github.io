@@ -19,11 +19,6 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/a4000/</loc>
-    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/categories/</loc>
     <lastmod>2022-04-23T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -39,17 +34,17 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/ctx-1080/</loc>
-    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/tags/dcgan/</loc>
     <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/tags/gpu/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/gtx-1080/</loc>
     <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -66,6 +61,11 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/post/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/rtx-a4000/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -101,6 +101,11 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/a4000/</loc>
+    <lastmod>2022-04-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

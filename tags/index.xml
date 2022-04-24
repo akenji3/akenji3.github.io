@@ -13,24 +13,6 @@
     
     
     <item>
-      <title>A4000</title>
-      <link>https://akenji3.github.io/tags/a4000/</link>
-      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/a4000/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CTX 1080</title>
-      <link>https://akenji3.github.io/tags/ctx-1080/</link>
-      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/tags/ctx-1080/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>DCGAN</title>
       <link>https://akenji3.github.io/tags/dcgan/</link>
       <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
@@ -45,6 +27,33 @@
       <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GTX 1080</title>
+      <link>https://akenji3.github.io/tags/gtx-1080/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/gtx-1080/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RTX A4000</title>
+      <link>https://akenji3.github.io/tags/rtx-a4000/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/rtx-a4000/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A4000</title>
+      <link>https://akenji3.github.io/tags/a4000/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/tags/a4000/</guid>
       <description></description>
     </item>
     
