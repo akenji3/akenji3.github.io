@@ -7,11 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Raspberry PiのディスクをNFSマウントして使う - akenji&#39;s lab</title>
+  <title>ローカルディスク／NFSファイルのリード・ライト実行速度比較 - akenji&#39;s lab</title>
   <meta name="description" content="モチベーション
-家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
-文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
-今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。">
+この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -47,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20200812_raspberrypi_nfs\/",
-          "name": "Raspberry piのディスクを n f sマウントして使う"
+          "@id": "https:\/\/akenji3.github.io\/post\/20220505_disk_rw\/",
+          "name": "ローカルディスク／ n f sファイルのリード・ライト実行速度比較"
         }
     }]
 }
@@ -59,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Raspberry PiのディスクをNFSマウントして使う",
-  "description" : "モチベーション 家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。\n文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。\n今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。\n",
+  "headline": "ローカルディスク／NFSファイルのリード・ライト実行速度比較",
+  "description" : "モチベーション この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。\n",
   "inLanguage" : "ja",
-  "wordCount":  1767 ,
-  "datePublished" : "2020-08-12T00:00:00",
-  "dateModified" : "2020-08-12T00:00:00",
+  "wordCount":  840 ,
+  "datePublished" : "2022-05-05T00:00:00",
+  "dateModified" : "2022-05-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "Raspberry Pi, NFS" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20200812_raspberrypi_nfs\/",
+  "keywords" : [ "NFS" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220505_disk_rw\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -81,21 +79,17 @@
 }
 </script>
 
-<meta property="og:title" content="Raspberry PiのディスクをNFSマウントして使う" />
+<meta property="og:title" content="ローカルディスク／NFSファイルのリード・ライト実行速度比較" />
 <meta property="og:description" content="モチベーション
-家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
-文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
-今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。">
+この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20220505_disk_rw/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Raspberry PiのディスクをNFSマウントして使う" />
+  <meta name="twitter:title" content="ローカルディスク／NFSファイルのリード・ライト実行速度比較" />
   <meta name="twitter:description" content="モチベーション
-家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。
-文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。
-今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加 …">
+この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -269,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Raspberry PiのディスクをNFSマウントして使う</h1>
+                <h1>ローカルディスク／NFSファイルのリード・ライト実行速度比較</h1>
               
               
               
@@ -277,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;August 12, 2020に投稿
+  <i class="fas fa-calendar"></i>&nbsp;May 5, 2022に投稿
   
   
   
@@ -305,108 +299,149 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p>家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。</p>
-<p>文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。</p>
-<p>今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。</p>
-<h2 id="環境">環境</h2>
-<p>NFSマウントするサーバ、クライアント、および各々のディレクトリは、以下のとおり。</p>
-<h3 id="nfsサーバ">NFSサーバ</h3>
-<ul>
-<li>Raspberry Pi 3B+
-<ul>
-<li>raspberrypi 4.19.66-v7-</li>
-<li>/export/nfs配下をNFSマウント用に公開</li>
-</ul>
-</li>
-</ul>
-<h3 id="nfsクライアント">NFSクライアント</h3>
-<ul>
-<li>HP Z820
-<ul>
-<li>Ubuntu 18.02.2</li>
-<li>NFSマウントする自分のディレクトリは/mnt/nfs</li>
-</ul>
-</li>
-<li>HP Z620
-<ul>
-<li>Ubuntu 18.04.2</li>
-<li>NFSマウントする自分のディレクトリは/mnt/nfs</li>
-</ul>
-</li>
-<li>MacBook Pro
-<ul>
-<li>macOS Catalina バージョン 10.15.6</li>
-<li>NFSマウントする自分のディレクトリは/opt/nfs
-マウントするディレクトリが、他のクライアント異なっている理由は後述する。</li>
-</ul>
-</li>
-</ul>
-<h2 id="nfsサーバの設定">NFSサーバの設定</h2>
-<h3 id="外部ディスクを接続">外部ディスクを接続</h3>
-<p>詳細は省略するが、新規の外部ディスク（USB接続）をRaspberry Piから使うには、次のような手順で行う。</p>
-<ul>
-<li>パーティション設定（例えば、sudo fdisk /dev/sdc)</li>
-<li>フォーマット（ext4でフォーマットするには、sudo mkfs.ext4 /dev/sdc1）</li>
-<li>必要ならボリュームラベル設定（例えば、sudo e2label /dev/sdc1 ssd480）</li>
-</ul>
-<p>上記の例でのデバイス/dev/sdc1と後で説明で出てくるデバイス/dev/sda1と異なっているのは、使用している外付けUSBデバイスを変更したため。</p>
-<h3 id="設定手順の概要">設定手順の概要</h3>
-<p>NFSサーバー設定手順の概要は次の通り。</p>
-<ul>
-<li>NFSサーバをインストール</li>
-<li>NFSマウント用に/etc/fstabと/etc/exportsを設定</li>
-</ul>
-<h3 id="nfsサーバをインストール">NFSサーバをインストール</h3>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install nfs-kernel-server
-</code></pre></div><p>自分が実行した際には、インストールの後処理で、サービスが正常に動作していないようだったので、rebootした後、以下でサービスが正常に動作していることを確認した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ service rpcbind status
-</code></pre></div><h3 id="etcfstabの設定">/etc/fstabの設定</h3>
-<p>NFSマウントで公開する/export/nfsは実態はなく、/media/pi/ssd480/nfsをマウントしている。これを/etc/fstabに設定する。</p>
-<p>これは、サーバの外部ディスクを変更しても、NFSマウントしているクライアント側には、影響しないようにするためである。</p>
-<p>実は、ここの設定で少し苦労した。</p>
-<p>システムが自動でマウントする/media/pi/ssd480を仮定して、/etc/fstabに/media/pi/ssd480/nfsを/export/nfsにマウントするような設定だと、自動マウントの結果、/media/pi/ssd4801が作られ、実態はそちらにあったりした。</p>
-<p>最終的には、/etc/fstabに次の2行を追加した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">/dev/sda1 /media/pi/ssd480	ext4	defaults	0	0
-/media/pi/ssd480/nfs		/export/nfs		none	bind	0	0
-</code></pre></div><h3 id="etcexportsの設定">/etc/exportsの設定</h3>
-<p>次の1行を追加した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">/export/nfs	192.168.xxx.0/24(rw,sync,no_subtree_check,no_root_squash)
-</code></pre></div><h2 id="nfsクライアント-1">NFSクライアント</h2>
-<h3 id="ワークステーションubuntu-1802">ワークステーション（Ubuntu 18.02）</h3>
-<p>UbuntuでNFSクライアントの設定は、次の2手順で完了。</p>
-<ul>
-<li>NFSのパッケージをインストール</li>
-<li>NFSマウント実行</li>
-</ul>
-<p>具体的には、次の手順。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt install nfs-common
-$ sudo mount 192.168.xxx.yyy:/export/nfs /mnt/nfs
-</code></pre></div><p>起動時に自動的にNFSマウントさせるため、/etc/fstabに次の1行を記述。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">192.168.xxx.yyy:/export/nfs	/mnt/nfs	nfs
-</code></pre></div><h3 id="macbook-pro-macos-catalina">MacBook Pro （macOS Catalina）</h3>
-<p>MacでNFSマウントする場合には、マウントする自分のディレクトリに注意が必要。</p>
-<p>例えば、/Volumes配下にディレクトリを作成して、NFSマウントしようとすると、次のようなエラーとなった。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">mount_nfs: can&#39;t mount /export/nfs from 192.168.xxx.yyy onto /Volumes/NFS: Operation not permitted
-</code></pre></div><p>ネットで調べてみると、Catalinaになって、その辺りの仕様が変更になったように読み取れた。</p>
-<p>また、/（ルート）に、/mntディレクトリを作成しようとすると、次のようなエラーとなった。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo mkdir /mnt
-Password:
-mkdir: /mnt: Read-only file system
-</code></pre></div><p>そこで、/（ルート）にあった空きのディレクトリ/opt配下にnfsディレクトリを作成して、そこにNFSマウントすることにした。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo mkdir -p /opt/nfs
-$ sudo chmod 777 /opt/nfs
-$ sudo mount_nfs -P 192.168.xxx.yyy:/export/nfs /opt/nfs
-</code></pre></div><p>自分は、毎回手動でNFSマウントすることにした。そのためのシェルプロを使って、IPアドレスなどの入力は省略できるようにしている。以下参考。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ cat $HOME/bin/nfsmount
-sudo mount_nfs -P 192.168.xxx.yyy:/export/nfs /opt/nfs
-$ tail -1 $HOME/.bash_profile
-export PATH=&#34;$HOME/bin:$PATH&#34;
-</code></pre></div>
+<p><a href="https://akenji3.github.io/post/20220424_wssperformance/">この記事</a>で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。</p>
+<h2 id="測定環境">測定環境</h2>
+<p>測定したワークステーション、NFSマウント先については、前回の記事の<a href="https://akenji3.github.io/post/20220424_wssperformance/#%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83">実行環境</a>の通り。</p>
+<p>測定に使用したコードは、以下の通り、実行する際に、ローカルディレクトリ、NFSのディレクトリに<code>cd</code>して、このシェルプロを実行した。</p>
+<p>4KB/16KB/64KB/256KB/1024KB単位に2GBのファイルを<code>dd</code>でwriteし、その後readするもの。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="c1"># Disk write</span>
+
+<span class="c1"># 4KBx512K回</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_4K <span class="nv">bs</span><span class="o">=</span>4K <span class="nv">count</span><span class="o">=</span>512K <span class="nv">conv</span><span class="o">=</span>fdatasync
+<span class="nb">echo</span> <span class="s2">&#34;write 4K\n&#34;</span>
+
+<span class="c1"># 16KBx128K回</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_16K <span class="nv">bs</span><span class="o">=</span>16K <span class="nv">count</span><span class="o">=</span>128K <span class="nv">conv</span><span class="o">=</span>fdatasync
+<span class="nb">echo</span> <span class="s2">&#34;write 16K\n&#34;</span>
+
+<span class="c1"># 64KBx32K回</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_64K <span class="nv">bs</span><span class="o">=</span>64K <span class="nv">count</span><span class="o">=</span>32K <span class="nv">conv</span><span class="o">=</span>fdatasync
+<span class="nb">echo</span> <span class="s2">&#34;write 64K\n&#34;</span>
+
+<span class="c1"># 256KBx8K回</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_256K <span class="nv">bs</span><span class="o">=</span>256K <span class="nv">count</span><span class="o">=</span>8K <span class="nv">conv</span><span class="o">=</span>fdatasync
+<span class="nb">echo</span> <span class="s2">&#34;write 256K\n&#34;</span>
+
+<span class="c1"># 1024KBx2K回</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_1024K <span class="nv">bs</span><span class="o">=</span>1024K <span class="nv">count</span><span class="o">=</span>2K <span class="nv">conv</span><span class="o">=</span>fdatasync
+<span class="nb">echo</span> <span class="s2">&#34;write 1024K\n&#34;</span>
+
+
+<span class="c1"># Disk read</span>
+<span class="c1"># 4KBx512K回</span>
+<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+dd <span class="k">if</span><span class="o">=</span>bench_4K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>4K <span class="nv">count</span><span class="o">=</span>512K
+<span class="nb">echo</span> <span class="s2">&#34;read 4K\n&#34;</span>
+
+<span class="c1"># 16KBx128K回</span>
+<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+dd <span class="k">if</span><span class="o">=</span>bench_16K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>16K <span class="nv">count</span><span class="o">=</span>128K
+<span class="nb">echo</span> <span class="s2">&#34;read 16K\n&#34;</span>
+
+<span class="c1"># 64KBx32K回</span>
+<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+dd <span class="k">if</span><span class="o">=</span>bench_64K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>64K <span class="nv">count</span><span class="o">=</span>32K
+<span class="nb">echo</span> <span class="s2">&#34;read 64K\n&#34;</span>
+
+<span class="c1"># 256KBx8K回</span>
+<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+dd <span class="k">if</span><span class="o">=</span>bench_256K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>256K <span class="nv">count</span><span class="o">=</span>8K
+<span class="nb">echo</span> <span class="s2">&#34;read 256K\n&#34;</span>
+
+<span class="c1"># 1024KBx2K回</span>
+<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
+dd <span class="k">if</span><span class="o">=</span>bench_1024K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>1024K <span class="nv">count</span><span class="o">=</span>2K
+<span class="nb">echo</span> <span class="s2">&#34;read 1024K\n&#34;</span>
+
+
+<span class="c1"># Clean up created files</span>
+rm bench_4K bench_16K bench_64K bench_256K bench_1024K 
+</code></pre></div><h2 id="測定結果">測定結果</h2>
+<p>上記の測定用シェルプロを3回実行し、<code>dd</code>の結果として表示される、転送速度（MB/s）の平均値を測定結果とした。</p>
+<h3 id="ローカルファイルのリードライト">ローカルファイルのリード／ライト</h3>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>Write (MB/s)</th>
+<th>Read (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">4KB</td>
+<td>262</td>
+<td>529</td>
+</tr>
+<tr>
+<td align="center">16KB</td>
+<td>308</td>
+<td>526</td>
+</tr>
+<tr>
+<td align="center">64KB</td>
+<td>326</td>
+<td>526</td>
+</tr>
+<tr>
+<td align="center">256KB</td>
+<td>329</td>
+<td>526</td>
+</tr>
+<tr>
+<td align="center">1024KB</td>
+<td>332</td>
+<td>542</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/20220505_DISK_RW/20220505_Local_fileRW.png" alt="Local_RW"></p>
+<h3 id="nfsファイルのリードライト">NFSファイルのリード／ライト</h3>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>Write (MB/s)</th>
+<th>Read (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">4KB</td>
+<td>10.7</td>
+<td>11.7</td>
+</tr>
+<tr>
+<td align="center">16KB</td>
+<td>10.6</td>
+<td>11.7</td>
+</tr>
+<tr>
+<td align="center">64KB</td>
+<td>10.7</td>
+<td>11.7</td>
+</tr>
+<tr>
+<td align="center">256KB</td>
+<td>10.9</td>
+<td>11.7</td>
+</tr>
+<tr>
+<td align="center">1024KB</td>
+<td>10.5</td>
+<td>11.7</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/20220505_DISK_RW/20220505_NFS_fileRW.png" alt="NFS_RW"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>自分の環境において、NFSファイルとローカルファイルのリード／ライトの性能を比較すると、writeで30倍、readで50倍程度の差がある。</p>
+<p>NFSは複数ワークステーションでデータ共有するのに便利であるが、ファイル読み書きのあるアプリ実行の場合、ローカル側にデータを置くように、考えた方が良さそうだ。</p>
 
         
           <div class="blog-tags">
-            
-              <a href="https://akenji3.github.io/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
             
               <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
             
@@ -423,42 +458,42 @@ export PATH=&#34;$HOME/bin:$PATH&#34;
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f&amp;text=Raspberry%20Pi%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%82%92NFS%e3%83%9e%e3%82%a6%e3%83%b3%e3%83%88%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;text=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f&amp;title=Raspberry%20Pi%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%82%92NFS%e3%83%9e%e3%82%a6%e3%83%b3%e3%83%88%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f&amp;title=Raspberry%20Pi%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%82%92NFS%e3%83%9e%e3%82%a6%e3%83%b3%e3%83%88%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f&amp;title=Raspberry%20Pi%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%82%92NFS%e3%83%9e%e3%82%a6%e3%83%b3%e3%83%88%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20200812_raspberrypi_nfs%2f&amp;description=Raspberry%20Pi%e3%81%ae%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%e3%82%92NFS%e3%83%9e%e3%82%a6%e3%83%b3%e3%83%88%e3%81%97%e3%81%a6%e4%bd%bf%e3%81%86" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;description=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -480,7 +515,7 @@ export PATH=&#34;$HOME/bin:$PATH&#34;
                   <ul>
                 
                 
-                    <li><a href="/post/20220505_disk_rw/">ローカルディスク／NFSファイルのリード・ライト実行速度比較</a></li>
+                    <li><a href="/post/20200812_raspberrypi_nfs/">Raspberry PiのディスクをNFSマウントして使う</a></li>
                 
               </ul>
 
@@ -492,13 +527,9 @@ export PATH=&#34;$HOME/bin:$PATH&#34;
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" data-toggle="tooltip" data-placement="top" title="GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20220424_wssperformance/" data-toggle="tooltip" data-placement="top" title="RTX A4000とGTX 1080との実行速度比較">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20200813_mesa_install/" data-toggle="tooltip" data-placement="top" title="MESA(Modules for Experiments in Stellar Astrophysics)のインストール">次ページ &rarr;</a>
-            </li>
           
         </ul>
       

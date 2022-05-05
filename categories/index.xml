@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 23 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hardware</title>
+      <link>https://akenji3.github.io/categories/hardware/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/categories/hardware/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>software</title>
@@ -18,15 +27,6 @@
       <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/categories/software/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hardware</title>
-      <link>https://akenji3.github.io/categories/hardware/</link>
-      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/categories/hardware/</guid>
       <description></description>
     </item>
     
