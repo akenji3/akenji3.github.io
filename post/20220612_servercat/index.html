@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>ローカルディスク／NFSファイルのリード・ライト実行速度比較 - akenji&#39;s lab</title>
+  <title>ServerCatを試す - akenji&#39;s lab</title>
   <meta name="description" content="モチベーション
-この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
+以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、この記事を読んで、今回紹介するServerCatを試してみようと思った。
+ポイントはiOS/MacOSから監視できるという点。自分はMacOS版しか試していない。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20220505_disk_rw\/",
-          "name": "ローカルディスク／ n f sファイルのリード・ライト実行速度比較"
+          "@id": "https:\/\/akenji3.github.io\/post\/20220612_servercat\/",
+          "name": "Server catを試す"
         }
     }]
 }
@@ -57,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "ローカルディスク／NFSファイルのリード・ライト実行速度比較",
-  "description" : "モチベーション この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。\n",
+  "headline": "ServerCatを試す",
+  "description" : "モチベーション 以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、この記事を読んで、今回紹介するServerCatを試してみようと思った。\nポイントはiOS\/MacOSから監視できるという点。自分はMacOS版しか試していない。\n",
   "inLanguage" : "ja",
-  "wordCount":  840 ,
-  "datePublished" : "2022-05-05T00:00:00",
-  "dateModified" : "2022-05-05T00:00:00",
+  "wordCount":  999 ,
+  "datePublished" : "2022-06-12T00:00:00",
+  "dateModified" : "2022-06-12T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "NFS" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220505_disk_rw\/",
+  "keywords" : [ "monitor" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220612_servercat\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="ローカルディスク／NFSファイルのリード・ライト実行速度比較" />
+<meta property="og:title" content="ServerCatを試す" />
 <meta property="og:description" content="モチベーション
-この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
+以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、この記事を読んで、今回紹介するServerCatを試してみようと思った。
+ポイントはiOS/MacOSから監視できるという点。自分はMacOS版しか試していない。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20220505_disk_rw/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20220612_servercat/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="ローカルディスク／NFSファイルのリード・ライト実行速度比較" />
+  <meta name="twitter:title" content="ServerCatを試す" />
   <meta name="twitter:description" content="モチベーション
-この記事で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。">
+以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、この記事を読んで、今回紹介するServerCatを試してみようと思った。
+ポイントはiOS/MacOSから監視できるという点。自分はMacOS版しか試していない。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>ローカルディスク／NFSファイルのリード・ライト実行速度比較</h1>
+                <h1>ServerCatを試す</h1>
               
               
               
@@ -271,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;May 5, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;June 12, 2022に投稿
   
   
   
@@ -299,151 +302,55 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20220424_wssperformance/">この記事</a>で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。</p>
-<h2 id="測定環境">測定環境</h2>
-<p>測定したワークステーション、NFSマウント先については、前回の記事の<a href="https://akenji3.github.io/post/20220424_wssperformance/#%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83">実行環境</a>の通り。</p>
-<p>測定に使用したコードは、以下の通り、実行する際に、ローカルディレクトリ、NFSのディレクトリに<code>cd</code>して、このシェルプロを実行した。</p>
-<p>4KB/16KB/64KB/256KB/1024KB単位に2GBのファイルを<code>dd</code>でwriteし、その後readするもの。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-<span class="c1"># Disk write</span>
-
-<span class="c1"># 4KBx512K回</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_4K <span class="nv">bs</span><span class="o">=</span>4K <span class="nv">count</span><span class="o">=</span>512K <span class="nv">conv</span><span class="o">=</span>fdatasync
-<span class="nb">echo</span> <span class="s2">&#34;write 4K\n&#34;</span>
-
-<span class="c1"># 16KBx128K回</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_16K <span class="nv">bs</span><span class="o">=</span>16K <span class="nv">count</span><span class="o">=</span>128K <span class="nv">conv</span><span class="o">=</span>fdatasync
-<span class="nb">echo</span> <span class="s2">&#34;write 16K\n&#34;</span>
-
-<span class="c1"># 64KBx32K回</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_64K <span class="nv">bs</span><span class="o">=</span>64K <span class="nv">count</span><span class="o">=</span>32K <span class="nv">conv</span><span class="o">=</span>fdatasync
-<span class="nb">echo</span> <span class="s2">&#34;write 64K\n&#34;</span>
-
-<span class="c1"># 256KBx8K回</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_256K <span class="nv">bs</span><span class="o">=</span>256K <span class="nv">count</span><span class="o">=</span>8K <span class="nv">conv</span><span class="o">=</span>fdatasync
-<span class="nb">echo</span> <span class="s2">&#34;write 256K\n&#34;</span>
-
-<span class="c1"># 1024KBx2K回</span>
-dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>bench_1024K <span class="nv">bs</span><span class="o">=</span>1024K <span class="nv">count</span><span class="o">=</span>2K <span class="nv">conv</span><span class="o">=</span>fdatasync
-<span class="nb">echo</span> <span class="s2">&#34;write 1024K\n&#34;</span>
-
-
-<span class="c1"># Disk read</span>
-<span class="c1"># 4KBx512K回</span>
-<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-dd <span class="k">if</span><span class="o">=</span>bench_4K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>4K <span class="nv">count</span><span class="o">=</span>512K
-<span class="nb">echo</span> <span class="s2">&#34;read 4K\n&#34;</span>
-
-<span class="c1"># 16KBx128K回</span>
-<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-dd <span class="k">if</span><span class="o">=</span>bench_16K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>16K <span class="nv">count</span><span class="o">=</span>128K
-<span class="nb">echo</span> <span class="s2">&#34;read 16K\n&#34;</span>
-
-<span class="c1"># 64KBx32K回</span>
-<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-dd <span class="k">if</span><span class="o">=</span>bench_64K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>64K <span class="nv">count</span><span class="o">=</span>32K
-<span class="nb">echo</span> <span class="s2">&#34;read 64K\n&#34;</span>
-
-<span class="c1"># 256KBx8K回</span>
-<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-dd <span class="k">if</span><span class="o">=</span>bench_256K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>256K <span class="nv">count</span><span class="o">=</span>8K
-<span class="nb">echo</span> <span class="s2">&#34;read 256K\n&#34;</span>
-
-<span class="c1"># 1024KBx2K回</span>
-<span class="nb">echo</span> <span class="m">3</span> &gt; /proc/sys/vm/drop_caches
-dd <span class="k">if</span><span class="o">=</span>bench_1024K <span class="nv">of</span><span class="o">=</span>/dev/null <span class="nv">bs</span><span class="o">=</span>1024K <span class="nv">count</span><span class="o">=</span>2K
-<span class="nb">echo</span> <span class="s2">&#34;read 1024K\n&#34;</span>
-
-
-<span class="c1"># Clean up created files</span>
-rm bench_4K bench_16K bench_64K bench_256K bench_1024K 
-</code></pre></div><h2 id="測定結果">測定結果</h2>
-<p>上記の測定用シェルプロを3回実行し、<code>dd</code>の結果として表示される、転送速度（MB/s）の平均値を測定結果とした。</p>
-<h3 id="ローカルファイルのリードライト">ローカルファイルのリード／ライト</h3>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th>Write (MB/s)</th>
-<th>Read (MB/s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">4KB</td>
-<td>262</td>
-<td>529</td>
-</tr>
-<tr>
-<td align="center">16KB</td>
-<td>308</td>
-<td>526</td>
-</tr>
-<tr>
-<td align="center">64KB</td>
-<td>326</td>
-<td>526</td>
-</tr>
-<tr>
-<td align="center">256KB</td>
-<td>329</td>
-<td>526</td>
-</tr>
-<tr>
-<td align="center">1024KB</td>
-<td>332</td>
-<td>542</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/images/20220505_DISK_RW/20220505_Local_fileRW.png" alt="Local_RW"></p>
-<h3 id="nfsファイルのリードライト">NFSファイルのリード／ライト</h3>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th>Write (MB/s)</th>
-<th>Read (MB/s)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">4KB</td>
-<td>10.7</td>
-<td>11.7</td>
-</tr>
-<tr>
-<td align="center">16KB</td>
-<td>10.6</td>
-<td>11.7</td>
-</tr>
-<tr>
-<td align="center">64KB</td>
-<td>10.7</td>
-<td>11.7</td>
-</tr>
-<tr>
-<td align="center">256KB</td>
-<td>10.9</td>
-<td>11.7</td>
-</tr>
-<tr>
-<td align="center">1024KB</td>
-<td>10.5</td>
-<td>11.7</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/images/20220505_DISK_RW/20220505_NFS_fileRW.png" alt="NFS_RW"></p>
-<h2 id="まとめ">まとめ</h2>
-<p>自分の環境において、NFSファイルとローカルファイルのリード／ライトの性能を比較すると、writeで30倍、readで50倍程度の差がある。</p>
-<p>NFSは複数ワークステーションでデータ共有するのに便利であるが、ファイル読み書きのあるアプリ実行の場合、ローカル側にデータを置くように、考えた方が良さそうだ。</p>
+<p>以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、<a href="https://japan.zdnet.com/article/35187907/">この記事</a>を読んで、今回紹介するServerCatを試してみようと思った。</p>
+<p>ポイントはiOS/MacOSから監視できるという点。自分はMacOS版しか試していない。</p>
+<h2 id="インストール">インストール</h2>
+<p>インストールは、以下の手順の通り、とっても簡単。</p>
+<h4 id="app-storeからインストール">App Storeからインストール</h4>
+<ul>
+<li>App Storeを開き、「servercat」で検索し、「入手」「インストール」する。</li>
+</ul>
+<p><img src="/images/20220612_ServerCat/20220612_AppStore.png" alt="app_store"></p>
+<ul>
+<li>LaunchPadから起動する。必要に応じて「Dockに追加」する。</li>
+</ul>
+<h2 id="設定監視など">設定・監視など</h2>
+<h4 id="監視するサーバを登録する">監視するサーバを登録する</h4>
+<ul>
+<li>ServerCat起動後、左のナビゲーションから「Hosts」をクリックする。
+この時、既に Host登録していたら、そのサーバ名が表示されるが、初めての場合、何も表示されないので、右上の「＋」をクリックする。</li>
+<li>すると、次のようなサーバ登録画面が表示されるので、必要事項を入力して「Save」すると乙録される。</li>
+</ul>
+<p><img src="/images/20220612_ServerCat/20220529_HostReg.png" alt="HostReg"></p>
+<h4 id="監視するサーバの状態を見る">監視するサーバの状態を見る</h4>
+<ul>
+<li>左のナビゲーションから、「Status」をクリックする。</li>
+<li>すると、上記で登録したHostsが表示されている。以下の画面は、1つのHostのみ登録した状態。</li>
+</ul>
+<p><img src="/images/20220612_ServerCat/20220529_Status.png" alt="Status"></p>
+<ul>
+<li>詳細を見たいHostの表示されているところをクリックすると、詳細が表示される。
+温度表示されている横の朱のアイコンをクリックすると、Premiumに誘導する画面が表示される。
+Premiumでは、SSHターミナル、バッチ実行、スニペット、「iCloud」同期などの機能が使えるようだ。</li>
+</ul>
+<p><img src="/images/20220612_ServerCat/20220529_StatusDetail.png" alt="StatusDetail"></p>
+<h4 id="サーバでコマンド実行">サーバでコマンド実行</h4>
+<ul>
+<li>左のナビゲーションから「Execute」クリックする。 Hostを指定して、コマンドを実行することが出来る。
+次の画面では、「who am i」を実行してみた。
+この機能、各サーバに自分でコマンドを作っておくて、一斉（All）に実行させるとか、便利そう。</li>
+</ul>
+<p><img src="/images/20220612_ServerCat/20220529_Execute.png" alt="Execute"></p>
+<h4 id="気づいたこと">気づいたこと</h4>
+<p>対象Hostを監視し始めると、sshdを5つ程度起動して、やりとりしているようだ。</p>
+<h2 id="最後に">最後に</h2>
+<p>今回、MacOSで使えるサーバの監視ソフトを試した。今後は、複数台を同時に監視するなどに使ってみたい。</p>
+<p>MacOSと言えば、自分の使っているMac Book Proは購入から5年経過（しみじみ）。でも自宅では現役バリバリ！　そうではあるけど、新しく出た<a href="https://www.apple.com/jp/macbook-air-m2/">Mac Book Air</a>欲しいな！　円安のため自分が想定していたより3万円高い！</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/monitor/">monitor</a>&nbsp;
             
           </div>
         
@@ -458,42 +365,42 @@ rm bench_4K bench_16K bench_64K bench_256K bench_1024K
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;text=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f&amp;text=ServerCat%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f&amp;title=ServerCat%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f&amp;title=ServerCat%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;title=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f&amp;title=ServerCat%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220505_disk_rw%2f&amp;description=%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e3%83%87%e3%82%a3%e3%82%b9%e3%82%af%ef%bc%8fNFS%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e3%83%aa%e3%83%bc%e3%83%89%e3%83%bb%e3%83%a9%e3%82%a4%e3%83%88%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220612_servercat%2f&amp;description=ServerCat%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -507,17 +414,6 @@ rm bench_4K bench_16K bench_64K bench_256K bench_1024K
 
         
           
-            
-          
-
-          
-                  <h4 class="see-also">も参照してください</h4>
-                  <ul>
-                
-                
-                    <li><a href="/post/20200812_raspberrypi_nfs/">Raspberry PiのディスクをNFSマウントして使う</a></li>
-                
-              </ul>
 
           
         
@@ -527,13 +423,9 @@ rm bench_4K bench_16K bench_64K bench_256K bench_1024K
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20220424_wssperformance/" data-toggle="tooltip" data-placement="top" title="RTX A4000とGTX 1080との実行速度比較">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20220505_disk_rw/" data-toggle="tooltip" data-placement="top" title="ローカルディスク／NFSファイルのリード・ライト実行速度比較">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20220612_servercat/" data-toggle="tooltip" data-placement="top" title="ServerCatを試す">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
