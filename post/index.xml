@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 05 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jun 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ServerCatを試す</title>
+      <link>https://akenji3.github.io/post/20220612_servercat/</link>
+      <pubDate>Sun, 12 Jun 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20220612_servercat/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、&lt;a href=&#34;https://japan.zdnet.com/article/35187907/&#34;&gt;この記事&lt;/a&gt;を読んで、今回紹介するServerCatを試してみようと思った。&lt;/p&gt;
+&lt;p&gt;ポイントはiOS/MacOSから監視できるという点。自分はMacOS版しか試していない。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>ローカルディスク／NFSファイルのリード・ライト実行速度比較</title>
