@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,23 +34,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/tags/gpu/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/kubernetes/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/post/20220821_kubernetes/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/tags/monitor/</loc>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -61,31 +51,6 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/post/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/sotware/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/tags/monitor/</loc>
-    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -109,6 +74,21 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/tags/</loc>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/categories/hardware/</loc>
     <lastmod>2022-05-05T00:00:00+00:00</lastmod>
   </url>
@@ -125,6 +105,11 @@
   
   <url>
     <loc>https://akenji3.github.io/tags/dcgan/</loc>
+    <lastmod>2022-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/tags/gpu/</loc>
     <lastmod>2022-04-23T00:00:00+00:00</lastmod>
   </url>
   
