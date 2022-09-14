@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 16 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</title>
+      <link>https://akenji3.github.io/post/20220914_xrandr_badmach/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20220914_xrandr_badmach/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
+端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。&lt;/p&gt;
+&lt;p&gt;解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>【失敗】Ubuntu 20.04でのChrome Remote Desktop</title>
