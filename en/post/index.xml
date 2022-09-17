@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Change display resolution - xrandr BadMatch support</title>
+      <link>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</guid>
+      <description>Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu</description>
+    </item>
     
     <item>
       <title>Publish a static blog created by Hugo on GitHub Pages</title>

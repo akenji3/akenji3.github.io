@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/en/categories/software/</link>
-    <description>Recent content in software on akenji&#39;s lab</description>
+    <title>xrandr on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/xrandr/</link>
+    <description>Recent content in xrandr on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
     <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akenji3.github.io/en/tags/xrandr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</guid>
       <description>Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu</description>
-    </item>
-    
-    <item>
-      <title>Publish a static blog created by Hugo on GitHub Pages</title>
-      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</link>
-      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</guid>
-      <description>Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
-When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
     </item>
     
   </channel>
