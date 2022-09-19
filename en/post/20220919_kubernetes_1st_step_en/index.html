@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>GPU cluster construction with Kubernetes (not yet completed) - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This">
+  <title>Building a GPU Cluster with Kubernetes - the First Steps - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
+In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/en\/post\/20220821_kubernetes_en\/",
-          "name": "G p u cluster construction with kubernetes (not yet completed)"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20220919_kubernetes_1st_step_en\/",
+          "name": "Building a g p u cluster with kubernetes the first steps"
         }
     }]
 }
@@ -56,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "GPU cluster construction with Kubernetes (not yet completed)",
-  "description" : "Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This",
+  "headline": "Building a GPU Cluster with Kubernetes - the First Steps",
+  "description" : "Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I\u0026rsquo;ll summarize it here.\nIn my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it \u0026ldquo;the first step\u0026rdquo;.",
   "inLanguage" : "en",
-  "wordCount":  1747 ,
-  "datePublished" : "2022-08-21T00:00:00",
-  "dateModified" : "2022-08-21T00:00:00",
+  "wordCount":  1415 ,
+  "datePublished" : "2022-09-19T00:00:00",
+  "dateModified" : "2022-09-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
-  "keywords" : [ "cluster, kubernetes, gpu" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20220821_kubernetes_en\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20220919_kubernetes_1st_step_en\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,15 +79,16 @@
 }
 </script>
 
-<meta property="og:title" content="GPU cluster construction with Kubernetes (not yet completed)" />
-<meta property="og:description" content="Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This">
+<meta property="og:title" content="Building a GPU Cluster with Kubernetes - the First Steps" />
+<meta property="og:description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
+In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/20220821_kubernetes_en/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="GPU cluster construction with Kubernetes (not yet completed)" />
-  <meta name="twitter:description" content="Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because …">
+  <meta name="twitter:title" content="Building a GPU Cluster with Kubernetes - the First Steps" />
+  <meta name="twitter:description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -260,7 +262,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>GPU cluster construction with Kubernetes (not yet completed)</h1>
+                <h1>Building a GPU Cluster with Kubernetes - the First Steps</h1>
               
               
               
@@ -268,7 +270,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 21, 2022
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 19, 2022
   
   
   
@@ -295,103 +297,26 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="motivation">Motivation</h2>
-<p>I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes.</p>
-<p>It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation).</p>
-<p>As it stands, the GPU cluster is not operational!　This document is incomplete.</p>
+        <h2 id="introduction">Introduction</h2>
+<p>About a month ago, I wrote an article about building a GPU cluster using kubernetes in <a href="https://akenji3.github.io/post/20220821_kubernetes/">this article</a>. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.</p>
+<p>In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.</p>
+<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources.</h2>
+<ol>
+<li>[[What you need to know to migrate from NVIDIA Docker (NVIDIA Container Toolkit) to nvidia-container-runtime + containerd](https://blog.inductor.me/entry/ 2020/12/13/042319)] I got the GPU pod in Pending state to work after being told about this page by a person.</li>
+</ol>
+<p>2.<a href="https://github.com/NVIDIA/k8s-device-plugin">NVIDIA/k8s-device-plugin</a> NVIDIA&rsquo;s device plugin page for kubernetes.</p>
+<p>3.<a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/k8s-device-plugin">NVIDIA Kubernetes Device Plugin</a> This page has information on the latest version of the device plugin. I got some information on the latest version of the device plugin from this page.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The following summary is based on my own experience, so there is no guarantee that the following will apply in every environment.</p>
 <ul>
-<li>
-<p><a href="https://kubernetes.io/docs/home/">original document</a>
-First, the document of the original source. The following is the part of the original document that I often refer to (mainly in Japanese).</p>
-</li>
-<li>
-<p><a href="https://kubernetes.io/ja/docs/home/">Japanese version of the original document</a></p>
-</li>
-<li>
-<p><a href="https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">Japanese document: Installation of Kubeadm</a></p>
-</li>
-<li>
-<p>[Original document: Creating a cluster using kubeadm](<a href="https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm">https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm</a> /)</p>
-</li>
-<li>
-<p><a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html">Documentation from NVIDIA: Install Kubernetes</a>
-I dared to use containerd as container runtime and installed it based on the &ldquo;containerd&rdquo; tag in the documentation.</p>
-</li>
-<li>
-<p><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html#install-nvidia-gpu-operator">NVIDIA documentation: NVIDIA GPU Operator</a></p>
-</li>
-<li>
-<p><a href="https://qiita.com/yoshiono/items/4be595633d744e80ef7e">kubernetes v1.23.6/Nvidia GPUと戯れる; Playing with Kubernetes v1.23.6/Nvidia GPUs</a>
-Uses Docker with Container Runtime, but has a wealth of valuable information.</p>
-</li>
-<li>
-<p>A senior&rsquo;s document - A private installation document based on the above &ldquo;kubernetes v1.23.6/Nvidia GPUと戯れる; Playing with Kubernetes v1.23.6/Nvidia GPUs&rdquo;. Very well organized and easy to read.</p>
-</li>
-<li>
-<p>[The Complete Guide to Kubernetes, 2nd Edition](<a href="https://www.amazon.co.jp/Kubernetes%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89-%E7%AC%AC2%E7%89%88-Top-">https://www.amazon.co.jp/Kubernetes%E5%AE%8C%E5%85%A8%E3%82%AC%E3%82%A4%E3%83%89-%E7%AC%AC2%E7%89%88-Top-</a> Gear-%E9%9D%92%E5%B1%B1/dp/4295009792)
-Recently purchased to use as a reference for future operations, etc.</p>
-</li>
+<li>&ldquo;CsytemdCgroup = false&rdquo; in /etc/containerd/config.toml in the procedure of <a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-1-install-a-container-engine">Step 1: Install a Container Engine</a> should be left false and not changed to true.</li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html#install-nvidia-gpu-operator">NVIDIA GPU Operator</a> procedure did not work.</li>
+<li>I changed the procedure in <a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-4-setup-nvidia-software">Step 4: Setup NVIDIA Software</a> and installed it. Specifically, I did not use Helm, but used &ldquo;kubectl apply -f&rdquo; to install the device plugin. It worked with the latest version (v0.12.3).</li>
 </ul>
-<h2 id="installation-summary">Installation Summary</h2>
-<h3 id="policies">Policies</h3>
-<p>Proceed with the installation based on the above NVIDIA documentation. There are two parts to choose from, but I decided to install kubernetes with &ldquo;kubeadm&rdquo; and use &ldquo;NVIDIA GPU Operator&rdquo; for NVIDIA-related software. I have already installed driver and NVIDIA Container Toolkit in my environment.</p>
-<p>Since the NVIDIA documentation is difficult to understand the connection (indentation), the following is a step-by-step procedure to see the whole installation process. (Each of the numbers roughly corresponds to each of the commands in the NVIDIA documentation.)</p>
-<h3 id="environment">Environment</h3>
-<p>The environment in which kubernetes is installed is shown in the following figure.</p>
-<p>! <a href="/images/20220821_kubernetes/20220821_system_config.png">System Configuration</a></p>
-<h3 id="installation-instructions">Installation Instructions</h3>
+<h2 id="installation-operation">Installation operation</h2>
 <h4 id="step-1-install-container-engine">Step 1: Install Container Engine</h4>
-<h5 id="1-install-some-pre-requisites-packages-for-containerd">(1) Install some pre-requisites packages for containerd</h5>
-<h5 id="2-configure-to-load-overlay-br_netfilter-kernel-modules">(2) Configure to load overlay, br_netfilter (kernel) modules</h5>
-<h5 id="3-set-sysctl-parameters-in-conf-file">(3) Set sysctl parameters in conf file</h5>
-<h5 id="4-configure-docker-repository">(4) configure Docker repository</h5>
-<h5 id="5-install-containerd">(5) install containerd</h5>
-<h5 id="6-set-containerd-default-parameters-in-configtoml-create">(6) Set containerd default parameters in config.toml (create)</h5>
-<h5 id="7-modify-configtoml-so-that-containerd-uses-systemd-cgroup-driver">(7) Modify config.toml so that (containerd) uses systemd cgroup driver</h5>
-<h5 id="8-restart-containerd-daemon">(8) Restart containerd daemon</h5>
-<h4 id="step-2-install-kubernetes-components">Step 2: Install Kubernetes components</h4>
-<h5 id="1-install-some-dependencies">(1) Install some dependencies</h5>
-<h5 id="2-add-the-package-repository-keys">(2) Add the package repository keys</h5>
-<h5 id="3-add-the-repository">(3) Add the repository</h5>
-<h5 id="4-install-kubelet">(4) Install kubelet</h5>
-<h5 id="5-note-no-1-configure-cgroup-driver-for-kuberlet">(5) Note no. 1: Configure cgroup driver for Kuberlet</h5>
-<h5 id="6-note-no-2-restart-kubelet">(6) Note no. 2: Restart kubelet</h5>
-<h5 id="7-disable-swap">(7) Disable swap</h5>
-<h5 id="8-run-kubeadm-init">(8) Run kubeadm init</h5>
-<h5 id="9-copy-authentication-files-under-home">(9) Copy authentication files under $HOME</h5>
-<h4 id="step-3-configure-network">Step 3: Configure network</h4>
-<h5 id="1-configure-network-in-calico">(1) Configure network in Calico</h5>
-<h5 id="2-assign-the-worker-role-to-master-as-well">(2) Assign the worker role to master as well</h5>
-<h4 id="step-4-setup-nvdia-software-using-nvidia-gpu-operator">Step 4: Setup NVDIA software (using NVIDIA GPU Operator)</h4>
-<h5 id="1-install-helm">(1) Install helm</h5>
-<h5 id="2-add-nvidia-helm-repository">(2) Add NVIDIA Helm repository</h5>
-<h5 id="3-install-gpu-operator">(3) Install GPU Operator</h5>
-<p>Now run the &ldquo;Containerd&rdquo; part of &ldquo;Bare-metal/Passthrough with pre-installed drivers and NVIDIA Container Toolkit&rdquo;.</p>
-<h6 id="1-edit-configtoml">1) Edit config.toml</h6>
-<h6 id="2-run-helm-install">2) Run helm install</h6>
-<h5 id="4-confirm-gpu-operator-installation">(4) Confirm GPU Operator installation</h5>
-<h5 id="5-run-sample-gpu-application">(5) Run sample GPU application</h5>
-<h3 id="separate-master-control-plane-node-and-worker-node">Separate master (control plane) node and worker node</h3>
-<p>The following shows which node to execute each step of the installation described in the previous section.</p>
-<ul>
-<li>
-<p>Step 1: (1) to Step 2: (7)
-Perform on any node, master or worker node.</p>
-</li>
-<li>
-<p>Step 2: (8) - Step 2: (9)
-Execute only on the master node; on the worker node, execute &ldquo;kuberadm join&rdquo;.</p>
-</li>
-<li>
-<p>Step 3 and Step 4
-Perform only on the master node.</p>
-</li>
-</ul>
-<p>In the installation procedure, there is also a procedure to build a cluster in the kuberadm environment. This is described later.</p>
-<h2 id="insul-operation">Insul operation</h2>
-<h4 id="step-1-install-container-engine-1">Step 1: Install Container Engine</h4>
-<h5 id="1-install-required-packages">(1) Install required packages</h5>
+<h5 id="1-install-necessary-packages">(1) Install necessary packages</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get update<span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https <span class="se">\
 </span><span class="se"></span>&gt; ca-certificates curl software-properties-common
@@ -401,9 +326,9 @@ Perform only on the master node.</p>
 </span><span class="s">&gt; overlay
 </span><span class="s">&gt; br_netfilter
 </span><span class="s">&gt; EOF</span>
-$ sudo modprobe overlay <span class="se">\f</span>ilter
-&gt; <span class="o">&amp;&amp;</span> sudo modprobe br_netfilter
-</code></pre></div><h5 id="3-set-sysctl-parameters-in-conf-file-1">(3) Set sysctl parameters in conf file</h5>
+$ sudo modprobe overlay <span class="se">\
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo modprobe br_netfilter
+</code></pre></div><h5 id="3-set-sysctl-parameters-in-conf-file">(3) Set sysctl parameters in conf file</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 </span><span class="s">&gt; net.bridge.bridge-nf-call-iptables = 1
 </span><span class="s">&gt; net.ipv4.ip_forward = 1
@@ -411,13 +336,13 @@ $ sudo modprobe overlay <span class="se">\f</span>ilter
 </span><span class="s">&gt; EOF</span>
 
 $ sudo sysctl --system
-</code></pre></div><h5 id="4-configure-docker-repository-1">(4) Configure Docker repository</h5>
+</code></pre></div><h5 id="4-configure-docker-repository">(4) Configure Docker repository</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key --keyring /etc/apt/trusted.gpg.d/docker.gpg add -
 
 $ sudo add-apt-repository <span class="s2">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
 </span><span class="s2">&gt; </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
 </span><span class="s2">&gt; stable&#34;</span>
-</code></pre></div><h5 id="5-install-containerd-1">(5) install containerd</h5>
+</code></pre></div><h5 id="5-install-containerd">(5) install containerd</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get update <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y containerd.io
 </code></pre></div><p>In my environment, containerd.io had the latest version (1.6.7-1) already installed.</p>
@@ -425,27 +350,22 @@ $ sudo add-apt-repository <span class="s2">&#34;deb [arch=amd64] https://downloa
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo mkdir -p /etc/containerd <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo containerd config default <span class="p">|</span> sudo tee /etc/containerd/config.toml
 </code></pre></div><p>Since containerd.io was already installed, the /etc/containerd directory and config.toml already existed. config.toml was renamed and saved.</p>
-<h5 id="7-modify-configtoml-so-that-containerd-uses-systemd-cgroup-driver-1">(7) Modify config.toml so that (containerd) uses systemd cgroup driver</h5>
-<p>Modify /etc/containerd/config.toml created above as follows.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">125c125
-&lt; <span class="nv">SystemdCgroup</span> <span class="o">=</span> <span class="nb">true</span>
----
-&gt; <span class="nv">SystemdCgroup</span> <span class="o">=</span> <span class="nb">false</span>
-</code></pre></div><h5 id="8-restart-containerd-daemon-1">(8) Restart containerd daemon</h5>
+<h5 id="7-change-configtoml-so-that-containerd-uses-systemd-cgroup-driver"><del><del>(7) Change config.toml so that (containerd) uses systemd cgroup driver</del></del>.</h5>
+<p>As mentioned in the conclusion, &ldquo;SystemdCgroup = false&rdquo; should be left as it is.  No changes are made to /etc/containerd/config.toml here.</p>
+<h5 id="8-restart-containerd-daemon">(8) Restart containerd daemon</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl restart containerd
-</code></pre></div><h4 id="step-2-install-kubernetes-components-1">Step 2: Install Kubernetes components</h4>
-<h5 id="1-install-some-dependencies-1">(1) Install some dependencies</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get update <span class="se">\
+</code></pre></div><h4 id="step-2-install-kubernetes-components">Step 2: Install Kubernetes components</h4>
+<h5 id="1-install-some-dependencies">(1) Install some dependencies</h5>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get update <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https curl
 </code></pre></div><p>The latest version was installed in my environment.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
-</code></pre></div><h5 id="2-add-repository-key">(2) Add repository key.</h5>
+<h5 id="2-add-repository-key">(2) Add repository key.</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
 </code></pre></div><h5 id="3-add-repository">(3) Add repository</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat <span class="s">&lt;&lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 </span><span class="s">&gt; deb https://apt.kubernetes.io/ kubernetes-xenial main
 </span><span class="s">&gt; EOF</span>
-</code></pre></div><h5 id="4-install-kubelet-1">(4) Install kubelet</h5>
+</code></pre></div><h5 id="4-install-kubelet">(4) Install kubelet</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get update <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y -q kubelet kubectl kubeadm
 </code></pre></div><h5 id="5-note-1-configure-cgroup-driver-for-kuberlet">(5) Note 1: Configure cgroup driver for Kuberlet</h5>
@@ -458,7 +378,7 @@ $ sudo add-apt-repository <span class="s2">&#34;deb [arch=amd64] https://downloa
 </code></pre></div><h5 id="6-note-2-restart-kubelet">(6) Note 2: Restart kubelet</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo systemctl restart kubelet
-</code></pre></div><h5 id="7-disable-swap-1">(7) Disable swap</h5>
+</code></pre></div><h5 id="7-disable-swap">(7) Disable swap</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ swapon --show
 NAME TYPE SIZE USED PRIO
 /swapfile file 2G 0B -2
@@ -466,16 +386,15 @@ $ sudo swapoff -a
 $ swapon --show
 $
 </code></pre></div><p>The above operation is temporary, and swap is enabled again when the server is restarted.
-To disable it permanently, insert # at the beginning of any line in /etc/fstab that contains &ldquo;swap&rdquo; to disable it.  (In my environment, the line starts with /swapfile)</p>
-<h5 id="8-run-kubeadm-init-1">(8) Run kubeadm init</h5>
+To disable it permanently, insert # at the beginning of any line in /etc/fstab that contains &ldquo;swap&rdquo; to disable it. (In my environment, the line starts with /swapfile)</p>
+<h5 id="8-run-kubeadm-init">(8) Run kubeadm init</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo kubeadm init --pod-network-cidr<span class="o">=</span>192.168.0.0/16
 <span class="o">[</span>init<span class="o">]</span> Using Kubernetes version: v1.24.3
-... Omitted. ...
+... Omitted.
 Then you can join any number of worker nodes by running the following on each as root:
 
 kubeadm join 192.168.11.3:6443 --token 7ffwr1.xm119vzqvmhqgevl <span class="se">\
 </span><span class="se"></span>	--discovery-token-ca-cert-hash sha256:5d2f3065e38020b668ba1b766d95aea197182e35143511db7062f247f12c81d3 
-$
 </code></pre></div><p>Make a note of this part &ldquo;kubeadm join &hellip; sha256&hellip;&rdquo;. You can create a cluster as a woker node by executing the following:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo kubeadm join 192.168.11.3:6443 --token 7ffwr1.xm119vzqvmhqgevl <span class="se">\
 </span><span class="se"></span>&gt; --discovery-token-ca-cert-hash sha256:5d2f3065e38020b668ba1b766d95aea197182e35143511db7062f247f12c81d3 
@@ -486,116 +405,99 @@ This node has joined the cluster:
 * The Kubelet was informed of the new secure connection details.
 
 Run <span class="s1">&#39;kubectl get nodes&#39;</span> on the control-plane to see this node join the cluster.
-</code></pre></div><h5 id="9-copy-authentication-files-under-home-1">(9) Copy authentication files under $HOME</h5>
+</code></pre></div><h5 id="9-copy-authentication-files-under-home">(9) Copy authentication files under $HOME</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ mkdir -p <span class="nv">$HOME</span>/.kube <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config <span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
-</code></pre></div><h4 id="step-3-set-up-your-network">Step 3: Set up your network</h4>
-<h5 id="1-configure-network-in-calico-1">(1) Configure network in Calico</h5>
+</code></pre></div><h4 id="step-3-configure-the-network">Step 3: Configure the network</h4>
+<h5 id="1-configure-network-in-calico">(1) Configure network in Calico</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-</code></pre></div><h5 id="2-assign-the-worker-role-to-master-as-well-1">(2) Assign the worker role to master as well</h5>
+</code></pre></div><h5 id="2-assign-the-worker-role-to-master-as-well">(2) Assign the worker role to master as well</h5>
 <p>As the NVIDIA documentation says &ldquo;GPU Pods can be scheduled on the simplest single-node clusters&rdquo;, it is possible to schedule a Pod on the master (control plane) node as well.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl taint nodes --all node-role.kubernetes.io/master-
 </code></pre></div><p>In my environment, I did not want to schedule a pod on the master node, so I did not run this.</p>
 <p>Now, you have one master (control plane) node (kubeadm init operation) and one worker node (kubeadm join operation) each. The state of the node in my environment is as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get nodes
 NAME STATUS ROLES AGE VERSION
-jupiter Ready control-plane 109m v1.24.3
-saisei Ready &lt;none&gt; 2m42s v1.24.3
-</code></pre></div><p>And one more kubeadmin join operation, the status is as follows.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get nodes
-NAME STATUS ROLES AGE VERSION
-jupiter Ready control-plane 168m v1.24.3
-mokusei Ready &lt;none&gt; 2m3s v1.24.3
-saisei Ready &lt;none&gt; 62m v1.24.3
-</code></pre></div><h4 id="step-4-configure-nvdia-software-with-gpu-operator">Step 4: Configure NVDIA software (with GPU Operator)</h4>
-<h5 id="1-install-helm-1">(1) Install helm</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 <span class="se">\
-</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> chmod <span class="m">700</span> get_helm.sh <span class="se">\
-</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> . /get_helm.sh
-</code></pre></div><h5 id="2-add-nvidia-helm-repository-1">(2) Add NVIDIA Helm repository</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ helm repo add nvidia https://helm.ngc.nvidia.com/nvidia <span class="se">\
-</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> helm repo update
-</code></pre></div><h5 id="3-install-gpu-operator-1">(3) Install GPU Operator</h5>
-<p>As mentioned in the overview section, run the &ldquo;Containerd&rdquo; part of &ldquo;Bare-metal/Passthrough with pre-installed drivers and NVIDIA Container Toolkit&rdquo;.</p>
-<h6 id="1-edit-configtoml-1">1) Edit config.toml</h6>
-<p>Edit /etc/containerd/config.toml as follows</p>
+europe Ready control-plane 2m57s v1.25.0
+saisei Ready &lt;none&gt; 21s v1.25.0
+</code></pre></div><p>In <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/">the previous article</a>, another node was added to the cluster configuration, but I didn&rsquo;t this time.</p>
+<h4 id="step-4-configure-the-nvdia-software">Step 4: Configure the NVDIA software</h4>
+<p>In my environment, the NVIDIA driver is already installed because I have a GPU plugged into the node of control plane. As mentioned in the conclusion, I did not use &ldquo;helm&rdquo; to install the software.</p>
+<p>The specific steps are as follows.</p>
+<h5 id="1-for-installing-nvidia-container-runtime-package-set-up-nvidia-docker-repository">(1) (for installing nvidia-container-runtime package) Set up nvidia-docker repository</h5>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span> <span class="se">\.</span>
+   <span class="o">&amp;&amp;</span> curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add - <span class="se">\
+</span><span class="se"></span>   <span class="o">&amp;&amp;</span> curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+</code></pre></div><h5 id="2-install-nvidia-container-runtime-package">(2) Install nvidia-container-runtime package</h5>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get update \
+   &amp;&amp; sudo apt-get install -y nvidia-container-runtime
+</code></pre></div><h5 id="3-edit-configtoml">(3) Edit config.toml</h5>
+<p>Edit /etc/containerd/config.toml as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">79c79
-&lt; <span class="nv">default_runtime_name</span> <span class="o">=</span> <span class="s2">&#34;nvida&#34;</span>
+&lt;       <span class="nv">default_runtime_name</span> <span class="o">=</span> <span class="s2">&#34;nvida&#34;</span>
 ---
-&gt; <span class="nv">default_runtime_name</span> <span class="o">=</span> <span class="s2">&#34;runc&#34;</span>
+&gt;       <span class="nv">default_runtime_name</span> <span class="o">=</span> <span class="s2">&#34;runc&#34;</span>
 125,132d124
-&lt; <span class="nv">SystemdCgroup</span> <span class="o">=</span> <span class="nb">true</span>
-&lt; <span class="o">[</span>plugins. <span class="s2">&#34;io.containerd.grpc.v1.cri&#34;</span>.containerd.runtimes.nvidia<span class="o">]</span>
-&lt; <span class="nv">privileged_without_host_devices</span> <span class="o">=</span> <span class="nb">false</span>
-&lt; <span class="nv">runtime_engine</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
-&lt; <span class="nv">runtime_root</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
-&lt; <span class="nv">runtime_type</span> <span class="o">=</span> <span class="s2">&#34;io.containerd.runc.v1&#34;</span>
-&lt; <span class="o">[</span>plugins. <span class="s2">&#34;io.containerd.grpc.v1.cri&#34;</span>.containerd.runtimes.nvidia.options<span class="o">]</span>
-&lt; <span class="nv">BinaryName</span> <span class="o">=</span> <span class="s2">&#34;/usr/bin/nvidia-container-runtime&#34;</span>
+&lt;             <span class="nv">SystemdCgroup</span> <span class="o">=</span> <span class="nb">true</span>
+&lt;        <span class="o">[</span>plugins.<span class="s2">&#34;io.containerd.grpc.v1.cri&#34;</span>.containerd.runtimes.nvidia<span class="o">]</span>
+&lt;           <span class="nv">privileged_without_host_devices</span> <span class="o">=</span> <span class="nb">false</span>
+&lt;           <span class="nv">runtime_engine</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+&lt;           <span class="nv">runtime_root</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+&lt;           <span class="nv">runtime_type</span> <span class="o">=</span> <span class="s2">&#34;io.containerd.runc.v1&#34;</span>
+&lt;           <span class="o">[</span>plugins.<span class="s2">&#34;io.containerd.grpc.v1.cri&#34;</span>.containerd.runtimes.nvidia.options<span class="o">]</span>
+&lt;             <span class="nv">BinaryName</span> <span class="o">=</span> <span class="s2">&#34;/usr/bin/nvidia-container-runtime&#34;</span>
 </code></pre></div><p>Then restart the containerd daemon.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl restart containerd
-</code></pre></div><h6 id="2-run-helm-install-1">2) Run helm install</h6>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ helm install --wait --generate-name \
-&gt; -n gpu-operator --create-namespace \
-&gt; nvidia/gpu-operator \
-&gt; --set driver.enabled=false \
-&gt; --set toolkit.enabled=false
-</code></pre></div><h5 id="4-confirm-gpu-operator-installation-1">(4) Confirm GPU Operator installation</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get pods -n gpu-operator
-NAME READY STATUS RESTARTS AGE
-gpu-operator-1660956347-node-feature-discovery-master-78498fqrv 0/1 ContainerCreating <span class="m">0</span> 22m
-gpu-operator-1660956347-node-feature-discovery-worker-d7z25 0/1 ContainerCreating <span class="m">0</span> 66m
-gpu-operator-569d9c8cb-r5d6x 0/1 ContainerCreating <span class="m">0</span> 70m
-</code></pre></div><p>Compared to the output results from the NVIDIA documentation, there is no pod with nvidia-*.</p>
-<h5 id="5-run-sample-gpu-app">(5) Run sample GPU app.</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat sample-gpu.yaml
+</code></pre></div><h5 id="4-install-nvidia-device-plugin">(4) Install NVIDIA Device Plugin</h5>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.12.3/nvidia-device-plugin.yml
+</code></pre></div><h4 id="step-5-check">Step 5: Check</h4>
+<p>Start the GPU pod, check the status, check the logs, and confirm that it is working as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat gpu-pod.yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: cuda-vectoradd
-spec: cuda-vectoradd
+  name: gpu-operator-test
+spec:
   restartPolicy: OnFailure
   containers:
-  - name: cuda-vectoradd
-    image: <span class="s2">&#34;nvidia/samples:vectoradd-cuda11.2.1&#34;</span>
+  - name: cuda-vector-add
+    image: <span class="s2">&#34;nvidia/samples:vectoradd-cuda10.2&#34;</span>
     resources:
       limits:
          nvidia.com/gpu: <span class="m">1</span>
-$ kubectl apply -f sample-gpu.yaml
-pod/cuda-vectoradd created
-$ kubectl get pod
+         
+$ kubectl apply -f gpu-pod.yaml
+pod/gpu-operator-test created
+$ kubectl get pods
 NAME READY STATUS RESTARTS AGE
-cuda-vectoradd 0/1 Pending <span class="m">0</span> 28s
-nginx-deployment-6595874d85-88x8d 1/1 Running <span class="m">0</span> 10m
-nginx-deployment-6595874d85-nctbg 1/1 Running <span class="m">0</span> 10m
-nginx-deployment-6595874d85-v7x4n 1/1 Running <span class="m">0</span> 10m
-</code></pre></div><p>As shown above, the sample gpu pod, cuda-vectoradd, is still Pending.</p>
-<p>Incidentally, the pod created in <a href="https://kubernetes.io/ja/docs/tasks/run-application/run-stateless-application-deployment/">nginx deployment</a> was in Running status as follows Running status as shown below. (with replicas=3)</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f nginx-deployment.yaml
-deployment.apps/nginx-deployment created
-$ kubectl get pod
-NAME READY STATUS RESTARTS AGE
-nginx-deployment-6595874d85-88x8d 1/1 Running <span class="m">0</span> 2m55s
-nginx-deployment-6595874d85-nctbg 1/1 Running <span class="m">0</span> 2m55s
-nginx-deployment-6595874d85-v7x4n 1/1 Running <span class="m">0</span> 2m55s
+gpu-operator-test 0/1 Completed <span class="m">0</span> 8s
+$ kubectl logs gpu-operator-test
+<span class="o">[</span>Vector addition of <span class="m">50000</span> elements<span class="o">]</span>
+Copy input data from the host memory to the CUDA device
+CUDA kernel launch with <span class="m">196</span> blocks of <span class="m">256</span> threads
+Copy output data from the CUDA device to the host memory
+Test PASSED
+Done
 </code></pre></div><h2 id="summary">Summary</h2>
-<p>As explained so far, we have reached the point where we can install kubernetes with kubeadm and build a cluster, but we have not been able to build the GPU cluster, which was our initial goal.
-Even after gpu deployment, the pod stays in Pending, not Running state!</p>
-<p>Once resolved, I&rsquo;ll re-update the article with the fix.</p>
-<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
+<p>However, when another node (mokusei) with GPU is added to the cluster, it does not work on that node and remains in Pending state.</p>
+<p>It works while saisei is running, but if I shutdown saisei and start the GPU pod on the cluster, running mokusei node only, it does not work as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get nodes
+NAME STATUS ROLES AGE VERSION
+europe Ready control-plane 68m v1.25.0
+mokusei Ready &lt;none&gt; 66m v1.25.0
+saisei NotReady &lt;none&gt; 9m51s v1.25.0
+
+$ kubectl apply -f gpu-pod.yaml
+pod/gpu-operator-test created
+
+$ kubectl get pods gpu-operator-test
+NAME READY STATUS RESTARTS AGE
+gpu-operator-test 0/1 Pending <span class="m">0</span> 2m50s
+</code></pre></div><p>Next, I&rsquo;m going to resolve the above issues in due course.</p>
+<p>Also, I will need to look into specifying the GPU on the node and specifying the certain node together to solve the above problem.</p>
 
 
-        
-          <div class="blog-tags">
-            
-              <a href="https://akenji3.github.io/en/tags/cluster/">cluster</a>&nbsp;
-            
-              <a href="https://akenji3.github.io/en/tags/kubernetes/">kubernetes</a>&nbsp;
-            
-              <a href="https://akenji3.github.io/en/tags/gpu/">gpu</a>&nbsp;
-            
-          </div>
         
 
         
@@ -608,42 +510,42 @@ Even after gpu deployment, the pod stays in Pending, not Running state!</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f&amp;text=GPU%20cluster%20construction%20with%20Kubernetes%20%28not%20yet%20completed%29&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f&amp;text=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f&amp;title=GPU%20cluster%20construction%20with%20Kubernetes%20%28not%20yet%20completed%29" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f&amp;title=GPU%20cluster%20construction%20with%20Kubernetes%20%28not%20yet%20completed%29" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f&amp;title=GPU%20cluster%20construction%20with%20Kubernetes%20%28not%20yet%20completed%29" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220821_kubernetes_en%2f&amp;description=GPU%20cluster%20construction%20with%20Kubernetes%20%28not%20yet%20completed%29" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step_en%2f&amp;description=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -666,13 +568,9 @@ Even after gpu deployment, the pod stays in Pending, not Running state!</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub_en/" data-toggle="tooltip" data-placement="top" title="Publish a static blog created by Hugo on GitHub Pages">&larr; Previous Post</a>
+              <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/" data-toggle="tooltip" data-placement="top" title="Change display resolution - xrandr BadMatch support">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/" data-toggle="tooltip" data-placement="top" title="Change display resolution - xrandr BadMatch support">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
