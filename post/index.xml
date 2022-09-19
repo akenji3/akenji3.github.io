@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>KubernetesでGPUクラスタ構築 〜 初めの一歩</title>
+      <link>https://akenji3.github.io/post/20220919_kubernetes_1st_step/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20220919_kubernetes_1st_step/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;約1ヵ月前に、&lt;a href=&#34;https://akenji3.github.io/post/20220821_kubernetes/&#34;&gt;この記事&lt;/a&gt;でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。&lt;/p&gt;
+&lt;p&gt;自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</title>
