@@ -49,7 +49,7 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</loc>
+    <loc>https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -140,6 +140,56 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/tags/xrandr/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/cluster/</loc>
+    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cluster/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cluster/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/gpu/</loc>
+    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gpu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gpu/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20220821_kubernetes_en/</loc>
+    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/tags/kubernetes/</loc>
+    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/kubernetes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/kubernetes/"
                 />
   </url>
   

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpu on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/gpu/</link>
+    <description>Recent content in gpu on akenji&#39;s lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
+    <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
+    <lastBuildDate>Sun, 21 Aug 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://akenji3.github.io/en/tags/gpu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GPU cluster construction with Kubernetes (not yet completed)</title>
+      <link>https://akenji3.github.io/en/post/20220821_kubernetes_en/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20220821_kubernetes_en/</guid>
+      <description>Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This</description>
+    </item>
+    
+  </channel>
+</rss>
