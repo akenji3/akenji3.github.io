@@ -71,11 +71,31 @@
   <url>
     <loc>https://akenji3.github.io/tags/badmatch/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/badmatch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/badmatch/"
+                />
   </url>
   
   <url>
     <loc>https://akenji3.github.io/tags/nvidia/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/nvidia/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/nvidia/"
+                />
   </url>
   
   <url>
@@ -96,11 +116,31 @@
   <url>
     <loc>https://akenji3.github.io/tags/ubuntu/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ubuntu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ubuntu/"
+                />
   </url>
   
   <url>
     <loc>https://akenji3.github.io/tags/xrandr/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/xrandr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/xrandr/"
+                />
   </url>
   
   <url>
@@ -111,16 +151,46 @@
   <url>
     <loc>https://akenji3.github.io/tags/cluster/</loc>
     <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cluster/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cluster/"
+                />
   </url>
   
   <url>
     <loc>https://akenji3.github.io/tags/gpu/</loc>
     <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gpu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gpu/"
+                />
   </url>
   
   <url>
     <loc>https://akenji3.github.io/tags/kubernetes/</loc>
     <lastmod>2022-08-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/kubernetes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/kubernetes/"
+                />
   </url>
   
   <url>
