@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Oct 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Stable Diffusion with Diffusers</title>
+      <link>https://akenji3.github.io/post/20221010_stablediffuser/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20221010_stablediffuser/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;先月、&lt;a href=&#34;https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html&#34;&gt;@ITの記事&lt;/a&gt;で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。&lt;/p&gt;
+&lt;p&gt;ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>KubernetesでGPUクラスタ構築 〜 初めの一歩</title>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Stable Diffusion with Diffusers - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
+ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20221010_stablediffuser\/",
+          "name": "Stable diffusion with diffusers"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Stable Diffusion with Diffusers",
+  "description" : "はじめに 先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。\nここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1445 ,
+  "datePublished" : "2022-10-10T00:00:00",
+  "dateModified" : "2022-10-10T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20221010_stablediffuser\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Stable Diffusion with Diffusers" />
+<meta property="og:description" content="はじめに
+先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
+ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20221010_stablediffuser/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Stable Diffusion with Diffusers" />
+  <meta name="twitter:description" content="はじめに
+先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
+ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Stable Diffusion with Diffusers</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;October 10, 2022に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>先月、<a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。</p>
+<p>ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://github.com/CompVis/stable-diffusion">本家のgithub</a>  先ずは本家。</li>
+<li><a href="https://stability.ai/blog/stable-diffusion-public-release">本家のブログ記事</a>  公開時のブログ記事。</li>
+<li><a href="https://huggingface.co/CompVis/stable-diffusion">Hugging FaceのStable Diffusionページ</a>  Hugging Faceはモデルを使用する際のトークンを得るため必須。</li>
+<li><a href="https://huggingface.co/blog/stable_diffusion">Hugging FaceのDiffusersを使ったStable Diffusionに関するブログページ</a></li>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>  自分が興味を持つきっかけとなった記事。</li>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/30/news052.html">@ITの連載2回目の記事</a>  Hugging Faceへのサインアップとアクセストークンの取得方法が載っている。</li>
+</ol>
+<h2 id="構築手順">構築手順</h2>
+<h3 id="ゴール">ゴール</h3>
+<p>今回、構築するのは、jupyter-labでStable Diffusionを試せる環境のsingularityイメージである。</p>
+<p>以下、sifファイルを作成するためのdefファイルと実行結果を説明する。</p>
+<h3 id="実行環境">実行環境</h3>
+<p>実行環境は、NVIDIA RTX A4000を搭載したHP Z820で、OSはUbuntu 20.04、Driver Versionは470.141.03である。singularityのバージョンは、3.9.5。</p>
+<p>初めに、nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04をdockerでpullしたところ、次のようなエラーとなったので、nvidia/cuda:11.3.1-base-ubuntu20.04を使うことにした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker: Error response from daemon: failed to create shim task: OCI runtime cre<span class="se">\
+</span><span class="se"></span>ate failed: runc create failed: unable to start container process: error during<span class="se">\
+</span><span class="se"></span> container init: error running hook <span class="c1">#0: error running hook: exit status 1, stdo\</span>
+ut: , stderr: Auto-detected mode as <span class="s1">&#39;legacy&#39;</span>
+nvidia-container-cli: requirement error: unsatisfied condition: cuda&gt;<span class="o">=</span>11.8, ple<span class="se">\
+</span><span class="se"></span>ase update your driver to a newer version, or use an earlier cuda container: un<span class="se">\
+</span><span class="se"></span>known.
+</code></pre></div><p>原因は、<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions">このページ</a>のCUDAとDriverのバージョンの関係を見よ！</p>
+<h3 id="defファイル">defファイル</h3>
+<p><a href="https://akenji3.github.io/post/20220422_rtx_a4000/">この記事</a>のdefファイルに少し手を加えた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Stable Diffusionをjupyterlabで試せる、singularityコンテナを作成する。</span>
+
+Bootstrap:	docker
+FROM:	nvidia/cuda:11.3.1-base-ubuntu20.04
+
+%post
+	apt update -y <span class="o">&amp;&amp;</span> apt -y install python3 python3-pip <span class="se">\
+</span><span class="se"></span>		curl git tree unzip vim wget
+	pip3 install --upgrade pip setuptools
+	pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+        pip3 install jupyterlab matplotlib pandas scikit-learn seaborn <span class="se">\
+</span><span class="se"></span>                sympy pydotplus ipywidgets widgetsnbextension <span class="se">\
+</span><span class="se"></span>                janome torchtext tweepy gensim folium pytorch-transformers <span class="se">\
+</span><span class="se"></span>                spacy torchdata fugashi ipadic pytorch-lightning <span class="se">\
+</span><span class="se"></span>		transformers scipy ftfy diffusers
+
+%runscript
+        jupyter-lab --ip<span class="o">=</span>0.0.0.0 --port<span class="o">=</span><span class="m">8888</span> --no-browser --NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span> --notebook-dir<span class="o">=</span>/workdir
+
+</code></pre></div><h3 id="sifファイルの作成">sifファイルの作成</h3>
+<p>前節で作成したdefファイルからsingularityコンテナイメージ（sifファイル）は、次のようにして作成する。ここで、def_pytorch-lab.defは上記defファイル、def_pytorch-lab.sifはbuildするコンテナイメージ。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo singularity build sd_pytorch-lab.sif sd_pytorch-lab.def
+</code></pre></div><p>作成したsifファイルを実行時には、NVIDIA RTX A4000が使われるように、次のように環境変数をセットして呼び出している。ここで、${COMMON_AREA}は、nfsマウントしている領域。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">export</span> <span class="nv">SINGULARITYENV_CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>
+singularity run --nv --bind <span class="si">${</span><span class="nv">COMMON_AREA</span><span class="si">}</span>/jupyterlab:/workdir <span class="si">${</span><span class="nv">COMMON_AREA</span><span class="si">}</span>/sifs/sd_pytorch-lab.sif
+</code></pre></div><h3 id="実行結果">実行結果</h3>
+<p>実行したjupyterlabのセルは、次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># https://huggingface.co/blog/stable_diffusion
+
+import torch
+from diffusers import StableDiffusionPipeline
+
+YOUR_TOKEN=&#39;hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#39;
+
+# get your token at https://huggingface.co/settings/tokens
+pipe = StableDiffusionPipeline.from_pretrained(&#34;CompVis/stable-diffusion-v1-4&#34;, revision=&#34;fp16&#34;, torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN)
+pipe.to(&#39;cuda&#39;)
+
+prompt = &#34;beautifull castle, with green garden, photorealistic, 8k &#34;
+
+with torch.autocast(&#39;cuda&#39;):
+    image = pipe(prompt).images[0]
+
+image
+</code></pre></div><p>「beautifull castle, with green garden, photorealistic, 8k」との呪文で生成されたイメージは次の通り。</p>
+<p>自分のイメージは、芝のグリーンではなく、森林の緑だったんだけど、呪文が良くなかったか！</p>
+<p><img src="/images/20221010_StableDiffusion/sd_output.png" alt="SD_created"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>取り敢えず、自分の環境で生成モデルを使って、promptから画像の生成ができることが分かった。</p>
+<p>diffusersを使わない方法も、試してみたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;text=Stable%20Diffusion%20with%20Diffusers&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;description=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" data-toggle="tooltip" data-placement="top" title="KubernetesでGPUクラスタ構築 〜 初めの一歩">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2022
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
