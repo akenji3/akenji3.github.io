@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Stable Diffusion with Diffusers - akenji&#39;s lab</title>
+  <title>姫野ベンチマークをTITAN Vで実行 - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
-ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20221010_stablediffuser\/",
-          "name": "Stable diffusion with diffusers"
+          "@id": "https:\/\/akenji3.github.io\/post\/20221029_himenobenchontitanv\/",
+          "name": "姫野ベンチマークを t i t a n vで実行"
         }
     }]
 }
@@ -58,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Stable Diffusion with Diffusers",
-  "description" : "はじめに 先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。\nここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。\n",
+  "headline": "姫野ベンチマークをTITAN Vで実行",
+  "description" : "はじめに 先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。\n",
   "inLanguage" : "ja",
-  "wordCount":  1445 ,
-  "datePublished" : "2022-10-10T00:00:00",
-  "dateModified" : "2022-10-10T00:00:00",
+  "wordCount":  724 ,
+  "datePublished" : "2022-10-29T00:00:00",
+  "dateModified" : "2022-10-29T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20221010_stablediffuser\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20221029_himenobenchontitanv\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,19 +79,17 @@
 }
 </script>
 
-<meta property="og:title" content="Stable Diffusion with Diffusers" />
+<meta property="og:title" content="姫野ベンチマークをTITAN Vで実行" />
 <meta property="og:description" content="はじめに
-先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
-ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20221010_stablediffuser/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20221029_himenobenchontitanv/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Stable Diffusion with Diffusers" />
+  <meta name="twitter:title" content="姫野ベンチマークをTITAN Vで実行" />
   <meta name="twitter:description" content="はじめに
-先月、@ITの記事で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。
-ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。">
+先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -266,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Stable Diffusion with Diffusers</h1>
+                <h1>姫野ベンチマークをTITAN Vで実行</h1>
               
               
               
@@ -274,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;October 10, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;October 29, 2022に投稿
   
   
   
@@ -302,84 +299,21 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>先月、<a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。</p>
-<p>ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。</p>
+<p>先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://github.com/CompVis/stable-diffusion">本家のgithub</a>  先ずは本家。</li>
-<li><a href="https://stability.ai/blog/stable-diffusion-public-release">本家のブログ記事</a>  公開時のブログ記事。</li>
-<li><a href="https://huggingface.co/CompVis/stable-diffusion">Hugging FaceのStable Diffusionページ</a>  Hugging Faceはモデルを使用する際のトークンを得るため必須。</li>
-<li><a href="https://huggingface.co/blog/stable_diffusion">Hugging FaceのDiffusersを使ったStable Diffusionに関するブログページ</a></li>
-<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>  自分が興味を持つきっかけとなった記事。</li>
-<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/30/news052.html">@ITの連載2回目の記事</a>  Hugging Faceへのサインアップとアクセストークンの取得方法が載っている。</li>
+<li><a href="https://i.riken.jp/supercom/documents/himenobmt/download/win-mac/#itemid4503">本家のダウンロードページ</a>  ここから、C, static allocate versionのMサイズをダウンロードしたが、結局は、項番3のページのものを使った。</li>
+<li><a href="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/">HPC WORLDのアーカイブ</a>  このページは、旧ソフテックから公開されていた内容のアーカイブ版。サンプルプログラムを用いて、OpenACCの説明がされている良いページ。</li>
+<li><a href="https://hpcworld.jp/archive/SPG/Pgi/OpenACC/008.html#himeno_c">姫野ベンチマークへの適用（C）</a>  このページで公開されている「himenobench_kernels.c」を使った。</li>
 </ol>
-<h2 id="構築手順">構築手順</h2>
-<h3 id="ゴール">ゴール</h3>
-<p>今回、構築するのは、jupyter-labでStable Diffusionを試せる環境のsingularityイメージである。</p>
-<p>以下、sifファイルを作成するためのdefファイルと実行結果を説明する。</p>
-<h3 id="実行環境">実行環境</h3>
-<p>実行環境は、NVIDIA RTX A4000を搭載したHP Z820で、OSはUbuntu 20.04、Driver Versionは470.141.03である。singularityのバージョンは、3.9.5。</p>
-<p>初めに、nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04をdockerでpullしたところ、次のようなエラーとなったので、nvidia/cuda:11.3.1-base-ubuntu20.04を使うことにした。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">docker: Error response from daemon: failed to create shim task: OCI runtime cre<span class="se">\
-</span><span class="se"></span>ate failed: runc create failed: unable to start container process: error during<span class="se">\
-</span><span class="se"></span> container init: error running hook <span class="c1">#0: error running hook: exit status 1, stdo\</span>
-ut: , stderr: Auto-detected mode as <span class="s1">&#39;legacy&#39;</span>
-nvidia-container-cli: requirement error: unsatisfied condition: cuda&gt;<span class="o">=</span>11.8, ple<span class="se">\
-</span><span class="se"></span>ase update your driver to a newer version, or use an earlier cuda container: un<span class="se">\
-</span><span class="se"></span>known.
-</code></pre></div><p>原因は、<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions">このページ</a>のCUDAとDriverのバージョンの関係を見よ！</p>
-<h3 id="defファイル">defファイル</h3>
-<p><a href="https://akenji3.github.io/post/20220422_rtx_a4000/">この記事</a>のdefファイルに少し手を加えた。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Stable Diffusionをjupyterlabで試せる、singularityコンテナを作成する。</span>
-
-Bootstrap:	docker
-FROM:	nvidia/cuda:11.3.1-base-ubuntu20.04
-
-%post
-	apt update -y <span class="o">&amp;&amp;</span> apt -y install python3 python3-pip <span class="se">\
-</span><span class="se"></span>		curl git tree unzip vim wget
-	pip3 install --upgrade pip setuptools
-	pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
-        pip3 install jupyterlab matplotlib pandas scikit-learn seaborn <span class="se">\
-</span><span class="se"></span>                sympy pydotplus ipywidgets widgetsnbextension <span class="se">\
-</span><span class="se"></span>                janome torchtext tweepy gensim folium pytorch-transformers <span class="se">\
-</span><span class="se"></span>                spacy torchdata fugashi ipadic pytorch-lightning <span class="se">\
-</span><span class="se"></span>		transformers scipy ftfy diffusers
-
-%runscript
-        jupyter-lab --ip<span class="o">=</span>0.0.0.0 --port<span class="o">=</span><span class="m">8888</span> --no-browser --NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span> --notebook-dir<span class="o">=</span>/workdir
-
-</code></pre></div><h3 id="sifファイルの作成">sifファイルの作成</h3>
-<p>前節で作成したdefファイルからsingularityコンテナイメージ（sifファイル）は、次のようにして作成する。ここで、def_pytorch-lab.defは上記defファイル、def_pytorch-lab.sifはbuildするコンテナイメージ。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo singularity build sd_pytorch-lab.sif sd_pytorch-lab.def
-</code></pre></div><p>作成したsifファイルを実行時には、NVIDIA RTX A4000が使われるように、次のように環境変数をセットして呼び出している。ここで、${COMMON_AREA}は、nfsマウントしている領域。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">export</span> <span class="nv">SINGULARITYENV_CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>
-singularity run --nv --bind <span class="si">${</span><span class="nv">COMMON_AREA</span><span class="si">}</span>/jupyterlab:/workdir <span class="si">${</span><span class="nv">COMMON_AREA</span><span class="si">}</span>/sifs/sd_pytorch-lab.sif
-</code></pre></div><h3 id="実行結果">実行結果</h3>
-<p>実行したjupyterlabのセルは、次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># https://huggingface.co/blog/stable_diffusion
-
-import torch
-from diffusers import StableDiffusionPipeline
-
-YOUR_TOKEN=&#39;hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#39;
-
-# get your token at https://huggingface.co/settings/tokens
-pipe = StableDiffusionPipeline.from_pretrained(&#34;CompVis/stable-diffusion-v1-4&#34;, revision=&#34;fp16&#34;, torch_dtype=torch.float16, use_auth_token=YOUR_TOKEN)
-pipe.to(&#39;cuda&#39;)
-
-prompt = &#34;beautifull castle, with green garden, photorealistic, 8k &#34;
-
-with torch.autocast(&#39;cuda&#39;):
-    image = pipe(prompt).images[0]
-
-image
-</code></pre></div><p>「beautifull castle, with green garden, photorealistic, 8k」との呪文で生成されたイメージは次の通り。</p>
-<p>自分のイメージは、芝のグリーンではなく、森林の緑だったんだけど、呪文が良くなかったか！</p>
-<p><img src="/images/20221010_StableDiffusion/sd_output.png" alt="SD_created"></p>
-<h2 id="まとめ">まとめ</h2>
-<p>取り敢えず、自分の環境で生成モデルを使って、promptから画像の生成ができることが分かった。</p>
-<p>diffusersを使わない方法も、試してみたい。</p>
+<h2 id="測定に使ったプログラム">測定に使ったプログラム</h2>
+<p>測定に使ったプログラムは「情報源」の項番3からダウンロードした。ダウンロードしたものは、既にOpenACCのディレクティブが挿入されている単精度計算だったので、floatをdoubleに置き換えて倍精度版として使用した。</p>
+<p>コンパイルする際に使用するGPUに応じ、「-ta=nvidia,cc35」のcc35の部分をnvaccelinfoの出力結果に応じて、適切に選択。</p>
+<h2 id="結果">結果</h2>
+<p>各GPU毎で、単精度、倍精度の実行結果（MFLOPS measuredの数値）をグラフ化したものを添付する。</p>
+<p><img src="/images/20221029_himeno_bench/20221029_himeno_bench.png" alt="HimenoBenchGraph"></p>
+<p>自分の予想では、倍精度演算は、TITAN Vが圧勝で、単精度演算は、RTX A4000が良い線行くのではないかと思っていたが、TITAN Vが（RTX A4000に対し）倍精度・単精度ともに、大きく水を開けた結果であった。</p>
+<p>今度は、Deep Learning学習を例に実行速度を比較してみたい。</p>
 
         
 
@@ -393,42 +327,42 @@ image
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;text=Stable%20Diffusion%20with%20Diffusers&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92TITAN%20V%e3%81%a7%e5%ae%9f%e8%a1%8c&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92TITAN%20V%e3%81%a7%e5%ae%9f%e8%a1%8c" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92TITAN%20V%e3%81%a7%e5%ae%9f%e8%a1%8c" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;title=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92TITAN%20V%e3%81%a7%e5%ae%9f%e8%a1%8c" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221010_stablediffuser%2f&amp;description=Stable%20Diffusion%20with%20Diffusers" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221029_himenobenchontitanv%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92TITAN%20V%e3%81%a7%e5%ae%9f%e8%a1%8c" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -451,13 +385,9 @@ image
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" data-toggle="tooltip" data-placement="top" title="KubernetesでGPUクラスタ構築 〜 初めの一歩">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20221010_stablediffuser/" data-toggle="tooltip" data-placement="top" title="Stable Diffusion with Diffusers">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークをTITAN Vで実行">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
