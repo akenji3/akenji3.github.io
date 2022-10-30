@@ -61,7 +61,7 @@
   "headline": "Diffusersの訓練時間による、TITAN VとRTX A4000比較",
   "description" : "モチベーション 少し前に、この記事でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。 この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。\n",
   "inLanguage" : "ja",
-  "wordCount":  1332 ,
+  "wordCount":  1333 ,
   "datePublished" : "2022-10-30T00:00:00",
   "dateModified" : "2022-10-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -394,7 +394,7 @@ if (!doNotTrack) {
 <span class="k">print</span><span class="p">(</span><span class="s2">&#34;実行時間 {:8.2f}秒&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lapse_time</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
 </code></pre></div><h2 id="結果">結果</h2>
-<p>TITAN VとA4000での実行時間は、次のとおり。RTX 1080で実行したことろ、「CUDA out of memory」となって実行できなかった。この学習では10GB程度のGPUメモリーが必要。</p>
+<p>TITAN VとA4000での実行時間は、次のとおり。</p>
 <table>
 <thead>
 <tr>
@@ -420,6 +420,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>上記の結果は、あくまで自分の環境（各 GPUの動作サーバも異なる）での結果であり、厳密な性能測定ではない。</p>
+<p>RTX 1080でも実行したが、「CUDA out of memory」となって実行できなかった。この学習では10GB程度のGPUメモリーが必要なようだ。</p>
 
         
 
