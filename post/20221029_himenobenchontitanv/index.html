@@ -60,7 +60,7 @@
   "headline": "姫野ベンチマークをTITAN Vで実行",
   "description" : "はじめに 先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。\n",
   "inLanguage" : "ja",
-  "wordCount":  761 ,
+  "wordCount":  802 ,
   "datePublished" : "2022-10-29T00:00:00",
   "dateModified" : "2022-10-29T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -313,6 +313,7 @@ if (!doNotTrack) {
 <p>コンパイルする際に使用するGPUに応じ、「-ta=nvidia,cc35」のcc35の部分をnvaccelinfoの出力結果に応じて、適切に選択。</p>
 <h2 id="結果">結果</h2>
 <p>各GPU毎で、単精度、倍精度の実行結果（MFLOPS measuredの数値）をグラフ化したものを添付する。</p>
+<p>結果は、自分の実行環境での結果（動作しているサーバ環境も異なる）であることに注意。</p>
 <p><img src="/images/20221029_himeno_bench/20221029_himeno_bench.png" alt="HimenoBenchGraph"></p>
 <p>自分の予想では、倍精度演算は、TITAN Vが圧勝で、単精度演算は、RTX A4000が良い線行くのではないかと思っていたが、TITAN Vが（RTX A4000に対し）倍精度・単精度ともに、大きく水を開けた結果であった。</p>
 <p>今度は、Deep Learning学習を例に実行速度を比較してみたい。</p>
@@ -390,6 +391,10 @@ if (!doNotTrack) {
               <a href="https://akenji3.github.io/post/20221010_stablediffuser/" data-toggle="tooltip" data-placement="top" title="Stable Diffusion with Diffusers">&larr; 前ページ</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20221030_training_diffusers/" data-toggle="tooltip" data-placement="top" title="Diffusersの訓練時間による、TITAN VとRTX A4000比較">次ページ &rarr;</a>
+            </li>
           
         </ul>
       
