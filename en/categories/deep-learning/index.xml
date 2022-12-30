@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Deep Learning (CNN) による銀河形状分類（Part 2）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</guid>
+      <description>前回の記事の続き。 Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let&amp;rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset. # DataLoaderに格納されているイメージデータ</description>
+    </item>
+    
+    <item>
       <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
       <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</link>
       <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
