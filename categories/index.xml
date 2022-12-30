@@ -7,15 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 30 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>astro-ph</title>
+      <link>https://akenji3.github.io/categories/astro-ph/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/categories/astro-ph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://akenji3.github.io/categories/deep-learning/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/categories/deep-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>software</title>
       <link>https://akenji3.github.io/categories/software/</link>
-      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/categories/software/</guid>
       <description></description>
