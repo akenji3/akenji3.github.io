@@ -31,5 +31,14 @@
       <description>前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい</description>
     </item>
     
+    <item>
+      <title>Deep Learning (CNN) による銀河形状分類（その3）</title>
+      <link>https://akenji3.github.io/post/20221230_galaxy_cnn_3/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20221230_galaxy_cnn_3/</guid>
+      <description>（その2）の記事の続き。 前回は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。 VGG、ResNetと言えば、ちょうど一年</description>
+    </item>
+    
   </channel>
 </rss>
