@@ -21,6 +21,16 @@
   <url>
     <loc>https://akenji3.github.io/categories/astro-ph/</loc>
     <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/astro-ph/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/astro-ph/"
+                />
   </url>
   
   <url>
@@ -41,6 +51,16 @@
   <url>
     <loc>https://akenji3.github.io/categories/deep-learning/</loc>
     <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/deep-learning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/deep-learning/"
+                />
   </url>
   
   <url>

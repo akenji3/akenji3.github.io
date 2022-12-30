@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/</loc>
-    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,13 +19,23 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/</loc>
-    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/en/categories/astro-ph/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/astro-ph/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/astro-ph/"
+                />
   </url>
   
   <url>
     <loc>https://akenji3.github.io/en/categories/</loc>
-    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -39,8 +49,28 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/en/categories/deep-learning/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/deep-learning/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/deep-learning/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/en/post/</loc>
-    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -55,7 +85,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/categories/software/</loc>
-    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -66,6 +96,11 @@
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/</loc>
+    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
