@@ -23,6 +23,15 @@
     </item>
     
     <item>
+      <title>Deep Learning (CNN) による銀河形状分類（その2）</title>
+      <link>https://akenji3.github.io/post/20221230_galaxy_cnn_2/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20221230_galaxy_cnn_2/</guid>
+      <description>前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい</description>
+    </item>
+    
+    <item>
       <title>Diffusersの訓練時間による、TITAN VとRTX A4000比較</title>
       <link>https://akenji3.github.io/post/20221030_training_diffusers/</link>
       <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
