@@ -40,7 +40,7 @@ The results of various attempts to answer this question are summarized below.&lt
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/</guid>
       <description>&lt;p&gt;Continued from previous article.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
     </item>
     
   </channel>
