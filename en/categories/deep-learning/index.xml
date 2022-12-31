@@ -13,15 +13,6 @@
     
     
     <item>
-      <title>Deep Learning (CNN) による銀河形状分類（Part 2）</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</guid>
-      <description>前回の記事の続き。 Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let&amp;rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset. # DataLoaderに格納されているイメージデータ</description>
-    </item>
-    
-    <item>
       <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
       <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</link>
       <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
@@ -29,6 +20,17 @@
       <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</guid>
+      <description>&lt;p&gt;Continued from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;previous&lt;/a&gt; article.&lt;/p&gt;
+&lt;p&gt;Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.&lt;/p&gt;</description>
     </item>
     
   </channel>

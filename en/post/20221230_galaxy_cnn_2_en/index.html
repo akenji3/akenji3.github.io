@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Deep Learning (CNN) による銀河形状分類（Part 2） - akenji&#39;s lab</title>
-  <meta name="description" content="前回の記事の続き。 Why doesn&rsquo;t the training/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let&rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset. # DataLoaderに格納されているイメージデータ">
+  <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2） - akenji&#39;s lab</title>
+  <meta name="description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,7 +47,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/akenji3.github.io\/en\/post\/20221230_galaxy_cnn_2_en\/",
-          "name": "Deep learning ( c n n) による銀河形状分類（ part 2）"
+          "name": "Galaxy shape classification by deep learning ( c n n)（ part 2）"
         }
     }]
 }
@@ -56,10 +58,10 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Deep Learning (CNN) による銀河形状分類（Part 2）",
-  "description" : "前回の記事の続き。 Why doesn\u0026rsquo;t the training\/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let\u0026rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset. # DataLoaderに格納されているイメージデータ",
+  "headline": "Galaxy Shape Classification by Deep Learning (CNN)（Part 2）",
+  "description" : "Continued from previous article.\nWhy doesn\u0026rsquo;t the training\/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below.\n",
   "inLanguage" : "en",
-  "wordCount":  560 ,
+  "wordCount":  549 ,
   "datePublished" : "2022-12-30T00:00:00",
   "dateModified" : "2022-12-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -78,15 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="Deep Learning (CNN) による銀河形状分類（Part 2）" />
-<meta property="og:description" content="前回の記事の続き。 Why doesn&rsquo;t the training/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let&rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset. # DataLoaderに格納されているイメージデータ">
+<meta property="og:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 2）" />
+<meta property="og:description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Deep Learning (CNN) による銀河形状分類（Part 2）" />
-  <meta name="twitter:description" content="前回の記事の続き。 Why doesn&rsquo;t the training/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below. Galaxy image Let&rsquo;s see what …">
+  <meta name="twitter:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 2）" />
+  <meta name="twitter:description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -260,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Deep Learning (CNN) による銀河形状分類（Part 2）</h1>
+                <h1>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</h1>
               
               
               
@@ -295,7 +301,7 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">前回</a>の記事の続き。</p>
+        <p>Continued from <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">previous</a> article.</p>
 <p>Why doesn&rsquo;t the training/testing error improve after repeated epochs?
 The results of various attempts to answer this question are summarized below.</p>
 <h2 id="galaxy-image">Galaxy image</h2>
@@ -332,7 +338,7 @@ The results of various attempts to answer this question are summarized below.</p
 <p>Even a human being cannot distinguish them. I bow down to the activities of <a href="https://www.zooniverse.org/projects/zookeeper/galaxy-zoo">Galaxy Zoo</a>.</p>
 <h2 id="rotate-and-flip-data-left-and-right">Rotate and flip data left and right</h2>
 <p>The following is the result of enabling the two lines that were commented out in transforms to increase the variation of the galaxy tilt.</p>
-<p>! <a href="/images/20221230_Galaxy_CNN/20221230_VGG16_wtRotate.png">withRotate</a></p>
+<p><img src="/images/20221230_Galaxy_CNN/20221230_VGG16_wtRotate.png" alt="withRotate"></p>
 <p>Still, the training/testing error remains flat over epochs, with no improvement.</p>
 <h2 id="change-the-learning-rate">Change the learning rate</h2>
 <p>I considered further data augmentaion by random cropping, noise addition, information loss, etc., but before that, let&rsquo;s change the learning rate.</p>
@@ -343,16 +349,15 @@ Speaking of which, I remembered that <a href="https://axa.biopapyrus.jp/deep-lea
 
 <span class="c1"># 最適化手法を設定</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
-</code></pre></div><p>! <a href="/images/20221230_Galaxy_CNN/20221230_LearningRate.png">LearningRate</a></p>
+</code></pre></div><p><img src="/images/20221230_Galaxy_CNN/20221230_LearningRate.png" alt="LearningRate"></p>
 <p>This time, we can see that both training/testing errors are improving as epochs are repeated. 30 epochs shows no tendency for over-training.</p>
 <p>The time taken for the 30 epochs was 2,786 seconds (46 min 26 sec). Let&rsquo;s try another half!</p>
-<p>! <a href="/images/20221230_Galaxy_CNN/20221230_epoch60.png">epoch60</a></p>
+<p><img src="/images/20221230_Galaxy_CNN/20221230_epoch60.png" alt="epoch60"></p>
 <p>The time taken for 60 epochs was 5,574 seconds (92 minutes and 54 seconds).</p>
 <p>It appears that after 50 or so epochs, the tendency of overlearning is starting to appear.</p>
 <h2 id="summary-of-vgg16">Summary of VGG16</h2>
 <p>In the case of VGG16, the most important point is to set the learning rate $lr$ to $0.00001$, and the loss value was about $0.02$ in about 50 epochs.</p>
 <p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/">next time</a>, we will try using ResNet as the model.</p>
-
 
         
 
@@ -366,7 +371,7 @@ Speaking of which, I remembered that <a href="https://axa.biopapyrus.jp/deep-lea
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;text=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88Part%202%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;text=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -380,28 +385,28 @@ Speaking of which, I remembered that <a href="https://axa.biopapyrus.jp/deep-lea
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;description=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2_en%2f&amp;description=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -424,9 +429,13 @@ Speaking of which, I remembered that <a href="https://axa.biopapyrus.jp/deep-lea
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN) (Part 1)">&larr; Previous Post</a>
+              <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/" data-toggle="tooltip" data-placement="top" title="Building a GPU Cluster with Kubernetes - the First Steps">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN) (Part 1)">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
