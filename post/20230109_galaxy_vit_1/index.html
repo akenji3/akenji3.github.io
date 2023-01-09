@@ -299,7 +299,7 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>昨年末のこの記事で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。</p>
+<p>昨年末の<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。</p>
 <h2 id="情報源">情報源</h2>
 <p>教師データとしては、前回同様、<a href="https://astronn.readthedocs.io/en/latest/index.html">AstroNN</a>のGalaxy10 DECals Datasetを使用する。</p>
 <ol>
@@ -307,7 +307,7 @@ if (!doNotTrack) {
 <li><a href="https://pystyle.info/pytorch-list-of-transforms/">Pytorch - torchvision で使える Transform まとめ</a>  汎化性能を高めるため（過学習を抑えるため）にData Augmentationを行ったが、pytorchではtransformで行う。その説明記事。</li>
 </ol>
 <h2 id="vision-transformerモデル">Vision Transformerモデル</h2>
-<p>DataLoaderを作成するまでは、<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/#Dataset%E4%BD%9C%E6%88%90">VGG16</a>の場合と同じ。</p>
+<p>DataLoaderを作成するまでは、<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">VGG16</a>の場合と同じ。</p>
 <h3 id="準備">準備</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Training settings</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">30</span>
