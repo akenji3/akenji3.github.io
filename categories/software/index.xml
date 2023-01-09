@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deep Learning (ViT) による銀河形状分類（その1）</title>
+      <link>https://akenji3.github.io/post/20230109_galaxy_vit_1/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20230109_galaxy_vit_1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;昨年末のこの記事で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Deep Learning (CNN) による銀河形状分類（その1）</title>
