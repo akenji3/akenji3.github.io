@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 1） - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT). &lt;! &ndash;more&ndash;&gt; Sources As before, the Galaxy10 DECals Dataset from AstroNN will be used as the teacher data. 1.Try fine tuning of Vision Transformer model An article explaining classification and fine tuning by">
+  <meta name="description" content="Introduction
+In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,9 +58,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "Galaxy Shape Classification by Deep Learning (ViT)（Part 1）",
-  "description" : "Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT). \u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt; Sources As before, the Galaxy10 DECals Dataset from AstroNN will be used as the teacher data. 1.Try fine tuning of Vision Transformer model An article explaining classification and fine tuning by",
+  "description" : "Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).\n",
   "inLanguage" : "en",
-  "wordCount":  845 ,
+  "wordCount":  844 ,
   "datePublished" : "2023-01-09T00:00:00",
   "dateModified" : "2023-01-09T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -79,14 +80,16 @@
 </script>
 
 <meta property="og:title" content="Galaxy Shape Classification by Deep Learning (ViT)（Part 1）" />
-<meta property="og:description" content="Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT). &lt;! &ndash;more&ndash;&gt; Sources As before, the Galaxy10 DECals Dataset from AstroNN will be used as the teacher data. 1.Try fine tuning of Vision Transformer model An article explaining classification and fine tuning by">
+<meta property="og:description" content="Introduction
+In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Galaxy Shape Classification by Deep Learning (ViT)（Part 1）" />
-  <meta name="twitter:description" content="Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification …">
+  <meta name="twitter:description" content="Introduction
+In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -297,7 +300,6 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction</h2>
 <p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_en/">this article</a> at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).</p>
-<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources</h2>
 <p>As before, the Galaxy10 DECals Dataset from <a href="https://astronn.readthedocs.io/en/latest/index.html">AstroNN</a> will be used as the teacher data.</p>
 <p>1.<a href="https://farml1.com/vit/">Try fine tuning of Vision Transformer model</a> An article explaining classification and fine tuning by Vision Transformer. I used this page as a reference to perform ViT model and fine tuning. 2.
@@ -455,12 +457,13 @@ if (!doNotTrack) {
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div><h2 id="execution-results">Execution results</h2>
 <p>The graph of the execution result is as follows.</p>
-<p>! <a href="/images/20230109_Galaxy_ViT/20230109_ViT_NoPreTrain.png">ViT_NoPreTrain</a></p>
+<p><img src="/images/20230109_Galaxy_ViT/20230109_ViT_NoPreTrain.png" alt="ViT_NoPreTrain"></p>
 <p>The loss appears to be comparable to that of ResNet, although extending the Epoch seems to improve it somewhat.</p>
 <p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3_en/">this article</a>, only loss was graphed, so for reference, the following graph is the result of trying to obtain accuracy in ResNet as well.</p>
-<p>! <a href="/images/20230109_Galaxy_ViT/20230109_ResNet.png">ResNet_+acc</a></p>
+<p><img src="/images/20230109_Galaxy_ViT/20230109_ResNet.png" alt="ResNet_+acc"></p>
 <p>In <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2_en/">next time</a>, we will do fine tuning using models that have already been trained.</p>
-
+<hr>
+<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
 
         
 
@@ -535,6 +538,10 @@ if (!doNotTrack) {
               <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN) (Part 1)">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (ViT)（Part 2）">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts - akenji&#39;s lab</title>
+  <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 2） - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction.
+In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +30,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20230219_galaxy_vit_2_en\/",
+          "name": "Galaxy shape classification by deep learning ( vi t)（ part 2）"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Galaxy Shape Classification by Deep Learning (ViT)（Part 2）",
+  "description" : "Introduction. In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer\u0026rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.\n",
+  "inLanguage" : "en",
+  "wordCount":  261 ,
+  "datePublished" : "2023-02-19T00:00:00",
+  "dateModified" : "2023-02-19T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20230219_galaxy_vit_2_en\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="Galaxy Shape Classification by Deep Learning (ViT)（Part 2）" />
+<meta property="og:description" content="Introduction.
+In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:title" content="Galaxy Shape Classification by Deep Learning (ViT)（Part 2）" />
+  <meta name="twitter:description" content="Introduction.
+In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&rsquo;s adaptation to image processing. This time, we performed the same …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -209,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Posts</h1>
+                <h1>Galaxy Shape Classification by Deep Learning (ViT)（Part 2）</h1>
               
               
               
@@ -226,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/" lang="ja">ja</a>
+  
 </span>
 
 
@@ -240,388 +294,134 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (ViT)（Part 2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on February 19, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <h2 id="introduction">Introduction.</h2>
 <p>In <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">this article</a>, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.</p>
-        <a href="https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/" class="post-read-more">[Read More]</a>
+<h2 id="fine-tuning-vit">Fine-tuning ViT</h2>
+<p>Replace the &ldquo;Efficient Attention and Parameter Settings&rdquo; section of the previous article with the following.</p>
+<h3 id="load-pre-trained-model">Load pre-trained model</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model</span> <span class="o">=</span> <span class="n">timm</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="s1">&#39;vit_small_patch16_224&#39;</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div><p>That&rsquo;s all.</p>
+<p>No changes are made after the &ldquo;Loss Function, Optimizer Settings&rdquo; section in the previous article.</p>
+<h2 id="running-results">Running Results</h2>
+<p>The following are the results of fine tuning with the pre-trained model.</p>
+<p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain.png" alt="ViT_PreTrain"></p>
+<p>From the above graph, we can see that the image is over-trained. So, we would like to apply augmentation with TRANSFORMS to the training image.</p>
+<h3 id="randomly-erase-a-part-of-the-image-and-slightly-strengthen-the-rotation-angle">Randomly erase a part of the image and slightly strengthen the rotation angle.</h3>
+<p>Change transoforms as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train_transforms</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomRotation</span><span class="p">(</span><span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">]),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomErasing</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+<span class="p">])</span>
+</code></pre></div><p>The results of that run are as follows</p>
+<p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain_Erase.png" alt="ViT_PreTrain_Erase"></p>
+<p>As for over-learning, although improvement is seen, it seems to be over-learning around the 15 epoch mark.</p>
+<p>As shown below, the scale of RandomErasing was changed and the area to be deleted was slightly increased.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train_transforms</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="mi">224</span><span class="p">),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomRotation</span><span class="p">(</span><span class="n">degrees</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">]),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomHorizontalFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">RandomErasing</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+<span class="p">])</span>
+</code></pre></div><p>A graph of the results follows. Overlearning seems to have improved a lot.</p>
+<p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain_MoreErase.png" alt="ViT_PreTrain_MoreErase"></p>
+<p>In the future, I would like to clarify the effect of augmentation of the training data in a more analytical way.</p>
+<p>In doing so, I will try to analyze the results of the following confusion matrix.</p>
+<p><img src="/images/20230109_Galaxy_ViT/20230219_ConfusionMatrix.png" alt="ConfusionMatrix"></p>
+<hr>
+<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
+
         
-    </div>
 
-    
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
 
-</article>
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f&amp;text=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28ViT%29%ef%bc%88Part%202%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28ViT%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28ViT%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28ViT%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230219_galaxy_vit_2_en%2f&amp;description=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28ViT%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (ViT)（Part 1）</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 9, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_en/">this article</a> at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).</p>
-        <a href="https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</h2>
         
-        
-        
-    </a>
+      </article>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
+      
+        <ul class="pager blog-pager">
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Continued from <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">previous</a> article.</p>
-<p>Why doesn&rsquo;t the training/testing error improve after repeated epochs?
-The results of various attempts to answer this question are summarized below.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (ViT)（Part 1）">&larr; Previous Post</a>
+            </li>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Continued from previous article.</p>
-<p>In <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/">the previous</a>, we studied with VGG16, but this time we will use ResNet for the model.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/">
-        <h2 class="post-title">Building a GPU Cluster with Kubernetes - the First Steps</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 19, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
+        </ul>
+      
 
 
-    </p>
-    <div class="post-entry">
-        
-        Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
-In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.
-        <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
+      
 
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/">
-        <h2 class="post-title">Change display resolution - xrandr BadMatch support</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 14, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu
-        <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/ubuntu/">ubuntu</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/nvidia/">nvidia</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/xrandr/">xrandr</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/badmatch/">BadMatch</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/">
-        <h2 class="post-title">GPU cluster construction with Kubernetes (not yet completed)</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 21, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This
-        <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/cluster/">cluster</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/gpu/">gpu</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub_en/">
-        <h2 class="post-title">Publish a static blog created by Hugo on GitHub Pages</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 11, 2020
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
-When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.
-        <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/github-pages/">GitHub Pages</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-        </div>
-        
-      </div>
     </div>
   </div>
+</div>
 
       
 <footer>
@@ -672,7 +472,7 @@ When I was thinking about it, GigHub comes to mind and I decided to store and pu
               </li>
           
           <li>
-            <a href="/en/post/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
