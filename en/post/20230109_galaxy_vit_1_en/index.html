@@ -60,7 +60,7 @@ In this article at the end of last year, we mentioned that we performed galaxy s
   "headline": "Galaxy Shape Classification by Deep Learning (ViT)（Part 1）",
   "description" : "Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).\n",
   "inLanguage" : "en",
-  "wordCount":  844 ,
+  "wordCount":  850 ,
   "datePublished" : "2023-01-09T00:00:00",
   "dateModified" : "2023-01-09T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -302,10 +302,12 @@ if (!doNotTrack) {
 <p>In <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">this article</a> at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).</p>
 <h2 id="sources">Sources</h2>
 <p>As before, the Galaxy10 DECals Dataset from <a href="https://astronn.readthedocs.io/en/latest/index.html">AstroNN</a> will be used as the teacher data.</p>
-<p>1.<a href="https://farml1.com/vit/">Try fine tuning of Vision Transformer model</a> An article explaining classification and fine tuning by Vision Transformer. I used this page as a reference to perform ViT model and fine tuning. 2.
-2.<a href="https://pystyle.info/pytorch-list-of-transforms/">Pytorch - Transform summary for use with torchvision</a> Data Augmentation was performed to improve generalization performance (to reduce overlearning). Pytorch uses transform to improve generalization performance (to suppress over-training). This is an article explaining the process.</p>
+<ol>
+<li><a href="https://farml1.com/vit/">Try fine tuning of Vision Transformer model</a> An article explaining classification and fine tuning by Vision Transformer. I used this page as a reference to perform ViT model and fine tuning.</li>
+<li><a href="https://pystyle.info/pytorch-list-of-transforms/">Pytorch - Transform summary for use with torchvision</a> Data Augmentation was performed to improve generalization performance (to reduce overlearning). Pytorch uses transform to improve generalization performance (to suppress over-training). This is an article explaining the process.</li>
+</ol>
 <h2 id="vision-transformer-model">Vision Transformer model</h2>
-<p>Same as for <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_en/">VGG16</a> until DataLoader is created.</p>
+<p>Same as for <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">VGG16</a> until DataLoader is created.</p>
 <h3 id="preparation">Preparation</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Training settings</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">30</span>
@@ -394,7 +396,7 @@ if (!doNotTrack) {
         <span class="n">test_acc</span> <span class="o">=</span> <span class="n">test_acc</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span>
 </code></pre></div><h3 id="function-to-execute-a-given-epoch">Function to execute a given epoch</h3>
-<p>Changed to return a list of ACCURACY and LOSS by training/test data.</p>
+<p>Changed to return a list of &ldquo;accuracy&rdquo; and &ldquo;loss&rdquo; by training/test data.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
     <span class="n">train_loss_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">test_loss_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -458,8 +460,8 @@ if (!doNotTrack) {
 </code></pre></div><h2 id="execution-results">Execution results</h2>
 <p>The graph of the execution result is as follows.</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230109_ViT_NoPreTrain.png" alt="ViT_NoPreTrain"></p>
-<p>The loss appears to be comparable to that of ResNet, although extending the Epoch seems to improve it somewhat.</p>
-<p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3_en/">this article</a>, only loss was graphed, so for reference, the following graph is the result of trying to obtain accuracy in ResNet as well.</p>
+<p>If the Epoch is extended, it seems to improve somewhat, but both accuracy and loss seem to be lower than those of ResNet.</p>
+<p>In <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3_en/">this article</a>, only loss was graphed, so for reference, so for comparison with ViT&rsquo;s results, accuracy was also obtained for ResNet. The following graph shows the result.</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230109_ResNet.png" alt="ResNet_+acc"></p>
 <p>In <a href="https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/">next time</a>, we will do fine tuning using models that have already been trained.</p>
 <hr>

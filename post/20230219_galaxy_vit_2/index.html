@@ -60,7 +60,7 @@
   "headline": "Deep Learning（ViT）による銀河形状分類（その2）",
   "description" : "はじめに この記事で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。\n",
   "inLanguage" : "ja",
-  "wordCount":  600 ,
+  "wordCount":  634 ,
   "datePublished" : "2023-02-19T00:00:00",
   "dateModified" : "2023-02-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -310,7 +310,7 @@ if (!doNotTrack) {
 <h2 id="実行結果">実行結果</h2>
 <p>事前学習モデルでファインチューニングした実行結果は次のとおり。</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain.png" alt="ViT_PreTrain"></p>
-<p>上記のグラフから、過学習していることが分かる。そこで、学習用画像にtransformsでaugmentationを適用してみたい。</p>
+<p>上記のグラフから、ResNetでのaccuracyとlossより良い値を示しているが、過学習していることが分かる。そこで、学習用画像にtransformsでaugmentationを適用してみたい。</p>
 <h3 id="画像の一部をランダムに消去回転角度を少し強める">画像の一部をランダムに消去、回転角度を少し強める</h3>
 <p>transoformsを次のとおりに変更。</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train_transforms</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>

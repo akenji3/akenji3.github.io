@@ -60,7 +60,7 @@ In this article, we performed galaxy shape classification using the Vision Trans
   "headline": "Galaxy Shape Classification by Deep Learning (ViT)（Part 2）",
   "description" : "Introduction. In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer\u0026rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.\n",
   "inLanguage" : "en",
-  "wordCount":  261 ,
+  "wordCount":  265 ,
   "datePublished" : "2023-02-19T00:00:00",
   "dateModified" : "2023-02-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -310,7 +310,7 @@ if (!doNotTrack) {
 <h2 id="running-results">Running Results</h2>
 <p>The following are the results of fine tuning with the pre-trained model.</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain.png" alt="ViT_PreTrain"></p>
-<p>From the above graph, we can see that the image is over-trained. So, we would like to apply augmentation with TRANSFORMS to the training image.</p>
+<p>The above graph shows better values than &ldquo;accuracy&rdquo; and &ldquo;loss&rdquo; in ResNet, but it indicates overlearning. So, we would like to apply augmentation with transforms to the training image.</p>
 <h3 id="randomly-erase-a-part-of-the-image-and-slightly-strengthen-the-rotation-angle">Randomly erase a part of the image and slightly strengthen the rotation angle.</h3>
 <p>Change transoforms as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">train_transforms</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
