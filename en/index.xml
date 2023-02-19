@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 1）</title>
+      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</guid>
+      <description>Introduction In this article at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT). &amp;lt;! &amp;ndash;more&amp;ndash;&amp;gt; Sources As before, the Galaxy10 DECals Dataset from AstroNN will be used as the teacher data. 1.Try fine tuning of Vision Transformer model An article explaining classification and fine tuning by</description>
+    </item>
     
     <item>
       <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
