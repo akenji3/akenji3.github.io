@@ -60,7 +60,7 @@
   "headline": "Deep Learning（ViT）による銀河形状分類（その2）",
   "description" : "はじめに この記事で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。\n",
   "inLanguage" : "ja",
-  "wordCount":  634 ,
+  "wordCount":  684 ,
   "datePublished" : "2023-02-19T00:00:00",
   "dateModified" : "2023-02-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -331,7 +331,7 @@ if (!doNotTrack) {
     <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
     <span class="n">transforms</span><span class="o">.</span><span class="n">RandomErasing</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
 <span class="p">])</span>
-</code></pre></div><p>結果のグラフは次のとおり。過学習は、かなり改善したようだ。</p>
+</code></pre></div><p>結果のグラフは次のとおり。過学習は、かなり改善したようだが、データにaugmentationを施すとaccuracyとloss共に悪化しているようにも見える。</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain_MoreErase.png" alt="ViT_PreTrain_MoreErase"></p>
 <p>今後、学習データのaugmentationの効果をもう少し分析的に明らかにしたい。</p>
 <p>その際は、次のような混同行列の結果を見ながら分析してみる。</p>

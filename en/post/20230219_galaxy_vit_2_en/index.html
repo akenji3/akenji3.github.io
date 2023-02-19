@@ -60,7 +60,7 @@ In this article, we performed galaxy shape classification using the Vision Trans
   "headline": "Galaxy Shape Classification by Deep Learning (ViT)（Part 2）",
   "description" : "Introduction. In this article, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer\u0026rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.\n",
   "inLanguage" : "en",
-  "wordCount":  265 ,
+  "wordCount":  280 ,
   "datePublished" : "2023-02-19T00:00:00",
   "dateModified" : "2023-02-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -331,7 +331,7 @@ if (!doNotTrack) {
     <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
     <span class="n">transforms</span><span class="o">.</span><span class="n">RandomErasing</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">ratio</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
 <span class="p">])</span>
-</code></pre></div><p>A graph of the results follows. Overlearning seems to have improved a lot.</p>
+</code></pre></div><p>A graph of the results follows. Overlearning seems to have improved considerably, but both &ldquo;accuracy&rdquo; and &ldquo;loss&rdquo; seem to have worsened when augmentation is applied to the data.</p>
 <p><img src="/images/20230109_Galaxy_ViT/20230219_ViT_PreTrain_MoreErase.png" alt="ViT_PreTrain_MoreErase"></p>
 <p>In the future, I would like to clarify the effect of augmentation of the training data in a more analytical way.</p>
 <p>In doing so, I will try to analyze the results of the following confusion matrix.</p>
