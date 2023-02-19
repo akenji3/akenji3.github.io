@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;
-&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/post/20230109_galaxy_vit_1/&#34;&gt;this article&lt;/a&gt;, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&amp;rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.&lt;/p&gt;</description>
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/&#34;&gt;this article&lt;/a&gt;, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&amp;rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
     </item>
     
     <item>
