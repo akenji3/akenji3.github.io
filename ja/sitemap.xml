@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/astro-ph/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,7 +35,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,7 +50,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/deep-learning/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -64,13 +64,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20230109_galaxy_vit_1/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20230219_galaxy_vit_2/</loc>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -85,7 +85,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -96,6 +96,11 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20230109_galaxy_vit_1/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
