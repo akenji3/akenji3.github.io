@@ -18,9 +18,9 @@
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset_en/</guid>
-      <description>In the beginning In the five articles from this article to this article Galaxy shape(morphological) classification was performed using CNN (VGG16, ResNet) and ViT.
-In this article, I would like to consider the dataset used for the galaxy morphological classification, as I would like to re-examine the dataset when analyzing errors in the future.
-A Dataset I used. As noted here, I used [Galaxy10 DECals](https://astronn.readthedocs.io/en/latest/ galaxy10.html) as my dataset. The characteristics of this dataset are as follows.</description>
+      <description>&lt;h2 id=&#34;in-the-beginning&#34;&gt;In the beginning&lt;/h2&gt;
+&lt;p&gt;In the five articles from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; to &lt;a href=&#34;https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/&#34;&gt;this article&lt;/a&gt; Galaxy shape(morphological) classification was performed using CNN (VGG16, ResNet) and ViT.
+In this article, I would like to consider the dataset used for the galaxy morphological classification, as I would like to re-examine the dataset when analyzing errors in the future.&lt;/p&gt;</description>
     </item>
     
     <item>

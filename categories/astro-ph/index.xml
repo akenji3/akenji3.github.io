@@ -18,7 +18,9 @@
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20230223_galaxy_dataset/</guid>
-      <description>はじめに この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。 今後エラーの分析を行うに</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn/&#34;&gt;この記事&lt;/a&gt;から&lt;a href=&#34;https://akenji3.github.io/post/20230219_galaxy_vit_2/&#34;&gt;この記事&lt;/a&gt;までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
+今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。&lt;/p&gt;</description>
     </item>
     
     <item>
