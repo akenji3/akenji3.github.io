@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>銀河形状分類のデータセットについて</title>
+      <link>https://akenji3.github.io/post/20230223_galaxy_dataset/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20230223_galaxy_dataset/</guid>
+      <description>はじめに この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。 今後エラーの分析を行うに</description>
+    </item>
     
     <item>
       <title>Deep Learning（ViT）による銀河形状分類（その2）</title>
