@@ -59,7 +59,7 @@
   "headline": "銀河形状分類のデータセットについて",
   "description" : "はじめに この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。 今後エラーの分析を行うに",
   "inLanguage" : "ja",
-  "wordCount":  1602 ,
+  "wordCount":  1536 ,
   "datePublished" : "2023-02-23T00:00:00",
   "dateModified" : "2023-02-23T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -314,7 +314,6 @@ if (!doNotTrack) {
 <li>形状は、次の8種類(0-7の順に)。クラス名は順に、round elliptical/in-between elliptical/cigar-shaped elliptical/edge-on/barred spiral/unbarred spiral/irregular/merger。</li>
 <li>155,951のイメージを訓練用：64%、validation用：16%、テスト用：20%に分けて使用。</li>
 <li>224x224x3にcropし、flippingとrotatingのデータ拡張を実施。</li>
-<li>archive.zipとしてダウンロード。</li>
 </ul>
 <h2 id="galaxy-morphology-classification-with-deep-convolutional-neural-networksのデータセット">Galaxy Morphology Classification with Deep Convolutional Neural Networksのデータセット</h2>
 <p><a href="https://arxiv.org/pdf/1807.10406.pdf">Galaxy Morphology Classification with Deep Convolutional Neural Networks</a>が使っているデータセットについても調べた。</p>
@@ -323,7 +322,6 @@ if (!doNotTrack) {
 <li>61,578のJPG（424x424x3）カラー画像。</li>
 <li>銀河形状は、$f_{smooth}$、$f_{completely_round}$、$f_{in-between}$、$f_{cigar-shaped}$、$f_{features/disk}$、$f_{edge-on,yes}$、$f_{edge-on,no}$、$f_{spiral,yes}$の値によって、5つのクラスに分類(0-4の順に）。クラス名は順に、Completely round smooth/In-between smooth/Cigar-shaped smooth/Edge-on/Spiral。それぞれ、8,434/8,069/578/3,903/7,806個のデータ。（Table 1に記載）</li>
 <li>全体で28,790のイメージデータを訓練用：テスト用=9:1（25,911、2,879に分けた）。</li>
-<li>Galaxy-zoo-the-galaxy-challenge.zipとしてダウンロード。</li>
 </ul>
 <h2 id="評価">評価</h2>
 <p>以上の３つのデータセットの比較を下表でまとめる。</p>
