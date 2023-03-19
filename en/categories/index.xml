@@ -7,24 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>astro-ph</title>
-      <link>https://akenji3.github.io/en/categories/astro-ph/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/categories/astro-ph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Deep Learning</title>
       <link>https://akenji3.github.io/en/categories/deep-learning/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/categories/deep-learning/</guid>
       <description></description>
@@ -33,9 +24,18 @@
     <item>
       <title>software</title>
       <link>https://akenji3.github.io/en/categories/software/</link>
-      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>astro-ph</title>
+      <link>https://akenji3.github.io/en/categories/astro-ph/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/categories/astro-ph/</guid>
       <description></description>
     </item>
     

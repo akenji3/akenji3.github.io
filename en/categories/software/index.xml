@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Speed-up Learning and inference on Pytorch</title>
+      <link>https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In my home environment where I use NFS to store JupyterLab notebooks, I measured the performance when the NFS server is a RaspberryPi or HP Z240, and found that in the learning loop (state in which epochs are stacked), there is no significant difference whether the NB is stored on an NFS server or locally. I found that there was no significant difference between NBs stored on an NFS server or locally.&lt;/p&gt;
+&lt;p&gt;Therefore, I have challenged to speed up the learning process, and I summarize the progress/results here.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>About the Galaxy Morphological Classification Dataset</title>
