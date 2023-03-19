@@ -61,7 +61,7 @@ JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFS�
   "headline": "Pytorchでの学習／推論の高速化について",
   "description" : "モチベーション JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。\nそこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  1085 ,
+  "wordCount":  1105 ,
   "datePublished" : "2023-03-18T00:00:00",
   "dateModified" : "2023-03-18T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -311,7 +311,7 @@ if (!doNotTrack) {
 <h2 id="環境">環境</h2>
 <p>次のシステム構成図で、saiseiでJupyterLabを動かし、europeに格納しているNoteBookをNFSマウントしている。</p>
 <p><img src="/images/20230318_Speed-up/20230318_SystemConfChart.png" alt="SystemConfigChart"></p>
-<p>高速化する前の元のプログラムは、<a href="">この記事</a>で紹介したvgg16のモデルを使った銀河形状分類のプログラムを使った。</p>
+<p>高速化する前の元のプログラムは、<a href="">この記事</a>で紹介したvgg16のモデルを使った銀河形状分類のプログラムを使った。学習率は$lr=0.00001$とした。</p>
 <h2 id="高速化への取り組み">高速化への取り組み</h2>
 <h3 id="num_workers">num_workers</h3>
 <p>DataLoaderを作成する際のパラメータに&quot;num_workers=2&quot;を追加。</p>
