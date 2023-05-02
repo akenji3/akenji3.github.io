@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 May 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building a Rootless Docker</title>
+      <link>https://akenji3.github.io/en/post/20230502_rootlessdocker_en/</link>
+      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230502_rootlessdocker_en/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&amp;rsquo;t have to worry about it because I&amp;rsquo;m running it at home.&lt;/p&gt;
+&lt;p&gt;I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Speed-up Learning and inference on Pytorch</title>

@@ -7,7 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>software - akenji&#39;s lab</title>
+  <title>Building a Rootless Docker - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.
+I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +31,67 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20230502_rootlessdocker_en\/",
+          "name": "Building a rootless docker"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Building a Rootless Docker",
+  "description" : "Motivation I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don\u0026rsquo;t have to worry about it because I\u0026rsquo;m running it at home.\nI forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.\n",
+  "inLanguage" : "en",
+  "wordCount":  409 ,
+  "datePublished" : "2023-05-02T00:00:00",
+  "dateModified" : "2023-05-02T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20230502_rootlessdocker_en\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="software" />
+<meta property="og:title" content="Building a Rootless Docker" />
+<meta property="og:description" content="Motivation
+I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.
+I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/categories/software/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="software" />
+  <meta name="twitter:title" content="Building a Rootless Docker" />
+  <meta name="twitter:description" content="Motivation
+I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -207,14 +263,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="categories-heading">
+            <div class="post-heading">
               
-                <h1>software</h1>
-              
-              
-                <hr class="small">
+                <h1>Building a Rootless Docker</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 2, 2023
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
               
             </div>
           </div>
@@ -225,119 +296,141 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.</p>
+<p>I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.</p>
+<h2 id="sources">Sources</h2>
+<p>Sorry for the Japanese page.</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/security/rootless/">docker documentation page</a></li>
+<li><a href="https://drgripa1.hatenablog.com/entry/2021/05/08/195822">page referred to during installation</a></li>
+</ul>
+<h2 id="assumptions">Assumptions</h2>
+<p>Since docker is already installed in my environment, it is assumed that docker itself and nvidia-docker2 are already installed. In other words, if you are already using docker (with rootfull), please refer to this page as a procedure to use docker with rootless.</p>
+<h2 id="preparation">Preparation</h2>
+<p>First, stop the current (rootfull) docker daemon.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo systemctl disable --now docker.service docker.socket
+</code></pre></div><p>Next, install the required packages.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt install uidmap
+</code></pre></div><p>In my environment, subuid and subgid were already set as follows: myuid and mygid are my UID/GID.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat /etc/subuid
+myuid:100000:65536
+$ cat /etc/subgid
+mygid:100000:65536
+</code></pre></div><p>Change no-cgroups=true in /etc/nvidia-container-runtime/config.toml. (originally #no-cgroups=false)</p>
+<p>If you forget to make this change, you will get the following error when using a GPU.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+<span class="o">(</span>Omitted in the middle<span class="o">)</span>
+docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook <span class="c1">#0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as &#39;legacy</span>
+nvidia-container-cli: mount error: failed to add device rules: open /sys/fs/cgroup/devices/user.slice/devices.allow: permission denied: unknown unknown.
+</code></pre></div><h2 id="running-and-configuring-scripts">Running and configuring scripts</h2>
+<p>First, run the shell script to set rootless mode.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ dockerd-rootless-setuptool.sh instal
+</code></pre></div><p>After the above script execution is finished, you will see that docker.service is started as your user when you run the following.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user status docker
+<span class="o">(</span>output is abbreviated<span class="o">)</span>
+</code></pre></div><p>Finally, add the following to the end of the .bashrc.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">DOCKER_HOST</span><span class="o">=</span>unix://<span class="si">${</span><span class="nv">XDG_RUNTIME_DIR</span><span class="si">}</span>/docker.sock
+</code></pre></div><p>In case you are wondering, XDG_RUN_TIME_DIR is set as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">echo</span> <span class="nv">$XDG_RUNTIME_DIR</span>
+/run/user/1000
+</code></pre></div><h2 id="confirmation-of-operation">Confirmation of operation</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ dokcer run hello-world
+<span class="o">(</span>output is abbreviated<span class="o">)</span>
+</code></pre></div><p>For containers that use GPUs, check with the following.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+<span class="o">(</span>output is abbreviated<span class="o">)</span>
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>Setting up rootless is relatively easy if you remember to change /etc/nvidia-container-runtime/config.toml. Actually, I forgot to change it and was a bit impatient.</p>
+<p>From now on, I would like to use docker.</p>
+
         
-        <div class="posts-list">
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;text=Building%20a%20Rootless%20Docker&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;description=Building%20a%20Rootless%20Docker" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/">
-        <h2 class="post-title">GPU cluster construction with Kubernetes (not yet completed)</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 21, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This
-        <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/cluster/">cluster</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/gpu/">gpu</a>&nbsp;
-        
-    </div>
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub_en/">
-        <h2 class="post-title">Publish a static blog created by Hugo on GitHub Pages</h2>
         
-        
-        
-    </a>
+      </article>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 11, 2020
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
-When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.
-        <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub_en/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/github-pages/">GitHub Pages</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
+      
+        <ul class="pager blog-pager">
           
-        </div>
-        
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="https://akenji3.github.io/en/categories/software/page/1/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
-        
-      </div>
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/" data-toggle="tooltip" data-placement="top" title="Speed-up Learning and inference on Pytorch">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
     </div>
   </div>
+</div>
 
       
 <footer>
@@ -388,7 +481,7 @@ When I was thinking about it, GigHub comes to mind and I decided to store and pu
               </li>
           
           <li>
-            <a href="/en/categories/software/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
