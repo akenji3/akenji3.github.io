@@ -7,7 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts - akenji&#39;s lab</title>
+  <title>Rootless Dockerを構築 - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。
+きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +31,68 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20230502_rootlessdocker\/",
+          "name": "Rootless dockerを構築"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Rootless Dockerを構築",
+  "description" : "モチベーション これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。\nきっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1025 ,
+  "datePublished" : "2023-05-02T00:00:00",
+  "dateModified" : "2023-05-02T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20230502_rootlessdocker\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="Rootless Dockerを構築" />
+<meta property="og:description" content="モチベーション
+これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。
+きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20230502_rootlessdocker/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:title" content="Rootless Dockerを構築" />
+  <meta name="twitter:description" content="モチベーション
+これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。
+きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -209,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Posts</h1>
+                <h1>Rootless Dockerを構築</h1>
               
               
               
@@ -226,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/" lang="en">en</a>
+  
 </span>
 
 
@@ -240,409 +297,140 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230502_rootlessdocker/">
-        <h2 class="post-title">Rootless Dockerを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 2, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
 <p>これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。</p>
 <p>きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。</p>
-        <a href="https://akenji3.github.io/post/20230502_rootlessdocker/" class="post-read-more">[続きを読む]</a>
+<h2 id="情報源">情報源</h2>
+<ul>
+<li><a href="https://docs.docker.com/engine/security/rootless/">dockerドキュメントのページ</a></li>
+<li><a href="https://drgripa1.hatenablog.com/entry/2021/05/08/195822">インストール時に参考にしたページ</a></li>
+</ul>
+<h2 id="前提">前提</h2>
+<p>自分の環境には、既にdockerはインストールしているので、docker本体、nvidia-docker2のインストールしてあることが前提である。すなわち、既にdockerを（rootfullで）使っている人が、rootlessで使うための手順として参考にして欲しい。</p>
+<h2 id="準備">準備</h2>
+<p>先ずは、現状の（rootfullな）dockerデーモンを停止する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo systemctl disable --now docker.service docker.socket
+</code></pre></div><p>次に、必要となるパッケージをインストールする。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt install uidmap
+</code></pre></div><p>自分の環境では、subuid、subgidは次のように既に設定されていた。myuidとmygidは自分のUID/GID。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat /etc/subuid
+myuid:100000:65536
+$ cat /etc/subgid
+mygid:100000:65536
+</code></pre></div><p>/etc/nvidia-container-runtime/config.toml中のno-cgroups=trueに変更する。（元々は#no-cgroups=false）</p>
+<p>この変更を忘れると、GPUを使うと次のようなエラーとなる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+（途中省略）
+docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook <span class="c1">#0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as &#39;legacy&#39;</span>
+nvidia-container-cli: mount error: failed to add device rules: open /sys/fs/cgroup/devices/user.slice/devices.allow: permission denied: unknown.
+</code></pre></div><h2 id="スクリプトの実行設定">スクリプトの実行、設定</h2>
+<p>まずは、rootless modeに設定するシェルスクリプトを実行する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ dockerd-rootless-setuptool.sh instal
+</code></pre></div><p>上記のスクリプト実行が終わると、以下を実行すると、自分のユーザでdocker.serviceが起動されていることがわかる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user status docker
+（出力は略）
+</code></pre></div><p>最後に、.bashrcの最後に以下を追加する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">DOCKER_HOST</span><span class="o">=</span>unix://<span class="si">${</span><span class="nv">XDG_RUNTIME_DIR</span><span class="si">}</span>/docker.sock
+</code></pre></div><p>因みに、XDG_RUN_TIME_DIRは次のように設定されている。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">echo</span> <span class="nv">$XDG_RUNTIME_DIR</span>
+/run/user/1000
+</code></pre></div><h2 id="動作確認">動作確認</h2>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ dokcer run hello-world
+（出力は略）
+</code></pre></div><p>GPUを使うコンテナの場合、次で確認する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
+（出力は略）
+</code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>rootlessの設定は、/etc/nvidia-container-runtime/config.tomlの変更を忘れずに実施すれば、比較的簡単。自分は、変更を忘れて、少し焦ったけど。</p>
+<p>今後は、dockerを使っていきたい。</p>
+
         
-    </div>
 
-    
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
 
-</article>
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f&amp;text=Rootless%20Docker%e3%82%92%e6%a7%8b%e7%af%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f&amp;title=Rootless%20Docker%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f&amp;title=Rootless%20Docker%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f&amp;title=Rootless%20Docker%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230502_rootlessdocker%2f&amp;description=Rootless%20Docker%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/">
-        <h2 class="post-title">Pytorchでの学習／推論の高速化について</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;March 18, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。</p>
-<p>そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。</p>
-        <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/">
-        <h2 class="post-title">銀河形状分類のデータセットについて</h2>
         
-        
-        
-    </a>
+      </article>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 23, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>から<a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">この記事</a>までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
-今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。</p>
-        <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
+      
+        <ul class="pager blog-pager">
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">
-        <h2 class="post-title">Deep Learning（ViT）による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 19, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">この記事</a>で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。</p>
-        <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" data-toggle="tooltip" data-placement="top" title="Pytorchでの学習／推論の高速化について">&larr; 前ページ</a>
+            </li>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">
-        <h2 class="post-title">Deep Learning (ViT) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;January 9, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>昨年末の<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。</p>
-        <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
+        </ul>
+      
 
 
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>Deep Learningを少し勉強してきて、自分の興味ある分野で使ってみることができなかと思い試した。自分は天文が好きで中でも恒星の進化・元素の生成、それから銀河形成・進化に興味を持っている。比較的簡単にできそうな銀河の形状分類にチャレンジした。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
+      
 
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その3）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>（その2）の記事の続き。</p>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">前回</a>は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221030_training_diffusers/">
-        <h2 class="post-title">Diffusersの訓練時間による、TITAN VとRTX A4000比較</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>少し前に、<a href="https://akenji3.github.io/post/20221010_stablediffuser/">この記事</a>でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。
-この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。</p>
-        <a href="https://akenji3.github.io/post/20221030_training_diffusers/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/">
-        <h2 class="post-title">姫野ベンチマークをTITAN Vで実行</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 29, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。</p>
-        <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-        </div>
-        
-          <ul class="pager main-pager">
-            
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/post/page/2/">古いページ &rarr;</a>
-              </li>
-            
-          </ul>
-        
-      </div>
     </div>
   </div>
+</div>
 
       
 <footer>
@@ -693,7 +481,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="/post/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

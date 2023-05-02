@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts - akenji&#39;s lab</title>
+  <title>software - akenji&#39;s lab</title>
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,13 +29,13 @@
 }
 </script>
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="software" />
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/" />
+<meta property="og:url" content="https://akenji3.github.io/categories/software/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:title" content="software" />
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -207,29 +207,14 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
+            <div class="categories-heading">
               
-                <h1>Posts</h1>
-              
-              
+                <h1>software</h1>
               
               
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 2, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/" lang="en">en</a>
-</span>
-
-
+                <hr class="small">
+              
+              
               
             </div>
           </div>
@@ -247,8 +232,8 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230502_rootlessdocker/">
-        <h2 class="post-title">Rootless Dockerを構築</h2>
+    <a href="https://akenji3.github.io/post/20200810_jupyterlab/">
+        <h2 class="post-title">jupyterlabをsingularityコンテナで起動する</h2>
         
         
         
@@ -258,7 +243,7 @@ if (!doNotTrack) {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;May 2, 2023に投稿
+  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
   
   
   
@@ -274,357 +259,19 @@ if (!doNotTrack) {
     </p>
     <div class="post-entry">
         
-        <h2 id="モチベーション">モチベーション</h2>
-<p>これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。</p>
-<p>きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。</p>
-        <a href="https://akenji3.github.io/post/20230502_rootlessdocker/" class="post-read-more">[続きを読む]</a>
+        目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用
+        <a href="https://akenji3.github.io/post/20200810_jupyterlab/" class="post-read-more">[続きを読む]</a>
         
     </div>
 
     
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/">
-        <h2 class="post-title">Pytorchでの学習／推論の高速化について</h2>
+    <div class="blog-tags">
         
+        <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
         
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;March 18, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。</p>
-<p>そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。</p>
-        <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" class="post-read-more">[続きを読む]</a>
+        <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
         
     </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/">
-        <h2 class="post-title">銀河形状分類のデータセットについて</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 23, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>から<a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">この記事</a>までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
-今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。</p>
-        <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">
-        <h2 class="post-title">Deep Learning（ViT）による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 19, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">この記事</a>で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。</p>
-        <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">
-        <h2 class="post-title">Deep Learning (ViT) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;January 9, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>昨年末の<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。</p>
-        <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>Deep Learningを少し勉強してきて、自分の興味ある分野で使ってみることができなかと思い試した。自分は天文が好きで中でも恒星の進化・元素の生成、それから銀河形成・進化に興味を持っている。比較的簡単にできそうな銀河の形状分類にチャレンジした。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その3）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>（その2）の記事の続き。</p>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">前回</a>は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221030_training_diffusers/">
-        <h2 class="post-title">Diffusersの訓練時間による、TITAN VとRTX A4000比較</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>少し前に、<a href="https://akenji3.github.io/post/20221010_stablediffuser/">この記事</a>でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。
-この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。</p>
-        <a href="https://akenji3.github.io/post/20221030_training_diffusers/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/">
-        <h2 class="post-title">姫野ベンチマークをTITAN Vで実行</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 29, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。</p>
-        <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
     
 
 </article>
@@ -633,10 +280,10 @@ if (!doNotTrack) {
         
           <ul class="pager main-pager">
             
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/post/page/2/">古いページ &rarr;</a>
+              <li class="previous">
+                <a href="https://akenji3.github.io/categories/software/page/3/">&larr; 新しいページ</a>
               </li>
+            
             
           </ul>
         
@@ -693,7 +340,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="/post/index.xml" title="RSS">
+            <a href="/categories/software/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
