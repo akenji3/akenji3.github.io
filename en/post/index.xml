@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 02 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Build a private docker registry</title>
+      <link>https://akenji3.github.io/en/post/20230503_privateregistry_en/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230503_privateregistry_en/</guid>
+      <description>Motivation. In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
+In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.</description>
+    </item>
     
     <item>
       <title>Building a Rootless Docker</title>

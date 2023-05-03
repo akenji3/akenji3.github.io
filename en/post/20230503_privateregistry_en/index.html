@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Building a Rootless Docker - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation
-I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.
-I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.">
+  <title>Build a private docker registry - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation. In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
+In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +46,8 @@ I forgot the reason why, but I found out that docker has a rootless mode that al
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/en\/post\/20230502_rootlessdocker_en\/",
-          "name": "Building a rootless docker"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20230503_privateregistry_en\/",
+          "name": "Build a private docker registry"
         }
     }]
 }
@@ -58,15 +58,15 @@ I forgot the reason why, but I found out that docker has a rootless mode that al
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Building a Rootless Docker",
-  "description" : "Motivation I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don\u0026rsquo;t have to worry about it because I\u0026rsquo;m running it at home.\nI forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.\n",
+  "headline": "Build a private docker registry",
+  "description" : "Motivation. In a previous post I summarized how to start a docker container in user mode.\nWhen using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.\nIn case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.",
   "inLanguage" : "en",
-  "wordCount":  414 ,
-  "datePublished" : "2023-05-02T00:00:00",
-  "dateModified" : "2023-05-02T00:00:00",
+  "wordCount":  755 ,
+  "datePublished" : "2023-05-03T00:00:00",
+  "dateModified" : "2023-05-03T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20230502_rootlessdocker_en\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20230503_privateregistry_en\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,18 +80,18 @@ I forgot the reason why, but I found out that docker has a rootless mode that al
 }
 </script>
 
-<meta property="og:title" content="Building a Rootless Docker" />
-<meta property="og:description" content="Motivation
-I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.
-I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.">
+<meta property="og:title" content="Build a private docker registry" />
+<meta property="og:description" content="Motivation. In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
+In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20230503_privateregistry_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Building a Rootless Docker" />
-  <meta name="twitter:description" content="Motivation
-I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry …">
+  <meta name="twitter:title" content="Build a private docker registry" />
+  <meta name="twitter:description" content="Motivation. In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -265,7 +265,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Building a Rootless Docker</h1>
+                <h1>Build a private docker registry</h1>
               
               
               
@@ -273,7 +273,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on May 2, 2023
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 3, 2023
   
   
   
@@ -300,55 +300,93 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="motivation">Motivation</h2>
-<p>I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.</p>
-<p>I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.</p>
+        <h2 id="motivation">Motivation.</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">a previous post</a> I summarized how to start a docker container in user mode.</p>
+<p>When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.</p>
+<p>In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.</p>
+<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources</h2>
-<p>Sorry for the Japanese page.</p>
 <ul>
-<li><a href="https://docs.docker.com/engine/security/rootless/">docker documentation page</a></li>
-<li><a href="https://drgripa1.hatenablog.com/entry/2021/05/08/195822">page referred to during installation</a></li>
+<li><a href="https://genzouw.com/entry/2021/06/14/072906/2656/">Docker Registry server build flow</a> I referred to this page for the server build flow and private key/certificate.</li>
+<li><a href="https://qiita.com/kenmaro/items/2c876ebaf904bd9eee7d">TLS Authentication with Docker Private Registry Explained</a> I used this page as a reference when I got stuck on authentication.</li>
 </ul>
-<h2 id="assumptions">Assumptions</h2>
-<p>Since docker is already installed in my environment, it is assumed that docker itself and nvidia-docker2 are already installed. In other words, if you are already using docker (with rootfull), please refer to this page as a procedure to use docker with rootless.</p>
-<h2 id="preparation">Preparation</h2>
-<p>First, stop the current (rootfull) docker daemon.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo systemctl disable --now docker.service docker.socket
-</code></pre></div><p>Next, install the required packages.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt install uidmap
-</code></pre></div><p>In my environment, subuid and subgid were already set as follows: myuid and mygid are my UID/GID.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat /etc/subuid
-myuid:100000:65536
-$ cat /etc/subgid
-mygid:100000:65536
-</code></pre></div><p>Change no-cgroups=true in /etc/nvidia-container-runtime/config.toml. (originally #no-cgroups=false)</p>
-<p>If you forget to make this change, you will get the following error when using a GPU.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
-<span class="o">(</span>Omitted in the middle<span class="o">)</span>
-docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error running hook <span class="c1">#0: error running hook: exit status 1, stdout: , stderr: Auto-detected mode as &#39;legacy</span>
-nvidia-container-cli: mount error: failed to add device rules: open /sys/fs/cgroup/devices/user.slice/devices.allow: permission denied: unknown unknown.
-</code></pre></div><h2 id="running-and-configuring-scripts">Running and configuring scripts</h2>
-<p>First, run the shell script to set rootless mode.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ dockerd-rootless-setuptool.sh instal
-</code></pre></div><p>After the above script execution is finished, you will see that docker.service is started as your user when you run the following.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user status docker
-<span class="o">(</span>output is abbreviated<span class="o">)</span>
-</code></pre></div><p>Finally, add the following to the end of the .bashrc.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">DOCKER_HOST</span><span class="o">=</span>unix://<span class="si">${</span><span class="nv">XDG_RUNTIME_DIR</span><span class="si">}</span>/docker.sock
-</code></pre></div><p>In case you are wondering, XDG_RUN_TIME_DIR is set as follows.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">echo</span> <span class="nv">$XDG_RUNTIME_DIR</span>
-/run/user/1000
-</code></pre></div><h2 id="confirmation-of-operation">Confirmation of operation</h2>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ dokcer run hello-world
-<span class="o">(</span>output is abbreviated<span class="o">)</span>
-</code></pre></div><p>For containers that use GPUs, check with the following.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi
-<span class="o">(</span>output is abbreviated<span class="o">)</span>
+<p>I thought it would be easy to build a rootless environment as long as I knew where to store the demon.json file. (xxxx.xxx.xxx.xxx.xxx is the IP address in the private registry&rsquo;s local network environment)</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+  <span class="s2">&#34;insecure-registries&#39;:[xxx.xxx.xxx.xxx:5000]&#34;</span>
+<span class="o">}</span>
+</code></pre></div><p>However, it actually took quite a while to resolve the issue. The two pages above were helpful in resolving the issue.</p>
+<p>The following is a summary of the steps to build a private registry in a rootless environment and push/pull it from other WSs. For the purpose of explanation, the WS that will be the private registry is called a server, and other WS are called clients.</p>
+<h2 id="configuration">Configuration</h2>
+<h3 id="private-registry-server-configuration">private registry server configuration</h3>
+<h4 id="create-private-key-and-certificate">Create private key and certificate</h4>
+<p>Create a directory named &ldquo;certs&rdquo; under your $HOME directory, and create a key and a certificate under &ldquo;certs&rdquo;.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span>
+$ mkdir certs
+$ openssl req -newkey rsa:2048 -nodes -sha256 -keyout certs/ca.key -x509 -days <span class="m">3650</span> -out certs/ca.crt -addext <span class="s2">&#34;subjectAltName = IP:192.168.xxx.yyy&#34;</span>
+</code></pre></div><p>The point in the above is -addext &ldquo;subjectAltName = IP:192.168.xxx.yyyy&rdquo;. Here, 192.168.xxx.yyyy is the IP address of the private registry server.</p>
+<p>When you execute the above command (openssl), you will be asked to enter the Country Name, etc. Except for the Common Name, you may enter a new line (do not enter anything). For myself, I used the &ldquo;servername.com&rdquo;.</p>
+<h4 id="usrshareca-certificatesdocker">/usr/share/ca-certificates/docker</h4>
+<p>Create a docker directory under /usr/share/ca-certificates and copy the key (ca.key) and certificate (ca.crt) created above.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span>
+$ sudo mkdir /usr/share/ca-certificates/docker
+$ sudo cp certs/ca.* /usr/share/ca-certificates/docker
+$ sudo update-ca-certificates
+$ sudo vi /etc/ca-certificates.conf
+</code></pre></div><p>In the last part above, open /etc/ca-certificates.conf with vi and add docker/ca.crt to the last line.</p>
+<h4 id="restart-docker-daemon">Restart docker daemon</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user restart docker
+</code></pre></div><h4 id="start-the-registry-image">Start the registry image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run -d -p 5000:5000 -v <span class="nv">$PWD</span>/certs:/certs <span class="se">\
+</span><span class="se"></span>-v /ext/registry:/var/lib/registry <span class="se">\
+</span><span class="se"></span>-e <span class="nv">REGISTRY_HTTP_TLS_CERTIFICATE</span><span class="o">=</span>/certs/ca.crt <span class="se">\
+</span><span class="se"></span>-e <span class="nv">REGISTRY_HTTP_TLS_KEY</span><span class="o">=</span>/certs/ca.key <span class="se">\
+</span><span class="se"></span>--restart<span class="o">=</span>always registry:2
+</code></pre></div><p>To be able to check the contents of the registry from outside the container, &ldquo;-v /ext/registry:/var/lib/registry&rdquo; is specified. As shown above, you can add the &ldquo;-v&rdquo; option to each mounted item.</p>
+<h3 id="client-side-configuration">Client-side configuration</h3>
+<h4 id="key-and-certificate-storage">Key and Certificate Storage</h4>
+<p>When configuring the client, the key and certificate created on the server side are required. Here, we assume that /mnt/nfs/tmp/ca.* is it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /usr/share/ca-certificate</span>
+<span class="c1"># mkdir docker</span>
+<span class="c1"># cp /mnt/nfs/tmp/ca.* docker</span>
+<span class="c1"># vi /etc/ca-certificates.conf</span>
+</code></pre></div><p>Add docker/ca.crt to the last line of /etc/ca-certificates.conf as you did for the server.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># sudo update-ca-certificates</span>
+</code></pre></div><h4 id="restart-docker-daemon-1">Restart docker daemon</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user restart docker
+</code></pre></div><h3 id="push-image-from-client-side">push image from client side</h3>
+<h4 id="image-to-push">image to push</h4>
+<p>On the client side, there is a jupyterlab image like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker images
+REPOSITORY                  TAG                       IMAGE ID       CREATED         SIZE
+pytorch-lab                 latest                    bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+</code></pre></div><h4 id="tagged-with">Tagged with</h4>
+<p>When pushing to the registry, include the IP address in the registry and tag it as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker tag pytorch-lab:latest 192.168.xxx.yyy:5000/pytorch:lab
+$ docker images
+REPOSITORY                   TAG                      IMAGE ID       CREATED         SIZE
+192.168.xxx.yyy:5000/pytorch lab                      bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+pytorch-lab                  latest                   bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+</code></pre></div><h4 id="push-image">push image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker push 192.168.xxx.yyy:5000/pytorch:lab
+The push refers to repository <span class="o">[</span>192.168.xxx.yyy:5000/pytorch<span class="o">]</span>.
+<span class="o">(</span>abbreviated below<span class="o">)</span>
+</code></pre></div><h3 id="pull-image-from-another-client">pull image from another client</h3>
+<h4 id="pull-image">pull image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker pull 192.168.xxx.yyy:5000/pytorch:lab
+lab: Pulling from pytorch
+Digest: sha256:807b0cd1b8754072940730a02a1d00933b1c6caedbb162de2b98cbeae642838c
+Status: Image is up to date <span class="k">for</span> 192.168.xxx.yyy:5000/pytorch:lab
+192.168.xxx.yyy:5000/pytorch:lab
+</code></pre></div><h4 id="startup">startup</h4>
+<p>Start the pulled jupyterlab image as follows. In the following example, we assume that the current directory is jupyterlab, which contains the notebook.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run -d --rm --gpus all -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/jupyterlab:/workdir -p 8888:8888 192.168.xxx.yyy:5000/pytorch:lab
 </code></pre></div><h2 id="summary">Summary</h2>
-<p>Setting up rootless is relatively easy if you remember to change /etc/nvidia-container-runtime/config.toml. Actually, I forgot to change it and was a bit impatient.</p>
-<p>From now on, I would like to use docker.</p>
+<p>With the above steps, docker images can now be shared by multiple WSs.</p>
+<p>The construction of the docker private registry took a long time and was quite difficult, but I learned a lot about keys, certificates, and other authentication issues through this construction.</p>
+<p>I have little experience in this field and may have incorrect information. If you notice any errors, please point them out to me. Thank you in advance.</p>
 <hr>
 <p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
+
 
         
 
@@ -362,42 +400,42 @@ nvidia-container-cli: mount error: failed to add device rules: open /sys/fs/cgro
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;text=Building%20a%20Rootless%20Docker&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f&amp;text=Build%20a%20private%20docker%20registry&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;title=Building%20a%20Rootless%20Docker" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230502_rootlessdocker_en%2f&amp;description=Building%20a%20Rootless%20Docker" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry_en%2f&amp;description=Build%20a%20private%20docker%20registry" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -420,13 +458,9 @@ nvidia-container-cli: mount error: failed to add device rules: open /sys/fs/cgro
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/" data-toggle="tooltip" data-placement="top" title="Speed-up Learning and inference on Pytorch">&larr; Previous Post</a>
+              <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/" data-toggle="tooltip" data-placement="top" title="Building a Rootless Docker">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/en/post/20230503_privateregistry_en/" data-toggle="tooltip" data-placement="top" title="Build a private docker registry">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
