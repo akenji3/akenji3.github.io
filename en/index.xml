@@ -18,9 +18,10 @@
       <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20230503_privateregistry_en/</guid>
-      <description>Motivation In a previous post I summarized how to start a docker container in user mode.
-When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
-In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;a previous post&lt;/a&gt; I summarized how to start a docker container in user mode.&lt;/p&gt;
+&lt;p&gt;When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.&lt;/p&gt;
+&lt;p&gt;In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.&lt;/p&gt;</description>
     </item>
     
     <item>
