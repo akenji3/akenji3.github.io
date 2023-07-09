@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ubuntu 22.04 LTSをインストール</title>
+      <link>https://akenji3.github.io/post/20230709_ubuntu2204_install/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20230709_ubuntu2204_install/</guid>
+      <description>はじめに Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使って</description>
+    </item>
     
     <item>
       <title>プライベートなdockerレジストリを構築</title>
