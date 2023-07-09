@@ -18,7 +18,9 @@
       <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20230709_ubuntu2204_install/</guid>
-      <description>はじめに Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使って</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使っていた20.04から22.04に乗り換えることにした。&lt;/p&gt;
+&lt;p&gt;自分は日本語を簡単に使えるようにするため、ubuntu 22.04 日本語Remixを複数のワークステーションにインストールした。NVIDIA GPU搭載のワークステーションにubuntu 22.04をインストールしようとして、少しはまったことがあるので、以下にその状況と対応を紹介する。&lt;/p&gt;</description>
     </item>
     
     <item>

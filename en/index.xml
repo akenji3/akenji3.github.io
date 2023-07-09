@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Install ubuntu 22.04 LTS</title>
+      <link>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;It has been a year since Ubuntu 22.04 LTS Jammy Jellyfish was released, and I decided to switch from my previous 20.04 to 22.04, thinking that I would be able to get used to the various software and other features.&lt;/p&gt;
+&lt;p&gt;I installed ubuntu 22.04 Japanese Remix on several workstations so that I can use Japanese easily. I have gotten a bit stuck trying to install ubuntu 22.04 on a NVIDIA GPU-equipped workstation, so here is the situation and how I responded.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Build a private docker registry</title>
