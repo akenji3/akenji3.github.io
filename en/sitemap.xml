@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/categories/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -34,13 +34,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/en/post/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -54,8 +49,13 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/en/post/20230814_rinna36b_en/</loc>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/en/categories/software/</loc>
-    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -66,6 +66,11 @@
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</loc>
+    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

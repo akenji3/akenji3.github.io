@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on akenji&#39;s lab</title>
+    <title>Software on akenji&#39;s lab</title>
     <link>https://akenji3.github.io/categories/software/</link>
-    <description>Recent content in software on akenji&#39;s lab</description>
+    <description>Recent content in Software on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
@@ -11,6 +11,17 @@
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rinna 3.6bをdockerから使う</title>
+      <link>https://akenji3.github.io/20230814_rinna36b/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/20230814_rinna36b/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。&lt;/p&gt;
+&lt;p&gt;その際にハマったこともあったので以下にまとめる。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>rinna 3.6bをdockerから使う</title>

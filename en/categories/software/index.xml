@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>running rinna 3.6b on a docker container</title>
+      <link>https://akenji3.github.io/en/post/20230814_rinna36b_en/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20230814_rinna36b_en/</guid>
+      <description>Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. I ran into some problems in doing so, which are summarized below. &amp;lt;! &amp;ndash;more&amp;ndash;&amp;gt; Sources. 1.rinna press release - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b</description>
+    </item>
     
     <item>
       <title>Install ubuntu 22.04 LTS</title>
