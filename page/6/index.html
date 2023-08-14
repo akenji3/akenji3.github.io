@@ -247,8 +247,8 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その3）</h2>
+    <a href="https://akenji3.github.io/post/20200810_jupyterlab/">
+        <h2 class="post-title">jupyterlabをsingularityコンテナで起動する</h2>
         
         
         
@@ -258,7 +258,7 @@ if (!doNotTrack) {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
   
   
   
@@ -274,408 +274,17 @@ if (!doNotTrack) {
     </p>
     <div class="post-entry">
         
-        <p>（その2）の記事の続き。</p>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">前回</a>は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221030_training_diffusers/">
-        <h2 class="post-title">Diffusersの訓練時間による、TITAN VとRTX A4000比較</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>少し前に、<a href="https://akenji3.github.io/post/20221010_stablediffuser/">この記事</a>でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。
-この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。</p>
-        <a href="https://akenji3.github.io/post/20221030_training_diffusers/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/">
-        <h2 class="post-title">姫野ベンチマークをTITAN Vで実行</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 29, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。</p>
-        <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221010_stablediffuser/">
-        <h2 class="post-title">Stable Diffusion with Diffusers</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 10, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>先月、<a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。</p>
-<p>ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。</p>
-        <a href="https://akenji3.github.io/post/20221010_stablediffuser/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/">
-        <h2 class="post-title">KubernetesでGPUクラスタ構築 〜 初めの一歩</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 19, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>約1ヵ月前に、<a href="https://akenji3.github.io/post/20220821_kubernetes/">この記事</a>でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。</p>
-<p>自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。</p>
-        <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220914_xrandr_badmach/">
-        <h2 class="post-title">ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 14, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
-端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。</p>
-<p>解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。</p>
-        <a href="https://akenji3.github.io/post/20220914_xrandr_badmach/" class="post-read-more">[続きを読む]</a>
+        目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用
+        <a href="https://akenji3.github.io/post/20200810_jupyterlab/" class="post-read-more">[続きを読む]</a>
         
     </div>
 
     
     <div class="blog-tags">
         
-        <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
+        <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
         
-        <a href="https://akenji3.github.io/tags/nvidia/">nvidia</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/xrandr/">xrandr</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/badmatch/">BadMatch</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220821_kubernetes/">
-        <h2 class="post-title">KubernetesでGPUクラスタ構築（未完成）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 21, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>Kubernetesの勉強を兼ねて、自宅に設定している複数のワークステーションを使って、GPUクラスタを作ることにチャレンジ。</p>
-<p>Kubernetesを初めて触った自分には、ハードルが高かった。というのもインストール時にのみ必要な操作か、（運用時の）クラスタ構築時に必要な操作か、を切り分けを資料で学びながらのインストールとなったので。</p>
-<p>現状では、GPUクラスタは動作していない！　この資料は、未完成です。</p>
-        <a href="https://akenji3.github.io/post/20220821_kubernetes/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/cluster/">cluster</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/gpu/">gpu</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220612_servercat/">
-        <h2 class="post-title">ServerCatを試す</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;June 12, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、<a href="https://japan.zdnet.com/article/35187907/">この記事</a>を読んで、今回紹介するServerCatを試してみようと思った。</p>
-<p>ポイントはiOS/MacOSから監視できるという点。<del>自分はMacOS版しか試していない。</del></p>
-        <a href="https://akenji3.github.io/post/20220612_servercat/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/monitor/">monitor</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220505_disk_rw/">
-        <h2 class="post-title">ローカルディスク／NFSファイルのリード・ライト実行速度比較</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 5, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20220424_wssperformance/">この記事</a>で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。</p>
-        <a href="https://akenji3.github.io/post/20220505_disk_rw/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220424_wssperformance/">
-        <h2 class="post-title">RTX A4000とGTX 1080との実行速度比較</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;April 23, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20220422_rtx_a4000/">この記事</a>で<a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/">DCGAN</a>を実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
-また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。</p>
-<p>今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。</p>
-        <a href="https://akenji3.github.io/post/20220424_wssperformance/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/gpu/">GPU</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/rtx-a4000/">RTX A4000</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/gtx-1080/">GTX 1080</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/dcgan/">DCGAN</a>&nbsp;
+        <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
         
     </div>
     
@@ -688,13 +297,9 @@ if (!doNotTrack) {
           <ul class="pager main-pager">
             
               <li class="previous">
-                <a href="https://akenji3.github.io/page/1/">&larr; 新しいページ</a>
+                <a href="https://akenji3.github.io/page/5/">&larr; 新しいページ</a>
               </li>
             
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/page/3/">古いページ &rarr;</a>
-              </li>
             
           </ul>
         

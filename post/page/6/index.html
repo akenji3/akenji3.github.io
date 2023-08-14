@@ -247,8 +247,8 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230814_rinna36b/">
-        <h2 class="post-title">rinna 3.6bをdockerから使う</h2>
+    <a href="https://akenji3.github.io/post/20200810_jupyterlab/">
+        <h2 class="post-title">jupyterlabをsingularityコンテナで起動する</h2>
         
         
         
@@ -258,7 +258,7 @@ if (!doNotTrack) {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;August 14, 2023に投稿
+  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
   
   
   
@@ -274,358 +274,19 @@ if (!doNotTrack) {
     </p>
     <div class="post-entry">
         
-        モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、
-        <a href="https://akenji3.github.io/post/20230814_rinna36b/" class="post-read-more">[続きを読む]</a>
+        目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用
+        <a href="https://akenji3.github.io/post/20200810_jupyterlab/" class="post-read-more">[続きを読む]</a>
         
     </div>
 
     
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230709_ubuntu2204_install/">
-        <h2 class="post-title">ubuntu 22.04 LTSをインストール</h2>
+    <div class="blog-tags">
         
+        <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
         
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;July 9, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使っていた20.04から22.04に乗り換えることにした。</p>
-<p>自分は日本語を簡単に使えるようにするため、ubuntu 22.04 日本語Remixを複数のワークステーションにインストールした。NVIDIA GPU搭載のワークステーションにubuntu 22.04をインストールしようとして、少しはまったことがあるので、以下にその状況と対応を紹介する。</p>
-        <a href="https://akenji3.github.io/post/20230709_ubuntu2204_install/" class="post-read-more">[続きを読む]</a>
+        <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
         
     </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230503_privateregistry/">
-        <h2 class="post-title">プライベートなdockerレジストリを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 3, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20230502_rootlessdocker/">以前の投稿</a>でユーザモードでdockerコンテナを起動する方法をまとめた。</p>
-<p>複数のPC（WorkStation、以下WS）を使う場合、複数WS間でコンテナを共有する仕組みをどう実現するかを考える必要がある。singularityの場合には、sifファイルをNFSサーバに格納し、それを他のWSから使えば良かった。</p>
-<p>dockerの場合には、自宅のネットワーク内にプライベートなレジストリを立てて、運用すれば良いと考え、レジストリ・サーバを構築することにした。</p>
-        <a href="https://akenji3.github.io/post/20230503_privateregistry/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230502_rootlessdocker/">
-        <h2 class="post-title">Rootless Dockerを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 2, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。</p>
-<p>きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。</p>
-        <a href="https://akenji3.github.io/post/20230502_rootlessdocker/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/">
-        <h2 class="post-title">Pytorchでの学習／推論の高速化について</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;March 18, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。</p>
-<p>そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。</p>
-        <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/">
-        <h2 class="post-title">銀河形状分類のデータセットについて</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 23, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>から<a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">この記事</a>までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
-今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。</p>
-        <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">
-        <h2 class="post-title">Deep Learning（ViT）による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;February 19, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">この記事</a>で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。</p>
-        <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/">
-        <h2 class="post-title">Deep Learning (ViT) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;January 9, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>昨年末の<a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。</p>
-        <a href="https://akenji3.github.io/post/20230109_galaxy_vit_1/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その1）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>Deep Learningを少し勉強してきて、自分の興味ある分野で使ってみることができなかと思い試した。自分は天文が好きで中でも恒星の進化・元素の生成、それから銀河形成・進化に興味を持っている。比較的簡単にできそうな銀河の形状分類にチャレンジした。</p>
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">
-        <h2 class="post-title">Deep Learning (CNN) による銀河形状分類（その2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい
-        <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
     
 
 </article>
@@ -634,10 +295,10 @@ if (!doNotTrack) {
         
           <ul class="pager main-pager">
             
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/post/page/2/">古いページ &rarr;</a>
+              <li class="previous">
+                <a href="https://akenji3.github.io/post/page/5/">&larr; 新しいページ</a>
               </li>
+            
             
           </ul>
         
