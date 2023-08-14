@@ -18,7 +18,9 @@
       <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20230814_rinna36b_en/</guid>
-      <description>Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. I ran into some problems in doing so, which are summarized below. &amp;lt;! &amp;ndash;more&amp;ndash;&amp;gt; Sources. 1.rinna press release - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b</description>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.&lt;/p&gt;
+&lt;p&gt;I ran into some problems in doing so, which are summarized below.&lt;/p&gt;</description>
     </item>
     
     <item>

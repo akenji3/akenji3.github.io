@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>running rinna 3.6b on a docker container - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. I ran into some problems in doing so, which are summarized below. &lt;! &ndash;more&ndash;&gt; Sources. 1.rinna press release - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b">
+  <meta name="description" content="Motivation
+I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.
+I ran into some problems in doing so, which are summarized below.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,9 +59,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "running rinna 3.6b on a docker container",
-  "description" : "Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. I ran into some problems in doing so, which are summarized below. \u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt; Sources. 1.rinna press release - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b",
+  "description" : "Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.\nI ran into some problems in doing so, which are summarized below.\n",
   "inLanguage" : "en",
-  "wordCount":  2307 ,
+  "wordCount":  2305 ,
   "datePublished" : "2023-08-14T00:00:00",
   "dateModified" : "2023-08-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -79,14 +81,17 @@
 </script>
 
 <meta property="og:title" content="running rinna 3.6b on a docker container" />
-<meta property="og:description" content="Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. I ran into some problems in doing so, which are summarized below. &lt;! &ndash;more&ndash;&gt; Sources. 1.rinna press release - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b">
+<meta property="og:description" content="Motivation
+I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.
+I ran into some problems in doing so, which are summarized below.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20230814_rinna36b_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="running rinna 3.6b on a docker container" />
-  <meta name="twitter:description" content="Motivation I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. …">
+  <meta name="twitter:description" content="Motivation
+I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment. …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -298,7 +303,6 @@ if (!doNotTrack) {
         <h1 id="motivation">Motivation</h1>
 <p>I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.</p>
 <p>I ran into some problems in doing so, which are summarized below.</p>
-<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources.</h2>
 <p>1.<a href="https://rinna.co.jp/news/2023/05/20230507.html">rinna press release</a> - See here about rinna. 3.6 billion parameters. rinna we tried this time is described as rinna 3.6b below. 2.
 2.<a href="https://internet.watch.impress.co.jp/docs/column/shimizu/1503707.html">rinna introduction article</a> - An article from INTERNET Watch.　The sample code is also adapted from this article. 3.
@@ -498,7 +502,6 @@ If you know the pytorch version and the supported sm (NVIDIA architecuter name),
 <li>CUDA out of memory
 Common GPU VRAM shortage. Reduce model size. In this case, I specified torch_dtype=torch.float16.</li>
 </ul>
-
 
         
 
