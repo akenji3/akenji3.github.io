@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>rinna 3.6bをdockerから使う - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、">
+  <meta name="description" content="モチベーション
+日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。
+その際にハマったこともあったので以下にまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,9 +59,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "rinna 3.6bをdockerから使う",
-  "description" : "モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、",
+  "description" : "モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。\nその際にハマったこともあったので以下にまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  3461 ,
+  "wordCount":  3460 ,
   "datePublished" : "2023-08-14T00:00:00",
   "dateModified" : "2023-08-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="rinna 3.6bをdockerから使う" />
-<meta property="og:description" content="モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、">
+<meta property="og:description" content="モチベーション
+日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。
+その際にハマったこともあったので以下にまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20230814_rinna36b/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="rinna 3.6bをdockerから使う" />
-  <meta name="twitter:description" content="モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、">
+  <meta name="twitter:description" content="モチベーション
+日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。
+その際にハマったこともあったので以下にまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -296,8 +302,8 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p>日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを使うことにした。</p>
-<p>少しハマったこともあるので、以下にまとめる。</p>
+<p>日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。</p>
+<p>その際にハマったこともあったので以下にまとめる。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
 <li><a href="https://rinna.co.jp/news/2023/05/20230507.html">rinnaのプレスリリース</a>  -  rinnaについてはここを参照。36億パラメータということ、今回試したrinnaを以下、rinna 3.6bと記述する。</li>
@@ -383,7 +389,6 @@ $ docker <span class="nb">exec</span> -it gpt /bin/bash
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">raise DeferredCudaCallError<span class="o">(</span>msg<span class="o">)</span> from e
 torch.cuda.DeferredCudaCallError: CUDA call failed lazily at initialization with error: device &gt;<span class="o">=</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> device &lt; num_gpus INTERNAL ASSERT FAILED at <span class="s2">&#34;/opt/pytorch/pytorch/aten/src/ATen/cuda/CUDAContext.\
 </span><span class="s2">cpp&#34;</span>:50, please report a bug to PyTorch. <span class="nv">device</span><span class="o">=</span>1, <span class="nv">num_gpus</span><span class="o">=</span>
-
 </code></pre></div><p>調べてみるとMIG設定時のエラーとのコメントもあった。自分のワークステーションは、A4000とQuadro K600の2つのGPUを装着している。このことから、使用するGPUを指定する必要があると考えて、次のとおり実行した。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python -m pip install transformers sentencepiece accelerate</span>
 <span class="c1"># export CUDA_VISIBLE_DEVICES=&#34;0&#34;</span>
@@ -500,7 +505,6 @@ pytorchバージョンとサポートするsm（NVIDIA architecuter name）の�
 <li>CUDA out of memory
 良くあるGPUのVRAM不足。モデルサイズを小さくする。今回は、torch_dtype=torch.float16と指定した。</li>
 </ul>
-
 
         
 

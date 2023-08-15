@@ -14,22 +14,13 @@
     
     <item>
       <title>rinna 3.6bをdockerから使う</title>
-      <link>https://akenji3.github.io/20230814_rinna36b/</link>
-      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/20230814_rinna36b/</guid>
-      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
-&lt;p&gt;日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。&lt;/p&gt;
-&lt;p&gt;その際にハマったこともあったので以下にまとめる。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>rinna 3.6bをdockerから使う</title>
       <link>https://akenji3.github.io/post/20230814_rinna36b/</link>
       <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20230814_rinna36b/</guid>
-      <description>モチベーション 日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。&lt;/p&gt;
+&lt;p&gt;その際にハマったこともあったので以下にまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
