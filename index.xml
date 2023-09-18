@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NVIDIA Modulusを試す　〜　PINNsことはじめ</title>
+      <link>https://akenji3.github.io/post/20230918_modulus_install/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20230918_modulus_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;１ヶ月以上前に、受講した「&lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;AIサロゲートモデルでシミュレーションを高速化する方法とは？&lt;/a&gt;」セミナーで、NVIDIA Modulusに興味を持ったので、書籍を買って勉強を始めた。
+Modulusを今後勉強する前提として、自分の環境にModulusをインストールしたので、「PINNsことはじめ」としてインストール回りのことをまとめた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>rinna 3.6bをdockerから使う</title>
