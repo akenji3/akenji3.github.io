@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uninstall Rootless Docker</title>
+      <link>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall_en/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall_en/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In May of this year, I posted an article &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;Building Rootless Docker&lt;/a&gt;, but for some reason I decided to uninstall rootless docker. The following is a summary of the uninstallation procedure.
+I will post the details of the circumstances that led to the uninstallation of rootless docker later.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Trying NVIDIA Modulus - Introduction to PINNs</title>
