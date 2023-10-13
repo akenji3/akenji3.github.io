@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rootless dockerをアンインストール</title>
+      <link>https://akenji3.github.io/post/20231013_rootlessdockeruninstall/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20231013_rootlessdockeruninstall/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今年5月に&lt;a href=&#34;&#34;&gt;Rootless Dockerを構築&lt;/a&gt;という記事を投稿したが、とある事情でrootless dockerをアンインストールすることにした。以下にアンインストールの手順をまとめた。
+rootless dockerをアンインストールするに至るとある事情については、後日改めて投稿する。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>NVIDIA Modulusを試す　〜　PINNsことはじめ</title>

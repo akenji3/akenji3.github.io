@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,13 +34,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20230918_modulus_install/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,8 +49,13 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/post/20231013_rootlessdockeruninstall/</loc>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -66,6 +66,11 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20230918_modulus_install/</loc>
+    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
