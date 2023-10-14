@@ -18,7 +18,8 @@
       <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20231014_horovodindocker_en/</guid>
-      <description>Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. &amp;lt;! &amp;ndash;more&amp;ndash;&amp;gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.&lt;/p&gt;</description>
     </item>
     
     <item>

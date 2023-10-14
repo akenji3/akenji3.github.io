@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Try Horovod in Docker - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. &lt;! &ndash;more&ndash;&gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable">
+  <meta name="description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,9 +58,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "Try Horovod in Docker",
-  "description" : "Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. \u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable",
+  "description" : "Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.\n",
   "inLanguage" : "en",
-  "wordCount":  1139 ,
+  "wordCount":  1137 ,
   "datePublished" : "2023-10-14T00:00:00",
   "dateModified" : "2023-10-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -79,14 +80,16 @@
 </script>
 
 <meta property="og:title" content="Try Horovod in Docker" />
-<meta property="og:description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. &lt;! &ndash;more&ndash;&gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable">
+<meta property="og:description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20231014_horovodindocker_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Try Horovod in Docker" />
-  <meta name="twitter:description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I …">
+  <meta name="twitter:description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -297,7 +300,6 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <h2 id="motivation">Motivation</h2>
 <p>I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.</p>
-<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources.</h2>
 <ol>
 <li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">The original manual</a> - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable source.</li>
@@ -417,7 +419,6 @@ sys 1m3.089s
 <p>This time, I got into trouble trying to use docker&rsquo;s host network in a rootless docker environment. However, I was able to learn how to do ssh authentication, ssh logging (ssh -vvv IP address -p port number), and network commands (ss, etc.).</p>
 <p>The evaluation of the measured execution results is as follows. Since the four machines we measured have different CPU/GPU, I cannot strictly discuss the relationship between the number of machines and execution time, but it is true that execution with four machines is faster than with only one machine.</p>
 <p>In the future, I would like to learn how to write code for horovod, take up issues that take a little longer to execute, and write and execute code for horovod myself.</p>
-
 
         
 
