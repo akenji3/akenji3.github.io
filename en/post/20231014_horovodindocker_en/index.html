@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Horovod in Dockerを試す - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション
-一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。">
+  <title>Try Horovod in Docker - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. &lt;! &ndash;more&ndash;&gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20231014_horovodindocker\/",
-          "name": "Horovod in dockerを試す"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20231014_horovodindocker_en\/",
+          "name": "Try horovod in docker"
         }
     }]
 }
@@ -57,15 +56,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Horovod in Dockerを試す",
-  "description" : "モチベーション 一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。\n",
-  "inLanguage" : "ja",
-  "wordCount":  2676 ,
+  "headline": "Try Horovod in Docker",
+  "description" : "Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. \u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable",
+  "inLanguage" : "en",
+  "wordCount":  1139 ,
   "datePublished" : "2023-10-14T00:00:00",
   "dateModified" : "2023-10-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20231014_horovodindocker\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20231014_horovodindocker_en\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,24 +78,22 @@
 }
 </script>
 
-<meta property="og:title" content="Horovod in Dockerを試す" />
-<meta property="og:description" content="モチベーション
-一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。">
+<meta property="og:title" content="Try Horovod in Docker" />
+<meta property="og:description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here. &lt;! &ndash;more&ndash;&gt; Sources. The original manual - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20231014_horovodindocker/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20231014_horovodindocker_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Horovod in Dockerを試す" />
-  <meta name="twitter:description" content="モチベーション
-一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。">
+  <meta name="twitter:title" content="Try Horovod in Docker" />
+  <meta name="twitter:description" content="Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -126,12 +123,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -139,25 +136,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -167,9 +164,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -183,7 +180,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -263,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Horovod in Dockerを試す</h1>
+                <h1>Try Horovod in Docker</h1>
               
               
               
@@ -271,7 +268,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;October 14, 2023に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 14, 2023
   
   
   
@@ -298,85 +295,86 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="モチベーション">モチベーション</h2>
-<p>一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="motivation">Motivation</h2>
+<p>I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.</p>
+<p>&lt;! &ndash;more&ndash;&gt;</p>
+<h2 id="sources">Sources.</h2>
 <ol>
-<li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">本家のマニュアル</a>  - Horovod in Dockerという本家のマニュアル。docker起動のコマンドラインの記述は古いが、貴重な情報源。</li>
-<li><a href="https://docs.docker.jp/engine/security/rootless.html">Dockerのマニュアル（日本語）</a>  -  自分のDocker環境はRootlessで構築していたので、Rootless Dockerの本家のマニュアル。</li>
-<li><a href="https://docs.docker.com/engine/security/rootless/">Dockerのマニュアル（英語版）</a>  - 上記マニュアルの英語版のページ。</li>
+<li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">The original manual</a> - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable source.</li>
+<li><a href="https://docs.docker.jp/engine/security/rootless.html">Manual of Docker (Japanese)</a> - Manual of Rootless Docker, since my Docker environment was built with Rootless.</li>
+<li><a href="https://docs.docker.com/engine/security/rootless/">Docker&rsquo;s manual (English)</a> - English version of the above manual.</li>
 </ol>
-<h2 id="概要経緯">概要／経緯</h2>
-<p>Horovodは関連するミドルウェアも多いので、直接物理マインにインストールすることは避け、Dockerコンテナで動かす方針でこのプロジェクトを今年8月に開始した。DockerコンテナでHorovodを動かすことについては、情報源1.を参考に進めることにした。そのページを見てもらえば分かる通り、とても簡単そうに見える。</p>
-<p>情報源でも書いたが、自分のDocker環境は、<a href="https://akenji3.github.io/post/20230502_rootlessdocker/">Rootless Docker</a>で実現していた。このことが、Hovovod in Dockerでサンプルを動かすまで長い時間が掛かった原因でもある。</p>
-<h4 id="horovod-in-dockerでのssh動作条件">Horovod in Dockerでのssh動作条件</h4>
-<p>Horovod in Dockerでは、1台目のマシン（以下、Primaryと呼び、2台目以降をSecondaryを呼ぶことにする）から、ssh通信でパスワード無しで認証させる必要がある。そのため、Primaryでssh-keygenを行なって、公開鍵（id_rsa.pub）をSecondarysに配布する。具体的な方法については後述する。</p>
-<h4 id="horovod-in-dockerの起動方法">Horovod in Dockerの起動方法</h4>
-<p>初めに2台のマシンをPrimaryとSecondaryにして次の通りHorovodを実行した。</p>
-<p>情報源1.に記載されている通り、sshの公開鍵については、nfs上に置き、-vでコンテナ内では/root/.sshとして見えるように設定した。具体的なコマンドラインは、次の通り。dockerをsudoで起動していないのは、rootless docker環境だから。</p>
+<h2 id="overview--background">Overview / Background</h2>
+<p>I started this project in August this year with the policy of running Horovod in a Docker container instead of installing it directly on a physical machine, because Horovod has a lot of related middleware. As you can see from that page, it looks very easy.</p>
+<p>As I mentioned in the sources, my Docker environment was realized with <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">Rootless Docker</a>. This is also the reason why it took me a long time to get the sample working in Horovod in Docker.</p>
+<h4 id="conditions-for-ssh-operation-in-horovod-in-docker">Conditions for ssh operation in Horovod in Docker</h4>
+<p>In Horovod in Docker, it is necessary to authenticate from the first machine (hereinafter referred to as &ldquo;Primary&rdquo;) and from the second machine (hereinafter referred to as &ldquo;Secondary&rdquo;) using ssh communication without a password. To do this, perform ssh-keygen on the Primary and distribute the public key (id_rsa.pub) to the Secondarys. The specific method is described below.</p>
+<h4 id="how-to-start-horovod-in-docker">How to start Horovod in Docker</h4>
+<p>Initially, I ran Horovod on two machines, one as Primary and the other as Secondary, as follows</p>
+<p>As described in source 1, for the ssh public key, I placed it on nfs and used -v to make it visible as /root/.ssh in the container. The specific command line is as follows: docker is not started with sudo because it is a rootless docker environment.</p>
 <h5 id="secondary">Secondary</h5>
-<p>Secondaryマシンでは、以下の通り、horovodのコンテナを起動し、ポート番号12345でssh通信を待つ。</p>
+<p>On the secondary machine, start the holovod container and wait for ssh communication on port 12345 as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest bash -c <span class="s2">&#34;/usr/sbin/sshd -p 12345; sleep infinity&#34;</span>
 </code></pre></div><h5 id="primary">Primary</h5>
-<p>Primaryマシンでは、horovodコンテナを起動し、horovodrunでhorovod向けに書かれたコード（pytorch_mnist.py）を実行する。</p>
+<p>On the Primary machine, start the horovod container and run the code written for horovod (pytorch_mnist.py) with horovodrun.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
 root@ganymede:/horovod/examples/pytorch# horovodrun -np <span class="m">2</span> -H 192.168.11.4:1,192.168.11.3:1 -p <span class="m">12345</span> python pytorch_mnist.py
-（途中略）
+<span class="o">(</span>Abbreviation in the middle<span class="o">)</span>
     raise RuntimeError<span class="o">(</span><span class="s1">&#39;could not connect to some hosts via ssh&#39;</span><span class="o">)</span>
 RuntimeError: could not connect to some hosts via ssh
-</code></pre></div><p>上記の通り、sshがつながっていないようであり、ここからsshとの格闘が始まった。
-horovodrunの起動コマンドからわかるように、コンテナ内の/etc/hostsを変更せずに、IPアドレスでPrimary, Secondaryのマシンを指定している。</p>
-<h4 id="調査結果">調査結果</h4>
-<p>Secondaryのコンテナにiproute2パッケージをインストールして、ssコマンド（旧netstat）でコンテナ内でポート番号12345をLISTENしていることを確認した。この時は、ganymedeがSecondaryである。</p>
+</code></pre></div><p>As shown above, ssh did not seem to be connected, and this is where the struggle with ssh began.
+As you can see from the holovodrun startup command, the /etc/hosts in the container is not modified, and the IP addresses specify the Primary and Secondary machines.</p>
+<h4 id="findings">Findings</h4>
+<p>I installed the iproute2 package in a Secondary container and confirmed that the ss command (formerly netstat) LISTENs port number 12345 in the container. At this time, ganymede is Secondary.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">root@ganymede:/horovod/examples# apt update
 root@ganymede:/horovod/examples# apt install iproute2
 root@ganymede:/horovod/examples# apt install iputils-ping
 root@ganymede:/horovod/examples# ip -br -4 address
 root@ganymede:/etc/ssh# ss -nltu
-Netid  State   Recv-Q  Send-Q   Local Address:Port    Peer Address:Port  Process
-udp    UNCONN  <span class="m">0</span>       <span class="m">0</span>                    *:7946               *:*           
-tcp    LISTEN  <span class="m">0</span>       <span class="m">128</span>            0.0.0.0:12345        0.0.0.0:*           
-tcp    LISTEN  <span class="m">0</span>       <span class="m">128</span>                  *:7946               *:*           
-tcp    LISTEN  <span class="m">0</span>       <span class="m">128</span>                  *:2377               *:*           
-tcp    LISTEN  <span class="m">0</span>       <span class="m">128</span>               <span class="o">[</span>::<span class="o">]</span>:12345           <span class="o">[</span>::<span class="o">]</span>:*
-</code></pre></div><p>ganymedeホスト上で、ssを使ってポート番号12345でLISTENしているか確かめたが、LISTENしてないことがわかった。</p>
-<p>まとめると、コンテナではポート番号12345でLISTENするも、ホストではそのポート番号ではLISTENしていない。</p>
-<h4 id="マニュアルから分かったこと">マニュアルから分かったこと</h4>
-<p>ここに至って、情報源2.および3.を丹念に読むと、次のような記述があった！！</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--net=host がホスト・ネットワーク名前空間上でポートをリッスンしません
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port Process
+udp UNCONN <span class="m">0</span> <span class="m">0</span> *:7946 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> 0.0.0.0:12345 0.0.0.0:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> *:7946 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> *:2377 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> <span class="o">[</span>::<span class="o">]</span>:12345 <span class="o">[</span>::<span class="o">]</span>:*
+</code></pre></div><p>On the ganymede host, I checked to see if it was LISTENing on port number 12345 using ss, but found that it was not LISTENing.</p>
+<p>In summary, the container LISTENs on port 12345, but the host does not LISTEN on that port number.</p>
+<h4 id="what-i-found-out-from-the-manual">What I found out from the manual</h4>
+<p>Having reached this point, a careful reading of sources 2. and 3. reveals the following statement!</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--net=host doesn&#39;t listen ports on the host network namespace
 
-これは予想されうる挙動で、デーモンは RootlessKit のネットワーク名前空間内にいるからです。かわりに docker run -p を使います。
-</code></pre></div><h4 id="--nethostを使わず-pでホストとコンテナのポートをつなぐ">&ndash;net=hostを使わず-pでホストとコンテナのポートをつなぐ</h4>
-<p>マニュアルに従って、&ndash;net=hostを使わず、-pでポートの繋ぎ変えるように次のように起動した。</p>
+This is an expected behavior, as the daemon is namespaced inside RootlessKit&#39;s network namespace. Use docker run -p instead.
+</code></pre></div><h4 id="connecting-host-and-container-ports-with--p-instead-of---nethost">Connecting host and container ports with -p instead of &ndash;net=host</h4>
+<p>I followed the manual and started the following without &ndash;net=host and with -p to reconnect the ports.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all -p12345:22 -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
-</code></pre></div><p>別ホストからssh接続すると次のようなエラーとなった。</p>
+</code></pre></div><p>When I connect to ssh from another host, I get the following error.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ ssh 192.168.11.4 -p <span class="m">12345</span>
 kex_exchange_identification: Connection closed by remote host
 Connection closed by 192.168.11.4 port <span class="m">12345</span>
-</code></pre></div><p>ここで力尽きた。</p>
-<p>ついにrootless dockerを諦める決断をし、全てのマシンの<a href="https://akenji3.github.io/post/20231013_rootlessdockeruninstall/">rootless dockerをアンインストール</a>することにした。</p>
-<p>以下は、rootfulなdocker環境での実行である。</p>
-<h2 id="horovod-in-dockerを実行">Horovod in Dockerを実行</h2>
-<h4 id="sshの公開鍵と秘密鍵を作成する">sshの公開鍵と秘密鍵を作成する</h4>
-<p>次のとおり、公開鍵と秘密鍵をnfsマウントしている領域に作成する。</p>
+</code></pre></div><p>I&rsquo;m running out of steam here.</p>
+<p>I finally decided to give up on rootless docker and I decided to uninstall <a href="">rootless docker</a> on all machines.</p>
+<p>The following is a run in a rootful docker environment.</p>
+<h2 id="run-horovod-in-docker">Run Horovod in Docker</h2>
+<h4 id="create-ssh-public-and-private-keys">Create ssh public and private keys</h4>
+<p>Create the public and private keys on the nfs mounted area as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ssh-keygen -t rsa</span>
 Enter file in which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>: /mnt/nfs2/ssh/id_rsa
-Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
-Enter same passphrase again:
-（以下略）
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: /mnt/nfs2/ssh/id_rsa
+Enter same passphrase again:: /mnt/nfs2/ssh/id_rsa
+<span class="o">(</span>abbreviated below<span class="o">)</span>
 <span class="c1"># cat id_rsa.pub &gt;&gt; authorized_keys</span>
 <span class="c1"># chmod 600 authorized_keys</span>
 <span class="c1"># ls -l authorized_keys</span>
--rw------- <span class="m">1</span> root root  <span class="m">566</span> 10月 <span class="m">13</span> 15:33 authorized_keys
-</code></pre></div><h4 id="horovod-in-dockerを起動する">Horovod in Dockerを起動する</h4>
+-rw------- <span class="m">1</span> root root <span class="m">566</span> Oct <span class="m">13</span> 15:33 authorized_keys
+</code></pre></div><h4 id="horovod-in-docker-to-start">Horovod in Docker to start</h4>
 <h5 id="secondarys">Secondarys</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest bash -c <span class="s2">&#34;/usr/sbin/sshd -p 12345; sleep infinity&#34;</span>
 </code></pre></div><h5 id="primary-1">Primary</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
 <span class="c1"># cd pytorch</span>
 <span class="c1"># horovodrun -np 2 -H 192.168.11.3:1,192.168.11.4:1 -p 12345 python pytorch_mnist.py</span>
-</code></pre></div><h4 id="実行時間を計測">実行時間を計測</h4>
-<p>SecondarysでHorovod in Docker（上記のコマンドラインのとおり）を起動した上で、次のとおり、1台から4台での実行時間（Real）を計測した。</p>
+</code></pre></div><h4 id="measure-execution-time">Measure execution time</h4>
+<p>After running Horovod in Docker (as per the command line above) in Secondarys, we measured the execution time (Real) on one to four machines as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># time horovodrun -np 1 -H localhost:1 python pytorch_mnist.py</span>
 （略）
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0551, Accuracy: 98.38%
@@ -388,7 +386,7 @@ sys 0m28.747s
 
 <span class="c1"># time horovodrun -np 2 -H 192.168.11.4:\</span>
 1,192.168.11.3:1 -p <span class="m">12345</span> python pytorch_mnist.py
-（略）
+<span class="o">(</span>Abbreviation<span class="o">)</span>
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0546, Accuracy: 98.26%
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
 
@@ -397,7 +395,7 @@ user    3m46.072s
 sys 0m36.676s
 
 <span class="c1"># time horovodrun -np 3 -H 192.168.11.4:1,192.168.11.3:1,192.168.11.5:1 -p 12345 python pytorch_mnist.py</span>
-（略）
+<span class="o">(</span>Abbreviation<span class="o">)</span>
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0576, Accuracy: 98.03%
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
 
@@ -406,19 +404,20 @@ user    2m52.191s
 sys 0m40.745s
 
 <span class="c1"># time horovodrun -np 4 -H 192.168.11.4:1,192.168.11.3:1,192.168.11.5:1,192.168.11.6:1 -p 12345 python pytorch_mnist.py</span>
-（略）
+<span class="o">(</span>Abbreviation<span class="o">)</span>
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0542, Accuracy: 98.27%
 <span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
 
 real    1m34.386s
 user    2m33.140s
 sys 1m3.089s
-</code></pre></div><p>2回計測した結果をグラフにしてものが次のとおり。</p>
+</code></pre></div><p>The following graph shows the results of the two measurements.</p>
 <p><img src="/images/20231014_HorovodInDocker/20231014_mnist_real_time.png" alt="mnist_exec_time"></p>
-<h2 id="まとめ--今後に向けて">まとめ 〜 今後に向けて</h2>
-<p>今回、rootless docker環境で、dockerのhostネットワークを使おうとしてハマった。しかし、ssh認証、sshのログ（ssh -vvv IPアドレス -p ポート番号）の方法、ネットワークコマンド（ss等）を学ことが出来た。</p>
-<p>計測した実行結果の評価については次のように考える。計測した4台のマシンはCPU/GPUの性能も異なるので、マシン台数と実行時間との関係について厳密に論じることはできないが、4台で実行すると1台だけより速くなることは事実である。</p>
-<p>今回は、サンプルとして事前に添付されていたmnistを実行したが、今後は、horovod向けコードの記述を学び、もう少し実行時間が掛かる課題を取り上げて、horovod向けにコードを自分で書いて実行したい。</p>
+<h2 id="summary---for-the-future">Summary - For the future</h2>
+<p>This time, I got into trouble trying to use docker&rsquo;s host network in a rootless docker environment. However, I was able to learn how to do ssh authentication, ssh logging (ssh -vvv IP address -p port number), and network commands (ss, etc.).</p>
+<p>The evaluation of the measured execution results is as follows. Since the four machines we measured have different CPU/GPU, I cannot strictly discuss the relationship between the number of machines and execution time, but it is true that execution with four machines is faster than with only one machine.</p>
+<p>In the future, I would like to learn how to write code for horovod, take up issues that take a little longer to execute, and write and execute code for horovod myself.</p>
+
 
         
 
@@ -432,42 +431,42 @@ sys 1m3.089s
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f&amp;text=Horovod%20in%20Docker%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f&amp;text=Try%20Horovod%20in%20Docker&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f&amp;title=Horovod%20in%20Docker%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f&amp;title=Horovod%20in%20Docker%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f&amp;title=Horovod%20in%20Docker%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231014_horovodindocker%2f&amp;description=Horovod%20in%20Docker%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker_en%2f&amp;description=Try%20Horovod%20in%20Docker" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -490,7 +489,7 @@ sys 1m3.089s
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20231013_rootlessdockeruninstall/" data-toggle="tooltip" data-placement="top" title="Rootless dockerをアンインストール">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall_en/" data-toggle="tooltip" data-placement="top" title="Uninstall Rootless Docker">&larr; Previous Post</a>
             </li>
           
           
@@ -576,12 +575,12 @@ sys 1m3.089s
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
