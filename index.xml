@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 13 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Oct 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Horovod in Dockerを試す</title>
+      <link>https://akenji3.github.io/post/20231014_horovodindocker/</link>
+      <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20231014_horovodindocker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Rootless dockerをアンインストール</title>
