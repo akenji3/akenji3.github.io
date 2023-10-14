@@ -315,7 +315,7 @@ if (!doNotTrack) {
 <p>Initially, I ran Horovod on two machines, one as Primary and the other as Secondary, as follows</p>
 <p>As described in source 1, for the ssh public key, I placed it on nfs and used -v to make it visible as /root/.ssh in the container. The specific command line is as follows: docker is not started with sudo because it is a rootless docker environment.</p>
 <h5 id="secondary">Secondary</h5>
-<p>On the secondary machine, start the holovod container and wait for ssh communication on port 12345 as follows</p>
+<p>On the secondary machine, start the horovod container and wait for ssh communication on port 12345 as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest bash -c <span class="s2">&#34;/usr/sbin/sshd -p 12345; sleep infinity&#34;</span>
 </code></pre></div><h5 id="primary">Primary</h5>
 <p>On the Primary machine, start the horovod container and run the code written for horovod (pytorch_mnist.py) with horovodrun.</p>
@@ -325,7 +325,7 @@ root@ganymede:/horovod/examples/pytorch# horovodrun -np <span class="m">2</span>
     raise RuntimeError<span class="o">(</span><span class="s1">&#39;could not connect to some hosts via ssh&#39;</span><span class="o">)</span>
 RuntimeError: could not connect to some hosts via ssh
 </code></pre></div><p>As shown above, ssh did not seem to be connected, and this is where the struggle with ssh began.
-As you can see from the holovodrun startup command, the /etc/hosts in the container is not modified, and the IP addresses specify the Primary and Secondary machines.</p>
+As you can see from the horovodrun startup command, the /etc/hosts in the container is not modified, and the IP addresses specify the Primary and Secondary machines.</p>
 <h4 id="findings">Findings</h4>
 <p>I installed the iproute2 package in a Secondary container and confirmed that the ss command (formerly netstat) LISTENs port number 12345 in the container. At this time, ganymede is Secondary.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">root@ganymede:/horovod/examples# apt update
