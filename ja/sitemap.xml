@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,13 +34,13 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20231014_horovodindocker/</loc>
-    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/post/20231104_horovod_modifycnn/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +55,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -66,6 +66,11 @@
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20231014_horovodindocker/</loc>
+    <lastmod>2023-10-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
