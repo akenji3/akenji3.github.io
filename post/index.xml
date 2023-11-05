@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20231104_horovod_modifycnn/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;&#34;&gt;Horovod in Dockerを試す&lt;/a&gt;で、自分の環境（オンプレミス）で、Docker環境下でHorovodを使えるようになった。次にやるべきことは、一台のサーバで動作する学習コードをHorovodを使った分散学習に適用するように変更することだ！手始めに比較的簡単なCNNコードをHorovodを使って分散学習できるように変更したので、以下記事にまとめる。&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20231014_horovodindocker/&#34;&gt;Horovod in Dockerを試す&lt;/a&gt;で、自分の環境（オンプレミス）で、Docker環境下でHorovodを使えるようになった。次にやるべきことは、一台のサーバで動作する学習コードをHorovodを使った分散学習に適用するように変更することだ！手始めに比較的簡単なCNNコードをHorovodを使って分散学習できるように変更したので、以下記事にまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
