@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20231104_horovod_modifycnn_en/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;With &lt;a href=&#34;https://akenji3.github.io/en/post/20231014_horovodindocker_en/&#34;&gt;Try Horovod in Docker&lt;/a&gt;, you can now use Horovod in your own environment (on-premises) and in a Docker environment. The next thing to do is to modify the training code running on a single server to apply it to distributed training using Horovod! For starters, we modified a relatively simple CNN code to allow distributed learning using Horovod, which is summarized in the following article.&lt;/p&gt;</description>
+&lt;p&gt;With &lt;a href=&#34;https://akenji3.github.io/en/post/20231014_horovodindocker_en/&#34;&gt;Try Horovod in Docker&lt;/a&gt;, you can now use Horovod in your own environment (on-premises) and in a Docker environment. The next thing to do is to modify the training code running on a single server to apply it to distributed training using Horovod! For starters, I modified a relatively simple CNN code to allow distributed learning using Horovod, which is summarized in the following article.&lt;/p&gt;</description>
     </item>
     
     <item>
