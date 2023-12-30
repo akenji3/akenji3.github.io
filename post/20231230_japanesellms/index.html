@@ -7,7 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Posts - akenji&#39;s lab</title>
+  <title>日本語LLMをオンプレミス環境で実行する - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,14 +30,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20231230_japanesellms\/",
+          "name": "日本語 l l mをオンプレミス環境で実行する"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "日本語LLMをオンプレミス環境で実行する",
+  "description" : "モチベーション 2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  943 ,
+  "datePublished" : "2023-12-30T00:00:00",
+  "dateModified" : "2023-12-30T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20231230_japanesellms\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="日本語LLMをオンプレミス環境で実行する" />
+<meta property="og:description" content="モチベーション
+2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20231230_japanesellms/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:title" content="日本語LLMをオンプレミス環境で実行する" />
+  <meta name="twitter:description" content="モチベーション
+2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -209,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Posts</h1>
+                <h1>日本語LLMをオンプレミス環境で実行する</h1>
               
               
               
@@ -226,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/" lang="en">en</a>
+  
 </span>
 
 
@@ -240,414 +294,227 @@ if (!doNotTrack) {
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20231230_japanesellms/">
-        <h2 class="post-title">日本語LLMをオンプレミス環境で実行する</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
 <p>2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。</p>
-        <a href="https://akenji3.github.io/post/20231230_japanesellms/" class="post-read-more">[続きを読む]</a>
+<h2 id="情報源">情報源</h2>
+<p>自分が日本語LLMを試す際にコードを参考にしたページを以下に示す。最後の数字はパラメータ数を表している、7bは70億パラメータ、13bは130億パラメータである。</p>
+<ol>
+<li><a href="https://weel.co.jp/media/cyberagentlm2-7b">Calm2 7b</a>   サーバーエージェントの日本語LLM</li>
+<li><a href="https://weel.co.jp/media/cyberagentlm2-7b">ELYZA-japanese-Llama-2-7b</a>  ELYZAがLlama-2-7b-chat-hfをベースに開発した日本語LLM。</li>
+<li><a href="https://weel.co.jp/media/elyza-japanese-llama-2-13b">ELYZA-japanese-Llama-2-13b</a>  Llama2をベースにELYZAが開発した日本語LLM。</li>
+<li><a href="https://blog.curegit.jp/posts/ai/nlp/run-japanese-stable-lm-v2/">Japanese StableLM Instruct Alpha 7B v2</a>  Stability AIの日本語LLM</li>
+<li><a href="https://note.com/npaka/n/n49387d8a8af4">Japanese Stable LM Beta 7B</a>  Stability AIの日本語LLM</li>
+<li><a href="https://note.com/npaka/n/nccadcbcfe37e">Youri-7B</a>  RinnaがLlama2をベースに開発した日本語LLM</li>
+</ol>
+<h2 id="動作環境">動作環境</h2>
+<h3 id="サーバー環境">サーバー環境</h3>
+<table>
+<thead>
+<tr>
+<th>サーバー名</th>
+<th>Jupiter</th>
+<th>Ganymede</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Xeon E5-1620 3.60GHz</td>
+<td>Xeopn E5-2620 2.00GHz</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>64GB</td>
+<td>64GB</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>NVIDIA TITAN V</td>
+<td>RTX A4000</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Ubuntu 22.04.3 LTS</td>
+<td>Ubuntu 22.04.3 LTS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jupyterlab">JupyterLab</h3>
+<p>それぞれの日本語LLMは、次のDockerfileで作製したJupyterLab上で動作させた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># JupyterLabが使えるDockerイメージ</span>
+<span class="c1"># 自分がこれまで作成したNoteBookに必要なパッケージをインストールしたもの。</span>
+
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+
+<span class="c1"># Set bash as the default shell</span>
+ENV <span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+
+<span class="c1"># Build with some basic utilities</span>
+RUN apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>    python3-pip apt-utils vim <span class="se">\
+</span><span class="se"></span>    git git-lfs <span class="se">\
+</span><span class="se"></span>    curl unzip wget
+
+<span class="c1"># alias python=&#39;python3&#39;</span>
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+RUN pip install --upgrade pip setuptools <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install <span class="nv">torch</span><span class="o">==</span>2.0.1 <span class="nv">torchvision</span><span class="o">==</span>0.15.2 <span class="nv">torchaudio</span><span class="o">==</span>2.0.2 <span class="se">\
+</span><span class="se"></span>        --index-url https://download.pytorch.org/whl/cu118 <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install jupyterlab matplotlib pandas scikit-learn <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install transformers accelerate sentencepiece einops <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain bitsandbytes auto-gptq protobuf
+
+<span class="c1"># Create a working directory</span>
+WORKDIR /workdir
+
+<span class="c1"># Port number in container side</span>
+EXPOSE <span class="m">8888</span>
+
+ENTRYPOINT <span class="o">[</span><span class="s2">&#34;jupyter-lab&#34;</span>, <span class="s2">&#34;--ip=0.0.0.0&#34;</span>, <span class="s2">&#34;--port=8888&#34;</span>, <span class="s2">&#34;--no-browser&#34;</span>, <span class="s2">&#34;--allow-root&#34;</span>, <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="o">]</span>
+
+CMD <span class="o">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="o">]</span>
+</code></pre></div><h3 id="コード">コード</h3>
+<p>dockerコンテナとして起動したJupyterLabのセルに、情報源で示したページのコードをコピペして実行した。</p>
+<h2 id="実行結果">実行結果</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Jupiter</th>
+<th align="center">Ganymede</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calm2 7b</td>
+<td align="center">○</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>ELYZA-japanese-Llama-2-7b</td>
+<td align="center">×</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>ELYZA-japanese-Llama-2-13b</td>
+<td align="center">−</td>
+<td align="center">△</td>
+</tr>
+<tr>
+<td>Japanese StableLM Instruct Alpha 7B v2</td>
+<td align="center">×</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>Japanese Stable LM Beta 7B</td>
+<td align="center">△</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>Youri-7B</td>
+<td align="center">○</td>
+<td align="center">○</td>
+</tr>
+</tbody>
+</table>
+<p>凡例「○／△／×」の意味は次のとおり。</p>
+<p>○：質問の回答を返す。（一部出力が切れているケースもあり）</p>
+<p>△：次のメッセージを表示し、CPU側にオフロードして実行。
+　　WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.</p>
+<p>×：CUDA out of memory</p>
+<h2 id="今後について">今後について</h2>
+<p>130億パラメータが、16GBのRTX A4000で、オフロードするも動作したのは、少し驚きである。
+12GBのTITAN Xでは、LLMは少し荷が重い。量子化を調べる方向もあるが、<a href="https://www.deepspeed.ai/">DeepSpeed</a>で使ってモデル並列化について調べていきたい。</p>
+<p>DeepSpeedは2024年の課題として取り組むことにする。</p>
+
         
-    </div>
 
-    
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
 
-</article>
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f&amp;text=%e6%97%a5%e6%9c%ac%e8%aa%9eLLM%e3%82%92%e3%82%aa%e3%83%b3%e3%83%97%e3%83%ac%e3%83%9f%e3%82%b9%e7%92%b0%e5%a2%83%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f&amp;title=%e6%97%a5%e6%9c%ac%e8%aa%9eLLM%e3%82%92%e3%82%aa%e3%83%b3%e3%83%97%e3%83%ac%e3%83%9f%e3%82%b9%e7%92%b0%e5%a2%83%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f&amp;title=%e6%97%a5%e6%9c%ac%e8%aa%9eLLM%e3%82%92%e3%82%aa%e3%83%b3%e3%83%97%e3%83%ac%e3%83%9f%e3%82%b9%e7%92%b0%e5%a2%83%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f&amp;title=%e6%97%a5%e6%9c%ac%e8%aa%9eLLM%e3%82%92%e3%82%aa%e3%83%b3%e3%83%97%e3%83%ac%e3%83%9f%e3%82%b9%e7%92%b0%e5%a2%83%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20231230_japanesellms%2f&amp;description=%e6%97%a5%e6%9c%ac%e8%aa%9eLLM%e3%82%92%e3%82%aa%e3%83%b3%e3%83%97%e3%83%ac%e3%83%9f%e3%82%b9%e7%92%b0%e5%a2%83%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20231104_horovod_modifycnn/">
-        <h2 class="post-title">CNN訓練コードをHorovodで使えるように変更する</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;November 4, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20231014_horovodindocker/">Horovod in Dockerを試す</a>で、自分の環境（オンプレミス）で、Docker環境下でHorovodを使えるようになった。次にやるべきことは、一台のサーバで動作する学習コードをHorovodを使った分散学習に適用するように変更することだ！手始めに比較的簡単なCNNコードをHorovodを使って分散学習できるように変更したので、以下記事にまとめる。</p>
-        <a href="https://akenji3.github.io/post/20231104_horovod_modifycnn/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20231014_horovodindocker/">
-        <h2 class="post-title">Horovod in Dockerを試す</h2>
         
-        
-        
-    </a>
+      </article>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 14, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。</p>
-        <a href="https://akenji3.github.io/post/20231014_horovodindocker/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
+      
+        <ul class="pager blog-pager">
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20231013_rootlessdockeruninstall/">
-        <h2 class="post-title">Rootless dockerをアンインストール</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;October 13, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>今年5月に<a href="https://akenji3.github.io/post/20230502_rootlessdocker/">Rootless Dockerを構築</a>という記事を投稿したが、とある事情でrootless dockerをアンインストールすることにした。以下にアンインストールの手順をまとめた。
-rootless dockerをアンインストールするに至るとある事情については、後日改めて投稿する。</p>
-        <a href="https://akenji3.github.io/post/20231013_rootlessdockeruninstall/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20231104_horovod_modifycnn/" data-toggle="tooltip" data-placement="top" title="CNN訓練コードをHorovodで使えるように変更する">&larr; 前ページ</a>
+            </li>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230918_modulus_install/">
-        <h2 class="post-title">NVIDIA Modulusを試す　〜　PINNsことはじめ</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 18, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>１ヶ月以上前に、受講した「<a href="https://nvidia.connpass.com/event/284942/">AIサロゲートモデルでシミュレーションを高速化する方法とは？</a>」セミナーで、NVIDIA Modulusに興味を持ったので、書籍を買って勉強を始めた。
-Modulusを今後勉強する前提として、自分の環境にModulusをインストールしたので、「PINNsことはじめ」としてインストール回りのことをまとめた。</p>
-        <a href="https://akenji3.github.io/post/20230918_modulus_install/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230814_rinna36b/">
-        <h2 class="post-title">rinna 3.6bをdockerから使う</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 14, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
+        </ul>
+      
 
 
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。</p>
-<p>その際にハマったこともあったので以下にまとめる。</p>
-        <a href="https://akenji3.github.io/post/20230814_rinna36b/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
+      
 
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230709_ubuntu2204_install/">
-        <h2 class="post-title">ubuntu 22.04 LTSをインストール</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;July 9, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使っていた20.04から22.04に乗り換えることにした。</p>
-<p>自分は日本語を簡単に使えるようにするため、ubuntu 22.04 日本語Remixを複数のワークステーションにインストールした。NVIDIA GPU搭載のワークステーションにubuntu 22.04をインストールしようとして、少しはまったことがあるので、以下にその状況と対応を紹介する。</p>
-        <a href="https://akenji3.github.io/post/20230709_ubuntu2204_install/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230503_privateregistry/">
-        <h2 class="post-title">プライベートなdockerレジストリを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 3, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20230502_rootlessdocker/">以前の投稿</a>でユーザモードでdockerコンテナを起動する方法をまとめた。</p>
-<p>複数のPC（WorkStation、以下WS）を使う場合、複数WS間でコンテナを共有する仕組みをどう実現するかを考える必要がある。singularityの場合には、sifファイルをNFSサーバに格納し、それを他のWSから使えば良かった。</p>
-<p>dockerの場合には、自宅のネットワーク内にプライベートなレジストリを立てて、運用すれば良いと考え、レジストリ・サーバを構築することにした。</p>
-        <a href="https://akenji3.github.io/post/20230503_privateregistry/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230502_rootlessdocker/">
-        <h2 class="post-title">Rootless Dockerを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 2, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。</p>
-<p>きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。</p>
-        <a href="https://akenji3.github.io/post/20230502_rootlessdocker/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/">
-        <h2 class="post-title">Pytorchでの学習／推論の高速化について</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;March 18, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p>JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。</p>
-<p>そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。</p>
-        <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-        </div>
-        
-          <ul class="pager main-pager">
-            
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/post/page/2/">古いページ &rarr;</a>
-              </li>
-            
-          </ul>
-        
-      </div>
     </div>
   </div>
+</div>
 
       
 <footer>
@@ -698,7 +565,7 @@ Modulusを今後勉強する前提として、自分の環境にModulusをイン
               </li>
           
           <li>
-            <a href="/post/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
