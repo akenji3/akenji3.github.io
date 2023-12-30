@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>日本語LLMをオンプレミス環境で実行する</title>
-      <link>https://akenji3.github.io/post/20231230_japanesellms/</link>
-      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20231230_japanesellms/</guid>
-      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
-&lt;p&gt;2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>CNN訓練コードをHorovodで使えるように変更する</title>

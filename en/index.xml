@@ -7,20 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Run Japanese LLMs in an on-premise environment</title>
-      <link>https://akenji3.github.io/en/post/20231230_japanesellms_en/</link>
-      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20231230_japanesellms_en/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Modify CNN training code to work with Horovod</title>
