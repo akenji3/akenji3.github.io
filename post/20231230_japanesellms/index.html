@@ -60,7 +60,7 @@
   "headline": "日本語LLMをオンプレミス環境で実行する",
   "description" : "モチベーション 2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  943 ,
+  "wordCount":  955 ,
   "datePublished" : "2023-12-30T00:00:00",
   "dateModified" : "2023-12-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -422,11 +422,12 @@ CMD <span class="o">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</
 </tr>
 </tbody>
 </table>
-<p>凡例「○／△／×」の意味は次のとおり。</p>
+<p>凡例「○／△／×／－」の意味は次のとおり。</p>
 <p>○：質問の回答を返す。（一部出力が切れているケースもあり）</p>
 <p>△：次のメッセージを表示し、CPU側にオフロードして実行。
 　　WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.</p>
 <p>×：CUDA out of memory</p>
+<p>－：実行していない。</p>
 <h2 id="今後について">今後について</h2>
 <p>130億パラメータが、16GBのRTX A4000で、オフロードするも動作したのは、少し驚きである。
 12GBのTITAN Xでは、LLMは少し荷が重い。量子化を調べる方向もあるが、<a href="https://www.deepspeed.ai/">DeepSpeed</a>で使ってモデル並列化について調べていきたい。</p>

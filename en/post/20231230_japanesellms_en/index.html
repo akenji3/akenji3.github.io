@@ -60,7 +60,7 @@ Looking back on the year 2023, it was a year in which many Japanese LLMs (Large 
   "headline": "Run Japanese LLMs on an on-premise environment",
   "description" : "Motivation Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.\n",
   "inLanguage" : "en",
-  "wordCount":  535 ,
+  "wordCount":  543 ,
   "datePublished" : "2023-12-30T00:00:00",
   "dateModified" : "2023-12-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -420,11 +420,12 @@ CMD <span class="o">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</
 </tr>
 </tbody>
 </table>
-<p>The legend &ldquo;○/△/×&rdquo; has the following meanings</p>
+<p>The legend &ldquo;○/△/×/−&rdquo; has the following meanings</p>
 <p>○: Returns the answer to a question. (In some cases, the output is partially cut off.)</p>
 <p>△: Displays the following message and offloads it to the CPU side for execution.
 　　&ldquo;WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.&rdquo;</p>
 <p>×: CUDA out of memory</p>
+<p>−：Not running</p>
 <h2 id="the-future">The future</h2>
 <p>It is a bit surprising that 13 billion parameters worked on a 16GB RTX A4000, even offloading.
 LLMs are a bit of a burden on the 12GB TITAN X. There is a direction to investigate quantization, but I would like to use them in <a href="https://www.deepspeed.ai/">DeepSpeed</a> to investigate model parallelization.</p>
