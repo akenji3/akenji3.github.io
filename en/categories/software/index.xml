@@ -18,7 +18,8 @@
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20240102_quantization_en/</guid>
-      <description>Motivation In this article, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here. Reference I used bitsandbytes for quantization this time, but there seem to be other methods. The related information is listed below. Hugging Face Start here first. It is a little difficult to find the information in</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20231230_japanesellms_en/&#34;&gt;this article&lt;/a&gt;, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.&lt;/p&gt;</description>
     </item>
     
     <item>
