@@ -60,7 +60,7 @@
   "headline": "量子化による日本語LLMの実行",
   "description" : "モチベーション この記事において量子化については、否定的な言い方で終わったが、少し調べてみると興味深い領域であると思い直し、量子化について実験したので、その内容をここにまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  1504 ,
+  "wordCount":  1545 ,
   "datePublished" : "2024-01-02T00:00:00",
   "dateModified" : "2024-01-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -311,6 +311,7 @@ if (!doNotTrack) {
 <p>上記・参考の「【ELYZA-japanese-Llama-2-13b】東大スタートアップがGPT3.5を超えるLLMを開発！使い方〜実践まで」の記事に掲載のコードをRTX A4000（GPUメモリ：16GB）で実行した。その際には、「WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.」とのメッセージが表示されながらも回答を得た。そのため、TITAN X（GPUメモリ：12GB）では実行を諦め、DeepSpeedによるモデル並列化を調べようと思った。</p>
 <p>少し調べる内、量子化によってモデルを圧縮しつつ精度を保つための手法／ライブラリがあることを知ったので、早速試してみることにした。</p>
 <p>今回は、bitsandbytesライブラリを使う手法を試したみた。</p>
+<p>なお、実行したJupyterLabのdockerコンテナは、<a href="https://akenji3.github.io/post/20231230_japanesellms/">この記事</a>のものと同じ。</p>
 <h2 id="コードを変更">コードを変更</h2>
 <h4 id="元のコード">元のコード</h4>
 <p>上記「参考」の「【ELYZA-japanese-Llama-2-13b】東大スタートアップがGPT3.5を超えるLLMを開発！使い方〜実践まで」の元のコード部分は次のとおり。</p>

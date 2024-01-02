@@ -60,7 +60,7 @@ In this article, I ended on a negative note about quantization, but after a litt
   "headline": "Execution of a Japanese LLM by Quantization",
   "description" : "Motivation In this article, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.\n",
   "inLanguage" : "en",
-  "wordCount":  813 ,
+  "wordCount":  831 ,
   "datePublished" : "2024-01-02T00:00:00",
   "dateModified" : "2024-01-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -311,6 +311,7 @@ if (!doNotTrack) {
 <p>&ldquo;[ELYZA-japanese-Llama-2-13b], the University of Tokyo startup developed  LLM over GPT3.5! From usage to practice&rdquo; was executed on RTX A4000 (GPU memory: 16GB). In that case, I got an answer while the message &ldquo;WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu. Therefore, I gave up running on TITAN X (GPU memory: 12 GB) and decided to investigate model parallelization with DeepSpeed.</p>
 <p>After a little research, I learned that there is a method/library to compress models by quantization while maintaining accuracy, so I decided to give it a try right away.</p>
 <p>This time, I tried using the bitsandbytes library.</p>
+<p>Note that the JupyterLab docker container that was run is the same as the one in <a href="https://akenji3.github.io/en/post/20231230_japanesellms_en/">this article</a>.</p>
 <h2 id="modified-code">Modified code</h2>
 <h4 id="original-code">Original code</h4>
 <p>&ldquo;ELYZA-japanese-Llama-2-13b] the University of Tokyo startup developed LLM over GPT3.5! &quot; in Reference above, the original code is as follows.</p>
