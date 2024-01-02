@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>量子化による日本語LLMの実行</title>
+      <link>https://akenji3.github.io/post/20240102_quantization/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240102_quantization/</guid>
+      <description>モチベーション この記事において量子化については、否定的な言い方で終わったが、少し調べてみると興味深い領域であると思い直し、量子化について実験</description>
+    </item>
     
     <item>
       <title>日本語LLMをオンプレミス環境で実行する</title>

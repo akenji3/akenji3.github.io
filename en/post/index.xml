@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Execution of a Japanese LLM by Quantization</title>
+      <link>https://akenji3.github.io/en/post/20240102_quantization_en/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240102_quantization_en/</guid>
+      <description>Motivation In this article, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here. Reference I used bitsandbytes for quantization this time, but there seem to be other methods. The related information is listed below. Hugging Face Start here first. It is a little difficult to find the information in</description>
+    </item>
     
     <item>
       <title>Run Japanese LLMs on an on-premise environment</title>
