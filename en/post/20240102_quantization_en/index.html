@@ -60,7 +60,7 @@ In this article, I ended on a negative note about quantization, but after a litt
   "headline": "Execution of a Japanese LLM by Quantization",
   "description" : "Motivation In this article, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.\n",
   "inLanguage" : "en",
-  "wordCount":  831 ,
+  "wordCount":  834 ,
   "datePublished" : "2024-01-02T00:00:00",
   "dateModified" : "2024-01-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -305,7 +305,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="https://huggingface.co/docs/transformers/main/quantization">Hugging Face</a> Start here first. It is a little difficult to find the information in English.</li>
 <li><a href="https://note.com/retrieva/n/nac940528b4b3">Japanese LLM Inference Speed Verification</a> A report by an intern on Japanese LLM inference speed. The report is well organized and also discusses quantization.</li>
-<li>[ELYZA-japanese-Llama-2-13b] Todai Startup Develops LLM that Exceeds GPT3.5! From usage to practice](<a href="https://weel.co.jp/media/elyza-japanese-llama-2-13b">https://weel.co.jp/media/elyza-japanese-llama-2-13b</a>) An article introducing ELYZA-japanese-Llama-2-13b. The code was also based on this.</li>
+<li>[][ELYZA-japanese-Llama-2-13b] <a href="https://weel.co.jp/media/elyza-japanese-llama-2-13b">(ELYZA-japanese-Llama-2-13b) the University Tokyo Startup Develops LLM that Exceeds GPT3.5! From usage to practice</a> An article introducing ELYZA-japanese-Llama-2-13b. The code was also based on this.</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
 <p>&ldquo;[ELYZA-japanese-Llama-2-13b], the University of Tokyo startup developed  LLM over GPT3.5! From usage to practice&rdquo; was executed on RTX A4000 (GPU memory: 16GB). In that case, I got an answer while the message &ldquo;WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu. Therefore, I gave up running on TITAN X (GPU memory: 12 GB) and decided to investigate model parallelization with DeepSpeed.</p>
@@ -361,7 +361,7 @@ if (!doNotTrack) {
 <span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 </code></pre></div><h2 id="execution-results">Execution Results</h2>
 <p>The fact that I am writing this article means that as a result of the above changes, I was able to run TITAN X with 12 GB of memory.</p>
-<p>The effect of quantization is great. Unfortunately, however, I do not understand the details of the operation. This is an issue for the future.</p>
+<p>The effect of quantization is great. Unfortunately, however, I do not understand the details of the code. This is an issue for the future.</p>
 <p>In order to be able to ask a number of questions, I changed the code as follows, separating the model building and the question part.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">BitsAndBytesConfig</span>
