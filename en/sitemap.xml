@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/</loc>
-    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/categories/</loc>
-    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -34,13 +34,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/post/20240102_quantization_en/</loc>
-    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/en/post/</loc>
-    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -55,7 +50,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/categories/software/</loc>
-    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -66,6 +61,16 @@
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/software/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/</loc>
+    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20240102_quantization_en/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
+      <link>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have been interested in trying out astrophysics-related simulations for some time, and had been checking out ENZO, GADGET, GIZMO, and others. I happened to know Athena, and when I looked into it, I found that Associate Professor Kengo Tomita of Tohoku University maintains a Japanese page and has some information in Japanese, so I decided to give it a try.&lt;/p&gt;
+&lt;p&gt;Here, I summarize the process of installing and running the tutorial, and post it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Execution of a Japanese LLM by Quantization</title>
