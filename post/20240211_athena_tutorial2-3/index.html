@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Athena&#43;&#43;のチュートリアルを実行する - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+以前のポストで、Athena&#43;&#43;をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240211_athena_tutorial2-3\/",
+          "name": "Athena\u002b\u002bのチュートリアルを実行する"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Athena\u002b\u002bのチュートリアルを実行する",
+  "description" : "はじめに 以前のポストで、Athena\u002b\u002bをインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2119 ,
+  "datePublished" : "2024-02-03T00:00:00",
+  "dateModified" : "2024-02-03T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240211_athena_tutorial2-3\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Athena&#43;&#43;のチュートリアルを実行する" />
+<meta property="og:description" content="はじめに
+以前のポストで、Athena&#43;&#43;をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240211_athena_tutorial2-3/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Athena&#43;&#43;のチュートリアルを実行する" />
+  <meta name="twitter:description" content="はじめに
+以前のポストで、Athena&#43;&#43;をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Athena&#43;&#43;のチュートリアルを実行する</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 3, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>以前のポストで、Athena++をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Tutorial</a>    Athena++公式ページのチュートリアル。今回は「2. 2D MHD」と「3. Modifying the Input File」を実行した。</li>
+<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">Athena++チュートリアル</a>    富田先生が管理されている日本語のページ。</li>
+<li><a href="https://visit-sphinx-github-user-manual.readthedocs.io/en/v3.3.3/getting_started/Installing_VisIt.html">Installing and Starting VisIt</a>   ビジュアル化ソフト・VisItのインストールページ。自分がインストールしたバージョンは3.3.3。</li>
+<li><a href="https://visit-dav.github.io/visit-website/">VisIt</a>   このページの「Download Now」の「latest release」との<a href="https://visit-dav.github.io/visit-website/releases-as-tables/#latest">リンク先</a>から「Series 3.3(latest)」をダウンロードした。</li>
+<li><a href="https://www.astro.phys.s.chiba-u.ac.jp/cans/doc/application_OTvortex.html">Orszag-Tang渦問題</a>   チュートリアル「2D MHD」に関して、物理面が記載されているページ。千葉大では、<a href="https://www.astro.phys.s.chiba-u.ac.jp/cans/doc/index.html#">CANS+</a>という磁気流体シュミレーションコードを公開している。</li>
+</ol>
+<h2 id="実行内容">実行内容</h2>
+<h3 id="ビジュアル化ソフトvisitをインストール">ビジュアル化ソフトvisItをインストール</h3>
+<p>今後使用するvisItというビジュアル化ソフトをインストールする。</p>
+<h4 id="ubuntへのインストール">Ubuntへのインストール</h4>
+<p>Ubuntuへのインストールは、情報源4.の通り、Series 3.3の表のUbuntu20のtgzをダウンロードする。</p>
+<p>以降の操作は、情報源3.の「1.2. Installing on Linux」に従った。</p>
+<h4 id="macへのインストール">Macへのインストール</h4>
+<p>Macへのインストールは、Series 3.3の表のMac 12.6のdmgをダウンロードし、dmgを開いてApplicationsにコピーすれば、インストールできる。</p>
+<h3 id="2d-orszag-tang-vortex">2D Orszag Tang Vortex</h3>
+<h4 id="コード生成とmake">コード生成とmake</h4>
+<p>先ずは、前回の<a href="https://akenji3.github.io/post/20240203_athena++/">ポスト</a>で作成したdockerコンテナを起動する。以下は、dockerコンテナでの操作。コンテナ内の作業用のディレクトリについても、前回のポストと同じ。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python configure.py --prob orszag_tang -b --flux hlld</span>
+  Your Athena++ distribution has now been configured with the following options:
+  Problem generator:            orszag_tang
+  Coordinate system:            cartesian
+  Equation of state:            adiabatic
+  Riemann solver:               hlld
+  Magnetic fields:              ON
+  Number of scalars:            <span class="m">0</span>
+  Number of chemical species:   <span class="m">0</span>
+  Special relativity:           OFF
+  General relativity:           OFF
+  Radiative Transfer:           OFF
+  Implicit Radiation:           OFF
+  Cosmic Ray Transport:         OFF
+  Frame transformations:        OFF
+  Self-Gravity:                 OFF
+  Super-Time-Stepping:          OFF
+  Chemistry:                    OFF
+  KIDA rates:                   OFF
+  ChemRadiation:                OFF
+  chem_ode_solver:              OFF
+  Debug flags:                  OFF
+  Code coverage flags:          OFF
+  Linker flags:
+  Floating-point precision:     double
+  Number of ghost cells:        <span class="m">2</span>
+  MPI parallelism:              OFF
+  OpenMP parallelism:           OFF
+  FFT:                          OFF
+  HDF5 output:                  OFF
+  Compiler:                     g++
+  Compilation command:          g++  -O3 -std<span class="o">=</span>c++11
+
+<span class="c1"># make clean</span>
+<span class="c1"># make</span>
+</code></pre></div><h4 id="作業用ディレクトリ">作業用ディレクトリ</h4>
+<p>コンテナ内の作業用のディレクトリについても、前回のポストと同じである。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># pwd</span>
+/workdir/kenji/t2
+<span class="c1"># cp ../../athena/inputs/mhd/athinput.orszag-tang .</span>
+<span class="c1"># ls -l</span>
+total <span class="m">4</span>
+-rw-r--r-- <span class="m">1</span> root root <span class="m">1745</span> Feb  <span class="m">8</span> 07:31 athinput.orszag-tang
+</code></pre></div><h4 id="実行">実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ../../athena/bin/athena -i athinput.orszag-tang</span>
+
+Setup complete, entering main loop...
+
+<span class="nv">cycle</span><span class="o">=</span><span class="m">0</span> <span class="nv">time</span><span class="o">=</span>0.0000000000000000e+00 <span class="nv">dt</span><span class="o">=</span>3.6118630426454975e-04
+<span class="nv">cycle</span><span class="o">=</span><span class="m">1</span> <span class="nv">time</span><span class="o">=</span>3.6118630426454975e-04 <span class="nv">dt</span><span class="o">=</span>3.6109645019044242e-04
+・・・（略）・・・
+<span class="nv">cycle</span><span class="o">=</span><span class="m">3562</span> <span class="nv">time</span><span class="o">=</span>9.9978638766687489e-01 <span class="nv">dt</span><span class="o">=</span>2.1361233312511274e-04
+<span class="nv">cycle</span><span class="o">=</span><span class="m">3563</span> <span class="nv">time</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">dt</span><span class="o">=</span>2.6597077446314599e-04
+
+Terminating on <span class="nb">time</span> limit
+<span class="nv">time</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">cycle</span><span class="o">=</span><span class="m">3563</span>
+<span class="nv">tlim</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">nlim</span><span class="o">=</span>-1
+
+zone-cycles <span class="o">=</span> <span class="m">890750000</span>
+cpu <span class="nb">time</span> <span class="nv">used</span>  <span class="o">=</span> 5.8290348500000005e+02
+zone-cycles/cpu_second <span class="o">=</span> 1.5281260498897170e+06
+</code></pre></div><h4 id="ビジュアル化">ビジュアル化</h4>
+<p>Macからビジュアル化する場合は、上記で説明した作業用ディレクトリをMacからNFSマウントすることで、生成されたvtkファイルを参照できるようにした。</p>
+<p>ビジュアル化の手順は、情報源1.の「Visualize and analyze the results.」の記載に沿って実行した。</p>
+<p><img src="/images/20240211_Athena_Tutorial2-3/Orszag-Tang_500.png" alt="Orszag -Tang500"></p>
+<h3 id="inputファイルパラメータファイルの変更">Inputファイル（パラメータファイル）の変更</h3>
+<h4 id="解像度を変更">解像度を変更</h4>
+<p>情報源1.および情報源2.の3番目のチュートリアルでは、先ずグリッドの解像度を200から400に変更する例となっているが、自分がインストールしたAthena++に含まれている実際のパラメータファイルでは、500となっていた。自分は、解像度を下げて200にして実行した。</p>
+<p>また、チュートリアルでは、&ldquo;<!-- raw HTML omitted -->&quot;のnx1、nx2のみを変更すると、次のようなエラーが発生した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ../../athena/bin/athena -i athinput.orszag-tang_low</span>
+<span class="c1">### FATAL ERROR in Mesh constructor</span>
+the Mesh must be evenly divisible by the MeshBlock
+</code></pre></div><p>&ldquo;<!-- raw HTML omitted -->&quot;のnx1、nx2も変更する必要があることが分かった。</p>
+<h4 id="出力項目を追加">出力項目を追加</h4>
+<p>Athen++では、基本的な変数（primitive variables、密度／速度／圧力／磁場等）だけでなく、不変量な変数（conservative variables、質量密度／運動量等）を出力できる。</p>
+<p>そのためには、<!-- raw HTML omitted -->ブロックに以下を追加する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt;output3&gt;
+<span class="nv">file_type</span>  <span class="o">=</span> vtk       <span class="c1"># VTK data dump</span>
+<span class="nv">variable</span>   <span class="o">=</span> cons      <span class="c1"># variables to be output</span>
+<span class="nv">id</span>         <span class="o">=</span> cons      <span class="c1"># file ID</span>
+<span class="nv">dt</span>         <span class="o">=</span> 0.01      <span class="c1"># time increment between outputs</span>
+</code></pre></div><p>この時、合わせて<!-- raw HTML omitted -->ブロックのidも次のように変更すると、出力ファイルのOrszangTnag.block0.out2.?????.vtkがOrszangTnag.block0.prim.?????.vtkに変更される。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt;output2&gt;
+<span class="nv">id</span>         <span class="o">=</span> prim      <span class="c1"># file ID</span>
+</code></pre></div><p>上記の変更により、OrszagTang.block0.prim.?????.vtkとOrszagTang.block0.cons.?????.vtkが出力される。</p>
+<h3 id="解像度と実行速度の関係">解像度と実行速度の関係</h3>
+<p>デフォルトのグリッド解像度は500だった。上記に述べたように、グリッド解像度を200にした。グリッド解像度を200でビジュアル化した画像は次のとおり。</p>
+<p><img src="/images/20240211_Athena_Tutorial2-3/Orszag-Tang_200.png" alt="Orszag-Tang_200"></p>
+<p>最初の500の解像度に比べて、荒いのが分かる。</p>
+<p>更に500の半分の250との実行時間（cpu time used）を比較すると次の表の通り。</p>
+<table>
+<thead>
+<tr>
+<th>グリッド数</th>
+<th>cpu time use（秒）</th>
+<th>cycle</th>
+<th>対500実測値比</th>
+<th>理論値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td>583</td>
+<td>3563</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>250</td>
+<td>70</td>
+<td>1728</td>
+<td>8.3</td>
+<td>8.4←2x2x2.1</td>
+</tr>
+<tr>
+<td>200</td>
+<td>36</td>
+<td>1368</td>
+<td>16.2</td>
+<td>16.3←2.5x2.5x2.6</td>
+</tr>
+</tbody>
+</table>
+<p>上記の表で、「cpu time use」と「cycle」は出力のされた結果である。「対500実測値比」は、「cpu time use」の250、200を1とした場合の500の比率である。理論値は、グリッド数比とcycleに示された時間刻み数の比率を掛け合わせた数値である。</p>
+<p>実測値と理論値とは良く一致していると思われる。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f&amp;text=Athena%2b%2b%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Athena%2b%2b%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Athena%2b%2b%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Athena%2b%2b%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240211_athena_tutorial2-3%2f&amp;description=Athena%2b%2b%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%82%92%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240203_athena&#43;&#43;/" data-toggle="tooltip" data-placement="top" title="宇宙物理学用磁気流体シュミレーションコードAthena&#43;&#43;を試す">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
