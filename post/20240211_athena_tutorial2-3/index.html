@@ -60,7 +60,7 @@
   "headline": "Athena\u002b\u002bのチュートリアルを実行する",
   "description" : "はじめに 以前のポストで、Athena\u002b\u002bをインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  2192 ,
+  "wordCount":  2190 ,
   "datePublished" : "2024-02-11T00:00:00",
   "dateModified" : "2024-02-11T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -391,16 +391,16 @@ zone-cycles/cpu_second <span class="o">=</span> 1.5281260498897170e+06
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ../../athena/bin/athena -i athinput.orszag-tang_low</span>
 <span class="c1">### FATAL ERROR in Mesh constructor</span>
 the Mesh must be evenly divisible by the MeshBlock
-</code></pre></div><p>&ldquo;meshblockブロック&quot;のnx1、nx2も変更する必要があることが分かった。</p>
+</code></pre></div><p>&ldquo;meshblock&quot;ブロックのnx1、nx2も変更する必要があることが分かった。</p>
 <h4 id="出力項目を追加">出力項目を追加</h4>
 <p>Athen++では、基本的な変数（primitive variables、密度／速度／圧力／磁場等）だけでなく、不変量な変数（conservative variables、質量密度／運動量等）を出力できる。</p>
-<p>そのためには、&lsquo;&lsquo;outputブロック'&lsquo;に以下を追加する。</p>
+<p>そのためには、&lsquo;&lsquo;output&quot;ブロックに以下を追加する。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt;output3&gt;
 <span class="nv">file_type</span>  <span class="o">=</span> vtk       <span class="c1"># VTK data dump</span>
 <span class="nv">variable</span>   <span class="o">=</span> cons      <span class="c1"># variables to be output</span>
 <span class="nv">id</span>         <span class="o">=</span> cons      <span class="c1"># file ID</span>
 <span class="nv">dt</span>         <span class="o">=</span> 0.01      <span class="c1"># time increment between outputs</span>
-</code></pre></div><p>この時、合わせて&quot;output2ブロック&quot;のidも次のように変更すると、出力ファイルのOrszangTnag.block0.out2.?????.vtkがOrszangTnag.block0.prim.?????.vtkに変更される。</p>
+</code></pre></div><p>この時、合わせて&quot;output2&quot;ブロックのidも次のように変更すると、出力ファイルのOrszangTnag.block0.out2.?????.vtkがOrszangTnag.block0.prim.?????.vtkに変更される。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">&lt;output2&gt;
 <span class="nv">id</span>         <span class="o">=</span> prim      <span class="c1"># file ID</span>
 </code></pre></div><p>上記の変更により、OrszagTang.block0.prim.?????.vtkとOrszagTang.block0.cons.?????.vtkが出力される。</p>
