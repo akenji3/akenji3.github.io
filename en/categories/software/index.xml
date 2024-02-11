@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on akenji&#39;s lab</title>
+    <title>Software on akenji&#39;s lab</title>
     <link>https://akenji3.github.io/en/categories/software/</link>
-    <description>Recent content in software on akenji&#39;s lab</description>
+    <description>Recent content in Software on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Athena&#43;&#43;のチュートリアルを実行する</title>
+      <link>https://akenji3.github.io/en/20240211_athena_tutorial2-3/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/20240211_athena_tutorial2-3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;以前の&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena++/&#34;&gt;ポスト&lt;/a&gt;で、Athena++をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
