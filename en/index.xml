@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>Athena&#43;&#43;のチュートリアルを実行する</title>
-      <link>https://akenji3.github.io/en/20240211_athena_tutorial2-3/</link>
+      <title>Run the Athena&#43;&#43; tutorial</title>
+      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/20240211_athena_tutorial2-3/</guid>
-      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;以前の&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena++/&#34;&gt;ポスト&lt;/a&gt;で、Athena++をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。&lt;/p&gt;</description>
+      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In a &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena++_en/&#34;&gt;previous post&lt;/a&gt;, I summarized the contents of the first tutorial &amp;ldquo;1D Hydorodynamics and MHD&amp;rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.&lt;/p&gt;</description>
     </item>
     
     <item>

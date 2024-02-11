@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 03 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Run the Athena&#43;&#43; tutorial</title>
+      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In a &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena++_en/&#34;&gt;previous post&lt;/a&gt;, I summarized the contents of the first tutorial &amp;ldquo;1D Hydorodynamics and MHD&amp;rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
