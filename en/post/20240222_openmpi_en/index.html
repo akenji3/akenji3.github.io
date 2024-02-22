@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>OpenMPIを実装したDockerコンテナを複数ノードで実行する - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション
-以前このポストで述べたように、Athena&#43;&#43;をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。">
+  <title>Run Docker containers implementing OpenMPI on multiple nodes - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.
+&lt;! &ndash;more&ndash;&gt;
+Sources.  Try Horovod in Docker My own article posted a few months ago.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240222_openmpi\/",
-          "name": "Open m p iを実装した dockerコンテナを複数ノードで実行する"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240222_openmpi_en\/",
+          "name": "Run docker containers implementing open m p i on multiple nodes"
         }
     }]
 }
@@ -57,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "OpenMPIを実装したDockerコンテナを複数ノードで実行する",
-  "description" : "モチベーション 以前このポストで述べたように、Athena\u002b\u002bをマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。\n",
-  "inLanguage" : "ja",
-  "wordCount":  2622 ,
+  "headline": "Run Docker containers implementing OpenMPI on multiple nodes",
+  "description" : "Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena\u002b\u002b on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.\n\u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt;\nSources.  Try Horovod in Docker My own article posted a few months ago.",
+  "inLanguage" : "en",
+  "wordCount":  1188 ,
   "datePublished" : "2024-02-22T00:00:00",
   "dateModified" : "2024-02-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240222_openmpi\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240222_openmpi_en\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,24 +80,24 @@
 }
 </script>
 
-<meta property="og:title" content="OpenMPIを実装したDockerコンテナを複数ノードで実行する" />
-<meta property="og:description" content="モチベーション
-以前このポストで述べたように、Athena&#43;&#43;をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。">
+<meta property="og:title" content="Run Docker containers implementing OpenMPI on multiple nodes" />
+<meta property="og:description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.
+&lt;! &ndash;more&ndash;&gt;
+Sources.  Try Horovod in Docker My own article posted a few months ago.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240222_openmpi/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240222_openmpi_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="OpenMPIを実装したDockerコンテナを複数ノードで実行する" />
-  <meta name="twitter:description" content="モチベーション
-以前このポストで述べたように、Athena&#43;&#43;をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。">
+  <meta name="twitter:title" content="Run Docker containers implementing OpenMPI on multiple nodes" />
+  <meta name="twitter:description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -126,12 +127,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -139,25 +140,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -167,9 +168,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -183,7 +184,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -263,7 +264,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>OpenMPIを実装したDockerコンテナを複数ノードで実行する</h1>
+                <h1>Run Docker containers implementing OpenMPI on multiple nodes</h1>
               
               
               
@@ -271,7 +272,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;February 22, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 22, 2024
   
   
   
@@ -298,23 +299,24 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="モチベーション">モチベーション</h2>
-<p>以前<a href="https://akenji3.github.io/post/20240203_athena++/">このポスト</a>で述べたように、Athena++をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="motivation">Motivation</h2>
+<p>As previously mentioned in <a href="https://akenji3.github.io/en/post/20240203_athena++_en/">this post</a>, I am moving forward with the goal of running Athena++ on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.</p>
+<p>&lt;! &ndash;more&ndash;&gt;</p>
+<h2 id="sources">Sources.</h2>
 <ol>
-<li><a href="https://akenji3.github.io/post/20231014_horovodindocker/">Horovod in Dockerを試す</a>   数ヶ月前に投稿した自分の記事。HorovodもOpenMPIを使っており、その際にパスワードなしにssh接続するやり方を学んだことが、今回も役に立った。</li>
-<li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">Horovod in Docker</a>   上記記事でも参考にした本家のマニュアル。</li>
-<li><a href="https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E8%A8%88%E7%AE%97%E6%A9%9F:mpi%E3%81%AB%E3%82%88%E3%82%8B%E4%B8%A6%E5%88%97%E8%A8%88%E7%AE%97">mpiによる並列計算</a>   このページのサンプルプログラムを流用した。このページでもOpenMPIを使う際に、sshをパスワードなしにノード間通信を行うやり方が記載されている。</li>
-<li><a href="https://horovod.readthedocs.io/en/latest/mpi_include.html">Horovod with MPI</a>   今回最も苦労した箇所である、mpirunのコマンドラインにsshのポートを指定する方法が記載されている。</li>
-<li><a href="https://www.open-mpi.org/doc/current/man1/mpirun.1.php">mpirun(1) man page (verison 4.1.6)</a>   mpirunのコマンドラインの記載を調べる際に参照した。</li>
+<li><a href="https://akenji3.github.io/en/post/20231014_horovodindocker_en/">Try Horovod in Docker</a> My own article posted a few months ago. Horovod also uses OpenMPI, and in doing so, without a password. I learned how to connect to OpenMPI without a password in that case.</li>
+<li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">Horovod in Docker</a> The original manual which I also referred to in the above article.</li>
+<li>[Parallel Computing with mpi](<a href="https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%25">https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%</a>. B9%E3%82%BF%E8%A8%88%E7%AE%97%E6%A9%9F:mpi%E3%81%AB%E3%82%88%E3%82%8B%E4%B8%A6%E5%88%97%E8%A8%88%E7%AE%97) The sample program from this page was adapted. This page also describes how to use ssh for node-to-node communication without password when using OpenMPI.</li>
+<li><a href="https://horovod.readthedocs.io/en/latest/mpi_include.html">Horovod with MPI</a> This page describes how to specify the ssh port on the mpirun command line, which was the most difficult part of this project.</li>
+<li><a href="https://www.open-mpi.org/doc/current/man1/mpirun.1.php">mpirun(1) man page (verison 4.1.6)</a> I referred to this page when checking the mpirun command line description.</li>
 </ol>
-<h2 id="手順">手順</h2>
-<h4 id="dockerコンテナの作成">Dockerコンテナの作成</h4>
-<p>次のDockerfileを見てもらえば分かる通り、sshとopenmpiはUbuntu 22.04のパッケージからインストールした。opensshは8.9p1が、openmpiは4.1.2がインストールされた。libopenmpi-devをインストールしないと、mpiccでコンパイルする際に、mpi.hが無いとエラーとなる。</p>
-<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># JupyterLabが使えるDockerイメージ作成用のDockefileを元にして、</span><span class="err">
-</span><span class="err"></span><span class="c"># athena++開発・実行で使えるDockerコンテナを作成する。</span><span class="err">
+<h2 id="procedure">Procedure</h2>
+<h4 id="creating-a-docker-container">Creating a Docker container</h4>
+<p>As you can see in the following Dockerfile, ssh and openmpi were installed from Ubuntu 22.04 packages. openssh is 8.9p1 and openmpi is 4.1.2. libopenmpi-dev must be installed, If libopenmpi-dev is not installed, the error message &ldquo;mpi.h: No such file or directory&rdquo; will appear when compiling with mpicc.</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Based on the Dockefile for creating a Docker image that JupyterLab can use,</span><span class="err">
+</span><span class="err"></span><span class="c"># Create a Docker container that can be used for athena++ development and execution.</span><span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="c"># ubuntu 22.04の最新版をベースとする。</span><span class="err">
+</span><span class="err"></span><span class="c"># Based on the latest version of ubuntu 22.04.</span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:jammy-20240111</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="c"># Set bash as the default shell</span><span class="err">
@@ -352,8 +354,8 @@ if (!doNotTrack) {
 </span><span class="err">
 </span><span class="err"></span><span class="c"># command prompt</span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><p>/etc/ssh/ssh_configを修正する部分は、Horovod in DockerのDockerfileを参考にした。</p>
-<p>openMPIをrootで動かすときに環境変数もDockerfileで指定した。この部分が無いと、（Dockerコンテナ内で）rootで起動すると、次のようなメッセージとなる。</p>
+</span></code></pre></div><p>The part of modifying /etc/ssh/ssh_config was taken from the Dockerfile in Horovod in Docker.</p>
+<p>I also specified the environment variables in the Dockerfile when running openMPI as root. Without this part, starting as root (in a Docker container) would result in the following message.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">--------------------------------------------------------------------------
 mpirun has detected an attempt to run as root.
 
@@ -370,29 +372,29 @@ protection, and <span class="nv">OMPI_ALLOW_RUN_AS_ROOT_CONFIRM</span><span clas
 add one more layer of certainty that you want to <span class="k">do</span> so.
 We reiterate our advice against doing so - please proceed at your own risk.
 --------------------------------------------------------------------------
-</code></pre></div><p>以下の手順でコンテナイメージをビルドした。</p>
+</code></pre></div><p>The following steps were used to build the container image.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo docker build -t openssh ./
-</code></pre></div><h4 id="実行環境">実行環境</h4>
-<p>ここで、実行環境を少し説明する。</p>
+</code></pre></div><h4 id="execution-environment">Execution Environment</h4>
+<p>Here is a brief description of the execution environment.</p>
 <h5 id="primary">Primary</h5>
-<p>Primaryノード（ホスト名：europe）の/ext/nfs/ssh配下において、ssh-keygenで作成されたid_rsa.pubをauthorized_keysにアペンドしたものを格納している。なおauthorized_keysのパーミッションは、600でなければならない。</p>
-<p>/ext/nfs/sshおよび<a href="https://akenji3.github.io/post/20240203_athena++/">この記事</a>で作成した/ext/nfs/athena++を含む/ext/nfs配下は他のノードからNFSマウントされている。</p>
-<p>テスト用のプログラムは、/ext/nfs/athena++/tmpに置き、NFSマウントされているので、他のノードからアクセスできる。</p>
-<p>作成したコンテナ次のように起動する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
+<p>Under /ext/nfs/ssh on the Primary node (hostname: europe), id_rsa.pub created by ssh-keygen is appended to authorized_keys and stored. The permission of authorized_keys must be 600.</p>
+<p>The /ext/nfs directory including /ext/nfs/ssh and /ext/nfs/athena++ created in <a href="https://akenji3.github.io/en/post/20240203_athena++_en/">this article</a> are NFS mounted from other nodes.</p>
+<p>The program for testing is placed in /ext/nfs/athena++/tmp, which is NFS-mounted and accessible from other nodes.</p>
+<p>The container created is started as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
 </span><span class="se"></span>-v /ext/nfs/ssh:/root/.ssh <span class="se">\
 </span><span class="se"></span>-v /ext/nfs/athena++:/workdir <span class="se">\
 </span><span class="se"></span>openmpi:latest
 </code></pre></div><h5 id="secondary">Secondary</h5>
-<p>Secondaryノード（ホスト名：ganymede）の/etc/fstabには次の行を追記している。これによりPrimaryノードの/ext/nfsを/mnt/nfs2としてNFSマウントしている。xxx.xxx.xx.xxはPrimaryノードのIPアドレス。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">xxx.xxx.xx.xx:/ext/nfs	/mnt/nfs2	nfs
-</code></pre></div><p>Secondaryノードでは次のようにコンテナを起動している。</p>
+<p>The following line is added to /etc/fstab on the secondary node (hostname: ganymede). This mounts /ext/nfs on the Primary node as /mnt/nfs2, where xxx.xxx.xx.xx.xx is the IP address of the Primary node.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">xxx.xxx.xx.xx:/ext/nfs	/mnt/nfs2	nfs
+</code></pre></div><p>On the Secondary node, the container is started as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/ssh:/root/.ssh <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/athena++:/workdir <span class="se">\
-</span></code></pre></div><p>primary、secondaryのいずれのノードでも/etc/hostsは接続されている全てのノードのIPアドレスとhost名が記載してある。コンテナを起動する際に、&ndash;net=hostとしているので、物理マシンのネットワークがコンテナにも透過している。</p>
-<h5 id="サンプルプログラムをコンパイル">サンプルプログラムをコンパイル</h5>
-<p>Primaryノードの/ext/nfs/athena++/tmpに次のサンプルプログラム（hello.c）を事前に作成しておく。</p>
+</span></code></pre></div><p>For both primary and secondary nodes, /etc/hosts contains the IP adress and hostname of all connected nodes. When starting the container, &ndash;net=host is used, so the network of the physical machine is transparent to the container.</p>
+<h5 id="compile-the-sample-program">Compile the sample program</h5>
+<p>Create the following sample program (hello.c) in /ext/nfs/athena++/tmp on the Primary node in advance.</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&#34;mpi.h&#34;</span><span class="cp">
 </span><span class="cp"></span> 
@@ -412,11 +414,11 @@ We reiterate our advice against doing so - please proceed at your own risk.
     <span class="n">MPI_Finalize</span><span class="p">();</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><p>コンテナを起動し、tmpに移動し、サンプルプログラムをコンパイルする。</p>
+</code></pre></div><p>Start the container, move to tmp, and compile the sample program.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># pwd</span>
 /workdir/tmp
 <span class="c1"># mpicc -o hello hello.c</span>
-</code></pre></div><p>先ずはPrimaryノードのみで実行してみる。</p>
+</code></pre></div><p>First, let&rsquo;s run it on the Primary node only.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -n 4 ./hello</span>
 Authorization required, but no authorization protocol specified
 Authorization required, but no authorization protocol specified
@@ -424,16 +426,15 @@ Hello world: rank <span class="m">1</span> of <span class="m">4</span> running o
 Hello world: rank <span class="m">2</span> of <span class="m">4</span> running on europe
 Hello world: rank <span class="m">3</span> of <span class="m">4</span> running on europe
 Hello world: rank <span class="m">0</span> of <span class="m">4</span> running on europe
-</code></pre></div><h4 id="2つのノードでサンプルプログラムを実行">2つのノードでサンプルプログラムを実行</h4>
+</code></pre></div><h4 id="run-the-sample-program-on-two-nodes">Run the sample program on two nodes</h4>
 <h5 id="secondary-1">Secondary</h5>
-<p>Secondaryノードでコンテナを起動し、次のとおりsshdを起動する。ポート番号は、Horovod in Dockerの時と同じ12345とした。</p>
+<p>Start the container on the Secondary node and start sshd as follows. The port number is 12345, the same as in Horovod in Docker.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># /usr/sbin/sshd -p 12345</span>
-</code></pre></div><h5 id="primary-1">Primary</h5>
-<p>ここで、mpi接続するマシンのリストをhost.txtで作成しておく。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cat hosts.txt</span>
+</code></pre></div><p>Now, create a list of machines to be connected to mpi in host.txt.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># cat hosts.txt</span>
 europe
 ganymede
-</code></pre></div><p>その上で、以下の通り実行。</p>
+</code></pre></div><p>Then, execute the following.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -hostfile hosts.txt -mca plm_rsh_args &#34;-p 12345&#34; -n 8 ./hello</span>
 Authorization required, but no authorization protocol specified
 Authorization required, but no authorization protocol specified
@@ -447,11 +448,12 @@ Hello world: rank <span class="m">5</span> of <span class="m">8</span> running o
 Hello world: rank <span class="m">6</span> of <span class="m">8</span> running on ganymede
 Hello world: rank <span class="m">7</span> of <span class="m">8</span> running on ganymede
 Hello world: rank <span class="m">4</span> of <span class="m">8</span> running on ganymede
-</code></pre></div><p>上記のコマンドライン「-mca plm_rsh_args &ldquo;-p 12345&rdquo;」にたどり着くまで、苦労した。</p>
-<p>Horovod in Dockerにおいては、horovodrunのコマンドラインでポート番号を指定していたので、何らか方法があると思って探していたら、情報源4.に行き着いた。</p>
-<h2 id="今後について">今後について</h2>
-<p>上記の通り、dockerコンテナを複数のノードで起動し、コンテナ内のプログラムを分散処理できるようになった。今後は、Athena++でのMPIによる分散処理を行なっていきたい。その前にOpenMPIでの分散処理の性能についても調べてみたい。</p>
-<p>今回、Horovod in Dockerの経験が大いに役に立った。</p>
+</code></pre></div><p>I had a hard time getting to the above command line &ldquo;-mca plm_rsh_args &ldquo;-p 12345&quot;&quot;.</p>
+<p>In Horovod in Docker, the port number was specified in the command line of horovodrun, so I was looking for some way to do it and came across source 4.</p>
+<h2 id="the-future">The future</h2>
+<p>As mentioned above, we can now launch docker containers on multiple nodes and distribute the programs in the containers. In the future, I would like to perform distributed processing with MPI in Athena++. Before that, I would like to investigate the performance of distributed processing with OpenMPI.</p>
+<p>The experience with Horovod in Docker was very useful this time.</p>
+
 
         
 
@@ -465,42 +467,42 @@ Hello world: rank <span class="m">4</span> of <span class="m">8</span> running o
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f&amp;text=OpenMPI%e3%82%92%e5%ae%9f%e8%a3%85%e3%81%97%e3%81%9fDocker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e8%a4%87%e6%95%b0%e3%83%8e%e3%83%bc%e3%83%89%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f&amp;text=Run%20Docker%20containers%20implementing%20OpenMPI%20on%20multiple%20nodes&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f&amp;title=OpenMPI%e3%82%92%e5%ae%9f%e8%a3%85%e3%81%97%e3%81%9fDocker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e8%a4%87%e6%95%b0%e3%83%8e%e3%83%bc%e3%83%89%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f&amp;title=Run%20Docker%20containers%20implementing%20OpenMPI%20on%20multiple%20nodes" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f&amp;title=OpenMPI%e3%82%92%e5%ae%9f%e8%a3%85%e3%81%97%e3%81%9fDocker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e8%a4%87%e6%95%b0%e3%83%8e%e3%83%bc%e3%83%89%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f&amp;title=Run%20Docker%20containers%20implementing%20OpenMPI%20on%20multiple%20nodes" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f&amp;title=OpenMPI%e3%82%92%e5%ae%9f%e8%a3%85%e3%81%97%e3%81%9fDocker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e8%a4%87%e6%95%b0%e3%83%8e%e3%83%bc%e3%83%89%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f&amp;title=Run%20Docker%20containers%20implementing%20OpenMPI%20on%20multiple%20nodes" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240222_openmpi%2f&amp;description=OpenMPI%e3%82%92%e5%ae%9f%e8%a3%85%e3%81%97%e3%81%9fDocker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e8%a4%87%e6%95%b0%e3%83%8e%e3%83%bc%e3%83%89%e3%81%a7%e5%ae%9f%e8%a1%8c%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240222_openmpi_en%2f&amp;description=Run%20Docker%20containers%20implementing%20OpenMPI%20on%20multiple%20nodes" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -523,7 +525,7 @@ Hello world: rank <span class="m">4</span> of <span class="m">8</span> running o
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240211_athena_tutorial2-3/" data-toggle="tooltip" data-placement="top" title="Athena&#43;&#43;のチュートリアルを実行する">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/" data-toggle="tooltip" data-placement="top" title="Run the Athena&#43;&#43; tutorial">&larr; Previous Post</a>
             </li>
           
           
@@ -609,12 +611,12 @@ Hello world: rank <span class="m">4</span> of <span class="m">8</span> running o
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

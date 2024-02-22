@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Run Docker containers implementing OpenMPI on multiple nodes</title>
+      <link>https://akenji3.github.io/en/post/20240222_openmpi_en/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240222_openmpi_en/</guid>
+      <description>Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena++ on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.
+&amp;lt;! &amp;ndash;more&amp;ndash;&amp;gt;
+Sources.  Try Horovod in Docker My own article posted a few months ago.</description>
+    </item>
     
     <item>
       <title>Run the Athena&#43;&#43; tutorial</title>
