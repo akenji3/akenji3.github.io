@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenMPIを実装したDockerコンテナを複数ノードで実行する</title>
+      <link>https://akenji3.github.io/post/20240222_openmpi/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240222_openmpi/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;以前このポストで述べたように、Athena++をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Athena&#43;&#43;のチュートリアルを実行する</title>
