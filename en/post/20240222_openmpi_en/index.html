@@ -8,9 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Run Docker containers implementing OpenMPI on multiple nodes - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.
-&lt;! &ndash;more&ndash;&gt;
-Sources.  Try Horovod in Docker My own article posted a few months ago.">
+  <meta name="description" content="Motivation
+As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,9 +58,9 @@ Sources.  Try Horovod in Docker My own article posted a few months ago.">
     "name" : "Kenji Arai"
   },
   "headline": "Run Docker containers implementing OpenMPI on multiple nodes",
-  "description" : "Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena\u002b\u002b on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.\n\u0026lt;! \u0026ndash;more\u0026ndash;\u0026gt;\nSources.  Try Horovod in Docker My own article posted a few months ago.",
+  "description" : "Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena\u002b\u002b on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.\n",
   "inLanguage" : "en",
-  "wordCount":  1188 ,
+  "wordCount":  1186 ,
   "datePublished" : "2024-02-22T00:00:00",
   "dateModified" : "2024-02-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,16 +80,16 @@ Sources.  Try Horovod in Docker My own article posted a few months ago.">
 </script>
 
 <meta property="og:title" content="Run Docker containers implementing OpenMPI on multiple nodes" />
-<meta property="og:description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.
-&lt;! &ndash;more&ndash;&gt;
-Sources.  Try Horovod in Docker My own article posted a few months ago.">
+<meta property="og:description" content="Motivation
+As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240222_openmpi_en/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Run Docker containers implementing OpenMPI on multiple nodes" />
-  <meta name="twitter:description" content="Motivation As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI …">
+  <meta name="twitter:description" content="Motivation
+As previously mentioned in this post, I am moving forward with the goal of running Athena&#43;&#43; on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -301,12 +300,11 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <h2 id="motivation">Motivation</h2>
 <p>As previously mentioned in <a href="https://akenji3.github.io/en/post/20240203_athena++_en/">this post</a>, I am moving forward with the goal of running Athena++ on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.</p>
-<p>&lt;! &ndash;more&ndash;&gt;</p>
 <h2 id="sources">Sources.</h2>
 <ol>
 <li><a href="https://akenji3.github.io/en/post/20231014_horovodindocker_en/">Try Horovod in Docker</a> My own article posted a few months ago. Horovod also uses OpenMPI, and in doing so, without a password. I learned how to connect to OpenMPI without a password in that case.</li>
 <li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">Horovod in Docker</a> The original manual which I also referred to in the above article.</li>
-<li>[Parallel Computing with mpi](<a href="https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%25">https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%</a>. B9%E3%82%BF%E8%A8%88%E7%AE%97%E6%A9%9F:mpi%E3%81%AB%E3%82%88%E3%82%8B%E4%B8%A6%E5%88%97%E8%A8%88%E7%AE%97) The sample program from this page was adapted. This page also describes how to use ssh for node-to-node communication without password when using OpenMPI.</li>
+<li><a href="https://www2.yukawa.kyoto-u.ac.jp/~koudai.sugimoto/dokuwiki/doku.php?id=%E8%87%AA%E4%BD%9C%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E8%A8%88%E7%AE%97%E6%A9%9F:mpi%E3%81%AB%E3%82%88%E3%82%8B%E4%B8%A6%E5%88%97%E8%A8%88%E7%AE%97">Parallel Computing with mpi</a> The sample program from this page was adapted. This page also describes how to use ssh for node-to-node communication without password when using OpenMPI.</li>
 <li><a href="https://horovod.readthedocs.io/en/latest/mpi_include.html">Horovod with MPI</a> This page describes how to specify the ssh port on the mpirun command line, which was the most difficult part of this project.</li>
 <li><a href="https://www.open-mpi.org/doc/current/man1/mpirun.1.php">mpirun(1) man page (verison 4.1.6)</a> I referred to this page when checking the mpirun command line description.</li>
 </ol>
@@ -377,8 +375,8 @@ We reiterate our advice against doing so - please proceed at your own risk.
 </code></pre></div><h4 id="execution-environment">Execution Environment</h4>
 <p>Here is a brief description of the execution environment.</p>
 <h5 id="primary">Primary</h5>
-<p>Under /ext/nfs/ssh on the Primary node (hostname: europe), id_rsa.pub created by ssh-keygen is appended to authorized_keys and stored. The permission of authorized_keys must be 600.</p>
-<p>The /ext/nfs directory including /ext/nfs/ssh and /ext/nfs/athena++ created in <a href="https://akenji3.github.io/en/post/20240203_athena++_en/">this article</a> are NFS mounted from other nodes.</p>
+<p>Under /ext/nfs/ssh on the primary node (hostname: europe), id_rsa.pub created by ssh-keygen is appended to authorized_keys and stored. The permission of authorized_keys must be 600.</p>
+<p>The /ext/nfs directory including /ext/nfs/ssh and /ext/nfs/athena++ created in <a href="https://akenji3.github.io/en/post/20240203_athena++_en/">this article</a> is NFS mounted from other nodes.</p>
 <p>The program for testing is placed in /ext/nfs/athena++/tmp, which is NFS-mounted and accessible from other nodes.</p>
 <p>The container created is started as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
@@ -386,15 +384,16 @@ We reiterate our advice against doing so - please proceed at your own risk.
 </span><span class="se"></span>-v /ext/nfs/athena++:/workdir <span class="se">\
 </span><span class="se"></span>openmpi:latest
 </code></pre></div><h5 id="secondary">Secondary</h5>
-<p>The following line is added to /etc/fstab on the secondary node (hostname: ganymede). This mounts /ext/nfs on the Primary node as /mnt/nfs2, where xxx.xxx.xx.xx.xx is the IP address of the Primary node.</p>
+<p>The following line is added to /etc/fstab on the secondary node (hostname: ganymede). This mounts /ext/nfs on the Primary node as /mnt/nfs2, where xxx.xxx.xx.xx.xx is the IP address of the primary node.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">xxx.xxx.xx.xx:/ext/nfs	/mnt/nfs2	nfs
-</code></pre></div><p>On the Secondary node, the container is started as follows.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
+</code></pre></div><p>On the secondary node, the container is started as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/ssh:/root/.ssh <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/athena++:/workdir <span class="se">\
-</span></code></pre></div><p>For both primary and secondary nodes, /etc/hosts contains the IP adress and hostname of all connected nodes. When starting the container, &ndash;net=host is used, so the network of the physical machine is transparent to the container.</p>
+</span><span class="se"></span>openmpi:latest
+</code></pre></div><p>For both primary and secondary nodes, /etc/hosts contains the IP adress and hostname of all connected nodes. When starting the container, &ndash;net=host is used, so the network of the physical machine is transparent to the container.</p>
 <h5 id="compile-the-sample-program">Compile the sample program</h5>
-<p>Create the following sample program (hello.c) in /ext/nfs/athena++/tmp on the Primary node in advance.</p>
+<p>Create the following sample program (hello.c) in /ext/nfs/athena++/tmp on the primary node in advance.</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&#34;mpi.h&#34;</span><span class="cp">
 </span><span class="cp"></span> 
@@ -428,7 +427,7 @@ Hello world: rank <span class="m">3</span> of <span class="m">4</span> running o
 Hello world: rank <span class="m">0</span> of <span class="m">4</span> running on europe
 </code></pre></div><h4 id="run-the-sample-program-on-two-nodes">Run the sample program on two nodes</h4>
 <h5 id="secondary-1">Secondary</h5>
-<p>Start the container on the Secondary node and start sshd as follows. The port number is 12345, the same as in Horovod in Docker.</p>
+<p>Start the container on the secondary node and start sshd as follows. The port number is 12345, the same as in Horovod in Docker.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># /usr/sbin/sshd -p 12345</span>
 </code></pre></div><p>Now, create a list of machines to be connected to mpi in host.txt.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># cat hosts.txt</span>
@@ -453,7 +452,6 @@ Hello world: rank <span class="m">4</span> of <span class="m">8</span> running o
 <h2 id="the-future">The future</h2>
 <p>As mentioned above, we can now launch docker containers on multiple nodes and distribute the programs in the containers. In the future, I would like to perform distributed processing with MPI in Athena++. Before that, I would like to investigate the performance of distributed processing with OpenMPI.</p>
 <p>The experience with Horovod in Docker was very useful this time.</p>
-
 
         
 

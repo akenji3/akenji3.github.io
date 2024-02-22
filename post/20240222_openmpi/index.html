@@ -60,7 +60,7 @@
   "headline": "OpenMPIを実装したDockerコンテナを複数ノードで実行する",
   "description" : "モチベーション 以前このポストで述べたように、Athena\u002b\u002bをマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。\n",
   "inLanguage" : "ja",
-  "wordCount":  2622 ,
+  "wordCount":  2623 ,
   "datePublished" : "2024-02-22T00:00:00",
   "dateModified" : "2024-02-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -375,22 +375,23 @@ We reiterate our advice against doing so - please proceed at your own risk.
 </code></pre></div><h4 id="実行環境">実行環境</h4>
 <p>ここで、実行環境を少し説明する。</p>
 <h5 id="primary">Primary</h5>
-<p>Primaryノード（ホスト名：europe）の/ext/nfs/ssh配下において、ssh-keygenで作成されたid_rsa.pubをauthorized_keysにアペンドしたものを格納している。なおauthorized_keysのパーミッションは、600でなければならない。</p>
+<p>primaryノード（ホスト名：europe）の/ext/nfs/ssh配下において、ssh-keygenで作成されたid_rsa.pubをauthorized_keysにアペンドしたものを格納している。なおauthorized_keysのパーミッションは、600でなければならない。</p>
 <p>/ext/nfs/sshおよび<a href="https://akenji3.github.io/post/20240203_athena++/">この記事</a>で作成した/ext/nfs/athena++を含む/ext/nfs配下は他のノードからNFSマウントされている。</p>
 <p>テスト用のプログラムは、/ext/nfs/athena++/tmpに置き、NFSマウントされているので、他のノードからアクセスできる。</p>
 <p>作成したコンテナ次のように起動する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
 </span><span class="se"></span>-v /ext/nfs/ssh:/root/.ssh <span class="se">\
 </span><span class="se"></span>-v /ext/nfs/athena++:/workdir <span class="se">\
 </span><span class="se"></span>openmpi:latest
 </code></pre></div><h5 id="secondary">Secondary</h5>
-<p>Secondaryノード（ホスト名：ganymede）の/etc/fstabには次の行を追記している。これによりPrimaryノードの/ext/nfsを/mnt/nfs2としてNFSマウントしている。xxx.xxx.xx.xxはPrimaryノードのIPアドレス。</p>
+<p>secondaryノード（ホスト名：ganymede）の/etc/fstabには次の行を追記している。これによりPrimaryノードの/ext/nfsを/mnt/nfs2としてNFSマウントしている。xxx.xxx.xx.xxはPrimaryノードのIPアドレス。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">xxx.xxx.xx.xx:/ext/nfs	/mnt/nfs2	nfs
-</code></pre></div><p>Secondaryノードでは次のようにコンテナを起動している。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
+</code></pre></div><p>secondaryノードでは次のようにコンテナを起動している。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm --net<span class="o">=</span>host <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/ssh:/root/.ssh <span class="se">\
 </span><span class="se"></span>-v /mnt/nfs2/athena++:/workdir <span class="se">\
-</span></code></pre></div><p>primary、secondaryのいずれのノードでも/etc/hostsは接続されている全てのノードのIPアドレスとhost名が記載してある。コンテナを起動する際に、&ndash;net=hostとしているので、物理マシンのネットワークがコンテナにも透過している。</p>
+</span><span class="se"></span>openmpi:latest
+</code></pre></div><p>primary、secondaryのいずれのノードでも/etc/hostsは接続されている全てのノードのIPアドレスとhost名が記載してある。コンテナを起動する際に、&ndash;net=hostとしているので、物理マシンのネットワークがコンテナにも透過している。</p>
 <h5 id="サンプルプログラムをコンパイル">サンプルプログラムをコンパイル</h5>
 <p>Primaryノードの/ext/nfs/athena++/tmpに次のサンプルプログラム（hello.c）を事前に作成しておく。</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
@@ -416,7 +417,7 @@ We reiterate our advice against doing so - please proceed at your own risk.
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># pwd</span>
 /workdir/tmp
 <span class="c1"># mpicc -o hello hello.c</span>
-</code></pre></div><p>先ずはPrimaryノードのみで実行してみる。</p>
+</code></pre></div><p>先ずはprimaryノードのみで実行してみる。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -n 4 ./hello</span>
 Authorization required, but no authorization protocol specified
 Authorization required, but no authorization protocol specified
@@ -426,7 +427,7 @@ Hello world: rank <span class="m">3</span> of <span class="m">4</span> running o
 Hello world: rank <span class="m">0</span> of <span class="m">4</span> running on europe
 </code></pre></div><h4 id="2つのノードでサンプルプログラムを実行">2つのノードでサンプルプログラムを実行</h4>
 <h5 id="secondary-1">Secondary</h5>
-<p>Secondaryノードでコンテナを起動し、次のとおりsshdを起動する。ポート番号は、Horovod in Dockerの時と同じ12345とした。</p>
+<p>secondaryノードでコンテナを起動し、次のとおりsshdを起動する。ポート番号は、Horovod in Dockerの時と同じ12345とした。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># /usr/sbin/sshd -p 12345</span>
 </code></pre></div><h5 id="primary-1">Primary</h5>
 <p>ここで、mpi接続するマシンのリストをhost.txtで作成しておく。</p>
