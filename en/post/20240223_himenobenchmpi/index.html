@@ -306,7 +306,7 @@ Actually, I had some difficulties this time as well, and I would be happy if tha
 <h2 id="sources">Sources</h2>
 <ol>
 <li><a href="https://i.riken.jp/supercom/documents/himenobmt/">Himeno Benchmark</a> This is the home page of the HIMENO Benchmark.</li>
-<li><a href="https://horovod.readthedocs.io/en/stable/mpi_include.html">Horovod with MPI</a> This page has answers to the points we struggled with this time.</li>
+<li><a href="https://horovod.readthedocs.io/en/stable/mpi_include.html">Horovod with MPI</a> This page has answers to the points I struggled with this time.</li>
 <li><a href="https://qiita.com/Yasushi-Shinohara/items/6b597110609e5020eb12">Solution to the problem of OpenMPI(v3.1.3) not being able to parallelize across multiple nodes</a> I think I found the same phenomenon and solution. However, this page is a solution on a physical machine.</li>
 </ol>
 <h2 id="download-running-on-a-single-machine">Download, Running on a single machine</h2>
@@ -316,7 +316,7 @@ Actually, I had some difficulties this time as well, and I would be happy if tha
 $ lha x cc_himenobmtxp_mpi.lzh
 </code></pre></div><p>From unzipping to running on a single machine, follow the instructions in the &ldquo;How to use&rdquo; section of the download page.</p>
 <p>I copied the unzipped file to /ext/nfs/athena++/himeno and worked from there. As <a href="https://akenji3.github.io/en/post/20240222_openmpi_en/">explained yesterday</a>, this area is NFS mounted from other nodes.</p>
-<p>From now on, the work was done in a docker container. paramset.sh was given execution rights.</p>
+<p>From now on, the work was done in a docker container. paramset.sh was granted execution rights.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># pwd</span>
 /workdir/himeno
 <span class="c1"># mv param.h param.h.org</span>
@@ -463,7 +463,7 @@ mokusei
 </tr>
 </tbody>
 </table>
-<p>I thought it might be strange that they are saturated at np=8. As you can see from the table below (an excerpt of the specs for each machine), the total number of physical cores (# of CPU x # of cores) for the 5 machines is 22, so I thought 16 would be the peak to saturate.</p>
+<p>I thought it might be strange that they are saturated at np=8. As you can see from the table below (an excerpt of the specs for each machine), the total number of physical cores (# of CPU x # of cores) for the 5 machines is 26, so I thought 16 would be the peak to saturate.</p>
 <table>
 <thead>
 <tr>
