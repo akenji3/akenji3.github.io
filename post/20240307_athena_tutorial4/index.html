@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4 - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240307_athena_tutorial4\/",
+          "name": "３次元磁気流体シミュレーションと並列計算　〜　 athena\u002b\u002bチュートリアル4"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "３次元磁気流体シミュレーションと並列計算　〜　Athena\u002b\u002bチュートリアル4",
+  "description" : "はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で",
+  "inLanguage" : "ja",
+  "wordCount":  2455 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240307_athena_tutorial4\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4" />
+<meta property="og:description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240307_athena_tutorial4/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4" />
+  <meta name="twitter:description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 1, 0001に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>先月投稿した<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この記事</a>までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿では、上記で作成したDockerコンテナを使って、Athena++のチュートリアル4「3次元磁気流体シミュレーションと並列計算」をマルチノードで実行させる。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Athena Tutorial</a>   今回実行するのは「4. Running 3D MHD with OpenMP and MPI」である。</li>
+<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">上記の日本語のページ</a>   富田 賢吾先生が管理されているページ。</li>
+<li><a href="https://github.com/anandogc/h5si/issues/2">H5Pset_fapl_mpio was not declared in this scope</a>   コンパイルエラーの原因調査のため、検索しヒットしたページ。parallel HDF5ライブラリが必要との記述があった。</li>
+<li>[<a href="https://github.com/geospace-code/h5fortran-mpi">h5fortran-mpi</a>](<a href="https://github.com/geospace-code/h5fortran-mpi">https://github.com/geospace-code/h5fortran-mpi</a>)   parallel HDF5 libraryで検索してヒットしたページ。ubuntuではlibhdf5-mpi-devパッケージとの記述があった。</li>
+</ol>
+<h2 id="実行環境">実行環境</h2>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>このチュートリアルを実行するためのDockerfileは次のとおり。</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># JupyterLabが使えるDockerイメージ作成用のDockefileを元にして、</span><span class="err">
+</span><span class="err"></span><span class="c"># athena++開発・実行で使えるDockerコンテナを作成する。</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># ubuntu 22.04の最新版をベースとする。</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:jammy-20240111</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Set bash as the default shell</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">SHELL</span><span class="o">=</span>/bin/bash<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Build with some basic utilities</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt update <span class="o">&amp;&amp;</span> apt install -y <span class="se">\
+</span><span class="se"></span>    build-essential <span class="se">\
+</span><span class="se"></span>    python3-pip apt-utils vim <span class="se">\
+</span><span class="se"></span>    git git-lfs <span class="se">\
+</span><span class="se"></span>    curl unzip wget gnuplot <span class="se">\
+</span><span class="se"></span>    openmpi-bin libopenmpi-dev <span class="se">\
+</span><span class="se"></span>    openssh-client openssh-server <span class="se">\
+</span><span class="se"></span>    libhdf5-dev libhdf5-openmpi-dev<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># alias python=&#39;python3&#39;</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> ln -s /usr/bin/python3 /usr/bin/python<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># install python package to need</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> pip install -U pip setuptools <span class="se">\
+</span><span class="se"></span>	<span class="o">&amp;&amp;</span> pip install numpy scipy h5py mpmath<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># The following stuff is derived for horovod in docker.</span><span class="err">
+</span><span class="err"></span><span class="c"># Allow OpenSSH to talk to containers without asking for confirmation</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> mkdir -p /var/run/sshd<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> cat /etc/ssh/ssh_config <span class="p">|</span> grep -v StrictHostKeyChecking &gt; /etc/ssh/ssh_config.new <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    <span class="nb">echo</span> <span class="s2">&#34;    StrictHostKeyChecking no&#34;</span> &gt;&gt; /etc/ssh/ssh_config.new <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    mv /etc/ssh/ssh_config.new /etc/ssh/ssh_config<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># --allow-run-as-root</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">OMPI_ALLOW_RUN_AS_ROOT</span><span class="o">=</span><span class="m">1</span>
+<span class="k">ENV</span> <span class="nv">OMPI_ALLOW_RUN_AS_ROOT_CONFIRM</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c"># Set hdf5 path</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> <span class="nv">CPATH</span><span class="o">=</span><span class="s2">&#34;/usr/include/hdf5/openmpi/&#34;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Create a working directory</span><span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /workdir</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># command prompt</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></div><p>最終的には、上記のDockerfileから作成したコンテナを使うと、今回のチュートリアルは実行できた。このDockerfileを得るために行なった試行錯誤を以下に述べる。ポイントはMPI環境でHDF5を使えるようにすることであった。</p>
+<h4 id="hdf5を使うためのコンテナ作成するまでのエラーの記録">HDF5を使うためのコンテナ作成するまでのエラーの記録</h4>
+<p>先ずは、次のようなコンフィギュレーションを行う。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># python configure.py --prob blast -b --flux hlld -mpi -hdf5</span>
+  Your Athena++ distribution has now been configured with the following options: 
+  Problem generator:            blast
+  Coordinate system:            cartesian
+  Equation of state:            adiabatic
+  Riemann solver:               hlld
+  Magnetic fields:              ON
+  Number of scalars:            <span class="m">0</span>
+  Number of chemical species:   <span class="m">0</span>
+  Special relativity:           OFF
+  General relativity:           OFF
+  Radiative Transfer:           OFF
+  Implicit Radiation:           OFF
+  Cosmic Ray Transport:         OFF
+  Frame transformations:        OFF
+  Self-Gravity:                 OFF
+  Super-Time-Stepping:          OFF
+  Chemistry:                    OFF
+  KIDA rates:                   OFF
+  ChemRadiation:                OFF
+  chem_ode_solver:              OFF
+  Debug flags:                  OFF
+  Code coverage flags:          OFF
+  Linker flags:                   -lhdf5
+  Floating-point precision:     double
+  Number of ghost cells:        <span class="m">2</span>
+  MPI parallelism:              ON
+  OpenMP parallelism:           OFF
+  FFT:                          OFF
+  HDF5 output:                  ON
+  HDF5 precision:               single
+  Compiler:                     g++
+  Compilation command:          mpicxx  -O3 -std<span class="o">=</span>c++11
+
+<span class="c1"># make clean</span>
+rm -rf obj/*
+rm -rf bin/athena
+rm -rf *.gcov
+</code></pre></div><h5 id="hdf5h-no-such-file-or-directory">hdf5.h: No such file or directory</h5>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make</span>
+mpicxx  -O3 -std<span class="o">=</span>c++11 -c src/globals.cpp -o obj/globals.o
+mpicxx  -O3 -std<span class="o">=</span>c++11 -c src/main.cpp -o obj/main.o
+In file included from src/main.cpp:46:
+src/outputs/outputs.hpp:22:10: fatal error: hdf5.h: No such file or directory
+   <span class="m">22</span> <span class="p">|</span> <span class="c1">#include &lt;hdf5.h&gt;</span>
+      <span class="p">|</span>          ^~~~~~~~
+compilation terminated.
+make: *** <span class="o">[</span>Makefile:119: obj/main.o<span class="o">]</span> Error <span class="m">1</span>
+</code></pre></div><p>上記のエラーの対応のため、Dockerfileにlibhdf5-devをインストールするよう追加した。ただ、これだけでは、エラーは解決せず、Dockerfileにexport CPATH=&rdquo;/usr/include/hdf5/serial/&ldquo;を追加した。</p>
+<p>その上で、改めてmakeした。</p>
+<h5 id="ifdef-mpi_parallel">#ifdef MPI_PARALLEL</h5>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make</span>
+mpicxx  -O3 -std<span class="o">=</span>c++11 -c src/globals.cpp -o obj/globals.o
+・・・
+・・・
+mpicxx  -O3 -std<span class="o">=</span>c++11 -c src/inputs/hdf5_reader.cpp -o obj/hdf5_reader.o
+src/inputs/hdf5_reader.cpp: In <span class="k">function</span> <span class="s1">&#39;void HDF5ReadRealArray(const char*, const char*, int, const int*, const int*, int, const int*, const int*, AthenaArray&lt;double&gt;&amp;, bool, bool)&#39;</span>:
+src/inputs/hdf5_reader.cpp:94:7: error: <span class="s1">&#39;H5Pset_fapl_mpio&#39;</span> was not declared in this scope<span class="p">;</span> did you mean <span class="s1">&#39;H5Pset_fapl_stdio&#39;</span>?
+   <span class="m">94</span> <span class="p">|</span>       H5Pset_fapl_mpio<span class="o">(</span>property_list_file, MPI_COMM_WORLD, MPI_INFO_NULL<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>       ^~~~~~~~~~~~~~~~
+      <span class="p">|</span>       H5Pset_fapl_stdio
+src/inputs/hdf5_reader.cpp:109:7: error: <span class="s1">&#39;H5Pset_dxpl_mpio&#39;</span> was not declared in this scope<span class="p">;</span> did you mean <span class="s1">&#39;H5Pset_fapl_stdio&#39;</span>?
+  <span class="m">109</span> <span class="p">|</span>       H5Pset_dxpl_mpio<span class="o">(</span>property_list_transfer, H5FD_MPIO_COLLECTIVE<span class="o">)</span><span class="p">;</span>
+      <span class="p">|</span>       ^~~~~~~~~~~~~~~~
+      <span class="p">|</span>       H5Pset_fapl_stdio
+make: *** <span class="o">[</span>Makefile:119: obj/hdf5_reader.o<span class="o">]</span> Error <span class="m">1</span>
+</code></pre></div><p>上記のエラー箇所は、ソースコード上 #ifdef MPI_PARALLELの箇所であったので、OpenMPIを使う並列計算の場合には、hdf5関連のモジュールが必要なのでは無いかと調べた。</p>
+<p>情報源の3.と4.とで当たりをつけ、Dockerfileにlibhdf5-openmpi-devをインストールするようした。それに伴い上記で追加したCPATH設定をCPATH=&rdquo;/usr/include/hdf5/openmpi&rdquo; に変更した。</p>
+<h5 id="リンクエラー">リンクエラー</h5>
+<p>再びmakeすると、コンパイルして最後のリンク時に次のようなエラーとなった。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/bin/ld: cannot find -lhdf5: No such file or directory
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</span> Error <span class="m">1</span>
+</code></pre></div><p>ライブラリ格納場所である/usr/lib/x86_64-linux-gnu配下を調べてみると、必要なライブラリは、hdf5_openmpiと当たりを付け、コンフィギュレーションの結果、生成されたMakefileの「-lhdf5」を「-lhdf5_openmpi」に変更した。</p>
+<p>以上の結果、本節の最初に示したDockerfileを得た。</p>
+<h2 id="シミュレーションの実行">シミュレーションの実行</h2>
+<h4 id="パラメータファイルの編集">パラメータファイルの編集</h4>
+<p>前回のチュートリアルと同じように、コンテナ内の作業用のディレクトリ「t4」にパラメータファイルと実行形式をコピーする。パラメータファイルは、athena/inputs/mhd/athinput.blastをコピーした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># pwd</span>
+/workdir/kenji/t4
+<span class="c1"># ls -l</span>
+-rwxr-xr-x <span class="m">1</span> root root  <span class="m">3613256</span> Mar  <span class="m">2</span> 04:11 athena
+-rw-r--r-- <span class="m">1</span> root root     <span class="m">2193</span> Mar  <span class="m">2</span> 08:12 athinput.blast
+</code></pre></div><p>今回、並列処理で時間測定するので、敢えて多少時間が掛かるようにメッシュを2倍に設定することとした。athinput.blastの変更点は次のとおり。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">10c10
+&lt; <span class="nv">file_type</span>  <span class="o">=</span> hdf5       <span class="c1"># HDF5 data dump</span>
+---
+&gt; <span class="nv">file_type</span>  <span class="o">=</span> vtk        <span class="c1"># VTK data dump</span>
+13d12
+&lt; <span class="nv">ghost_zones</span> <span class="o">=</span> <span class="nb">true</span>      <span class="c1"># enables ghost zone output</span>
+24c23
+&lt; <span class="nv">nx1</span>        <span class="o">=</span> <span class="m">128</span>         <span class="c1"># Number of zones in X1-direction</span>
+---
+&gt; <span class="nv">nx1</span>        <span class="o">=</span> <span class="m">64</span>         <span class="c1"># Number of zones in X1-direction</span>
+30c29
+&lt; <span class="nv">nx2</span>        <span class="o">=</span> <span class="m">128</span>         <span class="c1"># Number of zones in X2-direction</span>
+---
+&gt; <span class="nv">nx2</span>        <span class="o">=</span> <span class="m">64</span>         <span class="c1"># Number of zones in X2-direction</span>
+36c35
+&lt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">128</span>         <span class="c1"># Number of zones in X3-direction</span>
+---
+&gt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">64</span>         <span class="c1"># Number of zones in X3-direction</span>
+42,47c41
+&lt; <span class="c1">#num_threads = 1         # Number of OpenMP threads per process</span>
+&lt; 
+&lt; &lt;meshblock&gt;
+&lt; <span class="nv">nx1</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X1-direction</span>
+&lt; <span class="nv">nx2</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X2-direction</span>
+&lt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X3-direction</span>
+---
+&gt; <span class="nv">num_threads</span> <span class="o">=</span> <span class="m">1</span>         <span class="c1"># Number of OpenMP threads per process</span>
+</code></pre></div><h4 id="シミュレーション時間の計測">シミュレーション時間の計測</h4>
+<p>次のようなシェルコマンドを作成し、プロセス数（np）を2、4、8を実行し、logに記録されるcpu timeを比較する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat mpi_run</span>
+mpirun -np <span class="nv">$1</span> --hostfile myhosts <span class="se">\
+</span><span class="se"></span>-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
+</span><span class="se"></span>-mca btl_tcp_if_exclude lo,docker0 <span class="se">\
+</span><span class="se"></span>-oversubscribe <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/athena <span class="se">\
+</span><span class="se"></span>-i <span class="nv">$2</span> &gt; log
+
+<span class="c1"># cat myhosts</span>
+europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+
+<span class="c1"># mpi_run 2 athinput.blast</span>
+<span class="c1"># mpi_run 4 athinput.blast</span>
+<span class="c1"># mpi_run 8 athinput.blast</span>
+</code></pre></div><h4 id="計測結果">計測結果</h4>
+<p>logに記録されたcpu timeは次のとおりであった。</p>
+<table>
+<thead>
+<tr>
+<th>プロセス数（np）</th>
+<th>cpu time（秒）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>878</td>
+</tr>
+<tr>
+<td>4</td>
+<td>520</td>
+</tr>
+<tr>
+<td>8</td>
+<td>408</td>
+</tr>
+</tbody>
+</table>
+<p>グラフにすると次のとおり。</p>
+<p><img src="/images/20240307_Athena_Tutorial4/20240306_CPU_Time.png" alt="CPU_Time"></p>
+<h2 id="今後について">今後について</h2>
+<p>8プロセス同時に処理すると、2プロセスの約半分の時間でシミュレーションが実行できるとの計測結果を得た。</p>
+<p>このチュートリアルについては、シミュレーション結果を可視化する部分が残っているので、そちらについても実行していく。</p>
+<p>更に、情報源2.の富田先生のページには、追加課題として、「Rayleigh-Taylor不安定性」のシミュレーションを試す課題が載っているので、それについても実行してみたい。</p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;text=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;description=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20200810_jupyterlab/" data-toggle="tooltip" data-placement="top" title="jupyterlabをsingularityコンテナで起動する">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+

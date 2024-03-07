@@ -673,5 +673,14 @@ Modulusを今後勉強する前提として、自分の環境にModulusをイン
       <description>システムエンジニアの新井賢司です。 自分の興味は、コンピュータ関連の中でもHPC（最近はAI/Deep Learningに興味分野が移りつつある</description>
     </item>
     
+    <item>
+      <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240307_athena_tutorial4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
+      <description>はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で</description>
+    </item>
+    
   </channel>
 </rss>
