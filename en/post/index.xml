@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</guid>
+      <description>Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &amp;ldquo;Running 3D MHD with OpenMP and MPI&amp;rdquo; of Athena++ on multiple nodes.
+Sources.  Athena Tutorial This time, I will run &amp;ldquo;4. Running 3D MHD with OpenMP and MPI&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>easuring OpenMPI performance using the HIMENO benchmark</title>
@@ -270,16 +280,6 @@ In my environment, there is a problem that the GPU pod does not start up until a
       <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</guid>
       <description>Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
 When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
-    </item>
-    
-    <item>
-      <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</title>
-      <link>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</guid>
-      <description>Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &amp;ldquo;Running 3D MHD with OpenMP and MPI&amp;rdquo; of Athena++ on multiple nodes.
-Sources.  Athena Tutorial This time, I will run &amp;ldquo;4. Running 3D MHD with OpenMP and MPI&amp;rdquo;.</description>
     </item>
     
   </channel>
