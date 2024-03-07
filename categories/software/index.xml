@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240307_athena_tutorial4/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
+      <description>はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で</description>
+    </item>
     
     <item>
       <title>姫野ベンチマークを使ってOpenMPIの性能を測定する</title>
@@ -490,15 +499,6 @@ Modulusを今後勉強する前提として、自分の環境にModulusをイン
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
       <description>目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用</description>
-    </item>
-    
-    <item>
-      <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
-      <link>https://akenji3.github.io/post/20240307_athena_tutorial4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
-      <description>はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で</description>
     </item>
     
   </channel>
