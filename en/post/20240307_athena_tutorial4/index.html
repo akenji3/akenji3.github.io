@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+  <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4 - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
+Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240307_athena_tutorial4\/",
-          "name": "３次元磁気流体シミュレーションと並列計算　〜　 athena\u002b\u002bチュートリアル4"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240307_athena_tutorial4\/",
+          "name": "3 d magnetohydrodynamic simulation and parallel computing athena\u002b\u002b tutorial 4"
         }
     }]
 }
@@ -56,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "３次元磁気流体シミュレーションと並列計算　〜　Athena\u002b\u002bチュートリアル4",
-  "description" : "はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で",
-  "inLanguage" : "ja",
-  "wordCount":  2455 ,
+  "headline": "3D Magnetohydrodynamic Simulation and Parallel Computing - Athena\u002b\u002b Tutorial 4",
+  "description" : "Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 \u0026ldquo;Running 3D MHD with OpenMP and MPI\u0026rdquo; of Athena\u002b\u002b on multiple nodes.\nSources.  Athena Tutorial This time, I will run \u0026ldquo;4. Running 3D MHD with OpenMP and MPI\u0026rdquo;.",
+  "inLanguage" : "en",
+  "wordCount":  1184 ,
   "datePublished" : "2024-03-07T00:00:00",
   "dateModified" : "2024-03-07T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240307_athena_tutorial4\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240307_athena_tutorial4\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,22 +79,23 @@
 }
 </script>
 
-<meta property="og:title" content="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4" />
-<meta property="og:description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+<meta property="og:title" content="3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4" />
+<meta property="og:description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
+Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240307_athena_tutorial4/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240307_athena_tutorial4/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4" />
-  <meta name="twitter:description" content="はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で">
+  <meta name="twitter:title" content="3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; …" />
+  <meta name="twitter:description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -123,12 +125,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -136,25 +138,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -164,9 +166,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -180,7 +182,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -260,7 +262,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</h1>
+                <h1>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</h1>
               
               
               
@@ -268,7 +270,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 7, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 7, 2024
   
   
   
@@ -277,7 +279,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240307_athena_tutorial4/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240307_athena_tutorial4/" lang="ja">ja</a>
 </span>
 
 
@@ -295,22 +297,22 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>先月投稿した<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この記事</a>までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿では、上記で作成したDockerコンテナを使って、Athena++のチュートリアル4「3次元磁気流体シミュレーションと並列計算」をマルチノードで実行させる。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="introduction">Introduction</h2>
+<p>Up to <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">this article</a> posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena++ on multiple nodes.</p>
+<h2 id="sources">Sources.</h2>
 <ol>
-<li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Athena Tutorial</a>   今回実行するのは「4. Running 3D MHD with OpenMP and MPI」である。</li>
-<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">上記の日本語のページ</a>   富田 賢吾先生が管理されているページ。</li>
-<li><a href="https://github.com/anandogc/h5si/issues/2">H5Pset_fapl_mpio was not declared in this scope</a>   コンパイルエラーの原因調査のため、検索しヒットしたページ。parallel HDF5ライブラリが必要との記述があった。</li>
-<li>[<a href="https://github.com/geospace-code/h5fortran-mpi">h5fortran-mpi</a>](<a href="https://github.com/geospace-code/h5fortran-mpi">https://github.com/geospace-code/h5fortran-mpi</a>)   parallel HDF5 libraryで検索してヒットしたページ。ubuntuではlibhdf5-mpi-devパッケージとの記述があった。</li>
+<li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Athena Tutorial</a>  This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.</li>
+<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">Japanese page of the above</a>  This page is maintained by Dr. Kengo Tomida.</li>
+<li><a href="https://github.com/anandogc/h5si/issues/2">H5Pset_fapl_mpio was not declared in this scope</a>  A page I searched to investigate the cause of the compile error and found that the parallel HDF5 library is required.</li>
+<li><a href="https://github.com/geospace-code/h5fortran-mpi">h5fortran-mpi</a>  A search for parallel HDF5 A page that I found by searching for &ldquo;library&rdquo;. ubuntu mentioned the libhdf5-mpi-dev package.</li>
 </ol>
-<h2 id="実行環境">実行環境</h2>
+<h2 id="execution-environment">Execution Environment</h2>
 <h4 id="dockerfile">Dockerfile</h4>
-<p>このチュートリアルを実行するためのDockerfileは次のとおり。</p>
-<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># JupyterLabが使えるDockerイメージ作成用のDockefileを元にして、</span><span class="err">
-</span><span class="err"></span><span class="c"># athena++開発・実行で使えるDockerコンテナを作成する。</span><span class="err">
+<p>The Dockerfile to run this tutorial is as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Based on the Dockefile for creating a Docker image that JupyterLab can use,</span><span class="err">
+</span><span class="err"></span><span class="c"># Create a Docker container that can be used for athena++ development and execution.</span><span class="err">
 </span><span class="err">
-</span><span class="err"></span><span class="c"># ubuntu 22.04の最新版をベースとする。</span><span class="err">
+</span><span class="err"></span><span class="c"># Based on the latest version of ubuntu 22.04.</span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> ubuntu:jammy-20240111</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="c"># Set bash as the default shell</span><span class="err">
@@ -352,9 +354,9 @@ if (!doNotTrack) {
 </span><span class="err">
 </span><span class="err"></span><span class="c"># command prompt</span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><p>最終的には、上記のDockerfileから作成したコンテナを使うと、今回のチュートリアルは実行できた。このDockerfileを得るために行なった試行錯誤を以下に述べる。ポイントはMPI環境でHDF5を使えるようにすることであった。</p>
-<h4 id="hdf5を使うためのコンテナ作成するまでのエラーの記録">HDF5を使うためのコンテナ作成するまでのエラーの記録</h4>
-<p>先ずは、次のようなコンフィギュレーションを行う。</p>
+</span></code></pre></div><p>In the end, using the container created from the above Dockerfile, I was able to run this tutorial. The trial and error process to obtain this Dockerfile is described below. The point was to be able to use HDF5 in an MPI environment.</p>
+<h4 id="a-record-of-the-errors-i-encountered-before-creating-a-container-to-use-hdf5">A record of the errors I encountered before creating a container to use HDF5.</h4>
+<p>The first step is to make the following configuration.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># python configure.py --prob blast -b --flux hlld -mpi -hdf5</span>
   Your Athena++ distribution has now been configured with the following options: 
   Problem generator:            blast
@@ -403,8 +405,8 @@ src/outputs/outputs.hpp:22:10: fatal error: hdf5.h: No such file or directory
       <span class="p">|</span>          ^~~~~~~~
 compilation terminated.
 make: *** <span class="o">[</span>Makefile:119: obj/main.o<span class="o">]</span> Error <span class="m">1</span>
-</code></pre></div><p>上記のエラーの対応のため、Dockerfileにlibhdf5-devをインストールするよう追加した。ただ、これだけでは、エラーは解決せず、Dockerfileにexport CPATH=&rdquo;/usr/include/hdf5/serial/&ldquo;を追加した。</p>
-<p>その上で、改めてmakeした。</p>
+</code></pre></div><p>To address the above error, I added libhdf5-dev to the Dockerfile to install. However, this alone did not solve the error, and export CPATH=&rdquo;/usr/include/hdf5/serial/&rdquo; was added to the Dockerfile.</p>
+<p>After that, I made again.</p>
 <h5 id="ifdef-mpi_parallel">#ifdef MPI_PARALLEL</h5>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make</span>
 mpicxx  -O3 -std<span class="o">=</span>c++11 -c src/globals.cpp -o obj/globals.o
@@ -421,24 +423,22 @@ src/inputs/hdf5_reader.cpp:109:7: error: <span class="s1">&#39;H5Pset_dxpl_mpio&
       <span class="p">|</span>       ^~~~~~~~~~~~~~~~
       <span class="p">|</span>       H5Pset_fapl_stdio
 make: *** <span class="o">[</span>Makefile:119: obj/hdf5_reader.o<span class="o">]</span> Error <span class="m">1</span>
-</code></pre></div><p>上記のエラー箇所は、ソースコード上 #ifdef MPI_PARALLELの箇所であったので、OpenMPIを使う並列計算の場合には、hdf5関連のモジュールが必要なのでは無いかと調べた。</p>
-<p>情報源の3.と4.とで当たりをつけ、Dockerfileにlibhdf5-openmpi-devをインストールするようした。それに伴い上記で追加したCPATH設定をCPATH=&rdquo;/usr/include/hdf5/openmpi&rdquo; に変更した。</p>
-<h5 id="リンクエラー">リンクエラー</h5>
-<p>再びmakeすると、コンパイルして最後のリンク時に次のようなエラーとなった。</p>
+</code></pre></div><p>Since the above error was in the #ifdef MPI_PARALLEL section of the source code, I investigated whether hdf5-related modules might be required for parallel computing with OpenMPI.</p>
+<p>I found the information in the sources 3 and 4, and installed libhdf5-openmpi-dev in the Dockerfile. I changed the CPATH setting I added above to CPATH=&rdquo;/usr/include/hdf5/openmpi&rdquo;.</p>
+<h5 id="link-error">link error</h5>
+<p>When I tried to make again, I got the following error at the end of compiling and linking.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/bin/ld: cannot find -lhdf5: No such file or directory
 collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
 make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</span> Error <span class="m">1</span>
-</code></pre></div><p>ライブラリ格納場所である/usr/lib/x86_64-linux-gnu配下を調べてみると、必要なライブラリは、hdf5_openmpiと当たりを付け、コンフィギュレーションの結果、生成されたMakefileの「-lhdf5」を「-lhdf5_openmpi」に変更した。</p>
-<p>以上の結果、本節の最初に示したDockerfileを得た。</p>
-<h2 id="シミュレーションの実行">シミュレーションの実行</h2>
-<h4 id="パラメータファイルの編集">パラメータファイルの編集</h4>
-<p>前回のチュートリアルと同じように、コンテナ内の作業用のディレクトリ「t4」にパラメータファイルと実行形式をコピーする。パラメータファイルは、athena/inputs/mhd/athinput.blastをコピーした。</p>
+</code></pre></div><h2 id="running-the-simulation">Running the simulation</h2>
+<h4 id="edit-parameter-files">Edit parameter files</h4>
+<p>As in the previous tutorial, copy the parameter file and executable to the working directory &ldquo;t4&rdquo; in the container. The parameter file was copied from athena/inputs/mhd/athinput.blast.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># pwd</span>
 /workdir/kenji/t4
 <span class="c1"># ls -l</span>
 -rwxr-xr-x <span class="m">1</span> root root  <span class="m">3613256</span> Mar  <span class="m">2</span> 04:11 athena
 -rw-r--r-- <span class="m">1</span> root root     <span class="m">2193</span> Mar  <span class="m">2</span> 08:12 athinput.blast
-</code></pre></div><p>今回、並列処理で時間測定するので、敢えて多少時間が掛かるようにメッシュを2倍に設定することとした。athinput.blastの変更点は次のとおり。</p>
+</code></pre></div><p>This time, since the time is measured in parallel processing, we decided to set the mesh to double so that it would take a little longer. The changes to athinput.blast are as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">10c10
 &lt; <span class="nv">file_type</span>  <span class="o">=</span> hdf5       <span class="c1"># HDF5 data dump</span>
 ---
@@ -466,8 +466,8 @@ make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</spa
 &lt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X3-direction</span>
 ---
 &gt; <span class="nv">num_threads</span> <span class="o">=</span> <span class="m">1</span>         <span class="c1"># Number of OpenMP threads per process</span>
-</code></pre></div><h4 id="シミュレーション時間の計測">シミュレーション時間の計測</h4>
-<p>次のようなシェルコマンドを作成し、プロセス数（np）を2、4、8を実行し、logに記録されるcpu timeを比較する。</p>
+</code></pre></div><h4 id="measuring-simulation-time">Measuring simulation time</h4>
+<p>Create the following shell command, run 2, 4, and 8 for the number of processes (np), and compare the cpu time recorded in log.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat mpi_run</span>
 mpirun -np <span class="nv">$1</span> --hostfile myhosts <span class="se">\
 </span><span class="se"></span>-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
@@ -483,13 +483,13 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
 <span class="c1"># mpi_run 2 athinput.blast</span>
 <span class="c1"># mpi_run 4 athinput.blast</span>
 <span class="c1"># mpi_run 8 athinput.blast</span>
-</code></pre></div><h4 id="計測結果">計測結果</h4>
-<p>logに記録されたcpu timeは次のとおりであった。</p>
+</code></pre></div><h4 id="measurement-results">Measurement results</h4>
+<p>The cpu time recorded in the log was as follows.</p>
 <table>
 <thead>
 <tr>
-<th>プロセス数（np）</th>
-<th>cpu time（秒）</th>
+<th>number of processes (np)</th>
+<th>cpu time (sec)</th>
 </tr>
 </thead>
 <tbody>
@@ -507,12 +507,12 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
 </tr>
 </tbody>
 </table>
-<p>グラフにすると次のとおり。</p>
+<p>The graph is as follows.</p>
 <p><img src="/images/20240307_Athena_Tutorial4/20240306_CPU_Time.png" alt="CPU_Time"></p>
-<h2 id="今後について">今後について</h2>
-<p>8プロセス同時に処理すると、2プロセスの約半分の時間でシミュレーションが実行できるとの計測結果を得た。</p>
-<p>このチュートリアルについては、シミュレーション結果を可視化する部分が残っているので、そちらについても実行していく。</p>
-<p>更に、情報源2.の富田先生のページには、追加課題として、「Rayleigh-Taylor不安定性」のシミュレーションを試す課題が載っているので、それについても実行してみたい。</p>
+<h2 id="for-the-future">For the future</h2>
+<p>The measurement results showed that when 8 processes are processed simultaneously, the simulation can be run in about half the time of 2 processes.</p>
+<p>We will continue to work on the visualization part of the simulation results for this tutorial.</p>
+<p>In addition, Dr. Tomida&rsquo;s page in the source 2. has an additional task to try the simulation of &ldquo;Rayleigh-Taylor instability&rdquo;, which I would like to run.</p>
 
 
         
@@ -527,42 +527,42 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;text=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f&amp;text=3D%20Magnetohydrodynamic%20Simulation%20and%20Parallel%20Computing%20-%20Athena%2b%2b%20Tutorial%204&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f&amp;title=3D%20Magnetohydrodynamic%20Simulation%20and%20Parallel%20Computing%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f&amp;title=3D%20Magnetohydrodynamic%20Simulation%20and%20Parallel%20Computing%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;title=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f&amp;title=3D%20Magnetohydrodynamic%20Simulation%20and%20Parallel%20Computing%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240307_athena_tutorial4%2f&amp;description=%ef%bc%93%e6%ac%a1%e5%85%83%e7%a3%81%e6%b0%97%e6%b5%81%e4%bd%93%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a8%e4%b8%a6%e5%88%97%e8%a8%88%e7%ae%97%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240307_athena_tutorial4%2f&amp;description=3D%20Magnetohydrodynamic%20Simulation%20and%20Parallel%20Computing%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -585,7 +585,7 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240223_himenobenchmpi/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークを使ってOpenMPIの性能を測定する">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/" data-toggle="tooltip" data-placement="top" title="easuring OpenMPI performance using the HIMENO benchmark">&larr; Previous Post</a>
             </li>
           
           
@@ -671,12 +671,12 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
