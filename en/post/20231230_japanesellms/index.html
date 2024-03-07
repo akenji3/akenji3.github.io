@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Run Japanese LLMs on an on-premise environment - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20231230_japanesellms\/",
+          "name": "Run japanese l l ms on an on premise environment"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Run Japanese LLMs on an on-premise environment",
+  "description" : "Motivation Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.\n",
+  "inLanguage" : "en",
+  "wordCount":  544 ,
+  "datePublished" : "2023-12-30T00:00:00",
+  "dateModified" : "2023-12-30T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20231230_japanesellms\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Run Japanese LLMs on an on-premise environment" />
+<meta property="og:description" content="Motivation
+Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20231230_japanesellms/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Run Japanese LLMs on an on-premise environment" />
+  <meta name="twitter:description" content="Motivation
+Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/ja" lang="ja">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Run Japanese LLMs on an on-premise environment</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2023
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231230_japanesellms/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.</p>
+<h2 id="sources">Sources</h2>
+<p>The following is the page where I referred to the code when trying out my Japanese LLM. The last number indicates the number of parameters, 7b has 7 billion parameters and 13b has 13 billion parameters.</p>
+<p>1.<a href="https://weel.co.jp/media/cyberagentlm2-7b">Calm2 7b</a>   Japanese LLM of the server agent
+2.<a href="https://weel.co.jp/media/cyberagentlm2-7b">ELYZA-japanese-Llama-2-7b</a>   Japanese LLM developed by ELYZA based on Llama-2-7b-chat-hf.
+3.<a href="https://weel.co.jp/media/elyza-japanese-llama-2-13b">ELYZA-japanese-Llama-2-13b</a>   Japanese LLM developed by ELYZA based on Llama2.
+4.<a href="https://blog.curegit.jp/posts/ai/nlp/run-japanese-stable-lm-v2/">Japanese StableLM Instruct Alpha 7B v2</a>   Stability AI&rsquo;s Japanese LLM
+5.<a href="https://note.com/npaka/n/n49387d8a8af4">Japanese Stable LM Beta 7B</a>   Stability AI&rsquo;s Japanese LLM
+6.<a href="https://note.com/npaka/n/nccadcbcfe37e">Youri-7B</a>   Japanese LLM developed by Rinna based on Llama2</p>
+<h2 id="operating-environment">Operating Environment</h2>
+<h3 id="server-environment">Server Environment</h3>
+<table>
+<thead>
+<tr>
+<th>Server Name</th>
+<th>Jupiter</th>
+<th>Ganymede</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Xeon E5-1620 3.60GHz</td>
+<td>Xeopn E5-2620 2.00GHz</td>
+</tr>
+<tr>
+<td>memory</td>
+<td>64GB</td>
+<td>64GB</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>NVIDIA TITAN V</td>
+<td>RTX A4000</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Ubuntu 22.04.3 LTS</td>
+<td>Ubuntu 22.04.3 LTS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="jupyterlab">JupyterLab</h3>
+<p>それぞれの日本語LLMは、次のDockerfileで作製したJupyterLab上で動作させた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># Docker image with JupyterLab available.</span>
+<span class="c1"># Installed the necessary packages for the NoteBooks I have created so far.</span>
+
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+
+<span class="c1"># Set bash as the default shell</span>
+ENV <span class="nv">SHELL</span><span class="o">=</span>/bin/bash
+
+<span class="c1"># Build with some basic utilities</span>
+RUN apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>    python3-pip apt-utils vim <span class="se">\
+</span><span class="se"></span>    git git-lfs <span class="se">\
+</span><span class="se"></span>    curl unzip wget
+
+<span class="c1"># alias python=&#39;python3&#39;</span>
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+RUN pip install --upgrade pip setuptools <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install <span class="nv">torch</span><span class="o">==</span>2.0.1 <span class="nv">torchvision</span><span class="o">==</span>0.15.2 <span class="nv">torchaudio</span><span class="o">==</span>2.0.2 <span class="se">\
+</span><span class="se"></span>        --index-url https://download.pytorch.org/whl/cu118 <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install jupyterlab matplotlib pandas scikit-learn ipywidgets <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install transformers accelerate sentencepiece einops <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain bitsandbytes auto-gptq protobuf
+
+<span class="c1"># Create a working directory</span>
+WORKDIR /workdir
+
+<span class="c1"># Port number in container side</span>
+EXPOSE <span class="m">8888</span>
+
+ENTRYPOINT <span class="o">[</span><span class="s2">&#34;jupyter-lab&#34;</span>, <span class="s2">&#34;--ip=0.0.0.0&#34;</span>, <span class="s2">&#34;--port=8888&#34;</span>, <span class="s2">&#34;--no-browser&#34;</span>, <span class="s2">&#34;--allow-root&#34;</span>, <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="o">]</span>
+
+CMD <span class="o">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="o">]</span>
+</code></pre></div><h3 id="code">Code</h3>
+<p>In a JupyterLab cell started as a docker container, I copied and pasted the code from the page shown in the information source and executed it.</p>
+<h2 id="execution-result">Execution Result</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Jupiter</th>
+<th align="center">Ganymede</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calm2 7b</td>
+<td align="center">○</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>ELYZA-japanese-Llama-2-7b</td>
+<td align="center">×</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>ELYZA-japanese-Llama-2-13b</td>
+<td align="center">−</td>
+<td align="center">△</td>
+</tr>
+<tr>
+<td>Japanese StableLM Instruct Alpha 7B v2</td>
+<td align="center">×</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>Japanese Stable LM Beta 7B</td>
+<td align="center">△</td>
+<td align="center">○</td>
+</tr>
+<tr>
+<td>Youri-7B</td>
+<td align="center">○</td>
+<td align="center">○</td>
+</tr>
+</tbody>
+</table>
+<p>The legend &ldquo;○/△/×/−&rdquo; has the following meanings</p>
+<p>○: Returns the answer to a question. (In some cases, the output is partially cut off.)</p>
+<p>△: Displays the following message and offloads it to the CPU side for execution.
+　　&ldquo;WARNING:root:Some parameters are on the meta device device because they were offloaded to the cpu.&rdquo;</p>
+<p>×: CUDA out of memory</p>
+<p>−：Not running</p>
+<h2 id="the-future">The future</h2>
+<p>It is a bit surprising that 13 billion parameters worked on a 16GB RTX A4000, even offloading.
+LLMs are a bit of a burden on the 12GB TITAN X. There is a direction to investigate quantization, but I would like to use them in <a href="https://www.deepspeed.ai/">DeepSpeed</a> to investigate model parallelization.</p>
+<p>I am going to address DeepSpeed as an issue for 2024.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f&amp;text=Run%20Japanese%20LLMs%20on%20an%20on-premise%20environment&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f&amp;title=Run%20Japanese%20LLMs%20on%20an%20on-premise%20environment" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f&amp;title=Run%20Japanese%20LLMs%20on%20an%20on-premise%20environment" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f&amp;title=Run%20Japanese%20LLMs%20on%20an%20on-premise%20environment" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231230_japanesellms%2f&amp;description=Run%20Japanese%20LLMs%20on%20an%20on-premise%20environment" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20231104_horovod_modifycnn/" data-toggle="tooltip" data-placement="top" title="Modify CNN training code to work with Horovod">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20240102_quantization/" data-toggle="tooltip" data-placement="top" title="Execution of a Japanese LLM by Quantization">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+

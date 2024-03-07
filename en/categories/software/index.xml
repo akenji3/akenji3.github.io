@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on akenji&#39;s lab</title>
+    <title>Software on akenji&#39;s lab</title>
     <link>https://akenji3.github.io/en/categories/software/</link>
-    <description>Recent content in software on akenji&#39;s lab</description>
+    <description>Recent content in Software on akenji&#39;s lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
@@ -35,30 +35,30 @@ Actually, I had some difficulties this time as well, and I would be happy if tha
     
     <item>
       <title>Run Docker containers implementing OpenMPI on multiple nodes</title>
-      <link>https://akenji3.github.io/en/post/20240222_openmpi_en/</link>
+      <link>https://akenji3.github.io/en/post/20240222_openmpi/</link>
       <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20240222_openmpi_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20240222_openmpi/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;As previously mentioned in &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena++_en/&#34;&gt;this post&lt;/a&gt;, I am moving forward with the goal of running Athena++ on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Run the Athena&#43;&#43; tutorial</title>
-      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</link>
+      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</link>
       <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In a &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena++_en/&#34;&gt;previous post&lt;/a&gt;, I summarized the contents of the first tutorial &amp;ldquo;1D Hydorodynamics and MHD&amp;rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
-      <link>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/</link>
+      <link>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</link>
       <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have been interested in trying out astrophysics-related simulations for some time, and had been checking out ENZO, GADGET, GIZMO, and others. I happened to know Athena, and when I looked into it, I found that Associate Professor Kengo Tomita of Tohoku University maintains a Japanese page and has some information in Japanese, so I decided to give it a try.&lt;/p&gt;
 &lt;p&gt;Here, I summarize the process of installing and running the tutorial, and post it.&lt;/p&gt;</description>
@@ -66,50 +66,50 @@ Actually, I had some difficulties this time as well, and I would be happy if tha
     
     <item>
       <title>Execution of a Japanese LLM by Quantization</title>
-      <link>https://akenji3.github.io/en/post/20240102_quantization_en/</link>
+      <link>https://akenji3.github.io/en/post/20240102_quantization/</link>
       <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20240102_quantization_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20240102_quantization/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20231230_japanesellms_en/&#34;&gt;this article&lt;/a&gt;, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Run Japanese LLMs on an on-premise environment</title>
-      <link>https://akenji3.github.io/en/post/20231230_japanesellms_en/</link>
+      <link>https://akenji3.github.io/en/post/20231230_japanesellms/</link>
       <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20231230_japanesellms_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20231230_japanesellms/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Modify CNN training code to work with Horovod</title>
-      <link>https://akenji3.github.io/en/post/20231104_horovod_modifycnn_en/</link>
+      <link>https://akenji3.github.io/en/post/20231104_horovod_modifycnn/</link>
       <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20231104_horovod_modifycnn_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20231104_horovod_modifycnn/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;With &lt;a href=&#34;https://akenji3.github.io/en/post/20231014_horovodindocker_en/&#34;&gt;Try Horovod in Docker&lt;/a&gt;, you can now use Horovod in your own environment (on-premises) and in a Docker environment. The next thing to do is to modify the training code running on a single server to apply it to distributed training using Horovod! For starters, I modified a relatively simple CNN code to allow distributed learning using Horovod, which is summarized in the following article.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Try Horovod in Docker</title>
-      <link>https://akenji3.github.io/en/post/20231014_horovodindocker_en/</link>
+      <link>https://akenji3.github.io/en/post/20231014_horovodindocker/</link>
       <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20231014_horovodindocker_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20231014_horovodindocker/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Uninstall Rootless Docker</title>
-      <link>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall_en/</link>
+      <link>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/</link>
       <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In May of this year, I posted an article &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;Building Rootless Docker&lt;/a&gt;, but for some reason I decided to uninstall rootless docker. The following is a summary of the uninstallation procedure.
 I will post the details of the circumstances that led to the uninstallation of rootless docker later.&lt;/p&gt;</description>
@@ -117,10 +117,10 @@ I will post the details of the circumstances that led to the uninstallation of r
     
     <item>
       <title>Trying NVIDIA Modulus - Introduction to PINNs</title>
-      <link>https://akenji3.github.io/en/post/20230918_modulus_install_en/</link>
+      <link>https://akenji3.github.io/en/post/20230918_modulus_install/</link>
       <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230918_modulus_install_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230918_modulus_install/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Over a month ago, I became interested in NVIDIA Modulus at the &lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;How to Speed Up Simulation with AI Surrogate Models?&lt;/a&gt; seminar I attended, I became interested in NVIDIA Modulus, so I bought the book and started studying it.
 As a prerequisite for future study of Modulus, I installed Modulus in my environment, so I summarized the installation process as &amp;ldquo;Introduction to PINNs&amp;rdquo;.&lt;/p&gt;</description>
@@ -128,10 +128,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>running rinna 3.6b on a docker container</title>
-      <link>https://akenji3.github.io/en/post/20230814_rinna36b_en/</link>
+      <link>https://akenji3.github.io/en/post/20230814_rinna36b/</link>
       <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230814_rinna36b_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230814_rinna36b/</guid>
       <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
 &lt;p&gt;I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.&lt;/p&gt;
 &lt;p&gt;I ran into some problems in doing so, which are summarized below.&lt;/p&gt;</description>
@@ -139,10 +139,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>Install ubuntu 22.04 LTS</title>
-      <link>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</link>
+      <link>https://akenji3.github.io/en/post/20230709_ubuntu2024_install/</link>
       <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230709_ubuntu2024_install_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230709_ubuntu2024_install/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;It has been a year since Ubuntu 22.04 LTS Jammy Jellyfish was released, and I decided to switch from my previous 20.04 to 22.04, thinking that I would be able to get used to the various software and other features.&lt;/p&gt;
 &lt;p&gt;I installed ubuntu 22.04 Japanese Remix on several workstations so that I can use Japanese easily. I have gotten a bit stuck trying to install ubuntu 22.04 on a NVIDIA GPU-equipped workstation, so here is the situation and how I responded.&lt;/p&gt;</description>
@@ -150,10 +150,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>Build a private docker registry</title>
-      <link>https://akenji3.github.io/en/post/20230503_privateregistry_en/</link>
+      <link>https://akenji3.github.io/en/post/20230503_privateregistry/</link>
       <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230503_privateregistry_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230503_privateregistry/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;a previous post&lt;/a&gt; I summarized how to start a docker container in user mode.&lt;/p&gt;
 &lt;p&gt;When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.&lt;/p&gt;
@@ -162,10 +162,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>Building a Rootless Docker</title>
-      <link>https://akenji3.github.io/en/post/20230502_rootlessdocker_en/</link>
+      <link>https://akenji3.github.io/en/post/20230502_rootlessdocker/</link>
       <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230502_rootlessdocker_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230502_rootlessdocker/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&amp;rsquo;t have to worry about it because I&amp;rsquo;m running it at home.&lt;/p&gt;
 &lt;p&gt;I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.&lt;/p&gt;</description>
@@ -173,10 +173,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>Speed-up Learning and inference on Pytorch</title>
-      <link>https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/</link>
+      <link>https://akenji3.github.io/en/post/20230318_pytorch_speed-up/</link>
       <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230318_pytorch_speed-up_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230318_pytorch_speed-up/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;In my home environment where I use NFS to store JupyterLab notebooks, I measured the performance when the NFS server is a RaspberryPi or HP Z240, and found that in the learning loop (state in which epochs are stacked), there is no significant difference whether the NB is stored on an NFS server or locally. I found that there was no significant difference between NBs stored on an NFS server or locally.&lt;/p&gt;
 &lt;p&gt;Therefore, I have challenged to speed up the learning process, and I summarize the progress/results here.&lt;/p&gt;</description>
@@ -184,10 +184,10 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
     
     <item>
       <title>About the Galaxy Morphological Classification Dataset</title>
-      <link>https://akenji3.github.io/en/post/20230223_galaxy_dataset_en/</link>
+      <link>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</link>
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</guid>
       <description>&lt;h2 id=&#34;in-the-beginning&#34;&gt;In the beginning&lt;/h2&gt;
 &lt;p&gt;In the five articles from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; to &lt;a href=&#34;https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/&#34;&gt;this article&lt;/a&gt; Galaxy shape(morphological) classification was performed using CNN (VGG16, ResNet) and ViT.
 In this article, I would like to consider the dataset used for the galaxy morphological classification, as I would like to re-examine the dataset when analyzing errors in the future.&lt;/p&gt;</description>
@@ -195,91 +195,22 @@ In this article, I would like to consider the dataset used for the galaxy morpho
     
     <item>
       <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 2）</title>
-      <link>https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/</link>
+      <link>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/&#34;&gt;this article&lt;/a&gt;, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&amp;rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 1）</title>
-      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</link>
+      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</guid>
-      <description>&lt;p&gt;Continued from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;previous&lt;/a&gt; article.&lt;/p&gt;
-&lt;p&gt;Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs?
-The results of various attempts to answer this question are summarized below.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/</guid>
-      <description>&lt;p&gt;Continued from previous article.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Building a GPU Cluster with Kubernetes - the First Steps</title>
-      <link>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/</link>
-      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step_en/</guid>
-      <description>Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&amp;rsquo;ll summarize it here.
-In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &amp;ldquo;the first step&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>Change display resolution - xrandr BadMatch support</title>
-      <link>https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/</link>
-      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch_en/</guid>
-      <description>Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu</description>
-    </item>
-    
-    <item>
-      <title>GPU cluster construction with Kubernetes (not yet completed)</title>
-      <link>https://akenji3.github.io/en/post/20220821_kubernetes_en/</link>
-      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20220821_kubernetes_en/</guid>
-      <description>Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This</description>
-    </item>
-    
-    <item>
-      <title>Publish a static blog created by Hugo on GitHub Pages</title>
-      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</link>
-      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</guid>
-      <description>Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
-When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
     </item>
     
   </channel>

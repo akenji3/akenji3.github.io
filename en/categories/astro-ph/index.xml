@@ -14,10 +14,10 @@
     
     <item>
       <title>About the Galaxy Morphological Classification Dataset</title>
-      <link>https://akenji3.github.io/en/post/20230223_galaxy_dataset_en/</link>
+      <link>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</link>
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</guid>
       <description>&lt;h2 id=&#34;in-the-beginning&#34;&gt;In the beginning&lt;/h2&gt;
 &lt;p&gt;In the five articles from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; to &lt;a href=&#34;https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/&#34;&gt;this article&lt;/a&gt; Galaxy shape(morphological) classification was performed using CNN (VGG16, ResNet) and ViT.
 In this article, I would like to consider the dataset used for the galaxy morphological classification, as I would like to re-examine the dataset when analyzing errors in the future.&lt;/p&gt;</description>
@@ -25,53 +25,22 @@ In this article, I would like to consider the dataset used for the galaxy morpho
     
     <item>
       <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 2）</title>
-      <link>https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/</link>
+      <link>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/&#34;&gt;this article&lt;/a&gt;, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&amp;rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 1）</title>
-      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</link>
+      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</link>
       <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/</guid>
-      <description>&lt;p&gt;Continued from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;previous&lt;/a&gt; article.&lt;/p&gt;
-&lt;p&gt;Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs?
-The results of various attempts to answer this question are summarized below.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</title>
-      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/</link>
-      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/</guid>
-      <description>&lt;p&gt;Continued from previous article.&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
     </item>
     
   </channel>

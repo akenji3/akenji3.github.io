@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Build a private docker registry - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
+In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20230503_privateregistry\/",
+          "name": "Build a private docker registry"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Build a private docker registry",
+  "description" : "Motivation In a previous post I summarized how to start a docker container in user mode.\nWhen using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.\nIn case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.\n",
+  "inLanguage" : "en",
+  "wordCount":  753 ,
+  "datePublished" : "2023-05-03T00:00:00",
+  "dateModified" : "2023-05-03T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20230503_privateregistry\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Build a private docker registry" />
+<meta property="og:description" content="Motivation
+In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.
+In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20230503_privateregistry/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Build a private docker registry" />
+  <meta name="twitter:description" content="Motivation
+In a previous post I summarized how to start a docker container in user mode.
+When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/ja" lang="ja">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Build a private docker registry</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 3, 2023
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230503_privateregistry/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">a previous post</a> I summarized how to start a docker container in user mode.</p>
+<p>When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.</p>
+<p>In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a href="https://genzouw.com/entry/2021/06/14/072906/2656/">Docker Registry server build flow</a> I referred to this page for the server build flow and private key/certificate.</li>
+<li><a href="https://qiita.com/kenmaro/items/2c876ebaf904bd9eee7d">TLS Authentication with Docker Private Registry Explained</a> I used this page as a reference when I got stuck on authentication.</li>
+</ul>
+<p>I thought it would be easy to build a rootless environment as long as I knew where to store the demon.json file. (xxxx.xxx.xxx.xxx.xxx is the IP address in the private registry&rsquo;s local network environment)</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">{</span>
+  <span class="s2">&#34;insecure-registries&#39;:[xxx.xxx.xxx.xxx:5000]&#34;</span>
+<span class="o">}</span>
+</code></pre></div><p>However, it actually took quite a while to resolve the issue. The two pages above were helpful in resolving the issue.</p>
+<p>The following is a summary of the steps to build a private registry in a rootless environment and push/pull it from other WSs. For the purpose of explanation, the WS that will be the private registry is called a server, and other WS are called clients.</p>
+<h2 id="configuration">Configuration</h2>
+<h3 id="private-registry-server-configuration">private registry server configuration</h3>
+<h4 id="create-private-key-and-certificate">Create private key and certificate</h4>
+<p>Create a directory named &ldquo;certs&rdquo; under your $HOME directory, and create a key and a certificate under &ldquo;certs&rdquo;.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span>
+$ mkdir certs
+$ openssl req -newkey rsa:2048 -nodes -sha256 -keyout certs/ca.key -x509 -days <span class="m">3650</span> -out certs/ca.crt -addext <span class="s2">&#34;subjectAltName = IP:192.168.xxx.yyy&#34;</span>
+</code></pre></div><p>The point in the above is -addext &ldquo;subjectAltName = IP:192.168.xxx.yyyy&rdquo;. Here, 192.168.xxx.yyyy is the IP address of the private registry server.</p>
+<p>When you execute the above command (openssl), you will be asked to enter the Country Name, etc. Except for the Common Name, you may enter a new line (do not enter anything). For myself, I used the &ldquo;servername.com&rdquo;.</p>
+<h4 id="usrshareca-certificatesdocker">/usr/share/ca-certificates/docker</h4>
+<p>Create a docker directory under /usr/share/ca-certificates and copy the key (ca.key) and certificate (ca.crt) created above.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">cd</span>
+$ sudo mkdir /usr/share/ca-certificates/docker
+$ sudo cp certs/ca.* /usr/share/ca-certificates/docker
+$ sudo update-ca-certificates
+$ sudo vi /etc/ca-certificates.conf
+</code></pre></div><p>In the last part above, open /etc/ca-certificates.conf with vi and add docker/ca.crt to the last line.</p>
+<h4 id="restart-docker-daemon">Restart docker daemon</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user restart docker
+</code></pre></div><h4 id="start-the-registry-image">Start the registry image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run -d -p 5000:5000 -v <span class="nv">$PWD</span>/certs:/certs <span class="se">\
+</span><span class="se"></span>-v /ext/registry:/var/lib/registry <span class="se">\
+</span><span class="se"></span>-e <span class="nv">REGISTRY_HTTP_TLS_CERTIFICATE</span><span class="o">=</span>/certs/ca.crt <span class="se">\
+</span><span class="se"></span>-e <span class="nv">REGISTRY_HTTP_TLS_KEY</span><span class="o">=</span>/certs/ca.key <span class="se">\
+</span><span class="se"></span>--restart<span class="o">=</span>always registry:2
+</code></pre></div><p>To be able to check the contents of the registry from outside the container, &ldquo;-v /ext/registry:/var/lib/registry&rdquo; is specified. As shown above, you can add the &ldquo;-v&rdquo; option to each mounted item.</p>
+<h3 id="client-side-configuration">Client-side configuration</h3>
+<h4 id="key-and-certificate-storage">Key and Certificate Storage</h4>
+<p>When configuring the client, the key and certificate created on the server side are required. Here, we assume that /mnt/nfs/tmp/ca.* is it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /usr/share/ca-certificate</span>
+<span class="c1"># mkdir docker</span>
+<span class="c1"># cp /mnt/nfs/tmp/ca.* docker</span>
+<span class="c1"># vi /etc/ca-certificates.conf</span>
+</code></pre></div><p>Add docker/ca.crt to the last line of /etc/ca-certificates.conf as you did for the server.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># sudo update-ca-certificates</span>
+</code></pre></div><h4 id="restart-docker-daemon-1">Restart docker daemon</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ systemctl --user restart docker
+</code></pre></div><h3 id="push-image-from-client-side">push image from client side</h3>
+<h4 id="image-to-push">image to push</h4>
+<p>On the client side, there is a jupyterlab image like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker images
+REPOSITORY                  TAG                       IMAGE ID       CREATED         SIZE
+pytorch-lab                 latest                    bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+</code></pre></div><h4 id="tagged-with">Tagged with</h4>
+<p>When pushing to the registry, include the IP address in the registry and tag it as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker tag pytorch-lab:latest 192.168.xxx.yyy:5000/pytorch:lab
+$ docker images
+REPOSITORY                   TAG                      IMAGE ID       CREATED         SIZE
+192.168.xxx.yyy:5000/pytorch lab                      bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+pytorch-lab                  latest                   bac68bf54efe   <span class="m">21</span> hours ago    9.37GB
+</code></pre></div><h4 id="push-image">push image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker push 192.168.xxx.yyy:5000/pytorch:lab
+The push refers to repository <span class="o">[</span>192.168.xxx.yyy:5000/pytorch<span class="o">]</span>.
+<span class="o">(</span>abbreviated below<span class="o">)</span>
+</code></pre></div><h3 id="pull-image-from-another-client">pull image from another client</h3>
+<h4 id="pull-image">pull image</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker pull 192.168.xxx.yyy:5000/pytorch:lab
+lab: Pulling from pytorch
+Digest: sha256:807b0cd1b8754072940730a02a1d00933b1c6caedbb162de2b98cbeae642838c
+Status: Image is up to date <span class="k">for</span> 192.168.xxx.yyy:5000/pytorch:lab
+192.168.xxx.yyy:5000/pytorch:lab
+</code></pre></div><h4 id="startup">startup</h4>
+<p>Start the pulled jupyterlab image as follows. In the following example, we assume that the current directory is jupyterlab, which contains the notebook.</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ docker run -d --rm --gpus all -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/jupyterlab:/workdir -p 8888:8888 192.168.xxx.yyy:5000/pytorch:lab
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>With the above steps, docker images can now be shared by multiple WSs.</p>
+<p>The construction of the docker private registry took a long time and was quite difficult, but I learned a lot about keys, certificates, and other authentication issues through this construction.</p>
+<p>I have little experience in this field and may have incorrect information. If you notice any errors, please point them out to me. Thank you in advance.</p>
+<hr>
+<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f&amp;text=Build%20a%20private%20docker%20registry&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f&amp;title=Build%20a%20private%20docker%20registry" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20230503_privateregistry%2f&amp;description=Build%20a%20private%20docker%20registry" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker/" data-toggle="tooltip" data-placement="top" title="Building a Rootless Docker">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20230709_ubuntu2024_install/" data-toggle="tooltip" data-placement="top" title="Install ubuntu 22.04 LTS">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Try Horovod in Docker - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20231014_horovodindocker\/",
+          "name": "Try horovod in docker"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Try Horovod in Docker",
+  "description" : "Motivation I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.\n",
+  "inLanguage" : "en",
+  "wordCount":  1137 ,
+  "datePublished" : "2023-10-14T00:00:00",
+  "dateModified" : "2023-10-14T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20231014_horovodindocker\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Try Horovod in Docker" />
+<meta property="og:description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20231014_horovodindocker/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Try Horovod in Docker" />
+  <meta name="twitter:description" content="Motivation
+I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/ja" lang="ja">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Try Horovod in Docker</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 14, 2023
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231014_horovodindocker/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.</p>
+<h2 id="sources">Sources.</h2>
+<ol>
+<li><a href="https://horovod.readthedocs.io/en/latest/docker_include.html">The original manual</a> - Horovod in Docker, the original manual. The command line description for running docker is outdated, but it is a valuable A valuable source.</li>
+<li><a href="https://docs.docker.jp/engine/security/rootless.html">Manual of Docker (Japanese)</a> - Manual of Rootless Docker, since my Docker environment was built with Rootless.</li>
+<li><a href="https://docs.docker.com/engine/security/rootless/">Docker&rsquo;s manual (English)</a> - English version of the above manual.</li>
+</ol>
+<h2 id="overview--background">Overview / Background</h2>
+<p>I started this project in August this year with the policy of running Horovod in a Docker container instead of installing it directly on a physical machine, because Horovod has a lot of related middleware. As you can see from that page, it looks very easy.</p>
+<p>As I mentioned in the sources, my Docker environment was realized with <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">Rootless Docker</a>. This is also the reason why it took me a long time to get the sample working in Horovod in Docker.</p>
+<h4 id="conditions-for-ssh-operation-in-horovod-in-docker">Conditions for ssh operation in Horovod in Docker</h4>
+<p>In Horovod in Docker, it is necessary to authenticate from the first machine (hereinafter referred to as &ldquo;Primary&rdquo;) and from the second machine (hereinafter referred to as &ldquo;Secondary&rdquo;) using ssh communication without a password. To do this, perform ssh-keygen on the Primary and distribute the public key (id_rsa.pub) to the Secondarys. The specific method is described below.</p>
+<h4 id="how-to-start-horovod-in-docker">How to start Horovod in Docker</h4>
+<p>Initially, I ran Horovod on two machines, one as Primary and the other as Secondary, as follows</p>
+<p>As described in source 1, for the ssh public key, I placed it on nfs and used -v to make it visible as /root/.ssh in the container. The specific command line is as follows: docker is not started with sudo because it is a rootless docker environment.</p>
+<h5 id="secondary">Secondary</h5>
+<p>On the secondary machine, start the horovod container and wait for ssh communication on port 12345 as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest bash -c <span class="s2">&#34;/usr/sbin/sshd -p 12345; sleep infinity&#34;</span>
+</code></pre></div><h5 id="primary">Primary</h5>
+<p>On the Primary machine, start the horovod container and run the code written for horovod (pytorch_mnist.py) with horovodrun.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
+root@ganymede:/horovod/examples/pytorch# horovodrun -np <span class="m">2</span> -H 192.168.11.4:1,192.168.11.3:1 -p <span class="m">12345</span> python pytorch_mnist.py
+<span class="o">(</span>Abbreviation in the middle<span class="o">)</span>
+    raise RuntimeError<span class="o">(</span><span class="s1">&#39;could not connect to some hosts via ssh&#39;</span><span class="o">)</span>
+RuntimeError: could not connect to some hosts via ssh
+</code></pre></div><p>As shown above, ssh did not seem to be connected, and this is where the struggle with ssh began.
+As you can see from the horovodrun startup command, the /etc/hosts in the container is not modified, and the IP addresses specify the Primary and Secondary machines.</p>
+<h4 id="findings">Findings</h4>
+<p>I installed the iproute2 package in a Secondary container and confirmed that the ss command (formerly netstat) LISTENs port number 12345 in the container. At this time, ganymede is Secondary.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">root@ganymede:/horovod/examples# apt update
+root@ganymede:/horovod/examples# apt install iproute2
+root@ganymede:/horovod/examples# apt install iputils-ping
+root@ganymede:/horovod/examples# ip -br -4 address
+root@ganymede:/etc/ssh# ss -nltu
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port Process
+udp UNCONN <span class="m">0</span> <span class="m">0</span> *:7946 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> 0.0.0.0:12345 0.0.0.0:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> *:7946 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> *:2377 *:*           
+tcp LISTEN <span class="m">0</span> <span class="m">128</span> <span class="o">[</span>::<span class="o">]</span>:12345 <span class="o">[</span>::<span class="o">]</span>:*
+</code></pre></div><p>On the ganymede host, I checked to see if it was LISTENing on port number 12345 using ss, but found that it was not LISTENing.</p>
+<p>In summary, the container LISTENs on port 12345, but the host does not LISTEN on that port number.</p>
+<h4 id="what-i-found-out-from-the-manual">What I found out from the manual</h4>
+<p>Having reached this point, a careful reading of sources 2. and 3. reveals the following statement!</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">--net=host doesn&#39;t listen ports on the host network namespace
+
+This is an expected behavior, as the daemon is namespaced inside RootlessKit&#39;s network namespace. Use docker run -p instead.
+</code></pre></div><h4 id="connecting-host-and-container-ports-with--p-instead-of---nethost">Connecting host and container ports with -p instead of &ndash;net=host</h4>
+<p>I followed the manual and started the following without &ndash;net=host and with -p to reconnect the ports.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ docker run -it --gpus all -p12345:22 -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
+</code></pre></div><p>When I connect to ssh from another host, I get the following error.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ ssh 192.168.11.4 -p <span class="m">12345</span>
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.11.4 port <span class="m">12345</span>
+</code></pre></div><p>I&rsquo;m running out of steam here.</p>
+<p>I finally decided to give up on rootless docker and I decided to uninstall <a href="">rootless docker</a> on all machines.</p>
+<p>The following is a run in a rootful docker environment.</p>
+<h2 id="run-horovod-in-docker">Run Horovod in Docker</h2>
+<h4 id="create-ssh-public-and-private-keys">Create ssh public and private keys</h4>
+<p>Create the public and private keys on the nfs mounted area as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># ssh-keygen -t rsa</span>
+Enter file in which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>: /mnt/nfs2/ssh/id_rsa
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>: /mnt/nfs2/ssh/id_rsa
+Enter same passphrase again:: /mnt/nfs2/ssh/id_rsa
+<span class="o">(</span>abbreviated below<span class="o">)</span>
+<span class="c1"># cat id_rsa.pub &gt;&gt; authorized_keys</span>
+<span class="c1"># chmod 600 authorized_keys</span>
+<span class="c1"># ls -l authorized_keys</span>
+-rw------- <span class="m">1</span> root root <span class="m">566</span> Oct <span class="m">13</span> 15:33 authorized_keys
+</code></pre></div><h4 id="horovod-in-docker-to-start">Horovod in Docker to start</h4>
+<h5 id="secondarys">Secondarys</h5>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest bash -c <span class="s2">&#34;/usr/sbin/sshd -p 12345; sleep infinity&#34;</span>
+</code></pre></div><h5 id="primary-1">Primary</h5>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo docker run -it --gpus all --net<span class="o">=</span>host -v /mnt/nfs2/ssh:/root/.ssh horovod/horovod:latest
+<span class="c1"># cd pytorch</span>
+<span class="c1"># horovodrun -np 2 -H 192.168.11.3:1,192.168.11.4:1 -p 12345 python pytorch_mnist.py</span>
+</code></pre></div><h4 id="measure-execution-time">Measure execution time</h4>
+<p>After running Horovod in Docker (as per the command line above) in Secondarys, we measured the execution time (Real) on one to four machines as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># time horovodrun -np 1 -H localhost:1 python pytorch_mnist.py</span>
+（略）
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0551, Accuracy: 98.38%
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
+
+real    5m19.646s
+user    6m14.697s
+sys 0m28.747s
+
+<span class="c1"># time horovodrun -np 2 -H 192.168.11.4:\</span>
+1,192.168.11.3:1 -p <span class="m">12345</span> python pytorch_mnist.py
+<span class="o">(</span>Abbreviation<span class="o">)</span>
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0546, Accuracy: 98.26%
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
+
+real    2m54.234s
+user    3m46.072s
+sys 0m36.676s
+
+<span class="c1"># time horovodrun -np 3 -H 192.168.11.4:1,192.168.11.3:1,192.168.11.5:1 -p 12345 python pytorch_mnist.py</span>
+<span class="o">(</span>Abbreviation<span class="o">)</span>
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0576, Accuracy: 98.03%
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
+
+real    2m7.043s
+user    2m52.191s
+sys 0m40.745s
+
+<span class="c1"># time horovodrun -np 4 -H 192.168.11.4:1,192.168.11.3:1,192.168.11.5:1,192.168.11.6:1 -p 12345 python pytorch_mnist.py</span>
+<span class="o">(</span>Abbreviation<span class="o">)</span>
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:Test set: Average loss: 0.0542, Accuracy: 98.27%
+<span class="o">[</span>1,0<span class="o">]</span>&lt;stdout&gt;:
+
+real    1m34.386s
+user    2m33.140s
+sys 1m3.089s
+</code></pre></div><p>The following graph shows the results of the two measurements.</p>
+<p><img src="/images/20231014_HorovodInDocker/20231014_mnist_real_time.png" alt="mnist_exec_time"></p>
+<h2 id="summary---for-the-future">Summary - For the future</h2>
+<p>This time, I got into trouble trying to use docker&rsquo;s host network in a rootless docker environment. However, I was able to learn how to do ssh authentication, ssh logging (ssh -vvv IP address -p port number), and network commands (ss, etc.).</p>
+<p>The evaluation of the measured execution results is as follows. Since the four machines we measured have different CPU/GPU, I cannot strictly discuss the relationship between the number of machines and execution time, but it is true that execution with four machines is faster than with only one machine.</p>
+<p>In the future, I would like to learn how to write code for horovod, take up issues that take a little longer to execute, and write and execute code for horovod myself.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f&amp;text=Try%20Horovod%20in%20Docker&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f&amp;title=Try%20Horovod%20in%20Docker" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20231014_horovodindocker%2f&amp;description=Try%20Horovod%20in%20Docker" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/" data-toggle="tooltip" data-placement="top" title="Uninstall Rootless Docker">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20231104_horovod_modifycnn/" data-toggle="tooltip" data-placement="top" title="Modify CNN training code to work with Horovod">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
