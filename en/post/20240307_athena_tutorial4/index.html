@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4 - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
+  <meta name="description" content="Introduction Up to this article posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
 Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
@@ -58,9 +58,9 @@ Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with Op
     "name" : "Kenji Arai"
   },
   "headline": "3D Magnetohydrodynamic Simulation and Parallel Computing - Athena\u002b\u002b Tutorial 4",
-  "description" : "Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 \u0026ldquo;Running 3D MHD with OpenMP and MPI\u0026rdquo; of Athena\u002b\u002b on multiple nodes.\nSources.  Athena Tutorial This time, I will run \u0026ldquo;4. Running 3D MHD with OpenMP and MPI\u0026rdquo;.",
+  "description" : "Introduction Up to this article posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 \u0026ldquo;Running 3D MHD with OpenMP and MPI\u0026rdquo; of Athena\u002b\u002b on multiple nodes.\nSources.  Athena Tutorial This time, I will run \u0026ldquo;4. Running 3D MHD with OpenMP and MPI\u0026rdquo;.",
   "inLanguage" : "en",
-  "wordCount":  1184 ,
+  "wordCount":  1235 ,
   "datePublished" : "2024-03-07T00:00:00",
   "dateModified" : "2024-03-07T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -80,7 +80,7 @@ Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with Op
 </script>
 
 <meta property="og:title" content="3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4" />
-<meta property="og:description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
+<meta property="og:description" content="Introduction Up to this article posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena&#43;&#43; on multiple nodes.
 Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240307_athena_tutorial4/" />
@@ -88,7 +88,7 @@ Sources.  Athena Tutorial This time, I will run &ldquo;4. Running 3D MHD with Op
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; …" />
-  <meta name="twitter:description" content="Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the …">
+  <meta name="twitter:description" content="Introduction Up to this article posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -298,13 +298,13 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction</h2>
-<p>Up to <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">this article</a> posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena++ on multiple nodes.</p>
+<p>Up to <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">this article</a> posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 &ldquo;Running 3D MHD with OpenMP and MPI&rdquo; of Athena++ on multiple nodes.</p>
 <h2 id="sources">Sources.</h2>
 <ol>
 <li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Athena Tutorial</a>  This time, I will run &ldquo;4. Running 3D MHD with OpenMP and MPI&rdquo;.</li>
 <li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">Japanese page of the above</a>  This page is maintained by Dr. Kengo Tomida.</li>
 <li><a href="https://github.com/anandogc/h5si/issues/2">H5Pset_fapl_mpio was not declared in this scope</a>  A page I searched to investigate the cause of the compile error and found that the parallel HDF5 library is required.</li>
-<li><a href="https://github.com/geospace-code/h5fortran-mpi">h5fortran-mpi</a>  A search for parallel HDF5 A page that I found by searching for &ldquo;library&rdquo;. ubuntu mentioned the libhdf5-mpi-dev package.</li>
+<li><a href="https://github.com/geospace-code/h5fortran-mpi">h5fortran-mpi</a>  A page that I found by searching for &ldquo;parallel HDF5 library&rdquo;.  In ubuntu, that is libhdf5-mpi-dev package.</li>
 </ol>
 <h2 id="execution-environment">Execution Environment</h2>
 <h4 id="dockerfile">Dockerfile</h4>
@@ -424,21 +424,23 @@ src/inputs/hdf5_reader.cpp:109:7: error: <span class="s1">&#39;H5Pset_dxpl_mpio&
       <span class="p">|</span>       H5Pset_fapl_stdio
 make: *** <span class="o">[</span>Makefile:119: obj/hdf5_reader.o<span class="o">]</span> Error <span class="m">1</span>
 </code></pre></div><p>Since the above error was in the #ifdef MPI_PARALLEL section of the source code, I investigated whether hdf5-related modules might be required for parallel computing with OpenMPI.</p>
-<p>I found the information in the sources 3 and 4, and installed libhdf5-openmpi-dev in the Dockerfile. I changed the CPATH setting I added above to CPATH=&rdquo;/usr/include/hdf5/openmpi&rdquo;.</p>
+<p>I found the information in the sources 3 and 4, and installed libhdf5-openmpi-dev in the Dockerfile. I also changed the CPATH setting I added above to CPATH=&rdquo;/usr/include/hdf5/openmpi&rdquo;.</p>
 <h5 id="link-error">link error</h5>
 <p>When I tried to make again, I got the following error at the end of compiling and linking.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">/usr/bin/ld: cannot find -lhdf5: No such file or directory
 collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
 make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</span> Error <span class="m">1</span>
-</code></pre></div><h2 id="running-the-simulation">Running the simulation</h2>
+</code></pre></div><p>After checking under /usr/lib/x86_64-linux-gnu, where the library is stored, I guessed that the library I needed was hdf5_openmpi, and changed &ldquo;-lhdf5&rdquo; in the Makefile generated as a result of the configuration to &ldquo;-lhdf5_openmpi&rdquo;.</p>
+<p>After above trial and erro, I obtained the Dockerfile shown at the beginning of this section.</p>
+<h2 id="running-the-simulation">Running the simulation</h2>
 <h4 id="edit-parameter-files">Edit parameter files</h4>
-<p>As in the previous tutorial, copy the parameter file and executable to the working directory &ldquo;t4&rdquo; in the container. The parameter file was copied from athena/inputs/mhd/athinput.blast.</p>
+<p>As in the previous tutorial, copy the parameter file (input file) and executable to the working directory &ldquo;t4&rdquo; in the container. The parameter file was copied from athena/inputs/mhd/athinput.blast.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># pwd</span>
 /workdir/kenji/t4
 <span class="c1"># ls -l</span>
 -rwxr-xr-x <span class="m">1</span> root root  <span class="m">3613256</span> Mar  <span class="m">2</span> 04:11 athena
 -rw-r--r-- <span class="m">1</span> root root     <span class="m">2193</span> Mar  <span class="m">2</span> 08:12 athinput.blast
-</code></pre></div><p>This time, since the time is measured in parallel processing, we decided to set the mesh to double so that it would take a little longer. The changes to athinput.blast are as follows</p>
+</code></pre></div><p>This time, since the time is measured in parallel processing, I decided to set the mesh to double so that it would take a little longer. The changes to athinput.blast are as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">10c10
 &lt; <span class="nv">file_type</span>  <span class="o">=</span> hdf5       <span class="c1"># HDF5 data dump</span>
 ---
@@ -467,7 +469,7 @@ make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</spa
 ---
 &gt; <span class="nv">num_threads</span> <span class="o">=</span> <span class="m">1</span>         <span class="c1"># Number of OpenMP threads per process</span>
 </code></pre></div><h4 id="measuring-simulation-time">Measuring simulation time</h4>
-<p>Create the following shell command, run 2, 4, and 8 for the number of processes (np), and compare the cpu time recorded in log.</p>
+<p>Create the following shell command, run 2, 4, and 8 for the number of processes (np), and compare the cpu time recorded in log files.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat mpi_run</span>
 mpirun -np <span class="nv">$1</span> --hostfile myhosts <span class="se">\
 </span><span class="se"></span>-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
@@ -511,7 +513,7 @@ ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6<
 <p><img src="/images/20240307_Athena_Tutorial4/20240306_CPU_Time.png" alt="CPU_Time"></p>
 <h2 id="for-the-future">For the future</h2>
 <p>The measurement results showed that when 8 processes are processed simultaneously, the simulation can be run in about half the time of 2 processes.</p>
-<p>We will continue to work on the visualization part of the simulation results for this tutorial.</p>
+<p>I will continue to work on the visualization part of the simulation results for this tutorial.</p>
 <p>In addition, Dr. Tomida&rsquo;s page in the source 2. has an additional task to try the simulation of &ldquo;Rayleigh-Taylor instability&rdquo;, which I would like to run.</p>
 
 
