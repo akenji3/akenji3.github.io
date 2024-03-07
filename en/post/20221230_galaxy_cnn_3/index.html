@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Deep Learning (CNN) による銀河形状分類（その3） - akenji&#39;s lab</title>
-  <meta name="description" content="（その2）の記事の続き。
-前回は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。">
+  <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 3） - akenji&#39;s lab</title>
+  <meta name="description" content="Continued from previous article.
+In the previous, we studied with VGG16, but this time we will use ResNet for the model.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20221230_galaxy_cnn_3\/",
-          "name": "Deep learning ( c n n) による銀河形状分類（その3）"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20221230_galaxy_cnn_3\/",
+          "name": "Galaxy shape classification by deep learning ( c n n)（ part 3）"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Deep Learning (CNN) による銀河形状分類（その3）",
-  "description" : "（その2）の記事の続き。\n前回は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。\n",
-  "inLanguage" : "ja",
-  "wordCount":  1973 ,
+  "headline": "Galaxy Shape Classification by Deep Learning (CNN)（Part 3）",
+  "description" : "Continued from previous article.\nIn the previous, we studied with VGG16, but this time we will use ResNet for the model.\n",
+  "inLanguage" : "en",
+  "wordCount":  1458 ,
   "datePublished" : "2022-12-30T00:00:00",
   "dateModified" : "2022-12-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20221230_galaxy_cnn_3\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20221230_galaxy_cnn_3\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,24 +79,24 @@
 }
 </script>
 
-<meta property="og:title" content="Deep Learning (CNN) による銀河形状分類（その3）" />
-<meta property="og:description" content="（その2）の記事の続き。
-前回は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。">
+<meta property="og:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 3）" />
+<meta property="og:description" content="Continued from previous article.
+In the previous, we studied with VGG16, but this time we will use ResNet for the model.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Deep Learning (CNN) による銀河形状分類（その3）" />
-  <meta name="twitter:description" content="（その2）の記事の続き。
-前回は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。">
+  <meta name="twitter:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 3）" />
+  <meta name="twitter:description" content="Continued from previous article.
+In the previous, we studied with VGG16, but this time we will use ResNet for the model.">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -126,12 +126,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -139,25 +139,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -167,9 +167,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -183,7 +183,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -263,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Deep Learning (CNN) による銀河形状分類（その3）</h1>
+                <h1>Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</h1>
               
               
               
@@ -271,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
   
   
   
@@ -280,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" lang="ja">ja</a>
 </span>
 
 
@@ -298,14 +298,14 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>（その2）の記事の続き。</p>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/">前回</a>は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。</p>
-<p>VGG、ResNetと言えば、ちょうど一年前に<a href="https://www.jdla.org/certificate/engineer/">E資格</a>の勉強で学んだ記憶が蘇る。</p>
-<p>VGG (Simonyan &amp; Zisserman, 2014)は、2014年に提案されたモデルで、フィルタサイズ$3\times3$の畳み込み層を複数積み重ねることで、少ないパラメータで大きなフィルタを使用した場合と同じ範囲を畳み込むことができるモデルである。
-ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を足し合わせるショートカット結合が特徴的なモデルである。</p>
-<p>訓練用とテスト用のDataLoaderを作成するところまでは、VGG16と共通。</p>
-<h2 id="resnetモデル">ResNetモデル</h2>
-<p>残差ブロック部分は次の通り。</p>
+        <p>Continued from previous article.</p>
+<p>In <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/">the previous</a>, we studied with VGG16, but this time we will use ResNet for the model.</p>
+<p>The mention of VGG and ResNet brings back memories of what I learned just a year ago when studying for my <a href="https://www.jdla.org/en/en-certificate/">Deep Learning for ENGINEER</a>.</p>
+<p>VGG (Simonyan &amp; Zisserman, 2014) is a model proposed in 2014 that stacks multiple convolution layers with a filter size of $3\times3$ to convolve the same range as using a large filter with fewer parameters.
+ResNet (He et al., 2015) is a model proposed in 2015 that features shortcut joins that add feature maps together.</p>
+<p>It shares with VGG16 up to the point of creating DataLoader for training and testing.</p>
+<h2 id="resnet-model">ResNet Model</h2>
+<p>The residual block part is as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="kn">as</span> <span class="nn">nn</span>
 
@@ -363,7 +363,7 @@ ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を�
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">x</span>
-</code></pre></div><p>次にResNet本体の部分。conv2, conv3, conv4, conv5は、残差ブロックで構成される。</p>
+</code></pre></div><p>Next is the ResNet body part. conv2, conv3, conv4, and conv5 are composed of residual blocks.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">ResNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ResNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -420,17 +420,19 @@ ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を�
         <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">layers</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ResNet</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</code></pre></div><p>ResNetのインスタンスを作成した後は、VGG16の「訓練と評価関数群」、「実行部分」、「グラフ化」のcellと共通である。</p>
-<h2 id="結果">結果</h2>
+</code></pre></div><p>After creating an instance of ResNet, it is common with the &ldquo;Training and Evaluation Function Group&rdquo;, &ldquo;Execution Part&rdquo;, and &ldquo;Graphing&rdquo; cells in VGG16.</p>
+<h2 id="result">Result</h2>
 <p><img src="/images/20221230_Galaxy_CNN/20221230_ResNet_1.png" alt="ResNet"></p>
-<p>VGG16と比較するとエポックが進むと誤差が減少するも、8エポックあたりから過学習の傾向を示している。</p>
-<p>30エポックに掛かった時間は、2,391秒（39分51秒）とVGG16の86%であった。</p>
-<p>次にVGG16の時と同じように、銀河イメージに回転や左右反転をtransformsで指定した結果は次の通り。</p>
+<p>Compared to VGG16, the error decreases as the epoch progresses, but shows a tendency toward overtraining around epoch 8.</p>
+<p>The time taken for 30 epochs was 2,391 seconds (39 minutes and 51 seconds), 86% of the time for VGG16.</p>
+<p>Next, as in VGG16, the following results were obtained when rotation and left-right reversal were specified for the galaxy image using transforms.</p>
 <p><img src="/images/20221230_Galaxy_CNN/20221230_ResNet_wtRotate.png" alt="ResNet_wtRotate"></p>
-<p>30回のエポックまで、過学習の傾向もなく、誤差が減少していることが分かる。この時の所要時間は、2,508秒（41分48秒）であった。</p>
-<h2 id="まとめ">まとめ</h2>
-<p>今回の銀河の形状分類においては、誤差の収束、所要時間の観点で、ResNetの方がVGG16より良い結果となった。VGG16を使う場合は、学習率$lr$を適切に設定する必要がある。</p>
-<p>画像処理で畳み込みを使わずに、最先端レベル（State-of-The-Art; SoTA）と言われている、Transformerを用いたVision Transformer（ViT）による分類を試してみたい。</p>
+<p>It can be seen that the error is decreasing without any tendency of overtraining until 30 epochs. The time required for this epoch was 2,508 seconds (41 minutes and 48 seconds).</p>
+<h2 id="summary">Summary</h2>
+<p>In this galaxy shape classification, ResNet performed better than VGG16 in terms of error convergence and time required; if VGG16 is used, the learning rate $lr$ should be set appropriately.</p>
+<p>We would like to try classification using Vision Transformer (ViT) with Transformer, which is considered state-of-the-art (State-of-the-Art; SoTA) in image processing without using convolution.</p>
+<hr>
+<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
 
         
 
@@ -444,42 +446,42 @@ ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を�
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f&amp;text=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae3%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f&amp;text=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%203%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae3%ef%bc%89" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%203%ef%bc%89" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae3%ef%bc%89" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%203%ef%bc%89" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae3%ef%bc%89" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%203%ef%bc%89" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_3%2f&amp;description=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae3%ef%bc%89" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_3%2f&amp;description=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%203%ef%bc%89" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -502,12 +504,12 @@ ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を�
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20221030_training_diffusers/" data-toggle="tooltip" data-placement="top" title="Diffusersの訓練時間による、TITAN VとRTX A4000比較">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" data-toggle="tooltip" data-placement="top" title="Building a GPU Cluster with Kubernetes - the First Steps">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" data-toggle="tooltip" data-placement="top" title="Deep Learning (CNN) による銀河形状分類（その2）">次ページ &rarr;</a>
+              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN)（Part 2）">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -592,12 +594,12 @@ ResNet (He et al., 2015)は、2015年に提案された特徴マップ同士を�
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

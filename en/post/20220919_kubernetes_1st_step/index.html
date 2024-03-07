@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,10 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>KubernetesでGPUクラスタ構築 〜 初めの一歩 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-約1ヵ月前に、この記事でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。
-自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。">
+  <title>Building a GPU Cluster with Kubernetes - the First Steps - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
+In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20220919_kubernetes_1st_step\/",
-          "name": "Kubernetesで g p uクラスタ構築 〜 初めの一歩"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20220919_kubernetes_1st_step\/",
+          "name": "Building a g p u cluster with kubernetes the first steps"
         }
     }]
 }
@@ -58,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "KubernetesでGPUクラスタ構築 〜 初めの一歩",
-  "description" : "はじめに 約1ヵ月前に、この記事でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。\n自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。\n",
-  "inLanguage" : "ja",
-  "wordCount":  3220 ,
+  "headline": "Building a GPU Cluster with Kubernetes - the First Steps",
+  "description" : "Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I\u0026rsquo;ll summarize it here.\nIn my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it \u0026ldquo;the first step\u0026rdquo;.",
+  "inLanguage" : "en",
+  "wordCount":  1420 ,
   "datePublished" : "2022-09-19T00:00:00",
   "dateModified" : "2022-09-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220919_kubernetes_1st_step\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20220919_kubernetes_1st_step\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,26 +79,23 @@
 }
 </script>
 
-<meta property="og:title" content="KubernetesでGPUクラスタ構築 〜 初めの一歩" />
-<meta property="og:description" content="はじめに
-約1ヵ月前に、この記事でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。
-自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。">
+<meta property="og:title" content="Building a GPU Cluster with Kubernetes - the First Steps" />
+<meta property="og:description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
+In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="KubernetesでGPUクラスタ構築 〜 初めの一歩" />
-  <meta name="twitter:description" content="はじめに
-約1ヵ月前に、この記事でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。
-自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていない …">
+  <meta name="twitter:title" content="Building a GPU Cluster with Kubernetes - the First Steps" />
+  <meta name="twitter:description" content="Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -129,12 +125,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -142,25 +138,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -170,9 +166,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -186,7 +182,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -266,7 +262,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>KubernetesでGPUクラスタ構築 〜 初めの一歩</h1>
+                <h1>Building a GPU Cluster with Kubernetes - the First Steps</h1>
               
               
               
@@ -274,7 +270,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;September 19, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 19, 2022
   
   
   
@@ -283,7 +279,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" lang="ja">ja</a>
 </span>
 
 
@@ -301,150 +297,143 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>約1ヵ月前に、<a href="https://akenji3.github.io/post/20220821_kubernetes/">この記事</a>でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。</p>
-<p>自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="introduction">Introduction</h2>
+<p>About a month ago, I wrote an article about building a GPU cluster using kubernetes in <a href="https://akenji3.github.io/post/20220821_kubernetes/">this article</a>. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.</p>
+<p>In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.</p>
+<p>&lt;! &ndash;more&ndash;&gt;</p>
+<h2 id="sources">Sources.</h2>
 <ol>
-<li>
-<p>[<a href="https://blog.inductor.me/entry/2020/12/13/042319">NVIDIA Docker(NVIDIA Container Toolkit)からnvidia-container-runtime + containerdに移行するために知っておくべきこと</a>] このページをとなる方から教えてもらって、Pending状態のGPUポッドが動作するようになった。</p>
-</li>
-<li>
-<p><a href="https://github.com/NVIDIA/k8s-device-plugin">NVIDIA/k8s-device-plugin</a> NVIDIAのkubernetesに関するdevice pluginのページ。</p>
-</li>
-<li>
-<p><a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/k8s-device-plugin">NVIDIA Kubernetes Device Plugin</a> このページで、最新版のdevice pluginの情報を得た。</p>
-</li>
+<li>[[What you need to know to migrate from NVIDIA Docker (NVIDIA Container Toolkit) to nvidia-container-runtime + containerd](https://blog.inductor.me/entry/ 2020/12/13/042319)] I got the GPU pod in Pending state to work after being told about this page by a person.</li>
 </ol>
-<h2 id="結論">結論</h2>
-<p>以下のまとめは、自分の環境で色々と試した限りのことなので、各々の環境で、以下が当てはまることは保証の限りではない。</p>
+<p>2.<a href="https://github.com/NVIDIA/k8s-device-plugin">NVIDIA/k8s-device-plugin</a> NVIDIA&rsquo;s device plugin page for kubernetes.</p>
+<p>3.<a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/k8s-device-plugin">NVIDIA Kubernetes Device Plugin</a> This page has information on the latest version of the device plugin. I got some information on the latest version of the device plugin from this page.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The following summary is based on my own experience, so there is no guarantee that the following will apply in every environment.</p>
 <ul>
-<li><a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-1-install-a-container-engine">Step 1: Install a Container Engine</a>の手順中の/etc/containerd/config.tomlの「CsytemdCgroup = false」はfalseのままでtrueに変更しない。</li>
-<li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html#install-nvidia-gpu-operator">NVIDIA GPU Operator</a>の手順では、上手くいかなかった。</li>
-<li><a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-4-setup-nvidia-software">Step 4: Setup NVIDIA Software</a> の手順を変更してインストールした。具体的には、Helmを使わず、「kubectl apply -f」でdevice pluginを組み込んだ。なお、最新版（v0.12.3）で動作した。</li>
+<li>&ldquo;CsytemdCgroup = false&rdquo; in /etc/containerd/config.toml in the procedure of <a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-1-install-a-container-engine">Step 1: Install a Container Engine</a> should be left false and not changed to true.</li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html#install-nvidia-gpu-operator">NVIDIA GPU Operator</a> procedure did not work.</li>
+<li>I changed the procedure in <a href="https://docs.nvidia.com/datacenter/cloud-native/kubernetes/install-k8s.html#step-4-setup-nvidia-software">Step 4: Setup NVIDIA Software</a> and installed it. Specifically, I did not use Helm, but used &ldquo;kubectl apply -f&rdquo; to install the device plugin. It worked with the latest version (v0.12.3).</li>
 </ul>
-<h2 id="インストール操作">インストール操作</h2>
-<h4 id="step-1-container-engineをインストール">Step 1: container Engineをインストール</h4>
-<h5 id="1-必要なパッケージをインストール">(1) 必要なパッケージをインストール</h5>
+<h2 id="installation-operation">Installation operation</h2>
+<h4 id="step-1-install-container-engine">Step 1: Install Container Engine</h4>
+<h5 id="1-install-necessary-packages">(1) Install necessary packages</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sudo apt-get update<span class="se">\
 </span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https <span class="se">\
 </span><span class="se"></span>&gt; ca-certificates curl software-properties-common
-</code></pre></div><p>自分の環境では、全て最新バージョンだった。</p>
-<h5 id="2overlay-br_netfilterカーネルモジュールをロードするように設定">(2）overlay, br_netfilter（カーネル）モジュールをロードするように設定</h5>
+</code></pre></div><p>In my environment, all were the latest versions.</p>
+<h5 id="2-set-to-load-overlay-br_netfilter-kernel-modules">(2) set to load overlay, br_netfilter (kernel) modules</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat <span class="s">&lt;&lt;EOF | sudo tee /etc/modules-load.d/containerd.conf
 </span><span class="s">&gt; overlay
 </span><span class="s">&gt; br_netfilter
 </span><span class="s">&gt; EOF</span>
 $ sudo modprobe overlay <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo modprobe br_netfilter
-</code></pre></div><h5 id="3sysctlパラメータをconfファイルに設定">(3）sysctlパラメータをconfファイルに設定</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo modprobe br_netfilter
+</code></pre></div><h5 id="3-set-sysctl-parameters-in-conf-file">(3) Set sysctl parameters in conf file</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
-</span><span class="s">&gt; net.bridge.bridge-nf-call-iptables  = 1
-</span><span class="s">&gt; net.ipv4.ip_forward                 = 1
+</span><span class="s">&gt; net.bridge.bridge-nf-call-iptables = 1
+</span><span class="s">&gt; net.ipv4.ip_forward = 1
 </span><span class="s">&gt; net.bridge.bridge-nf-call-ip6tables = 1
 </span><span class="s">&gt; EOF</span>
 
 $ sudo sysctl --system
-</code></pre></div><h5 id="4dockerリポジトリを設定">(4）Dockerリポジトリを設定</h5>
+</code></pre></div><h5 id="4-configure-docker-repository">(4) Configure Docker repository</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key --keyring /etc/apt/trusted.gpg.d/docker.gpg add -
 
 $ sudo add-apt-repository <span class="s2">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-</span><span class="s2">&gt;    </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
-</span><span class="s2">&gt;    stable&#34;</span>
-</code></pre></div><h5 id="5containerdをインストール">(5）containerdをインストール</h5>
+</span><span class="s2">&gt; </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
+</span><span class="s2">&gt; stable&#34;</span>
+</code></pre></div><h5 id="5-install-containerd">(5) install containerd</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get update <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo apt-get install -y containerd.io
-</code></pre></div><p>自分の環境では、containerd.ioは最新バージョン（1.6.7-1）がインストール済だった。</p>
-<h5 id="6containerdのデフォルトパラメータをconfigtomlを作成し設定">(6）containerdのデフォルトパラメータをconfig.tomlを（作成し）設定</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y containerd.io
+</code></pre></div><p>In my environment, containerd.io had the latest version (1.6.7-1) already installed.</p>
+<h5 id="6-set-default-parameters-for-containerd-by-creating-configtoml">(6) Set default parameters for containerd by (creating) config.toml</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo mkdir -p /etc/containerd <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo containerd config default <span class="p">|</span> sudo tee /etc/containerd/config.toml
-</code></pre></div><p>既にcontainerd.ioがインストール済だったので、/etc/containerdディレクトリ、config.tomlは既に存在していた。config.tomlはリネームして保存しておいた。</p>
-<h5 id="7-containerdがsystemd-cgroup-driverを使うようにconfigtomlを変更"><del>(7) （containerdが）systemd cgroup driverを使うように、config.tomlを変更</del></h5>
-<p>結論で述べたように「SystemdCgroup = false」はそのまま。ここでは、/etc/containerd/config.tomlへの変更は加えない。</p>
-<h5 id="8-containerdデーモンを再起動">(8) containerdデーモンを再起動</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo containerd config default <span class="p">|</span> sudo tee /etc/containerd/config.toml
+</code></pre></div><p>Since containerd.io was already installed, the /etc/containerd directory and config.toml already existed. config.toml was renamed and saved.</p>
+<h5 id="7-change-configtoml-so-that-containerd-uses-systemd-cgroup-driver"><del><del>(7) Change config.toml so that (containerd) uses systemd cgroup driver</del></del>.</h5>
+<p>As mentioned in the conclusion, &ldquo;SystemdCgroup = false&rdquo; should be left as it is.  No changes are made to /etc/containerd/config.toml here.</p>
+<h5 id="8-restart-containerd-daemon">(8) Restart containerd daemon</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl restart containerd
-</code></pre></div><h4 id="step-2-kubernetesコンポーネントをインストール">Step 2: Kubernetesコンポーネントをインストール</h4>
-<h5 id="1-必要なパッケージをインストール-1">(1) 必要なパッケージをインストール</h5>
+</code></pre></div><h4 id="step-2-install-kubernetes-components">Step 2: Install Kubernetes components</h4>
+<h5 id="1-install-some-dependencies">(1) Install some dependencies</h5>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo apt-get update <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https curl
-</code></pre></div><p>自分の環境では最新版がインストールされていた。</p>
-<h5 id="2-リポジトリキーを追加">(2) リポジトリキーを追加</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https curl
+</code></pre></div><p>The latest version was installed in my environment.</p>
+<h5 id="2-add-repository-key">(2) Add repository key.</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
-</code></pre></div><h5 id="3-リポジトリを追加">(3) リポジトリを追加</h5>
+</code></pre></div><h5 id="3-add-repository">(3) Add repository</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat <span class="s">&lt;&lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 </span><span class="s">&gt; deb https://apt.kubernetes.io/ kubernetes-xenial main
 </span><span class="s">&gt; EOF</span>
-</code></pre></div><h5 id="4-kubeletをインストール">(4) kubeletをインストール</h5>
+</code></pre></div><h5 id="4-install-kubelet">(4) Install kubelet</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get update <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo apt-get install -y -q kubelet kubectl kubeadm
-</code></pre></div><h5 id="5-noteの1kuberlet-用にcgroupドライバーを設定">(5) Noteの1：Kuberlet 用にcgroupドライバーを設定</h5>
-<p>NVIDIAのドキュメントでは、Noteの項番1の箇所。</p>
-<p>この時点で既に、/etc/systemd/system/kuberlet.service.d配下に10-kubeadm.confが既に存在。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo cat <span class="s">&lt;&lt; EOF | sudo tee  /etc/systemd/system/kubelet.service.d/0-containerd.conf
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo apt-get install -y -q kubelet kubectl kubeadm
+</code></pre></div><h5 id="5-note-1-configure-cgroup-driver-for-kuberlet">(5) Note 1: Configure cgroup driver for Kuberlet</h5>
+<p>In the NVIDIA documentation, section 1 of Note.</p>
+<p>At this point, 10-kubeadm.conf already exists under /etc/systemd/system/kuberlet.service.d.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo cat <span class="s">&lt;&lt; EOF | sudo tee /etc/systemd/system/kubelet.service.d/0-containerd.conf
 </span><span class="s">&gt; [Service]
 </span><span class="s">&gt; Environment=&#34;KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock --cgroup-driver=&#39;systemd&#39;&#34;
 </span><span class="s">&gt; EOF</span>
-</code></pre></div><h5 id="6-noteの2kubeletを再起動">(6) Noteの2：kubeletを再起動</h5>
+</code></pre></div><h5 id="6-note-2-restart-kubelet">(6) Note 2: Restart kubelet</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl daemon-reload <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo systemctl restart kubelet
-</code></pre></div><h5 id="7-swapを無効化">(7) swapを無効化</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo systemctl restart kubelet
+</code></pre></div><h5 id="7-disable-swap">(7) Disable swap</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ swapon --show
-NAME      TYPE SIZE USED PRIO
-/swapfile file   2G   0B   -2
+NAME TYPE SIZE USED PRIO
+/swapfile file 2G 0B -2
 $ sudo swapoff -a
 $ swapon --show
 $
-</code></pre></div><p>上記の操作は一時的なもので、サーバを再起動すると再びswapが有効な状態。
-永続的に無効化するためには、/etc/fstabの「swap」を含むの行の行頭に#を挿入し、無効化する。
-（自分の環境では、/swapfileから始まる行）</p>
-<h5 id="8-kubeadm-initを実行">(8) kubeadm initを実行</h5>
+</code></pre></div><p>The above operation is temporary, and swap is enabled again when the server is restarted.
+To disable it permanently, insert # at the beginning of any line in /etc/fstab that contains &ldquo;swap&rdquo; to disable it. (In my environment, the line starts with /swapfile)</p>
+<h5 id="8-run-kubeadm-init">(8) Run kubeadm init</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo kubeadm init --pod-network-cidr<span class="o">=</span>192.168.0.0/16
 <span class="o">[</span>init<span class="o">]</span> Using Kubernetes version: v1.24.3
-・・・省略・・・
+... Omitted.
 Then you can join any number of worker nodes by running the following on each as root:
 
 kubeadm join 192.168.11.3:6443 --token 7ffwr1.xm119vzqvmhqgevl <span class="se">\
 </span><span class="se"></span>	--discovery-token-ca-cert-hash sha256:5d2f3065e38020b668ba1b766d95aea197182e35143511db7062f247f12c81d3 
-$
-</code></pre></div><p>最後の「kubeadm join &hellip; sha256&hellip;」の部分はメモっておくこと。worker nodeとするワークステーションで、次のように実行することで、クラスタを作成できる。</p>
+</code></pre></div><p>Make a note of this part &ldquo;kubeadm join &hellip; sha256&hellip;&rdquo;. You can create a cluster as a woker node by executing the following:</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo kubeadm join 192.168.11.3:6443 --token 7ffwr1.xm119vzqvmhqgevl <span class="se">\
 </span><span class="se"></span>&gt; --discovery-token-ca-cert-hash sha256:5d2f3065e38020b668ba1b766d95aea197182e35143511db7062f247f12c81d3 
 <span class="o">[</span>preflight<span class="o">]</span> Running pre-flight checks
-・・・省略・・・
+... Omitted...
 This node has joined the cluster:
 * Certificate signing request was sent to apiserver and a response was received.
 * The Kubelet was informed of the new secure connection details.
 
 Run <span class="s1">&#39;kubectl get nodes&#39;</span> on the control-plane to see this node join the cluster.
-</code></pre></div><h5 id="9-認証用ファイルをhome配下にコピー">(9) 認証用ファイルを$HOME配下にコピー</h5>
+</code></pre></div><h5 id="9-copy-authentication-files-under-home">(9) Copy authentication files under $HOME</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ mkdir -p <span class="nv">$HOME</span>/.kube <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config <span class="se">\
-</span><span class="se"></span>&gt;    <span class="o">&amp;&amp;</span> sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
-</code></pre></div><h4 id="step-3-ネットワークを設定">Step 3: ネットワークを設定</h4>
-<h5 id="1-calicoでネットワークを設定">(1) Calicoでネットワークを設定</h5>
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config <span class="se">\
+</span><span class="se"></span>&gt; <span class="o">&amp;&amp;</span> sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</code></pre></div><h4 id="step-3-configure-the-network">Step 3: Configure the network</h4>
+<h5 id="1-configure-network-in-calico">(1) Configure network in Calico</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-</code></pre></div><h5 id="2-masterにもworker役を割当">(2) masterにもworker役を割当</h5>
-<p>NVIDIAドキュメントに「最も単純化したsingle-nodeクラスターに、GPU Podをスケジューリングできる」とある通り、master(control plane) nodeにもPodをスケジューリングできるようになる。</p>
+</code></pre></div><h5 id="2-assign-the-worker-role-to-master-as-well">(2) Assign the worker role to master as well</h5>
+<p>As the NVIDIA documentation says &ldquo;GPU Pods can be scheduled on the simplest single-node clusters&rdquo;, it is possible to schedule a Pod on the master (control plane) node as well.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl taint nodes --all node-role.kubernetes.io/master-
-</code></pre></div><p>自分の環境では、master nodeにはPodをスケジューリングさせたくなかったので、これは実行していない。</p>
-<p>ここまでで、master(control plane) node（kubeadm init操作）とworker node（kubeadm join操作）を各々の1つ構築した状態となる。自分の環境でのnodeの状態は次のとおり。</p>
+</code></pre></div><p>In my environment, I did not want to schedule a pod on the master node, so I did not run this.</p>
+<p>Now, you have one master (control plane) node (kubeadm init operation) and one worker node (kubeadm join operation) each. The state of the node in my environment is as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get nodes
-NAME     STATUS   ROLES           AGE     VERSION
-europe   Ready    control-plane   2m57s   v1.25.0
-saisei   Ready    &lt;none&gt;          21s     v1.25.0
-</code></pre></div><p>前の記事では、更にもう1台をクラスタ構成に追加したが、追加しなかった。</p>
-<h4 id="step-4-nvdiaソフトウェアを設定">Step 4: NVDIAソフトウェアを設定</h4>
-<p>自分の環境では、control planeにもGPUが挿さっているので、既にNVIDIAドライバーはインストール済み。結論で述べたように、helmを使ってのインストールはしなかった。</p>
-<p>具体的な手順は、以下の通り。</p>
-<h5 id="1-nvidia-container-runtimeパッケージをインストールのためnvidia-dockerのリポジトリを設定">(1) （nvidia-container-runtimeパッケージをインストールのため）nvidia-dockerのリポジトリを設定</h5>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span> <span class="se">\
-</span><span class="se"></span>   <span class="o">&amp;&amp;</span> curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add - <span class="se">\
+NAME STATUS ROLES AGE VERSION
+europe Ready control-plane 2m57s v1.25.0
+saisei Ready &lt;none&gt; 21s v1.25.0
+</code></pre></div><p>In <a href="https://akenji3.github.io/en/post/20220821_kubernetes_en/">the previous article</a>, another node was added to the cluster configuration, but I didn&rsquo;t this time.</p>
+<h4 id="step-4-configure-the-nvdia-software">Step 4: Configure the NVDIA software</h4>
+<p>In my environment, the NVIDIA driver is already installed because I have a GPU plugged into the node of control plane. As mentioned in the conclusion, I did not use &ldquo;helm&rdquo; to install the software.</p>
+<p>The specific steps are as follows.</p>
+<h5 id="1-for-installing-nvidia-container-runtime-package-set-up-nvidia-docker-repository">(1) (for installing nvidia-container-runtime package) Set up nvidia-docker repository</h5>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>. /etc/os-release<span class="p">;</span><span class="nb">echo</span> <span class="nv">$ID$VERSION_ID</span><span class="k">)</span> <span class="se">\.</span>
+   <span class="o">&amp;&amp;</span> curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey <span class="p">|</span> sudo apt-key add - <span class="se">\
 </span><span class="se"></span>   <span class="o">&amp;&amp;</span> curl -s -L https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list <span class="p">|</span> sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-</code></pre></div><h5 id="2-nvidia-container-runtimeパッケージをインストール">(2) nvidia-container-runtimeパッケージをインストール</h5>
+</code></pre></div><h5 id="2-install-nvidia-container-runtime-package">(2) Install nvidia-container-runtime package</h5>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get update \
    &amp;&amp; sudo apt-get install -y nvidia-container-runtime
-</code></pre></div><h5 id="3-configtomlを編集">(3) config.tomlを編集</h5>
-<p>/etc/containerd/config.tomlを次のように編集。</p>
+</code></pre></div><h5 id="3-edit-configtoml">(3) Edit config.toml</h5>
+<p>Edit /etc/containerd/config.toml as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">79c79
 &lt;       <span class="nv">default_runtime_name</span> <span class="o">=</span> <span class="s2">&#34;nvida&#34;</span>
 ---
@@ -458,12 +447,12 @@ saisei   Ready    &lt;none&gt;          21s     v1.25.0
 &lt;           <span class="nv">runtime_type</span> <span class="o">=</span> <span class="s2">&#34;io.containerd.runc.v1&#34;</span>
 &lt;           <span class="o">[</span>plugins.<span class="s2">&#34;io.containerd.grpc.v1.cri&#34;</span>.containerd.runtimes.nvidia.options<span class="o">]</span>
 &lt;             <span class="nv">BinaryName</span> <span class="o">=</span> <span class="s2">&#34;/usr/bin/nvidia-container-runtime&#34;</span>
-</code></pre></div><p>その後、containerdデーモンを再起動。</p>
+</code></pre></div><p>Then restart the containerd daemon.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo systemctl restart containerd
-</code></pre></div><h5 id="4-nvidia-device-pluginをインストール">(4) NVIDIA Device Pluginをインストール</h5>
+</code></pre></div><h5 id="4-install-nvidia-device-plugin">(4) Install NVIDIA Device Plugin</h5>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.12.3/nvidia-device-plugin.yml
-</code></pre></div><h4 id="step-5-確認">Step 5: 確認</h4>
-<p>以下のように、GPUポッドを起動して、状態を確認し、ログを確認し、動作していることが確認できた。</p>
+</code></pre></div><h4 id="step-5-check">Step 5: Check</h4>
+<p>Start the GPU pod, check the status, check the logs, and confirm that it is working as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cat gpu-pod.yaml
 apiVersion: v1
 kind: Pod
@@ -481,8 +470,8 @@ spec:
 $ kubectl apply -f gpu-pod.yaml
 pod/gpu-operator-test created
 $ kubectl get pods
-NAME                READY   STATUS      RESTARTS   AGE
-gpu-operator-test   0/1     Completed   <span class="m">0</span>          8s
+NAME READY STATUS RESTARTS AGE
+gpu-operator-test 0/1 Completed <span class="m">0</span> 8s
 $ kubectl logs gpu-operator-test
 <span class="o">[</span>Vector addition of <span class="m">50000</span> elements<span class="o">]</span>
 Copy input data from the host memory to the CUDA device
@@ -490,23 +479,25 @@ CUDA kernel launch with <span class="m">196</span> blocks of <span class="m">256
 Copy output data from the CUDA device to the host memory
 Test PASSED
 Done
-</code></pre></div><h2 id="まとめ">まとめ</h2>
-<p>以上の手順で、めでたしめでたし、と言いたいところだが、GPU搭載されている別のノード（mokusei）をクラスタに追加しても、そのノードでは動作しない。Pending状態のままとなる。</p>
-<p>saiseiが起動中は動くのだが、次のとおりsaiseiをシャットダウンして、mokuseiのみのクラスタでは、GPUポッドを起動しても、実行されない。</p>
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>However, when another node (mokusei) with GPU is added to the cluster, it does not work on that node and remains in Pending state.</p>
+<p>It works while saisei is running, but if I shutdown saisei and start the GPU pod on the cluster, running mokusei node only, it does not work as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ kubectl get nodes
-NAME      STATUS     ROLES           AGE     VERSION
-europe    Ready      control-plane   68m     v1.25.0
-mokusei   Ready      &lt;none&gt;          66m     v1.25.0
-saisei    NotReady   &lt;none&gt;          9m51s   v1.25.0
+NAME STATUS ROLES AGE VERSION
+europe Ready control-plane 68m v1.25.0
+mokusei Ready &lt;none&gt; 66m v1.25.0
+saisei NotReady &lt;none&gt; 9m51s v1.25.0
 
 $ kubectl apply -f gpu-pod.yaml
 pod/gpu-operator-test created
 
 $ kubectl get pods gpu-operator-test
-NAME                READY   STATUS    RESTARTS   AGE
-gpu-operator-test   0/1     Pending   <span class="m">0</span>          2m50s
-</code></pre></div><p>次は、上記の問題をおいおい解決していく予定。</p>
-<p>また、上記問題解決のために、ノードに搭載されているGPUの指定、ノードの指定などを一緒に調べていく必要がありそうだ。</p>
+NAME READY STATUS RESTARTS AGE
+gpu-operator-test 0/1 Pending <span class="m">0</span> 2m50s
+</code></pre></div><p>Next, I&rsquo;m going to resolve the above issues in due course.</p>
+<p>Also, I will need to look into specifying the GPU on the node and specifying the certain node together to solve the above problem.</p>
+<p>Translated with <a href="http://www.deepl.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
+
 
         
 
@@ -520,42 +511,42 @@ gpu-operator-test   0/1     Pending   <span class="m">0</span>          2m50s
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f&amp;text=Kubernetes%e3%81%a7GPU%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89%20%e3%80%9c%20%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f&amp;text=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Kubernetes%e3%81%a7GPU%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89%20%e3%80%9c%20%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Kubernetes%e3%81%a7GPU%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89%20%e3%80%9c%20%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Kubernetes%e3%81%a7GPU%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89%20%e3%80%9c%20%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f&amp;title=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220919_kubernetes_1st_step%2f&amp;description=Kubernetes%e3%81%a7GPU%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e6%a7%8b%e7%af%89%20%e3%80%9c%20%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220919_kubernetes_1st_step%2f&amp;description=Building%20a%20GPU%20Cluster%20with%20Kubernetes%20-%20the%20First%20Steps" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -578,12 +569,12 @@ gpu-operator-test   0/1     Pending   <span class="m">0</span>          2m50s
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20220914_xrandr_badmach/" data-toggle="tooltip" data-placement="top" title="ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch/" data-toggle="tooltip" data-placement="top" title="Change display resolution - xrandr BadMatch support">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/post/20221010_stablediffuser/" data-toggle="tooltip" data-placement="top" title="Stable Diffusion with Diffusers">次ページ &rarr;</a>
+              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN)（Part 3）">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -668,12 +659,12 @@ gpu-operator-test   0/1     Pending   <span class="m">0</span>          2m50s
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

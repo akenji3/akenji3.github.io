@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,8 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Deep Learning (CNN) による銀河形状分類（その2） - akenji&#39;s lab</title>
-  <meta name="description" content="前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい">
+  <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2） - akenji&#39;s lab</title>
+  <meta name="description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20221230_galaxy_cnn_2\/",
-          "name": "Deep learning ( c n n) による銀河形状分類（その2）"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20221230_galaxy_cnn_2\/",
+          "name": "Galaxy shape classification by deep learning ( c n n)（ part 2）"
         }
     }]
 }
@@ -56,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Deep Learning (CNN) による銀河形状分類（その2）",
-  "description" : "前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい",
-  "inLanguage" : "ja",
-  "wordCount":  1077 ,
+  "headline": "Galaxy Shape Classification by Deep Learning (CNN)（Part 2）",
+  "description" : "Continued from previous article.\nWhy doesn\u0026rsquo;t the training\/testing error improve after repeated epochs? The results of various attempts to answer this question are summarized below.\n",
+  "inLanguage" : "en",
+  "wordCount":  549 ,
   "datePublished" : "2022-12-30T00:00:00",
   "dateModified" : "2022-12-30T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20221230_galaxy_cnn_2\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20221230_galaxy_cnn_2\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,22 +80,26 @@
 }
 </script>
 
-<meta property="og:title" content="Deep Learning (CNN) による銀河形状分類（その2）" />
-<meta property="og:description" content="前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい">
+<meta property="og:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 2）" />
+<meta property="og:description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Deep Learning (CNN) による銀河形状分類（その2）" />
-  <meta name="twitter:description" content="前回の記事の続き。 epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？ この疑問に対して、色々と試した結果を以下にまとめてい">
+  <meta name="twitter:title" content="Galaxy Shape Classification by Deep Learning (CNN)（Part 2）" />
+  <meta name="twitter:description" content="Continued from previous article.
+Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -123,12 +129,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -136,25 +142,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -164,9 +170,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -180,7 +186,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -260,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Deep Learning (CNN) による銀河形状分類（その2）</h1>
+                <h1>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</h1>
               
               
               
@@ -268,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;December 30, 2022に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
   
   
   
@@ -277,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" lang="ja">ja</a>
 </span>
 
 
@@ -295,11 +301,11 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">前回</a>の記事の続き。</p>
-<p>epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？
-この疑問に対して、色々と試した結果を以下にまとめている。</p>
-<h2 id="銀河イメージ">銀河イメージ</h2>
-<p>今回使用した、Galaxy10 DECals Datasetがどのようなデータかここで見てみたい。</p>
+        <p>Continued from <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">previous</a> article.</p>
+<p>Why doesn&rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.</p>
+<h2 id="galaxy-image">Galaxy image</h2>
+<p>Let&rsquo;s see what galaxy images looks like in the Galaxy10 DECals Dataset.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># DataLoaderに格納されているイメージデータとラベルを表示</span>
 <span class="c1"># 格納されているイメージデータは、正規化されている</span>
 
@@ -326,33 +332,32 @@ if (!doNotTrack) {
     <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><p>前回、train_datasetとtest_datasetを得たCellの次において実行すると、次のようなイメージが得られる。</p>
+</code></pre></div><p>The following image is obtained by executing the above code after the cell that obtained the train_dataset and test_dataset in Part 1.</p>
 <p><img src="/images/20221230_Galaxy_CNN/20221230_Galaxy_image.png" alt="Galaxy_image"></p>
-<p>上記の形状のタイトルのデータセットの名称の通り、但し、表示のスペースの関係で一部略したが、各々の意味は次の通り。RS=Round Smooth、w/o=without、w/t=with。</p>
-<p>人間でも中々識別出来ない。<a href="https://www.zooniverse.org/projects/zookeeper/galaxy-zoo">Galaxy Zoo</a>の活動に頭が下がる。</p>
-<h2 id="データに回転左右反転を施す">データに回転、左右反転を施す</h2>
-<p>銀河の傾きのバリエーションを増やすために、transformsでコメントアウトしていた２行を有効にした結果は、次の通り。</p>
+<p>The above images&rsquo; titles are as in the name of the dataset, although some of them are abbreviated due to space limitation, and their meanings are as follows: RS=Round Smooth, w/o=without, and w/t=with.</p>
+<p>Even a human being cannot distinguish them. I bow down to the activities of <a href="https://www.zooniverse.org/projects/zookeeper/galaxy-zoo">Galaxy Zoo</a>.</p>
+<h2 id="rotate-and-flip-data-left-and-right">Rotate and flip data left and right</h2>
+<p>The following is the result of enabling the two lines that were commented out in transforms to increase the variation of the galaxy tilt.</p>
 <p><img src="/images/20221230_Galaxy_CNN/20221230_VGG16_wtRotate.png" alt="withRotate"></p>
-<p>まだ、訓練／テスト誤差はepochを重ねても横ばいのままで、改善は見られない。</p>
-<h2 id="学習率を変更">学習率を変更</h2>
-<p>データに対し、更にランダムな切り抜き、ノイズ付加、情報損失等のデータ拡張を施すことも考えたが、その前に学習率を変更してみる。</p>
-<p>次の通り、前回のコードの「訓練と評価関数群」の最初のセルを次の通り変更し、学習率を小さく設定。
-そう言えば、情報源で上げた<a href="https://axa.biopapyrus.jp/deep-learning/object-classification/pytorch-vgg16.html">この記事</a>にも学習率は色々と試し、最終的に0.00001に決めたとの記載を思い出した。</p>
+<p>Still, the training/testing error remains flat over epochs, with no improvement.</p>
+<h2 id="change-the-learning-rate">Change the learning rate</h2>
+<p>I considered further data augmentaion by random cropping, noise addition, information loss, etc., but before that, let&rsquo;s change the learning rate.</p>
+<p>As shown below, the first cell of the &ldquo;Training and Testing functions&rdquo; section of the previous code was changed as follows to set a smaller learning rate.
+Speaking of which, I remembered that <a href="https://axa.biopapyrus.jp/deep-learning/object-classification/pytorch-vgg16.html">this article</a> mentioned that they tried various learning rates and finally decided to set it to 0.00001. I remembered that the learning rate was finally set to 0.00001.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 損失関数の設定</span>
 <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
 
 <span class="c1"># 最適化手法を設定</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
 </code></pre></div><p><img src="/images/20221230_Galaxy_CNN/20221230_LearningRate.png" alt="LearningRate"></p>
-<p>今度は、epochを重ねると訓練／テスト誤差共に改善されていることが分かる。30回のエポックでは過学習の傾向も見られない。</p>
-<p>30回のエポックに掛かった時間は2,786秒（46分26秒）であった。もうハーフやってみようか！</p>
+<p>This time, we can see that both training/testing errors are improving as epochs are repeated. 30 epochs shows no tendency for over-training.</p>
+<p>The time taken for the 30 epochs was 2,786 seconds (46 min 26 sec). Let&rsquo;s try another half!</p>
 <p><img src="/images/20221230_Galaxy_CNN/20221230_epoch60.png" alt="epoch60"></p>
-<p>60回のエポックに掛かった時間は5,574秒（92分54秒）であった。</p>
-<p>epochが50数回を過ぎたあたりから、過学習の傾向が出始めているようにも見える。</p>
-<h2 id="vgg16のまとめ">VGG16のまとめ</h2>
-<p>VGG16の場合、学習率$lr$を$0.00001$とすることが、一番のポイントで、50回程度のエポックで損失値$0.02$程度であった。</p>
-<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/">次回</a>は、モデルとしてResNetを使って試してみる。</p>
-
+<p>The time taken for 60 epochs was 5,574 seconds (92 minutes and 54 seconds).</p>
+<p>It appears that after 50 or so epochs, the tendency of overlearning is starting to appear.</p>
+<h2 id="summary-of-vgg16">Summary of VGG16</h2>
+<p>In the case of VGG16, the most important point is to set the learning rate $lr$ to $0.00001$, and the loss value was about $0.02$ in about 50 epochs.</p>
+<p>In <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3_en/">next time</a>, we will try using ResNet as the model.</p>
 
         
 
@@ -366,42 +371,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f&amp;text=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae2%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f&amp;text=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae2%ef%bc%89" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae2%ef%bc%89" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae2%ef%bc%89" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f&amp;title=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20221230_galaxy_cnn_2%2f&amp;description=Deep%20Learning%20%28CNN%29%20%e3%81%ab%e3%82%88%e3%82%8b%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%ef%bc%88%e3%81%9d%e3%81%ae2%ef%bc%89" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20221230_galaxy_cnn_2%2f&amp;description=Galaxy%20Shape%20Classification%20by%20Deep%20Learning%20%28CNN%29%ef%bc%88Part%202%ef%bc%89" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -424,12 +429,12 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" data-toggle="tooltip" data-placement="top" title="Deep Learning (CNN) による銀河形状分類（その3）">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN)（Part 3）">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/" data-toggle="tooltip" data-placement="top" title="Deep Learning (CNN) による銀河形状分類（その1）">次ページ &rarr;</a>
+              <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn/" data-toggle="tooltip" data-placement="top" title="Galaxy Shape Classification by Deep Learning (CNN) (Part 1)">Next Post &rarr;</a>
             </li>
           
         </ul>
@@ -514,12 +519,12 @@ if (!doNotTrack) {
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

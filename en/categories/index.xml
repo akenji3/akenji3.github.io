@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Software</title>
+      <title>software</title>
       <link>https://akenji3.github.io/en/categories/software/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
@@ -36,6 +36,15 @@
       <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/categories/astro-ph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>service</title>
+      <link>https://akenji3.github.io/en/categories/service/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/categories/service/</guid>
       <description></description>
     </item>
     

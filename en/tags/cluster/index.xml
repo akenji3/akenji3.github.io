@@ -14,10 +14,10 @@
     
     <item>
       <title>GPU cluster construction with Kubernetes (not yet completed)</title>
-      <link>https://akenji3.github.io/en/post/20220821_kubernetes_en/</link>
+      <link>https://akenji3.github.io/en/post/20220821_kubernetes/</link>
       <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20220821_kubernetes_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20220821_kubernetes/</guid>
       <description>Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This</description>
     </item>
     

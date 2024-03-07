@@ -14,10 +14,10 @@
     
     <item>
       <title>Publish a static blog created by Hugo on GitHub Pages</title>
-      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</link>
+      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub_en/</guid>
+      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub/</guid>
       <description>Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
 When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
     </item>

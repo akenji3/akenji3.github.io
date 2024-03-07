@@ -213,5 +213,74 @@ In this article, I would like to consider the dataset used for the galaxy morpho
 &lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/</guid>
+      <description>&lt;p&gt;Continued from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;previous&lt;/a&gt; article.&lt;/p&gt;
+&lt;p&gt;Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs?
+The results of various attempts to answer this question are summarized below.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/</guid>
+      <description>&lt;p&gt;Continued from previous article.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building a GPU Cluster with Kubernetes - the First Steps</title>
+      <link>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</guid>
+      <description>Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&amp;rsquo;ll summarize it here.
+In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &amp;ldquo;the first step&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Change display resolution - xrandr BadMatch support</title>
+      <link>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</guid>
+      <description>Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu</description>
+    </item>
+    
+    <item>
+      <title>GPU cluster construction with Kubernetes (not yet completed)</title>
+      <link>https://akenji3.github.io/en/post/20220821_kubernetes/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20220821_kubernetes/</guid>
+      <description>Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This</description>
+    </item>
+    
+    <item>
+      <title>Publish a static blog created by Hugo on GitHub Pages</title>
+      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub/</guid>
+      <description>Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
+When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
+    </item>
+    
   </channel>
 </rss>
