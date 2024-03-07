@@ -14,10 +14,10 @@
     
     <item>
       <title>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</title>
-      <link>https://akenji3.github.io/post/20220914_xrandr_badmach/</link>
+      <link>https://akenji3.github.io/post/20220914_xrandr_badmatch/</link>
       <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20220914_xrandr_badmach/</guid>
+      <guid>https://akenji3.github.io/post/20220914_xrandr_badmatch/</guid>
       <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
 &lt;p&gt;Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
 端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。&lt;/p&gt;

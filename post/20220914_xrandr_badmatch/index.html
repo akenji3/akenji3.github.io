@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,8 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Change display resolution - xrandr BadMatch support - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu">
+  <title>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応 - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
+端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。
+解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +47,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/en\/post\/20220914_xrandr_badmatch\/",
-          "name": "Change display resolution xrandr bad match support"
+          "@id": "https:\/\/akenji3.github.io\/post\/20220914_xrandr_badmatch\/",
+          "name": "ディスプレイ解像度を変更 〜 xrandr bad matchへの対応"
         }
     }]
 }
@@ -56,15 +59,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Change display resolution - xrandr BadMatch support",
-  "description" : "Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu",
-  "inLanguage" : "en",
-  "wordCount":  1011 ,
+  "headline": "ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応",
+  "description" : "モチベーション Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。 端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。\n解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2236 ,
   "datePublished" : "2022-09-14T00:00:00",
   "dateModified" : "2022-09-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "ubuntu, nvidia, xrandr, BadMatch" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20220914_xrandr_badmatch\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220914_xrandr_badmatch\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,22 +81,28 @@
 }
 </script>
 
-<meta property="og:title" content="Change display resolution - xrandr BadMatch support" />
-<meta property="og:description" content="Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu">
+<meta property="og:title" content="ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応" />
+<meta property="og:description" content="モチベーション
+Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
+端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。
+解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/20220914_xrandr_badmatch/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20220914_xrandr_badmatch/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Change display resolution - xrandr BadMatch support" />
-  <meta name="twitter:description" content="Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to …">
+  <meta name="twitter:title" content="ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応" />
+  <meta name="twitter:description" content="モチベーション
+Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
+端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。
+解像度を変更しようとしたが、少しハマったので、経緯をここにまと …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -123,12 +132,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">メニューを切り替え</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -136,25 +145,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/en">Blog</a>
+              <a title="Blog" href="/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/en/page/about/">About</a>
+              <a title="About" href="/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/en/categories">Categories</a>
+              <a title="Categories" href="/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/en/tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -164,9 +173,9 @@ if (!doNotTrack) {
             <li>
               
                 
-              
+                  <a href="/en" lang="en">en</a>
                 
-                  <a href="/ja" lang="ja">ja</a>
+              
                 
               
             </li>
@@ -180,7 +189,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -260,7 +269,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Change display resolution - xrandr BadMatch support</h1>
+                <h1>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</h1>
               
               
               
@@ -268,7 +277,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 14, 2022
+  <i class="fas fa-calendar"></i>&nbsp;September 14, 2022に投稿
   
   
   
@@ -277,7 +286,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220914_xrandr_badmatch/" lang="ja">ja</a>
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch/" lang="en">en</a>
 </span>
 
 
@@ -295,25 +304,26 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="motivation">Motivation</h2>
-<p>Immediately after installing Ubuntu, the display resolution was set to 1368x768.
-The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution.</p>
-<p>I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process.</p>
-<h2 id="sources">Sources</h2>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。
+端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。</p>
+<p>解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。</p>
+<h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://www.bioerrorlog.work/entry/change-resolution">Ubuntuディスプレイ解像度の変更|1920x1080</a>  Reading this information, it seems that it is easy to change the resolution using the xrandr command, and it only takes a few minutes of work. I thought it would only take a few minutes to change the display resolution, so I started to work on it.</li>
-<li><a href="https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions">4.3 Permanently adding undetected resolutions</a>  This is the page I referred to when editing xorg.conf.</li>
-<li><a href="https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753">External Monitor, can&rsquo;t set desired resolution</a>  *This page solved the problem.
-I tried many things without success, and after searching the net further, I finally found an article about the same phenomenon I was experiencing.</li>
-<li><a href="https://github.com/leeseungcheol/edid-generator">edid-generator</a>  Github page referenced from the above page.</li>
-<li><a href="https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch">19 xrandr BadMatch</a>  Why xrandr is a BadMatch.</li>
-<li><a href="https://wiki.archlinux.org/title/xrandr#EDID_checksum_is_invalid">4.2.1 EDID checksum is invalid</a>  An article about EDID related to the above.</li>
-<li><a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">Archive:Creating and using edid.bin via xorg.conf</a>  An article about edid.bin from xorg. conf to use edid.bin via xorg.conf.</li>
+<li><a href="https://www.bioerrorlog.work/entry/change-resolution">Ubuntuディスプレイ解像度の変更|1920x1080</a>　　この情報を読むと、xrandrコマンドを使えば簡単に変更できるようで、数分の作業で終わると思い気楽に着手。</li>
+<li><a href="https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions">4.3 Permanently adding undetected resolutions</a>　　xorg.confを編集する際に参照にしたページ。</li>
+<li><a href="https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753">External Monitor, can&rsquo;t set desired resolution</a>　　※このページで解決。
+色々試して上手くいかず、ネットを更に調べて、やっと見つけた自分と同じ現象の記事。</li>
+<li><a href="https://github.com/leeseungcheol/edid-generator">edid-generator</a>　　上記のページから参照されているGithubのページ。</li>
+<li><a href="https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch">19 xrandr BadMatch</a>　　xrandrでBadMatchとなる理由。</li>
+<li><a href="https://wiki.archlinux.org/title/xrandr#EDID_checksum_is_invalid">4.2.1 EDID checksum is invalid</a>　上記に関連してEDIDについての記事。</li>
+<li><a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">Archive:Creating and using edid.bin via xorg.conf</a>　xorg.confからedid.binを使う記述。</li>
 </ol>
-<h2 id="setup">Setup</h2>
-<h3 id="normal-way">Normal way</h3>
-<p>To change the resolution of the display, go to &ldquo;Settings&rdquo; -&gt; &ldquo;Display&rdquo; and specify the resolution, but in my environment, there is no 1920x1080 entry in this list!</p>
-<p><a href="https://www.bioerrorlog.work/entry/change-resolution">&ldquo;Sources 1.&quot;</a> I understood that what this article says is how to add 1920x1080 in the list of resolutions. I will set it up according to the article.</p>
+<h2 id="設定">設定</h2>
+<h3 id="普通の方法">普通の方法</h3>
+<p>ディスプレの解像度を変更するには、「設定」→ 「ディプレイ」で解像度を指定するが、自分の環境では、このリストに1920x1080の項目が無い！　</p>
+<p><a href="https://www.bioerrorlog.work/entry/change-resolution">「情報源 1.」</a>この記事に書かれている内容は、解像度のリスト中に1920x1080を追加する方法と理解した。</p>
+<p>記事にしたがって設定していく。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ cvt <span class="m">1920</span> <span class="m">1080</span>
 <span class="c1"># 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz</span>
 Modeline <span class="s2">&#34;1920x1080_60.00&#34;</span>  173.00  <span class="m">1920</span> <span class="m">2048</span> <span class="m">2248</span> <span class="m">2576</span>  <span class="m">1080</span> <span class="m">1083</span> <span class="m">1088</span> <span class="m">1120</span> -hsync +vsync
@@ -352,74 +362,72 @@ DP-1 disconnected <span class="o">(</span>normal left inverted right x axis y ax
   1920x1080_60.00 <span class="o">(</span>0x26f<span class="o">)</span> 173.000MHz -HSync +VSync
         h: width  <span class="m">1920</span> start <span class="m">2048</span> end <span class="m">2248</span> total <span class="m">2576</span> skew    <span class="m">0</span> clock  67.16KHz
         v: height <span class="m">1080</span> start <span class="m">1083</span> end <span class="m">1088</span> total <span class="m">1120</span>           clock  59.96Hz
-</code></pre></div><p>I thought I was ready to go with two more commands, but the next operation resulted in an error.</p>
+</code></pre></div><p>このまま、後２つのコマンドで準備完了と思っていたが、次の操作でエラーとなった。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ xrandr --addmode DVI-I-0 1920x1080_60.00
 X Error of failed request:  BadMatch <span class="o">(</span>invalid parameter attributes<span class="o">)</span>
   Major opcode of failed request:  <span class="m">140</span> <span class="o">(</span>RANDR<span class="o">)</span>
   Minor opcode of failed request:  <span class="m">18</span> <span class="o">(</span>RRAddOutputMode<span class="o">)</span>
   Serial number of failed request:  <span class="m">35</span>
   Current serial number in output stream:  <span class="m">36</span>
-</code></pre></div><h3 id="trial-and-error">Trial and error</h3>
-<p>Here, I searched the net and tried the following two things, but nothing worked.</p>
-<ul>
-<li>add GRUB_GFXMODE=1920x1080 in /etc/default/grub</li>
-<li>edit /etc/X11/xorg.conf
-<ul>
-<li>initially, /etc/X11/xorg.conf did not exist, so open the &ldquo;X Server Display Configuration&rdquo; tab of &ldquo;NVIDIA X Server Settings&rdquo;, click the &ldquo;Save to X Configuration File&rdquo; button and edit xorg.conf was generated.</li>
-<li>referring to <a href="https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions">&ldquo;Source 2.&quot;</a>, made the following modifications/additions to xorg.conf:
-<ul>
-<li>added &ldquo;1920x1080_60.00&rdquo; to the modeline line in the Monitor section</li>
-<li>added Modes to the Display subsection of the Screen section</li>
-<li>added &ldquo;UseEDID&rdquo; &ldquo;false&rdquo; in Option in Divice section</li>
-</ul>
+</code></pre></div><h3 id="試行錯誤">試行錯誤</h3>
+<p>ここで、ネット検索して、次の２つを試したが、何も上手くいかなかった。</p>
+<ol>
+<li>/etc/default/grubにGRUB_GFXMODE=1920x1080を追加</li>
+<li>/etc/X11/xorg.confを編集
+<ol>
+<li>当初、/etc/X11/xorg.confが存在してなかったので、「NVIDIA X Server Settings」の「X Server Display Configuration」タブを開き、「Save to X Configuration File」ボタンを押して、xorg.confを生成した。</li>
+<li><a href="https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions">「情報源 2.」</a>を参考にして、xorg.confに次のように修正／追加を行なった。
+<ol>
+<li>MonitorセクションにModeline行に&quot;1920x1080_60.00&quot;を追加</li>
+<li>ScreenセクションのDisplayサブセクションにModesを追加</li>
+<li>DiviceセクションにOptionでUseEDID falseを追加</li>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
-</ul>
-<p>Further, I searched the net and found &ldquo;Sources 3.</p>
-<h3 id="response-to-xrandr-badmatch">Response to xrandr BadMatch</h3>
-<p>The phenomenon in <a href="https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753">this article (source .3)</a> was similar to what was happening in my environment. So I read it with high expectations and applied it to my environment.</p>
-<h4 id="about-edid">About EDID</h4>
-<p>The solution this time is to create EDID by yourself and use the binary you created. The reason why this is necessary is explained in <a href="https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch">Sources 5.&quot;</a> and [Sources 6.&quot;](https://wiki. archlinux.org/title/xrandr#EDID_checksum_is_invalid).
-For myself, I understood that it forces the NVIDIA driver to set the EDID of the monitor (display) because it does not recognize it correctly.</p>
-<h4 id="download-sources-from-github">Download sources from Github</h4>
-<p>Download from github at <a href="https://github.com/leeseungcheol/edid-generator">&ldquo;Sources .4&rdquo;</a>. I downloaded the ZIP file and extracted it to my local environment.</p>
-<h4 id="install-necessary-packages">Install necessary packages</h4>
-<p>I installed zsh, edid-decode, automake, dos2unix packages as described in README.md on github, as well as development packages such as make since there were no such packages on this workstation.</p>
+</ol>
+<p>更に、ネットを検索して、「情報源 3.」を見つけた。</p>
+<h3 id="xrandr-badmatchへの対応">xrandr BadMatchへの対応</h3>
+<p><a href="https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753">この記事(情報源 .3)</a>の現象は、自分の環境で起こっていることと同じようだったので、期待をして読み進め、自分の環境にも適用した。</p>
+<h4 id="edidについて">EDIDについて</h4>
+<p>今回の解決法は、EDIDを自分で作成して、作成したバイナリを使う、というやり方。何故そのようなことが必要かということが、<a href="https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch">「情報源 5.」</a>および<a href="https://wiki.archlinux.org/title/xrandr#EDID_checksum_is_invalid">「情報源 6.」</a>に説明してある。
+自分としては、NVIDIAドライバがモニタ（ディスプレイ）のEDIDを正しく認識しないので、強制的に設定するものと理解した。</p>
+<h4 id="githubからソース類をダウンロード">Githubからソース類をダウンロード</h4>
+<p><a href="https://github.com/leeseungcheol/edid-generator">「情報源 .4」</a>のgithubからダウンロード。自分はZIPファイルをダウンロードしてローカル環境に解凍した。</p>
+<h4 id="必要なパッケージをインストール">必要なパッケージをインストール</h4>
+<p>githubのREADME.mdに記載してあるとおりzsh, edid-decode, automake, dos2unixパッケージ、および今回のワークステーションには、makeなどの開発系のパッケージが無かったので、インストールした。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt install zsh edid-decode automake dos2unix
 $ sudo apt install build-essential
-</code></pre></div><h4 id="implementation-steps">Implementation steps</h4>
+</code></pre></div><h4 id="実施手順">実施手順</h4>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ ./modeline2edid /etc/X11/xorg.conf
-Searching <span class="k">for</span> modelines in <span class="s1">&#39;/etc/X11/xorg.conf&#39;</span>.
+Searching <span class="k">for</span> modelines in <span class="s1">&#39;/etc/X11/xorg.conf&#39;</span>
 $ make
-</code></pre></div><p>No new <!-- raw HTML omitted -->.s was created because there is no &ldquo;modeline&rdquo; in my xorg.conf.</p>
-<p>The above created 1920x1080.bin, but there was no description on github on how to incorporate it. Is this common sense? But I didn&rsquo;t know, so I checked the net and found <a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">&ldquo;Sources 7.&quot;</a>.</p>
-<h4 id="incorporating-edidbin-into-xorgconf">Incorporating edid.bin into xorg.conf</h4>
-<p>First, copy the &ldquo;1920x1080.bin&rdquo; created in the above &ldquo;implementation steps&rdquo; to /etc/X11.</p>
-<p>Next, edit /etc/X11/xorg.conf with reference to <a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">&ldquo;Sources 7.&quot;</a>.</p>
-<p>The difference between my edited xorg.conf and the one I created in &ldquo;Trial and Error&rdquo; 2.-1. (NVIDIA X Server Settings) is as follows: I just added 4 lines to the Device section.</p>
+</code></pre></div><p>自分のxorg.conf中にmodelineが無いので、新規に<!-- raw HTML omitted -->.sは作成されなかった。</p>
+<p>上記で、1920x1080.binが作成されたが、これをどうやって組み込むのか、githubに記述が無かった。常識なのだろうか！でも自分は知らなかったので、ネットを調べて、<a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">「情報源 7.」</a>を見つけた。</p>
+<h4 id="edidbinをxorgconfに組み込む">edid.binをxorg.confに組み込む</h4>
+<p>先ず、実施手順で作成された「1920x1080.bin」を/etc/X11にコピー。</p>
+<p>次に、<a href="https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf">「情報源 7.」</a>を参考に、/etc/X11/xorg.confを編集。</p>
+<p>自分が編集したxorg.confと「試行錯誤」2.-1.（NVIDIA X Server Settings）で作成したものとの差は次の通りで、Deviceセクションに4行追加しただけ。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">54,57d53
-&lt; Option <span class="s2">&#34;ConnectedMonitor&#34;</span> <span class="s2">&#34;DVI-I-0&#34;</span>
-&lt; Option <span class="s2">&#34;CustomEDID&#34;</span> <span class="s2">&#34;DVI-I-0:/etc/X11/1920x1080.bin&#34;</span>
-&lt; Option <span class="s2">&#34;IgnoreEDID&#34;</span> <span class="s2">&#34;false&#34;</span>
-&lt; Option <span class="s2">&#34;UseEDID&#34;</span> <span class="s2">&#34;ture&#34;</span>
-</code></pre></div><p>Here, when I logged off/logged in, I suddenly had a 1920x1080 desktop view.</p>
-<h2 id="summary">Summary</h2>
-<p>After all this action, to change the resolution of the display, I went to Settings -&gt; Display and looked at the resolution, and the list shows only 1920x1080.</p>
-<p>I don&rsquo;t think I will ever use a lower resolution, so this is fine.</p>
-<p>Translated with <a href="http://www.DeepL.com/Translator">www.DeepL.com/Translator</a> (free version)</p>
-
+&lt;     Option         <span class="s2">&#34;ConnectedMonitor&#34;</span> <span class="s2">&#34;DVI-I-0&#34;</span>
+&lt;     Option         <span class="s2">&#34;CustomEDID&#34;</span> <span class="s2">&#34;DVI-I-0:/etc/X11/1920x1080.bin&#34;</span>
+&lt;     Option         <span class="s2">&#34;IgnoreEDID&#34;</span> <span class="s2">&#34;false&#34;</span>
+&lt;     Option         <span class="s2">&#34;UseEDID&#34;</span> <span class="s2">&#34;ture&#34;</span>
+</code></pre></div><p>ここで、ログオフ／ログインすると、いきなり1920x1080と広いデスクトップとなった。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>ここまでの対応後、ディスプレの解像度を変更するため、「設定」→ 「ディプレイ」で解像度を見ると、リストには1920x1080のみとなっている。</p>
+<p>解像度を下げて使うことはないと思うので、これで良しとする。</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://akenji3.github.io/en/tags/ubuntu/">ubuntu</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
             
-              <a href="https://akenji3.github.io/en/tags/nvidia/">nvidia</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/nvidia/">nvidia</a>&nbsp;
             
-              <a href="https://akenji3.github.io/en/tags/xrandr/">xrandr</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/xrandr/">xrandr</a>&nbsp;
             
-              <a href="https://akenji3.github.io/en/tags/badmatch/">BadMatch</a>&nbsp;
+              <a href="https://akenji3.github.io/tags/badmatch/">BadMatch</a>&nbsp;
             
           </div>
         
@@ -434,42 +442,42 @@ $ make
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f&amp;text=Change%20display%20resolution%20-%20xrandr%20BadMatch%20support&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f&amp;text=%e3%83%87%e3%82%a3%e3%82%b9%e3%83%97%e3%83%ac%e3%82%a4%e8%a7%a3%e5%83%8f%e5%ba%a6%e3%82%92%e5%a4%89%e6%9b%b4%20%e3%80%9c%20xrandr%20BadMatch%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=Change%20display%20resolution%20-%20xrandr%20BadMatch%20support" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=%e3%83%87%e3%82%a3%e3%82%b9%e3%83%97%e3%83%ac%e3%82%a4%e8%a7%a3%e5%83%8f%e5%ba%a6%e3%82%92%e5%a4%89%e6%9b%b4%20%e3%80%9c%20xrandr%20BadMatch%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=Change%20display%20resolution%20-%20xrandr%20BadMatch%20support" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=%e3%83%87%e3%82%a3%e3%82%b9%e3%83%97%e3%83%ac%e3%82%a4%e8%a7%a3%e5%83%8f%e5%ba%a6%e3%82%92%e5%a4%89%e6%9b%b4%20%e3%80%9c%20xrandr%20BadMatch%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=Change%20display%20resolution%20-%20xrandr%20BadMatch%20support" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f&amp;title=%e3%83%87%e3%82%a3%e3%82%b9%e3%83%97%e3%83%ac%e3%82%a4%e8%a7%a3%e5%83%8f%e5%ba%a6%e3%82%92%e5%a4%89%e6%9b%b4%20%e3%80%9c%20xrandr%20BadMatch%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20220914_xrandr_badmatch%2f&amp;description=Change%20display%20resolution%20-%20xrandr%20BadMatch%20support" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220914_xrandr_badmatch%2f&amp;description=%e3%83%87%e3%82%a3%e3%82%b9%e3%83%97%e3%83%ac%e3%82%a4%e8%a7%a3%e5%83%8f%e5%ba%a6%e3%82%92%e5%a4%89%e6%9b%b4%20%e3%80%9c%20xrandr%20BadMatch%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -483,6 +491,21 @@ $ make
 
         
           
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20220416_chromeremotedesktop/">【失敗】Ubuntu 20.04でのChrome Remote Desktop</a></li>
+                
+                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                
+                    <li><a href="/post/20210405_ubuntu2004_install/">Ubuntu 20.04をHP Z620にクリーン・インストール</a></li>
+                
+              </ul>
 
           
         
@@ -492,12 +515,12 @@ $ make
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/en/post/20220821_kubernetes/" data-toggle="tooltip" data-placement="top" title="GPU cluster construction with Kubernetes (not yet completed)">&larr; Previous Post</a>
+              <a href="https://akenji3.github.io/post/20220821_kubernetes/" data-toggle="tooltip" data-placement="top" title="KubernetesでGPUクラスタ構築（未完成）">&larr; 前ページ</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" data-toggle="tooltip" data-placement="top" title="Building a GPU Cluster with Kubernetes - the First Steps">Next Post &rarr;</a>
+              <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" data-toggle="tooltip" data-placement="top" title="KubernetesでGPUクラスタ構築 〜 初めの一歩">次ページ &rarr;</a>
             </li>
           
         </ul>
@@ -582,12 +605,12 @@ $ make
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
