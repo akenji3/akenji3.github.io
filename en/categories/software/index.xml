@@ -272,5 +272,15 @@ In my environment, there is a problem that the GPU pod does not start up until a
 When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.</description>
     </item>
     
+    <item>
+      <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240307_athena_tutorial4_en/</guid>
+      <description>Introduction Up to this article posted last month, we have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, we will use the Docker container created above to run tutorial 4 &amp;ldquo;Running 3D MHD with OpenMP and MPI&amp;rdquo; of Athena++ on multiple nodes.
+Sources.  Athena Tutorial This time, I will run &amp;ldquo;4. Running 3D MHD with OpenMP and MPI&amp;rdquo;.</description>
+    </item>
+    
   </channel>
 </rss>
