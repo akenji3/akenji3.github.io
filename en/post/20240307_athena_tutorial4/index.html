@@ -431,7 +431,7 @@ make: *** <span class="o">[</span>Makefile:119: obj/hdf5_reader.o<span class="o"
 collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
 make: *** <span class="o">[</span>Makefile:114: bin/athena<span class="o">]</span> Error <span class="m">1</span>
 </code></pre></div><p>After checking under /usr/lib/x86_64-linux-gnu, where the library is stored, I guessed that the library I needed was hdf5_openmpi, and changed &ldquo;-lhdf5&rdquo; in the Makefile generated as a result of the configuration to &ldquo;-lhdf5_openmpi&rdquo;.</p>
-<p>After above trial and erro, I obtained the Dockerfile shown at the beginning of this section.</p>
+<p>After above trial and error, I obtained the Dockerfile shown at the beginning of this section.</p>
 <h2 id="running-the-simulation">Running the simulation</h2>
 <h4 id="edit-parameter-files">Edit parameter files</h4>
 <p>As in the previous tutorial, copy the parameter file (input file) and executable to the working directory &ldquo;t4&rdquo; in the container. The parameter file was copied from athena/inputs/mhd/athinput.blast.</p>
