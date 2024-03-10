@@ -60,7 +60,7 @@ Visualization of 3D magnetohydrodynamic simulation results computed in parallel 
   "headline": "Visualization of Simulation Results - Athena\u002b\u002b Tutorial 4",
   "description" : "Introduction. Visualization of 3D magnetohydrodynamic simulation results computed in parallel in this post. The visualization is done with VisIt 3.3.3 running on a Mac.\n",
   "inLanguage" : "en",
-  "wordCount":  520 ,
+  "wordCount":  502 ,
   "datePublished" : "2024-03-10T00:00:00",
   "dateModified" : "2024-03-10T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -299,43 +299,43 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction.</h2>
-<p>Visualization of 3D magnetohydrodynamic simulation results computed in parallel in <a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">this post</a>. The visualization is done with VisIt 3.3.3 running on a Mac.</p>
+<p>Visualization of 3D magnetohydrodynamic simulation results computed in parallel in <a href="https://akenji3.github.io/en/post/20240307_athena_tutorial4/">this post</a>. The visualization is done with VisIt 3.3.3 running on a Mac.</p>
 <h2 id="visualizing-simulation-results-with-visit">Visualizing simulation results with VisIt</h2>
 <h4 id="environment">Environment</h4>
-<p>The /workdir directory of the docker container with the simulation is under /ext/nfs/athena++ on the physical workstation where the container is running. See the -v option in &ldquo;Starting Docker&rdquo; in <a href="https://akenji3.github.io/post/20240203_athena++/">this post</a>.</p>
+<p>The /workdir directory of the docker container with the simulation is under /ext/nfs/athena++ on the physical workstation where the container is running. See the -v option in &ldquo;Starting Docker&rdquo; in <a href="https://akenji3.github.io/en/post/20240203_athena++/">this post</a>.</p>
 <p>If you NFS mount the /ext/nfs area of the above workstation from a Mac, you can view the resulting files from VisIt running on a Mac.</p>
 <h4 id="opening-the-simulation-results-file">Opening the simulation results file</h4>
 <p>Run visIt on a Mac and open the simulation results file on the NFS mount with &ldquo;Open&rdquo;.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_VisIt_FileOpen.png">FileOpen</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_VisIt_FileOpen.png" alt="FileOpen"></p>
 <p>For files, specify Blast.out1.*.athdf.xdmf database and click &ldquo;OK&rdquo;.</p>
 <h4 id="open-the-expressions-file">Open the Expressions file</h4>
 <p>Open the &ldquo;Controls&rdquo; → &ldquo;Expressions&rdquo; window and click &ldquo;Load&rdquo;. Then click &ldquo;Open&rdquo; on &ldquo;athena/vis/visit/athdf_MHD_primitive.xml&rdquo;.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_athdf_MHD_primitive.png">athdf_MHD_primitive</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_athdf_MHD_primitive.png" alt="athdf_MHD_primitive"></p>
 <p>In the &ldquo;Expressions&rdquo; window shown below, &ldquo;Apply&rdquo; and then click &ldquo;Dismiss&rdquo; to close the &ldquo;Expressions&rdquo; window.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Expression_Apply.png">Expression_Apply</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_Expression_Apply.png" alt="Expression_Apply"></p>
 <p>Click &ldquo;Add&rdquo; -&gt; &ldquo;Pseudocolor&rdquo; -&gt; &ldquo;pressure&rdquo; (no &ldquo;gas_pressure&rdquo;), then &ldquo;Draw&rdquo;.</p>
 <p>The following figure is a screenshot taken a little further in time. In the next section, we will see this cross-section.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_press_8.png">Press_8</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_press_8.png" alt="Press_8"></p>
 <h4 id="slice-operators">Slice Operators</h4>
 <p>View a cross-section using the &ldquo;ThreeSlice&rdquo; operator.</p>
 <p>Operator Attributes&rdquo; → &ldquo;Slicing&rdquo; → &ldquo;ThreeSlice&rdquo; opens the &ldquo;ThreeSlice operator attributes&rdquo; screen (it seems you can specify where to place the cross section, but I&rsquo;m not sure, so leave the default origin). (I am not sure about this, so I left the default origin as it is.) Click &ldquo;Apply&rdquo; to close the &ldquo;ThreeSlice operator attributes&rdquo; screen with &ldquo;Yes, Do not prompt again&rdquo; and then with &ldquo;Dismiss&rdquo; to close the &ldquo;ThreeSlice operator attributes&rdquo; screen.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_3slice_Operator_Attri.png">3slice_Operator_Attri</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_3slice_Operator_Attri.png" alt="3slice_Operator_Attri"></p>
 <p>The resulting image is as follows.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Slicing.png">Sliceing</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_Slicing.png" alt="Sliceing"></p>
 <h4 id="velocity-vector-display">velocity vector display</h4>
 <p>In &ldquo;Add&rdquo; → &ldquo;Vectors&rdquo; → &ldquo;gas_velocity&rdquo;, double-click &ldquo;gas_volocity&rdquo; to open the &ldquo;Vector plot attributes&rdquo; screen.</p>
 <p>Under &ldquo;Sampling,&rdquo; change the number of arrows from 400 to 4000 to increase the number of arrows. Under &ldquo;Geometry,&rdquo; change the radio button for &ldquo;Vector origin&rdquo; to &ldquo;Middle.</p>
 <p>The following figure is thus obtained. Compared with Source 2, there seem to be fewer arrows displayed. The reason is unknown.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Vectors.png">Vectors</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_Vectors.png" alt="Vectors"></p>
 <h4 id="drawing-magnetic-lines">Drawing magnetic lines</h4>
 <p>The next step is to display the magnetic field lines as follows.</p>
 <p>Specify &ldquo;Add&rdquo; → &ldquo;Pseudocolor&rdquo; → &ldquo;operators&rdquo; → &ldquo;IntegralCurve&rdquo; → &ldquo;bfield&rdquo;.</p>
 <p>Double-click on IntegralCurve to open the &ldquo;IntegralCurve operator attributes&rdquo; (see below).</p>
 <p>In the &ldquo;Integration&rdquo; tab, change &ldquo;Source type&rdquo; to &ldquo;Plane&rdquo; and &ldquo;Normal&rdquo; to &ldquo;1 0 0&rdquo;.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_IntegralCurve_operator_attri.png">IntegralCurve_operator_attri</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_IntegralCurve_operator_attri.png" alt="IntegralCurve_operator_attri"></p>
 <p>Furthermore, change &ldquo;Samples in X&rdquo; and &ldquo;Samples in Y&rdquo; to &ldquo;10&rdquo; and &ldquo;Distance in X&rdquo; and &ldquo;Distance in Y&rdquo; to &ldquo;2&rdquo;.</p>
 <p>Next, in the &ldquo;Appearance&rdquo; tab, specify &ldquo;Vector magnitude&rdquo; for &ldquo;Color by&rdquo;, &ldquo;Apply&rdquo;, &ldquo;Dismiss&rdquo;, and &ldquo;Draw&rdquo;, the following warning appears and the magnetic field lines are not displayed as in Source 2.</p>
-<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Warning.png">Warning</a></p>
+<p><img src="/images/20240310_Visit_Tutorial4/20240310_Warning.png" alt="Warning"></p>
 <h2 id="summary">Summary</h2>
 <p>The visualization of simulation results (calculation results) using VisIt worked well for the most part, but there were some problems with the display of arrows (velocity vectors) and magnetic field lines. In particular, the magnetic field lines were not displayed at all.</p>
 <p>We would like to use VisIt to visualize other problems and learn to use VisIt a little more.</p>
