@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 07 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240307_athena_tutorial4/&#34;&gt;この投稿&lt;/a&gt;で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIT 3.3.3で行う。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
@@ -18,7 +28,8 @@
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
-      <description>はじめに 先月投稿したこの記事までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿で</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;先月投稿した&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この記事&lt;/a&gt;までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿では、上記で作成したDockerコンテナを使って、Athena++のチュートリアル4「3次元磁気流体シミュレーションと並列計算」をマルチノードで実行させる。&lt;/p&gt;</description>
     </item>
     
     <item>
