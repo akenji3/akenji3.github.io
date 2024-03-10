@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>akenji&#39;s lab - akenji&#39;s lab</title>
-  <meta name="description" content="I am summarizing here what I have found out through research and hands-on work on my area of interest.">
+  <title>Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4 - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction.
+Visualization of 3D magnetohydrodynamic simulation results computed in parallel in this post. The visualization is done with VisIt 3.3.3 running on a Mac.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,16 +30,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240310_visit_tutorial4\/",
+          "name": "Visualization of simulation results athena\u002b\u002b tutorial 4"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Visualization of Simulation Results - Athena\u002b\u002b Tutorial 4",
+  "description" : "Introduction. Visualization of 3D magnetohydrodynamic simulation results computed in parallel in this post. The visualization is done with VisIt 3.3.3 running on a Mac.\n",
+  "inLanguage" : "en",
+  "wordCount":  520 ,
+  "datePublished" : "2024-03-10T00:00:00",
+  "dateModified" : "2024-03-10T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240310_visit_tutorial4\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="akenji&#39;s lab" />
-<meta property="og:description" content="I am summarizing here what I have found out through research and hands-on work on my area of interest.">
+<meta property="og:title" content="Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4" />
+<meta property="og:description" content="Introduction.
+Visualization of 3D magnetohydrodynamic simulation results computed in parallel in this post. The visualization is done with VisIt 3.3.3 running on a Mac.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240310_visit_tutorial4/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="akenji&#39;s lab" />
-  <meta name="twitter:description" content="I am summarizing here what I have found out through research and hands-on work on my area of interest.">
+  <meta name="twitter:title" content="Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4" />
+  <meta name="twitter:description" content="Introduction.
+Visualization of 3D magnetohydrodynamic simulation results computed in parallel in this post. The visualization is done with VisIt 3.3.3 running on a Mac.">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -210,18 +261,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
+            <div class="post-heading">
               
-                <h1>akenji&#39;s lab</h1>
-              
-              
-                <hr class="small">
+                <h1>Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4</h1>
               
               
-                
-                  <span class="page-subheading">Try some pages</span>
-                
               
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 10, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240310_visit_tutorial4/" lang="ja">ja</a>
+</span>
+
+
               
             </div>
           </div>
@@ -232,339 +294,137 @@ if (!doNotTrack) {
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-          <div class="well">
-            <p>I am summarizing here what I have found out through research and hands-on work on my area of interest.</p>
-
-          </div>
-        
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20221230_galaxy_cnn/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_2/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Continued from <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/">previous</a> article.</p>
-<p>Why doesn&rsquo;t the training/testing error improve after repeated epochs?
-The results of various attempts to answer this question are summarized below.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/">
-        <h2 class="post-title">Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20221230_galaxy_cnn_3/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Continued from previous article.</p>
-<p>In <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/">the previous</a>, we studied with VGG16, but this time we will use ResNet for the model.</p>
-        <a href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/">
-        <h2 class="post-title">Building a GPU Cluster with Kubernetes - the First Steps</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 19, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Introduction About a month ago, I wrote an article about building a GPU cluster using kubernetes in this article. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.
-In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.
-        <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch/">
-        <h2 class="post-title">Change display resolution - xrandr BadMatch support</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 14, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220914_xrandr_badmatch/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation Immediately after installing Ubuntu, the display resolution was set to 1368x768. The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution. I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process. Sources Ubu
-        <a href="https://akenji3.github.io/en/post/20220914_xrandr_badmatch/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/ubuntu/">ubuntu</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/nvidia/">nvidia</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/xrandr/">xrandr</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/badmatch/">BadMatch</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20220821_kubernetes/">
-        <h2 class="post-title">GPU cluster construction with Kubernetes (not yet completed)</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 21, 2022
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220821_kubernetes/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes. It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation). As it stands, the GPU cluster is not operational! This
-        <a href="https://akenji3.github.io/en/post/20220821_kubernetes/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/cluster/">cluster</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/kubernetes/">kubernetes</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/gpu/">gpu</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub/">
-        <h2 class="post-title">Publish a static blog created by Hugo on GitHub Pages</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 11, 2020
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
-When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.
-        <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/en/tags/github-pages/">GitHub Pages</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/en/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-        </div>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction.</h2>
+<p>Visualization of 3D magnetohydrodynamic simulation results computed in parallel in <a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">this post</a>. The visualization is done with VisIt 3.3.3 running on a Mac.</p>
+<h2 id="visualizing-simulation-results-with-visit">Visualizing simulation results with VisIt</h2>
+<h4 id="environment">Environment</h4>
+<p>The /workdir directory of the docker container with the simulation is under /ext/nfs/athena++ on the physical workstation where the container is running. See the -v option in &ldquo;Starting Docker&rdquo; in <a href="https://akenji3.github.io/post/20240203_athena++/">this post</a>.</p>
+<p>If you NFS mount the /ext/nfs area of the above workstation from a Mac, you can view the resulting files from VisIt running on a Mac.</p>
+<h4 id="opening-the-simulation-results-file">Opening the simulation results file</h4>
+<p>Run visIt on a Mac and open the simulation results file on the NFS mount with &ldquo;Open&rdquo;.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_VisIt_FileOpen.png">FileOpen</a></p>
+<p>For files, specify Blast.out1.*.athdf.xdmf database and click &ldquo;OK&rdquo;.</p>
+<h4 id="open-the-expressions-file">Open the Expressions file</h4>
+<p>Open the &ldquo;Controls&rdquo; → &ldquo;Expressions&rdquo; window and click &ldquo;Load&rdquo;. Then click &ldquo;Open&rdquo; on &ldquo;athena/vis/visit/athdf_MHD_primitive.xml&rdquo;.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_athdf_MHD_primitive.png">athdf_MHD_primitive</a></p>
+<p>In the &ldquo;Expressions&rdquo; window shown below, &ldquo;Apply&rdquo; and then click &ldquo;Dismiss&rdquo; to close the &ldquo;Expressions&rdquo; window.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Expression_Apply.png">Expression_Apply</a></p>
+<p>Click &ldquo;Add&rdquo; -&gt; &ldquo;Pseudocolor&rdquo; -&gt; &ldquo;pressure&rdquo; (no &ldquo;gas_pressure&rdquo;), then &ldquo;Draw&rdquo;.</p>
+<p>The following figure is a screenshot taken a little further in time. In the next section, we will see this cross-section.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_press_8.png">Press_8</a></p>
+<h4 id="slice-operators">Slice Operators</h4>
+<p>View a cross-section using the &ldquo;ThreeSlice&rdquo; operator.</p>
+<p>Operator Attributes&rdquo; → &ldquo;Slicing&rdquo; → &ldquo;ThreeSlice&rdquo; opens the &ldquo;ThreeSlice operator attributes&rdquo; screen (it seems you can specify where to place the cross section, but I&rsquo;m not sure, so leave the default origin). (I am not sure about this, so I left the default origin as it is.) Click &ldquo;Apply&rdquo; to close the &ldquo;ThreeSlice operator attributes&rdquo; screen with &ldquo;Yes, Do not prompt again&rdquo; and then with &ldquo;Dismiss&rdquo; to close the &ldquo;ThreeSlice operator attributes&rdquo; screen.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_3slice_Operator_Attri.png">3slice_Operator_Attri</a></p>
+<p>The resulting image is as follows.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Slicing.png">Sliceing</a></p>
+<h4 id="velocity-vector-display">velocity vector display</h4>
+<p>In &ldquo;Add&rdquo; → &ldquo;Vectors&rdquo; → &ldquo;gas_velocity&rdquo;, double-click &ldquo;gas_volocity&rdquo; to open the &ldquo;Vector plot attributes&rdquo; screen.</p>
+<p>Under &ldquo;Sampling,&rdquo; change the number of arrows from 400 to 4000 to increase the number of arrows. Under &ldquo;Geometry,&rdquo; change the radio button for &ldquo;Vector origin&rdquo; to &ldquo;Middle.</p>
+<p>The following figure is thus obtained. Compared with Source 2, there seem to be fewer arrows displayed. The reason is unknown.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Vectors.png">Vectors</a></p>
+<h4 id="drawing-magnetic-lines">Drawing magnetic lines</h4>
+<p>The next step is to display the magnetic field lines as follows.</p>
+<p>Specify &ldquo;Add&rdquo; → &ldquo;Pseudocolor&rdquo; → &ldquo;operators&rdquo; → &ldquo;IntegralCurve&rdquo; → &ldquo;bfield&rdquo;.</p>
+<p>Double-click on IntegralCurve to open the &ldquo;IntegralCurve operator attributes&rdquo; (see below).</p>
+<p>In the &ldquo;Integration&rdquo; tab, change &ldquo;Source type&rdquo; to &ldquo;Plane&rdquo; and &ldquo;Normal&rdquo; to &ldquo;1 0 0&rdquo;.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_IntegralCurve_operator_attri.png">IntegralCurve_operator_attri</a></p>
+<p>Furthermore, change &ldquo;Samples in X&rdquo; and &ldquo;Samples in Y&rdquo; to &ldquo;10&rdquo; and &ldquo;Distance in X&rdquo; and &ldquo;Distance in Y&rdquo; to &ldquo;2&rdquo;.</p>
+<p>Next, in the &ldquo;Appearance&rdquo; tab, specify &ldquo;Vector magnitude&rdquo; for &ldquo;Color by&rdquo;, &ldquo;Apply&rdquo;, &ldquo;Dismiss&rdquo;, and &ldquo;Draw&rdquo;, the following warning appears and the magnetic field lines are not displayed as in Source 2.</p>
+<p>! <a href="/images/20240310_Visit_Tutorial4/20240310_Warning.png">Warning</a></p>
+<h2 id="summary">Summary</h2>
+<p>The visualization of simulation results (calculation results) using VisIt worked well for the most part, but there were some problems with the display of arrows (velocity vectors) and magnetic field lines. In particular, the magnetic field lines were not displayed at all.</p>
+<p>We would like to use VisIt to visualize other problems and learn to use VisIt a little more.</p>
 
         
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="https://akenji3.github.io/en/page/2/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
+
         
-      </div>
-    </div>
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f&amp;text=Visualization%20of%20Simulation%20Results%20-%20Athena%2b%2b%20Tutorial%204&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f&amp;title=Visualization%20of%20Simulation%20Results%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f&amp;title=Visualization%20of%20Simulation%20Results%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f&amp;title=Visualization%20of%20Simulation%20Results%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240310_visit_tutorial4%2f&amp;description=Visualization%20of%20Simulation%20Results%20-%20Athena%2b%2b%20Tutorial%204" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
   </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
 
       
-    <div class="page-meta">
-  
-  
-  
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20240307_athena_tutorial4/" data-toggle="tooltip" data-placement="top" title="3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
 </div>
 
-
-  
+      
 <footer>
   <div class="container">
     <div class="row">
@@ -613,7 +473,7 @@ When I was thinking about it, GigHub comes to mind and I decided to store and pu
               </li>
           
           <li>
-            <a href="/en/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
