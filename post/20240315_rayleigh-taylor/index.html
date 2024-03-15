@@ -60,7 +60,7 @@
   "headline": "Rayleigh-Taylor不安定性　〜　Athena\u002b\u002bチュートリアル4追加課題",
   "description" : "はじめに この記事で、Athena\u002b\u002bのチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  1262 ,
+  "wordCount":  1263 ,
   "datePublished" : "2024-03-15T00:00:00",
   "dateModified" : "2024-03-15T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -307,7 +307,7 @@ if (!doNotTrack) {
 <h2 id="シミュレーション計算">シミュレーション計算</h2>
 <h4 id="コンフィギュレーション">コンフィギュレーション</h4>
 <p>これまでと同じように、dockerコンテナを起動し、次のようにコンフィギュレーションを行った。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
 </code></pre></div><h4 id="make">make</h4>
 <p>ここもこれまで同じように、次のようにmakeを実行した。Makefile中のライブラリ指定は「-lhdf5」を「-lhdf5_openmpi」に変更している。コンフィギュレーションの時に&ndash;libオプションでhdf5_openmpiを追加はできるが、hdf5を無効にできなかった。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make clean</span>
@@ -329,8 +329,8 @@ if (!doNotTrack) {
 &lt; <span class="nv">angle</span> <span class="o">=</span> <span class="m">30</span>
 </code></pre></div><p>先ずは、b0=0.0として、磁場無しとしてシミュレーションしてみる。angleは、チュートリアル4の値をそのまま流用した。磁場無しなので、angleも無視されるだろうと考え、そのままにした。</p>
 <h4 id="実行">実行</h4>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mpirun -np <span class="m">4</span> --hostfile myhosts <span class="se">\
-</span><span class="se"></span>-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -np 4 --hostfile myhosts \</span>
+-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
 </span><span class="se"></span>-mca btl_tcp_if_exclude lo,docker0 <span class="se">\
 </span><span class="se"></span>-oversubscribe <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/athena <span class="se">\
 </span><span class="se"></span>-i athinput.rt3d &gt; log
@@ -339,20 +339,20 @@ if (!doNotTrack) {
 <h4 id="ファイルを読み込み密度を表示する">ファイルを読み込み、密度を表示する</h4>
 <p>「Open」からシミュレーション結果ファイル rt.out2.*athdf.xdmf databaseを指定する。</p>
 <p>「Add」 → 「Pseudoclor」→ 「rho」を指定し、「Draw」をクリック（実行）する。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_open.png" alt="Open"></p>
+<p><img src="/images/20240315_RT/20240315_RT_open.png" alt="Open"></p>
 <h4 id="断面を表示する">断面を表示する</h4>
 <p>「Operator Attributes」 →「slicing」 → 「ThreeSlice」を指定し、「Draw」を実行する。</p>
 <p>その上で、時間を進める。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho1.png" alt="rho1"></p>
+<p><img src="/images/20240315_RT/20240315_RT_rho1.png" alt="rho1"></p>
 <p>もう少し、時間を進める。Rayleigh-Taylor不安定性の典型的な模様の断面のように見える。断面を表示してみる。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho2.png" alt="rho2"></p>
+<p><img src="/images/20240315_RT/20240315_RT_rho2.png" alt="rho2"></p>
 <h4 id="視点を変えて見る">視点を変えて見る</h4>
 <p>マウスの左ボタンを押しながら動かすと（ドラッグすると）、視点を変えることができる。下図は、いかにもRayleigh-Taylor不安定性を示している時間まで戻して得られた。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho3.png" alt="rho3"></p>
+<p><img src="/images/20240315_RT/20240315_RT_rho3.png" alt="rho3"></p>
 <h4 id="圧力を表示する">圧力を表示する</h4>
 <p>ここで、「Add」 →「Pseudoclor」→ 「press」を指定し、「Draw」をクリック（実行）する。</p>
 <p>rhoの表示は、「Hide/Show」で一旦消した。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_press3.png" alt="press"></p>
+<p><img src="/images/20240315_RT/20240315_RT_press3.png" alt="press"></p>
 <h2 id="今後について">今後について</h2>
 <p>visItを操作している内に、このソフトの癖（特徴）も掴みかけてきた。もう少し自由に触ってみようと思う。</p>
 <p>Rayleigh-Taylor不安定性については、初期値を変えたり、磁場を追加して様子を見てみようと思う。</p>
