@@ -60,7 +60,7 @@
   "headline": "Rayleigh-Taylor不安定性　〜　Athena\u002b\u002bチュートリアル4追加課題",
   "description" : "はじめに この記事で、Athena\u002b\u002bのチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  1263 ,
+  "wordCount":  1287 ,
   "datePublished" : "2024-03-15T00:00:00",
   "dateModified" : "2024-03-15T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -280,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240315_rayleigh-taylor/" lang="en">en</a>
 </span>
 
 
@@ -329,6 +329,7 @@ if (!doNotTrack) {
 &lt; <span class="nv">angle</span> <span class="o">=</span> <span class="m">30</span>
 </code></pre></div><p>先ずは、b0=0.0として、磁場無しとしてシミュレーションしてみる。angleは、チュートリアル4の値をそのまま流用した。磁場無しなので、angleも無視されるだろうと考え、そのままにした。</p>
 <h4 id="実行">実行</h4>
+<p>次のコマンドにより、シミュレーションを実行する。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -np 4 --hostfile myhosts \</span>
 -mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
 </span><span class="se"></span>-mca btl_tcp_if_exclude lo,docker0 <span class="se">\
