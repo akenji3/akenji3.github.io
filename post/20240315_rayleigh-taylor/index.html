@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4 - akenji&#39;s lab</title>
+  <title>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題 - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-この投稿で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。">
+この記事で、Athena&#43;&#43;のチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240310_visit_tutorial4\/",
-          "name": "シミュレーション結果の可視化　〜　 athena\u002b\u002bチュートリアル4"
+          "@id": "https:\/\/akenji3.github.io\/post\/20240315_rayleigh-taylor\/",
+          "name": "Rayleigh taylor不安定性　〜　 athena\u002b\u002bチュートリアル4追加課題"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "シミュレーション結果の可視化　〜　Athena\u002b\u002bチュートリアル4",
-  "description" : "はじめに この投稿で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。\n",
+  "headline": "Rayleigh-Taylor不安定性　〜　Athena\u002b\u002bチュートリアル4追加課題",
+  "description" : "はじめに この記事で、Athena\u002b\u002bのチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  1719 ,
-  "datePublished" : "2024-03-10T00:00:00",
-  "dateModified" : "2024-03-10T00:00:00",
+  "wordCount":  1262 ,
+  "datePublished" : "2024-03-15T00:00:00",
+  "dateModified" : "2024-03-15T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240310_visit_tutorial4\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240315_rayleigh-taylor\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +79,17 @@
 }
 </script>
 
-<meta property="og:title" content="シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4" />
+<meta property="og:title" content="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題" />
 <meta property="og:description" content="はじめに
-この投稿で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。">
+この記事で、Athena&#43;&#43;のチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240310_visit_tutorial4/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240315_rayleigh-taylor/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4" />
+  <meta name="twitter:title" content="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題" />
   <meta name="twitter:description" content="はじめに
-この投稿で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。">
+この記事で、Athena&#43;&#43;のチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4</h1>
+                <h1>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題</h1>
               
               
               
@@ -271,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 10, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;March 15, 2024に投稿
   
   
   
@@ -280,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240310_visit_tutorial4/" lang="en">en</a>
+  
 </span>
 
 
@@ -299,46 +299,63 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">この投稿</a>で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。</p>
-<h2 id="visitでシミュレーション結果を表示">VisItでシミュレーション結果を表示</h2>
-<h4 id="環境">環境</h4>
-<p>シミュレーションを行ったdockerコンテナの/workdir配下は、コンテナが動いている物理ワークステーションの/ext/nfs/athena++配下となる。<a href="https://akenji3.github.io/post/20240203_athena++/">この投稿</a>の「Dockerを起動」の　-vオプションを参照されたい。</p>
-<p>Macから上記ワークステーションの/ext/nfs領域をNFSマウントすれば、Macで動いているVisItから結果のファイルを参照できる。</p>
-<h4 id="シミュレーション結果ファイルを開く">シミュレーション結果ファイルを開く</h4>
-<p>MacでvisItを起動し、「Open」でNFSマウント先のシミュレーション結果ファイルを開く。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_VisIt_FileOpen.png" alt="FileOpen"></p>
-<p>filesは、Blast.out1.*.athdf.xdmf databaseを指定し、「OK」をクリックする。</p>
-<h4 id="expressionsファイルを開く">Expressionsファイルを開く</h4>
-<p>「Controls」 → 「Expressions」 ウィンドウを開き、「Load」をクリックする。その後「athena/vis/visit/athdf_MHD_primitive.xml」を「Open」をクリックする。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_athdf_MHD_primitive.png" alt="athdf_MHD_primitive"></p>
-<p>下図の「Expressions」ウィンドウで「Apply」し、その後「Dismiss」をクリックして、「Expressions」ウィンドを閉じる。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_Expression_Apply.png" alt="Expression_Apply"></p>
-<p>「Add」→ 「Pseudocolor」 → 「press」（「gas_pressure」が無い）、その後「Draw」をクリック。</p>
-<p>下図は、時間を少し進めてのスクリーンショット。次の節では、この断面を見る。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_press_8.png" alt="Press_8"></p>
-<h4 id="スライスオペレータ">スライスオペレータ</h4>
-<p>「ThreeSlice」オペレータを使って断面を見る。</p>
-<p>「Operator Attributes」 → 「Slicing」 → 「ThreeSlice」で「ThreeSlice operator attributes」画面が開くので（断面をどこに置くかを指定できるようだが、よく分からないので、ディフォルトの原点のまま）、「Apply」をクリックすると、下図のような確認画面（中央）が表示されるので、「Yes,Do not prompt again」で閉じ、更に「ThreeSlice operator attributes」画面を「Dismiss」で閉じる。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_3slice_Operator_Attri.png" alt="3slice_Operator_Attri"></p>
-<p>その結果、次のような画像が得られた。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_Slicing.png" alt="Sliceing"></p>
-<h4 id="速度ベクトル表示">速度ベクトル表示</h4>
-<p>「Add」 → 「Vectors」 → 「gas_velocity」で、「gas_volocity」をダブルクリックすると、「Vector plot attributes」画面が開く。</p>
-<p>「Sampling」で、矢印数を増やすため、400を4000に変更。「Geometry」の「Vector origin」のラジオボタンを「Middle」に変更。</p>
-<p>こうして得られたのが下図。情報源2.と比較すると、矢印の表示が少ないようだ。理由は不明。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_Vectors.png" alt="Vectors"></p>
-<h4 id="磁力線の描画">磁力線の描画</h4>
-<p>続いて、次のような手順で磁力線を表示させる。</p>
-<p>「Add」 → 「Pseudocolor」 → 「operators」 → 「IntegralCurve」 → 「bfield」を指定する。</p>
-<p>IntegralCurveをダブルクリックし、「IntegralCureve operator attributes」（下図）を開く。</p>
-<p>「Integration」タブにおいては、「Source type」を「Plane」に変更し、Normalを「1 0 0」に変更する。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_IntegralCurve_operator_attri.png" alt="IntegralCurve_operator_attri"></p>
-<p>更に、「Samples in X」と「Samples in Y」とを「10」に変更し、「Distance in X」と「Distance in Y」とを「2」に変更しする。</p>
-<p>次に「Appearance」タブで、「Color by」では「Vector magnitude」を指定し、「Apply」し「Dismiss」して「Draw」すると、次のWarningが表示され、情報源2.のような磁力線の表示がされない。</p>
-<p><img src="/images/20240310_Visit_Tutorial4/20240310_Warning.png" alt="Warning"></p>
-<h2 id="まとめ">まとめ</h2>
-<p>VisItを使って、シミュレーション結果（計算結果）を可視化において、大筋はうまくいったが、矢印（速度ベクトル）表示や磁力線の表示については、問題あり。特に磁力線表示は全くできていない。</p>
-<p>VisItを使って、別の問題についても可視化を行い、VisItをもう少し使いこなせるようにしたい。</p>
+<p>この記事で、Athena++のチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。</p>
+<h2 id="情報源">情報源</h2>
+<ul>
+<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/3dmhd.html">Athena Tutorial 4</a>   Rayleigh-Taylor不安定性の課題は、このチュートリアル4の追加課題2である。この追加課題は、<a href="https://github.com/PrincetonUniversity/athena/wiki/Running-3D-MHD-with-OpenMP-and-MPI">本家のページ</a>には無い。</li>
+</ul>
+<h2 id="シミュレーション計算">シミュレーション計算</h2>
+<h4 id="コンフィギュレーション">コンフィギュレーション</h4>
+<p>これまでと同じように、dockerコンテナを起動し、次のようにコンフィギュレーションを行った。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
+</code></pre></div><h4 id="make">make</h4>
+<p>ここもこれまで同じように、次のようにmakeを実行した。Makefile中のライブラリ指定は「-lhdf5」を「-lhdf5_openmpi」に変更している。コンフィギュレーションの時に&ndash;libオプションでhdf5_openmpiを追加はできるが、hdf5を無効にできなかった。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make clean</span>
+<span class="c1"># make</span>
+</code></pre></div><h4 id="inputファイルの修正">inputファイルの修正</h4>
+<p>makeで作成されたathena実行形式とインプットファイル（inputs/hydro/athinput.rt3d）を作業領域にコピーし、athinput.rt3dを次のように編集した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">14c14
+&lt; <span class="nv">file_type</span>  <span class="o">=</span> hdf5       <span class="c1"># Binary data dump</span>
+---
+&gt; <span class="nv">file_type</span>  <span class="o">=</span> vtk       <span class="c1"># Binary data dump</span>
+45,49d44
+&lt; &lt;meshblock&gt;
+&lt; <span class="nv">nx1</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X1-direction</span>
+&lt; <span class="nv">nx2</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X2-direction</span>
+&lt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X3-direction</span>
+&lt; 
+59,60d53
+&lt; <span class="nv">b0</span>    <span class="o">=</span> 0.0
+&lt; <span class="nv">angle</span> <span class="o">=</span> <span class="m">30</span>
+</code></pre></div><p>先ずは、b0=0.0として、磁場無しとしてシミュレーションしてみる。angleは、チュートリアル4の値をそのまま流用した。磁場無しなので、angleも無視されるだろうと考え、そのままにした。</p>
+<h4 id="実行">実行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mpirun -np <span class="m">4</span> --hostfile myhosts <span class="se">\
+</span><span class="se"></span>-mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
+</span><span class="se"></span>-mca btl_tcp_if_exclude lo,docker0 <span class="se">\
+</span><span class="se"></span>-oversubscribe <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/athena <span class="se">\
+</span><span class="se"></span>-i athinput.rt3d &gt; log
+</code></pre></div><h2 id="可視化">可視化</h2>
+<p>可視化の詳細な説明は、前回の<a href="https://akenji3.github.io/post/20240310_visit_tutorial4/">この記事</a>を参照されたい。ここでは、簡単な手順とその時のスクリーンショットを示す。</p>
+<h4 id="ファイルを読み込み密度を表示する">ファイルを読み込み、密度を表示する</h4>
+<p>「Open」からシミュレーション結果ファイル rt.out2.*athdf.xdmf databaseを指定する。</p>
+<p>「Add」 → 「Pseudoclor」→ 「rho」を指定し、「Draw」をクリック（実行）する。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_open.png" alt="Open"></p>
+<h4 id="断面を表示する">断面を表示する</h4>
+<p>「Operator Attributes」 →「slicing」 → 「ThreeSlice」を指定し、「Draw」を実行する。</p>
+<p>その上で、時間を進める。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho1.png" alt="rho1"></p>
+<p>もう少し、時間を進める。Rayleigh-Taylor不安定性の典型的な模様の断面のように見える。断面を表示してみる。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho2.png" alt="rho2"></p>
+<h4 id="視点を変えて見る">視点を変えて見る</h4>
+<p>マウスの左ボタンを押しながら動かすと（ドラッグすると）、視点を変えることができる。下図は、いかにもRayleigh-Taylor不安定性を示している時間まで戻して得られた。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_rho3.png" alt="rho3"></p>
+<h4 id="圧力を表示する">圧力を表示する</h4>
+<p>ここで、「Add」 →「Pseudoclor」→ 「press」を指定し、「Draw」をクリック（実行）する。</p>
+<p>rhoの表示は、「Hide/Show」で一旦消した。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20240315_RT/20240315_RT_press3.png" alt="press"></p>
+<h2 id="今後について">今後について</h2>
+<p>visItを操作している内に、このソフトの癖（特徴）も掴みかけてきた。もう少し自由に触ってみようと思う。</p>
+<p>Rayleigh-Taylor不安定性については、初期値を変えたり、磁場を追加して様子を見てみようと思う。</p>
 
         
 
@@ -352,42 +369,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f&amp;text=%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;text=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f&amp;title=%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f&amp;title=%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f&amp;title=%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240310_visit_tutorial4%2f&amp;description=%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e7%b5%90%e6%9e%9c%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;description=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -410,13 +427,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240307_athena_tutorial4/" data-toggle="tooltip" data-placement="top" title="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20240310_visit_tutorial4/" data-toggle="tooltip" data-placement="top" title="シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20240315_rayleigh-taylor/" data-toggle="tooltip" data-placement="top" title="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題">次ページ &rarr;</a>
-            </li>
           
         </ul>
       

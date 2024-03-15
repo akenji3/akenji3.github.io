@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題</title>
+      <link>https://akenji3.github.io/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事で、Athena++のチュートリアル4に取り組んだ。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4</title>
