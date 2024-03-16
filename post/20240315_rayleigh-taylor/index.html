@@ -60,7 +60,7 @@
   "headline": "Rayleigh-Taylor不安定性　〜　Athena\u002b\u002bチュートリアル4追加課題",
   "description" : "はじめに この記事ではAthena\u002b\u002bのチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。\n",
   "inLanguage" : "ja",
-  "wordCount":  1475 ,
+  "wordCount":  1518 ,
   "datePublished" : "2024-03-15T00:00:00",
   "dateModified" : "2024-03-15T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -308,10 +308,10 @@ if (!doNotTrack) {
 <h4 id="コンフィギュレーション">コンフィギュレーション</h4>
 <p>これまでと同じように、dockerコンテナを起動し、次のようにコンフィギュレーションを行った。</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
-</code></pre></div><p><a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">この投稿</a>でも説明した通り、Makefile中のライブラリ指定は「-lhdf5」を「-lhdf5_openmpi」に変更していた。それは少し面倒なので、パラメータで変更できないか、次のことを試してみた。</p>
+</code></pre></div><p><a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">この投稿</a>でも説明した通り、Makefile中のライブラリ指定は「-lhdf5」を「-lhdf5_openmpi」に変更していた。それは少し面倒なので、パラメータで変更できないか、次のことを試してみた。詳細は<a href="https://github.com/PrincetonUniversity/athena/wiki/Configuring">この本家のドキュメント</a>を参照のこと。</p>
 <ul>
 <li>&ndash;libオプションでhdf5_openmpiを追加した。しかし、hdf5を無効にできなくてリンクエラー。</li>
-<li>&ndash;hdf5_path /usr/lib/x86_64-linux-gnu/openmpiとライブラリーパスを指定したが、こちらもhdf5を無効にできずにリンクエラーとなった。</li>
+<li>&ndash;hdf5_pathオプションで /usr/lib/x86_64-linux-gnu/openmpiとのライブラリーパスを指定したが、こちらもhdf5を無効にできずにリンクエラーとなった。</li>
 </ul>
 <p>そこで、configure.pyを次のように変更して、-hdf5_openmpiを生成するようにした。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">923c923
