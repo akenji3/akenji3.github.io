@@ -60,7 +60,7 @@ In this article, I posted about my work on tutorial 4 of Athena&#43;&#43;. Here,
   "headline": "Rayleigh-Taylor Instability - Athena\u002b\u002b Tutorial 4 Additional Assignment",
   "description" : "Introduction In this article, I posted about my work on tutorial 4 of Athena\u002b\u002b. Here, I post my work on the Rayleigh-Taylor instability challenge in 3D.\n",
   "inLanguage" : "en",
-  "wordCount":  461 ,
+  "wordCount":  528 ,
   "datePublished" : "2024-03-15T00:00:00",
   "dateModified" : "2024-03-15T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -308,8 +308,18 @@ if (!doNotTrack) {
 <h4 id="configuration">Configuration</h4>
 <p>As before, the docker container was started and configured as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
+</code></pre></div><p>As explained in <a href="https://akenji3.github.io/en/post/20240307_athena_tutorial4/">this post</a>, the library designation in the Makefile was changed from &ldquo;-lhdf5&rdquo; to &ldquo;-lhdf5_openmpi&rdquo;. That was a bit cumbersome, so I tried the following to see if it could be changed with a parameter.</p>
+<ul>
+<li>I added hdf5_openmpi with the &ndash;lhdf5_openmpi option. However, I could not disable hdf5 and got a link error.
+&ndash;hdf5_path /usr/lib/x86_64-linux-gnu/openmpi and the library path, but this also could not disable hdf5 and link error occurred.</li>
+</ul>
+<p>So I changed configure.py as follows to generate -hdf5_openmpi.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">923c923
+&lt;         makefile_options<span class="o">[</span><span class="s1">&#39;LIBRARY_FLAGS&#39;</span><span class="o">]</span> +<span class="o">=</span> <span class="s1">&#39; -lhdf5_openmpi&#39;</span>
+---
+&gt;         makefile_options<span class="o">[</span><span class="s1">&#39;LIBRARY_FLAGS&#39;</span><span class="o">]</span> +<span class="o">=</span> <span class="s1">&#39; -lhdf5&#39;</span>
 </code></pre></div><h4 id="make">make</h4>
-<p>Here again, as before, I ran make as follows: in the Makefile, I changed the library designation &ldquo;-lhdf5&rdquo; to &ldquo;-lhdf5_openmpi&rdquo;. I could add hdf5_openmpi with the &ndash;lib option during configuration, but could not disable hdf5.</p>
+<p>Here again, as before, I ran make as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make clean</span>
 <span class="c1"># make</span>
 </code></pre></div><h4 id="input-file-modification">input file modification</h4>
