@@ -7,9 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-この記事ではAthena&#43;&#43;のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。">
+  <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240315_rayleigh-taylor\/",
-          "name": "Rayleigh taylor不安定性　〜　 athena\u002b\u002bチュートリアル4追加課題"
+          "@id": "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
+          "name": "姫野ベンチマークを使って open m p iの性能を再測定する"
         }
     }]
 }
@@ -57,15 +56,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Rayleigh-Taylor不安定性　〜　Athena\u002b\u002bチュートリアル4追加課題",
-  "description" : "はじめに この記事ではAthena\u002b\u002bのチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。\n",
+  "headline": "姫野ベンチマークを使ってOpenMPIの性能を再測定する",
+  "description" : "はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善",
   "inLanguage" : "ja",
-  "wordCount":  1518 ,
-  "datePublished" : "2024-03-15T00:00:00",
-  "dateModified" : "2024-03-15T00:00:00",
+  "wordCount":  836 ,
+  "datePublished" : "2024-03-17T00:00:00",
+  "dateModified" : "2024-03-17T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240315_rayleigh-taylor\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +78,15 @@
 }
 </script>
 
-<meta property="og:title" content="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題" />
-<meta property="og:description" content="はじめに
-この記事ではAthena&#43;&#43;のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。">
+<meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
+<meta property="og:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240315_rayleigh-taylor/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題" />
-  <meta name="twitter:description" content="はじめに
-この記事ではAthena&#43;&#43;のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。">
+  <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
+  <meta name="twitter:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題</h1>
+                <h1>姫野ベンチマークを使ってOpenMPIの性能を再測定する</h1>
               
               
               
@@ -271,7 +268,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 15, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;March 17, 2024に投稿
   
   
   
@@ -280,7 +277,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240315_rayleigh-taylor/" lang="en">en</a>
+  
 </span>
 
 
@@ -299,74 +296,86 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20240310_visit_tutorial4/">この記事</a>ではAthena++のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。</p>
-<h2 id="情報源">情報源</h2>
-<ul>
-<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/3dmhd.html">Athena Tutorial 4</a>   Rayleigh-Taylor不安定性の課題は、このチュートリアル4の追加課題2である。この追加課題は、<a href="https://github.com/PrincetonUniversity/athena/wiki/Running-3D-MHD-with-OpenMP-and-MPI">本家のページ</a>には無い。</li>
-</ul>
-<h2 id="シミュレーション計算">シミュレーション計算</h2>
-<h4 id="コンフィギュレーション">コンフィギュレーション</h4>
-<p>これまでと同じように、dockerコンテナを起動し、次のようにコンフィギュレーションを行った。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># python configure.py --prob rt -b --flux hlld -mpi -hdf5</span>
-</code></pre></div><p><a href="https://akenji3.github.io/post/20240307_athena_tutorial4/">この投稿</a>でも説明した通り、Makefile中のライブラリ指定は「-lhdf5」を「-lhdf5_openmpi」に変更していた。それは少し面倒なので、パラメータで変更できないか、次のことを試してみた。詳細は<a href="https://github.com/PrincetonUniversity/athena/wiki/Configuring">この本家のドキュメント</a>を参照のこと。</p>
-<ul>
-<li>&ndash;libオプションでhdf5_openmpiを追加した。しかし、hdf5を無効にできなくてリンクエラー。</li>
-<li>&ndash;hdf5_pathオプションで /usr/lib/x86_64-linux-gnu/openmpiとのライブラリーパスを指定したが、こちらもhdf5を無効にできずにリンクエラーとなった。</li>
-</ul>
-<p>そこで、configure.pyを次のように変更して、-hdf5_openmpiを生成するようにした。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">923c923
-&lt;         makefile_options<span class="o">[</span><span class="s1">&#39;LIBRARY_FLAGS&#39;</span><span class="o">]</span> +<span class="o">=</span> <span class="s1">&#39; -lhdf5_openmpi&#39;</span>
----
-&gt;         makefile_options<span class="o">[</span><span class="s1">&#39;LIBRARY_FLAGS&#39;</span><span class="o">]</span> +<span class="o">=</span> <span class="s1">&#39; -lhdf5&#39;</span>
-</code></pre></div><h4 id="make">make</h4>
-<p>ここもこれまで同じように、次のようにmakeを実行した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># make clean</span>
-<span class="c1"># make</span>
-</code></pre></div><h4 id="inputファイルの修正">inputファイルの修正</h4>
-<p>makeで作成されたathena実行形式とインプットファイル（inputs/hydro/athinput.rt3d）を作業領域にコピーし、athinput.rt3dを次のように編集した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">14c14
-&lt; <span class="nv">file_type</span>  <span class="o">=</span> hdf5       <span class="c1"># Binary data dump</span>
----
-&gt; <span class="nv">file_type</span>  <span class="o">=</span> vtk       <span class="c1"># Binary data dump</span>
-45,49d44
-&lt; &lt;meshblock&gt;
-&lt; <span class="nv">nx1</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X1-direction</span>
-&lt; <span class="nv">nx2</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X2-direction</span>
-&lt; <span class="nv">nx3</span>        <span class="o">=</span> <span class="m">32</span>         <span class="c1"># Number of zones per MeshBlock in X3-direction</span>
-&lt; 
-59,60d53
-&lt; <span class="nv">b0</span>    <span class="o">=</span> 0.0
-&lt; <span class="nv">angle</span> <span class="o">=</span> <span class="m">30</span>
-</code></pre></div><p>先ずは、b0=0.0として、磁場無しとしてシミュレーションしてみる。angleは、チュートリアル4の値をそのまま流用した。磁場無しなので、angleも無視されるだろうと考え、そのままにした。</p>
-<h4 id="実行">実行</h4>
-<p>次のコマンドにより、シミュレーションを実行する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># mpirun -np 4 --hostfile myhosts \</span>
--mca plm_rsh_args <span class="s2">&#34;-p 12345&#34;</span> <span class="se">\
-</span><span class="se"></span>-mca btl_tcp_if_exclude lo,docker0 <span class="se">\
-</span><span class="se"></span>-oversubscribe <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/athena <span class="se">\
-</span><span class="se"></span>-i athinput.rt3d &gt; log
-</code></pre></div><h2 id="可視化">可視化</h2>
-<p>可視化の詳細な説明は、前回の<a href="https://akenji3.github.io/post/20240310_visit_tutorial4/">この記事</a>を参照されたい。ここでは、簡単な手順とその時のスクリーンショットを示す。</p>
-<h4 id="ファイルを読み込み密度を表示する">ファイルを読み込み、密度を表示する</h4>
-<p>「Open」からシミュレーション結果ファイル rt.out2.*athdf.xdmf databaseを指定する。</p>
-<p>「Add」 → 「Pseudoclor」→ 「rho」を指定し、「Draw」をクリック（実行）する。</p>
-<p><img src="/images/20240315_RT/20240315_RT_open.png" alt="Open"></p>
-<h4 id="断面を表示する">断面を表示する</h4>
-<p>「Operator Attributes」 →「slicing」 → 「ThreeSlice」を指定し、「Draw」を実行する。</p>
-<p>その上で、時間を進める。</p>
-<p><img src="/images/20240315_RT/20240315_RT_rho1.png" alt="rho1"></p>
-<p>もう少し、時間を進める。Rayleigh-Taylor不安定性の典型的な模様の断面のように見える。断面を表示してみる。</p>
-<p><img src="/images/20240315_RT/20240315_RT_rho2.png" alt="rho2"></p>
-<h4 id="視点を変えて見る">視点を変えて見る</h4>
-<p>マウスの左ボタンを押しながら動かすと（ドラッグすると）、視点を変えることができる。下図は、いかにもRayleigh-Taylor不安定性を示している時間まで戻して得られた。</p>
-<p><img src="/images/20240315_RT/20240315_RT_rho3.png" alt="rho3"></p>
-<h4 id="圧力を表示する">圧力を表示する</h4>
-<p>ここで、「Add」 →「Pseudoclor」→ 「press」を指定し、「Draw」をクリック（実行）する。</p>
-<p>rhoの表示は、「Hide/Show」で一旦消した。</p>
-<p><img src="/images/20240315_RT/20240315_RT_press3.png" alt="press"></p>
-<h2 id="今後について">今後について</h2>
-<p>visItを操作している内に、このソフトの癖（特徴）も掴みかけてきた。もう少し自由に触ってみようと思う。</p>
-<p>Rayleigh-Taylor不安定性については、初期値を変えたり、磁場を追加して様子を見てみようと思う。</p>
+<p>1ヶ月前の<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。</p>
+<h2 id="変更点">変更点</h2>
+<p>hostfileの記述順序でプロセスが割り当てられるので、性能の良いノード順にしたほうが良い、との指摘を受け、次のようにhostfileを記載した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat myhosts</span>
+saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
+ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+</code></pre></div><h2 id="測定結果">測定結果</h2>
+<p>起動プロセス数とslot無し／有りのMFLOPS値は以下の通りの結果であった。</p>
+<table>
+<thead>
+<tr>
+<th>np</th>
+<th>MFLOPS（slot指定なし）</th>
+<th>MFLOPS（slot指定あり）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>9,141</td>
+<td>9,098</td>
+</tr>
+<tr>
+<td>4</td>
+<td>11,258</td>
+<td>11,262</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20,468</td>
+<td>20,354</td>
+</tr>
+<tr>
+<td>16</td>
+<td>34,813</td>
+<td>34,751</td>
+</tr>
+<tr>
+<td>32</td>
+<td>20,994</td>
+<td>13,336</td>
+</tr>
+<tr>
+<td>64</td>
+<td>9,006</td>
+<td>9,002</td>
+</tr>
+</tbody>
+</table>
+<p>上記の測定結果をグラフにすると次のとおり。</p>
+<p><img src="/images/20240317_HimenoBench/20240317_sjmge.png" alt="sjmge"></p>
+<p>前回の測定結果（slot指定有の場合）を対比したグラフは次のとおり。
+ここで、前回の測定結果をhostfileの順番のホスト名（europe/jupiter/ganymede/saisei/mokusei）の頭の文字をつなげてejgsmとし、今回の測定結果を同様にsjmgeとする。</p>
+<p><img src="/images/20240317_HimenoBench/20240317_ejgsm_sjmge.png" alt="ejgsm_sjmge"></p>
+<h2 id="トラブル">トラブル</h2>
+<p>今回測定しようとして、次のようメッセージが表示された。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now <span class="o">(</span>man-in-the-middle attack<span class="o">)</span>!
+It is also possible that a host key has just been changed.
+The fingerprint <span class="k">for</span> the ED25519 key sent by the remote host is
+SHA256:lrDSjoBAl2Eu4nm3LqaR/tdFVYuYh/v16Q+OwWN3Icg.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:3
+  remove with:
+  ssh-keygen -f <span class="s2">&#34;/root/.ssh/known_hosts&#34;</span> -R <span class="s2">&#34;[jupiter]:12345&#34;</span>
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+UpdateHostkeys is disabled because the host key is not trusted.
+・・・
+</code></pre></div><p>再度、ssh-keygenで公開鍵、秘密鍵を再作成する必要があるかと思いながら、ネットで検索すると、known_hostsで該当ホストのエントリーを削除すれば良いとあった。自分は、known_hostsをファイルごと削除した。それにより解決した。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>グラフからは、ピーク時（16プロセス時）の性能の向上が見られる。ただ20%未満の差異なので測定誤差（バラツキ）とも考えたが、np=16以外の部分は数%程度の差異なので、ピーク時には効果があったと判断している。</p>
+
 
         
 
@@ -380,42 +389,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;text=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;title=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240315_rayleigh-taylor%2f&amp;description=Rayleigh-Taylor%e4%b8%8d%e5%ae%89%e5%ae%9a%e6%80%a7%e3%80%80%e3%80%9c%e3%80%80Athena%2b%2b%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab4%e8%bf%bd%e5%8a%a0%e8%aa%b2%e9%a1%8c" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -438,13 +447,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240310_visit_tutorial4/" data-toggle="tooltip" data-placement="top" title="シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20240315_rayleigh-taylor/" data-toggle="tooltip" data-placement="top" title="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークを使ってOpenMPIの性能を再測定する">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
