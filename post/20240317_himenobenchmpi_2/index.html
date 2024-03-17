@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+  <meta name="description" content="はじめに
+1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +58,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "姫野ベンチマークを使ってOpenMPIの性能を再測定する",
-  "description" : "はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善",
+  "description" : "はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。\n",
   "inLanguage" : "ja",
   "wordCount":  836 ,
   "datePublished" : "2024-03-17T00:00:00",
@@ -79,14 +80,16 @@
 </script>
 
 <meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
-<meta property="og:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+<meta property="og:description" content="はじめに
+1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
-  <meta name="twitter:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+  <meta name="twitter:description" content="はじめに
+1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -375,7 +378,6 @@ UpdateHostkeys is disabled because the host key is not trusted.
 </code></pre></div><p>再度、ssh-keygenで公開鍵、秘密鍵を再作成する必要があるかと思いながら、ネットで検索すると、known_hostsで該当ホストのエントリーを削除すれば良いとあった。自分は、known_hostsをファイルごと削除した。それにより解決した。</p>
 <h2 id="まとめ">まとめ</h2>
 <p>グラフからは、ピーク時（16プロセス時）の性能の向上が見られる。ただ20%未満の差異なので測定誤差（バラツキ）とも考えたが、np=16以外の部分は数%程度の差異なので、ピーク時には効果があったと判断している。</p>
-
 
         
 

@@ -18,7 +18,8 @@
       <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240317_himenobenchmpi_2/</guid>
-      <description>はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;1ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この投稿&lt;/a&gt;で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。&lt;/p&gt;</description>
     </item>
     
     <item>

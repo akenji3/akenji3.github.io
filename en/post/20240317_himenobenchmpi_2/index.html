@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Re-measure OpenMPI performance using the HIMENO benchmark - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.
-Changes Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.">
+  <meta name="description" content="Introduction
+A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,7 +58,7 @@ Changes Since processes are allocated according to the order of hostfile descrip
     "name" : "Kenji Arai"
   },
   "headline": "Re-measure OpenMPI performance using the HIMENO benchmark",
-  "description" : "Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.\nChanges Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.",
+  "description" : "Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.\n",
   "inLanguage" : "en",
   "wordCount":  409 ,
   "datePublished" : "2024-03-17T00:00:00",
@@ -80,15 +80,16 @@ Changes Since processes are allocated according to the order of hostfile descrip
 </script>
 
 <meta property="og:title" content="Re-measure OpenMPI performance using the HIMENO benchmark" />
-<meta property="og:description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.
-Changes Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.">
+<meta property="og:description" content="Introduction
+A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Re-measure OpenMPI performance using the HIMENO benchmark" />
-  <meta name="twitter:description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. …">
+  <meta name="twitter:description" content="Introduction
+A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -377,7 +378,6 @@ UpdateHostkeys is disabled because the host key is not trusted.
 </code></pre></div><p>I searched the Internet, thinking that I would need to recreate the public and private keys using ssh-keygen again, and found that I could just delete the entry for the relevant host in known_hosts. I deleted the entire known_hosts file. That solved the problem.</p>
 <h2 id="summary">Summary</h2>
 <p>The graph shows an improvement in peak performance (16 processes). However, since the difference was less than 20%, it would be a measurement error (variation), but since the difference was only a few percent except for np=16, I judged that there was an effect during the peak period.</p>
-
 
         
 
