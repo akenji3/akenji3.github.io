@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Re-measure OpenMPI performance using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</guid>
+      <description>Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.
+Changes Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.</description>
+    </item>
     
     <item>
       <title>Rayleigh-Taylor Instability - Athena&#43;&#43; Tutorial 4 Additional Assignment</title>

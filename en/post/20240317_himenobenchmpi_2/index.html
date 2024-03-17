@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,8 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+  <title>Re-measure OpenMPI performance using the HIMENO benchmark - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.
+Changes Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -44,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
-          "name": "姫野ベンチマークを使って open m p iの性能を再測定する"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240317_himenobenchmpi_2\/",
+          "name": "Re measure open m p i performance using the h i m e n o benchmark"
         }
     }]
 }
@@ -56,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "姫野ベンチマークを使ってOpenMPIの性能を再測定する",
-  "description" : "はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善",
-  "inLanguage" : "ja",
-  "wordCount":  836 ,
+  "headline": "Re-measure OpenMPI performance using the HIMENO benchmark",
+  "description" : "Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.\nChanges Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.",
+  "inLanguage" : "en",
+  "wordCount":  409 ,
   "datePublished" : "2024-03-17T00:00:00",
   "dateModified" : "2024-03-17T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240317_himenobenchmpi_2\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -78,22 +79,23 @@
 }
 </script>
 
-<meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
-<meta property="og:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+<meta property="og:title" content="Re-measure OpenMPI performance using the HIMENO benchmark" />
+<meta property="og:description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.
+Changes Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
-  <meta name="twitter:description" content="はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善">
+  <meta name="twitter:title" content="Re-measure OpenMPI performance using the HIMENO benchmark" />
+  <meta name="twitter:description" content="Introduction A month ago in this post, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -123,12 +125,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -136,25 +138,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -164,9 +166,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -180,7 +182,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -260,7 +262,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>姫野ベンチマークを使ってOpenMPIの性能を再測定する</h1>
+                <h1>Re-measure OpenMPI performance using the HIMENO benchmark</h1>
               
               
               
@@ -268,7 +270,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 17, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 17, 2024
   
   
   
@@ -277,7 +279,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" lang="ja">ja</a>
 </span>
 
 
@@ -295,24 +297,24 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>1ヶ月前の<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。</p>
-<h2 id="変更点">変更点</h2>
-<p>hostfileの記述順序でプロセスが割り当てられるので、性能の良いノード順にしたほうが良い、との指摘を受け、次のようにhostfileを記載した。</p>
+        <h2 id="introduction">Introduction</h2>
+<p>A month ago in <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">this post</a>, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.</p>
+<h2 id="changes">Changes</h2>
+<p>Since processes are allocated according to the order of hostfile description, it was pointed out to me that it would be better to order the nodes in order of performance, so I modified the hostfile description as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat myhosts</span>
 saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
 jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
 mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
 ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
 europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-</code></pre></div><h2 id="測定結果">測定結果</h2>
-<p>起動プロセス数とslot無し／有りのMFLOPS値は以下の通りの結果であった。</p>
+</code></pre></div><h2 id="measurement-results">Measurement Results</h2>
+<p>The number of boot processes and MFLOPS values without/with slots were as follows.</p>
 <table>
 <thead>
 <tr>
 <th>np</th>
-<th>MFLOPS（slot指定なし）</th>
-<th>MFLOPS（slot指定あり）</th>
+<th>MFLOPS（without slot）</th>
+<th>MFLOPS（with slot）</th>
 </tr>
 </thead>
 <tbody>
@@ -348,13 +350,13 @@ europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</s
 </tr>
 </tbody>
 </table>
-<p>上記の測定結果をグラフにすると次のとおり。</p>
+<p>The results of the above measurements are graphed as follows</p>
 <p><img src="/images/20240317_HimenoBench/20240317_sjmge.png" alt="sjmge"></p>
-<p>前回の測定結果（slot指定有の場合）を対比したグラフは次のとおり。
-ここで、前回の測定結果をhostfileの順番のホスト名（europe/jupiter/ganymede/saisei/mokusei）の頭の文字をつなげてejgsmとし、今回の測定結果を同様にsjmgeとする。</p>
+<p>The graph contrasting the previous measurement results (with slot specified) is shown below.
+Here, the last measurement result is ejgsm by connecting the first letter of the hostname (europe/jupiter/ganymede/saisei/mokusei) in the order of hostfile, and the current measurement result is sjmge in the same way.</p>
 <p><img src="/images/20240317_HimenoBench/20240317_ejgsm_sjmge.png" alt="ejgsm_sjmge"></p>
-<h2 id="トラブル">トラブル</h2>
-<p>今回測定しようとして、次のようメッセージが表示された。</p>
+<h1 id="trouble">Trouble</h1>
+<p>When I tried to measure this time, the following message appeared.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -372,9 +374,9 @@ Password authentication is disabled to avoid man-in-the-middle attacks.
 Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
 UpdateHostkeys is disabled because the host key is not trusted.
 ・・・
-</code></pre></div><p>再度、ssh-keygenで公開鍵、秘密鍵を再作成する必要があるかと思いながら、ネットで検索すると、known_hostsで該当ホストのエントリーを削除すれば良いとあった。自分は、known_hostsをファイルごと削除した。それにより解決した。</p>
-<h2 id="まとめ">まとめ</h2>
-<p>グラフからは、ピーク時（16プロセス時）の性能の向上が見られる。ただ20%未満の差異なので測定誤差（バラツキ）とも考えたが、np=16以外の部分は数%程度の差異なので、ピーク時には効果があったと判断している。</p>
+</code></pre></div><p>I searched the Internet, thinking that I would need to recreate the public and private keys using ssh-keygen again, and found that I could just delete the entry for the relevant host in known_hosts. I deleted the entire known_hosts file. That solved the problem.</p>
+<h2 id="summary">Summary</h2>
+<p>The graph shows an improvement in peak performance (16 processes). However, since the difference was less than 20%, it would be a measurement error (variation), but since the difference was only a few percent except for np=16, I judged that there was an effect during the peak period.</p>
 
 
         
@@ -389,42 +391,42 @@ UpdateHostkeys is disabled because the host key is not trusted.
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f&amp;text=Re-measure%20OpenMPI%20performance%20using%20the%20HIMENO%20benchmark&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=Re-measure%20OpenMPI%20performance%20using%20the%20HIMENO%20benchmark" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=Re-measure%20OpenMPI%20performance%20using%20the%20HIMENO%20benchmark" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=Re-measure%20OpenMPI%20performance%20using%20the%20HIMENO%20benchmark" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240317_himenobenchmpi_2%2f&amp;description=Re-measure%20OpenMPI%20performance%20using%20the%20HIMENO%20benchmark" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -447,7 +449,7 @@ UpdateHostkeys is disabled because the host key is not trusted.
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240315_rayleigh-taylor/" data-toggle="tooltip" data-placement="top" title="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20240315_rayleigh-taylor/" data-toggle="tooltip" data-placement="top" title="Rayleigh-Taylor Instability - Athena&#43;&#43; Tutorial 4 Additional Assignment">&larr; Previous Post</a>
             </li>
           
           
@@ -533,12 +535,12 @@ UpdateHostkeys is disabled because the host key is not trusted.
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
