@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する - akenji&#39;s lab</title>
+  <title>姫野ベンチマークを使ってOpenMPIの性能を再々測定する - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
+OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、この記事として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。
+そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
-          "name": "姫野ベンチマークを使って open m p iの性能を再測定する"
+          "@id": "https:\/\/akenji3.github.io\/post\/20240320_himenobenchmpi_3\/",
+          "name": "姫野ベンチマークを使って open m p iの性能を再々測定する"
         }
     }]
 }
@@ -57,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "姫野ベンチマークを使ってOpenMPIの性能を再測定する",
-  "description" : "はじめに 1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。\n",
+  "headline": "姫野ベンチマークを使ってOpenMPIの性能を再々測定する",
+  "description" : "はじめに OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、この記事として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。\nそこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。\n",
   "inLanguage" : "ja",
-  "wordCount":  836 ,
-  "datePublished" : "2024-03-17T00:00:00",
-  "dateModified" : "2024-03-17T00:00:00",
+  "wordCount":  682 ,
+  "datePublished" : "2024-03-20T00:00:00",
+  "dateModified" : "2024-03-20T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240317_himenobenchmpi_2\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240320_himenobenchmpi_3\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
+<meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を再々測定する" />
 <meta property="og:description" content="はじめに
-1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
+OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、この記事として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。
+そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240320_himenobenchmpi_3/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を再測定する" />
+  <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を再々測定する" />
   <meta name="twitter:description" content="はじめに
-1ヶ月前のこの投稿で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。">
+OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、この記事として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。
+そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにし …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>姫野ベンチマークを使ってOpenMPIの性能を再測定する</h1>
+                <h1>姫野ベンチマークを使ってOpenMPIの性能を再々測定する</h1>
               
               
               
@@ -271,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 17, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;March 20, 2024に投稿
   
   
   
@@ -280,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/" lang="en">en</a>
 </span>
 
 
@@ -299,85 +302,114 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>1ヶ月前の<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。</p>
-<h2 id="変更点">変更点</h2>
-<p>hostfileの記述順序でプロセスが割り当てられるので、性能の良いノード順にしたほうが良い、との指摘を受け、次のようにhostfileを記載した。</p>
+<p>OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、<a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/">この記事</a>として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。</p>
+<p>そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。</p>
+<h2 id="各ワークステーションの性能測定">各ワークステーションの性能測定</h2>
+<p>性能測定には、MPIバージョンと条件を揃えるため、C、static allocate versionの計算サイズはLで行うことにした。</p>
+<p>結果は、次のとおりであった。<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>のワークステーションの一覧に今回の測定結果を追加した。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>jupiter</th>
+<th>ganymede</th>
+<th>saisei</th>
+<th>mokusei</th>
+<th>europe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Xeon(R) CPU E5-1620 @ 3.60GHz</td>
+<td>Xeon(R) CPU E5-2620 @ 2.00GHz</td>
+<td>Xeon(R) CPU E5-2643 @ 3.30GHz</td>
+<td>Xeon(R) CPU E5-2609 @ 2.40GHz</td>
+<td>eon(R) CPU E3-1270 v5 @ 3.60GHz</td>
+</tr>
+<tr>
+<td># of  CPU</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<td># of core</td>
+<td>4</td>
+<td>6</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>MFLOPS</td>
+<td>4,775</td>
+<td>3,312</td>
+<td>4,616</td>
+<td>3,109</td>
+<td>5,438</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hostfile">hostfile</h2>
+<p>上記の結果から、hostfileは次のように変更した。</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat myhosts</span>
-saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
-mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
-ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
 europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
 </code></pre></div><h2 id="測定結果">測定結果</h2>
 <p>起動プロセス数とslot無し／有りのMFLOPS値は以下の通りの結果であった。</p>
 <table>
 <thead>
 <tr>
-<th>np</th>
-<th>MFLOPS（slot指定なし）</th>
-<th>MFLOPS（slot指定あり）</th>
+<th align="left">np</th>
+<th align="left">MFLOPS（slot指定なし）</th>
+<th align="left">MFLOPS（slot指定あり）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>2</td>
-<td>9,141</td>
-<td>9,098</td>
+<td align="left">2</td>
+<td align="left">9,186</td>
+<td align="left">9,179</td>
 </tr>
 <tr>
-<td>4</td>
-<td>11,258</td>
-<td>11,262</td>
+<td align="left">4</td>
+<td align="left">11,294</td>
+<td align="left">11,260</td>
 </tr>
 <tr>
-<td>8</td>
-<td>20,468</td>
-<td>20,354</td>
+<td align="left">8</td>
+<td align="left">20,411</td>
+<td align="left">20,433</td>
 </tr>
 <tr>
-<td>16</td>
-<td>34,813</td>
-<td>34,751</td>
+<td align="left">16</td>
+<td align="left">36,907</td>
+<td align="left">36,056</td>
 </tr>
 <tr>
-<td>32</td>
-<td>20,994</td>
-<td>13,336</td>
+<td align="left">32</td>
+<td align="left">23,041</td>
+<td align="left">21,068</td>
 </tr>
 <tr>
-<td>64</td>
-<td>9,006</td>
-<td>9,002</td>
+<td align="left">64</td>
+<td align="left">8,734</td>
+<td align="left">9,040</td>
 </tr>
 </tbody>
 </table>
-<p>上記の測定結果をグラフにすると次のとおり。</p>
-<p><img src="/images/20240317_HimenoBench/20240317_sjmge.png" alt="sjmge"></p>
-<p>前回の測定結果（slot指定有の場合）を対比したグラフは次のとおり。
-ここで、前回の測定結果をhostfileの順番のホスト名（europe/jupiter/ganymede/saisei/mokusei）の頭の文字をつなげてejgsmとし、今回の測定結果を同様にsjmgeとする。</p>
-<p><img src="/images/20240317_HimenoBench/20240317_ejgsm_sjmge.png" alt="ejgsm_sjmge"></p>
-<h2 id="トラブル">トラブル</h2>
-<p>今回測定しようとして、次のようメッセージが表示された。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-Someone could be eavesdropping on you right now <span class="o">(</span>man-in-the-middle attack<span class="o">)</span>!
-It is also possible that a host key has just been changed.
-The fingerprint <span class="k">for</span> the ED25519 key sent by the remote host is
-SHA256:lrDSjoBAl2Eu4nm3LqaR/tdFVYuYh/v16Q+OwWN3Icg.
-Please contact your system administrator.
-Add correct host key in /root/.ssh/known_hosts to get rid of this message.
-Offending ECDSA key in /root/.ssh/known_hosts:3
-  remove with:
-  ssh-keygen -f <span class="s2">&#34;/root/.ssh/known_hosts&#34;</span> -R <span class="s2">&#34;[jupiter]:12345&#34;</span>
-Password authentication is disabled to avoid man-in-the-middle attacks.
-Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
-UpdateHostkeys is disabled because the host key is not trusted.
-・・・
-</code></pre></div><p>再度、ssh-keygenで公開鍵、秘密鍵を再作成する必要があるかと思いながら、ネットで検索すると、known_hostsで該当ホストのエントリーを削除すれば良いとあった。自分は、known_hostsをファイルごと削除した。それにより解決した。</p>
+<p><img src="/images/20240320_HimenoBench/20240320_ejsgm.png" alt="ejsgm"></p>
+<p>これまで、3回の測定結果のグラフは次のとおり。今回の結果の名称はejsgmとする。</p>
+<p><img src="/images/20240320_HimenoBench/20240320_comparison.png" alt="comparison"></p>
 <h2 id="まとめ">まとめ</h2>
-<p>グラフからは、ピーク時（16プロセス時）の性能の向上が見られる。ただ20%未満の差異なので測定誤差（バラツキ）とも考えたが、np=16以外の部分は数%程度の差異なので、ピーク時には効果があったと判断している。</p>
+<p>前回（3月17日の記事の結果）と比較して、今回の結果は、16プロセス時に数パーセント数値は良くはなっているが、押し並べてみると変わっていないと判断している。</p>
+<p>最初（2月23日の記事）の16プロセス時の測定結果について、何らかの理由で正しくなかったのかも分からない。</p>
 
         
 
@@ -391,42 +423,42 @@ UpdateHostkeys is disabled because the host key is not trusted.
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e3%80%85%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e3%80%85%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e3%80%85%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e3%80%85%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240317_himenobenchmpi_2%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240320_himenobenchmpi_3%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e5%86%8d%e3%80%85%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -449,13 +481,9 @@ UpdateHostkeys is disabled because the host key is not trusted.
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240315_rayleigh-taylor/" data-toggle="tooltip" data-placement="top" title="Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークを使ってOpenMPIの性能を再測定する">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークを使ってOpenMPIの性能を再々測定する">次ページ &rarr;</a>
-            </li>
           
         </ul>
       

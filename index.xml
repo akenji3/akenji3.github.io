@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を再々測定する</title>
+      <link>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、&lt;a href=&#34;https://akenji3.github.io/post/20240317_himenobenchmpi_2/&#34;&gt;この記事&lt;/a&gt;として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。&lt;/p&gt;
+&lt;p&gt;そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する</title>
