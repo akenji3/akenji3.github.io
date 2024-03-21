@@ -61,7 +61,7 @@ OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベ�
   "headline": "姫野ベンチマークを使ってOpenMPIの性能を再々測定する",
   "description" : "はじめに OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、この記事として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。\nそこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。\n",
   "inLanguage" : "ja",
-  "wordCount":  682 ,
+  "wordCount":  1014 ,
   "datePublished" : "2024-03-20T00:00:00",
   "dateModified" : "2024-03-20T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -410,6 +410,65 @@ mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</
 <h2 id="まとめ">まとめ</h2>
 <p>前回（3月17日の記事の結果）と比較して、今回の結果は、16プロセス時に数パーセント数値は良くはなっているが、押し並べてみると変わっていないと判断している。</p>
 <p>最初（2月23日の記事）の16プロセス時の測定結果について、何らかの理由で正しくなかったのかも分からない。</p>
+<h4 id="検証のため再測定後日追記分">検証のため再測定（後日追記分）</h4>
+<p>上記で、<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この記事</a>の16プロセス時の測定結果が、正しく測定できていないのではないかとの疑いが生じたため、改めて測定してみることにした。</p>
+<p>先ずは、hostfileを次のとおり変更した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat myhosts</span>
+europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
+</code></pre></div><p>その後、npを2から64まで変化させて、出力されるMFLOPSを記録した。結果は次のとおり、参考までに、2月23日の値も併記する。</p>
+<table>
+<thead>
+<tr>
+<th align="center">np</th>
+<th align="center">MFLOPS（2月23日記事）</th>
+<th>MFLOPS（今回測定）</th>
+<th>前回／今回比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2</td>
+<td align="center">9,171</td>
+<td>9,170</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">11,234</td>
+<td>11,200</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">20,413</td>
+<td>20,437</td>
+<td>0.999</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">29,589</td>
+<td>29,660</td>
+<td>0.998</td>
+</tr>
+<tr>
+<td align="center">32</td>
+<td align="center">23,018</td>
+<td>23,179</td>
+<td>0.993</td>
+</tr>
+<tr>
+<td align="center">64</td>
+<td align="center">9,216</td>
+<td>8,290</td>
+<td>1.112</td>
+</tr>
+</tbody>
+</table>
+<p>上記の通り、64プロセス時は、少し測定数値にばらつきが出ているが、2から32プロセス時は、非常に良く一致している。したがって、2月23日に投稿した記事のデータは、信頼できると判断する。</p>
 
         
 

@@ -61,7 +61,7 @@ So this time, I decided to measure the performance of each individual workstatio
   "headline": "Measuring OpenMPI performance again using the HIMENO benchmark",
   "description" : "Introduction We have changed the hostfile that determines the order of OpenMPI execution nodes and re-measured OpenMPI performance on the Himeno benchmark as this article I posted it. After posting, I thought about it again and decided to use objective figures instead of my own judgments based on CPU and clock performance.\nSo this time, I decided to measure the performance of each individual workstation (node), and then decide the order of hostfile according to the results, and measure them again.\n",
   "inLanguage" : "en",
-  "wordCount":  332 ,
+  "wordCount":  494 ,
   "datePublished" : "2024-03-20T00:00:00",
   "dateModified" : "2024-03-20T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -409,6 +409,65 @@ mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</
 <h2 id="summary">Summary</h2>
 <p>Compared to the last time (results of the March 17 article), I have determined that the current results have not changed overall, although the numbers are a few percent better at 16 processes.</p>
 <p>I don&rsquo;t even know if I was incorrect for some reason about the results measured at 16 processes in the first (February 23 article).</p>
+<h4 id="re-measurement-for-verification-additional-details-at-a-later-date">Re-measurement for verification (additional details at a later date)</h4>
+<p>In the above, I suspected that the measurement results for 16 processes in <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">this article</a> were not being measured correctly, so I measured them again. I decided to try it.</p>
+<p>First, I changed the hostfile as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># cat myhosts</span>
+europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
+</code></pre></div><p>After that, we varied np from 2 to 64 and recorded the output MFLOPS. The results are as follows, and the values for February 23 are also listed for reference.</p>
+<table>
+<thead>
+<tr>
+<th align="center">np</th>
+<th align="center">MFLOPS（Feb. 23rd article）</th>
+<th>MFLOPS（currently measured）</th>
+<th>prev／curr comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">2</td>
+<td align="center">9,171</td>
+<td>9,170</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">11,234</td>
+<td>11,200</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">20,413</td>
+<td>20,437</td>
+<td>0.999</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">29,589</td>
+<td>29,660</td>
+<td>0.998</td>
+</tr>
+<tr>
+<td align="center">32</td>
+<td align="center">23,018</td>
+<td>23,179</td>
+<td>0.993</td>
+</tr>
+<tr>
+<td align="center">64</td>
+<td align="center">9,216</td>
+<td>8,290</td>
+<td>1.112</td>
+</tr>
+</tbody>
+</table>
+<p>As mentioned above, there is some variation in the measured values when using 64 processes, but when using 2 to 32 processes, they match very well. Therefore, I judge that the data in the article posted on February 23rd is reliable.</p>
 
         
 
