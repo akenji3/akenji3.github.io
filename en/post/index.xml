@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running Elyza models on GPU using llama-cpp-python</title>
+      <link>https://akenji3.github.io/en/post/20240503_llama-cpp-python/</link>
+      <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240503_llama-cpp-python/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.&lt;/p&gt;
+&lt;p&gt;The content includes some of my mistakes, as I got into some areas due to my lack of understanding.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Measuring OpenMPI performance again using the HIMENO benchmark</title>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション
-LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。
-自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。">
+  <title>Running Elyza models on GPU using llama-cpp-python - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.
+The content includes some of my mistakes, as I got into some areas due to my lack of understanding.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +46,8 @@ LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動�
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240503_llama-cpp-python\/",
-          "name": "Elyzaモデルをllama cpp pythonを使って g p uで動かす"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240503_llama-cpp-python\/",
+          "name": "Running elyza models on g p u using llama cpp python"
         }
     }]
 }
@@ -58,15 +58,15 @@ LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動�
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす",
-  "description" : "モチベーション LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。\n自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。\n",
-  "inLanguage" : "ja",
-  "wordCount":  1746 ,
+  "headline": "Running Elyza models on GPU using llama-cpp-python",
+  "description" : "Motivation Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.\nThe content includes some of my mistakes, as I got into some areas due to my lack of understanding.\n",
+  "inLanguage" : "en",
+  "wordCount":  599 ,
   "datePublished" : "2024-05-03T00:00:00",
   "dateModified" : "2024-05-03T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240503_llama-cpp-python\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240503_llama-cpp-python\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,26 +80,26 @@ LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動�
 }
 </script>
 
-<meta property="og:title" content="Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす" />
-<meta property="og:description" content="モチベーション
-LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。
-自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。">
+<meta property="og:title" content="Running Elyza models on GPU using llama-cpp-python" />
+<meta property="og:description" content="Motivation
+Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.
+The content includes some of my mistakes, as I got into some areas due to my lack of understanding.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240503_llama-cpp-python/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240503_llama-cpp-python/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす" />
-  <meta name="twitter:description" content="モチベーション
-LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。
-自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。">
+  <meta name="twitter:title" content="Running Elyza models on GPU using llama-cpp-python" />
+  <meta name="twitter:description" content="Motivation
+Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.
+The content …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -129,12 +129,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -142,25 +142,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -170,9 +170,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -186,7 +186,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -266,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす</h1>
+                <h1>Running Elyza models on GPU using llama-cpp-python</h1>
               
               
               
@@ -274,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;May 3, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 3, 2024
   
   
   
@@ -283,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240503_llama-cpp-python/" lang="ja">ja</a>
 </span>
 
 
@@ -301,22 +301,22 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="モチベーション">モチベーション</h2>
-<p>LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。</p>
-<p>自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。</p>
-<h2 id="背景">背景</h2>
-<p>限られたGPUメモリしか持たない手元のワークステーションで、最近のLLMを試すには、量子化することが必須である。<a href="https://akenji3.github.io/post/20240102_quantization/">この投稿</a>でその一端を紹介した。</p>
-<p>その後、量子化についてネットで調べ、少し試してきた。現状量子化で代表的なものは、AutoAWQとAutoGPTQの2つある。AutoAWQを使ってみたかったのだが、AutoAWQは、Compute Capability 7.5が必要なことが<a href="https://github.com/casper-hansen/AutoAWQ">分かった</a>。自分の環境では次の2種のGPUを使っている。すなわちRTX A4000（Compute Capability 8.6）とTITAN V（Compute Capability 7.0）である。TITAN Vの環境では動かないので、AutoAWQは諦め、AutoGPTQを試してみた。</p>
-<p>AutoGPTQを試す中で、ライブラリーのバーションの組み合わせなのか、真の原因は不明ながら、動いたり、動かなかったり、CUDA out of memoryとなったりとした。更にTITAN VとRTX A4000とで異なるエラー発生となったりした。</p>
-<p>そうこうしていると、最近はllama-cpp（llama-cpp-python）を使ってLLMをを使う記事をネットでよく見かけるようになった。</p>
-<p>以上の経緯で、今回llama-cpp-pythonを使ったJupyterLabを作成し、notebookからLLMを使うことにした。LLMとしては、評判もあり比較的情報もある<a href="https://elyza.ai/news/2023/08/29/70%E5%84%84%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AE%E5%95%86%E7%94%A8%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E6%97%A5%E6%9C%AC%E8%AA%9Ellmelyza-ja">ELYZA</a>を使うことにした。</p>
-<p>llama-cpp-pythonを使う際のモデルはgguf形式に変換され、<a href="https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-instruct-gguf">huggingfaceにアップされているファイル</a>を使った。</p>
-<h2 id="jupyterlabのdockerコンテナを作成">JupyterLabのdockerコンテナを作成</h2>
-<h4 id="失敗例">失敗例</h4>
-<p>最初、llama-cpp-pythonをpipでインストールしたdockerコンテナのJupyterLabで、Llamaのパラメータで、n_gpu_layers=-1とすれば、GPUのみを使えるものと考えていた。</p>
-<p>この考えて作成したDockerfileが次の通り。AutoGPTQを試していた時の名残も含んでるけど（笑）</p>
-<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># JupyterLabが使えるDockerイメージ</span><span class="err">
-</span><span class="err"></span><span class="c"># 自分がこれまで作成したNoteBookに必要なパッケージをインストールしたもの。</span><span class="err">
+        <h2 id="motivation">Motivation</h2>
+<p>Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.</p>
+<p>The content includes some of my mistakes, as I got into some areas due to my lack of understanding.</p>
+<h2 id="background">Background</h2>
+<p>To try out recent LLMs on a local workstation with limited GPU memory, quantization is a must. I introduced one aspect of this in <a href="https://akenji3.github.io/post/20240102_quantization/">this post</a>.</p>
+<p>Since then, I have researched quantization on the Internet and tried a few things. Currently there are two typical types of quantization, AutoAWQ and AutoGPTQ. I wanted to use AutoAWQ, but I [found out](<a href="https://github.com/casper-">https://github.com/casper-</a> hansen/AutoAWQ). I use the following two GPUs in my environment. I gave up on AutoAWQ and tried AutoGPTQ since it would not work on my TITAN V environment.</p>
+<p>While trying AutoGPTQ, I found that it sometimes worked, sometimes did not work, and sometimes caused CUDA out of memory, although the true cause was unknown, whether it was a combination of library versions. Furthermore, different errors occurred between TITAN V and RTX A4000.</p>
+<p>Then, recently, I often saw articles about using LLM with llama-cpp (llama-cpp-python) on the net.</p>
+<p>For this reason, I decided to create a JupyterLab using llama-cpp-python and use LLM from the notebook. As an LLM, it has a reputation and is relatively well informed <a href="https://elyza.ai/news/2023/08/29/70%E5%84%84%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AE%E5%95%86%E7%94%A8%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E6%97%A5%E6%9C%AC%E8%AA%9Ellmelyza-en">ELYZA</a>.</p>
+<p>In fact, using llama-cpp-python, I used the file tha was converted to gguf format and uploaded to [huggingface](<a href="https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-">https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-</a> instruct-gguf).</p>
+<h2 id="create-a-docker-container-for-jupyterlab">Create a docker container for JupyterLab</h2>
+<h4 id="failure-example">Failure example</h4>
+<p>At first, I thought that I could use a GPU in JupyterLab, making a docker container installed with llama-cpp-python via pip, and setting n_gpu_layers=-1 in the Llama parameter.</p>
+<p>Here is the Dockerfile I created, including some remnants from when I was experimenting with AutoGPTQ (lol)</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Docker image with JupyterLab available.</span><span class="err">
+</span><span class="err"></span><span class="c"># Installed the necessary packages for the NoteBooks I have created so far.</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04</span><span class="err">
 </span><span class="err">
@@ -350,39 +350,39 @@ if (!doNotTrack) {
 </span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><p>実際に試したコードは、<a href="https://qiita.com/kabayan/items/ab56cbee2f83b9d1ae29">次のページ</a>のコードを使った。但し、使ったモデルは次の通り。</p>
+</span></code></pre></div><p>The actual code I tried was the code from <a href="https://qiita.com/kabayan/items/ab56cbee2f83b9d1ae29">this page</a>. However, the model used was as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model_path</span><span class="o">=</span><span class="s2">&#34;ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf&#34;</span><span class="p">,</span>
-</code></pre></div><p>実行結果は、要約結果を出力したが、予想以上に遅いと思い、色々とネットで調べてみた。</p>
-<p>分かったことは、lla-cpp-pythonを組み込む際に、パラメータ指定が必要だということ。</p>
-<h4 id="gpuが使えるdockerfile">GPUが使えるDockerfile</h4>
-<p>失敗例のDockerfileで、「&amp;&amp; pip install llama-cpp-pythonを削除し、代わりに「# Create a woking director」の前に以下を追加した。</p>
+</code></pre></div><p>The code made a summary result, but I thought it was slower than expected, so I did some research on the Internet.</p>
+<p>What I found out is that when incorporating lla-cpp-python, you need to specify parameters.</p>
+<h4 id="gpu-enabled-dockerfile">GPU-enabled Dockerfile</h4>
+<p>In the failed Dockerfile, I removed &ldquo;&amp;&amp; pip install llama-cpp-python&rdquo; and instead added the following before &ldquo;# Create a woking director&rdquo;.</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Install llama-cpp-python</span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> <span class="nv">CUDACXX</span><span class="o">=</span>/usr/local/cuda-12/bin/nvcc <span class="nv">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&#34;-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major&#34;</span> <span class="nv">FORCE_CMAKE</span><span class="o">=</span><span class="m">1</span> <span class="se">\
 </span><span class="se"></span>    pip install jupyterlab llama-cpp-python --no-cache-dir --force-reinstall --upgrade<span class="err">
-</span></code></pre></div><h2 id="評価と今後について">評価と今後について</h2>
-<h4 id="評価">評価</h4>
-<p>n_gpu_layers=-1の時（GPUを全層で使った場合）と、n_gpu_layers=-1をコメントアウトした時（GPUを使わずCPUのみの場合）とでの出力されるtotal timeを比較してみた。</p>
+</span></code></pre></div><h2 id="evaluation-and-future">Evaluation and future</h2>
+<h4 id="evaluation">Evaluation</h4>
+<p>I compared the total time output when n_gpu_layers=-1 (when GPUs are used in all layers) and when n_gpu_layers=-1 is commented out (when only CPU is used without GPUs).</p>
 <table>
 <thead>
 <tr>
-<th>GPU使用の有無</th>
-<th>total time(ms)</th>
+<th>GPU use or not</th>
+<th>total time (ms)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GPUを全層で使用</td>
+<td>Use GPU in all layers</td>
 <td>5,256.59</td>
 </tr>
 <tr>
-<td>GPUを使用しない</td>
+<td>No GPU use</td>
 <td>82,449.76</td>
 </tr>
 </tbody>
 </table>
-<p>GPUを使用すると、約15倍高速となる。</p>
-<h4 id="今後について">今後について</h4>
-<p>Elyzaモデルを使って、ChatGPTのように会話できるシステムの構築に挑戦する。その場合、Elyza以外のモデル、例えば<a href="https://www.cyberagent.co.jp/news/detail/id=29479">Calm2 7b</a>も使ってみたい。</p>
+<p>With a GPU, it is about 15 times faster.</p>
+<h4 id="future">Future</h4>
+<p>I will try to build a system that can talk like ChatGPT using the Elyza model. In that case, I would like to use models other than Elyza, such as <a href="https://www.cyberagent.co.jp/news/detail/id=29479">Calm2 7b</a>.</p>
 
         
 
@@ -396,42 +396,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f&amp;text=Elyza%e3%83%a2%e3%83%87%e3%83%ab%e3%82%92llama-cpp-python%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GPU%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f&amp;text=Running%20Elyza%20models%20on%20GPU%20using%20llama-cpp-python&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Elyza%e3%83%a2%e3%83%87%e3%83%ab%e3%82%92llama-cpp-python%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GPU%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Running%20Elyza%20models%20on%20GPU%20using%20llama-cpp-python" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Elyza%e3%83%a2%e3%83%87%e3%83%ab%e3%82%92llama-cpp-python%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GPU%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Running%20Elyza%20models%20on%20GPU%20using%20llama-cpp-python" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Elyza%e3%83%a2%e3%83%87%e3%83%ab%e3%82%92llama-cpp-python%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GPU%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f&amp;title=Running%20Elyza%20models%20on%20GPU%20using%20llama-cpp-python" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240503_llama-cpp-python%2f&amp;description=Elyza%e3%83%a2%e3%83%87%e3%83%ab%e3%82%92llama-cpp-python%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GPU%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240503_llama-cpp-python%2f&amp;description=Running%20Elyza%20models%20on%20GPU%20using%20llama-cpp-python" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -454,7 +454,7 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/" data-toggle="tooltip" data-placement="top" title="姫野ベンチマークを使ってOpenMPIの性能を再々測定する">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/" data-toggle="tooltip" data-placement="top" title="Measuring OpenMPI performance again using the HIMENO benchmark">&larr; Previous Post</a>
             </li>
           
           
@@ -540,12 +540,12 @@ if (!doNotTrack) {
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

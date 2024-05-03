@@ -246,8 +246,8 @@ if (!doNotTrack) {
           
           
             <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20240102_quantization/">
-        <h2 class="post-title">Execution of a Japanese LLM by Quantization</h2>
+    <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub/">
+        <h2 class="post-title">Publish a static blog created by Hugo on GitHub Pages</h2>
         
         
         
@@ -257,7 +257,7 @@ if (!doNotTrack) {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 2, 2024
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 11, 2020
   
   
   
@@ -266,368 +266,27 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240102_quantization/" lang="ja">ja</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" lang="ja">ja</a>
 </span>
 
 
     </p>
     <div class="post-entry">
         
-        <h2 id="motivation">Motivation</h2>
-<p>In <a href="https://akenji3.github.io/en/post/20231230_japanesellms_en/">this article</a>, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.</p>
-        <a href="https://akenji3.github.io/en/post/20240102_quantization/" class="post-read-more">[Read More]</a>
+        Motivation I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.
+When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.
+        <a href="https://akenji3.github.io/en/post/20200811_blog_ongithub/" class="post-read-more">[Read More]</a>
         
     </div>
 
     
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20231230_japanesellms/">
-        <h2 class="post-title">Run Japanese LLMs on an on-premise environment</h2>
+    <div class="blog-tags">
         
+        <a href="https://akenji3.github.io/en/tags/github-pages/">GitHub Pages</a>&nbsp;
         
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 30, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231230_japanesellms/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.</p>
-        <a href="https://akenji3.github.io/en/post/20231230_japanesellms/" class="post-read-more">[Read More]</a>
+        <a href="https://akenji3.github.io/en/tags/hugo/">Hugo</a>&nbsp;
         
     </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20231104_horovod_modifycnn/">
-        <h2 class="post-title">Modify CNN training code to work with Horovod</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on November 4, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231104_horovod_modifycnn/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>With <a href="https://akenji3.github.io/en/post/20231014_horovodindocker_en/">Try Horovod in Docker</a>, you can now use Horovod in your own environment (on-premises) and in a Docker environment. The next thing to do is to modify the training code running on a single server to apply it to distributed training using Horovod! For starters, I modified a relatively simple CNN code to allow distributed learning using Horovod, which is summarized in the following article.</p>
-        <a href="https://akenji3.github.io/en/post/20231104_horovod_modifycnn/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20231014_horovodindocker/">
-        <h2 class="post-title">Try Horovod in Docker</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 14, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231014_horovodindocker/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.</p>
-        <a href="https://akenji3.github.io/en/post/20231014_horovodindocker/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/">
-        <h2 class="post-title">Uninstall Rootless Docker</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on October 13, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20231013_rootlessdockeruninstall/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>In May of this year, I posted an article <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">Building Rootless Docker</a>, but for some reason I decided to uninstall rootless docker. The following is a summary of the uninstallation procedure.
-I will post the details of the circumstances that led to the uninstallation of rootless docker later.</p>
-        <a href="https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230918_modulus_install/">
-        <h2 class="post-title">Trying NVIDIA Modulus - Introduction to PINNs</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on September 18, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230918_modulus_install/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>Over a month ago, I became interested in NVIDIA Modulus at the <a href="https://nvidia.connpass.com/event/284942/">How to Speed Up Simulation with AI Surrogate Models?</a> seminar I attended, I became interested in NVIDIA Modulus, so I bought the book and started studying it.
-As a prerequisite for future study of Modulus, I installed Modulus in my environment, so I summarized the installation process as &ldquo;Introduction to PINNs&rdquo;.</p>
-        <a href="https://akenji3.github.io/en/post/20230918_modulus_install/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230814_rinna36b/">
-        <h2 class="post-title">running rinna 3.6b on a docker container</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on August 14, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230814_rinna36b/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h1 id="motivation">Motivation</h1>
-<p>I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.</p>
-<p>I ran into some problems in doing so, which are summarized below.</p>
-        <a href="https://akenji3.github.io/en/post/20230814_rinna36b/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230709_ubuntu2024_install/">
-        <h2 class="post-title">Install ubuntu 22.04 LTS</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on July 9, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>It has been a year since Ubuntu 22.04 LTS Jammy Jellyfish was released, and I decided to switch from my previous 20.04 to 22.04, thinking that I would be able to get used to the various software and other features.</p>
-<p>I installed ubuntu 22.04 Japanese Remix on several workstations so that I can use Japanese easily. I have gotten a bit stuck trying to install ubuntu 22.04 on a NVIDIA GPU-equipped workstation, so here is the situation and how I responded.</p>
-        <a href="https://akenji3.github.io/en/post/20230709_ubuntu2024_install/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230503_privateregistry/">
-        <h2 class="post-title">Build a private docker registry</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on May 3, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230503_privateregistry/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>In <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker_en/">a previous post</a> I summarized how to start a docker container in user mode.</p>
-<p>When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.</p>
-<p>In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.</p>
-        <a href="https://akenji3.github.io/en/post/20230503_privateregistry/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker/">
-        <h2 class="post-title">Building a Rootless Docker</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on May 2, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230502_rootlessdocker/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.</p>
-<p>I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.</p>
-        <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
     
 
 </article>
@@ -638,13 +297,9 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
           <ul class="pager main-pager">
             
               <li class="previous">
-                <a href="https://akenji3.github.io/en/page/1/">&larr; Newer Posts</a>
+                <a href="https://akenji3.github.io/en/page/3/">&larr; Newer Posts</a>
               </li>
             
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/en/page/3/">Older Posts &rarr;</a>
-              </li>
             
           </ul>
         
