@@ -61,7 +61,7 @@ LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動�
   "headline": "Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす",
   "description" : "モチベーション LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。\n自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。\n",
   "inLanguage" : "ja",
-  "wordCount":  1746 ,
+  "wordCount":  1747 ,
   "datePublished" : "2024-05-03T00:00:00",
   "dateModified" : "2024-05-03T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -350,7 +350,7 @@ if (!doNotTrack) {
 </span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><p>実際に試したコードは、<a href="https://qiita.com/kabayan/items/ab56cbee2f83b9d1ae29">次のページ</a>のコードを使った。但し、使ったモデルは次の通り。</p>
+</span></code></pre></div><p>実際に試したコードは、<a href="https://qiita.com/kabayan/items/ab56cbee2f83b9d1ae29">このページ</a>のコードを使った。但し、使ったモデルは次の通り。</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model_path</span><span class="o">=</span><span class="s2">&#34;ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf&#34;</span><span class="p">,</span>
 </code></pre></div><p>実行結果は、要約結果を出力したが、予想以上に遅いと思い、色々とネットで調べてみた。</p>
 <p>分かったことは、lla-cpp-pythonを組み込む際に、パラメータ指定が必要だということ。</p>
@@ -366,7 +366,7 @@ if (!doNotTrack) {
 <thead>
 <tr>
 <th>GPU使用の有無</th>
-<th>total time(ms)</th>
+<th>total time (ms)</th>
 </tr>
 </thead>
 <tbody>

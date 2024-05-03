@@ -61,7 +61,7 @@ The content includes some of my mistakes, as I got into some areas due to my lac
   "headline": "Running Elyza models on GPU using llama-cpp-python",
   "description" : "Motivation Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.\nThe content includes some of my mistakes, as I got into some areas due to my lack of understanding.\n",
   "inLanguage" : "en",
-  "wordCount":  599 ,
+  "wordCount":  617 ,
   "datePublished" : "2024-05-03T00:00:00",
   "dateModified" : "2024-05-03T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -305,12 +305,12 @@ if (!doNotTrack) {
 <p>Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.</p>
 <p>The content includes some of my mistakes, as I got into some areas due to my lack of understanding.</p>
 <h2 id="background">Background</h2>
-<p>To try out recent LLMs on a local workstation with limited GPU memory, quantization is a must. I introduced one aspect of this in <a href="https://akenji3.github.io/post/20240102_quantization/">this post</a>.</p>
-<p>Since then, I have researched quantization on the Internet and tried a few things. Currently there are two typical types of quantization, AutoAWQ and AutoGPTQ. I wanted to use AutoAWQ, but I [found out](<a href="https://github.com/casper-">https://github.com/casper-</a> hansen/AutoAWQ). I use the following two GPUs in my environment. I gave up on AutoAWQ and tried AutoGPTQ since it would not work on my TITAN V environment.</p>
-<p>While trying AutoGPTQ, I found that it sometimes worked, sometimes did not work, and sometimes caused CUDA out of memory, although the true cause was unknown, whether it was a combination of library versions. Furthermore, different errors occurred between TITAN V and RTX A4000.</p>
+<p>To try out recent LLMs on a local workstation with low GPU memory capacity, quantization is a must. I introduced one aspect of this in <a href="https://akenji3.github.io/en/post/20240102_quantization/">this post</a>.</p>
+<p>Since then, I have researched quantization on the Internet and tried a few things. Currently there are two typical types of quantization, AutoAWQ and AutoGPTQ. I wanted to use AutoAWQ, but I <a href="https://github.com/casper-hansen/AutoAWQ">found out</a> it needs Compute Capability 7.5 (Turing and later architectures). In my environment, I use the following two types of GPUs. RTX A4000 (Compute Capability 8.6) and TITAN V (Compute Capability 7.0). I gave up on AutoAWQ and tried AutoGPTQ since AutoAWQ would not work on my TITAN V environment.</p>
+<p>While trying AutoGPTQ, I found that it sometimes worked, sometimes did not work, and sometimes caused CUDA out of memory, although the true cause was unknown, I wonder it was a combination of library versions. Furthermore, different errors occurred between TITAN V and RTX A4000.</p>
 <p>Then, recently, I often saw articles about using LLM with llama-cpp (llama-cpp-python) on the net.</p>
 <p>For this reason, I decided to create a JupyterLab using llama-cpp-python and use LLM from the notebook. As an LLM, it has a reputation and is relatively well informed <a href="https://elyza.ai/news/2023/08/29/70%E5%84%84%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AE%E5%95%86%E7%94%A8%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E6%97%A5%E6%9C%AC%E8%AA%9Ellmelyza-en">ELYZA</a>.</p>
-<p>In fact, using llama-cpp-python, I used the file tha was converted to gguf format and uploaded to [huggingface](<a href="https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-">https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-</a> instruct-gguf).</p>
+<p>In fact, using llama-cpp-python, I used the file converted to gguf format and uploaded to [huggingface](<a href="https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-">https://huggingface.co/mmnga/ELYZA-japanese-Llama-2-7b-fast-</a> instruct-gguf).</p>
 <h2 id="create-a-docker-container-for-jupyterlab">Create a docker container for JupyterLab</h2>
 <h4 id="failure-example">Failure example</h4>
 <p>At first, I thought that I could use a GPU in JupyterLab, making a docker container installed with llama-cpp-python via pip, and setting n_gpu_layers=-1 in the Llama parameter.</p>
@@ -352,16 +352,16 @@ if (!doNotTrack) {
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
 </span></code></pre></div><p>The actual code I tried was the code from <a href="https://qiita.com/kabayan/items/ab56cbee2f83b9d1ae29">this page</a>. However, the model used was as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">model_path</span><span class="o">=</span><span class="s2">&#34;ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf&#34;</span><span class="p">,</span>
-</code></pre></div><p>The code made a summary result, but I thought it was slower than expected, so I did some research on the Internet.</p>
+</code></pre></div><p>The code made a summary, but I thought it was slower than expected, so I did some research on the net.</p>
 <p>What I found out is that when incorporating lla-cpp-python, you need to specify parameters.</p>
 <h4 id="gpu-enabled-dockerfile">GPU-enabled Dockerfile</h4>
-<p>In the failed Dockerfile, I removed &ldquo;&amp;&amp; pip install llama-cpp-python&rdquo; and instead added the following before &ldquo;# Create a woking director&rdquo;.</p>
+<p>In the failed Dockerfile, I removed &ldquo;&amp;&amp; pip install llama-cpp-python&rdquo; and added the following before &ldquo;# Create a woking director&rdquo;.</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Install llama-cpp-python</span><span class="err">
 </span><span class="err"></span><span class="k">RUN</span> <span class="nv">CUDACXX</span><span class="o">=</span>/usr/local/cuda-12/bin/nvcc <span class="nv">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&#34;-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=all-major&#34;</span> <span class="nv">FORCE_CMAKE</span><span class="o">=</span><span class="m">1</span> <span class="se">\
 </span><span class="se"></span>    pip install jupyterlab llama-cpp-python --no-cache-dir --force-reinstall --upgrade<span class="err">
 </span></code></pre></div><h2 id="evaluation-and-future">Evaluation and future</h2>
 <h4 id="evaluation">Evaluation</h4>
-<p>I compared the total time output when n_gpu_layers=-1 (when GPUs are used in all layers) and when n_gpu_layers=-1 is commented out (when only CPU is used without GPUs).</p>
+<p>I compared the total times in case of n_gpu_layers=-1 (GPUs are used in all layers) and n_gpu_layers=-1 is commented out (when only CPU is used without GPUs).</p>
 <table>
 <thead>
 <tr>
@@ -380,7 +380,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<p>With a GPU, it is about 15 times faster.</p>
+<p>Using a GPU, it is about 15 times faster.</p>
 <h4 id="future">Future</h4>
 <p>I will try to build a system that can talk like ChatGPT using the Elyza model. In that case, I would like to use models other than Elyza, such as <a href="https://www.cyberagent.co.jp/news/detail/id=29479">Calm2 7b</a>.</p>
 
