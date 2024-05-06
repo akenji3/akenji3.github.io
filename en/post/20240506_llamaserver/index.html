@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Try the Chatbot UI - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction.
-In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can talk like ChatGPT.
-This time, I built a system that can talk like ChatGPT on a docker container, and I summarize its contents here.">
+  <meta name="description" content="Introduction
+In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can chat like ChatGPT.
+This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,9 +59,9 @@ This time, I built a system that can talk like ChatGPT on a docker container, an
     "name" : "Kenji Arai"
   },
   "headline": "Try the Chatbot UI",
-  "description" : "Introduction. In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that \u0026ldquo;about the future\u0026rdquo; I would like to try to build a system that can talk like ChatGPT.\nThis time, I built a system that can talk like ChatGPT on a docker container, and I summarize its contents here.\n",
+  "description" : "Introduction In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that \u0026ldquo;about the future\u0026rdquo; I would like to try to build a system that can chat like ChatGPT.\nThis time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.\n",
   "inLanguage" : "en",
-  "wordCount":  953 ,
+  "wordCount":  974 ,
   "datePublished" : "2024-05-06T00:00:00",
   "dateModified" : "2024-05-06T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,16 +81,16 @@ This time, I built a system that can talk like ChatGPT on a docker container, an
 </script>
 
 <meta property="og:title" content="Try the Chatbot UI" />
-<meta property="og:description" content="Introduction.
-In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can talk like ChatGPT.
-This time, I built a system that can talk like ChatGPT on a docker container, and I summarize its contents here.">
+<meta property="og:description" content="Introduction
+In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can chat like ChatGPT.
+This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240506_llamaserver/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="Try the Chatbot UI" />
-  <meta name="twitter:description" content="Introduction.
+  <meta name="twitter:description" content="Introduction
 In a recent post, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -300,13 +300,13 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="introduction">Introduction.</h2>
-<p>In <a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/">a recent post</a>, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can talk like ChatGPT.</p>
-<p>This time, I built a system that can talk like ChatGPT on a docker container, and I summarize its contents here.</p>
+        <h2 id="introduction">Introduction</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/">a recent post</a>, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can chat like ChatGPT.</p>
+<p>This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.</p>
 <h2 id="completed-image">Completed image</h2>
 <p>I built the system with the following configuration.</p>
-<p>! <a href="/images/20240506_LlamaServer/20240506_SystemConfiguration.png">SystemConfiguration</a></p>
-<h2 id="sources">Sources.</h2>
+<p><img src="/images/20240506_LlamaServer/20240506_SystemConfiguration.png" alt="SystemConfiguration"></p>
+<h2 id="sources">Sources</h2>
 <p>1.<a href="https://www.munenick.me/blog/llama-cpp-python-chatbot-ui">Handling multiple local LLMs with llama-cpp-python and Chatbot UI from ChatGPT-like WebUI</a>    It was useful for me to get an overall picture of the system.</p>
 <p>2.<a href="https://github.com/mckaywrigley/chatbot-ui">Chatbot UI</a> A github page for a tool that provides ChatGPT&rsquo;s API in a Web UI. Currently updated to v2, v1 is in the legacy branch.</p>
 <p>3.<a href="https://hyper-text.org/archives/2024/01/chatbot_ui_hosted_vercel/">Chatbot UI (open source ChatGPT UI clone) hosted by Vercel</a> A page that describes how to do the above in Japanese.</p>
@@ -364,7 +364,7 @@ $ <span class="nb">cd</span> chatbot-ui
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker build -t chatgpt-ui ./
 </code></pre></div><h4 id="launch-a-contaier">launch a contaier</h4>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker run --rm -e <span class="nv">OPENAI_API_KEY</span><span class="o">=</span>fake_key -p 3000:3000 chatgpt-ui:latest
-</code></pre></div><p>It does not connect to Llama-sever. Perhaps it is trying to connect to the default &ldquo;http://localhost:8000&rdquo;. I specified &ldquo;-e OPENAI_API_HOST=&quot;http://192.168.11.4:8000&quot;&quot; when starting the container, but it does not work.</p>
+</code></pre></div><p>It does not connect to Llama-sever. Perhaps it is trying to connect to the default &ldquo;http://localhost:8000&rdquo;. I specified &ldquo;-e OPENAI_API_HOST=&quot;http://192.168.11.4:8000&quot;&quot; when launching the container, but it does not work.</p>
 <p>I gave up containerizing the web front-end part and started it from npm following the procedure in source 4. I will explain how to do it.</p>
 <h4 id="build-a-web-front-end-on-a-physical-environment">Build a web front end on a physical environment</h4>
 <p>Install the npm needed to build the front end on the physical environment.</p>
@@ -386,7 +386,7 @@ const <span class="o">{</span> env, stdout <span class="o">}</span> <span class=
                                                                                              ^
 
 SyntaxError: Unexpected token <span class="s1">&#39;?&#39;</span>
-</code></pre></div><p>Since it is usually hard to imagine an error in the provided source, I thought that the node version might be out of date, so I performed the following steps.</p>
+</code></pre></div><p>Since it is usually hard to imagine an error in the provided source, I thought that the node (node.js) version might be out of date, so I performed the following steps.</p>
 <h4 id="error-response---node-update">error response - node update</h4>
 <p>I updated node to the latest version as follows according to source 5.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ node -v
@@ -394,10 +394,10 @@ v12.22.9
 $ sudo npm install -g n
 $ sudo n lts
   installing : node-v20.12.2
-（略）
+（abbreviation）
          old : /usr/bin/node
          new : /usr/local/bin/node
-（略）
+（abbreviation）
 $ node -v
 v12.22.9
 </code></pre></div><p>Here, reboot. After the reboot, the system is updated to the latest version as follows.</p>
@@ -407,7 +407,7 @@ v20.12.2
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ npm run dev
 </code></pre></div><h2 id="connecting-from-a-browser">Connecting from a browser</h2>
 <p>I connected to the web front end with &ldquo;http://192.168.11.8:3000&rdquo; using Chrome on my MacBookPro, and was able to connect to LLM and have a chat.</p>
-<p>Start of chat. The first cha, which was in Japanese, made no sense.</p>
+<p>Start of chat. The first chat, which was in Japanese, made no sense.</p>
 <p>I threw the question I always ask LLM, &ldquo;Explanation about r-process&rdquo;.</p>
 <p><img src="/images/20240506_LlamaServer/20240506_ScreenShot_1.png" alt="ScreenShot_1"></p>
 <p>I asked in English.</p>
