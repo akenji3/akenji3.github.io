@@ -61,9 +61,9 @@
   "headline": "Chatbot UIを試す",
   "description" : "はじめに 先日の投稿では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。\n今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  2277 ,
-  "datePublished" : "2024-05-04T00:00:00",
-  "dateModified" : "2024-05-04T00:00:00",
+  "wordCount":  2358 ,
+  "datePublished" : "2024-05-06T00:00:00",
+  "dateModified" : "2024-05-06T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
   "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240506_llamaserver\/",
@@ -274,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;May 4, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;May 6, 2024に投稿
   
   
   
@@ -410,9 +410,15 @@ v20.12.2
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ npm run dev
 </code></pre></div><h2 id="ブラウザから接続">ブラウザから接続</h2>
 <p>自分は、MacBookProのChromeで、「http://192.168.11.8:3000」とWebフロントエンドに接続すると、LLMとつながって、会話できるようなった。</p>
+<p>会話の開始。日本語になった最初の会話が意味不明。</p>
+<p>自分がLLMに必ず聞く質問「rプロセスについての説明」を投げてみた。</p>
+<p><img src="/images/20240506_LlamaServer/20240506_ScreenShot_1.png" alt="ScreenShot_1"></p>
+<p>英語で聞いてみた。</p>
+<p><img src="/images/20240506_LlamaServer/20240506_ScreenShot_2.png" alt="ScreenShot2"></p>
+<p>英語の方が詳しくて正確な回答。</p>
 <h2 id="まとめ">まとめ</h2>
-<p>少し、トラブったところもあったが、ローカル環境で、ChatGPTライクなシステムが構築できた。</p>
-<p>今後は、次のことに挑戦する。</p>
+<p>少しトラブったところもあったが、ローカル環境で、ChatGPTライクなシステムが構築できた。</p>
+<p>今後、次のことに挑戦したい。</p>
 <ul>
 <li>Webフロントエンドのコンテナ化、およびv2対応</li>
 <li>LLMの切り替え</li>
