@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 03 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Try the Chatbot UI</title>
+      <link>https://akenji3.github.io/en/post/20240506_llamaserver/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240506_llamaserver/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240503_llama-cpp-python/&#34;&gt;a recent post&lt;/a&gt;, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &amp;ldquo;about the future&amp;rdquo; I would like to try to build a system that can talk like ChatGPT.&lt;/p&gt;
+&lt;p&gt;This time, I built a system that can talk like ChatGPT on a docker container, and I summarize its contents here.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Running Elyza models on GPU using llama-cpp-python</title>
