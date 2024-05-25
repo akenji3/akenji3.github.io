@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>LlamaIndexを使ってRAGを試す - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投">
+  <meta name="description" content="モチベーション
+Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。
+実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +59,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "LlamaIndexを使ってRAGを試す",
-  "description" : "モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投",
+  "description" : "モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。\n実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。\n",
   "inLanguage" : "ja",
   "wordCount":  2278 ,
   "datePublished" : "2024-05-25T00:00:00",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="LlamaIndexを使ってRAGを試す" />
-<meta property="og:description" content="モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投">
+<meta property="og:description" content="モチベーション
+Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。
+実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240525_llamaindex_rag/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="LlamaIndexを使ってRAGを試す" />
-  <meta name="twitter:description" content="モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投">
+  <meta name="twitter:description" content="モチベーション
+Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。
+実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使 …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -475,7 +481,6 @@ torchvision                             0.17.2+cu121
 <li>テキスト、Web、PDFなど異なる形式のソースから埋め込みモデルに取り込む</li>
 </ul>
 <p>llamaindexの構造について理解を深め、RAGを使った回答の精度を高めていきたい。</p>
-
 
         
 

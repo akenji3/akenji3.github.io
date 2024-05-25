@@ -18,7 +18,9 @@
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240525_llamaindex_rag/</guid>
-      <description>モチベーション Chatbot UIを試したこの投稿で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;Chatbot UIを試した&lt;a href=&#34;https://akenji3.github.io/post/20240506_llamaserver/&#34;&gt;この投稿&lt;/a&gt;で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。&lt;/p&gt;
+&lt;p&gt;実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。&lt;/p&gt;</description>
     </item>
     
     <item>
