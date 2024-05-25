@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 May 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Try RAG with LlamaIndex</title>
+      <link>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</guid>
+      <description>Motivation In this post where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex. Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time. Sources [How to execute</description>
+    </item>
     
     <item>
       <title>Try the Chatbot UI</title>
