@@ -18,7 +18,9 @@
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</guid>
-      <description>Motivation In this post where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex. Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time. Sources [How to execute</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240506_llamaserver/&#34;&gt;this post&lt;/a&gt; where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex.&lt;/p&gt;
+&lt;p&gt;Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time.&lt;/p&gt;</description>
     </item>
     
     <item>
