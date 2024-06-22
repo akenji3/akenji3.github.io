@@ -24,6 +24,17 @@
     </item>
     
     <item>
+      <title>Chatbot UIを試す</title>
+      <link>https://akenji3.github.io/post/20240506_llamaserver/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240506_llamaserver/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240503_llama-cpp-python/&#34;&gt;先日の投稿&lt;/a&gt;では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。&lt;/p&gt;
+&lt;p&gt;今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす</title>
       <link>https://akenji3.github.io/post/20240503_llama-cpp-python/</link>
       <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>

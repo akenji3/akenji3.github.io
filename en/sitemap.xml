@@ -81,6 +81,16 @@
   <url>
     <loc>https://akenji3.github.io/en/post/20240506_llamaserver/</loc>
     <lastmod>2024-05-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/20240506_llamaserver/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/20240506_llamaserver/"
+                />
   </url>
   
   <url>
