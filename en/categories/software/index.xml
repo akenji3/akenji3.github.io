@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 25 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>llama-cpp-python - impact of numpy version upgrade</title>
+      <link>https://akenji3.github.io/en/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240704_numpy_v2/</guid>
+      <description>Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered an error in CMake when trying to incorporate llama-cpp-python.
+This article summarizes my responses to the two errors I recently experienced.
+&amp;lt;! &amp;ndash; more &amp;ndash;&amp;gt;.
+Dealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a book called [LLM fine tuning and RAG](https://www.</description>
+    </item>
     
     <item>
       <title>Try RAG with LlamaIndex</title>
