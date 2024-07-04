@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 25 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>llama-cpp-python 〜 numpyバージョンアップの影響</title>
+      <link>https://akenji3.github.io/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240704_numpy_v2/</guid>
+      <description>はじめに NumPy 2.0.0が6月16日にリリースされた。先日、lang-chainを使ってRAGを試してみようとして、dockerコンテナをビルド</description>
+    </item>
     
     <item>
       <title>LlamaIndexを使ってRAGを試す</title>
