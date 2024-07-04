@@ -8,10 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>llama-cpp-python - impact of numpy version upgrade - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered an error in CMake when trying to incorporate llama-cpp-python.
+  <meta name="description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.
 This article summarizes my responses to the two errors I recently experienced.
-&lt;! &ndash; more &ndash;&gt;.
-Dealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a book called [LLM fine tuning and RAG](https://www.">
+Dealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a japanese book called [LLM fine tuning and RAG](https://www.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -60,9 +59,9 @@ Dealing with errors related to NumPy 2.0.0 Background I recently decided to lear
     "name" : "Kenji Arai"
   },
   "headline": "llama-cpp-python - impact of numpy version upgrade",
-  "description" : "Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered an error in CMake when trying to incorporate llama-cpp-python.\nThis article summarizes my responses to the two errors I recently experienced.\n\u0026lt;! \u0026ndash; more \u0026ndash;\u0026gt;.\nDealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a book called [LLM fine tuning and RAG](https:\/\/www.",
+  "description" : "Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.\nThis article summarizes my responses to the two errors I recently experienced.\nDealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a japanese book called [LLM fine tuning and RAG](https:\/\/www.",
   "inLanguage" : "en",
-  "wordCount":  719 ,
+  "wordCount":  714 ,
   "datePublished" : "2024-07-04T00:00:00",
   "dateModified" : "2024-07-04T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -82,17 +81,16 @@ Dealing with errors related to NumPy 2.0.0 Background I recently decided to lear
 </script>
 
 <meta property="og:title" content="llama-cpp-python - impact of numpy version upgrade" />
-<meta property="og:description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered an error in CMake when trying to incorporate llama-cpp-python.
+<meta property="og:description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.
 This article summarizes my responses to the two errors I recently experienced.
-&lt;! &ndash; more &ndash;&gt;.
-Dealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a book called [LLM fine tuning and RAG](https://www.">
+Dealing with errors related to NumPy 2.0.0 Background I recently decided to learn RAG properly, I purchased a japanese book called [LLM fine tuning and RAG](https://www.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240704_numpy_v2/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="llama-cpp-python - impact of numpy version upgrade" />
-  <meta name="twitter:description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered …">
+  <meta name="twitter:description" content="Introduction. NumPy 2.0.0 was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -302,12 +300,12 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction.</h2>
-<p><a href="https://github.com/numpy/numpy/releases">NumPy 2.0.0</a> was released on June 16. I first noticed it the other day when I tried to use lang-chain to try RAG and got an error when building the docker container. Later, I encountered an error in CMake when trying to incorporate llama-cpp-python.</p>
+<p><a href="https://github.com/numpy/numpy/releases">NumPy 2.0.0</a> was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.</p>
 <p>This article summarizes my responses to the two errors I recently experienced.</p>
-<p>&lt;! &ndash; more &ndash;&gt;.</p>
+<!-- raw HTML omitted -->
 <h2 id="dealing-with-errors-related-to-numpy-200">Dealing with errors related to NumPy 2.0.0</h2>
 <h4 id="background">Background</h4>
-<p>I recently decided to learn RAG properly, I purchased a book called [LLM fine tuning and RAG](<a href="https://www.amazon.co.jp/LLM%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%25">https://www.amazon.co.jp/LLM%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%</a> A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8RAG-%E3%83%81%E3%83%A3%E3%83%83%88%E3%83%9C%E3%83%83%E3%83%88%E9%96%8B%E7%99%% BA BA%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%B7%B5-%E6%96%B0%E7%B4%8D-%E6%B5%A9%E5%B9%B8/dp/427423195X/ref=sr_1_1?adgrpid= 163866852618&amp;dib=eyJ2IjoiMSJ9.l9B2pkGMCW8NM84ILQFz9iInNon9RD7aYjdD4lezJU0SfjDOegczb_kM6ig21g0uQWC49xKxoiKz2Ba7GS9 hSFgaoIpZHBLPqVwnJzIGWP8.C1ifX-UWbiCvSZ8QSV4IksCKNDbVHK1VfcYIKNFiAbo&amp;dib_tag=se&amp;gad_source=1&amp;hvadid=700557495255&amp;hvdev=c&amp;hvlocphy= 9195748&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=16221549810257939547&amp;hvtargid=kwd-2500108676872&amp;hydadcr=27271_14738618&amp;jp-ad-ap=0&amp;keywords=llm%E3%E3 81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8rag&amp;qid=1720083385&amp;sr=8-1). The book uses langchain, so I decided to create a docker container for jupyterlab that incorporates the langchain library.</p>
+<p>I recently decided to learn RAG properly, I purchased a japanese book called [LLM fine tuning and RAG](<a href="https://www.amazon.co.jp/LLM%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%25">https://www.amazon.co.jp/LLM%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%</a> A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8RAG-%E3%83%81%E3%83%A3%E3%83%83%88%E3%83%9C%E3%83%83%E3%83%88%E9%96%8B%E7%99%% BA BA%E3%81%AB%E3%82%88%E3%82%8B%E5%AE%9F%E8%B7%B5-%E6%96%B0%E7%B4%8D-%E6%B5%A9%E5%B9%B8/dp/427423195X/ref=sr_1_1?adgrpid= 163866852618&amp;dib=eyJ2IjoiMSJ9.l9B2pkGMCW8NM84ILQFz9iInNon9RD7aYjdD4lezJU0SfjDOegczb_kM6ig21g0uQWC49xKxoiKz2Ba7GS9 hSFgaoIpZHBLPqVwnJzIGWP8.C1ifX-UWbiCvSZ8QSV4IksCKNDbVHK1VfcYIKNFiAbo&amp;dib_tag=se&amp;gad_source=1&amp;hvadid=700557495255&amp;hvdev=c&amp;hvlocphy= 9195748&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=16221549810257939547&amp;hvtargid=kwd-2500108676872&amp;hydadcr=27271_14738618&amp;jp-ad-ap=0&amp;keywords=llm%E3%E3 81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8rag&amp;qid=1720083385&amp;sr=8-1). The book uses langchain, so I decided to create a docker container for jupyterlab that incorporates the langchain library.</p>
 <h4 id="phenomenon">Phenomenon</h4>
 <p>I tried to run the book code on jupyterlab with &ldquo;pip install langchain-community faiss-gpu&rdquo; added to the Dockerfile. Then the following error message appeared.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">A</span> <span class="n">module</span> <span class="n">that</span> <span class="n">was</span> <span class="n">compiled</span> <span class="n">using</span> <span class="n">NumPy</span> <span class="mf">1.</span><span class="n">x</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">run</span> <span class="ow">in</span>
@@ -370,7 +368,7 @@ if (!doNotTrack) {
 </span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><p>I later found out that I had installed numpy 2.0.0, where I had CMake llama-cpp-python.</p>
+</span></code></pre></div><p>I later found out that numpy 2.0.0 had been installed, while llama-cpp-python had been CMaked.</p>
 <p>This seemed to solve the problem, but later (4 days later to be exact), when I did a docker build on another machine, I hit another error this time.</p>
 <h2 id="cmake-error-at-vendorllamacppcmakeliststxt95">CMake Error at vendor/llama.cpp/CMakeLists.txt:95</h2>
 <h4 id="phenomenon-1">Phenomenon</h4>
