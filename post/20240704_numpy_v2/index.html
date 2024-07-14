@@ -389,7 +389,7 @@ llama_cpp_python          0.2.75
 </span><span class="se"></span>        pip install llama-cpp-python<span class="o">[</span>server<span class="o">]==</span>0.2.75 --force-reinstall --no-cache-dir<span class="err">
 </span></code></pre></div><p>上記以外の部分は、上記引用のDockerfileと同じである。</p>
 <h4 id="対処その2">対処その2</h4>
-<p>改めて、エラーメッセージを見ると、LLAMA_CUBLASは招待的には削除される非推奨であり、GGML_CUDAを使えと、とある。</p>
+<p>改めて、エラーメッセージを見ると、LLAMA_CUBLASは将来的には削除される非推奨であり、GGML_CUDAを使えと、とある。</p>
 <p>そこで、Dockerfileを次のように修正した。その他の部分は変更なし。</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN</span> <span class="nv">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&#34;-DGGML_CUDA=on&#34;</span> <span class="nv">FORCE_CMAKE</span><span class="o">=</span><span class="m">1</span> <span class="se">\
 </span><span class="se"></span>        pip install llama-cpp-python<span class="o">[</span>server<span class="o">]</span> --force-reinstall --no-cache-dir<span class="err">
