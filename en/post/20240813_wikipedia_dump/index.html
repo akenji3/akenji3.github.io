@@ -61,7 +61,7 @@ Here, I summarized a series of steps to extract only specific categories of data
   "headline": "Creating text data for RAG from Wikipedia dump data",
   "description" : "Motivation I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.\nHere, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.\n",
   "inLanguage" : "en",
-  "wordCount":  1459 ,
+  "wordCount":  1450 ,
   "datePublished" : "2024-08-13T00:00:00",
   "dateModified" : "2024-08-13T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -307,10 +307,10 @@ if (!doNotTrack) {
 <ol>
 <li><a href="https://dumps.wikimedia.org/jawiki/">Index of /jawiki/</a> Top page of wikipedia dump in Japanese. I used the data under the directory &ldquo;20240720&rdquo;.</li>
 <li><a href="https://www.yakupro.info/entry/programming-wikipedia-data">Get only articles of specific categories in Wikipedia</a> This is a page that shows what I was planning to do. It was a great help to me, thanks.</li>
-<li><a href="https://qiita.com/tekunikaruza_jp/items/93d3267a444acef470d9">Retrieving only articles under a specific category of Wikipedia (retrieving subcategories)</a> At first, I also tried to use MySQL (MariaDB) to retrieve wikipedia data, categories, and page information. I started a mariadb container with docker-compose.yml, created a database named jawiki, and created category, categorylinks, and page tables. I created a database named jawiki with docker-compose.yml, created category, categorylinks, page tables, but failed at the SQL part of the search.</li>
+<li><a href="https://qiita.com/tekunikaruza_jp/items/93d3267a444acef470d9">Retrieving only articles under a specific category of Wikipedia (retrieving subcategories)</a> At first I also tried to store wikipedia data, categories, and page information in MySQL (MariaDB) for searching. I started a mariadb container with docker-compose.yml, created a database named jawiki, and created the category, categorylinks, and page tables, but I got frustrated around the SQL creation for searching.</li>
 <li><a href="https://github.com/attardi/wikiextractor">attardi/wikiextractor</a> This page introduces tools to format wiki dump data.</li>
 <li><a href="https://qiita.com/hqze-omochi/items/b3d2d9439bfca51f4c75">ImportError in WikiExtractor3.0.4 with Python3.7</a> This page introduces what to do when an error occurs in the wiki dump data formatting tool.</li>
-<li><a href="https://ja.wikipedia.org/wiki/Wikipedia:PetScan">Wikipedia:PetScan</a> A tool page that searches wikipedia article categories (and subcategories) and retrieves information (title and page ID) on articles that match the criteria. tool page.</li>
+<li><a href="https://ja.wikipedia.org/wiki/Wikipedia:PetScan">Wikipedia:PetScan</a> A page of tools to search wikipedia article categories (and subcategories) and get information (title and page ID) on articles that match your criteria.</li>
 </ol>
 <h2 id="procedure">Procedure</h2>
 <h4 id="download-jawiki-dump-data">Download jawiki dump data</h4>
@@ -331,7 +331,7 @@ $ pip3 install wikiextractor
 </code></pre></div><p>Once again, the following command creates the &ldquo;AA&rdquo; to &ldquo;DB&rdquo; directories in the jawiki directory, under which 100 text files are stored from wiki_00 to wiki_99. Only the &ldquo;DB&rdquo; directory contains up to wiki_28.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ python3 -m wikiextractor.WikiExtractor -b 500K -o jawiki jawiki-20240720-pages-articles.xml.bz2
 </code></pre></div><p>In my environment, it took about 28 minutes.</p>
-<h4 id="get-the-page-id-of-the-category-you-are-interested-in">Get the page ID of the category you are interested in</h4>
+<h4 id="get-the-page-id-of-the-category-you-are-interested-in--petscan">Get the page ID of the category you are interested in 〜 PetScan</h4>
 <p>Open Source 6. and the tool opened by &ldquo;Open PetScan&rdquo; in the upper left corner. In this case, only the &ldquo;Categories&rdquo; and &ldquo;Outputs&rdquo; tabs will be used.</p>
 <h5 id="concepts">Concepts</h5>
 <p>As categories, I was thinking of &ldquo;Astrophysics&rdquo; and &ldquo;Astronomy&rdquo;, whereas I decided what the category depth (depth of subcategories) should be by looking at the titles I could get.  Astrophysics was set to Category Depth: 4 and Astronomy to Category Depth: 2.</p>
@@ -344,9 +344,9 @@ In the &ldquo;Output&rdquo; tab, select the output format: CSV.</p>
 <p>I rename it to &ldquo;astronomy.csv&rdquo;.</p>
 <h4 id="program-to-create-the-text-file">Program to create the text file</h4>
 <p>So far, the page IDs to be extracted are stored in the &ldquo;pageid&rdquo; column of astronomy.csv, and the text data is stored under the &ldquo;jawiki&rdquo; directory.</p>
-<p>The program introduced below is made under the following two assumptions.</p>
+<p>The program shown below is made under the following two assumptions.</p>
 <ul>
-<li>The docid in the wiki_??? file stored in the &ldquo;DB&rdquo; from &ldquo;AA&rdquo; under the &ldquo;jakiki&rdquo; directory is the same as the docid in the &ldquo;pageid&rdquo; file. The docids in the file are in ascending order.</li>
+<li>The docid in the wiki_?? file stored in the &ldquo;DB&rdquo; from &ldquo;AA&rdquo; under the &ldquo;jakiki&rdquo; directory is the same as the docid in the &ldquo;pageid&rdquo; file. The docids in the file are in ascending order.</li>
 <li>The &ldquo;pageid&rdquo; column in &ldquo;astronomy.csv&rdquo; is also in ascending order.</li>
 </ul>
 <h5 id="header">Header</h5>

@@ -61,7 +61,7 @@ LangChainを使ってRAGを試しているのだが、確認用に使用する�
   "headline": "WikipediaダンプデータからRAG向けテキストデータ作成",
   "description" : "モチベーション LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。\nここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  3212 ,
+  "wordCount":  3221 ,
   "datePublished" : "2024-08-13T00:00:00",
   "dateModified" : "2024-08-13T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -308,7 +308,7 @@ if (!doNotTrack) {
 <ol>
 <li><a href="https://dumps.wikimedia.org/jawiki/">Index of /jawiki/</a>     日本語のwikipedia dumpのトップページ。今回自分は、「20240720」ディレクトリ配下のデータを使用した。</li>
 <li><a href="https://www.yakupro.info/entry/programming-wikipedia-data">Wikipediaの特定カテゴリの記事のみを取得する</a>    自分が実施しようと考えていたことが掲載されているページ。大いに参考にさせてもらった、感謝。</li>
-<li><a href="https://qiita.com/tekunikaruza_jp/items/93d3267a444acef470d9">Wikipediaの特定カテゴリ以下の記事だけを取得する（サブカテゴリの取得）</a>    最初自分もMySQL（MariaDB）にwikipediaデータ、カテゴリ、ページ情報を格納して、検索することを試した。mariadbのコンテナをdocker-compose.ymlで起動し、jawikiという名前のデータベースを作成し、category, categorylinks, pageテーブルまでは作成したが、検索のSQLあたりで挫けた。</li>
+<li><a href="https://qiita.com/tekunikaruza_jp/items/93d3267a444acef470d9">Wikipediaの特定カテゴリ以下の記事だけを取得する（サブカテゴリの取得）</a>    最初自分もMySQL（MariaDB）にwikipediaデータ、カテゴリ、ページ情報を格納して、検索することを試そうとした。mariadbのコンテナをdocker-compose.ymlで起動し、jawikiという名前のデータベースを作成し、category, categorylinks, pageテーブルまでは作成したが、検索用SQL作成するあたりで挫けた。</li>
 <li><a href="https://github.com/attardi/wikiextractor">attardi/wikiextractor</a>    wikiダンプデータを整形するツールを紹介しているページ。</li>
 <li><a href="https://qiita.com/hqze-omochi/items/b3d2d9439bfca51f4c75">Python3.7のWikiExtractor3.0.4で起こるImportError</a>   wikiダンプデータ整形ツールでエラーが発生した場合の対処が紹介されている。</li>
 <li><a href="https://ja.wikipedia.org/wiki/Wikipedia:PetScan">Wikipedia:PetScan</a>    wikipediaの記事カテゴリー（およびサブカテゴリ）を検索し、条件に合った記事を情報（タイトルやページID）を得るツールのページ。</li>
@@ -332,7 +332,7 @@ $ pip3 install wikiextractor
 </code></pre></div><p>改めて、次のコマンドにより、jawikiディレクトリに「AA」から「DB」ディレクトリが作成され、その配下にwiki_00からwiki_99まで100個のテキストファイルが格納されている。「DB」配下のみwiki_28まで。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ python3 -m wikiextractor.WikiExtractor -b 500K -o jawiki jawiki-20240720-pages-articles.xml.bz2
 </code></pre></div><p>自分の環境では、約28分掛かった。</p>
-<h4 id="興味あるカテゴリーのページidを得る">興味あるカテゴリーのページIDを得る</h4>
+<h4 id="興味あるカテゴリーのページidを得る--petscan">興味あるカテゴリーのページIDを得る 〜 PetScan</h4>
 <p>情報源6.を開いて、左上の「PetScanを開く」で開かれるツール。今回は「カテゴリ」と「出力」タブのみを使用する。</p>
 <h5 id="考え方">考え方</h5>
 <p>カテゴリーとしては、「天体物理学」と「天文学」を考えていたのだが、カテゴリ深度（サブカテゴリの深さ）をどの程度にするかは、得られるタイトルを見て決めた。天体物理学はカテゴリ深度：4、天文学はカテゴリ深度：2とした。</p>
