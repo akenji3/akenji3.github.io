@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Aug 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating text data for RAG from Wikipedia dump data</title>
+      <link>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.&lt;/p&gt;
+&lt;p&gt;Here, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>llama-cpp-python - impact of numpy version upgrade</title>
