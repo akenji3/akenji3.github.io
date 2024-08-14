@@ -9,7 +9,7 @@
 
   <title>Create and evaluate databases for RAG - akenji&#39;s lab</title>
   <meta name="description" content="Introduction.
-Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.">
+Create a databases that can be used by RAG from the text data created yesterday, prepare a few specific strings, and search and evaluate them.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,9 +58,9 @@ Create databases that can be used by RAG from the text data for RAG created yest
     "name" : "Kenji Arai"
   },
   "headline": "Create and evaluate databases for RAG",
-  "description" : "Introduction. Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.\n",
+  "description" : "Introduction. Create a databases that can be used by RAG from the text data created yesterday, prepare a few specific strings, and search and evaluate them.\n",
   "inLanguage" : "en",
-  "wordCount":  5808 ,
+  "wordCount":  5807 ,
   "datePublished" : "2024-08-14T00:00:00",
   "dateModified" : "2024-08-14T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,7 +81,7 @@ Create databases that can be used by RAG from the text data for RAG created yest
 
 <meta property="og:title" content="Create and evaluate databases for RAG" />
 <meta property="og:description" content="Introduction.
-Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.">
+Create a databases that can be used by RAG from the text data created yesterday, prepare a few specific strings, and search and evaluate them.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240814_rag_database/" />
 <meta property="og:type" content="website" />
@@ -89,7 +89,7 @@ Create databases that can be used by RAG from the text data for RAG created yest
 
   <meta name="twitter:title" content="Create and evaluate databases for RAG" />
   <meta name="twitter:description" content="Introduction.
-Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.">
+Create a databases that can be used by RAG from the text data created yesterday, prepare a few specific strings, and search and evaluate them.">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -299,13 +299,13 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction.</h2>
-<p>Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.</p>
+<p>Create a databases that can be used by RAG from the <a href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/">text data created</a> yesterday, prepare a few specific strings, and search and evaluate them.</p>
 <h2 id="sources">Sources</h2>
 <ol>
 <li><a href="https://www.ohmsha.co.jp/book/9784274231957/">LLM Fine Tuning and RAG</a> The book where I learned about RAG systematically. The parts of creating vector databases and keyword bases (using BM25) are what I learned from this book.</li>
 </ol>
 <h2 id="environment-used">Environment used</h2>
-<p>To build the vector store, we used the GPU version of the FAISS package. Also, when creating the Japanese keyword base, a package named janome was used for Japanese morphological analysis to extract keywords. To clarify the container environment used in this project, the Dockerfile is shown below.</p>
+<p>To build the vector store, I used the GPU version of the FAISS package. Also, when creating the Japanese keyword base, a package named janome was used for Japanese morphological analysis to extract keywords. To clarify the container environment used in this project, the Dockerfile is shown below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Docker image with JupyterLab available</span><span class="err">
 </span><span class="err"></span><span class="c"># Installed packages required for the NoteBooks I have created so far.</span><span class="err">
 </span><span class="err">
@@ -371,7 +371,6 @@ if (!doNotTrack) {
 <p>The vector database (wiki_vs.db) and keyword base (wiki_kw.pkl) are created with the following codes respectively.</p>
 <p>Also, the text file named &ldquo;textdb&rdquo; created yesterday is stored in the same folder as &ldquo;wiki_text&rdquo;.</p>
 <h4 id="vector-database">Vector database</h4>
-<h4 id="heading"></h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Vector databaseを作成する。</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
@@ -427,7 +426,7 @@ if (!doNotTrack) {
 </code></pre></div><p>The execution result (processing time) is as follows. It took about 12 minutes in my environment.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">processing_time</span><span class="p">(</span><span class="n">sec</span><span class="p">):</span>  <span class="mf">704.8360137939453</span>
 </code></pre></div><h4 id="keyword-based">keyword-based</h4>
-<h4 id="heading-1"></h4>
+<h4 id="heading"></h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># キーワード検索用のデータベースを作成</span>
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">time</span>

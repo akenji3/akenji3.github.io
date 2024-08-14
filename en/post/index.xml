@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20240814_rag_database/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;
-&lt;p&gt;Create databases that can be used by RAG from the text data for RAG created yesterday, prepare a few specific strings, and search and evaluate them.&lt;/p&gt;</description>
+&lt;p&gt;Create a databases that can be used by RAG from the &lt;a href=&#34;https://akenji3.github.io/en/post/20240813_wikipedia_dump/&#34;&gt;text data created&lt;/a&gt; yesterday, prepare a few specific strings, and search and evaluate them.&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240814_rag_database/</guid>
       <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
-&lt;p&gt;昨日作成したRAG向けテキストデータからRAGで使えるデータベースを作成し、数個の特定文字列を用意し、それを検索して評価する。&lt;/p&gt;</description>
+&lt;p&gt;昨日作成した&lt;a href=&#34;https://akenji3.github.io/post/20240813_wikipedia_dump/&#34;&gt;テキストデータ&lt;/a&gt;からRAGで使えるデータベースを作成し、数個の特定文字列を用意し、それを検索して評価する。&lt;/p&gt;</description>
     </item>
     
     <item>
