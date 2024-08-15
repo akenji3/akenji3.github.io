@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>RAGシステムを構築 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、そ">
+  <meta name="description" content="はじめに
+昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。
+使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +59,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "RAGシステムを構築",
-  "description" : "はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、そ",
+  "description" : "はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。\n使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。\n",
   "inLanguage" : "ja",
   "wordCount":  8964 ,
   "datePublished" : "2024-08-15T00:00:00",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="RAGシステムを構築" />
-<meta property="og:description" content="はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、そ">
+<meta property="og:description" content="はじめに
+昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。
+使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240815_rag/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="RAGシステムを構築" />
-  <meta name="twitter:description" content="はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、そ">
+  <meta name="twitter:description" content="はじめに
+昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。
+使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -537,7 +543,6 @@ llama_cppパッケージのLlamaクラスは、runnableではないので、chai
 <p>3つの表を見て分かるとおり、gpt-4oが圧倒的に良い質問への回答を返すことが分かった。良いLLMを使うことが一番と言われているとおりである。RAG用のデータベースにWikipediaデータを使ったので、LLMの学習にすでに使ったデータが含まれているだろうことも要因と考える。</p>
 <p>ローカルのLLM（Llama-3-ELYZA-JP-8B）は、量子化されており12GBのGPUで動くことは魅力である。また、解答の一部が乱れていることは、改善・調整の余地があると考えている。</p>
 <p>今後は、ナレッジグラフを使ったRAGに挑戦したい。</p>
-
 
         
 

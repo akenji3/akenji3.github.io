@@ -18,7 +18,9 @@
       <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240815_rag/</guid>
-      <description>はじめに 昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、そ</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。&lt;/p&gt;
+&lt;p&gt;使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。&lt;/p&gt;</description>
     </item>
     
     <item>
