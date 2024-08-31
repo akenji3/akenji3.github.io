@@ -13,14 +13,14 @@
     
     
     <item>
-      <title>install neo4j and try knowledge graphs</title>
+      <title>neo4jをインストールしてknowledge graphsを試す</title>
       <link>https://akenji3.github.io/post/20240831_neo4j/</link>
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240831_neo4j/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;So far, I have built &lt;a href=&#34;https://akenji3.github.io/en/post/20240815_rag/&#34;&gt;RAG system&lt;/a&gt; using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read &lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;this article&lt;/a&gt; and became interested in the knowledge graph and decided to try it myself.&lt;/p&gt;
-&lt;p&gt;In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;これまで、FAISSやBM25を使って&lt;a href=&#34;https://akenji3.github.io/post/20240815_rag/&#34;&gt;RAGシステム&lt;/a&gt;を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot;k&amp;quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま&lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;この記事&lt;/a&gt;を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。&lt;/p&gt;
+&lt;p&gt;この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>

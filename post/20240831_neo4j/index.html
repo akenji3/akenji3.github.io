@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>install neo4j and try knowledge graphs - akenji&#39;s lab</title>
-  <meta name="description" content="Motivation
-So far, I have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.
-In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.">
+  <title>neo4jをインストールしてknowledge graphsを試す - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -47,7 +47,7 @@ In this post, I will summarize the process of installing nao4j in my local envir
         "position": 3,
         "item": {
           "@id": "https:\/\/akenji3.github.io\/post\/20240831_neo4j\/",
-          "name": "Install neo4j and try knowledge graphs"
+          "name": "Neo4jをインストールしてknowledge graphsを試す"
         }
     }]
 }
@@ -58,10 +58,10 @@ In this post, I will summarize the process of installing nao4j in my local envir
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "install neo4j and try knowledge graphs",
-  "description" : "Motivation So far, I have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.\nIn this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.\n",
+  "headline": "neo4jをインストールしてknowledge graphsを試す",
+  "description" : "モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が\u0026quot;k\u0026quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。\nこの投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  542 ,
+  "wordCount":  1436 ,
   "datePublished" : "2024-08-31T00:00:00",
   "dateModified" : "2024-08-31T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -80,18 +80,19 @@ In this post, I will summarize the process of installing nao4j in my local envir
 }
 </script>
 
-<meta property="og:title" content="install neo4j and try knowledge graphs" />
-<meta property="og:description" content="Motivation
-So far, I have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.
-In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.">
+<meta property="og:title" content="neo4jをインストールしてknowledge graphsを試す" />
+<meta property="og:description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240831_neo4j/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="install neo4j and try knowledge graphs" />
-  <meta name="twitter:description" content="Motivation
-So far, I have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, …">
+  <meta name="twitter:title" content="neo4jをインストールしてknowledge graphsを試す" />
+  <meta name="twitter:description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみる …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -265,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>install neo4j and try knowledge graphs</h1>
+                <h1>neo4jをインストールしてknowledge graphsを試す</h1>
               
               
               
@@ -300,23 +301,23 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="motivation">Motivation</h2>
-<p>So far, I have built <a href="https://akenji3.github.io/en/post/20240815_rag/">RAG system</a> using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read <a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">this article</a> and became interested in the knowledge graph and decided to try it myself.</p>
-<p>In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.</p>
-<h2 id="sources">Sources</h2>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>これまで、FAISSやBM25を使って<a href="https://akenji3.github.io/post/20240815_rag/">RAGシステム</a>を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま<a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">この記事</a>を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。</p>
+<p>この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。</p>
+<h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">Increasing the Accuracy of RAG Applications with the Knowledge Graph</a> The article that led me to know about the Knowledge Graph.</li>
-<li><a href="https://note.com/ippei_suzuki_us/n/nad1063fcfb0a">Knowledge Graph: Technical Overview and Applications</a> An article by the author of the above article explaining the Knowledge Graph.</li>
-<li><a href="https://neo4j.com/">neo4j</a> The home page of neio4j. You can use the cloud service “neo4j auraDB” from “Get Started for Free” on this page.</li>
-<li><a href="https://neo4j.com/docs/operations-manual/current/docker/introduction/">Getting started with Neo4j in Docker</a> The introduction part of Docker in the documentation page.</li>
-<li><a href="https://hub.docker.com/_/neo4j">dockerhub</a> The dockerhub page that provides Docker Officaial Image of neo4j. There is also a link in the introduction document page above.</li>
-<li><a href="https://neo4j.com/licensing/">Neo4j Licensing</a> Explains the license of Neo4j, which is available in Community Edition and Enterprise Edition. Community Edition is licensed under GPL v3.</li>
-<li>[Simple Graph Database Setup with Neo4j and Docker Compose](<a href="https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-">https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-</a> and-docker-compose-061253593b5a) I used the Docker Compose on this page to start the container.</li>
+<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">RAGアプリケーションの精度をナレッジグラフで高める</a>    ナレッジグラフを知るきっかけとなった記事。</li>
+<li><a href="https://note.com/ippei_suzuki_us/n/nad1063fcfb0a">ナレッジグラフ：技術的概要とアプリケーション</a>    上記記事の筆者による、ナレッジグラフの解説記事。</li>
+<li><a href="https://neo4j.com/">neo4j</a>    neio4jの本家のページ。このページの「Get Started for Free」からクラウドサービスの「neo4j auraDB」を使うことができる。</li>
+<li><a href="https://neo4j.com/docs/operations-manual/current/docker/introduction/">Getting started with Neo4j in Docker</a>     ドキュメントページにあるDockerの紹介部分。</li>
+<li><a href="https://hub.docker.com/_/neo4j">dockerhub</a>    neo4jのDocker Officaial Imageを提供しているdockerhubのページ。上記の紹介ドキュメントのページにもリンクあり。</li>
+<li><a href="https://neo4j.com/licensing/">Neo4j Licensing</a>    Neo4jのライセンスについて説明。Community EditionとEnterprise Editionがあるが、自分は、Community Editionを使う。Community EditionはGPL v3ライセンスである。</li>
+<li><a href="https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-and-docker-compose-061253593b5a">Simple Graph Database Setup with Neo4j and Docker Compose</a>   このページのDocker Composeを参考にして、コンテナを起動するようにした。</li>
 </ol>
-<h2 id="launch-containers">Launch containers</h2>
+<h2 id="コンテナを起動">コンテナを起動</h2>
 <h4 id="docker-composeyml">docker-compose.yml</h4>
-<p>I created docker-compose.yml under $HOME directory as follows, referring to the source 7.</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">pwd</span>
+<p>情報源7.を参考に、以下の通り$HOMEディレクトリ配下に、docker-compose.ymlを作成した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">pwd</span>
 /home/kenji/workspace/neo4j
 $ cat docker-compose.yml
 services:
@@ -334,27 +335,27 @@ services:
       - <span class="nv">NEO4J_PLUGINS</span><span class="o">=[</span><span class="s2">&#34;apoc&#34;</span>, <span class="s2">&#34;graph-data-science&#34;</span><span class="o">]</span>
     volumes:
       - ./neo4j_db/data:/data
-</code></pre></div><p>The above will launch the latest Community Edition neo4j container.</p>
-<h4 id="start-neo4j">Start neo4j</h4>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ <span class="nb">pwd</span>
+</code></pre></div><p>上記により、最新版のコミュニティエディションのneo4jコンテナが起動される。</p>
+<h4 id="neo4jを起動">neo4jを起動</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">pwd</span>
 /home/kenji/workspace/neo4j
 $ sudo docker compose up -d
-</code></pre></div><h4 id="connecting-to-neo4j-from-the-local-environment">Connecting to neo4j from the local environment</h4>
-<p>Type “http://localhost:7474/” in a browser on the machine where the neo4j container is running to connect to neo4j.</p>
-<p>The first time you connect, you will be asked to enter a password, so set a password and change “password” in docker-compose.yml.</p>
-<h4 id="connect-to-neo4j-from-another-machine">Connect to neo4j from another machine</h4>
-<p>From a browser on another machine connected to the network, type “http://192.168.11.8:7474/” to connect to neo4j.　Of course, change the “192.168.11.8” part according to your environment.</p>
-<h2 id="try-using-neo4j-from-a-browser">Try using neo4j from a browser</h2>
-<h4 id="try-neo4j-with-live-data">Try Neo4j with live data</h4>
-<p>First, start the container on the neo4j server. Start neo4j as described in “Starting neo4j”.</p>
-<p>Connect to neo4j from a browser as described in &ldquo;Connect to neo4j from thelocal environment/another machine”.</p>
+</code></pre></div><h4 id="ローカル環境からneo4jに接続">ローカル環境からneo4jに接続</h4>
+<p>neo4jコンテナを起動したマシン上のブラウザで、”http://localhost:7474/”と入力すると、neo4jに接続する。</p>
+<p>最初に接続するとパスワード入力を求められるので、パスワードを設定し、docker-compose.ymlの”password&quot;を変更する。</p>
+<h4 id="別マシンからneo4jに接続">別マシンからneo4jに接続</h4>
+<p>ネットワークにつながっている別のマシンのブラウザで、&ldquo;http://192.168.11.8:7474/&ldquo;と入力すると、neo4jに接続できる。　もちろん&quot;192.168.11.8&quot;の部分は、自身の環境に合わせて適宜変更のこと。</p>
+<h2 id="ブラウザからneo4jを使ってみる">ブラウザからneo4jを使ってみる</h2>
+<h4 id="try-neo4j-with-live-dataを試す">Try Neo4j with live dataを試す</h4>
+<p>先ずは、neo4jサーバ上で、コンテナを起動する。『neo4jを起動」の通り。</p>
+<p>ブラウザからneo4jに接続する。「ローカル環境／別マシンからneo4jに接続」の通り。</p>
 <p><img src="/images/20240831_neo4j/20240831_neo4j.png" alt="neo4j"></p>
-<p>Click on “Open guide” under “Try Neo4j with live data” in the center to try it out.</p>
-<p>When the side menu opens, click “Next” to proceed one by one. Click the Cypher query box in the side menu, and the query will be copied to the prompt line on the right side.</p>
-<p>It took me about 30 minutes to an hour to try the whole process.</p>
-<h2 id="the-future">The future</h2>
-<p>Cypher is similar to SQL in atmosphere, but it is different and I don&rsquo;t understand it, but I can get an idea of what it is like by trying it out as described above.</p>
-<p>I would like to build a RAG system with it in the future.</p>
+<p>中央の「Try Neo4j with live data」の「Open guide」をクリックすると、試していける。</p>
+<p>サイドメニューが開いたら、「Next」で順次進めていく。サイドメニューのCypherクエリの枠をクリックすると、右側のプロンプト行にコピペされるので、「▶︎」で実行する。</p>
+<p>一通り試すのに、30分から1時間程度掛かった。</p>
+<h2 id="今後について">今後について</h2>
+<p>CypherはSQLに雰囲気は似ているが、別物であり、理解はできていないが、上記の通り試してみるとなんとなくイメージはつかめる。</p>
+<p>今後は、これでRAGシステムを構築してみたい。</p>
 
         
 
@@ -368,7 +369,7 @@ $ sudo docker compose up -d
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;text=install%20neo4j%20and%20try%20knowledge%20graphs&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;text=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -382,28 +383,28 @@ $ sudo docker compose up -d
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;description=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;description=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
