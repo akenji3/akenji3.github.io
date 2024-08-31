@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>akenji&#39;s lab - akenji&#39;s lab</title>
-  <meta name="description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+  <title>neo4jをインストールしてknowledge graphsを試す - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -29,16 +29,64 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240831_neo4j\/",
+          "name": "Neo4jをインストールしてknowledge graphsを試す"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "neo4jをインストールしてknowledge graphsを試す",
+  "description" : "モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が\u0026quot",
+  "inLanguage" : "ja",
+  "wordCount":  1397 ,
+  "datePublished" : "2024-08-31T00:00:00",
+  "dateModified" : "2024-08-31T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240831_neo4j\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="akenji&#39;s lab" />
-<meta property="og:description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+<meta property="og:title" content="neo4jをインストールしてknowledge graphsを試す" />
+<meta property="og:description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240831_neo4j/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="akenji&#39;s lab" />
-  <meta name="twitter:description" content="概要 自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。">
+  <meta name="twitter:title" content="neo4jをインストールしてknowledge graphsを試す" />
+  <meta name="twitter:description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -210,18 +258,29 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
+            <div class="post-heading">
               
-                <h1>akenji&#39;s lab</h1>
-              
-              
-                <hr class="small">
+                <h1>neo4jをインストールしてknowledge graphsを試す</h1>
               
               
-                
-                  <span class="page-subheading">Try some pages</span>
-                
               
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;August 31, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240831_neo4j/" lang="en">en</a>
+</span>
+
+
               
             </div>
           </div>
@@ -232,230 +291,152 @@ if (!doNotTrack) {
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-          <div class="well">
-            <h2 id="概要">概要</h2>
-<p>自分の興味ある分野について、調べたり、実際に手を動かしたり、分かったことをここにまとめている。</p>
-
-          </div>
-        
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200813_mesa_install/">
-        <h2 class="post-title">MESA(Modules for Experiments in Stellar Astrophysics)のインストール</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 13, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。</p>
-<p>星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。</p>
-        <a href="https://akenji3.github.io/post/20200813_mesa_install/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/mesa/">MESA</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/">
-        <h2 class="post-title">Raspberry PiのディスクをNFSマウントして使う</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 12, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p>家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。</p>
-<p>文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。</p>
-<p>今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。</p>
-        <a href="https://akenji3.github.io/post/20200812_raspberrypi_nfs/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/raspberry-pi/">Raspberry Pi</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/nfs/">NFS</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200811_blog_ongithub/">
-        <h2 class="post-title">GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 11, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20200811_blog_ongithub/" lang="en">en</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        モチベーション 自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのペー
-        <a href="https://akenji3.github.io/post/20200811_blog_ongithub/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/github-pages/">GitHub Pages</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/hugo/">Hugo</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20200810_jupyterlab/">
-        <h2 class="post-title">jupyterlabをsingularityコンテナで起動する</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;August 10, 2020に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  
-</span>
+<p>これまで、FAISSやBM25を使って<a href="https://akenji3.github.io/post/20240815_rag/">RAGシステム</a>を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま<a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">この記事</a>を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。</p>
+<p>この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。</p>
+<!-- raw HTML omitted -->
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">RAGアプリケーションの精度をナレッジグラフで高める</a>    ナレッジグラフを知るきっかけとなった記事。</li>
+<li><a href="https://note.com/ippei_suzuki_us/n/nad1063fcfb0a">ナレッジグラフ：技術的概要とアプリケーション</a>    上記記事の筆者による、ナレッジグラフの解説記事。</li>
+<li><a href="https://neo4j.com/">neo4j</a>    neio4jの本家のページ。このページの「Get Started for Free」からクラウドサービスの「neo4j auraDB」を使うことができる。</li>
+<li><a href="https://neo4j.com/docs/operations-manual/current/docker/introduction/">Getting started with Neo4j in Docker</a>     ドキュメントページにあるDockerの紹介部分。</li>
+<li><a href="https://hub.docker.com/_/neo4j">dockerhub</a>    neo4jのDocker Officaial Imageを提供しているdockerhubのページ。上記の紹介ドキュメントのページにもリンクあり。</li>
+<li><a href="https://neo4j.com/licensing/">Neo4j Licensing</a>    Neo4jのライセンスについて説明。Community EditionとEnterprise Editionがあるが、自分は、Community Editionを使う。Community EditionはGPL v3ライセンスである。</li>
+<li><a href="https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-and-docker-compose-061253593b5a">Simple Graph Database Setup with Neo4j and Docker Compose</a>   このページのDocker Composeを参考にして、コンテナを起動するようにした。</li>
+</ol>
+<h2 id="コンテナを起動">コンテナを起動</h2>
+<h4 id="docker-composeyml">docker-compose.yml</h4>
+<p>情報源7.を参考に、以下の通り$HOMEディレクトリ配下に、docker-compose.ymlを作成した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">pwd</span>
+/home/kenji/workspace/neo4j
+$ cat docker-compose.yml
+services:
+  neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - <span class="nv">NEO4J_AUTH</span><span class="o">=</span>neo4j/password
+      - <span class="nv">NEO4J_apoc_export_file_enabled</span><span class="o">=</span><span class="nb">true</span>
+      - <span class="nv">NEO4J_apoc_import_file_enabled</span><span class="o">=</span><span class="nb">true</span>
+      - <span class="nv">NEO4J_apoc_import_file_use__neo4j__config</span><span class="o">=</span><span class="nb">true</span>
+      - <span class="nv">NEO4J_PLUGINS</span><span class="o">=[</span><span class="s2">&#34;apoc&#34;</span>, <span class="s2">&#34;graph-data-science&#34;</span><span class="o">]</span>
+    volumes:
+      - ./neo4j_db/data:/data
+</code></pre></div><h4 id="neo4jを起動">neo4jを起動</h4>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">pwd</span>
+/home/kenji/workspace/neo4j
+$ sudo docker compose up -d
+</code></pre></div><h4 id="ローカル環境からneo4jに接続">ローカル環境からneo4jに接続</h4>
+<p>neo4jコンテナを起動したマシン上のブラウザで、”http://localhost:7474/”と入力すると、neo4jに接続する。</p>
+<p>最初に接続するとパスワード入力を求められるので、パスワードを設定し、docker-compose.ymlの”password&quot;を変更する。</p>
+<h4 id="別マシンからneo4jに接続">別マシンからneo4jに接続</h4>
+<p>ネットワークにつながっている別のマシンのブラウザで、&ldquo;http://192.168.11.8:7474/&ldquo;と入力すると、neo4jに接続できる。　もちろん&quot;192.168.11.8&quot;の部分は、自身の環境に合わせて適宜変更のこと。</p>
+<h2 id="ブラウザからneo4jを使ってみる">ブラウザからneo4jを使ってみる</h2>
+<h4 id="try-neo4j-with-live-dataを試す">Try Neo4j with live dataを試す</h4>
+<p>先ずは、neo4jサーバ上で、コンテナを起動する。『neo4jを起動」の通り。</p>
+<p>ブラウザからneo4jに接続する。「ローカル環境／別マシンからneo4jに接続」の通り。</p>
+<p><img src="/images/20240831_neo4j/20240831_neo4j.png" alt="neo4j"></p>
+<p>中央の「Try Neo4j with live data」の「Open guide」をクリックすると、試していける。</p>
+<p>サイドメニューが開いたら、「Next」で順次進めていく。サイドメニューのCypherクエリの枠をクリックすると、右側のプロンプト行にコピペされるので、「▶︎」で実行する。</p>
+<p>一通り試すのに、30分から1時間程度掛かった。</p>
+<h2 id="今後について">今後について</h2>
+<p>CypherはSQLに雰囲気は似ているが、別物であり、理解はできていないが、上記の通り試してみるとなんとなくイメージはつかめる。</p>
+<p>今後は、これでRAGシステムを構築してみたい。</p>
 
 
-    </p>
-    <div class="post-entry">
         
-        目的 Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う コンテナは、dockerも作成するが、通常使用
-        <a href="https://akenji3.github.io/post/20200810_jupyterlab/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
-        
-        <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-        </div>
 
         
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="https://akenji3.github.io/page/7/">&larr; 新しいページ</a>
-              </li>
-            
-            
-          </ul>
-        
-      </div>
-    </div>
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;text=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;title=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240831_neo4j%2f&amp;description=neo4j%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%97%e3%81%a6knowledge%20graphs%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
   </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
 
       
-    <div class="page-meta">
-  
-  
-  
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240815_rag/" data-toggle="tooltip" data-placement="top" title="RAGシステムを構築">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
 </div>
 
-
-  
+      
 <footer>
   <div class="container">
     <div class="row">
@@ -504,7 +485,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
