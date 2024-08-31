@@ -18,8 +18,9 @@
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20240831_neo4j/</guid>
-      <description>Motivation So far, we have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.
-In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.</description>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;So far, we have built &lt;a href=&#34;https://akenji3.github.io/en/post/20240815_rag/&#34;&gt;RAG system&lt;/a&gt; using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read &lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;this article&lt;/a&gt; and became interested in the knowledge graph and decided to try it myself.&lt;/p&gt;
+&lt;p&gt;In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.&lt;/p&gt;</description>
     </item>
     
     <item>

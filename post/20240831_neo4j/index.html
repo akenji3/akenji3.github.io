@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>neo4jをインストールしてknowledge graphsを試す - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
+  <meta name="description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +59,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "neo4jをインストールしてknowledge graphsを試す",
-  "description" : "モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が\u0026quot",
+  "description" : "モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が\u0026quot;k\u0026quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。\nこの投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。\n",
   "inLanguage" : "ja",
   "wordCount":  1397 ,
   "datePublished" : "2024-08-31T00:00:00",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="neo4jをインストールしてknowledge graphsを試す" />
-<meta property="og:description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
+<meta property="og:description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240831_neo4j/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="neo4jをインストールしてknowledge graphsを試す" />
-  <meta name="twitter:description" content="モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot">
+  <meta name="twitter:description" content="モチベーション
+これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたまこの記事を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。
+この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみる …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -298,7 +304,6 @@ if (!doNotTrack) {
         <h2 id="モチベーション">モチベーション</h2>
 <p>これまで、FAISSやBM25を使って<a href="https://akenji3.github.io/post/20240815_rag/">RAGシステム</a>を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま<a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">この記事</a>を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。</p>
 <p>この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。</p>
-<!-- raw HTML omitted -->
 <h2 id="情報源">情報源</h2>
 <ol>
 <li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">RAGアプリケーションの精度をナレッジグラフで高める</a>    ナレッジグラフを知るきっかけとなった記事。</li>
@@ -350,7 +355,6 @@ $ sudo docker compose up -d
 <h2 id="今後について">今後について</h2>
 <p>CypherはSQLに雰囲気は似ているが、別物であり、理解はできていないが、上記の通り試してみるとなんとなくイメージはつかめる。</p>
 <p>今後は、これでRAGシステムを構築してみたい。</p>
-
 
         
 

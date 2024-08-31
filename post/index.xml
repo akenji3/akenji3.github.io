@@ -18,7 +18,9 @@
       <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240831_neo4j/</guid>
-      <description>モチベーション これまで、FAISSやBM25を使ってRAGシステムを構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;これまで、FAISSやBM25を使って&lt;a href=&#34;https://akenji3.github.io/post/20240815_rag/&#34;&gt;RAGシステム&lt;/a&gt;を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot;k&amp;quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま&lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;この記事&lt;/a&gt;を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。&lt;/p&gt;
+&lt;p&gt;この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
