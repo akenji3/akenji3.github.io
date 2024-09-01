@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 31 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Try PLaMo Beta Version</title>
+      <link>https://akenji3.github.io/en/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240901_plamo/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I read &lt;a href=&#34;https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html&#34;&gt;this article&lt;/a&gt; on August 8th. According to the article, a subsidiary of Preferred Networks (PFE) will start offering a free trial of LLM, which has Japanese language performance that exceeds GPT-4, prior to offering a commercial version.&lt;/p&gt;
+&lt;p&gt;I immediately applied for the free trial, received an email of acceptance, and waited for the notification of account issuance. I had received the notification e-mail on August 9th, but I had overlooked it and completely forgot that I had applied for it. Recently, after reading &lt;a href=&#34;https://www.watch.impress.co.jp/docs/news/1619221.html&#34;&gt;this post&lt;/a&gt;, I remembered about the free trial, rechecked my email, and found the account notification.&lt;/p&gt;
+&lt;p&gt;In this post, I will summarize what I tried of the free trial version.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>install neo4j and try knowledge graphs</title>

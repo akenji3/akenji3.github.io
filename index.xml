@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 31 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PLaMo β版を試す</title>
+      <link>https://akenji3.github.io/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240901_plamo/</guid>
+      <description>はじめに 8/8にこの記事を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE</description>
+    </item>
     
     <item>
       <title>neo4jをインストールしてknowledge graphsを試す</title>

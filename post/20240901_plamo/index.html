@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>PLaMo β版を試す - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに 8/8にこの記事を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240901_plamo\/",
+          "name": "P la mo β版を試す"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "PLaMo β版を試す",
+  "description" : "はじめに 8\/8にこの記事を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE",
+  "inLanguage" : "ja",
+  "wordCount":  6577 ,
+  "datePublished" : "2024-09-01T00:00:00",
+  "dateModified" : "2024-09-01T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240901_plamo\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="PLaMo β版を試す" />
+<meta property="og:description" content="はじめに 8/8にこの記事を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240901_plamo/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="PLaMo β版を試す" />
+  <meta name="twitter:description" content="はじめに 8/8にこの記事を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>PLaMo β版を試す</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 1, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240901_plamo/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>8/8に<a href="https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html">この記事</a>を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE）が、商用版提供に先駆けて無料トライアルの提供開始すると。</p>
+<p>早速、無料トライアルに申し込んで、受付完了のメールを受け取って、アカウント発行の通知を待っていた。通知メールは、8/9に受け取っていたのだが、自分が見過ごしてしまって、申し込んだこともすっかり忘れていた。最近、<a href="https://www.watch.impress.co.jp/docs/news/1619221.html">この記事</a>を読んで、無料トライアルの件を思い出し、メールを再確認し、アカウント通知を見つけた。</p>
+<p>この投稿では、無料トライアル版を試した内容をまとめる。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://www.preferred.jp/ja/news/pr20240807/">PLaMo β版の無料トライアルの申込受付</a>    本家（Preferred Networks）のニュースリリース。</li>
+<li><a href="https://plamo.preferredai.jp/">トライアル申込</a>    PLaMo β版トライアルAPI利用申請のページ。このページからログインすると、APIキーを取得でき、使い方のサンプルなども記載されている。</li>
+<li><a href="https://qiita.com/AzukiImo/items/20a58336985da680a5a5">PLaMo β版　無料トライアル</a>    実際に利用された方のQiita記事。</li>
+</ol>
+<h2 id="jupyterlabから使う">jupyterlabから使う</h2>
+<p>ChatGPTと同じAPIなので、これまでのコードを使って、簡単に試せそうなので、早速試してみる。</p>
+<p>コードについては、<a href="https://akenji3.github.io/post/20240815_rag/">こちらの投稿</a>の内容を参照されたい。</p>
+<h4 id="apiキーの設定">APIキーの設定</h4>
+<p>今回取得した、APIキー、およびサンプルコードを参考にして、以下の通り2つの環境変数を設定する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxx&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;API_HOST&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;URL&#39;</span>
+</code></pre></div><p>llmインスタンス作成部分についてもサンプルコードを参考にした。</p>
+<h4 id="plamo-βの利用の仕方">PLaMo βの利用の仕方</h4>
+<p>今回、次の3つの利用形態で質問を投げることにした。</p>
+<ol>
+<li>PLaMo βのみ（単体で利用）</li>
+<li>PLaMo βを使ったRAG（FAISSによるベクトルストア）</li>
+<li>PLaMo βを使ったRAG（FAISSによるベクトルストア＋BM25によるキーワード検索のアンサンブル）</li>
+</ol>
+<h4 id="アンサンブル部分のコード">アンサンブル部分のコード</h4>
+<p>以前の投稿に掲載していない、アンサンブル部分のコードを以下に示す。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Ensemble Retrieverを準備</span>
+
+<span class="kn">from</span> <span class="nn">langchain.retrievers</span> <span class="kn">import</span> <span class="n">EnsembleRetriever</span>
+
+<span class="n">ensemble_retriever</span> <span class="o">=</span> <span class="n">EnsembleRetriever</span><span class="p">(</span>
+    <span class="n">retrievers</span> <span class="o">=</span> <span class="p">[</span><span class="n">bm25_retriever</span><span class="p">,</span> <span class="n">faiss_retriever</span><span class="p">],</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div><p>併せて、chainの部分も次のように変更した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># LangChain（LCEL）でChainを構築</span>
+
+<span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
+<span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">RunnableParallel</span><span class="p">,</span> <span class="n">RunnablePassthrough</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+<span class="n">output_parser</span> <span class="o">=</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+<span class="n">setup_and_retrieval</span> <span class="o">=</span> <span class="n">RunnableParallel</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="n">ensemble_retriever</span><span class="p">,</span> <span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="n">RunnablePassthrough</span><span class="p">()}</span>
+<span class="p">)</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">setup_and_retrieval</span> <span class="o">|</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">output_parser</span>
+</code></pre></div><p>langchainを使うと、これまでのコードをほんの少し変更するだけで、いろいろなことが試せることが実感できた。</p>
+<h2 id="まとめ">まとめ</h2>
+<h4 id="実行結果">実行結果</h4>
+<p>質問内容は、<a href="https://akenji3.github.io/post/20240815_rag/">こちらの投稿</a>と同じ。出力結果をそのまま掲載（改行は挿入）。</p>
+<table>
+<thead>
+<tr>
+<th align="left">PLaMo βのみ</th>
+<th>FAISS</th>
+<th>ensemble</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">r過程についてご説明いたします。<!-- raw HTML omitted --> r過程」とは、宇宙における元素合成過程の一つです。<!-- raw HTML omitted --> 元素合成過程とは、宇宙空間で元素が作られるプロセスのことで、大きく分けて「s過程」「r過程」「p過程」という3つの過程が存在します。その中でも「r過程」は、爆発的な元素合成過程であり、主に中性子星同士の合体や、超新星爆発といった高密度で高温度な極限状態の環境下で起こると考えられています。<!-- raw HTML omitted -->「r過程」では、鉄よりも重い元素、特に金やウランといった重元素が生成されると考えられています。この過程では、速い中性子捕捉と、それによって生じる核分裂反応によって、原子番号の大きい元素が次々と合成されます。この過程は非常に短時間で進行し、数秒程度で終了するとされています。<!-- raw HTML omitted -->「r過程」の特徴の一つとして、元素の生成量が極めて少ないことが挙げられます。そのため、地球上では非常に希少な元素である金やウランも、宇宙空間では比較的多く存在していると考えられています。<!-- raw HTML omitted -->近年の観測技術の発達により、中性子星の合体や超新星爆発の際に、「r過程」によって生成されたと考えられる元素が実際に検出されています。このことにより、「r過程」が宇宙における元素合成の重要な過程であることが確認されつつあります。今後も研究が進められることが期待されています。<!-- raw HTML omitted -->以上が、「r過程」についての概要となります。ご参考になれば幸いです。</td>
+<td>s過程、rp過程とともに宇宙に存在する重元素の生成にかかわっている元素合成過程の一つです。中性子に富む側の安定性が問題になる点が、陽子に富む側の安定性が問題になるrp過程とかなり違っています。r過程の終了点(生成することの出来る最重元素)は、テルルより先へ反応が進まないことがわかっているものの、いまだによくわかっていません。</td>
+<td>r過程とは、高速中性子捕獲過程（Rapid Neutron Capture Process）の略語で、宇宙に存在する重元素（原子番号が大きい元素）の生成に関係する核反応プロセスの一つです。<!-- raw HTML omitted -->これは、超新星爆発や中性子星の合体などの天体物理学的な現象において、中性子を多く含む物質に高速で中性子が捕獲されることで起こります。このプロセスでは、鉄より重い元素が生成され、その速度はs過程（slow neutron capture process）やr過程（rapid neutron capture process）よりも速いとされています。<!-- raw HTML omitted -->r過程の研究は、宇宙における元素の存在比を説明する上で重要であり、特に金、ウラン、プルトニウムなどの重元素の起源を解明するために不可欠です。最近の研究では、中性子星の合体においてr過程が起こることが示唆されており、この現象を観測的に研究することで、r過程の理解が深まることが期待されています。<!-- raw HTML omitted -->ただし、r過程の具体的な発生場所やメカニズムについては、まだ完全には解明されていない部分もあり、現在も研究が進められています。</td>
+</tr>
+<tr>
+<td align="left">もちろんです。喜んで、あなたが尋ねたナンシー・グレース・ローマン宇宙望遠鏡について、説明させていただきます。<!-- raw HTML omitted -->ナンシー・グレース・ローマン宇宙望遠鏡とは、アメリカ合衆国のNASA（アメリカ航空宇宙局）が開発中の新しい宇宙望遠鏡の名称です。この望遠鏡の名前は、天文学者ナンシー・グレース・ローマンにちなんで付けられました。彼女は、NASAのゴダード宇宙飛行センターに勤務していた著名な天文学者で、赤外線天文学の分野で多大な貢献をした人物です。<!-- raw HTML omitted -->この望遠鏡の最大の特徴は、従来の宇宙望遠鏡よりも広い範囲を観測できることです。そのため、より遠くの宇宙を観測し、宇宙の歴史や進化についての理解を深めることができます。また、高い解像度を持つため、銀河や恒星の形成や進化についての詳細な観測も可能になります。さらに、この望遠鏡は太陽系外惑星の探索にも利用される予定です。惑星の大気の組成や特性を調べることで、生命の存在を示す兆候を探すことができるかもしれません。<!-- raw HTML omitted -->ナンシー・グレース・ローマン宇宙望遠鏡は、直径約6.5メートルの主鏡を備えており、これはジェームズ・ウェッブ宇宙望遠鏡（JWST）の主鏡（約6.5メートル）とほぼ同じ大きさです。しかし、JWSTは赤外線観測に特化しているのに対し、ナンシー・グレース・ローマン宇宙望遠鏡は可視光線から近赤外線までの幅広い波長で観測を行うことができます。このため、より多様な天体現象を観測することができます。<!-- raw HTML omitted -->ナンシー・グレース・ローマン宇宙望遠鏡は、現在、開発段階にあり、打ち上げは2025年以降に予定されています。この望遠鏡が稼働すれば、宇宙の謎に迫る多くの発見が期待されています。</td>
+<td>ナンシー・グレース・ローマン宇宙望遠鏡は略称「ローマン宇宙望遠鏡 (Roman Space Telescope )」と呼ばれています。 この望遠鏡は2020年代半ばに打ち上げが予定されており、日本を含む国際協力で進められている、NASAの広視野赤外線宇宙望遠鏡の計画です。当初は、「広視野近赤外線サーベイ宇宙望遠鏡」の頭文字を取ってWFIRSTという名称で計画が進められていました。 この望遠鏡は、近赤外線・赤外線の観測に特化しており、地球と太陽のラグランジュ点（L2）に位置することで、地球近傍の塵の影響を避け、より高精度の観測を可能としています。これにより、ハッブル宇宙望遠鏡よりも大幅な高性能化が図られています。<!-- raw HTML omitted -->一方で、同じような計画として、2021年12月25日に打ち上げられたジェームズ・ウェッブ宇宙望遠鏡（JWST）があります。こちらも口径約6.5mの六角形の鏡を18枚組み合わせた主鏡を備えており、近赤外線・赤外線の観測が可能ですが、近紫外線・可視光の観測能力は持っていません。ただし、ナンシー・グレース・ローマン宇宙望遠鏡とジェームズ・ウェッブ宇宙望遠鏡の具体的な性能や機能についての詳細な情報は、提供された情報からは分かりません。<!-- raw HTML omitted -->以上のように、ナンシー・グレース・ローマン宇宙望遠鏡は、NASAが主導する近赤外線・赤外線観測に特化した次世代の宇宙望遠鏡であり、ジェームズ・ウェッブ宇宙望遠鏡とは異なる計画ですが、どちらも宇宙観測の分野で重要な役割を果たすことが期待されています。</td>
+<td>ナンシー・グレース・ローマン宇宙望遠鏡は、アメリカ航空宇宙局（NASA）が2020年代半ばに打ち上げ予定の広視野赤外線宇宙望遠鏡です。この望遠鏡は当初、WFIRST（広視野赤外線サーベイ宇宙望遠鏡）という名称で計画されていましたが、2020年5月に天文学者であり教育者、女性の権利擁護者でもあったナンシー・グレース・ローマンの功績をたたえ、彼女の名前が付けられました。<!-- raw HTML omitted -->ローマンは、NASAの宇宙望遠鏡計画において重要な役割を果たし、特にハッブル宇宙望遠鏡の計画実現のために尽力したことで知られています。彼女は「ハッブルの母」と呼ばれ、天文学コミュニティや議会に働きかけ、ハッブルの基礎を築きました。<!-- raw HTML omitted -->ナンシー・グレース・ローマン宇宙望遠鏡は、直径約2.4メートルの主鏡を持ち、地球から約1.5万光年離れたL2ラグランジュ点に配置される予定です。この望遠鏡は、主に赤外線と近赤外線の波長域で観測を行い、宇宙の初期の銀河や恒星の進化、ダークマターやダークエネルギーの研究に貢献することが期待されています。<!-- raw HTML omitted -->同望遠鏡の打ち上げは、当初2011年に予定されていましたが、技術的な課題や予算の問題により、何度も延期されました。しかし、2020年に計画が再開され、2025年までに打ち上げが予定されています。<!-- raw HTML omitted -->まとめると、ナンシー・グレース・ローマン宇宙望遠鏡は、天文学の発展に大きく貢献した女性科学者の名前を冠した、赤外線観測に特化した宇宙望遠鏡であり、宇宙の謎に迫るための重要なツールとなることが期待されています。</td>
+</tr>
+<tr>
+<td align="left">もちろんです、B2FH論文についてご説明しましょう。<!-- raw HTML omitted -->B2FHというのは、物理学者のブライアン・ジョセフソン、レオナルド・サスキンド、ジョン・ホールの3人が、1980年にPhysical Review Lettersという雑誌に発表した論文のことです。この論文は、超伝導とトポロジーという2つの分野で重要な意味を持つ「分数量子化」の概念を紹介しました。<!-- raw HTML omitted -->この論文では、まず超伝導体という物質について説明しています。超伝導体は、ある温度以下で電気抵抗がゼロになり、磁場を完全に排除するという性質を持つ物質です。この性質を利用して、強力な磁石や高速コンピューターなどの技術が開発されています。<!-- raw HTML omitted -->次に、この論文ではトポロジーという数学の概念を説明しています。トポロジーとは、物体の形や大きさ、つなぎ目などの特性を研究する分野で、物体を変形させたり、切断したりしても変化しない性質を調べます。<!-- raw HTML omitted -->そして、B2FH論文では、超伝導体の電子状態がトポロジーの影響を受けることを示しました。具体的には、超伝導体の表面に「分数量子化」と呼ばれる現象が起こり、電子の振る舞いが変化します。これによって、超伝導体の表面には、通常の物質とは異なる特殊な状態が出現することがわかりました。<!-- raw HTML omitted -->この発見は、その後の物理学の研究に大きな影響を与えました。特に、トポロジカルな超伝導体の研究は、量子コンピューターやスピントロニクスなどの分野で進歩をもたらす可能性があります。<!-- raw HTML omitted -->以上のように、B2FH論文は物理学における重要な概念を導入し、その後の研究に大きな影響を与えた画期的な論文として知られています。</td>
+<td>B2FH論文は、「星のなかでの元素合成」というタイトルで、マーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルの4人の天文学者によって、1955年から1956年にケンブリッジ大学とカリフォルニア工科大学で執筆されました。この論文は、科学雑誌「レビューズ・オブ・モダン・フィジックス」に掲載され、星の内部で元素がどのように形成されるかを明らかにし、宇宙化学と天体物理学の分野に多大な影響を与えました。著者たちの頭文字を取って「B2FH」として知られています。なお、提供されたコンテキストでは、「b（.02）とTOI-1670」についてはB2FH論文との関連性が明記されていないため、これらについては回答できません。</td>
+<td>B2FH論文とは、マーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルによって書かれた「Synthesis of the Elements in Stars」というタイトルの論文です。この論文は、恒星内での元素生成に焦点を当てた画期的なもので、1957年に発表されました。著者の頭文字を取ってB2FH論文と呼ばれています。<!-- raw HTML omitted -->この論文では、恒星内での元素合成の過程が詳細に分析され、特に炭素を生成するトリプルアルファ反応について議論されています。ウィリアム・ファウラーはこの論文の共同著者の一人であり、彼の実験によって、トリプルアルファ反応が起こるために必要なエネルギー準位が炭素原子核に存在することが証明されました。この発見は、後の元素合成理論の発展に大きく貢献しました。<!-- raw HTML omitted -->また、B2FH論文は科学史において、人間原理に関する議論も引き起こしました。ウィリアム・ファウラーがこの論文の執筆に先立ち、宇宙における人間の存在について言及していたことが指摘されています。ただし、この論文自体は人間原理と直接的に関係しているわけではなく、主に恒星内での元素生成について論じています。<!-- raw HTML omitted -->以上のように、B2FH論文は、宇宙における元素の起源と進化に関する理解を大きく深めた重要な研究であると言えます。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="評価">評価</h4>
+<p>回答内容は、興味深い結果である。事実関係を確認すると次の通り。</p>
+<ol>
+<li>PLaMo βのみ
+<ul>
+<li>ナンシー・グレース・ローマン宇宙望遠鏡の口径は2.4mであり、6.5ｍではない。</li>
+<li>B2FH論文についての内容は誤り。</li>
+</ul>
+</li>
+<li>RAG（FAISSによるVector Store）
+<ul>
+<li>r過程の回答内容は、rp過程の説明のようだ。ベクトル検索の問題のように思う。</li>
+<li>ナンシー・グレース・ローマン宇宙望遠鏡の回答で、「…望遠鏡の具体的な性能や機能についての詳細な情報は、提供された情報からは分かりません。」との回答は良い。</li>
+<li>B2FH論文の回答で、「なお、提供されたコンテキストでは、「b（.02）とTOI-1670」についてはB2FH論文との関連性が明記されていないため、これらについては回答できません。」もベクトル検索の問題のようだ。「TOI-1670」は、太陽系外惑星を持つ恒星のこと。</li>
+</ul>
+</li>
+<li>RAG（VSとキーワード検索のensemble検索）
+<ul>
+<li>r過程の回答で、「r過程（rapid neutron capture process）よりも速いとされています。」は間違っている。</li>
+<li>ナンシー・グレース・ローマン宇宙望遠鏡の回答で、「直径約2.4メートルの主鏡を持ち、地球から約1.5万光年離れたL2ラグランジュ点に配置される予定です。」口径の説明はあっているが、L2ラグランジュ点は、地球から1.5百万（150万）Kmの位置。単位を間違えたか？</li>
+<li>B2FH論文の回答で、「人間原理」に触れている理由は分からない。</li>
+</ul>
+</li>
+</ol>
+<h4 id="最後に">最後に</h4>
+<p>VSによるRAGで、「分からない」や「回答できない」との回答が含まれている点は良いと思う。これは、テンプレートに「なお、コンテキスト情報に無い情報は回答に含めないでください。また、コンテキスト情報から回答が導けない場合は「分かりません」と回答してください。」と設定したことによると判断する。</p>
+<p>実は、「Llama-3-ELYZA-JP-8B-q4_k_m.gguf」モデルを使ってensemble検索を実施していたが、結果があまり良くなかったので、ensamble検索については評価を控えていたが、今回PLaMo βを使ってみると、比較的良い結果を得ることができた。</p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f&amp;text=PLaMo%20%ce%b2%e7%89%88%e3%82%92%e8%a9%a6%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f&amp;title=PLaMo%20%ce%b2%e7%89%88%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f&amp;title=PLaMo%20%ce%b2%e7%89%88%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f&amp;title=PLaMo%20%ce%b2%e7%89%88%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240901_plamo%2f&amp;description=PLaMo%20%ce%b2%e7%89%88%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240831_neo4j/" data-toggle="tooltip" data-placement="top" title="neo4jをインストールしてknowledge graphsを試す">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
