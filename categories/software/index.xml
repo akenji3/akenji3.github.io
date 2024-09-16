@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>knowledge graphsを使ったRAGへ初めの一歩</title>
+      <link>https://akenji3.github.io/post/20240916_kgrag/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240916_kgrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;少し前の&lt;a href=&#34;https://akenji3.github.io/post/20240831_neo4j/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。&lt;/p&gt;
+&lt;p&gt;この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PLaMo β版を試す</title>

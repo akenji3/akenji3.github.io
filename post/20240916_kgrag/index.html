@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>knowledge graphsを使ったRAGへ初めの一歩 - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
+この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240916_kgrag\/",
+          "name": "Knowledge graphsを使った r a gへ初めの一歩"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "knowledge graphsを使ったRAGへ初めの一歩",
+  "description" : "はじめに 少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。\nこの投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1713 ,
+  "datePublished" : "2024-09-16T00:00:00",
+  "dateModified" : "2024-09-16T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240916_kgrag\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="knowledge graphsを使ったRAGへ初めの一歩" />
+<meta property="og:description" content="はじめに
+少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
+この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240916_kgrag/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="knowledge graphsを使ったRAGへ初めの一歩" />
+  <meta name="twitter:description" content="はじめに
+少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
+この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>knowledge graphsを使ったRAGへ初めの一歩</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 16, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240916_kgrag/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>少し前の<a href="https://akenji3.github.io/post/20240831_neo4j/">この投稿</a>で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。</p>
+<p>この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。</p>
+<h2 id="情報源">情報源</h2>
+<ul>
+<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Knowledge Graphを使った RAG をLangChainで実装 前編</a>    今回の内容は、この記事のコード（以下、情報源コードと呼ぶ）をそのまま実行した。ナレッジグラフをRAGを実現する流れが理解できる内容である。</li>
+</ul>
+<h2 id="llmについて">LLMについて</h2>
+<p>情報源コードを5つのLLMで試した。実行結果は次の通り。</p>
+<table>
+<thead>
+<tr>
+<th align="left">LLM</th>
+<th align="left">実行結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">PLaMo β</td>
+<td align="left">BadRequestError: Error code: 400 - {&lsquo;message&rsquo;: &lsquo;invalid field: parallel_tool_calls&rsquo;}</td>
+</tr>
+<tr>
+<td align="left">Llama-3-ELYZA-JP-8B-q4_k_m.gguf</td>
+<td align="left">ImportError: Could not import json_repair python package. Please install it with <code>pip install json-repair</code>.<!-- raw HTML omitted -->json-repairを追加して、実行するも次のエラー。グラフが作られていないようだ？<!-- raw HTML omitted -->Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownRelationshipTypeWarning} {category: UNRECOGNIZED} {title: The provided relationship type is not in the database.} {description: One of the relationship types in your query is not available in the database, make sure you didn&rsquo;t misspell it or that the label is available when you run this statement in your application (the missing relationship type is: MENTIONS)} {position: line: 1, column: 15, offset: 14} for query: &lsquo;MATCH (s)-[r:!MENTIONS]-&gt;(t) RETURN s,r,t LIMIT 50&rsquo;</td>
+</tr>
+<tr>
+<td align="left">llama-3-youko-8b-instruct.Q6_K.gguf</td>
+<td align="left">TypeError: string indices must be integers</td>
+</tr>
+<tr>
+<td align="left">gpt-4o</td>
+<td align="left">正しく実行される。<!-- raw HTML omitted -->上記2つのLLMで、正しく実行されないようなので、サンプルコードで使われているLLMと同じものを使った。<!-- raw HTML omitted --><a href="https://github.com/langchain-ai/langchain/issues/21961">この記事</a>にも同じようにLLMでハマっている記事があった。</td>
+</tr>
+<tr>
+<td align="left">gpt-4o-mini</td>
+<td align="left">正しく実行される。<!-- raw HTML omitted --> API使用料金を抑えるために、こちらを使うようにした。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="手順">手順</h2>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>情報源コードを実行するために、必要なパッケージを追加したjupyterlabのDockerfileの抜粋を以下に示す。他の部分は、<a href="https://akenji3.github.io/post/20240814_rag_database/">この記事</a>のDockerfileと同じである。</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN</span> pip install --upgrade pip setuptools <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install <span class="nv">torch</span><span class="o">==</span>2.2.2 <span class="nv">torchvision</span><span class="o">==</span>0.17.2 <span class="nv">torchaudio</span><span class="o">==</span>2.2.2 <span class="se">\
+</span><span class="se"></span>        --index-url https://download.pytorch.org/whl/cu121 <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install torch torchvision torchaudio <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install jupyterlab matplotlib pandas scikit-learn ipywidgets <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install transformers accelerate sentencepiece einops <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain bitsandbytes protobuf <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install auto-gptq optimum <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install pypdf tiktoken sentence_transformers faiss-gpu trafilatura <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-community langchain_openai wikipedia <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-huggingface unstructured html2text rank-bm25 janome <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-chroma sudachipy sudachidict_full <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install mysql-connector-python <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-experimental neo4j pandas <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install json-repair<span class="err">
+</span></code></pre></div><p>情報源コードを実行するための追加部分は、最後から２行目「pip install langchain-experimental neo4j pandas」である。最後の「pip install json-repair」は、「LLMについて」の「実行結果」で記載したとおり、Llama-3-ELYZA-JP-8B-q4_k_m.gguf モデルを使うとエラーとなったので追加したものである。</p>
+<h4 id="graphを作成">Graphを作成</h4>
+<p>情報源コードをそのまま実行した。</p>
+<p>自分の環境に合わせて追加／修正したコードのみを以下に示す。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># neo4j用の環境変数を設定</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bolt://192.168.11.8:7687&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_USERNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;neo4j&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span>
+</code></pre></div><p>NEO4J_URIは、<a href="https://akenji3.github.io/post/20240831_neo4j/">この記事</a>でインストールしたコンテナが動作しているサーバのIPアドレスとポート。</p>
+<p>詳細は、こちらの<a href="https://neo4j.com/docs/browser-manual/current/operations/dbms-connection/#connection-scen%5Carios">Docsページ</a>を参照のこと。実は、ここで自分はハマった。</p>
+<p>NEO4J_USERNAME/PASSWORDは、同じ記事のdocker-compose.ymlのNEO4J_AUTHで指定したIDとパスワード。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># OpenAIのAPIキーを設定する</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx&#39;</span>
+</code></pre></div><p>「xxxx」の部分は、取得したAPIキーである。</p>
+<p>得られてグラフをブラウザから接続して確認した時の画面キャプチャは以下の通り。</p>
+<p><img src="/images/20240916_KGrag/20240901_neo4j_01.png" alt="neo4j_01"></p>
+<h4 id="vector-store-インデックスを作成">Vector Store インデックスを作成</h4>
+<p>更に、情報源コードに従って、Neo4jVectorでインデックスを作成する。記事と同じように、追加を確認する。</p>
+<p><img src="/images/20240916_KGrag/20240901_neo4j_03.png" alt="neo4j_03"></p>
+<h4 id="graphからの-retrieverとvector-storeからのretriever">Graphからの retrieverとVector Storeからのretriever</h4>
+<p>情報源コードの「2.RAGでのLLM実行」の部分も、そのまま実行した。</p>
+<p>自分が実行したChainの部分コードは次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Chainを実行</span>
+
+<span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">RunnableParallel</span><span class="p">,</span> <span class="n">RunnablePassthrough</span>
+<span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Answer the question based only on the following context:
+</span><span class="s2">{context}
+</span><span class="s2">
+</span><span class="s2">Question: {question}
+</span><span class="s2">Use natural language and be concise.
+</span><span class="s2">Answer:&#34;&#34;&#34;</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+
+<span class="n">chain</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">RunnableParallel</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="n">retriever</span><span class="p">,</span>
+            <span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="n">RunnablePassthrough</span><span class="p">(),</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="o">|</span> <span class="n">prompt</span>
+    <span class="o">|</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">&#34;gpt-4o&#34;</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;花田はどんな人間?&#34;</span><span class="p">)</span>
+</code></pre></div><p>実行結果は次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Search</span> <span class="n">query</span><span class="p">:</span> <span class="err">花田はどんな人間?</span>
+<span class="s1">&#39;花田一路は近所でも有名な腕白小僧です。&#39;</span>
+</code></pre></div><h2 id="今後について">今後について</h2>
+<p>今回、Knowledge Graphsを使ったRAGシステムが自分の環境でも試せるようになった。</p>
+<p>今後、情報源記事の<a href="https://qiita.com/FukuharaYohei/items/290867565d09502c0b5a">後編</a>を試した後、自分のデータを使ってGraph RAGを試してみたい。</p>
+<p>更に、gpt-*以外のLLMが使えないか、もう少し調査もしてみたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;text=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;description=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240901_plamo/" data-toggle="tooltip" data-placement="top" title="PLaMo β版を試す">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
