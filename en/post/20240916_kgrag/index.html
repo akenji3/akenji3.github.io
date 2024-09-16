@@ -10,7 +10,7 @@
   <title>First steps to RAG using knowledge graphs - akenji&#39;s lab</title>
   <meta name="description" content="Introduction
 A while ago in this post, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.
-In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. This time, I tried the online article as is, so it was a first step.">
+In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,9 +59,9 @@ In this post, I would like to summarize the contents of the simple knowledge gra
     "name" : "Kenji Arai"
   },
   "headline": "First steps to RAG using knowledge graphs",
-  "description" : "Introduction A while ago in this post, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.\nIn this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. This time, I tried the online article as is, so it was a first step.\n",
+  "description" : "Introduction A while ago in this post, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.\nIn this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.\n",
   "inLanguage" : "en",
-  "wordCount":  1028 ,
+  "wordCount":  960 ,
   "datePublished" : "2024-09-16T00:00:00",
   "dateModified" : "2024-09-16T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -83,7 +83,7 @@ In this post, I would like to summarize the contents of the simple knowledge gra
 <meta property="og:title" content="First steps to RAG using knowledge graphs" />
 <meta property="og:description" content="Introduction
 A while ago in this post, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.
-In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. This time, I tried the online article as is, so it was a first step.">
+In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20240916_kgrag/" />
 <meta property="og:type" content="website" />
@@ -303,11 +303,10 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction</h2>
 <p>A while ago in <a href="https://akenji3.github.io/en/post/20240831_neo4j/">this post</a>, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.</p>
-<p>In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. This time, I tried the online article as is, so it was a first step.</p>
+<p>In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.</p>
 <h2 id="sources">Sources</h2>
 <ul>
-<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Implementing RAG with Knowledge Graph in LangChain Part 1</a>    The contents of this article (hereinafter referred to as “source code”) were It was executed as is. The contents of this article are the same as the code in this article (hereinafter referred to as “source code”).</li>
-<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Implementing RAG with Knowledge Graph in LangChain Part 1</a>    The content of this article was run directly from the code in this article (hereinafter referred to as the &ldquo;source code&rdquo;). The content is intended to help the reader understand the flow of implementing RAG for the Knowledge Graph.</li>
+<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Implementing RAG with Knowledge Graph in LangChain Part 1</a>    The content of this post was run directly from the code in this article (hereinafter referred to as the &ldquo;source code&rdquo;). The content is intended to help the reader understand the flow of implementing RAG for the Knowledge Graph.</li>
 </ul>
 <h2 id="about-llm">About LLM</h2>
 <p>The source code was tested with 5 LLMs. The execution results are as follows.</p>
@@ -315,7 +314,7 @@ if (!doNotTrack) {
 <thead>
 <tr>
 <th align="left">LLM</th>
-<th align="left">実行結果</th>
+<th align="left">Execution Result</th>
 </tr>
 </thead>
 <tbody>
@@ -343,7 +342,7 @@ if (!doNotTrack) {
 </table>
 <h2 id="procedure">Procedure</h2>
 <h4 id="dockerfile">Dockerfile</h4>
-<p>The following is an excerpt from jupyterlab&rsquo;s Dockerfile with the necessary packages added to run the source code. The rest of the Dockerfile is identical to the Dockerfile in <a href="https://akenji3.github.io/en/post/20240814_rag_database/">this article</a>.</p>
+<p>The following is an excerpt from jupyterlab&rsquo;s Dockerfile with the necessary packages added to run the &ldquo;source code&rdquo;. The rest of the Dockerfile is identical to the Dockerfile in <a href="https://akenji3.github.io/en/post/20240814_rag_database/">this article</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN</span> pip install --upgrade pip setuptools <span class="se">\
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install <span class="nv">torch</span><span class="o">==</span>2.2.2 <span class="nv">torchvision</span><span class="o">==</span>0.17.2 <span class="nv">torchaudio</span><span class="o">==</span>2.2.2 <span class="se">\
 </span><span class="se"></span>        --index-url https://download.pytorch.org/whl/cu121 <span class="se">\
@@ -361,7 +360,7 @@ if (!doNotTrack) {
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install json-repair<span class="err">
 </span></code></pre></div><p>The additional part to execute the &ldquo;source code&rdquo; is the second line from the end, “pip install langchain-experimental neo4j pandas”. The last “pip install json-repair” was added because using the Llama-3-ELYZA-JP-8B-q4_k_m.gguf model resulted in an error, as described in “Execution Results” in “About LLM”.</p>
 <h4 id="create-graph">Create Graph</h4>
-<p>The source code was executed as is. Only the code added/modified for my environment is shown below.</p>
+<p>The &ldquo;source code&rdquo; was executed as is. Only the code added/modified for my environment is shown below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># neo4j用の環境変数を設定</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -379,7 +378,7 @@ if (!doNotTrack) {
 <p>The following is a screen capture of the obtained graph when it was checked by connecting from a browser.</p>
 <p><img src="/images/20240916_KGrag/20240901_neo4j_01.png" alt="neo4j_01"></p>
 <h4 id="create-a-vector-store-index">Create a Vector Store index</h4>
-<p>Further, create an index in Neo4jVector according to the source code. As with the article, check for additions.</p>
+<p>Further, create an index in Neo4jVector according to the &ldquo;source code&rdquo;. As with the article, check for additions.</p>
 <p><img src="/images/20240916_KGrag/20240901_neo4j_03.png" alt="neo4j_03"></p>
 <h4 id="retriever-from-graph-and-from-vector-store">retriever from Graph and from Vector Store</h4>
 <p>The “2. LLM execution in RAG” part of the &ldquo;source code&rdquo; was also executed as is.</p>
