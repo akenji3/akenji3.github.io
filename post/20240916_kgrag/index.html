@@ -61,7 +61,7 @@
   "headline": "knowledge graphsを使ったRAGへ初めの一歩",
   "description" : "はじめに 少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。\nこの投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。\n",
   "inLanguage" : "ja",
-  "wordCount":  1713 ,
+  "wordCount":  1948 ,
   "datePublished" : "2024-09-16T00:00:00",
   "dateModified" : "2024-09-16T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -305,11 +305,12 @@ if (!doNotTrack) {
 <p>少し前の<a href="https://akenji3.github.io/post/20240831_neo4j/">この投稿</a>で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。</p>
 <p>この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。</p>
 <h2 id="情報源">情報源</h2>
-<ul>
+<ol>
 <li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Knowledge Graphを使った RAG をLangChainで実装 前編</a>    今回の内容は、この記事のコード（以下、情報源コードと呼ぶ）をそのまま実行した。ナレッジグラフをRAGを実現する流れが理解できる内容である。</li>
-</ul>
+<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">RAGアプリケーションの精度をナレッジグラフで高める</a>   Neo4j開発者ブログの記事の日本語訳。情報源1.は、このページおよびこのページでポイントしているgithubが元になっていると思われる。</li>
+</ol>
 <h2 id="llmについて">LLMについて</h2>
-<p>情報源コードを5つのLLMで試した。実行結果は次の通り。</p>
+<p>情報源コードを6つのLLMで試した。実行結果は次の通り。</p>
 <table>
 <thead>
 <tr>
@@ -338,8 +339,13 @@ if (!doNotTrack) {
 <td align="left">gpt-4o-mini</td>
 <td align="left">正しく実行される。<!-- raw HTML omitted --> API使用料金を抑えるために、こちらを使うようにした。</td>
 </tr>
+<tr>
+<td align="left">Mistral-7B-Instruct-v0.3-Q6_K.gguf</td>
+<td align="left">TypeError: list indices must be integers or slices, not str</td>
+</tr>
 </tbody>
 </table>
+<p>情報源2.によると、サポートしているLLMは、OpenAIとMistralとあったので、「Mistral-7B-Instruct-v0.3-Q6_K.gguf」を試したが、上の表の通り、エラーとなった。OpenAIと同じようにAPI版でないと使えないのかな？</p>
 <h2 id="手順">手順</h2>
 <h4 id="dockerfile">Dockerfile</h4>
 <p>情報源コードを実行するために、必要なパッケージを追加したjupyterlabのDockerfileの抜粋を以下に示す。他の部分は、<a href="https://akenji3.github.io/post/20240814_rag_database/">この記事</a>のDockerfileと同じである。</p>
@@ -376,7 +382,7 @@ if (!doNotTrack) {
 
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx&#39;</span>
 </code></pre></div><p>「xxxx」の部分は、取得したAPIキーである。</p>
-<p>得られてグラフをブラウザから接続して確認した時の画面キャプチャは以下の通り。</p>
+<p>得られたグラフをブラウザから接続して確認した時の画面キャプチャは以下の通り。</p>
 <p><img src="/images/20240916_KGrag/20240901_neo4j_01.png" alt="neo4j_01"></p>
 <h4 id="vector-store-インデックスを作成">Vector Store インデックスを作成</h4>
 <p>更に、情報源コードに従って、Neo4jVectorでインデックスを作成する。記事と同じように、追加を確認する。</p>

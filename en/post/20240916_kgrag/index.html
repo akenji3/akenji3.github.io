@@ -61,7 +61,7 @@ In this post, I would like to summarize the contents of the simple knowledge gra
   "headline": "First steps to RAG using knowledge graphs",
   "description" : "Introduction A while ago in this post, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.\nIn this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.\n",
   "inLanguage" : "en",
-  "wordCount":  960 ,
+  "wordCount":  1061 ,
   "datePublished" : "2024-09-16T00:00:00",
   "dateModified" : "2024-09-16T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -305,11 +305,12 @@ if (!doNotTrack) {
 <p>A while ago in <a href="https://akenji3.github.io/en/post/20240831_neo4j/">this post</a>, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.</p>
 <p>In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.</p>
 <h2 id="sources">Sources</h2>
-<ul>
+<ol>
 <li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Implementing RAG with Knowledge Graph in LangChain Part 1</a>    The content of this post was run directly from the code in this article (hereinafter referred to as the &ldquo;source code&rdquo;). The content is intended to help the reader understand the flow of implementing RAG for the Knowledge Graph.</li>
-</ul>
+<li><a href="https://medium.com/neo4j/enhancing-the-accuracy-of-rag-applications-with-knowledge-graphs-ad5e2ffab663">Enhancing the Accuracy of RAG Applications With Knowledge Graphs</a>   Neo4J Developer Blog. Sources 1. appears to be based on this page and the github that is pointed to on this page.</li>
+</ol>
 <h2 id="about-llm">About LLM</h2>
-<p>The source code was tested with 5 LLMs. The execution results are as follows.</p>
+<p>The source code was tested with 6 LLMs. The execution results are as follows.</p>
 <table>
 <thead>
 <tr>
@@ -338,8 +339,13 @@ if (!doNotTrack) {
 <td align="left">gpt-4o-mini</td>
 <td align="left">Correctly executed.<!-- raw HTML omitted -->To reduce API usage fees, I started using this one.</td>
 </tr>
+<tr>
+<td align="left">Mistral-7B-Instruct-v0.3-Q6_K.gguf</td>
+<td align="left">TypeError: list indices must be integers or slices, not str</td>
+</tr>
 </tbody>
 </table>
+<p>According to sources 2., the supported LLMs are OpenAI and Mistral, so I tried “Mistral-7B-Instruct-v0.3-Q6_K.gguf” but it failed as shown in the table above.</p>
 <h2 id="procedure">Procedure</h2>
 <h4 id="dockerfile">Dockerfile</h4>
 <p>The following is an excerpt from jupyterlab&rsquo;s Dockerfile with the necessary packages added to run the &ldquo;source code&rdquo;. The rest of the Dockerfile is identical to the Dockerfile in <a href="https://akenji3.github.io/en/post/20240814_rag_database/">this article</a>.</p>
