@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MistaralAIのモデルがKnowledge graphsに使えるか？</title>
+      <link>https://akenji3.github.io/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20240929_mistralai/</guid>
+      <description>モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと</description>
+    </item>
     
     <item>
       <title>knowledge graphsを使ったRAGへ初めの一歩</title>

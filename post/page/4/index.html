@@ -217,7 +217,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;September 16, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;September 29, 2024に投稿
   
   
   
@@ -245,6 +245,45 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/">
+        <h2 class="post-title">Pytorchでの学習／推論の高速化について</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 18, 2023に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20230318_pytorch_speed-up/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p>JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。</p>
+<p>そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。</p>
+        <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://akenji3.github.io/post/20230223_galaxy_dataset/">
@@ -583,45 +622,6 @@ if (!doNotTrack) {
 <p>先月、<a href="https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html">@ITの記事</a>で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。</p>
 <p>ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。</p>
         <a href="https://akenji3.github.io/post/20221010_stablediffuser/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/">
-        <h2 class="post-title">KubernetesでGPUクラスタ構築 〜 初めの一歩</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;September 19, 2022に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" lang="en">en</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="はじめに">はじめに</h2>
-<p>約1ヵ月前に、<a href="https://akenji3.github.io/post/20220821_kubernetes/">この記事</a>でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。</p>
-<p>自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。</p>
-        <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" class="post-read-more">[続きを読む]</a>
         
     </div>
 

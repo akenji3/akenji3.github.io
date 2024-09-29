@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Sep 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Can MistaralAI&#39;s model be used for Knowledge graphs?</title>
+      <link>https://akenji3.github.io/en/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20240929_mistralai/</guid>
+      <description>Motivation Half a month ago in this post, I tried six LLMs for using the Knowledge Graph. As I wrote there, the LLMs available at this time are OpenAI and Mistral. So, I tried to run MistarlAI&amp;rsquo;s LLM on my PC (local environment). In fact, I found that it is not usable for the knowledge graph. In this post, I tried to use MistaralAI via Langchain via API to see</description>
+    </item>
     
     <item>
       <title>First steps to RAG using knowledge graphs</title>

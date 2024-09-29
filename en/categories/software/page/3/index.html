@@ -232,6 +232,44 @@ if (!doNotTrack) {
         <div class="posts-list">
           
             <article class="post-preview">
+    <a href="https://akenji3.github.io/en/post/20240102_quantization/">
+        <h2 class="post-title">Execution of a Japanese LLM by Quantization</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 2, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240102_quantization/" lang="ja">ja</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="motivation">Motivation</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20231230_japanesellms_en/">this article</a>, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.</p>
+        <a href="https://akenji3.github.io/en/post/20240102_quantization/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://akenji3.github.io/en/post/20231230_japanesellms/">
         <h2 class="post-title">Run Japanese LLMs on an on-premise environment</h2>
         
@@ -573,45 +611,6 @@ As a prerequisite for future study of Modulus, I installed Modulus in my environ
 <p>I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&rsquo;t have to worry about it because I&rsquo;m running it at home.</p>
 <p>I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.</p>
         <a href="https://akenji3.github.io/en/post/20230502_rootlessdocker/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20230318_pytorch_speed-up/">
-        <h2 class="post-title">Speed-up Learning and inference on Pytorch</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 18, 2023
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>In my home environment where I use NFS to store JupyterLab notebooks, I measured the performance when the NFS server is a RaspberryPi or HP Z240, and found that in the learning loop (state in which epochs are stacked), there is no significant difference whether the NB is stored on an NFS server or locally. I found that there was no significant difference between NBs stored on an NFS server or locally.</p>
-<p>Therefore, I have challenged to speed up the learning process, and I summarize the progress/results here.</p>
-        <a href="https://akenji3.github.io/en/post/20230318_pytorch_speed-up/" class="post-read-more">[Read More]</a>
         
     </div>
 

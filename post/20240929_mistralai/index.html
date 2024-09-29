@@ -7,10 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>knowledge graphsを使ったRAGへ初めの一歩 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
-この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+  <title>MistaralAIのモデルがKnowledge graphsに使えるか？ - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20240916_kgrag\/",
-          "name": "Knowledge graphsを使った r a gへ初めの一歩"
+          "@id": "https:\/\/akenji3.github.io\/post\/20240929_mistralai\/",
+          "name": "Mistaral a iのモデルが knowledge graphsに使えるか？"
         }
     }]
 }
@@ -58,15 +56,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "knowledge graphsを使ったRAGへ初めの一歩",
-  "description" : "はじめに 少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。\nこの投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。\n",
+  "headline": "MistaralAIのモデルがKnowledge graphsに使えるか？",
+  "description" : "モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと",
   "inLanguage" : "ja",
-  "wordCount":  1948 ,
-  "datePublished" : "2024-09-16T00:00:00",
-  "dateModified" : "2024-09-16T00:00:00",
+  "wordCount":  1132 ,
+  "datePublished" : "2024-09-29T00:00:00",
+  "dateModified" : "2024-09-29T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240916_kgrag\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240929_mistralai\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,19 +78,15 @@
 }
 </script>
 
-<meta property="og:title" content="knowledge graphsを使ったRAGへ初めの一歩" />
-<meta property="og:description" content="はじめに
-少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
-この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+<meta property="og:title" content="MistaralAIのモデルがKnowledge graphsに使えるか？" />
+<meta property="og:description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20240916_kgrag/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240929_mistralai/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="knowledge graphsを使ったRAGへ初めの一歩" />
-  <meta name="twitter:description" content="はじめに
-少し前のこの投稿で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。
-この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。">
+  <meta name="twitter:title" content="MistaralAIのモデルがKnowledge graphsに使えるか？" />
+  <meta name="twitter:description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -266,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>knowledge graphsを使ったRAGへ初めの一歩</h1>
+                <h1>MistaralAIのモデルがKnowledge graphsに使えるか？</h1>
               
               
               
@@ -274,7 +268,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;September 16, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;September 29, 2024に投稿
   
   
   
@@ -283,7 +277,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240916_kgrag/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240929_mistralai/" lang="en">en</a>
 </span>
 
 
@@ -301,54 +295,17 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>少し前の<a href="https://akenji3.github.io/post/20240831_neo4j/">この投稿</a>で、ナレッジグラフを使うため、nao4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。</p>
-<p>この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。</p>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>半月前の<a href="https://akenji3.github.io/post/20240916_kgrag/">この投稿</a>で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Knowledge Graphを使った RAG をLangChainで実装 前編</a>    今回の内容は、この記事のコード（以下、情報源コードと呼ぶ）をそのまま実行した。ナレッジグラフをRAGを実現する流れが理解できる内容である。</li>
-<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">RAGアプリケーションの精度をナレッジグラフで高める</a>   Neo4j開発者ブログの記事の日本語訳。情報源1.は、このページおよびこのページでポイントしているgithubが元になっていると思われる。</li>
+<li><a href="https://mistral.ai/">MistralAI</a>    本家のページ。アカウント、APIキーの取得は、このページから。アカウントを取得するには、このページからSing upし、emailアドレスに送付されたverification codeを入力することで取得できる。</li>
+<li><a href="https://weel.co.jp/media/tech/codestral2-v0.1/">【Codestral-22B】Mistral AI発コーディングAI！80言語以上に対応！</a>    アカウント取得、APIキー取得についてこのページを参考にした。</li>
 </ol>
-<h2 id="llmについて">LLMについて</h2>
-<p>情報源コードを6つのLLMで試した。実行結果は次の通り。</p>
-<table>
-<thead>
-<tr>
-<th align="left">LLM</th>
-<th align="left">実行結果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">PLaMo β</td>
-<td align="left">BadRequestError: Error code: 400 - {&lsquo;message&rsquo;: &lsquo;invalid field: parallel_tool_calls&rsquo;}</td>
-</tr>
-<tr>
-<td align="left">Llama-3-ELYZA-JP-8B-q4_k_m.gguf</td>
-<td align="left">ImportError: Could not import json_repair python package. Please install it with <code>pip install json-repair</code>.<!-- raw HTML omitted -->json-repairを追加して、実行するも次のエラー。グラフが作られていないようだ？<!-- raw HTML omitted -->Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownRelationshipTypeWarning} {category: UNRECOGNIZED} {title: The provided relationship type is not in the database.} {description: One of the relationship types in your query is not available in the database, make sure you didn&rsquo;t misspell it or that the label is available when you run this statement in your application (the missing relationship type is: MENTIONS)} {position: line: 1, column: 15, offset: 14} for query: &lsquo;MATCH (s)-[r:!MENTIONS]-&gt;(t) RETURN s,r,t LIMIT 50&rsquo;</td>
-</tr>
-<tr>
-<td align="left">llama-3-youko-8b-instruct.Q6_K.gguf</td>
-<td align="left">TypeError: string indices must be integers</td>
-</tr>
-<tr>
-<td align="left">gpt-4o</td>
-<td align="left">正しく実行される。<!-- raw HTML omitted -->上記2つのLLMで、正しく実行されないようなので、サンプルコードで使われているLLMと同じものを使った。<!-- raw HTML omitted --><a href="https://github.com/langchain-ai/langchain/issues/21961">この記事</a>にも同じようにLLMでハマっている記事があった。</td>
-</tr>
-<tr>
-<td align="left">gpt-4o-mini</td>
-<td align="left">正しく実行される。<!-- raw HTML omitted --> API使用料金を抑えるために、こちらを使うようにした。</td>
-</tr>
-<tr>
-<td align="left">Mistral-7B-Instruct-v0.3-Q6_K.gguf</td>
-<td align="left">TypeError: list indices must be integers or slices, not str</td>
-</tr>
-</tbody>
-</table>
-<p>情報源2.によると、サポートしているLLMは、OpenAIとMistralとあったので、「Mistral-7B-Instruct-v0.3-Q6_K.gguf」を試したが、上の表の通り、エラーとなった。OpenAIと同じようにAPI版でないと使えないのかな？</p>
-<h2 id="手順">手順</h2>
+<h2 id="確認内容">確認内容</h2>
 <h4 id="dockerfile">Dockerfile</h4>
-<p>情報源コードを実行するために、必要なパッケージを追加したjupyterlabのDockerfileの抜粋を以下に示す。他の部分は、<a href="https://akenji3.github.io/post/20240814_rag_database/">この記事</a>のDockerfileと同じである。</p>
+<p>Jupyterlab NoteBookからLangchain経由でMistralAIを使うためのDockerfileは、<a href="https://akenji3.github.io/post/20240916_kgrag/">この投稿</a>のDockerfileに一行追加した。他の部分は追加・変更していない。</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN</span> pip install --upgrade pip setuptools <span class="se">\
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install <span class="nv">torch</span><span class="o">==</span>2.2.2 <span class="nv">torchvision</span><span class="o">==</span>0.17.2 <span class="nv">torchaudio</span><span class="o">==</span>2.2.2 <span class="se">\
 </span><span class="se"></span>        --index-url https://download.pytorch.org/whl/cu121 <span class="se">\
@@ -363,66 +320,44 @@ if (!doNotTrack) {
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-chroma sudachipy sudachidict_full <span class="se">\
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install mysql-connector-python <span class="se">\
 </span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-experimental neo4j pandas <span class="se">\
-</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install json-repair<span class="err">
-</span></code></pre></div><p>情報源コードを実行するための追加部分は、最後から２行目「pip install langchain-experimental neo4j pandas」である。最後の「pip install json-repair」は、「LLMについて」の「実行結果」で記載したとおり、Llama-3-ELYZA-JP-8B-q4_k_m.gguf モデルを使うとエラーとなったので追加したものである。</p>
-<h4 id="graphを作成">Graphを作成</h4>
-<p>情報源コードをそのまま実行した。</p>
-<p>自分の環境に合わせて追加／修正したコードのみを以下に示す。</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># neo4j用の環境変数を設定</span>
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install json-repair langchain-mistralai<span class="err">
+</span></code></pre></div><p>最後の行の「langchain-mistralai」が追加した部分。</p>
+<h4 id="mistal-モデルを立ち上げる">Mistal モデルを立ち上げる</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Mistral-smallモデルを立ち上げる</span>
+
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">langchain_mistralai</span> <span class="kn">import</span> <span class="n">ChatMistralAI</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bolt://192.168.11.8:7687&#39;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_USERNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;neo4j&#39;</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span>
-</code></pre></div><p>NEO4J_URIは、<a href="https://akenji3.github.io/post/20240831_neo4j/">この記事</a>でインストールしたコンテナが動作しているサーバのIPアドレスとポート。</p>
-<p>詳細は、こちらの<a href="https://neo4j.com/docs/browser-manual/current/operations/dbms-connection/#connection-scen%5Carios">Docsページ</a>を参照のこと。実は、ここで自分はハマった。</p>
-<p>NEO4J_USERNAME/PASSWORDは、同じ記事のdocker-compose.ymlのNEO4J_AUTHで指定したIDとパスワード。</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># OpenAIのAPIキーを設定する</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MISTRAL_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx&#39;</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx&#39;</span>
-</code></pre></div><p>「xxxx」の部分は、取得したAPIキーである。</p>
-<p>得られたグラフをブラウザから接続して確認した時の画面キャプチャは以下の通り。</p>
-<p><img src="/images/20240916_KGrag/20240901_neo4j_01.png" alt="neo4j_01"></p>
-<h4 id="vector-store-インデックスを作成">Vector Store インデックスを作成</h4>
-<p>更に、情報源コードに従って、Neo4jVectorでインデックスを作成する。記事と同じように、追加を確認する。</p>
-<p><img src="/images/20240916_KGrag/20240901_neo4j_03.png" alt="neo4j_03"></p>
-<h4 id="graphからの-retrieverとvector-storeからのretriever">Graphからの retrieverとVector Storeからのretriever</h4>
-<p>情報源コードの「2.RAGでのLLM実行」の部分も、そのまま実行した。</p>
-<p>自分が実行したChainの部分コードは次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Chainを実行</span>
-
-<span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">RunnableParallel</span><span class="p">,</span> <span class="n">RunnablePassthrough</span>
-<span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
-
-<span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Answer the question based only on the following context:
-</span><span class="s2">{context}
-</span><span class="s2">
-</span><span class="s2">Question: {question}
-</span><span class="s2">Use natural language and be concise.
-</span><span class="s2">Answer:&#34;&#34;&#34;</span>
-<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
-
-<span class="n">chain</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">RunnableParallel</span><span class="p">(</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="n">retriever</span><span class="p">,</span>
-            <span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="n">RunnablePassthrough</span><span class="p">(),</span>
-        <span class="p">}</span>
-    <span class="p">)</span>
-    <span class="o">|</span> <span class="n">prompt</span>
-    <span class="o">|</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">&#34;gpt-4o&#34;</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatMistralAI</span><span class="p">(</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="s2">&#34;mistral-small&#34;</span><span class="p">,</span>
+    <span class="n">temperature</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="c1"># other params...,</span>
 <span class="p">)</span>
+</code></pre></div><p>xxxは、MistaralAIのページから入手したAPIキー。</p>
+<p>その他の部分は、<a href="https://akenji3.github.io/post/20240916_kgrag/">この投稿</a>で示した、情報源1.を参考にして欲しい。</p>
+<h4 id="実行結果">実行結果</h4>
+<p>mistarl-smallモデルを使った実行結果は、次のようなエラーとなった。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">HTTPStatusError: Error response <span class="m">400</span> <span class="k">while</span> fetching https://api.mistral.ai/v1/chat/completions: <span class="o">{</span><span class="s2">&#34;object&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;message&#34;</span>:<span class="s2">&#34;Function calling is not enabled for this model&#34;</span>,<span class="s2">&#34;type&#34;</span>:<span class="s2">&#34;invalid_request_error&#34;</span>,<span class="s2">&#34;param&#34;</span>:null,<span class="s2">&#34;code&#34;</span>:null<span class="o">}</span>
+</code></pre></div><h4 id="mistralモデルを変更する">Mistralモデルを変更する。</h4>
+<p>次のとおり「mistral-large-latest」に変更した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Mistralモデルを立ち上げる</span>
 
-<span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;花田はどんな人間?&#34;</span><span class="p">)</span>
-</code></pre></div><p>実行結果は次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Search</span> <span class="n">query</span><span class="p">:</span> <span class="err">花田はどんな人間?</span>
-<span class="s1">&#39;花田一路は近所でも有名な腕白小僧です。&#39;</span>
-</code></pre></div><h2 id="今後について">今後について</h2>
-<p>今回、Knowledge Graphsを使ったRAGシステムが自分の環境でも試せるようになった。</p>
-<p>今後、情報源記事の<a href="https://qiita.com/FukuharaYohei/items/290867565d09502c0b5a">後編</a>を試した後、自分のデータを使ってGraph RAGを試してみたい。</p>
-<p>更に、gpt-*以外のLLMが使えないか、もう少し調査もしてみたい。</p>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">langchain_mistralai</span> <span class="kn">import</span> <span class="n">ChatMistralAI</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MISTRAL_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxx&#39;</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatMistralAI</span><span class="p">(</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="s2">&#34;mistral-large-latest&#34;</span><span class="p">,</span>
+    <span class="n">temperature</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="c1"># other params...,</span>
+<span class="p">)</span>
+</code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>MistalAIのモデルを使ってもKnowledge graphsを試せることが分かった。但し、今回はLLMを使ってグラフを作成するところまでで、作成したグラフを使ったRAGの検証までは行っていない。</p>
+<p>今回、MistralAIを試した理由は次のとおり。今後<a href="https://aws.amazon.com/jp/bedrock/">Amazon Bedrock</a>を使ってみようと思っているので、そこで用意されているLLM（基盤モデル；FM）の内、Knowledge graphsが使えるものを事前に確認しておきたかった。</p>
+
 
         
 
@@ -436,42 +371,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;text=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f&amp;text=MistaralAI%e3%81%ae%e3%83%a2%e3%83%87%e3%83%ab%e3%81%8cKnowledge%20graphs%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%81%8b%ef%bc%9f&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f&amp;title=MistaralAI%e3%81%ae%e3%83%a2%e3%83%87%e3%83%ab%e3%81%8cKnowledge%20graphs%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%81%8b%ef%bc%9f" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f&amp;title=MistaralAI%e3%81%ae%e3%83%a2%e3%83%87%e3%83%ab%e3%81%8cKnowledge%20graphs%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%81%8b%ef%bc%9f" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;title=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f&amp;title=MistaralAI%e3%81%ae%e3%83%a2%e3%83%87%e3%83%ab%e3%81%8cKnowledge%20graphs%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%81%8b%ef%bc%9f" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240916_kgrag%2f&amp;description=knowledge%20graphs%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fRAG%e3%81%b8%e5%88%9d%e3%82%81%e3%81%ae%e4%b8%80%e6%ad%a9" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240929_mistralai%2f&amp;description=MistaralAI%e3%81%ae%e3%83%a2%e3%83%87%e3%83%ab%e3%81%8cKnowledge%20graphs%e3%81%ab%e4%bd%bf%e3%81%88%e3%82%8b%e3%81%8b%ef%bc%9f" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -494,13 +429,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20240901_plamo/" data-toggle="tooltip" data-placement="top" title="PLaMo β版を試す">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20240916_kgrag/" data-toggle="tooltip" data-placement="top" title="knowledge graphsを使ったRAGへ初めの一歩">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20240929_mistralai/" data-toggle="tooltip" data-placement="top" title="MistaralAIのモデルがKnowledge graphsに使えるか？">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
