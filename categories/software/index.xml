@@ -18,7 +18,9 @@
       <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20240929_mistralai/</guid>
-      <description>モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;半月前の&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>MistaralAIのモデルがKnowledge graphsに使えるか？ - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
+  <meta name="description" content="モチベーション
+半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +59,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "MistaralAIのモデルがKnowledge graphsに使えるか？",
-  "description" : "モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと",
+  "description" : "モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。 この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。\n",
   "inLanguage" : "ja",
   "wordCount":  1132 ,
   "datePublished" : "2024-09-29T00:00:00",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="MistaralAIのモデルがKnowledge graphsに使えるか？" />
-<meta property="og:description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
+<meta property="og:description" content="モチベーション
+半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20240929_mistralai/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="MistaralAIのモデルがKnowledge graphsに使えるか？" />
-  <meta name="twitter:description" content="モチベーション 半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIと">
+  <meta name="twitter:description" content="モチベーション
+半月前のこの投稿で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使える …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -357,7 +363,6 @@ if (!doNotTrack) {
 </code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>MistalAIのモデルを使ってもKnowledge graphsを試せることが分かった。但し、今回はLLMを使ってグラフを作成するところまでで、作成したグラフを使ったRAGの検証までは行っていない。</p>
 <p>今回、MistralAIを試した理由は次のとおり。今後<a href="https://aws.amazon.com/jp/bedrock/">Amazon Bedrock</a>を使ってみようと思っているので、そこで用意されているLLM（基盤モデル；FM）の内、Knowledge graphsが使えるものを事前に確認しておきたかった。</p>
-
 
         
 
