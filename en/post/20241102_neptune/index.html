@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Building GraphRAG with Amazon Neptune and LangChain (not yet completed) - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20241102_neptune\/",
+          "name": "Building graph r a g with amazon neptune and lang chain (not yet completed)"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "Building GraphRAG with Amazon Neptune and LangChain (not yet completed)",
+  "description" : "Motivation In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https:\/\/www.amazon.co.jp\/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0\/dp\/4815626448). Since I\u0026rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.\n",
+  "inLanguage" : "en",
+  "wordCount":  1027 ,
+  "datePublished" : "2024-11-02T00:00:00",
+  "dateModified" : "2024-11-02T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20241102_neptune\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Building GraphRAG with Amazon Neptune and LangChain (not yet completed)" />
+<meta property="og:description" content="Motivation
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20241102_neptune/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Building GraphRAG with Amazon Neptune and LangChain (not yet …" />
+  <meta name="twitter:description" content="Motivation
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book]( …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="/ja" lang="ja">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Building GraphRAG with Amazon Neptune and LangChain (not yet completed)</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 2, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20241102_neptune/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20240916_kgrag/">this post</a>, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](<a href="https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96">https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96</a> %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.</p>
+<h2 id="sources">Sources.</h2>
+<ol>
+<li>[Amazon Bedrock Part 3](<a href="https://diptimanrc.medium.com/amazon-bedrock-part-3-amazon-neptune-graph-database-q-a-langchain-agent-with-">https://diptimanrc.medium.com/amazon-bedrock-part-3-amazon-neptune-graph-database-q-a-langchain-agent-with-</a> Since this article was written a year ago, the package (library) structure has changed, and some of the code has been changed.</li>
+<li>[Announced LlamaIndex support for building GraphRAG applications in Amazon Neptune](<a href="https://aws.amazon.com/jp/about-aws/whats-new/2024/05/llamaIndex-">https://aws.amazon.com/jp/about-aws/whats-new/2024/05/llamaIndex-</a> amazon-neptune-graphrag-applications/) AWS introductory article on building GraphRAG with LlamaIndex.</li>
+<li><a href="https://qiita.com/orc_jj/items/5d0858663fb663cd3f7d">LlamaIndex + Amazon Neptune GraphRAG I tried</a> GraphRAG built using LlamaIndex and Neptune. Qiita article.</li>
+</ol>
+<h2 id="building-graphrag-with-neptune">Building GraphRAG with Neptune</h2>
+<p>Referring to source 1., I proceeded with the following steps.</p>
+<ol>
+<li>
+<p>Start and configure Neptune</p>
+</li>
+<li>
+<p>Create database</p>
+</li>
+<li>
+<p>Create a notebook (JupyterLab) from Neptune</p>
+</li>
+<li>
+<p>Input code from JupyterLab and try it out.</p>
+<p>The data to be stored in the database is text data about U.S. movies written in Cypher.</p>
+</li>
+</ol>
+<h3 id="building-neptune">Building Neptune</h3>
+<h4 id="start-neptune-from-the-management-console">Start Neptune from the management console</h4>
+<p>Select the “Neptune” service from the management console of your IAM account and start Neptune by selecting “Start Amazon Neptune”.</p>
+<h4 id="database-creation">Database Creation</h4>
+<p>In the management console, specify Neptune &gt; Databases &gt; Create Database and configure as follows.</p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune1.png" alt="Neptune1"></p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune2.png" alt="Neptune2"></p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune3.png" alt="Neptune3"></p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune4.png" alt="Neptune4"></p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune5.png" alt="Neptune5"></p>
+<p>It appeared that the IAM role specified above was not set. I re-specified the same settings as for the notebook creation above and created the notebook (see below).</p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune6.png" alt="Neptune6"></p>
+<p>Now click on “Create Database” to create the database.</p>
+<p>The following error occurred during database creation.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">DBクラスター作成中にエラーが発生しましたgraph-llm-1.
+The DB Subnet group doesn&#39;t meet Availability Zone (AZ) coverage requirement. Current AZ coverage: us-east-1a. Add subnet to coer at least 2 AZs.
+</code></pre></div><p>In the VPC I was using, the reason seems to be that I had created only one AZ. It seems they use multiple AZs for high database reliability. I learned one more thing here. I added AZs referring to <a href="https://docs.aws.amazon.com/ja_jp/neptune/latest/userguide/get-started-vpc.html">this article</a>. When I created AZs, I paid attention to the IP address (CIDR). The first private I had created for the bedrock study was 10.0.128.0/20, so I set it to 10.0.192.0/20.</p>
+<p>The database was then created again.</p>
+<p>At this time, I got an error message that “could not create notebook aws-neptune-graph-llm-1,” but I ignored it and proceeded, thinking that I would create it later.</p>
+<p>The message said it was created successfully.</p>
+<p><img src="/images/20241102_Neptune/20241101_Neptune7.png" alt="Neptune7"></p>
+<h3 id="starting-a-notebook">Starting a notebook</h3>
+<h4 id="creating-a-notebook">Creating a notebook</h4>
+<p>From the Neptune side menu, I selected “Notebooks” and made the same settings as in the “Notebook Settings” section, which already has a screenshot.</p>
+<p>Notebook aws-neptune-graph-llm-1 was created, but without the “graph-llm-DELETE” role name I should have specified, since the IAM role had a role name of “AWSNeptuneNotebookRole-1730423203115”, In the policy editor, I added Bedrock. In the policy editor, “bedrock:*” was created.</p>
+<h4 id="open-jupyterlab">Open JupyterLab</h4>
+<p>From Neptune notebooks, click on the notebook created above and open JupyterLab by clicking “Actions” &gt; “Open JupyterLab”.</p>
+<h3 id="try-the-code">Try the code</h3>
+<p>From here, try the code by the usual JupyterLab operations.</p>
+<h4 id="installing-the-package-library">Installing the package (library)</h4>
+<p>In source 1., boto3 and botocore langchain are installed, but that is not necessary because they are already installed on the system I built with the above procedure. I installed the following packages.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">langchain</span><span class="o">-</span><span class="n">aws</span> <span class="n">langchain</span><span class="o">-</span><span class="n">community</span>
+</code></pre></div><h4 id="prepare-neptune-graphs">Prepare Neptune graphs</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.graphs</span> <span class="kn">import</span> <span class="n">NeptuneGraph</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;graph-llm-1.cluster-ro-******.us-east-1.neptune.amazonaws.com&#34;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">8182</span>
+<span class="n">use_https</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">NeptuneGraph</span><span class="p">(</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span> <span class="o">=</span> <span class="n">port</span><span class="p">,</span> <span class="n">use_https</span><span class="o">=</span><span class="n">use_https</span><span class="p">)</span>
+</code></pre></div><h4 id="populating-a-graph-database">Populating a graph database</h4>
+<p>Create a graph database from text written in OpenCypher syntax.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">oc</span>
+<span class="n">CREATE</span> <span class="p">(</span><span class="n">TheMatrix</span><span class="p">:</span><span class="n">Movie</span> <span class="p">{</span><span class="n">title</span><span class="p">:</span><span class="s1">&#39;The Matrix&#39;</span><span class="p">,</span> <span class="n">released</span><span class="p">:</span><span class="mi">1999</span><span class="p">,</span> <span class="n">tagline</span><span class="p">:</span><span class="s1">&#39;Welcome to the Real World&#39;</span><span class="p">})</span>
+<span class="n">CREATE</span> <span class="p">(</span><span class="n">Keanu</span><span class="p">:</span><span class="n">Person</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span><span class="s1">&#39;Keanu Reeves&#39;</span><span class="p">,</span> <span class="n">born</span><span class="p">:</span><span class="mi">1964</span><span class="p">})</span>
+<span class="err">・・・</span>
+</code></pre></div><p>This was the first time I learned about the magic command “%%oc” !</p>
+<h4 id="prepare-llm">Prepare LLM</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_aws</span> <span class="kn">import</span> <span class="n">BedrockLLM</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">NeptuneOpenCypherQAChain</span>
+
+<span class="n">modelId</span> <span class="o">=</span> <span class="s1">&#39;anthropic.claude-v2&#39;</span> 
+<span class="n">model_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;max_tokens_to_sample&#34;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="s2">&#34;temperature&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+    <span class="s2">&#34;top_k&#34;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span> 
+    <span class="s2">&#34;top_p&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="s2">&#34;stop_sequences&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">Human:&#34;</span><span class="p">]</span> 
+<span class="p">}</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">Bedrock</span><span class="p">(</span>
+    <span class="n">model_id</span><span class="o">=</span><span class="n">modelId</span><span class="p">,</span>
+    <span class="n">model_kwargs</span><span class="o">=</span><span class="n">model_kwargs</span>
+<span class="p">)</span>
+</code></pre></div><p>The first line “from langchain_aws import BedrockLLM” was changed from the code in source 1.</p>
+<h4 id="graph-database-to-answer-questions">Graph database to answer questions</h4>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">chain = NeptuneOpenCypherQAChain.from_llm(llm = llm, graph=graph,verbose=True,)
+
+chain.run(&#34;who played in Top Gun ?&#34;)
+</code></pre></div><p>When I run the above, I get a “ValueError”. I have looked into it, but so far the cause is unknown. I gave up at this point.</p>
+<h4 id="execute-opencypher-query">Execute OpenCypher query</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">oc</span>
+<span class="n">MATCH</span> <span class="p">(</span><span class="n">p</span><span class="p">:</span><span class="n">Person</span><span class="p">)</span><span class="o">-</span><span class="p">[:</span><span class="n">ACTED_IN</span><span class="p">]</span><span class="o">-&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">:</span><span class="n">Movie</span> <span class="p">{</span><span class="n">title</span><span class="p">:</span><span class="s1">&#39;Top Gun&#39;</span><span class="p">})</span>
+<span class="n">RETURN</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span>
+</code></pre></div><p><img src="images/20241102_Neptune/20241102_Neptune8.png" alt="Neptune8"></p>
+<p>The Cypher query produces successful results, so the graph database seems to be ready.</p>
+<h2 id="summary">Summary</h2>
+<p>This time, I was not able to actually use the information in the graph database to obtain answers using LLM, but we were able to install Neptune and build the graph database. In the future, I would like to investigate the cause of the failure and build a working system by referring to sources 2. and 3.</p>
+<p>After using the hands-on assignment to touch AWS this time, I thought I need to learn a little more about AWS IAM roles and so on.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f&amp;text=Building%20GraphRAG%20with%20Amazon%20Neptune%20and%20LangChain%20%28not%20yet%20completed%29&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f&amp;title=Building%20GraphRAG%20with%20Amazon%20Neptune%20and%20LangChain%20%28not%20yet%20completed%29" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f&amp;title=Building%20GraphRAG%20with%20Amazon%20Neptune%20and%20LangChain%20%28not%20yet%20completed%29" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f&amp;title=Building%20GraphRAG%20with%20Amazon%20Neptune%20and%20LangChain%20%28not%20yet%20completed%29" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241102_neptune%2f&amp;description=Building%20GraphRAG%20with%20Amazon%20Neptune%20and%20LangChain%20%28not%20yet%20completed%29" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20241027_hyde/" data-toggle="tooltip" data-placement="top" title="Building a RAG system using the HyDE method">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
