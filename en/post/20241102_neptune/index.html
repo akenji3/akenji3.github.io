@@ -9,7 +9,7 @@
 
   <title>Building GraphRAG with Amazon Neptune and LangChain (not yet completed) - akenji&#39;s lab</title>
   <meta name="description" content="Motivation
-In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with this book. Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,9 +58,9 @@ In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am s
     "name" : "Kenji Arai"
   },
   "headline": "Building GraphRAG with Amazon Neptune and LangChain (not yet completed)",
-  "description" : "Motivation In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https:\/\/www.amazon.co.jp\/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0\/dp\/4815626448). Since I\u0026rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.\n",
+  "description" : "Motivation In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with this book. Since I\u0026rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.\n",
   "inLanguage" : "en",
-  "wordCount":  1027 ,
+  "wordCount":  1025 ,
   "datePublished" : "2024-11-02T00:00:00",
   "dateModified" : "2024-11-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,7 +81,7 @@ In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am s
 
 <meta property="og:title" content="Building GraphRAG with Amazon Neptune and LangChain (not yet completed)" />
 <meta property="og:description" content="Motivation
-In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96 %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with this book. Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20241102_neptune/" />
 <meta property="og:type" content="website" />
@@ -89,7 +89,7 @@ In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am s
 
   <meta name="twitter:title" content="Building GraphRAG with Amazon Neptune and LangChain (not yet …" />
   <meta name="twitter:description" content="Motivation
-In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book]( …">
+In this post, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with this book. Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -299,12 +299,12 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="motivation">Motivation</h2>
-<p>In <a href="https://akenji3.github.io/en/post/20240916_kgrag/">this post</a>, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with [this book](<a href="https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96">https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96</a> %80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448). Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.</p>
+<p>In <a href="https://akenji3.github.io/en/post/20240916_kgrag/">this post</a>, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with <a href="https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448">this book</a>. Since I&rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.</p>
 <h2 id="sources">Sources.</h2>
 <ol>
-<li>[Amazon Bedrock Part 3](<a href="https://diptimanrc.medium.com/amazon-bedrock-part-3-amazon-neptune-graph-database-q-a-langchain-agent-with-">https://diptimanrc.medium.com/amazon-bedrock-part-3-amazon-neptune-graph-database-q-a-langchain-agent-with-</a> Since this article was written a year ago, the package (library) structure has changed, and some of the code has been changed.</li>
-<li>[Announced LlamaIndex support for building GraphRAG applications in Amazon Neptune](<a href="https://aws.amazon.com/jp/about-aws/whats-new/2024/05/llamaIndex-">https://aws.amazon.com/jp/about-aws/whats-new/2024/05/llamaIndex-</a> amazon-neptune-graphrag-applications/) AWS introductory article on building GraphRAG with LlamaIndex.</li>
-<li><a href="https://qiita.com/orc_jj/items/5d0858663fb663cd3f7d">LlamaIndex + Amazon Neptune GraphRAG I tried</a> GraphRAG built using LlamaIndex and Neptune. Qiita article.</li>
+<li><a href="https://diptimanrc.medium.com/amazon-bedrock-part-3-amazon-neptune-graph-database-q-a-langchain-agent-with-amazon-bedrock-and-10f5dde1e2c5">Amazon Bedrock Part 3</a>    Since this article was written a year ago, the package (library) structure has changed, and some of the code has been changed.</li>
+<li><a href="https://aws.amazon.com/jp/about-aws/whats-new/2024/05/llamaIndex-amazon-neptune-graphrag-applications/">Announced LlamaIndex support for building GraphRAG applications in Amazon Neptune</a>    AWS introductory article on building GraphRAG with LlamaIndex.</li>
+<li><a href="https://qiita.com/orc_jj/items/5d0858663fb663cd3f7d">LlamaIndex + Amazon Neptune GraphRAG I tried</a>    GraphRAG built using LlamaIndex and Neptune. Qiita article.</li>
 </ol>
 <h2 id="building-graphrag-with-neptune">Building GraphRAG with Neptune</h2>
 <p>Referring to source 1., I proceeded with the following steps.</p>
