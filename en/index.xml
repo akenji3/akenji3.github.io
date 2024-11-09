@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GraphRAG using the neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20241109_graphrag/</guid>
+      <description>Introduction. In this post, we created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.
+In this post, we have tried to build a RAG system easily using the neo4j library.
+Information Sources  Getting Started With the Neo4j GraphRAG Python Package I tried the code in this article and modified some parts of the code, which I will comment in the text.</description>
+    </item>
     
     <item>
       <title>Building GraphRAG with Amazon Neptune and LangChain (not yet completed)</title>
