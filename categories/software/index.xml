@@ -18,7 +18,9 @@
       <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20241109_graphrag/</guid>
-      <description>はじめに この投稿では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。 この投稿では、neo</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。&lt;/p&gt;
+&lt;p&gt;この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。&lt;/p&gt;</description>
     </item>
     
     <item>
