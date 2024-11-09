@@ -49,7 +49,7 @@ This post summarizes my trial of HyDE. The LLM used was gpt-4o-mini to keep cost
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20240916_kgrag/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;A while ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240831_neo4j/&#34;&gt;this post&lt;/a&gt;, I described how I installed nao4j in a local environment (as a docker container) in order to use the knowledge graph.&lt;/p&gt;
+&lt;p&gt;A while ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240831_neo4j/&#34;&gt;this post&lt;/a&gt;, I described how I installed neo4j in a local environment (as a docker container) in order to use the knowledge graph.&lt;/p&gt;
 &lt;p&gt;In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.&lt;/p&gt;</description>
     </item>
     
