@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>neo4jライブラリを使ったGraphRAG - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-この投稿では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。
-この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。">
+  <title>Hybrid GraphRAG using neo4j library - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction.
+Continuing with this post from yesterday, I summarized the construction of a GraphRAG system using hybrid search.
+I had imagined connecting pipes “|” like LangChain&rsquo;s LCEL, but it was not what I had imagined. Please check it out below.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20241109_graphrag\/",
-          "name": "Neo4jライブラリを使った graph r a g"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20241110_hybridgraphrag\/",
+          "name": "Hybrid graph r a g using neo4j library"
         }
     }]
 }
@@ -58,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "neo4jライブラリを使ったGraphRAG",
-  "description" : "はじめに この投稿では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。\nこの投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。\n",
-  "inLanguage" : "ja",
-  "wordCount":  719 ,
-  "datePublished" : "2024-11-09T00:00:00",
-  "dateModified" : "2024-11-09T00:00:00",
+  "headline": "Hybrid GraphRAG using neo4j library",
+  "description" : "Introduction. Continuing with this post from yesterday, I summarized the construction of a GraphRAG system using hybrid search.\nI had imagined connecting pipes “|” like LangChain\u0026rsquo;s LCEL, but it was not what I had imagined. Please check it out below.\n",
+  "inLanguage" : "en",
+  "wordCount":  248 ,
+  "datePublished" : "2024-11-10T00:00:00",
+  "dateModified" : "2024-11-10T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241109_graphrag\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20241110_hybridgraphrag\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,26 +80,26 @@
 }
 </script>
 
-<meta property="og:title" content="neo4jライブラリを使ったGraphRAG" />
-<meta property="og:description" content="はじめに
-この投稿では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。
-この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。">
+<meta property="og:title" content="Hybrid GraphRAG using neo4j library" />
+<meta property="og:description" content="Introduction.
+Continuing with this post from yesterday, I summarized the construction of a GraphRAG system using hybrid search.
+I had imagined connecting pipes “|” like LangChain&rsquo;s LCEL, but it was not what I had imagined. Please check it out below.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20241109_graphrag/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20241110_hybridgraphrag/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="neo4jライブラリを使ったGraphRAG" />
-  <meta name="twitter:description" content="はじめに
-この投稿では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。
-この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。">
+  <meta name="twitter:title" content="Hybrid GraphRAG using neo4j library" />
+  <meta name="twitter:description" content="Introduction.
+Continuing with this post from yesterday, I summarized the construction of a GraphRAG system using hybrid search.
+I had imagined connecting pipes “|” like LangChain&rsquo;s LCEL, but it …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -129,12 +129,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -142,25 +142,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -170,9 +170,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -186,7 +186,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -266,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>neo4jライブラリを使ったGraphRAG</h1>
+                <h1>Hybrid GraphRAG using neo4j library</h1>
               
               
               
@@ -274,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;November 9, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 10, 2024
   
   
   
@@ -283,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241109_graphrag/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20241110_hybridgraphrag/" lang="ja">ja</a>
 </span>
 
 
@@ -301,46 +301,33 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20240916_kgrag/">この投稿</a>では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。</p>
-<p>この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。</p>
-<h2 id="情報源">情報源</h2>
-<ol>
-<li><a href="https://neo4j.com/developer-blog/get-started-graphrag-python-package/">Getting Started With the Neo4j GraphRAG Python Package</a>   この記事のコードを試した。記事のコードを修正した箇所があるので、そこは本文中でコメントする。</li>
-<li><a href="https://neo4j.com/developer-blog/graph-traversal-graphrag-python-package/">Enriching Vector Search With Graph Traversal Using the GraphRAG Python Package</a>    この記事のコードも試した。上記とほぼ同じ内容。</li>
-<li><a href="https://medium.com/neo4j/hybrid-retrieval-for-graphrag-applications-using-the-neo4j-genai-python-package-fddfafe06ff3">Hybrid Retrieval for GraphRAG Applications Using the Neo4j GraphRAG Package for Python</a>    この記事のコードは未だ試していない。今後試してみる予定。</li>
-</ol>
-<h2 id="実行結果">実行結果</h2>
-<h4 id="用意されているneo4jデータベースに接続">用意されているneo4jデータベースに接続</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Establish a connection to your Neo4j database</span>
+        <h2 id="introduction"><strong>Introduction.</strong></h2>
+<p>Continuing with <a href="https://akenji3.github.io/en/post/20241109_graphrag/">this post</a> from yesterday, I summarized the construction of a GraphRAG system using hybrid search.</p>
+<p>I had imagined connecting pipes “|” like LangChain&rsquo;s LCEL, but it was not what I had imagined. Please check it out below.</p>
+<h2 id="information-sources"><strong>Information Sources</strong></h2>
+<ul>
+<li><a href="https://medium.com/neo4j/hybrid-retrieval-for-graphrag-applications-using-the-neo4j-genai-python-package-fddfafe06ff3">Hybrid Retrieval for GraphRAG Applications Using the Neo4j GraphRAG Package for Python</a> I tried the code in this article.</li>
+</ul>
+<h2 id="execution-results"><strong>Execution results</strong></h2>
+<p>Connecting to the neo4j database and setting the OpenAI API key as an environment variable is the same as in <a href="https://akenji3.github.io/en/post/20241109_graphrag/">this post</a>.</p>
+<h4 id="preparing-hybridretriever"><strong>Preparing HybridRetriever</strong></h4>
+<p>Replace VectorRetriever in <a href="https://akenji3.github.io/en/post/20241109_graphrag/">this post</a> with HybridRetriever as follows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Hybrid Retriever</span>
 
 <span class="kn">from</span> <span class="nn">neo4j</span> <span class="kn">import</span> <span class="n">GraphDatabase</span>
-<span class="c1"># Demo database credentials</span>
-<span class="n">URI</span> <span class="o">=</span> <span class="s2">&#34;neo4j+s://demo.neo4jlabs.com&#34;</span>
-<span class="n">AUTH</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&#34;recommendations&#34;</span><span class="p">,</span> <span class="s2">&#34;recommendations&#34;</span><span class="p">)</span>
-<span class="c1"># Connect to Neo4j database</span>
-<span class="n">driver</span> <span class="o">=</span> <span class="n">GraphDatabase</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span><span class="n">URI</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">AUTH</span><span class="p">)</span>
-</code></pre></div><h4 id="openaiのapiキーを環境変数に設定">OpenAIのAPIキーを環境変数に設定</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Set OpenAI API key</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sk-*****&#39;</span>
-</code></pre></div><h4 id="graphragのretrieverを用意">GraphRAGのretrieverを用意</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Prepare GraphRAG&#39;s retriever</span>
-
-<span class="kn">from</span> <span class="nn">neo4j_graphrag.retrievers</span> <span class="kn">import</span> <span class="n">VectorRetriever</span>
 <span class="kn">from</span> <span class="nn">neo4j_graphrag.embeddings.openai</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+<span class="kn">from</span> <span class="nn">neo4j_graphrag.retrievers</span> <span class="kn">import</span> <span class="n">HybridRetriever</span>
 
 <span class="n">embedder</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&#34;text-embedding-ada-002&#34;</span><span class="p">)</span>
-<span class="n">retriever</span> <span class="o">=</span> <span class="n">VectorRetriever</span><span class="p">(</span>
+<span class="n">retriever</span> <span class="o">=</span> <span class="n">HybridRetriever</span><span class="p">(</span>
     <span class="n">driver</span><span class="p">,</span>
-    <span class="n">index_name</span><span class="o">=</span><span class="s2">&#34;moviePlotsEmbedding&#34;</span><span class="p">,</span>
+    <span class="n">vector_index_name</span><span class="o">=</span><span class="s2">&#34;moviePlotsEmbedding&#34;</span><span class="p">,</span>
+    <span class="n">fulltext_index_name</span><span class="o">=</span><span class="s2">&#34;movieFulltext&#34;</span><span class="p">,</span>
     <span class="n">embedder</span><span class="o">=</span><span class="n">embedder</span><span class="p">,</span>
     <span class="n">return_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;title&#34;</span><span class="p">,</span> <span class="s2">&#34;plot&#34;</span><span class="p">],</span>
 <span class="p">)</span>
-</code></pre></div><p>パッケージ名を「neo4j-graphrag」から「neo4j_graphrag」に変更した。</p>
-<h4 id="graphragでパイプラインを構築">GraphRAGでパイプラインを構築</h4>
+</code></pre></div><h4 id="building-a-pipeline-with-graphrag"><strong>Building a pipeline with GraphRAG</strong></h4>
+<p>The pipeline section is the same as <a href="https://akenji3.github.io/en/post/20241109_graphrag/">this post</a>, except for the query.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># GraphRAG</span>
 
 <span class="kn">from</span> <span class="nn">neo4j_graphrag.llm</span> <span class="kn">import</span> <span class="n">OpenAILLM</span>
@@ -354,20 +341,13 @@ if (!doNotTrack) {
 <span class="n">rag</span> <span class="o">=</span> <span class="n">GraphRAG</span><span class="p">(</span><span class="n">retriever</span><span class="o">=</span><span class="n">retriever</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
 
 <span class="c1"># Query the graph</span>
-<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&#34;What movies are sad rommances?&#34;</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">rag</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query_text</span><span class="o">=</span><span class="n">query_text</span><span class="p">,</span> <span class="n">retriever_config</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;top_k&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="n">query_text</span> <span class="o">=</span> <span class="s2">&#34;What is the name of the movie set in 1375 in Imperial China?&#34;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">rag</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query_text</span><span class="o">=</span><span class="n">query_text</span><span class="p">,</span> <span class="n">retriever_config</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;top_k&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
-</code></pre></div><h4 id="実行結果-1">実行結果</h4>
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">Based on the context provided, the following movies can be considered sad romances:
-
-<span class="k">1.</span> <span class="gs">**Autumn in New York**</span> - This film is a romantic drama about an aging playboy who falls for a sweet, but terminally ill, young woman, which adds a poignant and sad element to the romance.
-
-<span class="k">2.</span> <span class="gs">**Bed of Roses**</span> - While it has romantic elements, the story of a young career girl being swept off her feet by a shy florist may also carry emotional weight, depending on the character&#39;s journeys.
-
-These films explore themes of love intertwined with sadness and emotional challenges.
-</code></pre></div><h2 id="まとめ">まとめ</h2>
-<p>neo4jのgraphragパッケージを使用すると、非常に簡単にナレッジグラフを外部情報とするRAGシステムが構築できることがわかった。</p>
-<p>次は、情報源3.のGraphRAGでハイブリッド検索を行うRAGシステムを試してみようと思っている。</p>
+</code></pre></div><h4 id="execution-result">Execution Result</h4>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">The name of the movie set in 1375 in Imperial China is &#34;Musa the Warrior (Musa).&#34;
+</code></pre></div><h2 id="summary"><strong>Summary</strong></h2>
+<p>Since the HybridRetriever class is provided in the neo4j_graphrag package, it can be easily realized by calling the GraphRAG class with that object as the retriever.</p>
 
         
 
@@ -381,42 +361,42 @@ These films explore themes of love intertwined with sadness and emotional challe
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f&amp;text=neo4j%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fGraphRAG&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f&amp;text=Hybrid%20GraphRAG%20using%20neo4j%20library&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f&amp;title=neo4j%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fGraphRAG" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f&amp;title=Hybrid%20GraphRAG%20using%20neo4j%20library" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f&amp;title=neo4j%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fGraphRAG" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f&amp;title=Hybrid%20GraphRAG%20using%20neo4j%20library" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f&amp;title=neo4j%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fGraphRAG" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f&amp;title=Hybrid%20GraphRAG%20using%20neo4j%20library" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241109_graphrag%2f&amp;description=neo4j%e3%83%a9%e3%82%a4%e3%83%96%e3%83%a9%e3%83%aa%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9fGraphRAG" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241110_hybridgraphrag%2f&amp;description=Hybrid%20GraphRAG%20using%20neo4j%20library" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -439,13 +419,9 @@ These films explore themes of love intertwined with sadness and emotional challe
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20241102_neptune/" data-toggle="tooltip" data-placement="top" title="Amazon NeptuneとLangChainでGraphRAGを構築（未完成）">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20241109_graphrag/" data-toggle="tooltip" data-placement="top" title="GraphRAG using the neo4j library">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20241110_hybridgraphrag/" data-toggle="tooltip" data-placement="top" title="neo4jライブラリを使ったハイブリッドGraphRAG">次ページ &rarr;</a>
-            </li>
           
         </ul>
       
@@ -529,12 +505,12 @@ These films explore themes of love intertwined with sadness and emotional challe
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 09 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hybrid GraphRAG using neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Continuing with &lt;a href=&#34;https://akenji3.github.io/en/post/20241109_graphrag/&#34;&gt;this post&lt;/a&gt; from yesterday, I summarized the construction of a GraphRAG system using hybrid search.&lt;/p&gt;
+&lt;p&gt;I had imagined connecting pipes “|” like LangChain&amp;rsquo;s LCEL, but it was not what I had imagined. Please check it out below.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>GraphRAG using the neo4j library</title>
@@ -19,8 +30,8 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20241109_graphrag/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;In this post&lt;/a&gt;, we created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.&lt;/p&gt;
-&lt;p&gt;In this post, we have tried to build a RAG system easily using the neo4j library.&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;In this post&lt;/a&gt;, I created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.&lt;/p&gt;
+&lt;p&gt;In this post, I have tried to build a RAG system easily using the neo4j library.&lt;/p&gt;</description>
     </item>
     
     <item>
