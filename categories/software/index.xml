@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>ollamaを使ってローカル環境でLLMを動かす</title>
-      <link>https://akenji3.github.io/post/20241122_ollama/</link>
-      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
-      <author>akenji.1118@gmail.com (Kenji Arai)</author>
-      <guid>https://akenji3.github.io/post/20241122_ollama/</guid>
-      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240929_mistralai/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、&lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;この記事&lt;/a&gt;のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。&lt;/p&gt;
-&lt;p&gt;自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>neo4jライブラリを使ったハイブリッドGraphRAG</title>
