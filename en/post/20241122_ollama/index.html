@@ -10,7 +10,7 @@
   <title>Running LLMs in a local environment using ollama - akenji&#39;s lab</title>
   <meta name="description" content="Motivation
 In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
-I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.">
+I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -59,9 +59,9 @@ I would like to try my hand at building a knowledge graph in a local environment
     "name" : "Kenji Arai"
   },
   "headline": "Running LLMs in a local environment using ollama",
-  "description" : "Motivation In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.\nI would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.\n",
+  "description" : "Motivation In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.\nI would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.\n",
   "inLanguage" : "en",
-  "wordCount":  1230 ,
+  "wordCount":  1232 ,
   "datePublished" : "2024-11-22T00:00:00",
   "dateModified" : "2024-11-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -83,7 +83,7 @@ I would like to try my hand at building a knowledge graph in a local environment
 <meta property="og:title" content="Running LLMs in a local environment using ollama" />
 <meta property="og:description" content="Motivation
 In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
-I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.">
+I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20241122_ollama/" />
 <meta property="og:type" content="website" />
@@ -302,7 +302,7 @@ if (!doNotTrack) {
       <article role="main" class="blog-post">
         <h2 id="motivation">Motivation</h2>
 <p>In <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in <a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">this post</a>.</p>
-<p>I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.</p>
+<p>I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.</p>
 <h2 id="information-sources">Information sources</h2>
 <ol>
 <li><a href="https://hub.docker.com/r/ollama/ollama">ollama/ollama</a>  -  Information from dockerhub.</li>
@@ -359,7 +359,7 @@ ollama version is 0.4.2
 * **冬:**  寒く、雪が降ることがあります。冬スポーツを楽しんだり、暖房で体を温めたりし
 ます。
 </code></pre></div><h2 id="using-ollama-model-from-jupyterlab">Using ollama model from JupyterLab</h2>
-<p>In the Dockerfile introduced in <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, I added “pip innstall ollama, langchain-ollama” to the JupyterLab Docker container was created; see below for details on organizing the Dockerfile.</p>
+<p>I added “pip install ollama, langchain-ollama” to In the Dockerfile introduced in <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, then build  JupyterLab Docker container. The Dockerfile will eventually be reviewed, but more on that later.</p>
 <h4 id="executable-code">Executable code</h4>
 <p>I ran the code from the JupyterLab container, referring to the code in source 5.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
@@ -385,7 +385,7 @@ ollama version is 0.4.2
 $ cat Modelfile
 FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
 </code></pre></div><p>The above work is done under the ollama directory in the yaml file description. Then you can access the gguf file and modelfile from the container.</p>
-<p>Enter the ollama container (by &ldquo;docker exec&rdquo; already described) and create the model with the ollama command.</p>
+<p>Enter the ollama container (by &ldquo;docker exec&rdquo; already described) and create the model by the ollama command.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">＃ollama create neoai-8b-chat -f Modelfile
 </code></pre></div><h4 id="what-i-noticed">What I noticed.</h4>
 <ol>
@@ -394,7 +394,7 @@ FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
 <li>When I enter the container and do “ollama stop model”, it seems to be releasing GPU memory.</li>
 </ol>
 <h2 id="review-jupyterlab-container">Review JupyterLab container</h2>
-<p>Now the ollama container can do LLM processing on the backend. So far, we have embedded llama-cpp-python in the JupyterLab container. From now on, llama-cpp-python is no longer required in the JupyterLab container, simplifying the JupyterLab container.</p>
+<p>Now the ollama container can do LLM processing on the backend. So far, I have embedded llama-cpp-python in the JupyterLab container. From now on, llama-cpp-python is no longer required in the JupyterLab container, simplifying the JupyterLab container.</p>
 <h4 id="dockerfile-for-jupyterlab-container">Dockerfile for JupyterLab container</h4>
 <p>The simplified Dockerfile is as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Docker image with JupyterLab available.</span><span class="err">
