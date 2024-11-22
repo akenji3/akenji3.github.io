@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running LLMs in a local environment using ollama</title>
+      <link>https://akenji3.github.io/en/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240929_mistralai/&#34;&gt;this post&lt;/a&gt;, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in &lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hybrid GraphRAG using neo4j library</title>

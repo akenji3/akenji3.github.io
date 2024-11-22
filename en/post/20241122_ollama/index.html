@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>ollamaを使ってローカル環境でLLMを動かす - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション
-この投稿で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、この記事のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。
-自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。">
+  <title>Running LLMs in a local environment using ollama - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
+I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20241122_ollama\/",
-          "name": "Ollamaを使ってローカル環境で l l mを動かす"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20241122_ollama\/",
+          "name": "Running l l ms in a local environment using ollama"
         }
     }]
 }
@@ -58,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "ollamaを使ってローカル環境でLLMを動かす",
-  "description" : "モチベーション この投稿で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、この記事のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。\n自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。\n",
-  "inLanguage" : "ja",
-  "wordCount":  2592 ,
+  "headline": "Running LLMs in a local environment using ollama",
+  "description" : "Motivation In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.\nI would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.\n",
+  "inLanguage" : "en",
+  "wordCount":  1230 ,
   "datePublished" : "2024-11-22T00:00:00",
   "dateModified" : "2024-11-22T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241122_ollama\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20241122_ollama\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,26 +80,25 @@
 }
 </script>
 
-<meta property="og:title" content="ollamaを使ってローカル環境でLLMを動かす" />
-<meta property="og:description" content="モチベーション
-この投稿で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、この記事のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。
-自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。">
+<meta property="og:title" content="Running LLMs in a local environment using ollama" />
+<meta property="og:description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
+I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20241122_ollama/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20241122_ollama/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="ollamaを使ってローカル環境でLLMを動かす" />
-  <meta name="twitter:description" content="モチベーション
-この投稿で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、この記事のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。
-自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。">
+  <meta name="twitter:title" content="Running LLMs in a local environment using ollama" />
+  <meta name="twitter:description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -129,12 +128,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -142,25 +141,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -170,9 +169,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -186,7 +185,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -266,7 +265,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>ollamaを使ってローカル環境でLLMを動かす</h1>
+                <h1>Running LLMs in a local environment using ollama</h1>
               
               
               
@@ -274,7 +273,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;November 22, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 22, 2024
   
   
   
@@ -283,7 +282,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241122_ollama/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20241122_ollama/" lang="ja">ja</a>
 </span>
 
 
@@ -301,22 +300,22 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20240929_mistralai/">この投稿</a>で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、<a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">この記事</a>のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。</p>
-<p>自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="motivation">Motivation</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in <a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">this post</a>.</p>
+<p>I would like to try my hand at building a knowledge graph in a local environment. In this post, I will summarize the process of installing ollama.</p>
+<h2 id="information-sources">Information sources</h2>
 <ol>
-<li><a href="https://hub.docker.com/r/ollama/ollama">ollama/ollama</a>  -  dockerhubの情報。</li>
-<li><a href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a>  -  ollamaのブログ記事でdockerコンテナとしてollamaをインストールする情報。</li>
-<li><a href="https://bhrtaym-blog.com/?p=536">Ollamaで体験！Gemma2-2b-jpnが切り拓く日本語AI活用の新時代</a>  -  ollamaでgemma2日本語版インストールする情報。</li>
-<li><a href="https://zenn.dev/hellorusk/books/e56548029b391f/viewer/ollama5">Ollamaで Google の日本語版 Gemma 2 2B を動かす</a>  -  同じくollamaでgemma2日本語版をインストールする情報。</li>
-<li><a href="https://zenn.dev/buenotheebiten/articles/7c351b06494be0">ローカル環境でLLMを選んでLangChainで実行する。</a>  -  ollama CLIコマンドの一覧が載っていて、助かった。また、この記事のコードで4つのLLMを確かめた。</li>
-<li><a href="">OllamaLLM Connection refused&hellip;</a>  -  JupyterLabでコードを確かめる際に、connection refusedのエラーが出たので、その際に参考にした。</li>
-<li><a href="https://zenn.dev/yuta_enginner/articles/b0945dea44acb3">インストールから日本語モデル導入まで</a>  -  GGUFファイルをollamaに組み込む際に参考した。</li>
+<li><a href="https://hub.docker.com/r/ollama/ollama">ollama/ollama</a>  -  Information from dockerhub.</li>
+<li><a href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a>  -  Information on installing ollama as a docker container on ollama&rsquo;s blog post.</li>
+<li><a href="https://bhrtaym-blog.com/?p=536">Experience with Ollama! Gemma2-2b-jpn opens up a new era of Japanese AI applications</a>  -  Information on installing gemma2 Japanese version with ollama.</li>
+<li><a href="https://zenn.dev/hellorusk/books/e56548029b391f/viewer/ollama5">Running Google&rsquo;s Japanese version of Gemma 2 2B with Ollama</a>  -  Also information on installing gemma2 Japanese version with ollama.</li>
+<li><a href="https://zenn.dev/buenotheebiten/articles/7c351b06494be0">Select LLM in local environment and run it with LangChain.</a>  -  I found it helpful to have a list of ollama CLI commands. I also checked 4 LLMs with the code in this article.</li>
+<li><a href="">OllamaLLM Connection refused&hellip;</a>  - I used this as a reference when I was checking the code in JupyterLab and got a connection refused error.</li>
+<li><a href="https://zenn.dev/yuta_enginner/articles/b0945dea44acb3">From installation to Japanese model introduction</a>  -  I referred to this when I incorporated the GGUF file into ollama.</li>
 </ol>
-<h2 id="ollamaをインストール">ollamaをインストール</h2>
-<h4 id="docker-composeymlを作成">docker-compose.ymlを作成</h4>
-<p>情報源1.や2.のdockerコンテナ起動のコマンドラインを参考に、次のようなyamlを作成した。</p>
+<h2 id="install-ollama">Install ollama</h2>
+<h4 id="create-docker-composeyml">Create docker-compose.yml</h4>
+<p>I created the following yaml, referring to the command line for starting docker containers in sources 1. and 2.</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">services</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="k">ollama</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>ollama/ollama<span class="w">
@@ -334,7 +333,7 @@ if (!doNotTrack) {
 </span><span class="w">              </span><span class="k">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>gpu<span class="p">]</span><span class="w">
 </span><span class="w">    </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
 </span><span class="w">
-</span></code></pre></div><p>ホスト側の./ollamaディレクトリは、NFSマウント配下に置いた。そうすることで、別のGPUマシンと共有できると考えて。</p>
+</span></code></pre></div><p>The host&rsquo;s &lsquo;&rsquo;. /ollama&rdquo; directory under an NFS mount. Thinking that by doing so, it can be shared with another GPU machine.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ <span class="nb">pwd</span>
 /mnt/nfs2/workspace/ollama
 $ ls -l
@@ -342,15 +341,15 @@ $ ls -l
 -rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">325</span> 11月 <span class="m">21</span> 18:33 docker-compose.yml
 drwxrwxr-x <span class="m">3</span> kenji kenji <span class="m">4096</span> 11月 <span class="m">22</span> 15:28 ollama
 $ sudo docker compose up -d
-</code></pre></div><p>上記の通り、ollamaコンテナを起動する。</p>
-<h4 id="llmモデルをダウンロードし実行">LLMモデルを（ダウンロードし）実行</h4>
-<p>次のように、上記で起動したコンテナに入り、コンテナ内で、ollamaコマンドを使ってモデルを実行する。</p>
+</code></pre></div><p>Start the ollama container as described above.</p>
+<h4 id="download-and-run-the-llm-model">(download and) run the LLM model</h4>
+<p>Enter the container started above and run the model in the container using the ollama command as follows</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker <span class="nb">exec</span> -it ollama /bin/bash
 <span class="c1"># ollama --version</span>
 ollama version is 0.4.2
 <span class="c1"># ollama run schroneko/gemma-2-2b-jpn-it</span>
-</code></pre></div><h4 id="実行結果">実行結果</h4>
-<p>情報源3.のサンプルをそのまま使って、実行した。</p>
+</code></pre></div><h4 id="execution-results">Execution Results</h4>
+<p>The sample from Source 3. was used as-is and executed.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">&gt;&gt;&gt; 日本の四季について端的にわかりやすく教えて
 日本の四季は、大きく分けて**春、夏、秋、冬**の４つの季節があります。
 
@@ -359,10 +358,10 @@ ollama version is 0.4.2
 * **秋:**  紅葉が美しい季節です。気温が下がり、冷たい風が吹きます。
 * **冬:**  寒く、雪が降ることがあります。冬スポーツを楽しんだり、暖房で体を温めたりし
 ます。
-</code></pre></div><h2 id="jupyterlabからollamaモデルを使う">JupyterLabからollamaモデルを使う</h2>
-<p><a href="https://akenji3.github.io/post/20240929_mistralai/">この投稿</a>で紹介したDockerfileに、「pip innstall ollama, langchain-ollama」を追加して、JupyterLabのdockerコンテナを作成した。Dockerfileの整理については後述。</p>
-<h4 id="実行コード">実行コード</h4>
-<p>情報源5.のコードを参考に、JupyterLabコンテナから実行した。</p>
+</code></pre></div><h2 id="using-ollama-model-from-jupyterlab">Using ollama model from JupyterLab</h2>
+<p>In the Dockerfile introduced in <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, I added “pip innstall ollama, langchain-ollama” to the JupyterLab Docker container was created; see below for details on organizing the Dockerfile.</p>
+<h4 id="executable-code">Executable code</h4>
+<p>I ran the code from the JupyterLab container, referring to the code in source 5.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
 <span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
 
@@ -378,28 +377,28 @@ ollama version is 0.4.2
 <span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">model</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="s2">&#34;美味しいパスタの作り方は?&#34;</span><span class="p">})</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div><p>OllamaLLM()の引数のbase_urlのところがポイント。これは、情報源6.を参考にした。base_urlを指定しないと、connection refusedのエラーが発生する。</p>
-<h4 id="ggufファイルをモデルとして組み込む">ggufファイルをモデルとして組み込む</h4>
-<p>情報源7.を参考に、huggingfaceにある<a href="https://huggingface.co/mradermacher/Llama-3-neoAI-8B-Chat-v0.1-GGUF">この一覧</a>の「Q8-0」をダウンロードして、以下のようにModelfileを準備した。</p>
+</code></pre></div><p>The key point is the base_url of the OllamaLLM() argument. This is based on source 6. If base_url is not specified, a connection refused error occurs.</p>
+<h4 id="incorporate-gguf-file-as-a-model">Incorporate gguf file as a model</h4>
+<p>Referring to source 7., download “Q8-0” from <a href="https://huggingface.co/mradermacher/Llama-3-neoAI-8B-Chat-v0.1-GGUF">this list</a> on huggingface and Prepared a Modelfile.</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ wget https://huggingface.co/mradermacher/Llama-3-neoAI-8B-Chat-v0.1-GGUF/resolve/main<span class="se">\
 </span><span class="se"></span>/Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
 $ cat Modelfile
 FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
-</code></pre></div><p>上記の作業は、yamlファイル説明のところのollamaディレクトリ配下で行う。そうするとコンテナからもggufファイルとModelfileにアクセスできる。</p>
-<p>ollamaコンテナに入り（既に説明済みのdocker execによって）、ollamaコマンドでモデルを作る。</p>
+</code></pre></div><p>The above work is done under the ollama directory in the yaml file description. Then you can access the gguf file and modelfile from the container.</p>
+<p>Enter the ollama container (by &ldquo;docker exec&rdquo; already described) and create the model with the ollama command.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">＃ollama create neoai-8b-chat -f Modelfile
-</code></pre></div><h4 id="気づいたこと">気づいたこと</h4>
+</code></pre></div><h4 id="what-i-noticed">What I noticed.</h4>
 <ol>
-<li>ollamaコンテナでモデルをpullしておけば、JupyterLabのコードのモデル接続（OllamaLLM）時にrunしてくれるようで、アクセスできる。</li>
-<li>JupyterLabでモデルを変更すると、ollama側でモデルのstopとrunを行なっているようだ。</li>
-<li>コンテナに入って、「ollama stop モデル」するとGPUメモリを解放しているようだ。</li>
+<li>If I pull the model in the ollama container, it seems to run when the JupyterLab code connects the model (OllamaLLM) and I can access it.</li>
+<li>When you change the model in JupyterLab, it seems to stop and run the model on the ollama side.</li>
+<li>When I enter the container and do “ollama stop model”, it seems to be releasing GPU memory.</li>
 </ol>
-<h2 id="jupyterlabコンテナを見直す">JupyterLabコンテナを見直す</h2>
-<p>ここまででollamaコンテナがバックエンドでLLMの処理を行えるようになった。これまでJupyterLabのコンテナにllama-cpp-pythonを組み込んでいた。今後はJupyterLabコンテナにllama-cpp-pythonが必要でなくなり、JupyterLabコンテナがシンプルになる。</p>
-<h4 id="jupyterlabコンテナのdockerfile">JupyterLabコンテナのDockerfile</h4>
-<p>シンプルになったDockerfileは次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># JupyterLabが使えるDockerイメージ</span><span class="err">
-</span><span class="err"></span><span class="c"># 自分がこれまで作成したNoteBookに必要なパッケージをインストールしたもの。</span><span class="err">
+<h2 id="review-jupyterlab-container">Review JupyterLab container</h2>
+<p>Now the ollama container can do LLM processing on the backend. So far, we have embedded llama-cpp-python in the JupyterLab container. From now on, llama-cpp-python is no longer required in the JupyterLab container, simplifying the JupyterLab container.</p>
+<h4 id="dockerfile-for-jupyterlab-container">Dockerfile for JupyterLab container</h4>
+<p>The simplified Dockerfile is as follows</p>
+<div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Docker image with JupyterLab available.</span><span class="err">
+</span><span class="err"></span><span class="c"># Installed the necessary packages for the NoteBooks I have created so far.</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04</span><span class="err">
 </span><span class="err">
@@ -453,8 +452,8 @@ FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
 </span><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span><span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></div><h2 id="まとめ">まとめ</h2>
-<p>JupyterLabコンテナとollamaコンテナに分離し、コーディングを行う部分（フロントエンド）とLLMモデルを扱う部分（バックエンド）に分離でき構造的にすっきりした。これによって、今後LLMモデルを使うアプリを作成する場合にも良い結果をなると思う。</p>
+</span></code></pre></div><h2 id="summary">Summary</h2>
+<p>By separating the JupyterLab container and the ollama container, I was able to separate the coding part (front end) from the part that handles the LLM model (back end), which is structurally cleaner. I think this will be a good result when creating applications that use LLM models in the future.</p>
 
         
 
@@ -468,42 +467,42 @@ FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f&amp;text=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e7%92%b0%e5%a2%83%e3%81%a7LLM%e3%82%92%e5%8b%95%e3%81%8b%e3%81%99&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;text=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e7%92%b0%e5%a2%83%e3%81%a7LLM%e3%82%92%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e7%92%b0%e5%a2%83%e3%81%a7LLM%e3%82%92%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e7%92%b0%e5%a2%83%e3%81%a7LLM%e3%82%92%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241122_ollama%2f&amp;description=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e7%92%b0%e5%a2%83%e3%81%a7LLM%e3%82%92%e5%8b%95%e3%81%8b%e3%81%99" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;description=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -526,7 +525,7 @@ FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20241110_hybridgraphrag/" data-toggle="tooltip" data-placement="top" title="neo4jライブラリを使ったハイブリッドGraphRAG">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20241110_hybridgraphrag/" data-toggle="tooltip" data-placement="top" title="Hybrid GraphRAG using neo4j library">&larr; Previous Post</a>
             </li>
           
           
@@ -612,12 +611,12 @@ FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
