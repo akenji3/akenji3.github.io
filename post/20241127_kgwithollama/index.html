@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Open WebUIをフロントエンドにしてollamaのLLMと会話する - akenji&#39;s lab</title>
+  <title>ollamaでknowledge graphを作成 - akenji&#39;s lab</title>
   <meta name="description" content="はじめに
-昨日のこの投稿でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。">
+こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
+今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +46,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20241123_openwebui\/",
-          "name": "Open web u iをフロントエンドにしてollamaの l l mと会話する"
+          "@id": "https:\/\/akenji3.github.io\/post\/20241127_kgwithollama\/",
+          "name": "Ollamaでknowledge graphを作成"
         }
     }]
 }
@@ -57,15 +58,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Open WebUIをフロントエンドにしてollamaのLLMと会話する",
-  "description" : "はじめに 昨日のこの投稿でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。\n",
+  "headline": "ollamaでknowledge graphを作成",
+  "description" : "はじめに こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。\n今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。\n",
   "inLanguage" : "ja",
-  "wordCount":  1526 ,
-  "datePublished" : "2024-11-23T00:00:00",
-  "dateModified" : "2024-11-23T00:00:00",
+  "wordCount":  864 ,
+  "datePublished" : "2024-11-27T00:00:00",
+  "dateModified" : "2024-11-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241123_openwebui\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241127_kgwithollama\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +80,19 @@
 }
 </script>
 
-<meta property="og:title" content="Open WebUIをフロントエンドにしてollamaのLLMと会話する" />
+<meta property="og:title" content="ollamaでknowledge graphを作成" />
 <meta property="og:description" content="はじめに
-昨日のこの投稿でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。">
+こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
+今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20241123_openwebui/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20241127_kgwithollama/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Open WebUIをフロントエンドにしてollamaのLLMと会話する" />
+  <meta name="twitter:title" content="ollamaでknowledge graphを作成" />
   <meta name="twitter:description" content="はじめに
-昨日のこの投稿でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。">
+こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
+今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +266,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Open WebUIをフロントエンドにしてollamaのLLMと会話する</h1>
+                <h1>ollamaでknowledge graphを作成</h1>
               
               
               
@@ -271,7 +274,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;November 23, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;November 27, 2024に投稿
   
   
   
@@ -280,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241123_openwebui/" lang="en">en</a>
+  
 </span>
 
 
@@ -299,66 +302,53 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="はじめに">はじめに</h2>
-<p>昨日の<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。</p>
-<h2 id="完成イメージ">完成イメージ</h2>
-<p>次のような構成でシステムを構築した。NFSマウントについては<a href="https://akenji3.github.io/post/20241122_ollama/">昨日の投稿</a>も参照されたい。</p>
-<p><img src="/images/20241122_OpenWebUI/20241122_configuration.jpg" alt="SystemConfiguration"></p>
+<p><a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの投稿</a>では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近の<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>では、ollamaをインストールし起動したことをまとめた。</p>
+<p>今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://github.com/open-webui/open-webui">open-webui/open-webui</a>  -  Open-webUIの公式なgithubページ</li>
-<li><a href="https://docs.openwebui.com/">Open WebUI</a>  -  Dockerでopen-webuiをはじめ方が記載.</li>
-<li><a href="https://qiita.com/RyutoYoda/items/ecdfbef8c73aae64aa45">ローカルLLMの使用 - OllamaとOpen WebUIの連携について解説</a>  -  ollamaとopen-webuiをdockerでインストールするやり方が解説されている日本語のqiita記事。ollamaとopen-webuiをdocker-compose.ymlで一緒に（同一ホストで）起動していることが、今回自分がやろうとしている事と異なる。</li>
+<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Knowledge Graphを使った RAG をLangChainで実装 前編</a>  -  <a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの投稿</a>でも参考にした記事のコードをベースにollamaに対応すべく変更を加えた。</li>
+<li><a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">Llama 3.2とNeo4jでローカルGraphRAG環境を構築</a>  -  ベクトルインデックス作成の部分を参考にした。</li>
+<li><a href="">ValueError: Index with name vector already exists</a>  -  自分が出くわしたエラーに対処するために参考にした情報。</li>
 </ol>
-<h2 id="open-webuiを起動">Open WebUIを起動</h2>
-<h4 id="docker-composeymlを作成">docker-compose.ymlを作成</h4>
-<p>情報源2.を参考にして、Open WebUIを立ち上げるための設定ファイル（docker-compose.yml）を作成する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">services:
-  open-webui:
-    image: ghcr.io/open-webui/open-webui:cuda
-    container_name: open-webui
-    environment:
-      - <span class="nv">OLLAMA_BASE_URL</span><span class="o">=</span>http://192.168.11.4:11434
-    volumes:
-      - ./data:/app/backend/data
-    ports:
-      - 3000:8080
-    restart: always
-</code></pre></div><p>OLLAMA_BASE_URLでollamaが動作いるホスト（実際にはそのホスト内のコンテナで動作しているが）のIPアドレスとポート番号を指定する。ここが一番のポイント。</p>
-<p>イメージにopen-webui:cudaを使っているが、open-webui:mainでもollamaコンテナでは、GPUを使っているように見えた。（nvidia-smiでのメモリ使用量、GPU使用率から）</p>
-<h4 id="open-webuiを起動-1">Open WebUIを起動</h4>
-<p>docker composeコマンドでopen-webuiを起動し、起動をdocker psコマンドで確かめた。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ls -l
-合計 <span class="m">20</span>
-drwxrwxr-x <span class="m">5</span> kenji kenji <span class="m">4096</span> 11月 <span class="m">23</span> 10:44 data
--rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">264</span> 11月 <span class="m">23</span> 10:41 docker-compose.yml
--rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">264</span> 11月 <span class="m">23</span> 10:25 gamenyde_docker-compose-cuda.yml
--rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">264</span> 11月 <span class="m">22</span> 14:26 jupiter_docker-compose.yml
-$ sudo docker compose up -d
-$ sudo docker ps -a
-CONTAINER ID   IMAGE                                COMMAND                   CREATED         STATUS                     PORTS                                         NAMES
-5e3b265ccced   ghcr.io/open-webui/open-webui:cuda   <span class="s2">&#34;bash start.sh&#34;</span>           <span class="m">4</span> minutes ago   Up <span class="m">4</span> minutes <span class="o">(</span>healthy<span class="o">)</span>     0.0.0.0:3000-&gt;8080/tcp, <span class="o">[</span>::<span class="o">]</span>:3000-&gt;8080/tcp   open-webui
-</code></pre></div><h4 id="ブラウザから起動">ブラウザから起動</h4>
-<p>ブラウザで、「http://192.168.11.8:3000/」と入力すると、Open WebUIの起動画面が表示される。名前、メールアドレス、パスワードを入力すると、質問を受け付ける画面となる。</p>
-<p><img src="/images/20241122_OpenWebUI/20241123_OpenWebUI.jpg" alt="OpenWebUI"></p>
-<p>現在使用中のLLMが「schroneko/gemma-2-2b-jpn-it」であることが分かる。</p>
-<p>上部の「v」の部分をクリックすると、ollamaでpullしたLLMが次のように表示され、LLMを変更することができる。</p>
-<p><img src="images/20241122_OpenWebUI/20241124_LLMs.jpg" alt="LLMs"></p>
-<p>以下は、ollamaコンテナ内に入って、pullしているモデル一覧を表示させたもの。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker <span class="nb">exec</span> -it ollama /bin/bash
-<span class="o">[</span>sudo<span class="o">]</span> kenji のパスワード:
-<span class="c1"># ollama list</span>
-NAME                                           ID              SIZE      MODIFIED
-neoai-8b-chat:latest                           ad598b8bec6a    8.5 GB    <span class="m">18</span> hours ago
-llama3.2:latest                                a80c4f17acd5    2.0 GB    <span class="m">19</span> hours ago
-hf.co/elyza/Llama-3-ELYZA-JP-8B-GGUF:latest    4d9f57e24956    4.9 GB    <span class="m">20</span> hours ago
-schroneko/gemma-2-2b-jpn-it:latest             fcfc848fe62a    2.8 GB    <span class="m">21</span> hours ago
-<span class="c1"># ollama ps</span>
-NAME                                  ID              SIZE      PROCESSOR    UNTIL
-schroneko/gemma-2-2b-jpn-it:latest    fcfc848fe62a    4.8 GB    100% GPU     <span class="m">4</span> minutes from now
+<h2 id="変更したコード">変更したコード</h2>
+<p>情報源1.の記事のコードから変更した部分のみを掲載する。ollamaの構築について<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>を参照のこと。</p>
+<h4 id="ollamagemma-2-2b-jpnをllmとして設定">ollama（gemma-2-2b-jpn）をLLMとして設定</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ollama(gemma-2-2b-jpn）をLLMとして設定</span>
+
+<span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&#34;schroneko/gemma-2-2b-jpn-it&#34;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div><h4 id="neo4jvectorでvector-indexを作成">Neo4jVector()でvector indexを作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaEmbeddings</span>
+
+<span class="c1"># ollama embeddings</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OllamaEmbeddings</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;mxbai-embed-large&#34;</span><span class="p">,</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">Neo4jVector</span>
+
+<span class="n">vector_index</span> <span class="o">=</span> <span class="n">Neo4jVector</span><span class="o">.</span><span class="n">from_existing_graph</span><span class="p">(</span>
+    <span class="n">embeddings</span><span class="p">,</span>
+    <span class="n">search_type</span><span class="o">=</span><span class="s2">&#34;hybrid&#34;</span><span class="p">,</span>
+    <span class="n">node_label</span><span class="o">=</span><span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+    <span class="n">text_node_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+    <span class="n">embedding_node_property</span><span class="o">=</span><span class="s2">&#34;embedding&#34;</span>
+<span class="p">)</span>
+</code></pre></div><p>embeddingモデルで使用する「maxbai-embed-large」は、ollamaコンテナに入って、以下のようにpullしておいた。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ollama pull mxbai-embed-large</span>
+</code></pre></div><h4 id="neo4jvectorでエラー">Neo4jVector()でエラー</h4>
+<p>上記コードの「vector_index = Neo4jVector.from_existing_graph()」で次のエラーが発生した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ValueError: Index with name vector already exists.The provided embedding <span class="k">function</span> and vector index dimensions <span class="k">do</span> not match.
+Embedding <span class="k">function</span> dimension: <span class="m">1024</span>
+Vector index dimension: <span class="m">1536</span>
+</code></pre></div><h4 id="エラーへの対処">エラーへの対処</h4>
+<p>情報源3.を参考にして、次の通りエラーに対応した。</p>
+<p>ブラウザから Neo4jに接続し、ブラウザから以下のコマンドを実行した。（「neo4j$ 」はプロンプト）</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">neo4j$</span> <span class="k">drop</span> <span class="k">index</span> <span class="n">vector</span>
 </code></pre></div><h2 id="まとめ">まとめ</h2>
-<p>自分の使っている環境では、Open WebUIに接続しているブラウザ（Chrome）上での文字入力の挙動が若干変である。日本語入力（かな漢字変換）の確定の「Return」入力までの文字列で、ollamaへ問い合わせして、その結果が返される。入力欄には「Return」までに入力した確定した文字列が残っている。</p>
-<p>また、「hf.co/elyza/Llama-3-ELYZA-JP-8B-GGUF」を使った場合、LLMからの回答が何度も繰り返されたりする現象も発生している。</p>
-<p>半年前の<a href="https://akenji3.github.io/post/20240506_llamaserver/">この投稿</a>でChatbot UIを使ったシステムを構築した内容をまとめた。その時は、GPUマシンで動作するLlama-serverのコンテナ化が出来なくて苦労したが、今回は比較的簡単に、同様のシステムが構築できた。</p>
+<p>次はwikipediaのデータを使ってナレッジグラフを作成して、ベクトル検索などの他の手法での実行結果と比較してみたい。</p>
 
         
 
@@ -372,42 +362,42 @@ schroneko/gemma-2-2b-jpn-it:latest    fcfc848fe62a    4.8 GB    100% GPU     <sp
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f&amp;text=Open%20WebUI%e3%82%92%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89%e3%81%ab%e3%81%97%e3%81%a6ollama%e3%81%aeLLM%e3%81%a8%e4%bc%9a%e8%a9%b1%e3%81%99%e3%82%8b&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;text=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f&amp;title=Open%20WebUI%e3%82%92%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89%e3%81%ab%e3%81%97%e3%81%a6ollama%e3%81%aeLLM%e3%81%a8%e4%bc%9a%e8%a9%b1%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f&amp;title=Open%20WebUI%e3%82%92%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89%e3%81%ab%e3%81%97%e3%81%a6ollama%e3%81%aeLLM%e3%81%a8%e4%bc%9a%e8%a9%b1%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f&amp;title=Open%20WebUI%e3%82%92%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89%e3%81%ab%e3%81%97%e3%81%a6ollama%e3%81%aeLLM%e3%81%a8%e4%bc%9a%e8%a9%b1%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241123_openwebui%2f&amp;description=Open%20WebUI%e3%82%92%e3%83%95%e3%83%ad%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%83%89%e3%81%ab%e3%81%97%e3%81%a6ollama%e3%81%aeLLM%e3%81%a8%e4%bc%9a%e8%a9%b1%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;description=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -430,13 +420,9 @@ schroneko/gemma-2-2b-jpn-it:latest    fcfc848fe62a    4.8 GB    100% GPU     <sp
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20241122_ollama/" data-toggle="tooltip" data-placement="top" title="ollamaを使ってローカル環境でLLMを動かす">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20241123_openwebui/" data-toggle="tooltip" data-placement="top" title="Open WebUIをフロントエンドにしてollamaのLLMと会話する">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20241127_kgwithollama/" data-toggle="tooltip" data-placement="top" title="ollamaでknowledge graphを作成">次ページ &rarr;</a>
-            </li>
           
         </ul>
       

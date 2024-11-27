@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ollamaでknowledge graphを作成</title>
+      <link>https://akenji3.github.io/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;こちらの投稿&lt;/a&gt;では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;では、ollamaをインストールし起動したことをまとめた。&lt;/p&gt;
+&lt;p&gt;今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Open WebUIをフロントエンドにしてollamaのLLMと会話する</title>
