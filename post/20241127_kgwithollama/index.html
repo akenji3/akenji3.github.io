@@ -61,7 +61,7 @@
   "headline": "ollamaでknowledge graphを作成",
   "description" : "はじめに こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。\n今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。\n",
   "inLanguage" : "ja",
-  "wordCount":  864 ,
+  "wordCount":  958 ,
   "datePublished" : "2024-11-27T00:00:00",
   "dateModified" : "2024-11-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -283,7 +283,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241127_kgwithollama/" lang="en">en</a>
 </span>
 
 
@@ -343,7 +343,8 @@ if (!doNotTrack) {
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ValueError: Index with name vector already exists.The provided embedding <span class="k">function</span> and vector index dimensions <span class="k">do</span> not match.
 Embedding <span class="k">function</span> dimension: <span class="m">1024</span>
 Vector index dimension: <span class="m">1536</span>
-</code></pre></div><h4 id="エラーへの対処">エラーへの対処</h4>
+</code></pre></div><p><a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの記事</a>で実行した時は、gpt-4o-miniを使った。OpenAIのembeddingsの次元が1536で、今回のembeddingの次元が1024であるので、上記のエラーとなった。</p>
+<h4 id="エラーへの対処">エラーへの対処</h4>
 <p>情報源3.を参考にして、次の通りエラーに対応した。</p>
 <p>ブラウザから Neo4jに接続し、ブラウザから以下のコマンドを実行した。（「neo4j$ 」はプロンプト）</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">neo4j$</span> <span class="k">drop</span> <span class="k">index</span> <span class="n">vector</span>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating knowledge graphs with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I created a knowledge graph as a starting point for building a RAG system. After trying several different LLMs, only gpt-4o and gpt-4o-mini worked properly. In a recent &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt;, I summarized the installation and activation of ollama.&lt;/p&gt;
+&lt;p&gt;I created a knowledge graph using ollama this time, and I summarize its contents here. I hope this will be helpful, as I got into a bit of trouble in some areas.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Conversing with ollama&#39;s LLM via Open WebUI as front end</title>
