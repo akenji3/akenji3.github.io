@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,8 +34,23 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/post/20241202_graphrag-ollama/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/20241202_graphrag-ollama/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/20241202_graphrag-ollama/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,6 +60,21 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/categories/software/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/software/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/software/"
                 />
   </url>
   
@@ -60,21 +90,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/post/20241201_python3.11/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/software/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/software/"
                 />
   </url>
   

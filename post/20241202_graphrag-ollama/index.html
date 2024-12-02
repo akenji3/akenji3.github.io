@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>ollamaを使ってGraphRAGを構築 - akenji&#39;s lab</title>
+  <meta name="description" content="はじめに
+ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20241202_graphrag-ollama\/",
+          "name": "Ollamaを使って graph r a gを構築"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "ollamaを使ってGraphRAGを構築",
+  "description" : "はじめに ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。\n",
+  "inLanguage" : "ja",
+  "wordCount":  3185 ,
+  "datePublished" : "2024-12-02T00:00:00",
+  "dateModified" : "2024-12-02T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241202_graphrag-ollama\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="ollamaを使ってGraphRAGを構築" />
+<meta property="og:description" content="はじめに
+ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20241202_graphrag-ollama/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="ollamaを使ってGraphRAGを構築" />
+  <meta name="twitter:description" content="はじめに
+ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>ollamaを使ってGraphRAGを構築</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;December 2, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241202_graphrag-ollama/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">Llama 3.2とNeo4jでローカルGraphRAG環境を構築</a>  -  この記事のコードを実行した。</li>
+<li><a href="https://github.com/langchain-ai/langchain/discussions/28287">ChatOllama .invoke method giving &lsquo;NoneType&rsquo; object is not iterable #28287</a>  -  回答のリンクを辿っといくと、<a href="">このように</a>、回避策としてollamaを0.4.0より前のバージョンにせよと。</li>
+</ol>
+<h2 id="ナレッジグラフを構築">ナレッジグラフを構築</h2>
+<h4 id="外部情報とするデータテキスト">外部情報とするデータ（テキスト）</h4>
+<p>「<a href="https://akenji3.github.io/post/20240813_wikipedia_dump/">WikipediaダンプデータからRAG向けテキストデータ作成</a>」でwikipediaから抽出したテキストは、データ量が多いので、次の6項目のみを抽出した。「wc -m」で抽出したテキストの文字数をカウントすると15,041だった。</p>
+<ul>
+<li>R過程</li>
+<li>S過程</li>
+<li>ハッブル宇宙望遠鏡</li>
+<li>ナンシーグレースローマン宇宙望遠鏡</li>
+<li>B2FH論文</li>
+<li>原子核物理学</li>
+</ul>
+<p>以下がテキストからナレッジグラフを作成するコードである。</p>
+<h4 id="必要なパッケージをimport">必要なパッケージをimport</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># パッケージをimport</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+
+<span class="kn">from</span> <span class="nn">langchain_community.document_loaders</span> <span class="kn">import</span> <span class="n">TextLoader</span>
+<span class="kn">from</span> <span class="nn">langchain_community.graphs</span> <span class="kn">import</span> <span class="n">Neo4jGraph</span>
+<span class="kn">from</span> <span class="nn">langchain_community.vectorstores</span> <span class="kn">import</span> <span class="n">Neo4jVector</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.graph_transformers</span> <span class="kn">import</span> <span class="n">LLMGraphTransformer</span>
+<span class="kn">from</span> <span class="nn">neo4j</span> <span class="kn">import</span> <span class="n">GraphDatabase</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+</code></pre></div><h4 id="neo4jに接続しgraphを作成">neo4jに接続し、graphを作成</h4>
+<p>自分の環境では、JupyterLabを動作させているサーバとは別のサーバにneo4jを構築している。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># neo4j用の環境変数を設定</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_URI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bolt://xxx.xxx.xxx.xxx:7687&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_USERNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;neo4j&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;NEO4J_PASSWORD&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;password&#39;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">graph</span> <span class="o">=</span> <span class="n">Neo4jGraph</span><span class="p">()</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MATCH (n) DETACH DELETE n;&#39;</span><span class="p">)</span>
+</code></pre></div><h4 id="テキストファイルを読み込みchunkに分割">テキストファイルを読み込み、chunkに分割</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load documents from a text file</span>
+<span class="n">WIKI_TEXT</span> <span class="o">=</span> <span class="s2">&#34;./wiki_text2&#34;</span>
+<span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">CHUNK_OVERLAP</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+
+<span class="n">loader</span> <span class="o">=</span> <span class="n">TextLoader</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">WIKI_TEXT</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="c1"># Split documents into chunks</span>
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="n">CHUNK_SIZE</span><span class="p">,</span> <span class="n">chunk_overlap</span><span class="o">=</span><span class="n">CHUNK_OVERLAP</span><span class="p">)</span>
+<span class="n">documents</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">split_documents</span><span class="p">(</span><span class="n">documents</span><span class="o">=</span><span class="n">docs</span><span class="p">)</span>
+</code></pre></div><p>上記の「wiki_text2」がwikipediaから抽出したテキストファイルである。</p>
+<h4 id="ollamaのgemma-2b-jpn-itをllmに設定">ollamaのgemma-2b-jpn-itをLLMに設定</h4>
+<p>ollamaも別サーバで起動している。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ollama(gemma-2-2b-jpn）をLLMとして設定</span>
+
+<span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://xxx.xxx.xxx.xxx:11434&#34;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&#34;schroneko/gemma-2-2b-jpn-it&#34;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div><h4 id="テキストからナレッジグラフを作成">テキストからナレッジグラフを作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">llm_transformer</span> <span class="o">=</span> <span class="n">LLMGraphTransformer</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+
+<span class="c1"># ここでLLMでgraph化</span>
+<span class="n">graph_documents</span> <span class="o">=</span> <span class="n">llm_transformer</span><span class="o">.</span><span class="n">convert_to_graph_documents</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+<span class="n">graph</span><span class="o">.</span><span class="n">add_graph_documents</span><span class="p">(</span>
+    <span class="n">graph_documents</span><span class="p">,</span>
+    <span class="n">baseEntityLabel</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">include_source</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&#34;MATCH (s)-[r:!MENTIONS]-&gt;(t) RETURN s,r,t LIMIT 50&#34;</span><span class="p">))</span>
+</code></pre></div><p>自分の環境では、374秒（約6分）掛かった。</p>
+<h4 id="embeddingを設定しvector-indexを作成">embeddingを設定し、vector indexを作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaEmbeddings</span>
+
+<span class="c1"># ollama embeddings</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OllamaEmbeddings</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;mxbai-embed-large&#34;</span><span class="p">,</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">Neo4jVector</span>
+
+<span class="n">vector_index</span> <span class="o">=</span> <span class="n">Neo4jVector</span><span class="o">.</span><span class="n">from_existing_graph</span><span class="p">(</span>
+    <span class="n">embeddings</span><span class="p">,</span>
+    <span class="n">search_type</span><span class="o">=</span><span class="s2">&#34;hybrid&#34;</span><span class="p">,</span>
+    <span class="n">node_label</span><span class="o">=</span><span class="s2">&#34;Document&#34;</span><span class="p">,</span>
+    <span class="n">text_node_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
+    <span class="n">embedding_node_property</span><span class="o">=</span><span class="s2">&#34;embedding&#34;</span>
+<span class="p">)</span>
+</code></pre></div><h4 id="フルテキストインデックスを作成">フルテキストインデックスを作成</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Connect to the Neo4j, then create a full-text index</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">GraphDatabase</span><span class="o">.</span><span class="n">driver</span><span class="p">(</span>
+    <span class="n">uri</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;NEO4J_URI&#34;</span><span class="p">],</span>
+    <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;NEO4J_USERNAME&#34;</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;NEO4J_PASSWORD&#34;</span><span class="p">])</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_fulltext_index</span><span class="p">(</span><span class="n">tx</span><span class="p">):</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    CREATE FULLTEXT INDEX `fulltext_entity_id` 
+</span><span class="s1">    FOR (n:__Entity__) 
+</span><span class="s1">    ON EACH [n.id];
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">tx</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">driver</span><span class="o">.</span><span class="n">session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">execute_write</span><span class="p">(</span><span class="n">create_fulltext_index</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Fulltext index created successfully.&#34;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Failed to create index: {e}&#34;</span><span class="p">)</span>
+
+<span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div><p>フルテキストインデックスを作成する際に、既にindexがあるとエラーメッセージが出た。ブラウザからneo4jに接続して、cyherでindexをdropした後、再度実行した。</p>
+<p>作成後、ブラウザからneo4jに接続し、以下によってグラフの構造をダウンロードした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MATCH p=()-[]-() RETURN p
+</code></pre></div><p><img src="/images/20241202_GraphRAG/20241129_graph.png" alt="graph"></p>
+<h2 id="graphragを構築">GraphRAGを構築</h2>
+<p>情報源1.のコードを参考にして、ここまでに構築したナレッジグラフを外部情報としてRAGシステムを構築した。</p>
+<h3 id="エラーへの対処">エラーへの対処</h3>
+<p>質問を渡してinvokeするところで、次のようなエラーが発生した。対処した順番に以下に整理した。</p>
+<h4 id="llmwith_structured_outputdict_schemaでnotimplementederror">llm.with_structured_output(dict_schema)で、NotImplementedError</h4>
+<p>「llm = OllamaLLM(・・・)」を「llm = ChatOllama(・・・)」に変更した。</p>
+<h4 id="responseerror-schronekogemma-2-2b-jpn-it-does-not-support-tools">ResponseError: schroneko/gemma-2-2b-jpn-it does not support tools</h4>
+<p>このエラーは、質問を渡してchain.invoke()するところで発生した。</p>
+<p>「llm = ChatOllama(・・model=&quot;schroneko/gemma-2-2b-jpn-it&rdquo;・・)」を「llm = OllamaLLM(・・model =&quot;llma3.3&rdquo;・・)に変更した。</p>
+<h4 id="typeerror-nonetype-object-is-not-iterable">TypeError: &lsquo;NoneType&rsquo; object is not iterable</h4>
+<p>このエラーも、質問を渡してchain.invoke()するところで発生した。</p>
+<p>ネットで検索すると、情報源2.の記事を見つけた。その記事には、0.4.0未満のバージョンのollamaを使え、と書いてあった。自分が使っていたollamaのバージョンは、0.4.3であった。ダウングレードするより先に、最新版（0.4.6）した方が良いと考え、0.4.6にしたが、エラーは回避できなかった。そこで、0.3.3にしたが、やはりエラーは回避できなかった。</p>
+<p>改めて、情報源1.を見ると、pythonのバージョンが3.11となっていた。半分ダメもとで、それまで使っていたJupyterLabコンテナのpythonのバージョンを3.11に変更した。それについては、昨日の<a href="https://akenji3.github.io/post/20241201_python3.11/">この投稿</a>を参照のこと。</p>
+<p>変更後のpythonのバージョンは、次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># python --version</span>
+Python 3.11.10
+</code></pre></div><h4 id="ollamaをllmとして設定">ollamaをLLMとして設定</h4>
+<p>上記のエラー対応で述べきた通り、ようやく情報源1.のコードを正常に実行できた。色々と試した箇所のコードは次の通り。他の部分は、情報源1.のコードと同じ。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ollama(gemma-2-2b-jpn）をLLMとして設定</span>
+
+<span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+<span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">ChatOllama</span>
+
+<span class="c1">#llm = OllamaLLM(base_url = &#34;http://192.168.11.4:11434&#34;, model=&#34;schroneko/gemma-2-2b-jpn-it&#34;, temperature=0, format=&#34;json&#34;)</span>
+<span class="c1">#llm = ChatOllama(base_url = &#34;http://192.168.11.4:11434&#34;, model=&#34;schroneko/gemma-2-2b-jpn-it&#34;, temperature=0, format=&#34;json&#34;)</span>
+<span class="c1">#llm = OllamaLLM(base_url = &#34;http://192.168.11.4:11434&#34;, model=&#34;llama3.2&#34;, temperature=0, format=&#34;json&#34;)</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOllama</span><span class="p">(</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&#34;llama3.2&#34;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&#34;json&#34;</span><span class="p">)</span>
+</code></pre></div><h4 id="実行結果">実行結果</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;R過程について教えてください&#34;</span><span class="p">))</span>
+<span class="p">{</span> <span class="s2">&#34;R過程&#34;</span> <span class="p">:</span> <span class="s2">&#34;中性子星の衝突などの爆発的な現象によって起こる、元素合成における中性子を多くもつ鉄より重い元素のほぼ半分を合成する過程。迅速かつ連続的に中性子をニッケル56のような核種に取り込むことで起きる。&#34;</span> <span class="p">}</span> 
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡&#34;</span><span class="p">))</span>
+<span class="p">{</span><span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡&#34;</span>   <span class="p">:</span> <span class="s2">&#34;2020年代半ばに打ち上げを目指し、日本を含む国際協力で進められているアメリカ航空宇宙局 (NASA) の広視野赤外線宇宙望遠鏡計画。主鏡の口径は2.4m、視野はハッブル宇宙望遠鏡よりも100倍広く、焦点距離は短くなる。太陽系外の惑星の撮影や、ダークエネルギーの存在確認に役立てることができると考えられる。}&#34;</span><span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡について教えて&#34;</span><span class="p">))</span>
+<span class="p">{</span><span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡&#34;</span>  		 	 	<span class="p">:</span><span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡は、2020年代半ばの打ち上げを目指し、日本を含む国際協力で進められているアメリカ航空宇宙局 (NASA) の広視野赤外線宇宙望遠鏡計画。正式名称は「ナンシー・グレース・ローマン宇宙望遠鏡（Nancy Grace Roman Space Telescope）」です。&#34;</span><span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;B2FH論文&#34;</span><span class="p">))</span>
+<span class="p">{</span><span class="s2">&#34;B2FH論文&#34;</span> <span class="p">:</span> <span class="s2">&#34;元素の起源に関する記念碑的な論文。著者はマーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルの4名で、1955年から1956年に執筆され、1957年にアメリカ物理学会の査読付き学術誌&#34;</span> <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&#34;B2FH論文について教えてください&#34;</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="s2">&#34;B2FH論文&#34;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&#34;題名&#34;</span> <span class="p">:</span> <span class="s2">&#34;Synthesis of the Elements in Stars&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;執筆期間&#34;</span> <span class="p">:</span> <span class="mi">1955</span>    
+    <span class="p">,</span> <span class="s2">&#34;執筆場所&#34;</span> <span class="p">:</span> <span class="s2">&#34;ケンブリッジ大学とカリフォルニア工科大学&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;査読誌&#34;</span> <span class="p">:</span> <span class="s2">&#34;Reviews of Modern Physics&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>外部情報をテキストを準備してから1週間以上掛かったが、ようやくGraphRAGを構築することができた。</p>
+<p>グラフ作成にそれなりに時間が掛かるので、大規模な外部データを扱う場合には問題ありそうだ。</p>
+<p>上記の結果を見てわかるように、質問が文章になっていると、回答が少し乱れるようだ。この部分改善点である。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f&amp;text=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GraphRAG%e3%82%92%e6%a7%8b%e7%af%89&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GraphRAG%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GraphRAG%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f&amp;title=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GraphRAG%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241202_graphrag-ollama%2f&amp;description=ollama%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6GraphRAG%e3%82%92%e6%a7%8b%e7%af%89" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20241201_python3.11/" data-toggle="tooltip" data-placement="top" title="pythonバージョンが3.11のJupyterLabコンテナを作成">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
