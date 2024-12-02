@@ -60,7 +60,7 @@
   "headline": "ollamaを使ってGraphRAGを構築",
   "description" : "はじめに ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。\n",
   "inLanguage" : "ja",
-  "wordCount":  3185 ,
+  "wordCount":  3217 ,
   "datePublished" : "2024-12-02T00:00:00",
   "dateModified" : "2024-12-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -414,7 +414,7 @@ if (!doNotTrack) {
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Failed to create index: {e}&#34;</span><span class="p">)</span>
 
 <span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div><p>フルテキストインデックスを作成する際に、既にindexがあるとエラーメッセージが出た。ブラウザからneo4jに接続して、cyherでindexをdropした後、再度実行した。</p>
+</code></pre></div><p>フルテキストインデックスを作成する際に、既にindexがあるとエラーメッセージが出た。ブラウザからneo4jに接続して、cypherでindexをdropした後、再度実行した。</p>
 <p>作成後、ブラウザからneo4jに接続し、以下によってグラフの構造をダウンロードした。</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MATCH p=()-[]-() RETURN p
 </code></pre></div><p><img src="/images/20241202_GraphRAG/20241129_graph.png" alt="graph"></p>
@@ -430,7 +430,7 @@ if (!doNotTrack) {
 <h4 id="typeerror-nonetype-object-is-not-iterable">TypeError: &lsquo;NoneType&rsquo; object is not iterable</h4>
 <p>このエラーも、質問を渡してchain.invoke()するところで発生した。</p>
 <p>ネットで検索すると、情報源2.の記事を見つけた。その記事には、0.4.0未満のバージョンのollamaを使え、と書いてあった。自分が使っていたollamaのバージョンは、0.4.3であった。ダウングレードするより先に、最新版（0.4.6）した方が良いと考え、0.4.6にしたが、エラーは回避できなかった。そこで、0.3.3にしたが、やはりエラーは回避できなかった。</p>
-<p>改めて、情報源1.を見ると、pythonのバージョンが3.11となっていた。半分ダメもとで、それまで使っていたJupyterLabコンテナのpythonのバージョンを3.11に変更した。それについては、昨日の<a href="https://akenji3.github.io/post/20241201_python3.11/">この投稿</a>を参照のこと。</p>
+<p>改めて、情報源1.を見ると、pythonのバージョンが3.11となっていた。自分の環境のpythonのバージョンは、3.10.12だった。半分ダメもとで、それまで使っていたJupyterLabコンテナのpythonのバージョンを3.11に変更した。それについては、昨日の<a href="https://akenji3.github.io/post/20241201_python3.11/">この投稿</a>を参照のこと。</p>
 <p>変更後のpythonのバージョンは、次の通り。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># python --version</span>
 Python 3.11.10

@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in our local environment.&lt;/p&gt;</description>
+&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
     </item>
     
     <item>

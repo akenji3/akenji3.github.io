@@ -9,7 +9,7 @@
 
   <title>Building GraphRAG with ollama - akenji&#39;s lab</title>
   <meta name="description" content="Introduction
-It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in our local environment.">
+It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,9 +58,9 @@ It has already been a week since I created the knowledge graph in my local envir
     "name" : "Kenji Arai"
   },
   "headline": "Building GraphRAG with ollama",
-  "description" : "Introduction It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in our local environment.\n",
+  "description" : "Introduction It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.\n",
   "inLanguage" : "en",
-  "wordCount":  2217 ,
+  "wordCount":  2165 ,
   "datePublished" : "2024-12-02T00:00:00",
   "dateModified" : "2024-12-02T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,7 +81,7 @@ It has already been a week since I created the knowledge graph in my local envir
 
 <meta property="og:title" content="Building GraphRAG with ollama" />
 <meta property="og:description" content="Introduction
-It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in our local environment.">
+It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20241202_graphrag-ollama/" />
 <meta property="og:type" content="website" />
@@ -299,7 +299,7 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="introduction">Introduction</h2>
-<p>It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in our local environment.</p>
+<p>It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.</p>
 <h2 id="sources">Sources</h2>
 <ol>
 <li><a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">Building a local GraphRAG environment with Llama 3.2 and Neo4j</a> - I ran the code in this article.</li>
@@ -307,7 +307,7 @@ if (!doNotTrack) {
 </ol>
 <h2 id="build-a-knowledge-graph">Build a knowledge graph</h2>
 <h4 id="data-text-to-be-used-as-external-information">Data (text) to be used as external information</h4>
-<p>The text extracted from wikipedia in “<a href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/">Creating text data for RAG from Wikipedia dump data</a>” is a large amount of data, so only the following 6 items The following six items were extracted. Counting the number of characters in the text extracted by “wc -m,” the number was 15,041.</p>
+<p>The text extracted from wikipedia in “<a href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/">Creating text data for RAG from Wikipedia dump data</a>” is a large amount of data, so only the following 6 items were extracted. Counting the number of characters in the text extracted by “wc -m,” the number was 15,041.</p>
 <ul>
 <li>R process</li>
 <li>S process</li>
@@ -414,7 +414,7 @@ if (!doNotTrack) {
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Failed to create index: {e}&#34;</span><span class="p">)</span>
 
 <span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div><p>When creating a full text index, I got an error message that there was already an index. I connected to neo4j from a browser, dropped the index with cyher, and ran it again.</p>
+</code></pre></div><p>When creating a full text index, I got an error message that there was already an index. I connected to neo4j from a browser, dropped the index with cypher, and ran it again.</p>
 <p>After creation, I connected to neo4j from a browser and downloaded the graph structure by</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MATCH p=()-[]-() RETURN p
 </code></pre></div><p><img src="/images/20241202_GraphRAG/20241129_graph.png" alt="graph"></p>
@@ -422,7 +422,7 @@ if (!doNotTrack) {
 <p>Using the code in Source 1. as a reference, I built a RAG system using the knowledge graph I have built up to this point as external information.</p>
 <h3 id="dealing-with-errors">Dealing with errors</h3>
 <p>The following error occurred at the point of invoke by passing a question. They are listed below in the order in which they were handled.</p>
-<h4 id="llmwith_structured_outputdict_schemaでnotimplementederror">llm.with_structured_output(dict_schema)で、NotImplementedError</h4>
+<h4 id="notimplementederror-in-llmwith_structured_outputdict_schema">NotImplementedError in llm.with_structured_output(dict_schema)</h4>
 <p>Changed “llm = OllamaLLM(&hellip;)” to “llm = ChatOllama(&hellip;)”.</p>
 <h4 id="responseerror-schronekogemma-2-2b-jpn-it-does-not-support-tools">ResponseError: schroneko/gemma-2-2b-jpn-it does not support tools</h4>
 <p>This error occurred at the point where I passed the question and chain.invoke().</p>
@@ -430,7 +430,7 @@ if (!doNotTrack) {
 <h4 id="typeerror-nonetype-object-is-not-iterable">TypeError: &lsquo;NoneType&rsquo; object is not iterable</h4>
 <p>This error also occurred at the point where I passed the question and chain.invoke().</p>
 <p>Searching the net, I found the article in source 2. The article stated that you should use a version of ollama lower than 0.4.0. The version of ollama I was using was 0.4.3. I thought it would be better to use the latest version (0.4.6) before downgrading, so I changed to 0.4.6, but the error could not be avoided. Then I changed to 0.3.3, but the error still could not be avoided.</p>
-<p>I looked again at source 1. and found that the version of python was 3.11. Half-heartedly, I changed the python version of the JupyterLab container I had been using to 3.11. See yesterday&rsquo;s <a href="https://akenji3.github.io/post/20241201_python3.11/">this post</a> for more information about that.</p>
+<p>I looked again at source 1. and found that the version of python was 3.11. The version of python in my environment was 3.10.12. Half-heartedly, I changed the python version of the JupyterLab container I had been using to 3.11. See yesterday&rsquo;s <a href="https://akenji3.github.io/en/post/20241201_python3.11/">this post</a> for more information about that.</p>
 <p>The changed python version is as follows.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># python --version</span>
 Python 3.11.10
