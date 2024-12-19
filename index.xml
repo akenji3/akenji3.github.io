@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PINNs 〜 質点・バネ・ダンパー問題</title>
+      <link>https://akenji3.github.io/post/20241219_massspringdamper/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20241219_massspringdamper/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;一年以上も前に、&lt;a href=&#34;https://akenji3.github.io/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt;を使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-2024/&#34;&gt;こちら&lt;/a&gt;のイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>ollamaを使ってGraphRAGを構築</title>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>PINNs 〜 質点・バネ・ダンパー問題 - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+一年以上も前に、NVIDIA Modulusを使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; こちらとかこちらのイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。">
+  <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20241219_massspringdamper\/",
+          "name": "P i n ns 〜 質点・バネ・ダンパー問題"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Kenji Arai"
+  },
+  "headline": "PINNs 〜 質点・バネ・ダンパー問題",
+  "description" : "モチベーション 一年以上も前に、NVIDIA Modulusを使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; こちらとかこちらのイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2518 ,
+  "datePublished" : "2024-12-19T00:00:00",
+  "dateModified" : "2024-12-19T00:00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241219_massspringdamper\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="PINNs 〜 質点・バネ・ダンパー問題" />
+<meta property="og:description" content="モチベーション
+一年以上も前に、NVIDIA Modulusを使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; こちらとかこちらのイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20241219_massspringdamper/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="PINNs 〜 質点・バネ・ダンパー問題" />
+  <meta name="twitter:description" content="モチベーション
+一年以上も前に、NVIDIA Modulusを使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; こちらとかこちらのイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@akenji3" />
+  <meta name="twitter:creator" content="@akenji3" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.74.3" />
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+<meta name="google-site-verification" content="j8CZGVXeJvndIocFmzuHgNW2yAd7f30cM9gMYPGqDpE" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-TGXWYJXF48', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/en" lang="en">en</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>PINNs 〜 質点・バネ・ダンパー問題</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;December 19, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>一年以上も前に、<a href="https://akenji3.github.io/post/20230918_modulus_install/">NVIDIA Modulus</a>を使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; <a href="https://www.nvidia.com/ja-jp/events/ai-summit/">こちら</a>とか<a href="https://biz.amd-heroes.jp/amd-hpc-ai-2024/">こちら</a>のイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://qiita.com/udi_/items/78582be0051d613b92e4">PINNs(Physics Informed Neural Networks)に挑戦してみた</a>  -  実装面で参考にしたページ。コードは写経せずに、コードの内容を理解した上で自分の手でコーディングした。</li>
+<li><a href="https://w3e.kanazawa-it.ac.jp/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/henkan-tex.cgi?target=/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/dphm_solution.html">KIT物理ナビゲーション</a>  -  質点・バネ・ダンパーモデル（減衰振動）の微分方程式の理解に参考にした。二次方程式の解、オイラーの公式、三角関数の加法定理なども思い出しながら、手を動かして、微分方程式を解く道筋を理解した。</li>
+<li><a href="https://masao-ds.hatenablog.com/entry/2023/06/05/004416">PytorchでPINNs(Physics Informed Neural Network)を実装してみる</a>  -  同じ問題（質点・バネ・ダンパーモデル）を実装しているページ。</li>
+</ol>
+<h2 id="物理的背景">物理的背景</h2>
+<p>コードの見通しを良くするため、背景となる考え方を以下にまとめる。</p>
+<h4 id="微分方程式">微分方程式</h4>
+<p>質点・バネ・ダンパーモデルを表す微分方程式は次の通り。
+$$
+m\frac{d^2x}{dt^2}+c\frac{dx}{dt}+kx=0 \tag{1}
+$$
+$m$は質量（mass）、$c$は減衰係数（damping coefficent）、$k$はバネ定数（spring constant）である。</p>
+<p>ここで、$\gamma=\frac{c}{2m}$、$\omega_0=\sqrt{\frac{k}{m}}$とすると、(1)式は次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt}+\omega_0^2x=0 \tag{2}
+</code></pre></div><p>(2)式を解くと（情報源2.を参考のこと）次の通りとなる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">x= \exp^{-\gamma t}(A_1\cos \omega t+A_2 \sin\omega t) \tag{3}
+</code></pre></div><p>ここで、$\omega=\sqrt{\omega_0^2 - \gamma^2}$とし、境界条件として、$t=0$の時の位置を$x_0$、速度を$v_0$とする。更に、$A_1= x_0$、$A_2=\frac{x_0\gamma+v_0}{\omega}$とする。</p>
+<h4 id="有限差分法向け">有限差分法向け</h4>
+<p>(1)式より、ある時点の加速度を$a_i$とすると、次のように表せる。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">a_i=-\frac{c v_i+k x_i}{m} \tag{4}
+</code></pre></div><p>速度と変位は次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\begin{align}
+x_{i+1} = x_i + \frac{dx}{dt}\Delta t \tag{5} \\
+v_{i+1} = v_i + \frac{dv}{dt}\Delta t \tag{6}
+\end{align}
+</code></pre></div><h4 id="損失関数の考え方">損失関数の考え方</h4>
+<p>観測データ（今回は、厳密解から5つを選んだ）との誤差を表す損失関数は次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{obs} = \frac{1}{M}\sum_{i}^{m} (M_{pinn}(t_i)-O(t_i))^2 \tag{7}
+</code></pre></div><p>ここで、$M_{pinn}(t)$はモデルを使った推論結果、$O(t)$は観測データであり、$M$は観測データ数。</p>
+<p>次に、物理誤差（微分方程式との誤差）を表す損失関数は次の通り。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{pinn} = \frac{1}{N}\sum_{j}^{n}(f(t_j) -0)^2 \tag{8}
+</code></pre></div><p>ここで、$f(t_j)$は、物理現象を表す微分方程式であり、$N$はある時間区分の刻み数。</p>
+<p>今回の場合の損失関数は、(7)と(8)を合わせてもので表現する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{total} = \mathcal{L}_{obs} + \lambda_1 \mathcal{L}_{pinn} \tag{9}
+</code></pre></div><p>ここで、$\lambda_{1}$は、観測データの誤差と微分方程式からの誤差の重み付けのパラメータである。</p>
+<h2 id="コードと結果">コードと結果</h2>
+<h4 id="有限差分法">有限差分法</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Finite Diffrence Method</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">FiniteDiff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Input:
+</span><span class="s2">    m: mass [Kg]
+</span><span class="s2">    c: damping coefficent [N.s/m]
+</span><span class="s2">    k: spring constant [N/m]
+</span><span class="s2">    x0: initial position [m]
+</span><span class="s2">    v0: initial velocity [m/s]
+</span><span class="s2">    ts: list of time step [s]
+</span><span class="s2">
+</span><span class="s2">    Output:
+</span><span class="s2">    x: list of potision at each time step [m]
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">ts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">m</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">x</span>            
+</code></pre></div><h4 id="厳密解">厳密解</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Analytical Solution</span>
+
+<span class="k">def</span> <span class="nf">AnalyticalSol</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">c</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># gamma</span>
+    <span class="n">w0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># omega 0</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w0</span><span class="o">*</span><span class="n">w0</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
+    <span class="n">A1</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x0</span><span class="o">*</span><span class="n">g</span> <span class="o">+</span> <span class="n">v0</span><span class="p">)</span><span class="o">/</span><span class="n">w</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">g</span><span class="o">*</span><span class="n">ts</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">A1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">ts</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">ts</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div><h4 id="初期値">初期値</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Initial values</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">elasped_t</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">n_step</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">elasped_t</span><span class="p">,</span> <span class="n">n_step</span><span class="p">)</span>
+</code></pre></div><h4 id="fdmと厳密解を求めグラフ化">FDMと厳密解を求め、グラフ化</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Solve the problem using Finite Difference Method and analytical solution</span>
+
+<span class="n">x_fd</span> <span class="o">=</span> <span class="n">FiniteDiff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+<span class="n">x_as</span> <span class="o">=</span> <span class="n">AnalyticalSol</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Draw graphs of time-specific deviations from FDM and Analytical Solution</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x_fd</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FiniteDiff&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time step&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;FDM: time-specific deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;18&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x_as</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;AnalyticalSol&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time step&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Analytical: time-specific deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;18&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><h4 id="グラフ">グラフ</h4>
+<p><img src="/images/20241219_PINNs/20241219_FDM-Analytic.jpg" alt="FDM-Analytic"></p>
+<p>FDMで求めた解は、厳密解と一致していることが分かる。</p>
+<h4 id="途中結果をグラフ表示する関数">途中結果をグラフ表示する関数</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Evaluate the model at the appropriate epoch</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Inference using the model trained up to this time</span>
+<span class="c1"># And draw the results of inference at all times in a graph</span>
+<span class="k">def</span> <span class="nf">EvalModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t_step</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+    <span class="c1"># Inference</span>
+    <span class="n">x_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">t_step</span><span class="p">)</span>
+    <span class="n">x_pred</span> <span class="o">=</span> <span class="n">x_pred</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="c1"># Draw a graph</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PINNs&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">),</span> <span class="n">x_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training data&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time step&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PINNs: time-specific deviations at &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; epoch&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;18&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><h4 id="モデルを定義">モデルを定義</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Evaluate the model at the appropriate epoch</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Inference using the model trained up to this time</span>
+<span class="c1"># And draw the results of inference at all times in a graph</span>
+<span class="k">def</span> <span class="nf">EvalModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t_step</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+    <span class="c1"># Inference</span>
+    <span class="n">x_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">t_step</span><span class="p">)</span>
+    <span class="n">x_pred</span> <span class="o">=</span> <span class="n">x_pred</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="c1"># Draw a graph</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x_pred</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PINNs&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">),</span> <span class="n">x_data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training data&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time step&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;deviations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PINNs: time-specific deviations at &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; epoch&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;18&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+    
+    
+<span class="c1"># run on cuda if possible</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div><h4 id="損失関数と最適化関数を定義">損失関数と最適化関数を定義</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+
+<span class="c1"># Loss function: Mean Square Error</span>
+<span class="n">loss_func</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="c1"># Adam</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+</code></pre></div><h4 id="観測データpinn用に全時間領域分の時間データを準備">観測データ、PINN用に全時間領域分の時間データを準備</h4>
+<p>観測データとしては、全時間区分（1000データ）の中から「select_data」で示される5つのt_data、およびx_dataは厳密解であるx_asから選択した。微分方程式の誤差を求めるための全時間区分データとして、t_pinnを用意した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Prepare data</span>
+
+<span class="c1"># Select 5 points from 0 to n_steps-1</span>
+<span class="c1">#select_data = [0, 200, 500, 700, 900]</span>
+<span class="c1">#select_data = [0, 150, 250, 350, 550]</span>
+<span class="n">select_data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">]</span>
+
+
+<span class="n">t_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="n">select_data</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">x_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x_as</span><span class="p">[</span><span class="n">select_data</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Prepare time-step data all-over for PINNs</span>
+
+<span class="c1">#t_pinn = torch.linspace(0, elasped_t, pinn_step, requires_grad=True).view(-1, 1).to(torch.float32).to(device)</span>
+<span class="n">t_pinn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div><h4 id="学習ループ">学習ループ</h4>
+<p>「損失関数の考え方」で説明したパラメータについては、先ずは$1$で実行した。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Train by Physic informed neural network</span>
+
+<span class="n">lambda1</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># weight of physical error (vs. observed data)</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">50000</span>
+
+<span class="n">record_loss</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="c1"># 勾配を0に</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    
+    <span class="c1"># 順伝播</span>
+    <span class="n">x_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">t_data</span><span class="p">)</span>
+    <span class="n">loss1</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">x_data</span><span class="p">)</span>
+
+    <span class="c1"># 物理式を計算する</span>
+    <span class="n">x_pinn</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">t_pinn</span><span class="p">)</span>
+
+    <span class="n">x_t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span>
+        <span class="n">x_pinn</span><span class="p">,</span>
+        <span class="n">t_pinn</span><span class="p">,</span>
+        <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_pinn</span><span class="p">),</span>
+        <span class="n">retain_graph</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">create_graph</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">x_tt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span>
+        <span class="n">x_t</span><span class="p">,</span>
+        <span class="n">t_pinn</span><span class="p">,</span>
+        <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_pinn</span><span class="p">),</span>
+        <span class="n">retain_graph</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">create_graph</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">x_tt</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">x_t</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">x_pinn</span>
+    <span class="n">loss2</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+
+    <span class="c1"># 誤差を求める</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss1</span> <span class="o">+</span> <span class="n">lambda1</span> <span class="o">*</span> <span class="n">loss2</span>
+    <span class="n">record_loss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    
+    <span class="c1"># 逆伝播（勾配を求める）</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    
+    <span class="c1"># パラメータの更新</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Epoch:&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&#34;Loss1:&#34;</span><span class="p">,</span> <span class="n">loss1</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s2">&#34;loss2:&#34;</span><span class="p">,</span> <span class="n">loss2</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">10000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">EvalModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">t_pinn</span><span class="p">,</span> <span class="n">t_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</code></pre></div><h4 id="1エポック後のモデル推論結果グラフ">1エポック後のモデル（推論結果グラフ）</h4>
+<p><img src="/images/20241219_PINNs/20241219_pinn1_1.jpg" alt="pinn1_1"></p>
+<h4 id="50000エポック後のモデル推論結果グラフ">50000エポック後のモデル（推論結果グラフ）</h4>
+<p><img src="/images/20241219_PINNs/20241219_pinn1_50000.jpg" alt="pinn1_50000"></p>
+<h4 id="誤差の収束状況">誤差の収束状況</h4>
+<p><img src="/images/20241219_PINNs/20241219_error1.jpg" alt="error1"></p>
+<h2 id="パラメータを見直す">パラメータを見直す</h2>
+<h4 id="パラメータ変更">パラメータ変更</h4>
+<p>学習を進めていくと、観測値（厳密データ）にフィットするように変化するが、50000回回しても観測値には完全に一致しなかった。また、観測値の無い5秒以降、急速に減衰しており、厳密解のような減衰とはなっていない。</p>
+<p>そこで、観測値側に寄せるため、物理誤差の効果を弱めるため、パラメータ$\lambda_{1}$を$0.2$として実行した。</p>
+<h4 id="50000エポック後のモデル推論結果グラフ-1">50000エポック後のモデル（推論結果グラフ）</h4>
+<p><img src="/images/20241219_PINNs/20241219_pinn02_50000.jpg" alt="pinn02_50000"></p>
+<h4 id="誤差の収束状況-1">誤差の収束状況</h4>
+<p><img src="/images/20241219_PINNs/20241219_error02.jpg" alt="error02"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>PINNsの考え方は多少なりとも理解できたが、PINNsで50000万回の学習を行ったモデルを使って推論した結果は、厳密解とは一致しなかった。コードの見直しを何度も行ったが、現時点では原因は不明である。</p>
+<p>また、別の問題をPINNsで挑戦して、更に理解を深めると分かるのかもしれない。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f&amp;text=PINNs%20%e3%80%9c%20%e8%b3%aa%e7%82%b9%e3%83%bb%e3%83%90%e3%83%8d%e3%83%bb%e3%83%80%e3%83%b3%e3%83%91%e3%83%bc%e5%95%8f%e9%a1%8c&amp;via=akenji3" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f&amp;title=PINNs%20%e3%80%9c%20%e8%b3%aa%e7%82%b9%e3%83%bb%e3%83%90%e3%83%8d%e3%83%bb%e3%83%80%e3%83%b3%e3%83%91%e3%83%bc%e5%95%8f%e9%a1%8c" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f&amp;title=PINNs%20%e3%80%9c%20%e8%b3%aa%e7%82%b9%e3%83%bb%e3%83%90%e3%83%8d%e3%83%bb%e3%83%80%e3%83%b3%e3%83%91%e3%83%bc%e5%95%8f%e9%a1%8c" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f&amp;title=PINNs%20%e3%80%9c%20%e8%b3%aa%e7%82%b9%e3%83%bb%e3%83%90%e3%83%8d%e3%83%bb%e3%83%80%e3%83%b3%e3%83%91%e3%83%bc%e5%95%8f%e9%a1%8c" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241219_massspringdamper%2f&amp;description=PINNs%20%e3%80%9c%20%e8%b3%aa%e7%82%b9%e3%83%bb%e3%83%90%e3%83%8d%e3%83%bb%e3%83%80%e3%83%b3%e3%83%91%e3%83%bc%e5%95%8f%e9%a1%8c" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20241202_graphrag-ollama/" data-toggle="tooltip" data-placement="top" title="ollamaを使ってGraphRAGを構築">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:akenji.1118@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/arai.kenji3" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/akenji3" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/akenji3" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/kenji-arai-0547aa1a4" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Kenji Arai
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']]
+  }
+});
+</script>
+
+
+    
+  </body>
+</html>
+
