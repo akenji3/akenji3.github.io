@@ -60,7 +60,7 @@
   "headline": "PINNs 〜 質点・バネ・ダンパー問題",
   "description" : "モチベーション 一年以上も前に、NVIDIA Modulusを使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; こちらとかこちらのイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。\n",
   "inLanguage" : "ja",
-  "wordCount":  2518 ,
+  "wordCount":  2589 ,
   "datePublished" : "2024-12-19T00:00:00",
   "dateModified" : "2024-12-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -314,29 +314,43 @@ $$
 m\frac{d^2x}{dt^2}+c\frac{dx}{dt}+kx=0 \tag{1}
 $$
 $m$は質量（mass）、$c$は減衰係数（damping coefficent）、$k$はバネ定数（spring constant）である。</p>
-<p>ここで、$\gamma=\frac{c}{2m}$、$\omega_0=\sqrt{\frac{k}{m}}$とすると、(1)式は次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt}+\omega_0^2x=0 \tag{2}
-</code></pre></div><p>(2)式を解くと（情報源2.を参考のこと）次の通りとなる。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">x= \exp^{-\gamma t}(A_1\cos \omega t+A_2 \sin\omega t) \tag{3}
-</code></pre></div><p>ここで、$\omega=\sqrt{\omega_0^2 - \gamma^2}$とし、境界条件として、$t=0$の時の位置を$x_0$、速度を$v_0$とする。更に、$A_1= x_0$、$A_2=\frac{x_0\gamma+v_0}{\omega}$とする。</p>
+<p>ここで、$\gamma=\frac{c}{2m}$、$\omega_0=\sqrt{\frac{k}{m}}$とすると、(1)式は次の通り。
+$$
+\frac{d^2x}{dt^2} + 2\gamma\frac{dx}{dt}+\omega_0^2x=0 \tag{2}
+$$
+(2)式を解くと（情報源2.を参考のこと）次の通りとなる。
+$$
+x= \exp^{-\gamma t}(A_1\cos \omega t+A_2 \sin\omega t) \tag{3}
+$$
+ここで、$\omega=\sqrt{\omega_0^2 - \gamma^2}$とし、境界条件として、$t=0$の時の位置を$x_0$、速度を$v_0$とする。更に、$A_1= x_0$、$A_2=\frac{x_0\gamma+v_0}{\omega}$とする。</p>
 <h4 id="有限差分法向け">有限差分法向け</h4>
-<p>(1)式より、ある時点の加速度を$a_i$とすると、次のように表せる。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">a_i=-\frac{c v_i+k x_i}{m} \tag{4}
-</code></pre></div><p>速度と変位は次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\begin{align}
-x_{i+1} = x_i + \frac{dx}{dt}\Delta t \tag{5} \\
+<p>(1)式より、ある時点の加速度を$a_i$とすると、次のように表せる。
+$$
+a_i=-\frac{c v_i+k x_i}{m} \tag{4}
+$$
+速度と変位は次の通り。
+$$
+x_{i+1} = x_i + \frac{dx}{dt}\Delta t \tag{5}
+$$</p>
+<p>$$
 v_{i+1} = v_i + \frac{dv}{dt}\Delta t \tag{6}
-\end{align}
-</code></pre></div><h4 id="損失関数の考え方">損失関数の考え方</h4>
-<p>観測データ（今回は、厳密解から5つを選んだ）との誤差を表す損失関数は次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{obs} = \frac{1}{M}\sum_{i}^{m} (M_{pinn}(t_i)-O(t_i))^2 \tag{7}
-</code></pre></div><p>ここで、$M_{pinn}(t)$はモデルを使った推論結果、$O(t)$は観測データであり、$M$は観測データ数。</p>
-<p>次に、物理誤差（微分方程式との誤差）を表す損失関数は次の通り。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{pinn} = \frac{1}{N}\sum_{j}^{n}(f(t_j) -0)^2 \tag{8}
-</code></pre></div><p>ここで、$f(t_j)$は、物理現象を表す微分方程式であり、$N$はある時間区分の刻み数。</p>
-<p>今回の場合の損失関数は、(7)と(8)を合わせてもので表現する。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\mathcal{L}_{total} = \mathcal{L}_{obs} + \lambda_1 \mathcal{L}_{pinn} \tag{9}
-</code></pre></div><p>ここで、$\lambda_{1}$は、観測データの誤差と微分方程式からの誤差の重み付けのパラメータである。</p>
+$$</p>
+<h4 id="損失関数の考え方">損失関数の考え方</h4>
+<p>観測データ（今回は、厳密解から5つを選んだ）との誤差を表す損失関数は次の通り。
+$$
+L_{obs} = \frac{1}{M}\sum_{i}^{m} (M_{pinn}(t_i)-O(t_i))^2 \tag{7}
+$$
+ここで、$M_{pinn}(t)$はモデルを使った推論結果、$O(t)$は観測データであり、$M$は観測データ数。(7)式は通常のモデルの学習時の平均二乗誤差（MSE）と同じである。</p>
+<p>次に、物理誤差（微分方程式との誤差）を表す損失関数は次の通り。
+$$
+L_{pinn} = \frac{1}{N}\sum_{j}^{n}(f(t_j) -0)^2 \tag{8}
+$$
+ここで、$f(t_j)$は、物理現象を表す微分方程式であり、$N$はある時間区分の刻み数。(8)式は微分方程式(1)を成立する方向に働く。</p>
+<p>今回の場合の損失関数は、(7)と(8)を合わせてもので表現する。
+$$
+L_{total} = L_{obs} + \lambda_1 L_{pinn} \tag{9}
+$$
+ここで、$\lambda_{1}$は、観測データの誤差と微分方程式からの誤差の重み付けのパラメータである。</p>
 <h2 id="コードと結果">コードと結果</h2>
 <h4 id="有限差分法">有限差分法</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Finite Diffrence Method</span>
