@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20241219_massspringdamper/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;I tried PINNs (Physics-Informed Neural Networks) with &lt;a href=&#34;https://akenji3.github.io/en/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt; over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&amp;rsquo;s talk at a recent seminar (AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;here&lt;/a&gt; or [here](&lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-&#34;&gt;https://biz.amd-heroes.jp/amd-hpc-ai-&lt;/a&gt; 2024/) event), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.&lt;/p&gt;</description>
+&lt;p&gt;I tried PINNs (Physics-Informed Neural Networks) with &lt;a href=&#34;https://akenji3.github.io/en/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt; over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&amp;rsquo;s talk at a recent seminar (AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-2024/&#34;&gt;here&lt;/a&gt;), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.&lt;/p&gt;</description>
     </item>
     
     <item>

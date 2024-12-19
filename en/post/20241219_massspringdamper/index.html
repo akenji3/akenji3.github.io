@@ -9,7 +9,7 @@
 
   <title>PINNs - Mass, Spring, and Damper Problem - akenji&#39;s lab</title>
   <meta name="description" content="Motivation
-I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; here or [here](https://biz.amd-heroes.jp/amd-hpc-ai- 2024/) event), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.">
+I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; here and here), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -58,9 +58,9 @@ I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year
     "name" : "Kenji Arai"
   },
   "headline": "PINNs - Mass, Spring, and Damper Problem",
-  "description" : "Motivation I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken\/Matsuoka-san\u0026rsquo;s talk at a recent seminar (AI for Science; here or [here](https:\/\/biz.amd-heroes.jp\/amd-hpc-ai- 2024\/) event), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.\n",
+  "description" : "Motivation I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken\/Matsuoka-san\u0026rsquo;s talk at a recent seminar (AI for Science; here and here), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.\n",
   "inLanguage" : "en",
-  "wordCount":  1442 ,
+  "wordCount":  1439 ,
   "datePublished" : "2024-12-19T00:00:00",
   "dateModified" : "2024-12-19T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -81,7 +81,7 @@ I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year
 
 <meta property="og:title" content="PINNs - Mass, Spring, and Damper Problem" />
 <meta property="og:description" content="Motivation
-I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; here or [here](https://biz.amd-heroes.jp/amd-hpc-ai- 2024/) event), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.">
+I tried PINNs (Physics-Informed Neural Networks) with NVIDIA Modulus over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; here and here), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/post/20241219_massspringdamper/" />
 <meta property="og:type" content="website" />
@@ -299,11 +299,11 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="motivation">Motivation</h2>
-<p>I tried PINNs (Physics-Informed Neural Networks) with <a href="https://akenji3.github.io/en/post/20230918_modulus_install/">NVIDIA Modulus</a> over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; <a href="https://www.nvidia.com/ja-jp/events/ai-summit/">here</a> or [here](<a href="https://biz.amd-heroes.jp/amd-hpc-ai-">https://biz.amd-heroes.jp/amd-hpc-ai-</a> 2024/) event), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.</p>
+<p>I tried PINNs (Physics-Informed Neural Networks) with <a href="https://akenji3.github.io/en/post/20230918_modulus_install/">NVIDIA Modulus</a> over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&rsquo;s talk at a recent seminar (AI for Science; <a href="https://www.nvidia.com/ja-jp/events/ai-summit/">here</a> and <a href="https://biz.amd-heroes.jp/amd-hpc-ai-2024/">here</a>), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.</p>
 <h2 id="sources">Sources</h2>
 <ol>
 <li><a href="https://qiita.com/udi_/items/78582be0051d613b92e4">I tried PINNs (Physics Informed Neural Networks)</a> - The page I referred to for implementation aspects. I did not transcribe the code, but coded it by myself after understanding the contents of the code.</li>
-<li>[KIT Physical Navigation](<a href="https://w3e.kanazawa-it.ac.jp/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/henkan-">https://w3e.kanazawa-it.ac.jp/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/henkan-</a> tex.cgi?target=/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/dphm_solution.html) - I referred to it to understand the differential equations of the mass, spring, and damper model (damped vibration). I understood the path to solving the differential equations by working with my hands, recalling also the solution of the quadratic equation, Euler&rsquo;s formula, and the additive theorem for trigonometric functions.</li>
+<li><a href="https://w3e.kanazawa-it.ac.jp/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/henkan-tex.cgi?target=/math/physics/category/mechanics/masspoint_mechanics/damped_harmonic_motion/dphm_solution.html">KIT Physical Navigation</a> - I referred to it to understand the differential equations of the mass, spring, and damper model (damped vibration). I understood the path to solving the differential equations by working with my hands, recalling also the solution of the quadratic equation, Euler&rsquo;s formula, and the additive theorem for trigonometric functions.</li>
 <li><a href="https://masao-ds.hatenablog.com/entry/2023/06/05/004416">Implementing PINNs (Physics Informed Neural Networks) in Pytorch</a> - A page implementing the same problem (mass, spring, and damper model).</li>
 </ol>
 <h2 id="physical-background">Physical Background</h2>
