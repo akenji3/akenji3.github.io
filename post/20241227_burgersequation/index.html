@@ -60,7 +60,7 @@
   "headline": "PINNs 〜 バーガース方程式",
   "description" : "はじめに 先日、PINNsで質点・ばね・ダンパー問題をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  3184 ,
+  "wordCount":  3191 ,
   "datePublished" : "2024-12-27T00:00:00",
   "dateModified" : "2024-12-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -304,7 +304,7 @@ if (!doNotTrack) {
 <ol>
 <li><a href="https://adarshgouda.github.io/html_pages/Burgers_FDM_PINN.html">Solving 1D Burgers&rsquo; Equation - Finite Difference vs Neural Network</a>  -  FDM（有限差分法）とPINNsの2つの手法でバーガース方程式を解いている。このページは今回非常に参考になった。</li>
 <li><a href="https://www.atmosphere-eng.com/posts/240304_pinn">PytorchでPhysics-Informed Neural Networkを実装する ①バーガース方程式</a>  -  PINNs実装面でコードを参考にした。PINNs初期状態をプロットする部分このページによるところ大である。</li>
-<li><a href="https://github.com/okada39/pinn_burgers">pinn_burgers</a>  -  optimizerとして、記憶制限BFGS法（BFGS法は準ニュートン法の解法の一つ）を使っている。</li>
+<li><a href="https://github.com/okada39/pinn_burgers">pinn_burgers</a>  -  このページでは、optimizerとして記憶制限BFGS法（BFGS法は準ニュートン法の解法の一つ）を使っている。</li>
 <li><a href="https://arxiv.org/abs/1711.10561">Physics Informed Deep Learning (Part I)</a>  -  PINNsの有効性についての論文。情報源3.からも参照されている。こちらが<a href="https://arxiv.org/abs/1711.10566">Part II</a>。自分はPart IもPart IIも読んでいない。</li>
 </ol>
 <h2 id="物理的背景">物理的背景</h2>
@@ -331,7 +331,7 @@ u_{i-1} = u_i + \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2
 $$</p>
 <p>(4)式と(5)式の和は、次の通り。
 $$
-u_{i-1}+u_{i+1} = 2u_i +\Delta x^2\frac{\partial^2 u}{\partial x^2}|_i + O(\Delta x^4) \tag{6}
+u_{i-1}+u_{i+1} = 2u_i +\Delta x^2\frac{\partial^2 u}{\partial x^2}|_i + \mathcal{O}(\Delta x^4) \tag{6}
 $$
 高次の項を無視すると、次が導き出せる。
 $$
