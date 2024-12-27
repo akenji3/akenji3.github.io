@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PINNs - Burgers Equation</title>
+      <link>https://akenji3.github.io/en/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Recently, I summarized the &lt;a href=&#34;https://akenji3.github.io/en/post/20241219_massspringdamper/&#34;&gt;mass, spring, and damper problem&lt;/a&gt; with PINNs. This time, I&amp;rsquo;ve worked on the Burgers&amp;rsquo; equation and summarized it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>PINNs - Mass, Spring, and Damper Problem</title>
