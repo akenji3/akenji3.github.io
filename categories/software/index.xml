@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PINNs 〜 バーガース方程式</title>
+      <link>https://akenji3.github.io/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;先日、PINNsで&lt;a href=&#34;https://akenji3.github.io/post/20241219_massspringdamper/&#34;&gt;質点・ばね・ダンパー問題&lt;/a&gt;をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PINNs 〜 バーガース方程式</title>
+      <link>https://akenji3.github.io/post/20241225_burgersequation/</link>
+      <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20241225_burgersequation/</guid>
+      <description>はじめに 先日、PINNsで質点・ばね・ダンパー問題をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。 情報源 Solving 1D Burgers&amp;rsquo; Equation - Finite</description>
+    </item>
     
     <item>
       <title>PINNs 〜 質点・バネ・ダンパー問題</title>
