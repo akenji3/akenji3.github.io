@@ -60,7 +60,7 @@
   "headline": "PINNs 〜 バーガース方程式",
   "description" : "はじめに 先日、PINNsで質点・ばね・ダンパー問題をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  3191 ,
+  "wordCount":  3292 ,
   "datePublished" : "2024-12-27T00:00:00",
   "dateModified" : "2024-12-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -308,7 +308,7 @@ if (!doNotTrack) {
 <li><a href="https://arxiv.org/abs/1711.10561">Physics Informed Deep Learning (Part I)</a>  -  PINNsの有効性についての論文。情報源3.からも参照されている。こちらが<a href="https://arxiv.org/abs/1711.10566">Part II</a>。自分はPart IもPart IIも読んでいない。</li>
 </ol>
 <h2 id="物理的背景">物理的背景</h2>
-<p>コードを理解するために、物理的背景を先ずはまとめる。</p>
+<p>コードを理解するために、物理的背景を先ずはまとめる。数学的な厳密性を欠いてはいるが、要点は整理できていると思っている。</p>
 <h4 id="微分方程式">微分方程式</h4>
 <p>$u(x, t)$で表現される場を考え、$\nu$を動粘性率（kinematic viscosity）とすると、バーガース方程式は次式で与えられる。
 $$
@@ -327,7 +327,7 @@ $$
 u_{i+1} = u_i + \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i + \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{4}
 $$
 $$
-u_{i-1} = u_i + \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i - \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{5}
+u_{i-1} = u_i - \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i - \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{5}
 $$</p>
 <p>(4)式と(5)式の和は、次の通り。
 $$
@@ -717,8 +717,8 @@ PINNsでは上記を支配方程式と呼ばれている。この支配方程式
 <h4 id="誤差の収束状況可視化5">誤差の収束状況（可視化5）</h4>
 <p><img src="/images/20241227_Burgers/20241227_loss.png" alt="loss"></p>
 <h2 id="まとめ">まとめ</h2>
-<p>今回の経験を通じて、PINNsの振る舞いについて理解が深まった。</p>
-<p>コーディングで苦労した（ハマった）ことで、Python、 PyTorchについて（特に、Tensor、配列の次元、自動微分など）が少しは分かるようになった。</p>
+<p>今回の経験を通じて、PINNsの振る舞いについて理解が深まった。またコーディングで苦労した（ハマった）ことで、Python、 PyTorchについて（特に、Tensor、配列の次元、自動微分など）が少しは分かるようになった。</p>
+<p>PINNsについて、コードの難易度、実行時間（求解までの所要時間）をFDMと比較すると、その優位性についてはまだ理解が出来ていない。</p>
 <p>自分が興味ある天文（天体物理、宇宙物理）に関連する現象で、PINNsを試してみたいと思っている。</p>
 
         

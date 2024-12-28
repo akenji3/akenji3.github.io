@@ -60,7 +60,7 @@ Recently, I summarized the mass, spring, and damper problem with PINNs. This tim
   "headline": "PINNs - Burgers Equation",
   "description" : "Introduction Recently, I summarized the mass, spring, and damper problem with PINNs. This time, I\u0026rsquo;ve worked on the Burgers\u0026rsquo; equation and summarized it.\n",
   "inLanguage" : "en",
-  "wordCount":  2081 ,
+  "wordCount":  2122 ,
   "datePublished" : "2024-12-27T00:00:00",
   "dateModified" : "2024-12-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -308,7 +308,7 @@ if (!doNotTrack) {
 <li><a href="https://arxiv.org/abs/1711.10561">Physics Informed Deep Learning (Part I)</a> - A paper on the effectiveness of PINNs. Also referenced from source 3. Here is <a href="https://arxiv.org/abs/1711.10566">Part II</a>. I have not read Part I or Part II myself.</li>
 </ol>
 <h2 id="physical-background">Physical Background</h2>
-<p>To understand the code, I first summarize the physical background.</p>
+<p>To understand the code, I first summarize the physical background. Although it lacks mathematical rigor, I believe I have organized the main points.</p>
 <h4 id="differential-equations">Differential Equations</h4>
 <p>Considering the field represented by $u(x, t)$ and letting $\nu$ be the kinematic viscosity, the Burgers&rsquo;s equation is given by
 $$
@@ -327,7 +327,7 @@ $$
 u_{i+1} = u_i + \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i + \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{4}
 $$
 $$
-u_{i-1} = u_i + \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i - \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{5}
+u_{i-1} = u_i - \Delta x \frac{\partial u}{\partial x} |_i + \frac{\Delta x^2}{2}\frac{\partial^2 u}{\partial x^2}|_i - \frac{\Delta x^3}{6}\frac{\partial^3 u}{\partial x^3}|_i + \mathcal{O}(\Delta x^4) \tag{5}
 $$</p>
 <p>The sum of equations (4) and (5) is
 $$
@@ -717,8 +717,8 @@ In PINNs, the above is referred to as the governing equation. We will minimize t
 <h4 id="error-convergence-status-visualization-5">Error convergence status (visualization 5)</h4>
 <p><img src="/images/20241227_Burgers/20241227_loss.png" alt="loss"></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Through this experience, I gained a better understanding of PINNs behavior.</p>
-<p>Through the difficulties I had (and got into) with coding, I now understand a little more about Python and PyTorch (especially Tensor, array dimension, automatic differentiation, etc.).</p>
+<p>Through this experience, I gained a better understanding of the behavior of PINNs. I also learned a little more about Python and PyTorch (especially Tensor, array dimension, automatic differentiation, etc.) through the difficulties I had (and got into) with coding.</p>
+<p>I still do not understand the superiority of PINNs compared to FDM in terms of code difficulty and execution time (time required to find a solution).</p>
 <p>I would like to try PINNs on phenomena related to my interests in astronomy (astrophysics).</p>
 
         
