@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenFOAMとParaViewを試す</title>
+      <link>https://akenji3.github.io/post/20250105_openfoam/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250105_openfoam/</guid>
+      <description>モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円</description>
+    </item>
+    
+    <item>
+      <title>PINNs 〜 Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20241230_laminarflow/</link>
+      <pubDate>Mon, 30 Dec 2024 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20241230_laminarflow/</guid>
+      <description>連続の方程式(equation of continuity) 流体力学における質量保存則は次のとおり。 $$ \frac{\partial \rho}{\partial t} +\nabla \cdot (\rho \boldsymbol{v}) =0 \tag{1} $$ ここで、$\rho$は密度、$\boldsy</description>
+    </item>
     
     <item>
       <title>PINNs 〜 バーガース方程式</title>
