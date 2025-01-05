@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>OpenFOAMとParaViewを試す - akenji&#39;s lab</title>
-  <meta name="description" content="モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円">
+  <meta name="description" content="モチベーション
+昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。
+流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,9 +59,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "OpenFOAMとParaViewを試す",
-  "description" : "モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円",
+  "description" : "モチベーション 昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。\n流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。\n",
   "inLanguage" : "ja",
-  "wordCount":  2254 ,
+  "wordCount":  2368 ,
   "datePublished" : "2025-01-05T00:00:00",
   "dateModified" : "2025-01-05T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="OpenFOAMとParaViewを試す" />
-<meta property="og:description" content="モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円">
+<meta property="og:description" content="モチベーション
+昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。
+流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20250105_openfoam/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="OpenFOAMとParaViewを試す" />
-  <meta name="twitter:description" content="モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円">
+  <meta name="twitter:description" content="モチベーション
+昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。
+流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、 …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -296,8 +302,8 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p>昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず1週間停滞中。</p>
-<p>流体力学分野に取り組むのなら、OpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。</p>
+<p>昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。</p>
+<p>流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
 <li><a href="https://qiita.com/takaf05/items/7b46b4fa2bfce858a047">OpenFOAMのDocker Imageの作成方法</a>  -  OpenFOAMのdockerイメージを作成するのに大いに参考になった。</li>
@@ -446,9 +452,8 @@ drwxr-xr-x <span class="m">2</span> kenji kenji <span class="m">4096</span>  1�
 <p><img src="/images/20250105_OpenFOAM/20250105_Poiseuille_U.png" alt="U"></p>
 <p><img src="/images/20250105_OpenFOAM/20250105_Poiseuille_p.png" alt="p"></p>
 <h2 id="まとめ">まとめ</h2>
-<p>今回、OpenFOAMとParaViewをインストールして、例として「ポアズイユ流」シミュレーションのため、各種ファイルを設定し、シミュレーションを実行し、結果を可視化した。それを通じて一連の手順は理解できた。</p>
-<p>しかしながら、設定の内容およびシミュレーション結果については、評価できるところまでは、流体力学の理解ができていない。今後、少しでも理解を深めていきたい。</p>
-
+<p>PINNsに行き詰ったので気分転換も兼ね、OpenFOAMとParaViewを試してみようとインストールして、チュートリアルを実行した。OpenFOAMとParaViewは、奥が深く、軽い気持ちで着手したことの間違いに気づいた。</p>
+<p>OpenFOAMとParaViewをインストールした後、例として、「ポアズイユ流」シミュレーションのため各種ファイルを設定し、シミュレーションを実行し、結果を可視化した。それを通じて一連の手順について、少しは理解できた。しかしながら、設定の内容およびシミュレーション結果については、評価できるところまでは、流体力学の理解ができていない。今後、少しでも理解を深めていきたい。</p>
 
         
 

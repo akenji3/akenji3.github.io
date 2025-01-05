@@ -18,7 +18,9 @@
       <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20250105_openfoam/</guid>
-      <description>モチベーション 昨年末から、PINNsに取り組んで、2つの課題に挑戦した。今後は、流体力学分野の問題を選定して取り組もうと考えている。実は、円</description>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。&lt;/p&gt;
+&lt;p&gt;流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。&lt;/p&gt;</description>
     </item>
     
     <item>
