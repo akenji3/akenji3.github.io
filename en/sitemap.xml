@@ -49,21 +49,6 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/en/post/20250105_openfoam/</loc>
-    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/post/20250105_openfoam/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/post/20250105_openfoam/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/en/categories/software/</loc>
     <lastmod>2025-01-05T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -75,6 +60,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/software/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/en/post/20250105_openfoam/</loc>
+    <lastmod>2025-01-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/20250105_openfoam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/20250105_openfoam/"
                 />
   </url>
   
