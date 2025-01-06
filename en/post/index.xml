@@ -19,7 +19,7 @@
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20250106_cavity/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Yesterday, I installed OpenFOAM and ParaView and tried to simulate and visualize a Poiseuille flow (Hagen-poiseuille flow). This time, I followed the book and ran CAVITY from the OpenFOAM built-in tutorial.&lt;/p&gt;</description>
+&lt;p&gt;Yesterday, I installed OpenFOAM and ParaView and tried to simulate and visualize a Poiseuille flow (Hagen-poiseuille flow). This time, I followed the book and ran &amp;ldquo;cavity&amp;rdquo; from the OpenFOAM built-in tutorial.&lt;/p&gt;</description>
     </item>
     
     <item>
