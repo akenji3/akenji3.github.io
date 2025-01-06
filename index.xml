@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Sun, 05 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cavity（OpenFOAMのチュートリアル）を試す</title>
+      <link>https://akenji3.github.io/post/20250106_cavity/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250106_cavity/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>OpenFOAMとParaViewを試す</title>
