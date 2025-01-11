@@ -60,7 +60,7 @@ I have been trying to simulate steady state laminar flows with PINNs since the e
   "headline": "PINNs 〜 Steady-state Laminar Flow",
   "description" : "Introduction I have been trying to simulate steady state laminar flows with PINNs since the end of last year, but I was stumped by the derivation of the Navier Stokes (NS) equations of Cauchy stress tensor type. I coded PINNs with the governing equations based on the Velocity-pressure type NS equations. I got a result that looks like it, and I will summarize it in this post.\n",
   "inLanguage" : "en",
-  "wordCount":  2166 ,
+  "wordCount":  2164 ,
   "datePublished" : "2025-01-11T00:00:00",
   "dateModified" : "2025-01-11T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -303,9 +303,9 @@ if (!doNotTrack) {
 <h2 id="sources">Sources</h2>
 <ol>
 <li><a href="https://github.com/Raocp/PINN-laminar-flow">PINN-laminar-flow</a> - I used the paper and code posted on github here as a reference. I used the overall structure of the code and individual variables and constants as reference. I was stumped when it came to the Cauchy stress tensor in the original paper, which I did not understand.</li>
-<li>[On Physics-Informed Deep Learning for Solving Navier-Stokes Equations](<a href="https://www.researchgate.net/figure/The-schematic-of-PINN-for-">https://www.researchgate.net/figure/The-schematic-of-PINN-for-</a> solving-the-Navier-Stokes-equations-of-the-VP-form_fig1_357562862) - As mentioned in 1. above, I don&rsquo;t know the Cauchy stress tensor, so I found this information while searching the net. After downloading and reading the paper, I found that there are two types of NS equations: Velocity ~pressure (VP) form and Cauchy stress tensor (ST) form. From here, the following sources 3. and 4. were referenced.</li>
+<li><a href="https://www.researchgate.net/figure/The-schematic-of-PINN-for-solving-the-Navier-Stokes-equations-of-the-VP-form_fig1_357562862">On Physics-Informed Deep Learning for Solving Navier-Stokes Equations</a> - As mentioned in 1. above, I don&rsquo;t know the Cauchy stress tensor, so I found this information while searching the net. After downloading and reading the paper, I found that there are two types of NS equations: Velocity-pressure (VP) form and Cauchy stress tensor (ST) form. From here, the following sources 3. and 4. were referenced.</li>
 <li><a href="https://arxiv.org/abs/2003.06496">NSFnets (Navier-Stokes Flow nets): Physics-informed neural networks for the incompressible Navier-Stokes equations</a>  - referenced as VP form from source 2. There was also a description of vorticity-velocity (VV) here.</li>
-<li>[Physics-informed deep learning for incompressible laminar flows](<a href="https://www.sciencedirect.com/science/article/pii/S2095034920300350?">https://www.sciencedirect.com/science/article/pii/S2095034920300350?</a> via%3Dihub) - was referenced as ST form from source 2. This is the paper from source 1.</li>
+<li>[Physics-informed deep learning for incompressible laminar flows](<a href="https://www.sciencedirect.com/science/article/pii/S2095034920300350?">https://www.sciencedirect.com/science/article/pii/S2095034920300350?</a> via%3Dihub) - was referenced as ST form from source 2. This is the paper in source 1.</li>
 <li>[Applying Physics-Informed Neural Networks to Solve Navier-Stokes Equations for Laminar Flow around a Particle](<a href="https://www.mdpi">https://www.mdpi</a>. com/2297-8747/28/5/102) - A paper dealing with steady state laminar flow. It was helpful because it fit my direction. In particular, I found it helpful in the section where the loss function is summed, where it is weighted based on the difference in the number of sample points between the computational domain and the boundary conditions.</li>
 </ol>
 <h2 id="physical-background">Physical background</h2>
@@ -371,7 +371,7 @@ $$</p>
 <p>$$
 \partial_n \boldsymbol{u} = 0 \qquad in , \Gamma_N \tag{16}
 $$</p>
-<h2 id="code">Code.</h2>
+<h2 id="code">Code</h2>
 <h4 id="import-required-packages-make-sure-you-are-using-gpu">import required packages, make sure you are using GPU</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
