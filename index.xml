@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PINNs 〜 Steady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250111_laminarflow/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250111_laminarflow/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;昨年末から定常状態の層流について、PINNsでシミュレーションしようとしていた。Cauchy stress tensor型のNS（Navier Stokes）方程式の導出が分からず、つまずいていた。一旦、Velocity-pressure型のNS方程式をベースとした支配方程式で、PINNsをコーディングした。それらしい結果が得られたので、この投稿でまとめる。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>OpenFOAM（とParaView）の歩き方</title>
