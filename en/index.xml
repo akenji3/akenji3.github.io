@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PINNs 〜 Steady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250111_laminarflow/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20250111_laminarflow/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have been trying to simulate steady state laminar flows with PINNs since the end of last year, but I was stumped by the derivation of the Navier Stokes (NS) equations of Cauchy stress tensor type. I coded PINNs with the governing equations based on the Velocity-pressure type NS equations. I got a result that looks like it, and I will summarize it in this post.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Walking around OpenFOAM (and ParaView)</title>
