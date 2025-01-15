@@ -18,7 +18,8 @@
       <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20250115_unsteady/</guid>
-      <description>はじめに 先日、定常状態の層流についてPINNsで求められた内容を投稿した。今回は、非定常な層流についてPINNsの手法を適用した。今回の結果</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;先日、&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;定常状態の層流&lt;/a&gt;についてPINNsで求められた内容を投稿した。今回は、非定常な層流についてPINNsの手法を適用した。今回の結果は、参考にした論文の結果とも異なり、正しい結果ではない。原因を調べているが、分かっていない。&lt;/p&gt;</description>
     </item>
     
     <item>
