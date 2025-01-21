@@ -60,7 +60,7 @@ In previous post, I reproduced the Laminar Flow of the transition state in PINNs
   "headline": "NEW:Unsteady-state Laminar Flow",
   "description" : "Introduction. In previous post, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.\n",
   "inLanguage" : "en",
-  "wordCount":  1404 ,
+  "wordCount":  1415 ,
   "datePublished" : "2025-01-21T00:00:00",
   "dateModified" : "2025-01-21T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -310,23 +310,35 @@ if (!doNotTrack) {
 <h4 id="cauchy-stress-tensor-st-form">Cauchy stress tensor (ST) form</h4>
 <p>I tried to represent equations (3) and (4) in Source 1 in 2D component notation in order to code them as governing equations. However, I could not do so, so I read the Github code of Source 1 and obtained the following governing equations. Equations (3) and (4) in Source 1. that I had stumbled upon are as follows.</p>
 <p>$$
-\frac{\partial \boldsymbol{v}}{\partial t} + (\boldsymbol{v}\cdot\nabla)\boldsymbol{v} = \frac{1}{\rho}\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{g} \<br>
-\boldsymbol{\sigma} = -p\boldsymbol{I} + \mu(\nabla\boldsymbol{v}+\nabla\boldsymbol{v}^{T}) \tag{1}
+\frac{\partial \boldsymbol{v}}{\partial t} + (\boldsymbol{v}\cdot\nabla)\boldsymbol{v} = \frac{1}{\rho}\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{g} \tag{1}
+$$</p>
+<p>$$
+\boldsymbol{\sigma} = -p\boldsymbol{I} + \mu(\nabla\boldsymbol{v}+\nabla\boldsymbol{v}^{T}) \tag{2}
+$$</p>
+<p>Let &lsquo;p_NN()&rsquo; be the function for the neural net used in PINNs this time, &lsquo;p_NN()&rsquo; is a function that maps space-time variables to mixed variables. It is expressed as follows.
 $$
-Let $p_NN()$ be the function for the neural net used in PINNs this time, $p_NN()$ is a function that maps space-time variables to mixed variables. It is expressed as follows.
-$$
-(x, y, t) \longmapsto (\psi, p, \sigma_{11}, \sigma_{22}, \sigma_{12}) \tag{2}
+(x, y, t) \longmapsto (\psi, p, \sigma_{11}, \sigma_{22}, \sigma_{12}) \tag{3}
 $$
 where $\psi$ is the stream function and the velocities are $u = \frac{\partial \psi}{\partial y}$ and $v = - \frac{\partial \psi}{\partial x}$. This says that the continuity equation is automatically satisfied (from the paper in Source 1.). The $p$ is the pressure. The governing equations are shown below using $\sigma_{11},\sigma_{22},\sigma_{12}$. In the following notation, for example, $\partial_t u$ denotes $\frac{\partial u}{\partial t}$.</p>
 <p>$$
-f_u &amp;= \rho \partial_t u + \rho(u\partial_x u + v\partial_y u) - \partial_x \sigma_{11} - \partial_y \sigma_{12} \<br>
-f_v &amp;= \rho \partial_t v + \rho(u\partial_x v + v\partial_y v) - \partial_x \sigma_{12} - \partial_y \sigma_{22} \<br>
-f_{xx} &amp;= -p + 2\mu\partial_x u - \sigma_{11} \<br>
-f_{yy} &amp;= -p + 2\mu\partial_y v - \sigma_{22} \<br>
-f_{xy} &amp;= \mu(\partial_y u + \partial_x v) - \sigma_{12} \<br>
-f_p &amp;= p + \frac{1}{2}(\sigma_{11}+\sigma_{22}) \tag{3}
+f_u = \rho \partial_t u + \rho(u\partial_x u + v\partial_y u) - \partial_x \sigma_{11} - \partial_y \sigma_{12} \tag{4}
 $$</p>
-<p>If equation (3) is used as a loss function and learning proceeds in the direction of minimizing them, we end up with a function $p_NN()$ expressed on a neural net that represents the environment (domain, boundary conditions) in question.</p>
+<p>$$
+f_v = \rho \partial_t v + \rho(u\partial_x v + v\partial_y v) - \partial_x \sigma_{12} - \partial_y \sigma_{22} \tag{5}
+$$</p>
+<p>$$
+f_{xx} = -p + 2\mu\partial_x u - \sigma_{11} \tag{6}
+$$</p>
+<p>$$
+f_{yy} = -p + 2\mu\partial_y v - \sigma_{22} \tag{7}
+$$</p>
+<p>$$
+f_{xy} = \mu(\partial_y u + \partial_x v) - \sigma_{12} \tag{8}
+$$</p>
+<p>$$
+f_p = p + \frac{1}{2}(\sigma_{11}+\sigma_{22}) \tag{9}
+$$</p>
+<p>If equation (3) is used as a loss function and learning proceeds in the direction of minimizing them, we end up with a function &lsquo;p_NN()&lsquo;expressed on a neural net that represents the environment (domain, boundary conditions) in question.</p>
 <h2 id="code">Code</h2>
 <p>Only the parts that differ from the previous <a href="https://akenji3.github.io/en/post/20250115_unsteady/">this post</a> are listed.</p>
 <h4 id="create-network-classes-for-all-coupling-layers">Create network classes for all coupling layers</h4>

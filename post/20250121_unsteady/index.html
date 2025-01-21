@@ -60,7 +60,7 @@
   "headline": "新・Unsteady-state Laminar Flow",
   "description" : "はじめに 前回の投稿では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。\n",
   "inLanguage" : "ja",
-  "wordCount":  2366 ,
+  "wordCount":  2372 ,
   "datePublished" : "2025-01-21T00:00:00",
   "dateModified" : "2025-01-21T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -310,23 +310,35 @@ if (!doNotTrack) {
 <h4 id="cauchy-stress-tensor-st-form">Cauchy stress tensor (ST) form</h4>
 <p>情報源1.の式(3)(4)を支配方程式としてコーディングするため2次元成分表記に表そうとした。しかし、それが出来なかったので、情報源1.のGithubのコードを読み、次の支配方程式を得た。自分がつまづいていた情報源1.の式(3)(4)は、次の通り。
 $$
-\frac{\partial \boldsymbol{v}}{\partial t} + (\boldsymbol{v}\cdot\nabla)\boldsymbol{v} = \frac{1}{\rho}\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{g} \<br>
-\boldsymbol{\sigma} = -p\boldsymbol{I} + \mu(\nabla\boldsymbol{v}+\nabla\boldsymbol{v}^{T}) \tag{1}
+\frac{\partial \boldsymbol{v}}{\partial t} + (\boldsymbol{v}\cdot\nabla)\boldsymbol{v} = \frac{1}{\rho}\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{g} \tag{1}
 $$
-今回PINNsで使うニューラルネットを関数$p_NN()$とすると、$p_NN()$は時空間変数を混合変数へと写像する関数である。次のように表される。
 $$
-(x, y, t) \longmapsto (\psi, p, \sigma_{11}, \sigma_{22}, \sigma_{12}) \tag{2}
+\boldsymbol{\sigma} = -p\boldsymbol{I} + \mu(\nabla\boldsymbol{v}+\nabla\boldsymbol{v}^{T}) \tag{2}
+$$</p>
+<p>今回PINNsで使うニューラルネットを関数p_NN()とすると、p_NN()は時空間変数を混合変数へと写像する関数である。次のように表される。
+$$
+(x, y, t) \longmapsto (\psi, p, \sigma_{11}, \sigma_{22}, \sigma_{12}) \tag{3}
 $$
 ここで、$\psi$は流線関数であり、流速は$u = \frac{\partial \psi}{\partial y}$、$v = - \frac{\partial \psi}{\partial x}$となる。これにより連続方程式は自動的に満たされるとのこと（情報源1.の論文より）。$p$は圧力である。$\sigma_{11},\sigma_{22},\sigma_{12}$を使って支配方程式を以下に示す。以下の表記において、例えば$\partial_t u$は$\frac{\partial u}{\partial t}$を表す。
 $$
-f_u &amp;= \rho \partial_t u + \rho(u\partial_x u + v\partial_y u) - \partial_x \sigma_{11} - \partial_y \sigma_{12} \<br>
-f_v &amp;= \rho \partial_t v + \rho(u\partial_x v + v\partial_y v) - \partial_x \sigma_{12} - \partial_y \sigma_{22} \<br>
-f_{xx} &amp;= -p + 2\mu\partial_x u - \sigma_{11} \<br>
-f_{yy} &amp;= -p + 2\mu\partial_y v - \sigma_{22} \<br>
-f_{xy} &amp;= \mu(\partial_y u + \partial_x v) - \sigma_{12} \<br>
-f_p &amp;= p + \frac{1}{2}(\sigma_{11}+\sigma_{22}) \tag{3}
+f_u = \rho \partial_t u + \rho(u\partial_x u + v\partial_y u) - \partial_x \sigma_{11} - \partial_y \sigma_{12} \tag{4}
 $$</p>
-<p>式(3)の損失関数として、それらを最小化する方向に学習を進めて行けば、問題としている環境（領域、境界条件）を表すニューラルネット上に表現された関数$p_NN()$となる。</p>
+<p>$$
+f_v = \rho \partial_t v + \rho(u\partial_x v + v\partial_y v) - \partial_x \sigma_{12} - \partial_y \sigma_{22} \tag{5}
+$$</p>
+<p>$$
+f_{xx} = -p + 2\mu\partial_x u - \sigma_{11} \tag{6}
+$$</p>
+<p>$$
+f_{yy} = -p + 2\mu\partial_y v - \sigma_{22} \tag{7}
+$$</p>
+<p>$$
+f_{xy} = \mu(\partial_y u + \partial_x v) - \sigma_{12} \tag{8}
+$$</p>
+<p>$$
+f_p = p + \frac{1}{2}(\sigma_{11}+\sigma_{22}) \tag{9}
+$$</p>
+<p>式(3)の損失関数として、それらを最小化する方向に学習を進めて行けば、問題としている環境（領域、境界条件）を表すニューラルネット上に表現された関数p_NN()となる。</p>
 <h2 id="コード">コード</h2>
 <p>前回の<a href="https://akenji3.github.io/post/20250115_unsteady/">この投稿</a>と異なる部分のみを掲載する。</p>
 <h4 id="全結合層のネットワーククラスを作成">全結合層のネットワーククラスを作成</h4>
