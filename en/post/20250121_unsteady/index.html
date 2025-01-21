@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>新・Unsteady-state Laminar Flow - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-前回の投稿では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。">
+  <title>NEW:Unsteady-state Laminar Flow - akenji&#39;s lab</title>
+  <meta name="description" content="Introduction.
+In previous post, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +45,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20250121_unsteady\/",
-          "name": "新・ unsteady state laminar flow"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250121_unsteady\/",
+          "name": "N e w unsteady state laminar flow"
         }
     }]
 }
@@ -57,15 +57,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "新・Unsteady-state Laminar Flow",
-  "description" : "はじめに 前回の投稿では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。\n",
-  "inLanguage" : "ja",
-  "wordCount":  2366 ,
+  "headline": "NEW:Unsteady-state Laminar Flow",
+  "description" : "Introduction. In previous post, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.\n",
+  "inLanguage" : "en",
+  "wordCount":  1404 ,
   "datePublished" : "2025-01-21T00:00:00",
   "dateModified" : "2025-01-21T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250121_unsteady\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250121_unsteady\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,24 +79,24 @@
 }
 </script>
 
-<meta property="og:title" content="新・Unsteady-state Laminar Flow" />
-<meta property="og:description" content="はじめに
-前回の投稿では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。">
+<meta property="og:title" content="NEW:Unsteady-state Laminar Flow" />
+<meta property="og:description" content="Introduction.
+In previous post, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20250121_unsteady/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20250121_unsteady/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="新・Unsteady-state Laminar Flow" />
-  <meta name="twitter:description" content="はじめに
-前回の投稿では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。">
+  <meta name="twitter:title" content="NEW:Unsteady-state Laminar Flow" />
+  <meta name="twitter:description" content="Introduction.
+In previous post, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
   <meta name="twitter:creator" content="@akenji3" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -126,12 +126,12 @@ if (!doNotTrack) {
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">メニューを切り替え</span>
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -139,25 +139,25 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="/">Blog</a>
+              <a title="Blog" href="/en">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/page/about/">About</a>
+              <a title="About" href="/en/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/categories">Categories</a>
+              <a title="Categories" href="/en/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="Tags" href="/en/tags">Tags</a>
             </li>
           
         
@@ -167,9 +167,9 @@ if (!doNotTrack) {
             <li>
               
                 
-                  <a href="/en" lang="en">en</a>
-                
               
+                
+                  <a href="/ja" lang="ja">ja</a>
                 
               
             </li>
@@ -183,7 +183,7 @@ if (!doNotTrack) {
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
           </a>
         </div>
@@ -263,7 +263,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>新・Unsteady-state Laminar Flow</h1>
+                <h1>NEW:Unsteady-state Laminar Flow</h1>
               
               
               
@@ -271,7 +271,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;January 21, 2025に投稿
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 21, 2025
   
   
   
@@ -280,7 +280,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250121_unsteady/" lang="en">en</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250121_unsteady/" lang="ja">ja</a>
 </span>
 
 
@@ -298,27 +298,27 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20250115_unsteady/">前回の投稿</a>では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。</p>
-<h2 id="情報源">情報源</h2>
+        <h2 id="introduction">Introduction.</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20250115_unsteady/">previous post</a>, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.</p>
+<h2 id="sources">Sources</h2>
 <ol>
-<li><a href="https://github.com/Raocp/PINN-laminar-flow/tree/master/PINN_unsteady">PINN-laminar-flow/PINN_unsteady</a>  -  これまでも情報源として参考にしてきた論文とgithub。この論文のCauchy stress tensorの部分（連続体力学に基づく定式化）、すなわち式(3)(4)でつまづいていた。</li>
-<li><a href="https://www.researchgate.net/figure/The-schematic-of-PINN-for-solving-the-Navier-Stokes-equations-of-the-VP-form_fig1_357562862">On Physics-Informed Deep Learning for Solving Navier-Stokes Equations</a>  -  このページから参照される論文に、Navier-Stokes方程式の2つの型（VP formとST form）についての記載がある。但し、この論文の課題設定は、定常状態を扱っており、時間変数$t$は含まれていない。</li>
+<li><a href="https://github.com/Raocp/PINN-laminar-flow/tree/master/PINN_unsteady">PINN-laminar-flow/PINN_unsteady</a> - a paper that I have been referring to as a source of information and github. the Cauchy stress tensor part of this paper (continuum-mechanics-based formulation), i.e. equations (3) and (4), tripped me up.</li>
+<li>[On Physics-Informed Deep Learning for Solving Navier-Stokes Equations](<a href="https://www.researchgate.net/figure/The-schematic-of-PINN-for-">https://www.researchgate.net/figure/The-schematic-of-PINN-for-</a> solving-the-Navier-Stokes-equations-of-the-VP-form_fig1_357562862) - The paper referenced from this page describes two types of Navier-Stokes equations (VP form and ST form). However, the problem setup in this paper deals with the steady state and does not include the time variable $t$.</li>
 </ol>
-<h2 id="物理的背景">物理的背景</h2>
-<p>VP型、ST型については、こちらの<a href="https://akenji3.github.io/post/20250111_laminarflow/">投稿</a>を参考にして欲しい（参考論文へのリンクあり）。</p>
+<h2 id="physical-background">Physical Background</h2>
+<p>Please refer to this <a href="https://akenji3.github.io/en/post/20250111_laminarflow/">posting</a> for more information on VP and ST types (with links to reference papers).</p>
 <h4 id="cauchy-stress-tensor-st-form">Cauchy stress tensor (ST) form</h4>
-<p>情報源1.の式(3)(4)を支配方程式としてコーディングするため2次元成分表記に表そうとした。しかし、それが出来なかったので、情報源1.のGithubのコードを読み、次の支配方程式を得た。自分がつまづいていた情報源1.の式(3)(4)は、次の通り。
-$$
+<p>I tried to represent equations (3) and (4) in Source 1 in 2D component notation in order to code them as governing equations. However, I could not do so, so I read the Github code of Source 1 and obtained the following governing equations. Equations (3) and (4) in Source 1. that I had stumbled upon are as follows.</p>
+<p>$$
 \frac{\partial \boldsymbol{v}}{\partial t} + (\boldsymbol{v}\cdot\nabla)\boldsymbol{v} = \frac{1}{\rho}\nabla\cdot\boldsymbol{\sigma} + \boldsymbol{g} \<br>
 \boldsymbol{\sigma} = -p\boldsymbol{I} + \mu(\nabla\boldsymbol{v}+\nabla\boldsymbol{v}^{T}) \tag{1}
 $$
-今回PINNsで使うニューラルネットを関数$p_NN()$とすると、$p_NN()$は時空間変数を混合変数へと写像する関数である。次のように表される。
+Let $p_NN()$ be the function for the neural net used in PINNs this time, $p_NN()$ is a function that maps space-time variables to mixed variables. It is expressed as follows.
 $$
 (x, y, t) \longmapsto (\psi, p, \sigma_{11}, \sigma_{22}, \sigma_{12}) \tag{2}
 $$
-ここで、$\psi$は流線関数であり、流速は$u = \frac{\partial \psi}{\partial y}$、$v = - \frac{\partial \psi}{\partial x}$となる。これにより連続方程式は自動的に満たされるとのこと（情報源1.の論文より）。$p$は圧力である。$\sigma_{11},\sigma_{22},\sigma_{12}$を使って支配方程式を以下に示す。以下の表記において、例えば$\partial_t u$は$\frac{\partial u}{\partial t}$を表す。
-$$
+where $\psi$ is the stream function and the velocities are $u = \frac{\partial \psi}{\partial y}$ and $v = - \frac{\partial \psi}{\partial x}$. This says that the continuity equation is automatically satisfied (from the paper in Source 1.). The $p$ is the pressure. The governing equations are shown below using $\sigma_{11},\sigma_{22},\sigma_{12}$. In the following notation, for example, $\partial_t u$ denotes $\frac{\partial u}{\partial t}$.</p>
+<p>$$
 f_u &amp;= \rho \partial_t u + \rho(u\partial_x u + v\partial_y u) - \partial_x \sigma_{11} - \partial_y \sigma_{12} \<br>
 f_v &amp;= \rho \partial_t v + \rho(u\partial_x v + v\partial_y v) - \partial_x \sigma_{12} - \partial_y \sigma_{22} \<br>
 f_{xx} &amp;= -p + 2\mu\partial_x u - \sigma_{11} \<br>
@@ -326,10 +326,10 @@ f_{yy} &amp;= -p + 2\mu\partial_y v - \sigma_{22} \<br>
 f_{xy} &amp;= \mu(\partial_y u + \partial_x v) - \sigma_{12} \<br>
 f_p &amp;= p + \frac{1}{2}(\sigma_{11}+\sigma_{22}) \tag{3}
 $$</p>
-<p>式(3)の損失関数として、それらを最小化する方向に学習を進めて行けば、問題としている環境（領域、境界条件）を表すニューラルネット上に表現された関数$p_NN()$となる。</p>
-<h2 id="コード">コード</h2>
-<p>前回の<a href="https://akenji3.github.io/post/20250115_unsteady/">この投稿</a>と異なる部分のみを掲載する。</p>
-<h4 id="全結合層のネットワーククラスを作成">全結合層のネットワーククラスを作成</h4>
+<p>If equation (3) is used as a loss function and learning proceeds in the direction of minimizing them, we end up with a function $p_NN()$ expressed on a neural net that represents the environment (domain, boundary conditions) in question.</p>
+<h2 id="code">Code</h2>
+<p>Only the parts that differ from the previous <a href="https://akenji3.github.io/en/post/20250115_unsteady/">this post</a> are listed.</p>
+<h4 id="create-network-classes-for-all-coupling-layers">Create network classes for all coupling layers</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># define p_NN class</span>
 
 <span class="k">class</span> <span class="nc">p_NN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -404,8 +404,8 @@ $$</p>
         <span class="n">p</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
         
         <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span>
-</code></pre></div><p>「物理的背景」で説明した支配方程式を適用するために、neural_net()、net_uvp()およびnet_f()のみを変更した。これらの関数を呼んでいる箇所の引数受け取り部分も変更している。</p>
-<h4 id="損失関数最適化関数を定義">損失関数、最適化関数を定義</h4>
+</code></pre></div><p>Only neural_net(), net_uvp(), and net_f() were modified to apply the governing equations described in &ldquo;Physical Background&rdquo;. The argument taking part of the sections calling these functions has also been changed.</p>
+<h4 id="define-loss-function-and-optimizer-function">Define loss function and optimizer function</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Loss function: Mean Square Error</span>
 <span class="n">loss_func</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
 
@@ -413,8 +413,8 @@ $$</p>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
 
 <span class="c1"># scheduler = lr_scheduler.ExponentialLR(optimizer, gamma=0.98)</span>
-</code></pre></div><p>今回、学習率は情報源1.に併せ、0.0005とした。</p>
-<h4 id="学習ループ">学習ループ</h4>
+</code></pre></div><p>In this study, the learning rate was set to 0.0005 in conjunction with Source 1.</p>
+<h4 id="learning-loop">Learning loop</h4>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># learning Loop</span>
 
 <span class="n">num_epoch</span> <span class="o">=</span> <span class="mi">30000</span>  <span class="c1"># epoch count</span>
@@ -488,38 +488,38 @@ $$</p>
               <span class="n">format</span><span class="p">(</span><span class="n">loss_INLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
               <span class="n">format</span><span class="p">(</span><span class="n">loss_OUTLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
              <span class="p">)</span>
-</code></pre></div><p>上記の学習ループ部分では、net_f()のリターン値を受け取る部分、それらから支配方程式のロスを計算する部分、およびneural_net()を呼ぶ箇所をnet_uvp()に変更した。これらの変更は支配方程式変更に対応したものである。</p>
-<p>情報源1.に併せ、全損失を求める箇所で、WALLとINLETに重み付けをした。</p>
-<p>学習が充分に進んだ結果を得るため、学習ループを50,000回に増やした。</p>
-<h2 id="可視化結果">可視化結果</h2>
-<h4 id="st型による結果">ST型による結果</h4>
-<h5 id="学習状況">学習状況</h5>
+</code></pre></div><p>In the learning loop section above, the part that receives the return values of net_f(), the part that calculates the loss of the governing equations from them, and the part that calls neural_net() were changed to net_uvp(). These changes were made in response to the governing equation changes.</p>
+<p>In conjunction with source 1, WALL and INLET were weighted in the part where total loss is calculated.</p>
+<p>The training loop was increased to 50,000 times in order to obtain results with sufficiently advanced learning.</p>
+<h2 id="visualization-results">Visualization results</h2>
+<h4 id="results-with-st-type">Results with ST type</h4>
+<h5 id="loss-curves">Loss curves</h5>
 <p><img src="/images/20250121_unsteady/20250121_ST_LossCurve.png" alt="ST_LossCurve"></p>
-<h5 id="特定地点の圧力推移">特定地点の圧力推移</h5>
+<h5 id="pressure-transition-at-the-specific-points">Pressure transition at the specific points</h5>
 <p><img src="/images/20250121_unsteady/20250121_ST_Pressures.png" alt="ST_Pressures"></p>
-<h5 id="速度場と圧力場">速度場と圧力場</h5>
-<p>ここでは、アニメーションでなく、論文との比較のため、時刻0.3秒と0.5秒における速度場・圧力場を示す。</p>
+<h5 id="velocity-and-pressure-fields">velocity and pressure fields</h5>
+<p>The velocity and pressure fields at times 0.3 and 0.5 seconds are shown here for comparison with the paper, not for animation.</p>
 <p><img src="/images/20250121_unsteady/20250121_ST_uvp30.png" alt="ST_uvp30"></p>
 <p><img src="/images/20250121_unsteady/20250121_ST_uvp50.png" alt="ST_uvp50"></p>
-<h4 id="vp型による結果">VP型による結果</h4>
-<p>参考のため、同じ条件（学習率、損失の重み付け、50,000回ループ）で、VP型（学習率、損失の重み付け、50,000回ループ以外の箇所は、前回と同じコード）での結果も示す。</p>
-<h5 id="学習状況-1">学習状況</h5>
+<h4 id="result-with-vp-type">Result with VP type</h4>
+<p>For reference, we also show the results with VP type (same code as the previous one except for learning rate, loss weighting, and 50,000 loops) under the same conditions (learning rate, loss weighting, and 50,000 loops).</p>
+<h5 id="loss-curves-1">Loss curves</h5>
 <p><img src="/images/20250121_unsteady/20250121_VP_LossCurve.png" alt="VP_LossCurve"></p>
-<h5 id="特定地点の圧力推移-1">特定地点の圧力推移</h5>
+<h5 id="pressure-transition-at-the-specific-points-1">Pressure transition at the specific points</h5>
 <p><img src="/images/20250121_unsteady/20250121_VP_Pressures.png" alt="VP_Pressures"></p>
-<h5 id="速度場と圧力場-1">速度場と圧力場</h5>
+<h5 id="velocity-and-pressure-fields-1">velocity and pressure fields</h5>
 <p><img src="/images/20250121_unsteady/20250121_VP_uvp30.png" alt="VP_uvp00"></p>
 <p><img src="/images/20250121_unsteady/20250121_VP_uvp50.png" alt="VP_uvp50"></p>
-<h2 id="まとめ">まとめ</h2>
-<p>ST型、VP型の両者を比較し、定性的には次のようなことが言える。</p>
+<h2 id="summary">Summary</h2>
+<p>Comparing both the ST and VP forms, I can qualitatively say the following</p>
 <ul>
-<li>ST型の方が、損失の収束が早い傾向にある。</li>
-<li>3点の圧力については、ST型、VP型ともに情報源1.のカーブを異なる。圧力は、0.5秒時点でゼロ付近に戻っていない。最大値については、VP型の方が情報源1.の値に近い。</li>
-<li>速度場については、VP型の方が、情報源1.に近い。</li>
-<li>0.5秒後（1周期終了）時点でも円柱の前面に圧力が残っている。</li>
+<li>ST form tends to converge losses more quickly.</li>
+<li>For the pressure at the three points, the curves of source 1. are different for both the ST and VP forms. The pressure does not return to near zero at 0.5 seconds. For the maximum value, the VP forms is closer to the value in Source 1.</li>
+<li>For the velocity field, the VP form is closer to the value of information source 1.</li>
+<li>Pressure remains in front of the cylinder at 0.5 seconds (end of one cycle).</li>
 </ul>
-<p>学習率、エポック（ループ回数）を変更して、変化を見てみたい。</p>
-<p>また、可視化結果を比較する際には、表示の尺度を揃えていないと目視での比較が困難であることが分かったので、そこも工夫の余地がある。</p>
+<p>I would like to change the learning rate and epoch (number of loops) and see the changes.</p>
+<p>Also, when comparing the visualization results, you found that it is difficult to visually compare the results unless the scale of the display is aligned, so there is room for improvement in this area as well.</p>
 
         
 
@@ -533,42 +533,42 @@ $$</p>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f&amp;text=%e6%96%b0%e3%83%bbUnsteady-state%20Laminar%20Flow&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f&amp;text=NEW%3aUnsteady-state%20Laminar%20Flow&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f&amp;title=%e6%96%b0%e3%83%bbUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f&amp;title=NEW%3aUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f&amp;title=%e6%96%b0%e3%83%bbUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f&amp;title=NEW%3aUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f&amp;title=%e6%96%b0%e3%83%bbUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f&amp;title=NEW%3aUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250121_unsteady%2f&amp;description=%e6%96%b0%e3%83%bbUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250121_unsteady%2f&amp;description=NEW%3aUnsteady-state%20Laminar%20Flow" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -591,7 +591,7 @@ $$</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20250115_unsteady/" data-toggle="tooltip" data-placement="top" title="原因不明の結果 〜 Unsteady-state Laminar Flow">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/en/post/20250115_unsteady/" data-toggle="tooltip" data-placement="top" title="Unexplained results - Unsteady-state Laminar Flow">&larr; Previous Post</a>
             </li>
           
           
@@ -677,12 +677,12 @@ $$</p>
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          起動力に<a href="https://gohugo.io">Hugo v0.74.3</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.74.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
