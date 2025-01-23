@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 21 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Differences in governing equations - Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250123_unsteady_laminar/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20250123_unsteady_laminar/</guid>
+      <description>Introduction In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.
+Sources  PINN-laminar-flow/PINN_unsteady - The paper and github, which I have been referring to as a source of information. to evaluate the results of my own implementation, I compared them to Figures 7 and 8 in this paper.</description>
+    </item>
     
     <item>
       <title>NEW:Unsteady-state Laminar Flow</title>
