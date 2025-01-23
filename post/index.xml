@@ -18,7 +18,8 @@
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20250123_unsteady_laminar/</guid>
-      <description>はじめに 前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsに</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。&lt;/p&gt;</description>
     </item>
     
     <item>
