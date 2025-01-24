@@ -7,9 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Differences in governing equations - Unsteady-state Laminar Flow - akenji&#39;s lab</title>
-  <meta name="description" content="Introduction
-In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.">
+  <title>Karman Vortex with OpenFOAM - akenji&#39;s lab</title>
+  <meta name="description" content="Motivation
+Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using these models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of this post, I was thinking of trying to predict the Kalman vortex using the PINNs method.
+In the course of my research, I learned from this paper that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman vortex in OpenFOAM first.
+This post is a summary of my simulation of the Karman vortex in OpenFOAM.">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +47,8 @@ In my previous post, I summarized the learning and inference results from PINNs 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250123_unsteady_laminar\/",
-          "name": "Differences in governing equations unsteady state laminar flow"
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250124_karmanvortex\/",
+          "name": "Karman vortex with open f o a m"
         }
     }]
 }
@@ -57,15 +59,15 @@ In my previous post, I summarized the learning and inference results from PINNs 
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "Differences in governing equations - Unsteady-state Laminar Flow",
-  "description" : "Introduction In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.\n",
+  "headline": "Karman Vortex with OpenFOAM",
+  "description" : "Motivation Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using these models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of this post, I was thinking of trying to predict the Kalman vortex using the PINNs method.\nIn the course of my research, I learned from this paper that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman vortex in OpenFOAM first.\nThis post is a summary of my simulation of the Karman vortex in OpenFOAM.\n",
   "inLanguage" : "en",
-  "wordCount":  282 ,
-  "datePublished" : "2025-01-23T00:00:00",
-  "dateModified" : "2025-01-23T00:00:00",
+  "wordCount":  593 ,
+  "datePublished" : "2025-01-24T00:00:00",
+  "dateModified" : "2025-01-24T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250123_unsteady_laminar\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250124_karmanvortex\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +81,19 @@ In my previous post, I summarized the learning and inference results from PINNs 
 }
 </script>
 
-<meta property="og:title" content="Differences in governing equations - Unsteady-state Laminar Flow" />
-<meta property="og:description" content="Introduction
-In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.">
+<meta property="og:title" content="Karman Vortex with OpenFOAM" />
+<meta property="og:description" content="Motivation
+Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using these models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of this post, I was thinking of trying to predict the Kalman vortex using the PINNs method.
+In the course of my research, I learned from this paper that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman vortex in OpenFOAM first.
+This post is a summary of my simulation of the Karman vortex in OpenFOAM.">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/20250123_unsteady_laminar/" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20250124_karmanvortex/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Differences in governing equations - Unsteady-state Laminar Flow" />
-  <meta name="twitter:description" content="Introduction
-In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) …">
+  <meta name="twitter:title" content="Karman Vortex with OpenFOAM" />
+  <meta name="twitter:description" content="Motivation
+Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using these models to make inferences. It was not easy to show …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +267,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Differences in governing equations - Unsteady-state Laminar Flow</h1>
+                <h1>Karman Vortex with OpenFOAM</h1>
               
               
               
@@ -271,7 +275,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 23, 2025
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 24, 2025
   
   
   
@@ -280,7 +284,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250123_unsteady_laminar/" lang="ja">ja</a>
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250124_karmanvortex/" lang="ja">ja</a>
 </span>
 
 
@@ -298,61 +302,35 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="introduction">Introduction</h2>
-<p>In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.</p>
+        <h2 id="motivation">Motivation</h2>
+<p>Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using these models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of <a href="https://akenji3.github.io/en/post/20250111_laminarflow/">this post</a>, I was thinking of trying to predict the Kalman vortex using the PINNs method.</p>
+<p>In the course of my research, I learned from <a href="https://arxiv.org/abs/2306.00230">this paper</a> that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman vortex in OpenFOAM first.</p>
+<p>This post is a summary of my simulation of the Karman vortex in OpenFOAM.</p>
 <h2 id="sources">Sources</h2>
-<ul>
-<li><a href="https://github.com/Raocp/PINN-laminar-flow/tree/master/PINN_unsteady">PINN-laminar-flow/PINN_unsteady</a> -  The paper and github, which I have been referring to as a source of information. to evaluate the results of my own implementation, I compared them to Figures 7 and 8 in this paper.</li>
-</ul>
-<h2 id="results">Results</h2>
-<h4 id="learning-status">Learning status</h4>
-<h5 id="st-form">ST form</h5>
-<p><img src="/images/20250123_unsteady/20250123_ST_LossCurve.png" alt="ST_LossCurve"></p>
-<h5 id="vp-form">VP form</h5>
-<p><img src="/images/20250123_unsteady/20250123_VP_LossCurve.png" alt="VP_LossCurve"></p>
-<h4 id="pressure-transition">Pressure Transition</h4>
-<h5 id="st-form-1">ST form</h5>
-<h6 id="10000-epoch">10,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_10.png" alt="ST_Pressures_10"></p>
-<h6 id="15000-epoch">15,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_15.png" alt="ST_pressures_15"></p>
-<h6 id="25000-epoch">25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_25.png" alt="ST_Pressures_25"></p>
-<h5 id="vp-form-1">VP form</h5>
-<h6 id="10000-epoch-1">10,000 epoch</h6>
-<h6 id="vp_pressure_10images20250123_unsteady20250123_vp_pressures_10png"><img src="/images/20250123_unsteady/20250123_VP_pressures_10.png" alt="VP_Pressure_10"></h6>
-<h6 id="15000-epoch-1">15,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_pressures_15.png" alt="VP_pressures_15"></p>
-<h6 id="25000-epoch-1">25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_pressures_25.png" alt="VP_Pressures_25"></p>
-<h4 id="velocity-and-pressure-fields">Velocity and pressure fields</h4>
-<h5 id="st-form-2">ST form</h5>
-<h6 id="at-03-sec-later-in-10000-epoch">at 0.3 sec later in 10,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp10_30.png" alt="ST_uvp10_30"></p>
-<h6 id="at-05-sec-later-in-10000-epoch">at 0.5 sec later in 10,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp10_50.png" alt="ST_uvp10_50"></p>
-<h6 id="at-03-sec-later-in-25000-epoch">at 0.3 sec later in 25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp25_30.png" alt="ST_uvp25_30"></p>
-<h6 id="at-05-sec-later-in-25000-epoch">at 0.5 sec later in 25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp25_50.png" alt="ST_uvp25_50"></p>
-<h5 id="vp-form-2">VP form</h5>
-<h6 id="at-03-sec-later-in-10000-epoch-1">at 0.3 sec later in 10,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp10_30.png" alt="VP_uvp10_30"></p>
-<h6 id="at-05-sec-later-in-10000-epoch-1">at 0.5 sec later in 10,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp10_50.png" alt="VP_uvp10_50"></p>
-<h6 id="at-03-sec-later-in-25000-epoch-1">at 0.3 sec later in 25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp25_30.png" alt="VP_uvp25_30"></p>
-<h6 id="at-05-sec-later-in-25000-epoch-1">at 0.5 sec later in 25,000 epoch</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp25_50.png" alt="VP_uvp25_50"></p>
+<ol>
+<li><a href="https://arxiv.org/abs/2306.00230">Predictive Limitations of Physics-Informed Neural Networks in Vortex Shedding</a> - In this overview, “data-free PINNs are unable to predict vortex shedding”. Then it also said that Data-driven PINN exhibits vortex shedding only while the training data (from a traditional CFD solver) is available. Reading the text seems to be a hurdle!</li>
+<li><a href="https://github.com/barbagroup/jcs_paper_pinn">barbagroup/jsc_paper_pinn</a> - The github page of the authors of the above paper. In addition to the manuscript of the paper, the authors have compiled data on the use of a fluid solver called PetIBM and Modulus. The authors seem to have validated using <a href="https://github.com/NVIDIA/modulus">Modulus</a> as PINNs.</li>
+<li><a href="https://takun-physics.net/1494/">Fluid Analysis around a 2D Cylinder in OpenFOAM (Verification of Dynamical Similarity)</a> - The authors verified that the flow pattern is determined by the Reynolds number Re, using different size models.</li>
+<li>[Understanding the von Karman Vortex Street with OpenFOAM 11](<a href="https://blog.sam-mousavi.com/2024/06/understanding-the-von-karman-vortex-">https://blog.sam-mousavi.com/2024/06/understanding-the-von-karman-vortex-</a> street-with-openfoam-11/) - A blog post about using OpenFOAM to understand the Karman vortex. The author is a chemical engineering researcher.</li>
+<li><a href="https://github.com/SamMousaviES/Karman-Vortex-Street">von Karman Vortex Street Simulation with OpenFOAM 11</a> - Github of the above blog post. You can download OpenFOAM data.</li>
+<li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a> - This page has a tutorial called “2D Circular cylinder - Vortex This tutorial is part of a wiki page maintained by OpenFOAM.com. This tutorial is “Fourth simulation - Vortex shedding”, part of the “First glimpse” series. It is also part of the “Day 8” turbulence modeling in the “3 weeks” series.</li>
+</ol>
+<h2 id="running-the-tutorial">Running the tutorial</h2>
+<p>The following is the procedure for downloading and running the necessary files from OpenFOAM sources 3. to 6. according to source 6.</p>
+<h4 id="download-the-necessary-files">Download the necessary files</h4>
+<p>Download and extract “vortex_shedding.tar.gz” from the link “You can download the case files at the following” on the page of Source 6.</p>
+<h4 id="case-used">Case used</h4>
+<p>Once unzipped, open the text “README.CASES”, read the description of each case and decided to run “c14” (Re=10000, turbulent model) Copy the c14 directory to an area accessible by OpenFOAM.</p>
+<h4 id="run-c14">Run c14</h4>
+<p>Execute the command according to “README.FIRST” and you can see the Kalman vortex in ParaView.</p>
+<p>pimpleFoam | tee log” takes time. On my environment (Xeon E5-1620 3.6GHz 64GB memory), it took about 30 minutes.</p>
+<h4 id="visualization-with-paraview">Visualization with ParaView</h4>
+<p>After creating the “c14.foam” file in the “c14” directory, open it with ParaView.</p>
+<p>The following movie shows the animation of the time step results in ParaView and a recording of the screen.</p>
+<p><img src="/images/20250124_vortex/20250124_vortex.gif" alt="Vortex"></p>
 <h2 id="summary">Summary</h2>
-<p>Compared to Figures 6 and 7 in Sources 1., the following can be qualitatively said.</p>
-<ul>
-<li>The model learned with VP fom governing equations seems to be closer to the figure in Source 1.</li>
-<li>The model I have obtained (by learning) is in a state of high pressure after 0.5 seconds for nothing of  VP or ST form.</li>
-<li>The more I progress in learning (more epochs), the higher the pressure.</li>
-</ul>
-<p>I have reviewed the governing equations and boundary conditions many times over the past week to determine the cause of the above, but the cause remains unknown.</p>
-<p>I would like to leave this problem as it is and try to find the next issue.</p>
+<p>By using the files published by our predecessors, I was able to obtain simulation results of the Karman vortex in my environment very easily. Thanks again to the efforts of our predecessors.</p>
+<p>The tutorial case I downloaded this time also included laminar flow, so I would like to compare the OpenFOAM results with the PINNs results. After that, I would like to increase the Reynolds number to see if the twin vortices occur in OpenFOAM and see what happens in PINNs.</p>
 
         
 
@@ -366,42 +344,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f&amp;text=Differences%20in%20governing%20equations%20-%20Unsteady-state%20Laminar%20Flow&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f&amp;text=Karman%20Vortex%20with%20OpenFOAM&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f&amp;title=Differences%20in%20governing%20equations%20-%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f&amp;title=Karman%20Vortex%20with%20OpenFOAM" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f&amp;title=Differences%20in%20governing%20equations%20-%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f&amp;title=Karman%20Vortex%20with%20OpenFOAM" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f&amp;title=Differences%20in%20governing%20equations%20-%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f&amp;title=Karman%20Vortex%20with%20OpenFOAM" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250123_unsteady_laminar%2f&amp;description=Differences%20in%20governing%20equations%20-%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250124_karmanvortex%2f&amp;description=Karman%20Vortex%20with%20OpenFOAM" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -424,13 +402,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/en/post/20250121_unsteady/" data-toggle="tooltip" data-placement="top" title="NEW:Unsteady-state Laminar Flow">&larr; Previous Post</a>
+              <a href="https://akenji3.github.io/en/post/20250123_unsteady_laminar/" data-toggle="tooltip" data-placement="top" title="Differences in governing equations - Unsteady-state Laminar Flow">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/en/post/20250124_karmanvortex/" data-toggle="tooltip" data-placement="top" title="Karman Vortex with OpenFOAM">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

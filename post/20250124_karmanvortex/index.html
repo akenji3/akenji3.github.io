@@ -9,7 +9,7 @@
 
   <title>OpenFOAMによるカルマン渦 - akenji&#39;s lab</title>
   <meta name="description" content="モチベーション
-昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
 調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
 この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
@@ -60,9 +60,9 @@
     "name" : "Kenji Arai"
   },
   "headline": "OpenFOAMによるカルマン渦",
-  "description" : "モチベーション 昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。\n調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。\nこの投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。\n",
+  "description" : "モチベーション 昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。\n調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。\nこの投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。\n",
   "inLanguage" : "ja",
-  "wordCount":  1596 ,
+  "wordCount":  1606 ,
   "datePublished" : "2025-01-24T00:00:00",
   "dateModified" : "2025-01-24T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -83,7 +83,7 @@
 
 <meta property="og:title" content="OpenFOAMによるカルマン渦" />
 <meta property="og:description" content="モチベーション
-昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
 調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
 この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
@@ -93,7 +93,7 @@
 
   <meta name="twitter:title" content="OpenFOAMによるカルマン渦" />
   <meta name="twitter:description" content="モチベーション
-昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
 調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ず …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
@@ -285,7 +285,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250124_karmanvortex/" lang="en">en</a>
 </span>
 
 
@@ -304,8 +304,8 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <h2 id="モチベーション">モチベーション</h2>
-<p>昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。<a href="https://akenji3.github.io/post/20250111_laminarflow/">この投稿</a>の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。</p>
-<p>調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。</p>
+<p>昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。<a href="https://akenji3.github.io/post/20250111_laminarflow/">こちらの投稿</a>の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。</p>
+<p>調べていく内に、<a href="https://arxiv.org/abs/2306.00230">この論文</a>で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。</p>
 <p>この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
@@ -316,7 +316,7 @@ if (!doNotTrack) {
 <li><a href="https://github.com/SamMousaviES/Karman-Vortex-Street">von Karman Vortex Street Simulation with OpenFOAM 11</a>  -  上記ブログ記事のGithub。OpenFOAMのデータがダウンロードできる。</li>
 <li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a>  -  このページに「2D Circular cylinder - Vortex shedding」というチュートリアルがある。OpenFOAM.comによって管理されているwikiページの一部。このチュートリアルは、&ldquo;First glimpse&rdquo; seriesの一部である&quot;Fourth simulation - Vortex shedding&quot;である。また、&ldquo;3 weeks&rdquo; seriesの&quot;Day 8&quot;のturbulence modelingの一部でもある。</li>
 </ol>
-<h2 id="デモ">デモ</h2>
+<h2 id="チュートリアルを実行">チュートリアルを実行</h2>
 <p>OpenFOAMに関する情報源3.から6.の中から、直ぐに試せる情報源6.に従って、必要なファイルをダウンロードして、実行した手順は、次のとおりである。</p>
 <h4 id="必要ファイルのダウンロード">必要ファイルのダウンロード</h4>
 <p>情報源6.のページの「You can download the case files at the following」のリンクから「vortex_shedding.tar.gz」をダウンロードして、解凍する。</p>
@@ -328,7 +328,7 @@ if (!doNotTrack) {
 <h4 id="paraviewで可視化">ParaViewで可視化</h4>
 <p>「c14」ディレクトリに「c14.foam」ファイルを作成した後、ParaViewで開く。</p>
 <p>以下の動画は、ParaViewでタイムステップの結果をアニメーション表示し、その画面を録画したもの。</p>
-<p><img src="/Users/kenji/workspace/blog/static/images/20250124_vortex/20250124_vortex.gif" alt="Vortex"></p>
+<p><img src="/images/20250124_vortex/20250124_vortex.gif" alt="Vortex"></p>
 <h2 id="まとめ">まとめ</h2>
 <p>先人が公開しているファイルを利用することで、非常に簡単に、自分の環境でカルマン渦のシミュレーション結果を得ることができた。先人の努力に改めて感謝。</p>
 <p>今回ダウンロードしたチュートリアルのケースには、層流も入っていたので、OpenFOAMの結果とPINNsの結果を比較してみたい。その後、レイノルズ数を上げて、双子渦の発生をOpenFOAMで確かめ、PINNsではどうなるかを試してみたい。</p>
