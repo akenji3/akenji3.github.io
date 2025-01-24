@@ -62,7 +62,7 @@
   "headline": "OpenFOAMによるカルマン渦",
   "description" : "モチベーション 昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。\n調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。\nこの投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。\n",
   "inLanguage" : "ja",
-  "wordCount":  1606 ,
+  "wordCount":  1620 ,
   "datePublished" : "2025-01-24T00:00:00",
   "dateModified" : "2025-01-24T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -317,7 +317,7 @@ if (!doNotTrack) {
 <li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a>  -  このページに「2D Circular cylinder - Vortex shedding」というチュートリアルがある。OpenFOAM.comによって管理されているwikiページの一部。このチュートリアルは、&ldquo;First glimpse&rdquo; seriesの一部である&quot;Fourth simulation - Vortex shedding&quot;である。また、&ldquo;3 weeks&rdquo; seriesの&quot;Day 8&quot;のturbulence modelingの一部でもある。</li>
 </ol>
 <h2 id="チュートリアルを実行">チュートリアルを実行</h2>
-<p>OpenFOAMに関する情報源3.から6.の中から、直ぐに試せる情報源6.に従って、必要なファイルをダウンロードして、実行した手順は、次のとおりである。</p>
+<p>OpenFOAMに関する情報源3.から6.の中から、直ぐに試せる情報源6.のチュートリアルを実施することにした。必要なファイルをダウンロードして、実行した手順は、次のとおりである。</p>
 <h4 id="必要ファイルのダウンロード">必要ファイルのダウンロード</h4>
 <p>情報源6.のページの「You can download the case files at the following」のリンクから「vortex_shedding.tar.gz」をダウンロードして、解凍する。</p>
 <h5 id="使用した事例">使用した事例</h5>
