@@ -7,9 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>支配方程式の違い 〜 Unsteady-state Laminar Flow - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。">
+  <title>OpenFOAMによるカルマン渦 - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
+この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -45,8 +47,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20250123_unsteady_laminar\/",
-          "name": "支配方程式の違い 〜 unsteady state laminar flow"
+          "@id": "https:\/\/akenji3.github.io\/post\/20250124_karmanvortex\/",
+          "name": "Open f o a mによるカルマン渦"
         }
     }]
 }
@@ -57,15 +59,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "支配方程式の違い 〜 Unsteady-state Laminar Flow",
-  "description" : "はじめに 前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。\n",
+  "headline": "OpenFOAMによるカルマン渦",
+  "description" : "モチベーション 昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。\n調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。\nこの投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。\n",
   "inLanguage" : "ja",
-  "wordCount":  593 ,
-  "datePublished" : "2025-01-23T00:00:00",
-  "dateModified" : "2025-01-23T00:00:00",
+  "wordCount":  1596 ,
+  "datePublished" : "2025-01-24T00:00:00",
+  "dateModified" : "2025-01-24T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250123_unsteady_laminar\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250124_karmanvortex\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -79,17 +81,20 @@
 }
 </script>
 
-<meta property="og:title" content="支配方程式の違い 〜 Unsteady-state Laminar Flow" />
-<meta property="og:description" content="はじめに
-前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。">
+<meta property="og:title" content="OpenFOAMによるカルマン渦" />
+<meta property="og:description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
+この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20250123_unsteady_laminar/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250124_karmanvortex/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="支配方程式の違い 〜 Unsteady-state Laminar Flow" />
-  <meta name="twitter:description" content="はじめに
-前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。">
+  <meta name="twitter:title" content="OpenFOAMによるカルマン渦" />
+  <meta name="twitter:description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。この投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ず …">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -263,7 +268,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>支配方程式の違い 〜 Unsteady-state Laminar Flow</h1>
+                <h1>OpenFOAMによるカルマン渦</h1>
               
               
               
@@ -271,7 +276,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;January 23, 2025に投稿
+  <i class="fas fa-calendar"></i>&nbsp;January 24, 2025に投稿
   
   
   
@@ -280,7 +285,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250123_unsteady_laminar/" lang="en">en</a>
+  
 </span>
 
 
@@ -298,61 +303,35 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p>前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。</p>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。<a href="https://akenji3.github.io/post/20250111_laminarflow/">この投稿</a>の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。</p>
+<p>調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。</p>
+<p>この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。</p>
 <h2 id="情報源">情報源</h2>
-<ul>
-<li><a href="https://github.com/Raocp/PINN-laminar-flow/tree/master/PINN_unsteady">PINN-laminar-flow/PINN_unsteady</a> - これまでも情報源として参考にしてきた論文とgithub。自分で実施した結果の評価に、この論文の図7、図8と比較した。</li>
-</ul>
-<h2 id="結果">結果</h2>
-<h4 id="学習状況">学習状況</h4>
-<h5 id="st型">ST型</h5>
-<p><img src="/images/20250123_unsteady/20250123_ST_LossCurve.png" alt="ST_LossCurve"></p>
-<h5 id="vp型">VP型</h5>
-<p><img src="/images/20250123_unsteady/20250123_VP_LossCurve.png" alt="VP_LossCurve"></p>
-<h4 id="圧力推移">圧力推移</h4>
-<h5 id="st型-1">ST型</h5>
-<h6 id="10000回時点">10,000回時点</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_10.png" alt="ST_Pressures_10"></p>
-<h6 id="15000回時点">15,000回時点</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_15.png" alt="ST_pressures_15"></p>
-<h6 id="25000回時点">25,000回時点</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_pressures_25.png" alt="ST_Pressures_25"></p>
-<h5 id="vp型-1">VP型</h5>
-<h6 id="10000回時点-1">10,000回時点</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_pressures_10.png" alt="VP_Pressure_10"></p>
-<h6 id="15000回時点-1">15,000回時点</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_pressures_15.png" alt="VP_pressures_15"></p>
-<p>25,000回時点</p>
-<p><img src="/images/20250123_unsteady/20250123_VP_pressures_25.png" alt="VP_Pressures_25"></p>
-<h4 id="速度場と圧力場">速度場と圧力場</h4>
-<h5 id="st型-2">ST型</h5>
-<h6 id="10000回03秒後">10,000回、0.3秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp10_30.png" alt="ST_uvp10_30"></p>
-<h6 id="10000回05秒後">10,000回、0.5秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp10_50.png" alt="ST_uvp10_50"></p>
-<h6 id="25000回03秒後">25,000回、0.3秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp25_30.png" alt="ST_uvp25_30"></p>
-<h6 id="25000回05秒後">25,000回、0.5秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_ST_uvp25_50.png" alt="ST_uvp25_50"></p>
-<h5 id="vp型-2">VP型</h5>
-<h6 id="10000回03秒後-1">10,000回、0.3秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp10_30.png" alt="VP_uvp10_30"></p>
-<h6 id="10000回05秒後-1">10,000回、0.5秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp10_50.png" alt="VP_uvp10_50"></p>
-<h6 id="25000回03秒後-1">25,000回、0.3秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp25_30.png" alt="VP_uvp25_30"></p>
-<h6 id="25000回05秒後-1">25,000回、0.5秒後</h6>
-<p><img src="/images/20250123_unsteady/20250123_VP_uvp25_50.png" alt="VP_uvp25_50"></p>
+<ol>
+<li><a href="https://arxiv.org/abs/2306.00230">Predictive Limitations of Physics-Informed Neural Networks in Vortex Shedding</a>  -  この概要に、「データを持たないPINNは渦の放出を予測できないことを発見した」とあった。その後にデータ駆動型PINNは、学習データを使っている間のみ渦はできるとも。本文読むのはハードルが高そう！</li>
+<li><a href="https://github.com/barbagroup/jcs_paper_pinn">barbagroup/jsc_paper_pinn</a>  -  上記論文の筆者らのgithubのページ。論文の原稿以外に、PetIBMという流体ソルバーとModulusを使う場合のデータがまとめられている。筆者らは、PINNsとしては<a href="https://github.com/NVIDIA/modulus">Modulus</a>を使って検証したようだ。</li>
+<li><a href="https://takun-physics.net/1494/">OpenFOAMで2次元円柱まわりの流体解析 （力学的相似性の検証）</a>  - レイノルズ数Reにより流れのパターンが決定するということを異なるサイズのモデルで検証した内容。</li>
+<li><a href="https://blog.sam-mousavi.com/2024/06/understanding-the-von-karman-vortex-street-with-openfoam-11/">Understanding the von Karman Vortex Street with OpenFOAM 11</a>  -  OpenFOAMを使ってカルマン渦を理解するとの内容のブログ記事。筆者は、化学工学の研究者とのこと。</li>
+<li><a href="https://github.com/SamMousaviES/Karman-Vortex-Street">von Karman Vortex Street Simulation with OpenFOAM 11</a>  -  上記ブログ記事のGithub。OpenFOAMのデータがダウンロードできる。</li>
+<li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a>  -  このページに「2D Circular cylinder - Vortex shedding」というチュートリアルがある。OpenFOAM.comによって管理されているwikiページの一部。このチュートリアルは、&ldquo;First glimpse&rdquo; seriesの一部である&quot;Fourth simulation - Vortex shedding&quot;である。また、&ldquo;3 weeks&rdquo; seriesの&quot;Day 8&quot;のturbulence modelingの一部でもある。</li>
+</ol>
+<h2 id="デモ">デモ</h2>
+<p>OpenFOAMに関する情報源3.から6.の中から、直ぐに試せる情報源6.に従って、必要なファイルをダウンロードして、実行した手順は、次のとおりである。</p>
+<h4 id="必要ファイルのダウンロード">必要ファイルのダウンロード</h4>
+<p>情報源6.のページの「You can download the case files at the following」のリンクから「vortex_shedding.tar.gz」をダウンロードして、解凍する。</p>
+<h5 id="使用した事例">使用した事例</h5>
+<p>解凍すると、「README.CASES」というテキストを開いて、各事例の説明を読み「c14」（Re=10000、turbulent model）を実行することにした。c14ディレクトリをOpenFOAMでアクセスできる領域にコピーする。</p>
+<h4 id="c14を実行">c14を実行</h4>
+<p>「README.FIRST」に従って、コマンドを実行すると、カルマン渦をParaViewで見ることができる。</p>
+<p>「pimpleFoam | tee log」が時間掛かる。自分の環境（Xeon E5-1620 3.6GHz 64GBメモリ）では、約30分掛かった。</p>
+<h4 id="paraviewで可視化">ParaViewで可視化</h4>
+<p>「c14」ディレクトリに「c14.foam」ファイルを作成した後、ParaViewで開く。</p>
+<p>以下の動画は、ParaViewでタイムステップの結果をアニメーション表示し、その画面を録画したもの。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20250124_vortex/20250124_vortex.gif" alt="Vortex"></p>
 <h2 id="まとめ">まとめ</h2>
-<p>情報源1.の図6、図7と比較し、定性的に次のことが言える。</p>
-<ul>
-<li>VP型の支配方程式で学習したモデルの方が、情報源1.の図に近いように思われる。</li>
-<li>自分が（学習で）得たモデルは、VP型、ST型の何も、0.5秒後の圧力が高い状態である。</li>
-<li>学習を進めるほど（エポックを増やすほど）、圧力が高くなっている。</li>
-</ul>
-<p>上記の原因について、この1週間、支配方程式や境界条件を何度も見直してみたが、原因は不明のままである。</p>
-<p>一旦この問題はこのままとして、次の課題を見つけ挑戦したい。</p>
+<p>先人が公開しているファイルを利用することで、非常に簡単に、自分の環境でカルマン渦のシミュレーション結果を得ることができた。先人の努力に改めて感謝。</p>
+<p>今回ダウンロードしたチュートリアルのケースには、層流も入っていたので、OpenFOAMの結果とPINNsの結果を比較してみたい。その後、レイノルズ数を上げて、双子渦の発生をOpenFOAMで確かめ、PINNsではどうなるかを試してみたい。</p>
 
         
 
@@ -366,42 +345,42 @@ if (!doNotTrack) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f&amp;text=%e6%94%af%e9%85%8d%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e9%81%95%e3%81%84%20%e3%80%9c%20Unsteady-state%20Laminar%20Flow&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;text=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f&amp;title=%e6%94%af%e9%85%8d%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e9%81%95%e3%81%84%20%e3%80%9c%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f&amp;title=%e6%94%af%e9%85%8d%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e9%81%95%e3%81%84%20%e3%80%9c%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f&amp;title=%e6%94%af%e9%85%8d%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e9%81%95%e3%81%84%20%e3%80%9c%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250123_unsteady_laminar%2f&amp;description=%e6%94%af%e9%85%8d%e6%96%b9%e7%a8%8b%e5%bc%8f%e3%81%ae%e9%81%95%e3%81%84%20%e3%80%9c%20Unsteady-state%20Laminar%20Flow" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;description=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -424,13 +403,9 @@ if (!doNotTrack) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20250121_unsteady/" data-toggle="tooltip" data-placement="top" title="新・Unsteady-state Laminar Flow">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20250123_unsteady_laminar/" data-toggle="tooltip" data-placement="top" title="支配方程式の違い 〜 Unsteady-state Laminar Flow">&larr; 前ページ</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://akenji3.github.io/post/20250124_karmanvortex/" data-toggle="tooltip" data-placement="top" title="OpenFOAMによるカルマン渦">次ページ &rarr;</a>
-            </li>
           
         </ul>
       

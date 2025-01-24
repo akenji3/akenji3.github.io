@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenFOAMによるカルマン渦</title>
+      <link>https://akenji3.github.io/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;この投稿&lt;/a&gt;の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。&lt;/p&gt;
+&lt;p&gt;調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。&lt;/p&gt;
+&lt;p&gt;この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>支配方程式の違い 〜 Unsteady-state Laminar Flow</title>
