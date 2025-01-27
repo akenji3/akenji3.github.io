@@ -306,16 +306,16 @@ if (!doNotTrack) {
 <li><a href="https://ss1.xrea.com/penguinitis.g1.xrea.com/study/OpenFOAM/PyFoam/PyFoam_memo.html">PyFoam memo</a> - At first, I thought about downloading the latest tar file and installing it, referring to this page, but decided to simply do a pip install.</li>
 <li><a href="https://nnt339es.hatenablog.com/entry/2022/04/30/013450">X11 Forwarding GUI apps run on remote Docker via SSH</a> - This page describes the procedure for X11 forwarding. The Docker startup command was helpful.</li>
 <li><a href="https://kamino.hatenablog.com/entry/docker_gui">Drawing GUI apps on Docker via host/remote</a> - An article describing X11 Forwarding, with instructions for connecting from a Mac.</li>
-<li><a href="https://www.xquartz.org/">XQuarts.org</a> - I installed XQuartz from here.</li>
+<li><a href="https://www.xquartz.org/">XQuartz.org</a> - I installed XQuartz from here.</li>
 </ol>
 <h2 id="things-that-didnt-work">Things that didn&rsquo;t work</h2>
 <h4 id="pyfoamplotwatcherpy">pyFoamPlotWatcher.py</h4>
-<p>In c2, the next command line at step 3. This is the part is where the residuals are plotted on-the-fly from the log file during the simulation.　Error that pyFoamPlotWatcher.py does not exist.</p>
+<p>In c2, the next command line at step 3. This is the part where the residuals are plotted on-the-fly from the log file during the simulation. Error that pyFoamPlotWatcher.py does not exist.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ pyFoamPlotWatcher.py log.icofoam
 </code></pre></div><h4 id="gnuplot">gnuplot</h4>
 <p>In c2, the next command line at step 4; the part where the force coefficients are plotted on-the-fly using gnuplot scripts0/plot_coeffs. The container I initially created did not contain gnuplot.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ gnuplot scripts0/plot_coeffs
-</code></pre></div><h2 id="support-concept">Support Concept</h2>
+</code></pre></div><h2 id="approach-to-measures">Approach to Measures</h2>
 <h4 id="pyfoam-installation">pyFoam installation</h4>
 <p>For the pyFoamPlotWatcher.py problem, I thought I should install pyFoamPlotWatcher.py, and upon investigation found that it was included in pyFoam, so I decided to install pyFoam. I found source 2. and thought about installing it from a tar file, but decided to install it with pip.</p>
 <h4 id="gnuplot-installation">gnuplot installation</h4>

@@ -306,11 +306,11 @@ if (!doNotTrack) {
 <li><a href="https://ss1.xrea.com/penguinitis.g1.xrea.com/study/OpenFOAM/PyFoam/PyFoam_memo.html">PyFoamメモ</a>  -  当初、このページを参考に、最新のtarファイルをダウンロードしてインストールしようかと考えたが、簡単にpipインストールすることにした。</li>
 <li><a href="https://nnt339es.hatenablog.com/entry/2022/04/30/013450">リモートのDockerで実行したGUIアプリをSSHでX11 Forwardingする</a>  - X11 Forwardingの手順が記載されている。Docker起動コマンドは参考になった。</li>
 <li><a href="https://kamino.hatenablog.com/entry/docker_gui">Docker上のGUIアプリをホスト/リモートで描画する</a>  -  X11 Forwardingの説明記事。Macから接続する場合についての記述あり。</li>
-<li><a href="https://www.xquartz.org/">XQuarts.org</a>  - ここから、XQuartzをインストールした。</li>
+<li><a href="https://www.xquartz.org/">XQuartz.org</a>  - ここから、XQuartzをインストールした。</li>
 </ol>
 <h2 id="上手くいかなかったこと">上手くいかなかったこと</h2>
 <h4 id="pyfoamplotwatcherpy">pyFoamPlotWatcher.py</h4>
-<p>c2ではステップ3の次のコマンドライン。シミュレーション中のログファイルから残差をその場でプロットする部分である。　pyFoamPlotWatcher.pyが存在しないとのエラー。</p>
+<p>c2ではステップ3の次のコマンドライン。シミュレーション中のログファイルから残差をその場でプロットする部分である。pyFoamPlotWatcher.pyが存在しないとのエラー。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ pyFoamPlotWatcher.py log.icofoam
 </code></pre></div><h4 id="gnuplot">gnuplot</h4>
 <p>c2ではステップ4の次のコマンドライン。gnuplot scripts0/plot_coeffsを使って力係数をその場でプロットする部分である。 当初作成したコンテナにgnuplotが入っていなかった。</p>
