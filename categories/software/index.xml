@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OpenFOAM環境を改善</title>
+      <link>https://akenji3.github.io/post/20250127_openfoam_env/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250127_openfoam_env/</guid>
+      <description>はじめに 先日の投稿で述べたとおり、2次元の円柱周りの流れのチュートリアルを実施している。このチュートリアルを実施していて、自分の環境では、p</description>
+    </item>
     
     <item>
       <title>OpenFOAMによるカルマン渦</title>
