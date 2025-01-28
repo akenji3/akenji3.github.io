@@ -60,7 +60,7 @@
   "headline": "OpenFOAM環境を改善",
   "description" : "はじめに 先日の投稿で述べたとおり、2次元の円柱周りの流れのチュートリアルを実施している。このチュートリアルを実施していて、自分の環境では、pyFoamPlotWatcher.py、gnuplotが使えなかった。この投稿では、それらの改善策についてまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  2178 ,
+  "wordCount":  2173 ,
   "datePublished" : "2025-01-27T00:00:00",
   "dateModified" : "2025-01-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -389,7 +389,7 @@ sudo docker run <span class="se">\
 </span><span class="se"></span>  -v <span class="si">${</span><span class="nv">OPENFOAM_DIR</span><span class="si">}</span>:/home/foam <span class="se">\
 </span><span class="se"></span>  -v <span class="nv">$HOME</span>/.Xauthority:/home/foam/.Xauthority <span class="se">\
 </span><span class="se"></span>  openfoam 
-</code></pre></div><p>各パラメータの意味を、次のように理解している。「-e DISPLAY=$DISPLAY」でDISPLAY変数を継承。「&ndash;net host」でホスト側のネットワーク設定をコンテナで共有する。「-v $HOME/.Xauthority:/home/foam/.Xauthority」でコンテナ側でもX11プロトコルを使えるようにする。</p>
+</code></pre></div><p>各パラメータの意味を、次のように理解している。「-e DISPLAY=$DISPLAY」でDISPLAY変数を継承。「--net host」でホスト側のネットワーク設定をコンテナで共有する。「-v  $HOME/.Xauthority:/home/foam/.Xauthority」でコンテナ側でもX11プロトコルを使えるようにする。</p>
 <h4 id="plot_coeffsを変更">plot_coeffsを変更</h4>
 <p>gunuplotでplot_coeffsを実行すると、次のようなエラーが表示された。</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ gnuplot scripts0/plot_coeffs

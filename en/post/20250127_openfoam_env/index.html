@@ -389,7 +389,7 @@ sudo docker run <span class="se">\
 </span><span class="se"></span>  -v <span class="si">${</span><span class="nv">OPENFOAM_DIR</span><span class="si">}</span>:/home/foam <span class="se">\
 </span><span class="se"></span>  -v <span class="nv">$HOME</span>/.Xauthority:/home/foam/.Xauthority <span class="se">\
 </span><span class="se"></span>  openfoam 
-</code></pre></div><p>The meaning of each parameter is understood as follows. Inherit the DISPLAY variable with &lsquo;'-e DISPLAY=$DISPLAY&rdquo;. &ldquo;-net host&rdquo; shares the host&rsquo;s network settings with the container. X11 protocol can be used on the container side by &ldquo;-v $HOME/.Xauthority:/home/foam/.Xauthority&rdquo;.</p>
+</code></pre></div><p>The meaning of each parameter is understood as follows. Inherit the DISPLAY variable with &ldquo;-e DISPLAY=$DISPLAY&rdquo;. &ldquo;--net host&rdquo; shares the host&rsquo;s network settings with the container.  X11 protocol can be used on the container side by &ldquo;-v $HOME/.Xauthority:/home/foam/.Xauthority&rdquo;.</p>
 <h4 id="plot_coeffs-modified">plot_coeffs modified</h4>
 <p>When I run plot_coeffs in gunuplot, I get the following error message.</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ gnuplot scripts0/plot_coeffs
