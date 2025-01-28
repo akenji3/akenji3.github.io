@@ -7,10 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>ollamaでknowledge graphを作成 - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに
-こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
-今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
+  <title>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う - akenji&#39;s lab</title>
+  <meta name="description" content="モチベーション しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけで">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -46,8 +44,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/akenji3.github.io\/post\/20241127_kgwithollama\/",
-          "name": "Ollamaでknowledge graphを作成"
+          "@id": "https:\/\/akenji3.github.io\/post\/20250128_deepseek-ca\/",
+          "name": "Deep seek r1 distill qwen 14 b\/32 bをベースに日本語追加学習を行った l l mを使う"
         }
     }]
 }
@@ -58,15 +56,15 @@
   "author": {
     "name" : "Kenji Arai"
   },
-  "headline": "ollamaでknowledge graphを作成",
-  "description" : "はじめに こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。\n今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。\n",
+  "headline": "DeepSeek-R1-Distill-Qwen-14B\/32Bをベースに日本語追加学習を行ったLLMを使う",
+  "description" : "モチベーション しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけで",
   "inLanguage" : "ja",
-  "wordCount":  958 ,
-  "datePublished" : "2024-11-27T00:00:00",
-  "dateModified" : "2024-11-27T00:00:00",
+  "wordCount":  1472 ,
+  "datePublished" : "2024-11-23T00:00:00",
+  "dateModified" : "2024-11-23T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20241127_kgwithollama\/",
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250128_deepseek-ca\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/akenji3.github.io",
@@ -80,19 +78,15 @@
 }
 </script>
 
-<meta property="og:title" content="ollamaでknowledge graphを作成" />
-<meta property="og:description" content="はじめに
-こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
-今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
+<meta property="og:title" content="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う" />
+<meta property="og:description" content="モチベーション しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけで">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/post/20241127_kgwithollama/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250128_deepseek-ca/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="ollamaでknowledge graphを作成" />
-  <meta name="twitter:description" content="はじめに
-こちらの投稿では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近のこの投稿では、ollamaをインストールし起動したことをまとめた。
-今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。">
+  <meta name="twitter:title" content="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う" />
+  <meta name="twitter:description" content="モチベーション しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけで">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -266,7 +260,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>ollamaでknowledge graphを作成</h1>
+                <h1>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う</h1>
               
               
               
@@ -274,7 +268,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;November 27, 2024に投稿
+  <i class="fas fa-calendar"></i>&nbsp;November 23, 2024に投稿
   
   
   
@@ -283,7 +277,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
     
   
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241127_kgwithollama/" lang="en">en</a>
+  
 </span>
 
 
@@ -301,55 +295,62 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの投稿</a>では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近の<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>では、ollamaをインストールし起動したことをまとめた。</p>
-<p>今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。</p>
+        <h2 id="モチベーション">モチベーション</h2>
+<p>しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく、株価にも影響するようなインパクトを持ったDeep SeekのLLMを使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトになったLLMを使った。</p>
+<p>今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。</p>
 <h2 id="情報源">情報源</h2>
 <ol>
-<li><a href="https://qiita.com/FukuharaYohei/items/6f1d094dc33688711221">Knowledge Graphを使った RAG をLangChainで実装 前編</a>  -  <a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの投稿</a>でも参考にした記事のコードをベースにollamaに対応すべく変更を加えた。</li>
-<li><a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">Llama 3.2とNeo4jでローカルGraphRAG環境を構築</a>  -  ベクトルインデックス作成の部分を参考にした。</li>
-<li><a href="https://github.com/langchain-ai/langchain/issues/15834">ValueError: Index with name vector already exists</a>  -  自分が出くわしたエラーに対処するために参考にした情報。</li>
+<li><a href="https://ascii.jp/elem/000/004/247/4247681/">ChatGPT超えの中国AI「DeepSeek-R1」の衝撃</a>  -  ascii.jpより。DeepSeek-R1の記事の一例として引用。</li>
+<li><a href="https://x.com/CyberAgent_PR/status/1883783524836413468?mx=2">サイバーエージェントからの発表</a>  -  DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語データで追加学習を行ったLLMを公開したとのサーバーエージェントからの発表。</li>
+<li><a href="">mmnga/cyberagent-DeepSeek-R1-Distill-Qwen-14B-japanese-gguf</a>  - 上記のサイバーエージェント版を量子化されたモデル。HugginFaceに公開。</li>
+<li><a href="https://akenji3.github.io/post/20241123_openwebui/">Open WebUIをフロントエンドにしてollamaのLLMと会話する</a>  -  自分が2ヶ月前にまとめた内容であるが、すっかり忘れていて、思い出すのに苦労した。Open WebUIは、OllamaサーバとWebブラウザとの間をよしなに繋げてくれる。</li>
+<li><a href="https://akenji3.github.io/post/20241122_ollama/">ollamaを使ってローカル環境でLLMを動かす</a>  -  上記の投稿の前日の記事で、OllamaをDockerで動かす内容である。</li>
 </ol>
-<h2 id="変更したコード">変更したコード</h2>
-<p>情報源1.の記事のコードから変更した部分のみを掲載する。ollamaの構築について<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>を参照のこと。</p>
-<h4 id="ollamagemma-2-2b-jpnをllmとして設定">ollama（gemma-2-2b-jpn）をLLMとして設定</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># ollama(gemma-2-2b-jpn）をLLMとして設定</span>
+<h2 id="手順">手順</h2>
+<h4 id="モデルのダウンロード">モデルのダウンロード</h4>
+<p>情報源3.で公開されている量子化モデルで、4-bitの「Q 4_K_M」を以下のコマンドでダウンロードした。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ wget https://huggingface.co/mmnga/cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-gguf/resolve/main/cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+</code></pre></div><h4 id="ollamaサーバへの組み込み">Ollamaサーバへの組み込み</h4>
+<p>先ずは、情報源5.の「docker-compose.ymlを作成」で示している通り、ollamaを起動する。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker compose up -d
+</code></pre></div><p>次に、「LLMモデルを（ダウンロードし）実行」の通り、上記で起動したollamaコンテナに入る。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo docker <span class="nb">exec</span> -it ollama /bin/bash
+</code></pre></div><p>以下は、コンテナ内での操作である。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># cd /root/.ollama</span>
+<span class="c1"># ls -l</span>
+total <span class="m">8777476</span>
+-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>         <span class="m">68</span> Jan <span class="m">28</span> 05:20 Modelfile
+-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span> <span class="m">8988110464</span> Jan <span class="m">28</span> 05:19 cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+<span class="c1"># cat Modelfile</span>
+FROM ./cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+</code></pre></div><p>上記の通り、ダウンロードしたモデル（.gguファイル）とModelfileをコンテナから参照できるように準備しておく。ここまで準備が出来たら、以下のコマンドで、ollamaサーバに組み込む。</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ollama create cyberagent-DS-14b-japanese -f Modelfile</span>
+</code></pre></div><p>組み込みの部分は、情報源5.の「ggufファイルをモデルとして組み込む」も併せて参照されたい。</p>
+<h4 id="open-webuiを起動">Open WebUIを起動</h4>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ls -l
+drwxrwxr-x <span class="m">5</span> kenji kenji <span class="m">4096</span> 11月 <span class="m">23</span> 11:19 data
+-rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">243</span> 11月 <span class="m">26</span> 08:33 docker-compose.yml
+$ cat docker-compose.yml
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    environment:
+      - <span class="nv">OLLAMA_BASE_URL</span><span class="o">=</span>http://192.168.11.4:11434
+    volumes:
+      - ./data:/app/backend/data
+    ports:
+      - 3000:8080
+$ sudo docker compose up -d
+</code></pre></div><p>Open WebUI起動の部分は、情報源4.の「Open WebUIを起動」も併せて参照されたい。</p>
+<h4 id="webブラウザから接続">Webブラウザから接続</h4>
+<p>ここまでの操作で、Ollamaサーバ、Open WebUIがそれぞれ立ち上がっているので、手元のブラウザから「http://192.168.11.8:3000/」と入力すると、Open WebUIの起動画面が表示される。名前、メールアドレス、パスワードを入力すると、質問を受け付ける画面となる。</p>
+<p>接続したら、左上の部分で、LLMモデルを変更して質問する。以下は回答部分の抜粋。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20250128_DeepSeek-CA/20250128_Browser.png" alt="Browser"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>質問への回答の量にびっくりしたが、他の質問を投げてみたところ、比較的コンパクトな回答であった。</p>
+<p>今話題のDeepSeek-R1のCyber Agentによる日本語版の量子化されたモデルを試した。2ヶ月までに構築したOllama、Open WebUIのシステムを使ったが、モデルへの組み込むや、起動手順など、忘れていることが多く、過去にまとめておいたことが助けになった。</p>
 
-<span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
-
-<span class="n">llm</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&#34;schroneko/gemma-2-2b-jpn-it&#34;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</code></pre></div><h4 id="neo4jvectorでvector-indexを作成">Neo4jVector()でvector indexを作成</h4>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaEmbeddings</span>
-
-<span class="c1"># ollama embeddings</span>
-<span class="n">embeddings</span> <span class="o">=</span> <span class="n">OllamaEmbeddings</span><span class="p">(</span>
-    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;mxbai-embed-large&#34;</span><span class="p">,</span>
-    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">langchain.vectorstores</span> <span class="kn">import</span> <span class="n">Neo4jVector</span>
-
-<span class="n">vector_index</span> <span class="o">=</span> <span class="n">Neo4jVector</span><span class="o">.</span><span class="n">from_existing_graph</span><span class="p">(</span>
-    <span class="n">embeddings</span><span class="p">,</span>
-    <span class="n">search_type</span><span class="o">=</span><span class="s2">&#34;hybrid&#34;</span><span class="p">,</span>
-    <span class="n">node_label</span><span class="o">=</span><span class="s2">&#34;Document&#34;</span><span class="p">,</span>
-    <span class="n">text_node_properties</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;text&#34;</span><span class="p">],</span>
-    <span class="n">embedding_node_property</span><span class="o">=</span><span class="s2">&#34;embedding&#34;</span>
-<span class="p">)</span>
-</code></pre></div><p>embeddingモデルで使用する「maxbai-embed-large」は、ollamaコンテナに入って、以下のようにpullしておいた。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ollama pull mxbai-embed-large</span>
-</code></pre></div><h4 id="neo4jvectorでエラー">Neo4jVector()でエラー</h4>
-<p>上記コードの「vector_index = Neo4jVector.from_existing_graph()」で次のエラーが発生した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">ValueError: Index with name vector already exists.The provided embedding <span class="k">function</span> and vector index dimensions <span class="k">do</span> not match.
-Embedding <span class="k">function</span> dimension: <span class="m">1024</span>
-Vector index dimension: <span class="m">1536</span>
-</code></pre></div><p><a href="https://akenji3.github.io/post/20240916_kgrag/">こちらの記事</a>で実行した時は、gpt-4o-miniを使った。OpenAIのembeddingsの次元が1536で、今回のembeddingの次元が1024であるので、上記のエラーとなった。</p>
-<h4 id="エラーへの対処">エラーへの対処</h4>
-<p>情報源3.を参考にして、次の通りエラーに対応した。</p>
-<p>ブラウザから Neo4jに接続し、ブラウザから以下のコマンドを実行した。（「neo4j$ 」はプロンプト）</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">neo4j$</span> <span class="k">drop</span> <span class="k">index</span> <span class="n">vector</span>
-</code></pre></div><h2 id="まとめ">まとめ</h2>
-<p>次はwikipediaのデータを使ってナレッジグラフを作成して、ベクトル検索などの他の手法での実行結果と比較してみたい。</p>
 
         
 
@@ -363,42 +364,42 @@ Vector index dimension: <span class="m">1536</span>
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;text=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90&amp;via=akenji3" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;text=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86&amp;via=akenji3" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;title=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20241127_kgwithollama%2f&amp;description=ollama%e3%81%a7knowledge%20graph%e3%82%92%e4%bd%9c%e6%88%90" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;description=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -421,12 +422,12 @@ Vector index dimension: <span class="m">1536</span>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://akenji3.github.io/post/20250128_deepseek-ca/" data-toggle="tooltip" data-placement="top" title="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う">&larr; 前ページ</a>
+              <a href="https://akenji3.github.io/post/20241123_openwebui/" data-toggle="tooltip" data-placement="top" title="Open WebUIをフロントエンドにしてollamaのLLMと会話する">&larr; 前ページ</a>
             </li>
           
           
             <li class="next">
-              <a href="https://akenji3.github.io/post/20241201_python3.11/" data-toggle="tooltip" data-placement="top" title="pythonバージョンが3.11のJupyterLabコンテナを作成">次ページ &rarr;</a>
+              <a href="https://akenji3.github.io/post/20241127_kgwithollama/" data-toggle="tooltip" data-placement="top" title="ollamaでknowledge graphを作成">次ページ &rarr;</a>
             </li>
           
         </ul>
