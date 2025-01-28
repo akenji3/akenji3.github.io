@@ -60,7 +60,7 @@
   "headline": "OpenFOAM環境を改善",
   "description" : "はじめに 先日の投稿で述べたとおり、2次元の円柱周りの流れのチュートリアルを実施している。このチュートリアルを実施していて、自分の環境では、pyFoamPlotWatcher.py、gnuplotが使えなかった。この投稿では、それらの改善策についてまとめた。\n",
   "inLanguage" : "ja",
-  "wordCount":  2173 ,
+  "wordCount":  2195 ,
   "datePublished" : "2025-01-27T00:00:00",
   "dateModified" : "2025-01-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -395,7 +395,7 @@ sudo docker run <span class="se">\
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ gnuplot scripts0/plot_coeffs
 <span class="s2">&#34;scripts0/plot_coeffs&#34;</span> line 9: warning: Cannot find or open file <span class="s2">&#34;postProcessing/forceCoeffs_object/0/forceCoeffs.dat&#34;</span>
 <span class="s2">&#34;scripts0/plot_coeffs&#34;</span> line 9: No data in plot
-</code></pre></div><p>「~/postProcessing/forceCoeffs_object/0」に存在しているファイルは、「coefficient.dat」だったので、「forceCoeffs.dat」を「coefficient.dat」に変更した。</p>
+</code></pre></div><p>「forceCoeffs.dat」は、「~/sol_postProcessing/forceCoeffs_object/0」に存在していたので、「sol_postProcessing/forceCoeffs_object/0/forceCoeffs.dat」と２箇所修正した。</p>
 <h2 id="実行結果イメージ">実行結果イメージ</h2>
 <h4 id="residualsのグラフ">residualsのグラフ</h4>
 <p><img src="/images/20250127_OpenFOAM_env/20250127_Residuals.png" alt="Residuals"></p>

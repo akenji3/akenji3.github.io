@@ -60,7 +60,7 @@ As mentioned in a recent posting, I am conducting a tutorial on flow around a 2-
   "headline": "Improved OpenFOAM environment",
   "description" : "Introduction As mentioned in a recent posting, I am conducting a tutorial on flow around a 2-dimensional cylinder. While conducting this tutorial, I was unable to use pyFoamPlotWatcher.py and gnuplot in my environment. In this post, I summarize how to improve them.\n",
   "inLanguage" : "en",
-  "wordCount":  784 ,
+  "wordCount":  783 ,
   "datePublished" : "2025-01-27T00:00:00",
   "dateModified" : "2025-01-27T00:00:00",
   "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
@@ -395,7 +395,7 @@ sudo docker run <span class="se">\
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ gnuplot scripts0/plot_coeffs
 <span class="s2">&#34;scripts0/plot_coeffs&#34;</span> line 9: warning: Cannot find or open file <span class="s2">&#34;postProcessing/forceCoeffs_object/0/forceCoeffs.dat&#34;</span>
 <span class="s2">&#34;scripts0/plot_coeffs&#34;</span> line 9: No data in plot
-</code></pre></div><p>The file existing in &ldquo;~/postProcessing/forceCoeffs_object/0&rdquo; directory was &ldquo;coefficient.dat&rdquo;, so &ldquo;forceCoeffs.data&rdquo; was changed to &ldquo;coefficient.dat&rdquo;.</p>
+</code></pre></div><p>&ldquo;forceCoeffs.dat” existed in &ldquo;~/sol_postProcessing/forceCoeffs_object/0&rdquo;, so modified two parts of the “postProcessing/” into &ldquo;sol_postProcessing/”.</p>
 <h2 id="execution-result-image">Execution result image</h2>
 <h4 id="plot-residuals">plot residuals</h4>
 <p><img src="/images/20250127_OpenFOAM_env/20250127_Residuals.png" alt="Residuals"></p>
