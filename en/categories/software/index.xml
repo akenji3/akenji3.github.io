@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Simulation of 2D flow over cylinder</title>
+      <link>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Two months ago &lt;a href=&#34;https://akenji3.github.io/en/post/20250123_unsteady_laminar/&#34;&gt;in this post&lt;/a&gt;, laminar flow around a 2D circular cylinder (Laminar Flow), using the governing equations for each of the ST and VP forms, The simulation was performed using the governing equations for each of the ST form and VP form.&lt;/p&gt;
+&lt;p&gt;Since then, we have simulated the flow around a 2-D cylinder in the time range 0 to 60 seconds for various parameters, and the results are summarized here.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Using LLM based on DeepSeek-R1-Distill-Qwen-14B/32B with additional Japanese language training</title>

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -20,7 +20,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/categories/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -35,7 +35,7 @@
   
   <url>
     <loc>https://akenji3.github.io/en/post/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
@@ -49,8 +49,23 @@
   </url>
   
   <url>
+    <loc>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/"
+                />
+  </url>
+  
+  <url>
     <loc>https://akenji3.github.io/en/categories/software/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
