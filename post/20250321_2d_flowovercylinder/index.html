@@ -8,7 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>2次元円柱後流のシミュレーション - akenji&#39;s lab</title>
-  <meta name="description" content="はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使っ">
+  <meta name="description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。">
   <meta name="author" content="Kenji Arai"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -57,7 +59,7 @@
     "name" : "Kenji Arai"
   },
   "headline": "2次元円柱後流のシミュレーション",
-  "description" : "はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使っ",
+  "description" : "はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。\nそれ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。\n",
   "inLanguage" : "ja",
   "wordCount":  5626 ,
   "datePublished" : "2025-03-21T00:00:00",
@@ -79,14 +81,18 @@
 </script>
 
 <meta property="og:title" content="2次元円柱後流のシミュレーション" />
-<meta property="og:description" content="はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使っ">
+<meta property="og:description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/post/20250321_2d_flowovercylinder/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
   <meta name="twitter:title" content="2次元円柱後流のシミュレーション" />
-  <meta name="twitter:description" content="はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使っ">
+  <meta name="twitter:description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@akenji3" />
@@ -298,7 +304,6 @@ if (!doNotTrack) {
         <h2 id="はじめに">はじめに</h2>
 <p>2ヶ月前の<a href="https://akenji3.github.io/post/20250123_unsteady_laminar/">この投稿</a>では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。</p>
 <p>それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。</p>
-<!-- raw HTML omitted -->
 <h2 id="情報源">情報源</h2>
 <ol>
 <li><a href="https://www.mdpi.com/1996-1073/16/12/4558">Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder</a>  -  この論文の計算領域を参考に進めた。壁の境界条件は、Figure 4.の説明文に「the freestream baoundary condition of 1 m/s」とあった。Figure 9.の図と共に、隠れ層のレイア数についての記述も参考になった。ソースコードは無いが、流体の支配方程式の説明を読む限りVP型で解いているようだ。Figure 2.の全体像のInputには、時間$t$の記述はあるが、時間軸は無い。</li>
@@ -969,7 +974,6 @@ if (!doNotTrack) {
 <p>自分のシミュレーション結果は、OpenFoamの渦発生より時間的に前の流れと比べると、円柱前面（INLET方向）のノーズが出来ることが課題である。隠れ層を増やしても改善されず、収束困難性を示す傾向となった。</p>
 <p>また、誤差曲線で収束したように見えても、圧力場は期待通りの結果を示すまでにはepoch回数を大きく増やす必要があることが分かった。</p>
 <p>今回、ネット上で色々と関連情報を調べる上で、PerplexityとnotebookLMが非常に役に立った。Perplexityは、ネット上から調べたいペーパーなどにアクセスする斥候的な役割、notebookLMはペーパーの内容の概要を知り、更には詳細を調べる参謀的な役割と切り分けて使った。notebookLMは英語のペーパーの内容を理解する時間を1桁以上縮める効果があったと思う。</p>
-
 
         
 

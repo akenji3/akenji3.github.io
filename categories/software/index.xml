@@ -18,7 +18,9 @@
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</guid>
-      <description>はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使っ</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;2ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20250123_unsteady_laminar/&#34;&gt;この投稿&lt;/a&gt;では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。&lt;/p&gt;
+&lt;p&gt;それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。&lt;/p&gt;</description>
     </item>
     
     <item>
