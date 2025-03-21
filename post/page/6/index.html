@@ -217,7 +217,7 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;March 21, 2025に投稿
+  <i class="fas fa-calendar"></i>&nbsp;January 28, 2025に投稿
   
   
   
@@ -245,46 +245,6 @@ if (!doNotTrack) {
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20230503_privateregistry/">
-        <h2 class="post-title">プライベートなdockerレジストリを構築</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;May 3, 2023に投稿
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
-    
-  
-  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20230503_privateregistry/" lang="en">en</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="モチベーション">モチベーション</h2>
-<p><a href="https://akenji3.github.io/post/20230502_rootlessdocker/">以前の投稿</a>でユーザモードでdockerコンテナを起動する方法をまとめた。</p>
-<p>複数のPC（WorkStation、以下WS）を使う場合、複数WS間でコンテナを共有する仕組みをどう実現するかを考える必要がある。singularityの場合には、sifファイルをNFSサーバに格納し、それを他のWSから使えば良かった。</p>
-<p>dockerの場合には、自宅のネットワーク内にプライベートなレジストリを立てて、運用すれば良いと考え、レジストリ・サーバを構築することにした。</p>
-        <a href="https://akenji3.github.io/post/20230503_privateregistry/" class="post-read-more">[続きを読む]</a>
-        
-    </div>
-
-    
-
-</article>
           
             <article class="post-preview">
     <a href="https://akenji3.github.io/post/20230502_rootlessdocker/">
@@ -624,6 +584,44 @@ if (!doNotTrack) {
 <p>少し前に、<a href="https://akenji3.github.io/post/20221010_stablediffuser/">この記事</a>でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。
 この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。</p>
         <a href="https://akenji3.github.io/post/20221030_training_diffusers/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/">
+        <h2 class="post-title">姫野ベンチマークをTITAN Vで実行</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;October 29, 2022に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Kenji Arai
+    
+  
+  
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。</p>
+        <a href="https://akenji3.github.io/post/20221029_himenobenchontitanv/" class="post-read-more">[続きを読む]</a>
         
     </div>
 
