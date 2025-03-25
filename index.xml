@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>akenji.1118@gmail.com (Kenji Arai)</managingEditor>
     <webMaster>akenji.1118@gmail.com (Kenji Arai)</webMaster>
-    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://akenji3.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ubuntu 24.04 LTSをインストール</title>
+      <link>https://akenji3.github.io/post/20250325_ubuntu2404/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>akenji.1118@gmail.com (Kenji Arai)</author>
+      <guid>https://akenji3.github.io/post/20250325_ubuntu2404/</guid>
+      <description>はじめに Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで2</description>
+    </item>
     
     <item>
       <title>2次元円柱後流のシミュレーション</title>

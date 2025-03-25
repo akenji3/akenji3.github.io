@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -19,23 +19,8 @@
   </url>
   
   <url>
-    <loc>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</loc>
-    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/"
-                />
-  </url>
-  
-  <url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,7 +35,7 @@
   
   <url>
     <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -65,7 +50,7 @@
   
   <url>
     <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -75,6 +60,26 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/software/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20250325_ubuntu2404/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/"
                 />
   </url>
   
