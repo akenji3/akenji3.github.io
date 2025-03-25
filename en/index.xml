@@ -18,7 +18,9 @@
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/en/post/20250325_ubuntu2404/</guid>
-      <description>Introduction It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install. I usually installed from the Japanese Remix ISO image, but since this version Japanese Remix is not released, I downloaded the image from Canonical&amp;rsquo;s page and installed it. Sources. Thorough explanation of the new installer of</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.&lt;/p&gt;
+&lt;p&gt;I usually installed from the Japanese Remix ISO image, but since this version &lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;Japanese Remix is not released&lt;/a&gt;, I downloaded the image from Canonical&amp;rsquo;s page and installed it.&lt;/p&gt;</description>
     </item>
     
     <item>

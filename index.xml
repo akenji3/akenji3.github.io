@@ -18,7 +18,9 @@
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>akenji.1118@gmail.com (Kenji Arai)</author>
       <guid>https://akenji3.github.io/post/20250325_ubuntu2404/</guid>
-      <description>はじめに Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで2</description>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで24.04に移行することにした。&lt;/p&gt;
+&lt;p&gt;いつもは、日本語RemixのISOイメージからインストールしていたが、このバージョンから&lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;日本語Remixはリリースされない&lt;/a&gt;とのことなので、Canonicalのページからイメージをダウンロードし、インストールした。&lt;/p&gt;</description>
     </item>
     
     <item>
