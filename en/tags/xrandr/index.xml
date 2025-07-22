@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xrandr on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/xrandr/</link>
+    <description>Recent content in Xrandr on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/xrandr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Change display resolution - xrandr BadMatch support</title>
+      <link>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Immediately after installing Ubuntu, the display resolution was set to 1368x768.&#xA;The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution.&lt;/p&gt;&#xA;&lt;p&gt;I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.bioerrorlog.work/entry/change-resolution&#34;&gt;Ubuntuディスプレイ解像度の変更|1920x1080&lt;/a&gt;  Reading this information, it seems that it is easy to change the resolution using the xrandr command, and it only takes a few minutes of work. I thought it would only take a few minutes to change the display resolution, so I started to work on it.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions&#34;&gt;4.3 Permanently adding undetected resolutions&lt;/a&gt;  This is the page I referred to when editing xorg.conf.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753&#34;&gt;External Monitor, can&amp;rsquo;t set desired resolution&lt;/a&gt;  *This page solved the problem.&#xA;I tried many things without success, and after searching the net further, I finally found an article about the same phenomenon I was experiencing.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/leeseungcheol/edid-generator&#34;&gt;edid-generator&lt;/a&gt;  Github page referenced from the above page.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch&#34;&gt;19 xrandr BadMatch&lt;/a&gt;  Why xrandr is a BadMatch.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/xrandr#EDID_checksum_is_invalid&#34;&gt;4.2.1 EDID checksum is invalid&lt;/a&gt;  An article about EDID related to the above.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf&#34;&gt;Archive:Creating and using edid.bin via xorg.conf&lt;/a&gt;  An article about edid.bin from xorg. conf to use edid.bin via xorg.conf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;&#xA;&lt;h3 id=&#34;normal-way&#34;&gt;Normal way&lt;/h3&gt;&#xA;&lt;p&gt;To change the resolution of the display, go to &amp;ldquo;Settings&amp;rdquo; -&amp;gt; &amp;ldquo;Display&amp;rdquo; and specify the resolution, but in my environment, there is no 1920x1080 entry in this list!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

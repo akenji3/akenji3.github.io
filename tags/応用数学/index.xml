@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>応用数学 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/%E5%BF%9C%E7%94%A8%E6%95%B0%E5%AD%A6/</link>
+    <description>Recent content in 応用数学 on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/%E5%BF%9C%E7%94%A8%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>応用数学レポート</title>
+      <link>https://akenji3.github.io/post/20210911_appliedmathematics/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210911_appliedmathematics/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。この記事は「応用数学」についてのもの。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
