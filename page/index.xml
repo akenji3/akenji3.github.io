@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/page/</link>
+    <description>Recent content in Pages on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <atom:link href="https://akenji3.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ようこそ、akenji&#39;s labに</title>
+      <link>https://akenji3.github.io/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/page/about/</guid>
+      <description>&lt;p&gt;システムエンジニアの新井賢司です。&#xA;自分の興味は、コンピュータ関連の中でもHPC（最近はAI/Deep Learningに興味分野が移りつつあるけど）、および天文学に興味があります。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

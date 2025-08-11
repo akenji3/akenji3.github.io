@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Astropysics on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/categories/astropysics/</link>
+    <description>Recent content in Astropysics on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/categories/astropysics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MESA(Modules for Experiments in Stellar Astrophysics)のインストール</title>
+      <link>https://akenji3.github.io/post/20200813_mesa_install/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200813_mesa_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。&lt;/p&gt;&#xA;&lt;p&gt;星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 12 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspberry PiのディスクをNFSマウントして使う</title>
+      <link>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。&lt;/p&gt;&#xA;&lt;p&gt;文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。&lt;/p&gt;&#xA;&lt;p&gt;今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
