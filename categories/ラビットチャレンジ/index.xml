@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ラビット・チャレンジ on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/</link>
+    <description>Recent content in ラビット・チャレンジ on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/categories/%E3%83%A9%E3%83%93%E3%83%83%E3%83%88%E3%83%81%E3%83%A3%E3%83%AC%E3%83%B3%E3%82%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深層学習day3・day4レポート</title>
+      <link>https://akenji3.github.io/post/20211002_deeplearningday3-4/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211002_deeplearningday3-4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;前回の&lt;a href=&#34;https://akenji3.github.io/post/20210924_deeplearningday1-2/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。&lt;/p&gt;&#xA;&lt;p&gt;この記事がこのラビットチャレンジのレポートのシリーズ最終回である。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GRUの実装演習</title>
+      <link>https://akenji3.github.io/post/20211002_gru/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211002_gru/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section3：GRU」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>再帰型ニューラルネットワークの概念の実装演習</title>
+      <link>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section1：再帰型ニューラルネットワークの概念」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>最新のCNNの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_alexnet/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_alexnet/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section5：最新のCNN」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>畳み込みニューラルネットネットワークの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section4：畳み込みニューラルネットワーク」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深層学習day1・day2レポート</title>
+      <link>https://akenji3.github.io/post/20210924_deeplearningday1-2/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_deeplearningday1-2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210919_machinelearning/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1およびday2」は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>バッチ正規化の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_batchnormalization/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_batchnormalization/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section1：バッチ正規化」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>過学習の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_overfitting/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_overfitting/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section3：過学習」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>学習率最適化手法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_optimizer/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_optimizer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>活性化関数の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_activationfunction/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_activationfunction/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section2：活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>誤差逆伝播法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_backpropagation/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_backpropagation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>入力層〜中間層の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_input-output-layer/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_input-output-layer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section1：入力層〜中間層」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>機械学習レポート</title>
+      <link>https://akenji3.github.io/post/20210919_machinelearning/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210919_machinelearning/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲をまとめたもので、今回は「機械学習」に関するもの。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>応用数学レポート</title>
+      <link>https://akenji3.github.io/post/20210911_appliedmathematics/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210911_appliedmathematics/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。この記事は「応用数学」についてのもの。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

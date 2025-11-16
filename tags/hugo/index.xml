@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YAML front matter</title>
+      <link>https://akenji3.github.io/post/20201116_yaml_front_matter/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20201116_yaml_front_matter/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;久しぶりに、記事を書こうとして、マークアップエディタ（Typora）を起動するも、記事書けない。というのも、冒頭にタイトル、日付、タグ付けの入れ方を忘れたのだ。&lt;/p&gt;&#xA;&lt;p&gt;3ヶ月も経つと、以前にやったことを忘れてしまう。そのためのこのブログなので、細かいことも書いておこうと思い、今回は、ブログ記事の冒頭、いわゆる「YAML front matter」について簡単にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugoで設定３種</title>
+      <link>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;&#xA;&lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;記事の画像ファイルを埋め込む&lt;/li&gt;&#xA;&lt;li&gt;記事をカテゴリ（category）で分類する&lt;/li&gt;&#xA;&lt;li&gt;ブログトップでの記事要約（summary）を短くする&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
+      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h1&gt;&#xA;&lt;p&gt;自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

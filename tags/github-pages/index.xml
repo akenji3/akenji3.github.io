@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Pages on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/github-pages/</link>
+    <description>Recent content in GitHub Pages on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ブログ記事でインライン形式の数式を表示させる</title>
+      <link>https://akenji3.github.io/post/20210912_display_inline_math/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210912_display_inline_math/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;で数式を使った記事を書いた。この時2つの問題が起こった。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;インライン形式で記述した数式が表示されない。ディスプレイ形式では表示されている。&lt;/li&gt;&#xA;&lt;li&gt;ディスプレイ形式の場合に、alignで複数行にならない。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここでは、上記の解決策をアップする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
+      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h1&gt;&#xA;&lt;p&gt;自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

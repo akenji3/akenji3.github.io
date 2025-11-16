@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Service on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/categories/service/</link>
+    <description>Recent content in Service on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/categories/service/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Publish a static blog created by Hugo on GitHub Pages</title>
+      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;&#xA;&lt;p&gt;I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.&lt;/p&gt;&#xA;&lt;p&gt;When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
