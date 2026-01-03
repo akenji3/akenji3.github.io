@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
   <head>
     
 
@@ -12,8 +12,14 @@
  
 
 
-      <title>Posts - </title>
-<script type="application/ld+json">
+      <title>Claudeによる2次元円柱後流のシミュレーション - </title>
+
+  <meta name="description" content="はじめに
+昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。この記事を最後に取り組んでいなかった。
+今回、新たなpython開発環境を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。
+コード生成
+プロンプト
+Claudeに次のプロンプトで、ソースコードを生成させた。"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -33,19 +39,80 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20260103_pinn-claude\/",
+          "name": "Claudeによる2次元円柱後流のシミュレーション"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Claudeによる2次元円柱後流のシミュレーション",
+  "description" : "はじめに 昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。この記事を最後に取り組んでいなかった。 今回、新たなpython開発環境を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。\nコード生成 プロンプト Claudeに次のプロンプトで、ソースコードを生成させた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2222 ,
+  "datePublished" : "2026-01-03T00:00:00\u002b00:00",
+  "dateModified" : "2026-01-03T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20260103_pinn-claude\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Posts" />
+
+<meta property="og:title" content="Claudeによる2次元円柱後流のシミュレーション" />
+<meta property="og:description" content="はじめに
+昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。この記事を最後に取り組んでいなかった。
+今回、新たなpython開発環境を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。
+コード生成
+プロンプト
+Claudeに次のプロンプトで、ソースコードを生成させた。">
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
-<meta property="og:url" content="https://akenji3.github.io/en/post/" />
+<meta property="og:url" content="https://akenji3.github.io/post/20260103_pinn-claude/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Posts" />
+  <meta name="twitter:title" content="Claudeによる2次元円柱後流のシミュレーション" />
+  <meta name="twitter:description" content="はじめに
+昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。この記事を最後に取り組んでいなかった。
+今回、新たなpython開発環境を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。
+コード生成
+プロンプト
+Claudeに次のプロンプトで、ソースコードを生成させた。">
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta name="generator" content="Hugo 0.147.1">
-  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
@@ -72,12 +139,12 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">メニューを切り替え</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -85,25 +152,25 @@
         
           
             <li>
-              <a title="Blog" href="/en/">Blog</a>
+              <a title="Blog" href="/">Blog</a>
             </li>
           
         
           
             <li>
-              <a title="About" href="/en/page/about/">About</a>
+              <a title="About" href="/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Categories" href="/en/categories">Categories</a>
+              <a title="Categories" href="/categories">Categories</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/en/tags">Tags</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
@@ -113,7 +180,7 @@
             <li>
               
                 
-                  <a href="https://akenji3.github.io/post/">ja</a>
+                  <a href="https://akenji3.github.io/en/post/20260103_pinn-claude/">en</a>
                 
               
             </li>
@@ -127,7 +194,7 @@
     
       <div class="avatar-container">
         <div class="avatar-img-border">
-          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
             <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
            
           </a>
@@ -209,7 +276,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Posts</h1>
+                <h1>Claudeによる2次元円柱後流のシミュレーション</h1>
               
               
               
@@ -217,7 +284,7 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
+  <i class="fas fa-calendar"></i>&nbsp;January 3, 2026に投稿
   
   
   
@@ -226,7 +293,7 @@
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
     
   
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/" lang="ja">ja</a>
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20260103_pinn-claude/" lang="en">en</a>
 </span>
 
 
@@ -241,103 +308,18 @@
 
 
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        
-        <div class="posts-list">
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20260103_uv-docker/">
-        <h2 class="post-title">Connecting to a Python development environment in a remote Docker container from VSCode</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20260103_uv-docker/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>Until now, I&rsquo;ve been launching JupyterLab containers on a remote workstation equipped with a GPU, connecting via browser from my local MacBook Air to develop Python code. For example, see <a href="https://akenji3.github.io/en/post/20241201_python3.11/">this article</a>.
-Recently, since I&rsquo;ve been using VSCode frequently, I tried connecting to the same Python development environment on the GPU-equipped remote workstation from VSCode.</p>
-<h2 id="information-sources">Information Sources</h2>
-<p>I usually build things by referencing online information, but this time I built it while asking Claude.
-That said, I did consult the <a href="https://pytorch.org/">PyTorch</a> page to verify compatibility between the CUDA version and the torch installation.</p>
-        <a href="https://akenji3.github.io/en/post/20260103_uv-docker/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://akenji3.github.io/en/tags/vscode/">VSCode</a>&nbsp;
-        
-       
-       <a href="https://akenji3.github.io/en/tags/python/">python</a>&nbsp;
-        
-       
-       <a href="https://akenji3.github.io/en/tags/docker/">docker</a>&nbsp;
-         
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20260103_pinn-claude/">
-        <h2 class="post-title">imulation of a Two-Dimensional Cylinder Wake by Claude</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20260103_pinn-claude/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>Around this time last year, I spent two months working on a simulation of a two-dimensional cylindrical wake using PINNs. I hadn&rsquo;t finished working on <a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/">this article</a>.
-This time, since I built a <a href="https://akenji3.github.io/en/post/20260103_uv-docker/">new Python development environment</a>, I decided to tackle this theme as an example project, with Claude as my companion.</p>
-<h2 id="code-generation">Code Generation</h2>
-<h4 id="prompt">Prompt</h4>
-<p>I had Claude generate the source code using the following prompt.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Please generate PyTorch-based code to simulate the wake flow behind a two-dimensional cylinder using PINN.
-</span></span></code></pre></div><h4 id="generated-code">Generated code</h4>
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。<a href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/">この記事</a>を最後に取り組んでいなかった。
+今回、<a href="https://akenji3.github.io/post/20260103_uv-docker/">新たなpython開発環境</a>を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。</p>
+<h2 id="コード生成">コード生成</h2>
+<h4 id="プロンプト">プロンプト</h4>
+<p>Claudeに次のプロンプトで、ソースコードを生成させた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">PINNで2次元円柱後流のシミュレーションを行うpytorchで動くコードを生成してください。
+</span></span></code></pre></div><h4 id="生成コード">生成コード</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -742,353 +724,99 @@ This time, since I built a <a href="https://akenji3.github.io/en/post/20260103_u
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="s2">&#34;=&#34;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Simulation completed!&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="execution-results">Execution results</h2>
-<h4 id="error-history">Error History</h4>
+</span></span></code></pre></div><h2 id="実行結果">実行結果</h2>
+<h4 id="誤差の履歴">誤差の履歴</h4>
 <p><img src="/images/20260103_PINN/20260103_loss_history.png" alt="loss_history"></p>
-        <a href="https://akenji3.github.io/en/post/20260103_pinn-claude/" class="post-read-more">[Read More]</a>
+<h4 id="可視化">可視化</h4>
+<p><img src="/images/20260103_PINN/20260103_flow_field_t3.0.png" alt="flow_field_t3.0"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>こんなにあっさりと結果が得られるとは驚きである。昨年、一生懸命取り組んでいたことが無駄に感じる。まあ、昨年の経験は勉強にはなったと思っているが。</p>
+<p>作成されたコードをもう少し解析してみたいと思う。</p>
+
+
         
-    </div>
 
-    
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
 
-</article>
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f&amp;text=Claude%e3%81%ab%e3%82%88%e3%82%8b2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f&amp;title=Claude%e3%81%ab%e3%82%88%e3%82%8b2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f&amp;title=Claude%e3%81%ab%e3%82%88%e3%82%8b2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f&amp;title=Claude%e3%81%ab%e3%82%88%e3%82%8b2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_pinn-claude%2f&amp;description=Claude%e3%81%ab%e3%82%88%e3%82%8b2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20251115_astrophoto/">
-        <h2 class="post-title">Capturing the Galaxy with RicoRem(Ricoh&#39;s remote telescope)</h2>
-        
-        
-        
-    </a>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on November 15, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20251115_astrophoto/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>Astronomy is one of my hobbies, and I&rsquo;ve always wanted to take my telescope to places with good stargazing conditions—places free from light pollution. Remote telescopes are the means to fulfill that dream. I recently learned about one such service, RicoRem(Ricoh&rsquo;s remote telescope). I promptly became a member and captured NGC 300. I obtained monochrome images using LRGB filters. This post summarizes my experience up to synthesizing the monochrome images.</p>
-        <a href="https://akenji3.github.io/en/post/20251115_astrophoto/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-       
-       <a href="https://akenji3.github.io/en/tags/ricoremo/">RicoRemo</a>&nbsp;
-        
-       
-       <a href="https://akenji3.github.io/en/tags/siril/">siril</a>&nbsp;
-        
-       
-       <a href="https://akenji3.github.io/en/tags/ngc300/">NGC300</a>&nbsp;
-         
-    </div>
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/">
-        <h2 class="post-title">Install Ollama on MacBook Air</h2>
         
-        
-        
-    </a>
+      </article>
 
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on July 21, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250721_ollama_on_mba-m4/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>A month ago, I uploaded an <a href="https://akenji3.github.io/en/post/20250622_lmstudio/">article</a> in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.</p>
-        <a href="https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
+      
+        <ul class="pager blog-pager">
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250622_lmstudio/">
-        <h2 class="post-title">Installing LM Studio on my MacBook Air</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on June 22, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250622_lmstudio/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>I bought a MacBook Air (M4) in March. I wanted to run LLM locally, so I set the memory to the maximum 32GB, and finally was able to try local LLM with LM Studio, although I could not find much time for it because I started working in Kanda in April and I was busy with various events on weekends.</p>
-        <a href="https://akenji3.github.io/en/post/20250622_lmstudio/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20260103_uv-docker/" data-toggle="tooltip" data-placement="top" title="VSCodeからリモートdockerコンテナのpython開発環境に接続">&larr; 前ページ</a>
+            </li>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250325_ubuntu2404/">
-        <h2 class="post-title">Install ubuntu 24.04 LTS</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 25, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250325_ubuntu2404/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.</p>
-<p>I usually installed from the Japanese Remix ISO image, but since this version <a href="https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix">Japanese Remix is not released</a>, I downloaded the image from Canonical&rsquo;s page and installed it.</p>
-        <a href="https://akenji3.github.io/en/post/20250325_ubuntu2404/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
           
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/">
-        <h2 class="post-title">Simulation of 2D flow over cylinder</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 21, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/" lang="ja">ja</a>
-</span>
+        </ul>
+      
 
 
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>Two months ago <a href="https://akenji3.github.io/en/post/20250123_unsteady_laminar/">in this post</a>, laminar flow around a 2D circular cylinder (Laminar Flow), using the governing equations for each of the ST and VP forms, The simulation was performed using the governing equations for each of the ST form and VP form.</p>
-<p>Since then, we have simulated the flow around a 2-D cylinder in the time range 0 to 60 seconds for various parameters, and the results are summarized here.</p>
-        <a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/" class="post-read-more">[Read More]</a>
-        
-    </div>
+      
 
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250128_deepseek-ca/">
-        <h2 class="post-title">Using LLM based on DeepSeek-R1-Distill-Qwen-14B/32B with additional Japanese language training</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 28, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250128_deepseek-ca/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>I have been studying PINNs and related OpenFOAM for a while, but yesterday there was a big news in LLM area and I decided to use Deep Seek-R1 which had an impact not only on LLM area but also on stock prices. Since I could not use it as it is in my environment, I used a compacted LLM with quantization.</p>
-<p>This time, I used Ollama and Open WebUI to use the quantized model from a browser, and I will summarize the contents.</p>
-        <a href="https://akenji3.github.io/en/post/20250128_deepseek-ca/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250127_openfoam_env/">
-        <h2 class="post-title">Improved OpenFOAM environment</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 27, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250127_openfoam_env/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="introduction">Introduction</h2>
-<p>As mentioned in a recent <a href="https://akenji3.github.io/en/post/20250124_karmanvortex/">posting</a>, I am conducting a tutorial on flow around a 2-dimensional cylinder. While conducting this tutorial, I was unable to use pyFoamPlotWatcher.py and gnuplot in my environment. In this post, I summarize how to improve them.</p>
-        <a href="https://akenji3.github.io/en/post/20250127_openfoam_env/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://akenji3.github.io/en/post/20250124_karmanvortex/">
-        <h2 class="post-title">Karman Vortex with OpenFOAM</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 24, 2025
-  
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
-    
-  
-  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250124_karmanvortex/" lang="ja">ja</a>
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <h2 id="motivation">Motivation</h2>
-<p>Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using those models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of <a href="https://akenji3.github.io/en/post/20250111_laminarflow/">this post</a>, I was thinking of trying to predict the Karman&rsquo;s vortex street using the PINNs method.</p>
-<p>In the course of my research, I learned from <a href="https://arxiv.org/abs/2306.00230">this paper</a> that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman&rsquo;s vortex in OpenFOAM first.</p>
-<p>This post is a summary of my simulation of the Karman&rsquo;s vortex in OpenFOAM.</p>
-        <a href="https://akenji3.github.io/en/post/20250124_karmanvortex/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-        </div>
-        
-          <ul class="pager main-pager">
-            
-            
-              <li class="next">
-                <a href="https://akenji3.github.io/en/post/page/2/">Older Posts &rarr;</a>
-              </li>
-            
-          </ul>
-        
-      </div>
     </div>
   </div>
+</div>
 
       <footer>
   <div class="container">
@@ -1098,15 +826,6 @@ This time, since I built a <a href="https://akenji3.github.io/en/post/20260103_u
         <ul class="list-inline text-center footer-links">
           
           
-          
-          <li>
-            <a href="/en/post/index.xml" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
           
           
         </ul>
@@ -1120,12 +839,12 @@ This time, since I built a <a href="https://akenji3.github.io/en/post/20260103_u
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
           
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

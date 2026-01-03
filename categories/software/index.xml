@@ -9,6 +9,13 @@
     <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Claudeによる2次元円柱後流のシミュレーション</title>
+      <link>https://akenji3.github.io/post/20260103_pinn-claude/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260103_pinn-claude/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。&lt;a href=&#34;https://akenji3.github.io/post/20250321_2d_flowovercylinder/&#34;&gt;この記事&lt;/a&gt;を最後に取り組んでいなかった。&#xA;今回、&lt;a href=&#34;https://akenji3.github.io/post/20260103_uv-docker/&#34;&gt;新たなpython開発環境&lt;/a&gt;を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。&lt;/p&gt;&#xA;&lt;h2 id=&#34;コード生成&#34;&gt;コード生成&lt;/h2&gt;&#xA;&lt;h4 id=&#34;プロンプト&#34;&gt;プロンプト&lt;/h4&gt;&#xA;&lt;p&gt;Claudeに次のプロンプトで、ソースコードを生成させた。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>VSCodeからリモートdockerコンテナのpython開発環境に接続</title>
       <link>https://akenji3.github.io/post/20260103_uv-docker/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
