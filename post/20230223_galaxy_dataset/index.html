@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>銀河形状分類のデータセットについて - </title>
+
+  <meta name="description" content="はじめに
+この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
+今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20230223_galaxy_dataset\/",
+          "name": "銀河形状分類のデータセットについて"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "銀河形状分類のデータセットについて",
+  "description" : "はじめに この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。 今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1536 ,
+  "datePublished" : "2023-02-23T00:00:00\u002b00:00",
+  "dateModified" : "2023-02-23T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20230223_galaxy_dataset\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="銀河形状分類のデータセットについて" />
+<meta property="og:description" content="はじめに
+この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
+今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20230223_galaxy_dataset/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="銀河形状分類のデータセットについて" />
+  <meta name="twitter:description" content="はじめに
+この記事からこの記事までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
+今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20230223_galaxy_dataset/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>銀河形状分類のデータセットについて</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 23, 2023に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20230223_galaxy_dataset/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">この記事</a>から<a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/">この記事</a>までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。
+今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。</p>
+<h2 id="自分が使用したデータセット">自分が使用したデータセット</h2>
+<p><a href="https://akenji3.github.io/post/20221230_galaxy_cnn/">ここ</a>に書いたとおり、自分は<a href="https://astronn.readthedocs.io/en/latest/galaxy10.html">Galaxy10 DECals</a>をデータセットとして使用した。このデータセットの特徴は、以下の通り。</p>
+<ul>
+<li>Galaxy10の元は、Galaxy Zoo (GZ) Data Release2であり、約27万枚からボランティアの投票で約22万枚を10の大分類に分類したもの。一部の画像については、DESI Legacy Imaging Surveys (DECals)の画像に置き換えられている。Galaxy10 DECalsは、GZ DR2、SDSSの代わりのDECals画像、およびDECalsキャンペーンab,cを組み合わせたもの。DECalsが持つ約44万の銀河から、約1.8万を選び、厳密なフィルタリングを用いたボランティアの投票により10の大分類に分類したもの。</li>
+<li>イメージデータは256x256x3channel。正確なデータ数は17,736。</li>
+<li>10のクラスは、Disturbed/Merging/Round Smooth/In-between Round Smooth/Cigar/Barred Spiral/Tight Spiral/Loose Spiral/Edge-on without Bulge/Edge-on with Bulge。各々、1,081/1,853/2,645/2,027/334/2,043/1,829/2,628/1,423/1,873個の銀河。</li>
+</ul>
+<h2 id="galaxy-morphological-classification-with-efficent-vision-transformerのデータセット">Galaxy Morphological Classification with Efficent Vision Transformerのデータセット</h2>
+<p><a href="https://arxiv.org/pdf/2110.01024.pdf">Galaxy Morphological Classification with Efficent Vision Transformer</a>  が使っているデータセットについて、調べてみた。</p>
+<ul>
+<li>アブストラクトで<a href="https://github.com/sliao-mi-luku/Galaxy-Zoo-Classification">このGithub</a>のページを紹介している。ここをみると、Datasetは、Galaxy Zoo 2 Project2(GZ2)を使っているようだ。それは、<a href="https://www.kaggle.com/datasets/jaimetrickz/galaxy-zoo-2-images">kaggle</a>のページのもののようだ。</li>
+<li>424x424x3channelのデータ。各channelはg/r/iフィルターのイメージ。</li>
+<li>形状は、次の8種類(0-7の順に)。クラス名は順に、round elliptical/in-between elliptical/cigar-shaped elliptical/edge-on/barred spiral/unbarred spiral/irregular/merger。</li>
+<li>155,951のイメージを訓練用：64%、validation用：16%、テスト用：20%に分けて使用。</li>
+<li>224x224x3にcropし、flippingとrotatingのデータ拡張を実施。</li>
+</ul>
+<h2 id="galaxy-morphology-classification-with-deep-convolutional-neural-networksのデータセット">Galaxy Morphology Classification with Deep Convolutional Neural Networksのデータセット</h2>
+<p><a href="https://arxiv.org/pdf/1807.10406.pdf">Galaxy Morphology Classification with Deep Convolutional Neural Networks</a>が使っているデータセットについても調べた。</p>
+<ul>
+<li>「2 DATASET」節で使用しているdatasetを説明している。<a href="https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge">Galaxy Zoo - The Glalaxy Challenge (kaggle)</a>のデータを使っている。</li>
+<li>61,578のJPG（424x424x3）カラー画像。</li>
+<li>銀河形状は、$f_{smooth}$、$f_{completely_round}$、$f_{in-between}$、$f_{cigar-shaped}$、$f_{features/disk}$、$f_{edge-on,yes}$、$f_{edge-on,no}$、$f_{spiral,yes}$の値によって、5つのクラスに分類(0-4の順に）。クラス名は順に、Completely round smooth/In-between smooth/Cigar-shaped smooth/Edge-on/Spiral。それぞれ、8,434/8,069/578/3,903/7,806個のデータ。（Table 1に記載）</li>
+<li>全体で28,790のイメージデータを訓練用：テスト用=9:1（25,911、2,879に分けた）。</li>
+</ul>
+<h2 id="評価">評価</h2>
+<p>以上の３つのデータセットの比較を下表でまとめる。</p>
+<table>
+  <thead>
+      <tr>
+          <th>データセット名</th>
+          <th style="text-align: center">Galaxy10 DECals</th>
+          <th style="text-align: center">Galaxy Zoo 2: Images</th>
+          <th style="text-align: center">Galaxy Zoo - The Galaxy Challenge</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>データ数</td>
+          <td style="text-align: center">17,736</td>
+          <td style="text-align: center">155,951</td>
+          <td style="text-align: center">61,578</td>
+      </tr>
+      <tr>
+          <td>分類数</td>
+          <td style="text-align: center">10</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">5</td>
+      </tr>
+      <tr>
+          <td>画像サイズ</td>
+          <td style="text-align: center">256x256x3</td>
+          <td style="text-align: center">424x424x3</td>
+          <td style="text-align: center">424x424x3</td>
+      </tr>
+  </tbody>
+</table>
+<p>自分が使用したデータセットは、悪くないが、銀河の数が他と比べて少ない。</p>
+<p>今後、Galaxy Zoo2: Imagesを使ってみたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f&amp;text=%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%bb%e3%83%83%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f&amp;title=%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%bb%e3%83%83%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f&amp;title=%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%bb%e3%83%83%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f&amp;title=%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%bb%e3%83%83%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20230223_galaxy_dataset%2f&amp;description=%e9%8a%80%e6%b2%b3%e5%bd%a2%e7%8a%b6%e5%88%86%e9%a1%9e%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e3%82%bb%e3%83%83%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20230219_galaxy_vit_2/" data-toggle="tooltip" data-placement="top" title="Deep Learning（ViT）による銀河形状分類（その2）">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20230318_pytorch_speed-up/" data-toggle="tooltip" data-placement="top" title="Pytorchでの学習／推論の高速化について">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

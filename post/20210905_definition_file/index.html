@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Jupyterlabのsingularityコンテナを作る - </title>
+
+  <meta name="description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20210905_definition_file\/",
+          "name": "Jupyterlabのsingularityコンテナを作る"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Jupyterlabのsingularityコンテナを作る",
+  "description" : "モチベーション 以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。\n今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2466 ,
+  "datePublished" : "2021-09-05T00:00:00\u002b00:00",
+  "dateModified" : "2021-09-05T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "singularity, def" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210905_definition_file\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Jupyterlabのsingularityコンテナを作る" />
+<meta property="og:description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210905_definition_file/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Jupyterlabのsingularityコンテナを作る" />
+  <meta name="twitter:description" content="モチベーション
+以前の この記事で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。
+今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Jupyterlabのsingularityコンテナを作る</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 5, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>以前の <a href="https://akenji3.github.io/post/20200810_jupyterlab/">この記事</a>で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。</p>
+<p>今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。</p>
+<h2 id="定義ファイルの構成">定義ファイルの構成</h2>
+<p>作成するコンテナは、次のような構成を考えた。（以下に示した参考ページのdockerfileを元に考えた）</p>
+<ol>
+<li>ベースはubuntu20.04+CUDA11.4のコンテナ</li>
+<li>そこにpytochをインストール</li>
+<li>jupyterlabからも使う可能性のあるLinuxコマンド、unzip, wgetをインストール</li>
+<li>python関連のライブラリをpipでインストール</li>
+<li>jupyterlabを起動</li>
+</ol>
+<h2 id="参考ページ">参考ページ</h2>
+<p>definitionファイルを作るために、次の記事のdockerファイルを参考にした。感謝。</p>
+<ul>
+<li>定義ファイルの構成の1.の部分を<a href="https://qiita.com/conankonnako/items/787b69cd8cbfe7d7cb88">この記事</a>のdockerファイルを参考にした</li>
+<li>定義ファイルの構成の2.から5.の部分は、<a href="https://qiita.com/tkNag/items/a9cc7fdd5dc5c01a52c1">この記事</a>のdockerファイルを参考にした</li>
+</ul>
+<p>上記のdockerfileを理解するために、次のページを参考にした。</p>
+<ul>
+<li>Dockerfileの全般的な理解のための<a href="https://docs.docker.jp/engine/articles/dockerfile_best-practice.html">Dockerfileのベストプラクティス</a></li>
+<li>ENTRYPOINT,CMDを理解するため<a href="https://docs.docker.jp/engine/reference/builder.html">Dockerfileリファレンス</a></li>
+</ul>
+<p>definitionファイルを書くために本家<a href="https://sylabs.io/">sylabs.io</a>の次のドキュメントページ</p>
+<ul>
+<li><a href="https://sylabs.io/guides/3.8/user-guide/definition_files.html">Definition Files</a></li>
+</ul>
+<h2 id="dockerファイルからコンテナ作成">dockerファイルからコンテナ作成</h2>
+<p>先ずは手始めとして、上記定義ファイルの構成に従ったdockerファイルを作成し、そこからdockerコンテナを作成し、更にsingularityコンテナ（sifファイル）を作成し、動作を確認した。</p>
+<p>dockerfile：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># pytorchが使える、jupyterlabを作成する。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">FROM</span> <span class="n">nvidia</span><span class="o">/</span><span class="n">cuda</span><span class="p">:</span><span class="mf">11.0</span><span class="o">-</span><span class="n">devel</span><span class="o">-</span><span class="n">ubuntu20</span><span class="o">.</span><span class="mi">04</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">torch</span> <span class="n">torchvision</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
+</span></span><span class="line"><span class="cl">    <span class="n">curl</span> \
+</span></span><span class="line"><span class="cl">    <span class="n">git</span> \
+</span></span><span class="line"><span class="cl">    <span class="n">tree</span> \
+</span></span><span class="line"><span class="cl">    <span class="n">vim</span> \
+</span></span><span class="line"><span class="cl"><span class="c1"># The following packages are added.</span>
+</span></span><span class="line"><span class="cl">	<span class="n">wget</span> \
+</span></span><span class="line"><span class="cl">	<span class="n">unzip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># RUN pip install --upgrade pip</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">matplotlib</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pandas</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">seaborn</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">sympy</span>
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">pydotplus</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">RUN</span> <span class="n">jupyter</span> <span class="n">serverextension</span> <span class="n">enable</span> <span class="o">--</span><span class="n">py</span> <span class="n">jupyterlab</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 作業ディレクトリを指定</span>
+</span></span><span class="line"><span class="cl"><span class="n">WORKDIR</span> <span class="o">/</span><span class="n">workdir</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># コンテナ側のポート番号</span>
+</span></span><span class="line"><span class="cl"><span class="n">EXPOSE</span> <span class="mi">8888</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Jupyterlabのルートとなるディレクトリを指定</span>
+</span></span><span class="line"><span class="cl"><span class="n">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p>dockerfileのあるディレクトリでdockerコンテナを作成。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo docker build -t pytorch-lab ./
+</span></span></code></pre></div><p>dockerコンテナを起動</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo docker run -d --rm --gpus all -v /mnt/nfs/jupyterlab:/workdir -p 8888:8888 --name pt-lab pytorch-lab
+</span></span></code></pre></div><p>正常に動いていることを確認した。この時に作成したnotebookのowerはrootになっていることに注意。既に作成しているものを更新すると、後でower/groupを修正する必要あり。</p>
+<p>singularityコンテナを作成</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo singularity build pytorch-lab.sif docker-daemon://pytorch-lab:latest
+</span></span></code></pre></div><p>作成したsifファイルを指定してsingularityコンテナを起動。自分の環境では、${COMMON_AREA}/jupyterlab配下に、jupyter notebook（.ipynbファイル）を格納している。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ singularity run --nv --bind ${COMMON_AREA}/jupyterlab:/workdir pytorch-lab.sif
+</span></span></code></pre></div><h2 id="definitionファイル">definitionファイル</h2>
+<p>ずいぶんと前置きが長くなったが、ここからがこの記事のテーマであるdefファイルからコンテナ作成。</p>
+<p>前節のdockerfileを元にして、作成したdefinition file（pytor-ch-lab.def）が次の通り。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># pytorchベースのjupyterlabが動く、singularityコンテナを作成する。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Bootstrap</span><span class="p">:</span>	<span class="n">docker</span>
+</span></span><span class="line"><span class="cl"><span class="n">FROM</span><span class="p">:</span>	<span class="n">nvidia</span><span class="o">/</span><span class="n">cuda</span><span class="p">:</span><span class="mf">11.0</span><span class="o">-</span><span class="n">devel</span><span class="o">-</span><span class="n">ubuntu20</span><span class="o">.</span><span class="mi">04</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">post</span>
+</span></span><span class="line"><span class="cl">	<span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">torch</span> <span class="n">torchvision</span>
+</span></span><span class="line"><span class="cl">	<span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="err">¥</span>
+</span></span><span class="line"><span class="cl">		<span class="n">curl</span> <span class="n">git</span> <span class="n">tree</span> <span class="n">unzip</span> <span class="n">vim</span> <span class="n">wget</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="n">setuptools</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">jupyterlab</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">matplotlib</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">pandas</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">seaborn</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">sympy</span>
+</span></span><span class="line"><span class="cl">	<span class="n">pip3</span> <span class="n">install</span> <span class="n">pydotplus</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#	jupyter serverextension enable --py jupyterlab</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">runscript</span>
+</span></span><span class="line"><span class="cl">	<span class="n">jupyter</span><span class="o">-</span><span class="n">lab</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8888</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">browser</span> <span class="o">--</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">token</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="o">--</span><span class="n">notebook</span><span class="o">-</span><span class="n">dir</span><span class="o">=/</span><span class="n">workdir</span>
+</span></span></code></pre></div><p>「jupyter serverextension enable &ndash;py jupyterlab」の行については、jupyter notebookのバージョンが5.3より低い場合の時に必要との記事を見た記憶があり、自分の環境のバージョンは、6.4.3だったので不要と判断し、コメントアウトした。</p>
+<h2 id="コンテナ作成手順">コンテナ作成手順</h2>
+<p>前節で作成したdefinition fileから次のようにして、コンテナ（sifファイル）を作成する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo singularity build pytorch-lab.sif pytorch-lab.def
+</span></span></code></pre></div><h2 id="コンテナ起動">コンテナ起動</h2>
+<p>作成したコンテナ（sifファイル）を次のように起動した。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="k">export</span> <span class="n">SINGULARITYENV_CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">$</span><span class="p">{</span><span class="n">COMMON_AREA</span><span class="p">}</span><span class="o">/</span><span class="n">jupyterlab</span><span class="p">:</span><span class="o">/</span><span class="n">workdir</span> <span class="o">$</span><span class="p">{</span><span class="n">COMMON_AREA</span><span class="p">}</span><span class="o">/</span><span class="n">sifs</span><span class="o">/</span><span class="n">pytorch</span><span class="o">-</span><span class="n">lab</span><span class="o">.</span><span class="n">sif</span>
+</span></span></code></pre></div><p>先にも説明した通り、自分の環境においては、jupyter notebookを${COMMON_AREA}/jupyterlabに格納しており、同様にsifファイルを${COMMON_AREA}/sifs配下に格納している。</p>
+<h3 id="ブラウザ側での確認">ブラウザ側での確認</h3>
+<p>Chromeで、「http://localhost:8888」と入力すると、jupyterlabが立ち上がる。ここで、セルに以下を入力して実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import torch
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">print(torch.__version__)
+</span></span><span class="line"><span class="cl">torch.cuda.get_device_name(0)
+</span></span></code></pre></div><p>すると、以下の通りのメッセージ。WSのGTX TITANは、もはやサポートしていないようだ。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.9.0+cu102
+</span></span><span class="line"><span class="cl">/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:83: UserWarning: 
+</span></span><span class="line"><span class="cl">    Found GPU%d %s which is of cuda capability %d.%d.
+</span></span><span class="line"><span class="cl">    PyTorch no longer supports this GPU because it is too old.
+</span></span><span class="line"><span class="cl">    The minimum cuda capability supported by this library is %d.%d.
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">  warnings.warn(old_gpu_warn.format(d, name, major, minor, min_arch // 10, min_arch % 10))
+</span></span><span class="line"><span class="cl">&#39;GeForce GTX TITAN&#39;
+</span></span></code></pre></div><p>最初の行の「1.9.0+cu102」は、pytorchのバージョン。<code>print(torch.__version__)</code>の結果と同じ。</p>
+<p>GTX TITANのcompute capabilityは、<a href="https://developer.nvidia.com/cuda-gpus">このページ</a>でチェックすると3.5。上記メッセージは、pythorch(torch)が出しているので、組み込んだpytorchのバイナリがcompute capability 3.5をサポートしていないと理解。
+ソースからpytorchをビルトすれば、良いのか？　もう少し調べてみる必要あり。</p>
+<p>もう一台のWorkStationは、GTX 1080（compute capability 6.1）なので、そっちではワーニングは出ないのかな？
+早速確かめたら、エラーなく次の通り。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.9.0+cu102
+</span></span><span class="line"><span class="cl">&#39;GeForce GTX 1080&#39;
+</span></span></code></pre></div><h2 id="最後に">最後に</h2>
+<p>次は、NVIDIA HPC SDKのsingularityコンテナを作成しようと考えている。
+このWorkStationのGPUが上記の通り古い（2013年発売）ので、適切なバージョンを調べておく必要が先ずありそうだ。
+Titan Vとか欲しいけど、ヤフオクでたまに見るけど落札価格は20万円越えで、ちょっと手が出ない。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/def/">def</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;text=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;title=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210905_definition_file%2f&amp;description=Jupyterlab%e3%81%aesingularity%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%82%92%e4%bd%9c%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20211024_hpc_sdk_singularity/">NVIDIA HPC SDKをSingularityコンテナ化する</a></li>
+                
+                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210904_docker_singularity_install/" data-toggle="tooltip" data-placement="top" title="Docker,SingularityをUbuntu20.04にインストール">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20210911_appliedmathematics/" data-toggle="tooltip" data-placement="top" title="応用数学レポート">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

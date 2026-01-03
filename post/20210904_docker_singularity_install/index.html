@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Docker,SingularityをUbuntu20.04にインストール - </title>
+
+  <meta name="description" content="はじめに
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20210904_docker_singularity_install\/",
+          "name": "Docker, singularityを ubuntu20.04にインストール"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Docker,SingularityをUbuntu20.04にインストール",
+  "description" : "はじめに 以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1282 ,
+  "datePublished" : "2021-09-04T00:00:00\u002b00:00",
+  "dateModified" : "2021-09-04T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "ubuntu, install, docker, singularity" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20210904_docker_singularity_install\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Docker,SingularityをUbuntu20.04にインストール" />
+<meta property="og:description" content="はじめに
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20210904_docker_singularity_install/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Docker,SingularityをUbuntu20.04にインストール" />
+  <meta name="twitter:description" content="はじめに
+以前この記事でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Docker,SingularityをUbuntu20.04にインストール</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 4, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p><a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/">以前この記事</a>でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。</p>
+<h2 id="参考ページ">参考ページ</h2>
+<ul>
+<li>それぞれのテーマによって、次のページを参考にさせてもらった。感謝。</li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja">Dockerインストール</a></li>
+<li>Dockerで「&ndash;gpus all」オプションでエラーの場合の対処方法は、<a href="https://qiita.com/tomp/items/50081b99df7963462488">このページ</a>。</li>
+<li>Singuralityのインストールは、<a href="https://sylabs.io/guides/3.8/admin-guide/installation.html#installation-on-linux">本家のマニュアルページ</a></li>
+</ul>
+<h2 id="dockerインストール">Dockerインストール</h2>
+<h3 id="パッケージリストを更新インストールに必要なパッケージをインストール">パッケージリストを更新、インストールに必要なパッケージをインストール</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt update
+</span></span><span class="line"><span class="cl">$ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+</span></span></code></pre></div><h3 id="公式dockerリポジトリのgpgキーを追加">公式DockerリポジトリのGPGキーを追加</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">curl</span> <span class="o">-</span><span class="n">fsSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">gpg</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="o">-</span>
+</span></span></code></pre></div><h3 id="dockerリポジトリを追加パッケージングデータベースを更新">Dockerリポジトリを追加、パッケージングデータベースを更新</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="s2">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+</span></span></code></pre></div><h3 id="dockerリポジトリよりインストール">Dockerリポジトリよりインストール</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt install docker-ce
+</span></span></code></pre></div><h3 id="デーモン起動確認でインストールを確認">デーモン起動確認でインストールを確認</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">status</span> <span class="n">docker</span>
+</span></span><span class="line"><span class="cl"><span class="err">●</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span> <span class="o">-</span> <span class="n">Docker</span> <span class="n">Application</span> <span class="ne">Container</span> <span class="n">Engine</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Loaded</span><span class="p">:</span> <span class="n">loaded</span> <span class="p">(</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">service</span><span class="p">;</span> <span class="n">enabled</span><span class="p">;</span> <span class="n">vendor</span> <span class="n">preset</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Active</span><span class="p">:</span> <span class="n">active</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="n">since</span> <span class="n">Tue</span> <span class="mi">2021</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">24</span> <span class="mi">10</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">27</span> <span class="n">JST</span><span class="p">;</span> <span class="mi">1</span><span class="nb">min</span> <span class="mi">8</span><span class="n">s</span> <span class="n">ago</span>
+</span></span><span class="line"><span class="cl"><span class="n">TriggeredBy</span><span class="p">:</span> <span class="err">●</span> <span class="n">docker</span><span class="o">.</span><span class="n">socket</span>
+</span></span><span class="line"><span class="cl"><span class="err">・・・以下略・・・</span>
+</span></span></code></pre></div><h3 id="起動確認">起動確認</h3>
+<p>※ sudoなしで、Dockerを起動できる設定はしなかったので、dockerコマンドの前にsudo必須。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">xxxx</span> <span class="err">のパスワード</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">image</span> <span class="s1">&#39;hello-world:latest&#39;</span> <span class="n">locally</span>
+</span></span><span class="line"><span class="cl"><span class="n">latest</span><span class="p">:</span> <span class="n">Pulling</span> <span class="n">from</span> <span class="n">library</span><span class="o">/</span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</span></span><span class="line"><span class="cl"><span class="n">b8dfde127a29</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span> 
+</span></span><span class="line"><span class="cl"><span class="n">Digest</span><span class="p">:</span> <span class="n">sha256</span><span class="p">:</span><span class="mi">0</span><span class="n">fe98d7debd9049c50b597ef1f85b7c1e8cc81f59c8d623fcb2250e8bec85b38</span>
+</span></span><span class="line"><span class="cl"><span class="n">Status</span><span class="p">:</span> <span class="n">Downloaded</span> <span class="n">newer</span> <span class="n">image</span> <span class="k">for</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span><span class="p">:</span><span class="n">latest</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Hello</span> <span class="n">from</span> <span class="n">Docker</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl"><span class="n">This</span> <span class="n">message</span> <span class="n">shows</span> <span class="n">that</span> <span class="n">your</span> <span class="n">installation</span> <span class="n">appears</span> <span class="n">to</span> <span class="n">be</span> <span class="n">working</span> <span class="n">correctly</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="err">・・・以下略・・・</span>
+</span></span></code></pre></div><h3 id="gpus-allオプションで次のようなエラーが発生した場合">「&ndash;gpus all」オプションで次のようなエラーが発生した場合</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker: Error response from daemon: could not select device driver &#34;&#34; with capabilities: [[gpu]].
+</span></span></code></pre></div><p>上にあげた記事を参考に、次のシェルスクリプト（nvidia-container-runtime-script.sh）を用意し、</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
+</span></span><span class="line"><span class="cl">  sudo apt-key add -
+</span></span><span class="line"><span class="cl">distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+</span></span><span class="line"><span class="cl">curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | \
+</span></span><span class="line"><span class="cl">  sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl"># Execute the script
+</span></span></code></pre></div><p>その上で、次を順次実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sh nvidia-container-runtime-script.sh
+</span></span><span class="line"><span class="cl">$ sudo apt-get install nvidia-container-runtime
+</span></span></code></pre></div><p>正常に終了すれば、次の通り。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo docker run -it --rm --gpus all ubuntu nvidia-smi
+</span></span><span class="line"><span class="cl">[sudo] xxxx のパスワード: 
+</span></span><span class="line"><span class="cl">Fri Sep  3 14:47:38 2021       
+</span></span><span class="line"><span class="cl">+-----------------------------------------------------------------------------+
+</span></span><span class="line"><span class="cl">| NVIDIA-SMI 460.91.03    Driver Version: 460.91.03    CUDA Version: 11.2     |
+</span></span><span class="line"><span class="cl">|-------------------------------+----------------------+----------------------+
+</span></span><span class="line"><span class="cl">| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+</span></span><span class="line"><span class="cl">| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+</span></span><span class="line"><span class="cl">|                               |                      |               MIG M. |
+</span></span><span class="line"><span class="cl">|===============================+======================+======================|
+</span></span><span class="line"><span class="cl">|   0  GeForce GTX TITAN   Off  | 00000000:04:00.0 Off |                  N/A |
+</span></span><span class="line"><span class="cl">| 30%   33C    P8    13W / 250W |     11MiB /  6083MiB |      0%      Default |
+</span></span><span class="line"><span class="cl">|                               |                      |                  N/A |
+</span></span><span class="line"><span class="cl">+-------------------------------+----------------------+----------------------+
+</span></span><span class="line"><span class="cl">|   1  Quadro K2000        Off  | 00000000:05:00.0  On |                  N/A |
+</span></span><span class="line"><span class="cl">| 30%   31C    P8    N/A /  N/A |    101MiB /  1996MiB |      0%      Default |
+</span></span><span class="line"><span class="cl">|                               |                      |                  N/A |
+</span></span><span class="line"><span class="cl">+-------------------------------+----------------------+----------------------+
+</span></span><span class="line"><span class="cl">                                                                               
+</span></span><span class="line"><span class="cl">+-----------------------------------------------------------------------------+
+</span></span><span class="line"><span class="cl">| Processes:                                                                  |
+</span></span><span class="line"><span class="cl">|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+</span></span><span class="line"><span class="cl">|        ID   ID                                                   Usage      |
+</span></span><span class="line"><span class="cl">|=============================================================================|
+</span></span><span class="line"><span class="cl">+-----------------------------------------------------------------------------+
+</span></span></code></pre></div><h2 id="singularityインストール">Singularityインストール</h2>
+<h3 id="関連するパッケージをインストール">関連するパッケージをインストール</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">uuid</span><span class="o">-</span><span class="n">dev</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">libgpgme</span><span class="o">-</span><span class="n">dev</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">squashfs</span><span class="o">-</span><span class="n">tools</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">libseccomp</span><span class="o">-</span><span class="n">dev</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">wget</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">git</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">cryptsetup</span><span class="o">-</span><span class="n">bin</span>
+</span></span></code></pre></div><h3 id="goをインストール">goをインストール</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="k">export</span> <span class="n">VERSION</span><span class="o">=</span><span class="mf">1.14</span><span class="o">.</span><span class="mi">12</span> <span class="ne">OS</span><span class="o">=</span><span class="n">linux</span> <span class="n">ARCH</span><span class="o">=</span><span class="n">amd64</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dl</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">go</span><span class="o">/</span><span class="n">go</span><span class="o">$</span><span class="n">VERSION</span><span class="o">.$</span><span class="ne">OS</span><span class="o">-$</span><span class="n">ARCH</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">tar</span> <span class="o">-</span><span class="n">C</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span> <span class="o">-</span><span class="n">xzvf</span> <span class="n">go</span><span class="o">$</span><span class="n">VERSION</span><span class="o">.$</span><span class="ne">OS</span><span class="o">-$</span><span class="n">ARCH</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="n">rm</span> <span class="n">go</span><span class="o">$</span><span class="n">VERSION</span><span class="o">.$</span><span class="ne">OS</span><span class="o">-$</span><span class="n">ARCH</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span></code></pre></div><h3 id="goのpathを設定">goのPATHを設定</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">echo</span> <span class="s1">&#39;export GOPATH=${HOME}/go&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">echo</span> <span class="s1">&#39;export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</span></span></code></pre></div><h3 id="singularityをダウンロード">singularityをダウンロード</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="k">export</span> <span class="n">VERSION</span><span class="o">=</span><span class="mf">3.8</span><span class="o">.</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="c1"># adjust this as necessary \</span>
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">sylabs</span><span class="o">/</span><span class="n">singularity</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v</span><span class="o">$</span><span class="p">{</span><span class="n">VERSION</span><span class="p">}</span><span class="o">/</span><span class="n">singularity</span><span class="o">-</span><span class="n">ce</span><span class="o">-$</span><span class="p">{</span><span class="n">VERSION</span><span class="p">}</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">tar</span> <span class="o">-</span><span class="n">xzf</span> <span class="n">singularity</span><span class="o">-</span><span class="n">ce</span><span class="o">-$</span><span class="p">{</span><span class="n">VERSION</span><span class="p">}</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">&amp;&amp;</span> \
+</span></span><span class="line"><span class="cl"><span class="o">&gt;</span> <span class="n">cd</span> <span class="n">singularity</span><span class="o">-</span><span class="n">ce</span><span class="o">-$</span><span class="p">{</span><span class="n">VERSION</span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="singularityをコンパイル">singularityをコンパイル</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ./mconfig &amp;&amp; \
+</span></span><span class="line"><span class="cl">&gt; make -C ./builddir &amp;&amp; \
+</span></span><span class="line"><span class="cl">&gt; sudo make -C ./builddir install
+</span></span></code></pre></div><h3 id="インストール確認のためsylabs-cloud-libraryのコンテナを起動">インストール確認のため、Sylabs Cloud libraryのコンテナを起動</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ singularity exec library://alpine cat /etc/alpine-release
+</span></span><span class="line"><span class="cl">3.14.0
+</span></span></code></pre></div><h2 id="今後について">今後について</h2>
+<p>およそ一年前、<a href="https://akenji3.github.io/post/20200810_jupyterlab/">この記事</a>では、dockerコンテナからsingularityコンテナ（sifファイル）を作る記事を書いた。</p>
+<p>今後は、jupyterlabやNVIDIA HPC SDKのsingularityコンテナをdefinition fileから作りたい。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;text=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;title=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20210904_docker_singularity_install%2f&amp;description=Docker%2cSingularity%e3%82%92Ubuntu20.04%e3%81%ab%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20260103_uv-docker/">VSCodeからリモートdockerコンテナのpython開発環境に接続</a></li>
+                
+                    <li><a href="/post/20220914_xrandr_badmatch/">ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</a></li>
+                
+                    <li><a href="/post/20220416_chromeremotedesktop/">【失敗】Ubuntu 20.04でのChrome Remote Desktop</a></li>
+                
+                    <li><a href="/post/20211024_hpc_sdk_singularity/">NVIDIA HPC SDKをSingularityコンテナ化する</a></li>
+                
+                    <li><a href="/post/20210905_definition_file/">Jupyterlabのsingularityコンテナを作る</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20210904_github_authentication/" data-toggle="tooltip" data-placement="top" title="Githubの認証方式が変更に！！！">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20210905_definition_file/" data-toggle="tooltip" data-placement="top" title="Jupyterlabのsingularityコンテナを作る">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>cavity（OpenFOAMのチュートリアル）を試す - </title>
+
+  <meta name="description" content="はじめに
+昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20250106_cavity\/",
+          "name": "Cavity（ open foamのチュートリアル）を試す"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "cavity（OpenFOAMのチュートリアル）を試す",
+  "description" : "はじめに 昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1695 ,
+  "datePublished" : "2025-01-06T00:00:00\u002b00:00",
+  "dateModified" : "2025-01-06T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250106_cavity\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="cavity（OpenFOAMのチュートリアル）を試す" />
+<meta property="og:description" content="はじめに
+昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250106_cavity/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="cavity（OpenFOAMのチュートリアル）を試す" />
+  <meta name="twitter:description" content="はじめに
+昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20250106_cavity/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>cavity（OpenFOAMのチュートリアル）を試す</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 6, 2025に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250106_cavity/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。</p>
+<h2 id="情報源">情報源</h2>
+<ul>
+<li><a href="https://www.amazon.co.jp/%E6%94%B9%E8%A8%82%E6%96%B0%E7%89%88-OpenFOAM%E3%81%AE%E6%AD%A9%E3%81%8D%E6%96%B9-%E6%8A%80%E8%A1%93%E3%81%AE%E6%B3%89%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA%EF%BC%88NextPublishing%EF%BC%89-%E5%B7%9D%E7%95%91-%E7%9C%9F%E4%B8%80-ebook/dp/B09XDPXBC5/ref=monarch_sidesheet_image">OpenFOAMの歩き方</a>  -  昨夜ネットを見ていて、OpenFOAMをきちんと理解するためにも、この書籍が欲しくなったので、初めてKindle版を購入した。ペーパーバックの書籍より安いし、直ぐに読めるのが魅力。今回試すcavityもこの書籍を参考に実施した。</li>
+</ul>
+<h2 id="openfoamによるシミュレーション">OpenFOAMによるシミュレーション</h2>
+<p>情報源の書籍の「第3章　チュートリアルケース」に従って、実行した。なお、動作環境については<a href="https://akenji3.github.io/post/20250105_openfoam/">昨日の投稿</a>を参照されたい。</p>
+<h4 id="チュートリアルを作業領域にコピー">チュートリアルを作業領域にコピー</h4>
+<p>以下の通り、~/tutディレクトリ配下にcavityディレクトリ配下をコピーする。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">foam@382d42eb836b:~/tut$ cp -r <span class="nv">$FOAM_TUTORIALS</span>/incompressible/icoFoam/cavity/cavity . 
+</span></span><span class="line"><span class="cl">foam@382d42eb836b:~/tut$ openfoam2406
+</span></span><span class="line"><span class="cl"><span class="nv">openfoam</span> <span class="o">=</span> /usr/lib/openfoam/openfoam2406
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> * Using:     OpenFOAM-v2406 <span class="o">(</span>2406<span class="o">)</span> - visit www.openfoam.com
+</span></span><span class="line"><span class="cl"> * Build:     _9bfe8264-20241212 <span class="o">(</span><span class="nv">patch</span><span class="o">=</span>241212<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> * Arch:      <span class="nv">label</span><span class="o">=</span>32<span class="p">;</span><span class="nv">scalar</span><span class="o">=</span><span class="m">64</span>
+</span></span><span class="line"><span class="cl"> * Platform:  linux64GccDPInt32Opt <span class="o">(</span><span class="nv">mpi</span><span class="o">=</span>sys-openmpi<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OpenFOAM shell session - use <span class="s1">&#39;exit&#39;</span> to quit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openfoam2406:~/tut/
+</span></span><span class="line"><span class="cl">foam$ <span class="nb">cd</span> cavity
+</span></span><span class="line"><span class="cl">openfoam2406:~/tut/cavity/
+</span></span><span class="line"><span class="cl">foam$ ls -l
+</span></span><span class="line"><span class="cl">total <span class="m">12</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 00:03 <span class="m">0</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 00:03 constant
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 00:03 system
+</span></span><span class="line"><span class="cl">openfoam2406:~/tut/cavity/
+</span></span><span class="line"><span class="cl">foam$ ls -l */*
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1143</span> Jan  <span class="m">6</span> 00:03 0/U
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1104</span> Jan  <span class="m">6</span> 00:03 0/p
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam  <span class="m">867</span> Jan  <span class="m">6</span> 00:03 constant/transportProperties
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1262</span> Jan  <span class="m">6</span> 00:03 system/PDRblockMeshDict
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1447</span> Jan  <span class="m">6</span> 00:03 system/blockMeshDict
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1188</span> Jan  <span class="m">6</span> 00:03 system/controlDict
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam  <span class="m">917</span> Jan  <span class="m">6</span> 00:03 system/decomposeParDict
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1210</span> Jan  <span class="m">6</span> 00:03 system/fvSchemes
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam <span class="m">1314</span> Jan  <span class="m">6</span> 00:03 system/fvSolution
+</span></span></code></pre></div><h4 id="メッシュを作成">メッシュを作成</h4>
+<p>作成するメッシュの定義は、system/blockMeshDictに記述。その説明が書籍に続くので読む。読み終わって、次のとおりメッシュを作成する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">foam$ blockMesh
+</span></span><span class="line"><span class="cl">/*---------------------------------------------------------------------------*<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> <span class="o">=========</span>                 <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> <span class="se">\\</span>      /  F ield         <span class="p">|</span> OpenFOAM: The Open Source CFD Toolbox           <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="se">\\</span>    /   O peration     <span class="p">|</span> Version:  <span class="m">2406</span>                                  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="se">\\</span>  /    A nd           <span class="p">|</span> Website:  www.openfoam.com                      <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    <span class="se">\\</span>/     M anipulation  <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="se">\*</span>---------------------------------------------------------------------------*/
+</span></span><span class="line"><span class="cl">Build  : _9bfe8264-20241212 <span class="nv">OPENFOAM</span><span class="o">=</span><span class="m">2406</span> <span class="nv">patch</span><span class="o">=</span><span class="m">241212</span> <span class="nv">version</span><span class="o">=</span><span class="m">2406</span>
+</span></span><span class="line"><span class="cl">Arch   : <span class="s2">&#34;LSB;label=32;scalar=64&#34;</span>
+</span></span><span class="line"><span class="cl">Exec   : blockMesh
+</span></span><span class="line"><span class="cl">Date   : Jan <span class="m">06</span> <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">Time   : 01:16:51
+</span></span><span class="line"><span class="cl">Host   : 382d42eb836b
+</span></span><span class="line"><span class="cl">PID    : <span class="m">867</span>
+</span></span><span class="line"><span class="cl">I/O    : uncollated
+</span></span><span class="line"><span class="cl">Case   : /home/foam/tut/cavity
+</span></span><span class="line"><span class="cl">nProcs : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">trapFpe: Floating point exception trapping enabled <span class="o">(</span>FOAM_SIGFPE<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">fileModificationChecking : Monitoring run-time modified files using timeStampMaster <span class="o">(</span>fileModificationSkew 5, maxFileModificationPolls 20<span class="o">)</span>
+</span></span><span class="line"><span class="cl">allowSystemOperations : Allowing user-supplied system call operations
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+</span></span><span class="line"><span class="cl">Create <span class="nb">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating block mesh from <span class="s2">&#34;system/blockMeshDict&#34;</span>
+</span></span><span class="line"><span class="cl">Creating block edges
+</span></span><span class="line"><span class="cl">No non-planar block faces defined
+</span></span><span class="line"><span class="cl">Creating topology blocks
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating topology patches - from boundary section
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating block mesh topology - scaling/transform applied later
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Check topology
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	Basic statistics
+</span></span><span class="line"><span class="cl">		Number of internal faces : <span class="m">0</span>
+</span></span><span class="line"><span class="cl">		Number of boundary faces : <span class="m">6</span>
+</span></span><span class="line"><span class="cl">		Number of defined boundary faces : <span class="m">6</span>
+</span></span><span class="line"><span class="cl">		Number of undefined boundary faces : <span class="m">0</span>
+</span></span><span class="line"><span class="cl">	Checking patch -&gt; block consistency
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating block offsets
+</span></span><span class="line"><span class="cl">Creating merge list <span class="o">(</span>topological search<span class="o">)</span>...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Creating polyMesh from blockMesh
+</span></span><span class="line"><span class="cl">Creating patches
+</span></span><span class="line"><span class="cl">Creating cells
+</span></span><span class="line"><span class="cl">Creating points with scale <span class="o">(</span>0.1 0.1 0.1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Block <span class="m">0</span> cell size :
+</span></span><span class="line"><span class="cl">        i : 0.005 .. 0.005
+</span></span><span class="line"><span class="cl">        j : 0.005 .. 0.005
+</span></span><span class="line"><span class="cl">        k : 0.01 .. 0.01
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">No patch pairs to merge
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Writing polyMesh with <span class="m">0</span> cellZones
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">Mesh Information
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">  boundingBox: <span class="o">(</span><span class="m">0</span> <span class="m">0</span> 0<span class="o">)</span> <span class="o">(</span>0.1 0.1 0.01<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  nPoints: <span class="m">882</span>
+</span></span><span class="line"><span class="cl">  nCells: <span class="m">400</span>
+</span></span><span class="line"><span class="cl">  nFaces: <span class="m">1640</span>
+</span></span><span class="line"><span class="cl">  nInternalFaces: <span class="m">760</span>
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">Patches
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">  patch <span class="m">0</span> <span class="o">(</span>start: <span class="m">760</span> size: 20<span class="o">)</span> name: movingWall
+</span></span><span class="line"><span class="cl">  patch <span class="m">1</span> <span class="o">(</span>start: <span class="m">780</span> size: 60<span class="o">)</span> name: fixedWalls
+</span></span><span class="line"><span class="cl">  patch <span class="m">2</span> <span class="o">(</span>start: <span class="m">840</span> size: 800<span class="o">)</span> name: frontAndBack
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End
+</span></span></code></pre></div><h4 id="計算実行">計算実行</h4>
+<p>次のとおりソルバを実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">foam$ icoFoam
+</span></span><span class="line"><span class="cl">/*---------------------------------------------------------------------------*<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> <span class="o">=========</span>                 <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> <span class="se">\\</span>      /  F ield         <span class="p">|</span> OpenFOAM: The Open Source CFD Toolbox           <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="se">\\</span>    /   O peration     <span class="p">|</span> Version:  <span class="m">2406</span>                                  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="se">\\</span>  /    A nd           <span class="p">|</span> Website:  www.openfoam.com                      <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    <span class="se">\\</span>/     M anipulation  <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="se">\*</span>---------------------------------------------------------------------------*/
+</span></span><span class="line"><span class="cl">Build  : _9bfe8264-20241212 <span class="nv">OPENFOAM</span><span class="o">=</span><span class="m">2406</span> <span class="nv">patch</span><span class="o">=</span><span class="m">241212</span> <span class="nv">version</span><span class="o">=</span><span class="m">2406</span>
+</span></span><span class="line"><span class="cl">Arch   : <span class="s2">&#34;LSB;label=32;scalar=64&#34;</span>
+</span></span><span class="line"><span class="cl">Exec   : icoFoam
+</span></span><span class="line"><span class="cl">Date   : Jan <span class="m">06</span> <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">Time   : 02:49:03
+</span></span><span class="line"><span class="cl">Host   : 382d42eb836b
+</span></span><span class="line"><span class="cl">PID    : <span class="m">868</span>
+</span></span><span class="line"><span class="cl">I/O    : uncollated
+</span></span><span class="line"><span class="cl">Case   : /home/foam/tut/cavity
+</span></span><span class="line"><span class="cl">nProcs : <span class="m">1</span>
+</span></span><span class="line"><span class="cl">trapFpe: Floating point exception trapping enabled <span class="o">(</span>FOAM_SIGFPE<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">fileModificationChecking : Monitoring run-time modified files using timeStampMaster <span class="o">(</span>fileModificationSkew 5, maxFileModificationPolls 20<span class="o">)</span>
+</span></span><span class="line"><span class="cl">allowSystemOperations : Allowing user-supplied system call operations
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+</span></span><span class="line"><span class="cl">Create <span class="nb">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Create mesh <span class="k">for</span> <span class="nb">time</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PISO: Operating solver in PISO mode
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reading transportProperties
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reading field p
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reading field U
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reading/calculating face flux field phi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Starting <span class="nb">time</span> loop
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">*** omitted in the middle ***
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">Time</span> <span class="o">=</span> 0.5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Courant Number mean: 0.222158 max: 0.852134
+</span></span><span class="line"><span class="cl">smoothSolver:  Solving <span class="k">for</span> Ux, Initial <span class="nv">residual</span> <span class="o">=</span> 2.3091e-07, Final <span class="nv">residual</span> <span class="o">=</span> 2.3091e-07, No Iterations <span class="m">0</span>
+</span></span><span class="line"><span class="cl">smoothSolver:  Solving <span class="k">for</span> Uy, Initial <span class="nv">residual</span> <span class="o">=</span> 5.0684e-07, Final <span class="nv">residual</span> <span class="o">=</span> 5.0684e-07, No Iterations <span class="m">0</span>
+</span></span><span class="line"><span class="cl">DICPCG:  Solving <span class="k">for</span> p, Initial <span class="nv">residual</span> <span class="o">=</span> 8.63844e-07, Final <span class="nv">residual</span> <span class="o">=</span> 8.63844e-07, No Iterations <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">time</span> step continuity errors : sum <span class="nb">local</span> <span class="o">=</span> 8.8828e-09, <span class="nv">global</span> <span class="o">=</span> 4.94571e-19, <span class="nv">cumulative</span> <span class="o">=</span> 1.10417e-17
+</span></span><span class="line"><span class="cl">DICPCG:  Solving <span class="k">for</span> p, Initial <span class="nv">residual</span> <span class="o">=</span> 9.59103e-07, Final <span class="nv">residual</span> <span class="o">=</span> 9.59103e-07, No Iterations <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">time</span> step continuity errors : sum <span class="nb">local</span> <span class="o">=</span> 9.66354e-09, <span class="nv">global</span> <span class="o">=</span> 1.13175e-18, <span class="nv">cumulative</span> <span class="o">=</span> 1.21735e-17
+</span></span><span class="line"><span class="cl"><span class="nv">ExecutionTime</span> <span class="o">=</span> 0.31 s  <span class="nv">ClockTime</span> <span class="o">=</span> <span class="m">2</span> s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End
+</span></span></code></pre></div><h4 id="ポスト処理">ポスト処理</h4>
+<p>ParaViewで読み込むため、次のとおりfoamファイルを作成する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">foam$ touch cavity.foam
+</span></span><span class="line"><span class="cl">foam$ ls -l
+</span></span><span class="line"><span class="cl">total <span class="m">32</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 00:03 <span class="m">0</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 02:49 0.1
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 02:49 0.2
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 02:49 0.3
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 02:49 0.4
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 02:49 0.5
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> foam foam    <span class="m">0</span> Jan  <span class="m">6</span> 02:53 cavity.foam
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 01:16 constant
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> foam foam <span class="m">4096</span> Jan  <span class="m">6</span> 00:03 system
+</span></span></code></pre></div><h2 id="paraviewによる可視化">ParaViewによる可視化</h2>
+<h4 id="cavityfoamを読込む">cavity.foamを読込む</h4>
+<p>MacでParaViewを起動し、NFSマウントしているcavity.foamファイルを読込む。次のイメージは、読込んだ直後のParaViewのスクリーンショットである。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20250106_cavity/20250106_cavity_01.png" alt="cavity01"></p>
+<h4 id="速度場の表示">速度場の表示</h4>
+<p>情報源に従って、Color Map Editorでカラーマップを変更、等高線図（コンタ）の色分け数を（11に）変更し、流速ベクトル表示したスクリーンショット。</p>
+<p><img src="/Users/kenji/workspace/blog/static/images/20250106_cavity/20250106_cavity_02.png" alt="cavity02"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>以上のように、情報源で紹介した書籍に従って、一つのチュートリアルを実行した。書籍に記述された一連の流れを追っていくことで、OpenFOAMとParaViewの理解を深めることが出来た。</p>
+<p>書籍の例をもう一つ追って、更に理解を深めたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f&amp;text=cavity%ef%bc%88OpenFOAM%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%ef%bc%89%e3%82%92%e8%a9%a6%e3%81%99&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f&amp;title=cavity%ef%bc%88OpenFOAM%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%ef%bc%89%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f&amp;title=cavity%ef%bc%88OpenFOAM%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%ef%bc%89%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f&amp;title=cavity%ef%bc%88OpenFOAM%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%ef%bc%89%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250106_cavity%2f&amp;description=cavity%ef%bc%88OpenFOAM%e3%81%ae%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%ef%bc%89%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20250105_openfoam/" data-toggle="tooltip" data-placement="top" title="OpenFOAMとParaViewを試す">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20250107_stl/" data-toggle="tooltip" data-placement="top" title="OpenFOAM（とParaView）の歩き方">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

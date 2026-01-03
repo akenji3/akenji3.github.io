@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Build RAG system - </title>
+
+  <meta name="description" content="Introduction
+By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.
+The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240815_rag\/",
+          "name": "Build rag system"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Build RAG system",
+  "description" : "Introduction By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.\nThe LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.\n",
+  "inLanguage" : "en",
+  "wordCount":  8043 ,
+  "datePublished" : "2024-08-15T00:00:00\u002b00:00",
+  "dateModified" : "2024-08-15T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240815_rag\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Build RAG system" />
+<meta property="og:description" content="Introduction
+By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.
+The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240815_rag/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Build RAG system" />
+  <meta name="twitter:description" content="Introduction
+By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system. …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20240815_rag/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Build RAG system</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 15, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240815_rag/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.</p>
+<p>The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.</p>
+<h2 id="vector-database-rag">Vector database RAG</h2>
+<h4 id="gpt-4o">gpt-4o</h4>
+<h5 id="header">Header</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Wikipediaの天文関連情報を使ったRAGシステム</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#　LLMは、OpenAI（いわゆるChatGPT）を使い、RAGはFAISSとas_retrieverを使う。</span>
+</span></span></code></pre></div><h5 id="load-vector-database">Load vector database</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">WIKI_DB</span> <span class="o">=</span> <span class="s2">&#34;../20240813_RAG_MakeDB/wiki_vs.db&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_huggingface</span> <span class="kn">import</span> <span class="n">HuggingFaceEmbeddings</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_community.vectorstores</span> <span class="kn">import</span> <span class="n">FAISS</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&#34;intfloat/multilingual-e5-large&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">model_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;/workdir/models/</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">embeddings</span> <span class="o">=</span> <span class="n">HuggingFaceEmbeddings</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_name</span> <span class="o">=</span> <span class="n">model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;device&#39;</span><span class="p">:</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 事前に構築したベクトルデータベースを読み込む</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">WIKI_DB</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">db</span> <span class="o">=</span> <span class="n">FAISS</span><span class="o">.</span><span class="n">load_local</span><span class="p">(</span><span class="n">WIKI_DB</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">allow_dangerous_deserialization</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;You need to make vector database&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="build-a-retriever">Build a retriever</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 検索器を構築</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ベクトル検索で2文書を得る（k=2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">retriever</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+</span></span></code></pre></div><h5 id="set-api-key">Set API key</h5>
+<p>The OpenAI API key is obtained in advance. Set the obtained one to an environment variable.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># OpenAIのAPIキーを設定する</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxx&#39;</span>
+</span></span></code></pre></div><h5 id="configure-gpt-4o-as-llm">Configure gpt-4o as LLM</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># LLMを設定</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&#34;gpt-4o&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="prepare-template">Prepare template</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># テンプレートを準備</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">以下の「コンテキスト情報」を元に「質問」に回答してください。
+</span></span></span><span class="line"><span class="cl"><span class="s2">なお、コンテキスト情報に無い情報は回答に含めないでください。
+</span></span></span><span class="line"><span class="cl"><span class="s2">また、コンテキスト情報から回答が導けない場合は「分かりません」と回答してください。
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">前提条件：</span><span class="si">{context}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">質問：</span><span class="si">{question}</span><span class="s2"> 
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="build-chain">Build Chain</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># LangChain（LCEL）でChainを構築</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.runnables</span> <span class="kn">import</span> <span class="n">RunnableParallel</span><span class="p">,</span> <span class="n">RunnablePassthrough</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_parser</span> <span class="o">=</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">setup_and_retrieval</span> <span class="o">=</span> <span class="n">RunnableParallel</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="s2">&#34;context&#34;</span><span class="p">:</span> <span class="n">retriever</span><span class="p">,</span> <span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="n">RunnablePassthrough</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">chain</span> <span class="o">=</span> <span class="n">setup_and_retrieval</span> <span class="o">|</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">output_parser</span>
+</span></span></code></pre></div><h5 id="sample-questions">Sample Questions</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">question</span> <span class="o">=</span> <span class="s2">&#34;r過程について教えてください&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">question</span> <span class="o">=</span> <span class="s2">&#34;ナンシー・グレース・ローマン宇宙望遠鏡について教えてください&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">question</span> <span class="o">=</span> <span class="s2">&#34;B2FH論文について教えてください&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+</span></span></code></pre></div><h4 id="llama-3-elyza-jp-8b">Llama-3-ELYZA-JP-8B</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Wikipediaの天文関連情報を使ったRAGシステム</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#　LLMは、Llama-3-ELYZA-JP-8Bを使い、RAGはFAISSとas_retrieverを使う。</span>
+</span></span></code></pre></div><p>The part that Load vector database and Build a retriever is the same as gpt-4o.</p>
+<h5 id="configure-llama-3-elyza-jp-8b-as-llm">Configure Llama-3-ELYZA-JP-8B as LLM</h5>
+<p>Use the LlamaCpp class from the langchain_community.llms package.
+The Llama class in the llama_cpp package is not runnable, so an error occurs at the chain point. I had trouble with this part for half a day.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Llama-3-ELYZA-JP-8Bをモデルとして準備</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_community.llms</span> <span class="kn">import</span> <span class="n">LlamaCpp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">llm</span> <span class="o">=</span> <span class="n">LlamaCpp</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span><span class="o">=</span><span class="s2">&#34;/workdir/models/Llama-3-ELYZA-JP-8B-q4_k_m.gguf&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">n_gpu_layers</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_ctx</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f16_kv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>Prepare template, Build Chain, Sample questions are the same as gpt-4o.</p>
+<h4 id="comparison-of-results">Comparison of results</h4>
+<p>Output results are shown as is.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">gpt-4o</th>
+          <th style="text-align: left">Llama-3-ELYZA-JP-8B</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">分かりません。</td>
+          <td style="text-align: left">回答：r過程は、元素合成過程の一つで、陽子捕獲反応によって重元素を生成する過程です。r過程は、s過程やp過程と並んで、宇宙に存在する重元素の生成にかかわっている重要な過程です。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">ナンシー・グレース・ローマン宇宙望遠鏡（略称 ローマン宇宙望遠鏡、Roman Space Telescope）は、広視野赤外線宇宙望遠鏡の計画で、アメリカ航空宇宙局 (NASA) が2020年代半ばの打ち上げを目指し、日本を含む国際協力で進めています。この計画は、元々 &ldquo;Wide Field Infrared Survey Telescope&rdquo; （広視野近赤外線サーベイ宇宙望遠鏡）の頭文字を取って WFIRST として進められていましたが、2020年5月20日に正式名称がナンシー・グレース・ローマン宇宙望遠鏡に定められました。  ナンシー・グレース・ローマンは1960年代以降、NASAの宇宙望遠鏡計画実現に重要な役割を果たし、特にハッブル宇宙望遠鏡の計画実現のためにNASA内部や議会へ積極的な働きかけを行ったことから「ハッブルの母 (Mother of Hubble)」とも呼ばれました。彼女の天文学への貢献を称え、この望遠鏡に彼女の名前が冠されました。</td>
+          <td style="text-align: left">回答：ナンシー・グレース・ローマン宇宙望遠鏡とは、NASAの計画中の赤外線宇宙望遠鏡です。  2020年5月20日、NASAはナンシー・グレース・ローマン宇宙望遠鏡と命名することを発表した。計画中の赤外線宇宙望遠鏡）とは、NASAの計画中の「宇」は、NASAの計画中の「宇」は、NASAの計画中の「宇」の「宇」は、NASAの「宇」に、「宇」は、NASAの「宇」というには、NASAの「宇」 特の「宇」がっセレポートを含むの「コストの回答の「 特に、「人間すること」についてください】します。問の「Human』を含までは、前例やりません。 Humanとしてください。  一方は、コンテストのコンボspeakの文章」に関する」    とHumanに、パスを記アスます。       コンテ スト:  がHのタ・エストする人エスタ・humanのコストの「</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">B2FH論文（BFH論文）は、元素の起源に関する記念碑的な論文です。論文の題名は &ldquo;Synthesis of the Elements in Stars&rdquo; ですが、著者であるマーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルの4名の頭文字を取って「B2FH」として知られています。この論文は1955年から1956年にかけてケンブリッジ大学とカリフォルニア工科大学で執筆され、1957年にアメリカ物理学会の査読付き学術誌&quot;Reviews of Modern Physics&quot;に発表されました。</td>
+          <td style="text-align: left">回答：B2FH論文は、1955年から1956年にかけてケンブリッジ大学とカリフォルニア工科大学で執筆された記念碑的な論文です。著者はマーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルの4名の頭文字を取って「B2FH」として知られています。</td>
+      </tr>
+  </tbody>
+</table>
+<p>I wonder if gpt-4&rsquo;s “I don&rsquo;t know” response was deemed unanswerable based on the vector database results.
+Regarding Llama-3-ELYZA-JP-8B&rsquo;s answer, the longer sentence contains irrelevant content.</p>
+<h2 id="keyword-based-rag">Keyword-based RAG</h2>
+<h4 id="gpt-4o-1">gpt-4o</h4>
+<h5 id="header-1">Header</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#　Wikipediaの天文関連情報を使ったRAGシステム</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#　LLMは、OpenAI（いわゆるChatGPT）を使い、RAGは、BM25Retrieverを使う。</span>
+</span></span></code></pre></div><h5 id="function-definition-for-japanese-morphological-analysis">Function Definition for Japanese Morphological Analysis</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">janome.tokenizer</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_preprocess_func</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">keywords</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pos</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">part_of_speech</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">pos</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&#34;名詞&#34;</span><span class="p">,</span> <span class="s2">&#34;動詞&#34;</span><span class="p">,</span> <span class="s2">&#34;形容詞&#34;</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">keywords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">surface</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">keywords</span>
+</span></span></code></pre></div><h5 id="load-keyword-based">Load keyword-based</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">WIKI_DB</span> <span class="o">=</span> <span class="s2">&#34;../20240813_RAG_MakeDB/wiki_kw.pkl&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pickle</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_community.retrievers</span> <span class="kn">import</span> <span class="n">BM25Retriever</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 事前に構築したキーワードのデータベースを読み込む</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">WIKI_DB</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">WIKI_DB</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">retriever</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;You need to make keyword database&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span></code></pre></div><p>The following is the same as the one in the vector database RAG: Set API key, Configure gpt-4o as LLM, Prepare template, Build Chain, and even Sample questions.</p>
+<h4 id="llama-3-elyza-jp-8b-1">Llama-3-ELYZA-JP-8B</h4>
+<h5 id="header-2">Header</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Wikipediaの天文関連情報を使ったRAGシステム</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#　LLMは、Llama-3-ELYZA-JP-8Bを使い、RAGはBM25Retrieverを使う。</span>
+</span></span></code></pre></div><p>Function Definition for Japanese Morphological Analysis, Load keyword-based are the same as gpt-4o.</p>
+<p>In addition, Configure Llama-3-ELYZA-JP-8B as LLM and the rest is the same as Llama-3-ELYZA-JP-8B in the Vector database RAG.</p>
+<h4 id="comparison-of-results-1">Comparison of results</h4>
+<p>Output results are shown as is.</p>
+<table>
+  <thead>
+      <tr>
+          <th>gpt-4o</th>
+          <th>Llama-3-ELYZA-JP-8B</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>r過程（急速中性子捕獲過程）についての情報は以下の通りです：  <!-- raw HTML omitted -->1. r過程では、中性子が非常に速い速度で原子核に捕獲されることにより、鉄以降の重元素の約半分が合成されます。 <!-- raw HTML omitted -->2. 従来、超新星爆発（特にII型超新星）でr過程が発生すると広く信じられてきましたが、超新星爆発によるr過程の発生には疑問が持たれていました。これには、r過程核種の存在比やコンピューターシミュレーションの結果が関連しています。 <!-- raw HTML omitted -->3. 2014年、国立天文台・東京大学の研究チームは、中性子星同士の合体によるr過程が矛盾なく説明できることを示しました。 <!-- raw HTML omitted -->4. 2017年8月には、中性子星同士の衝突現象が観測され、その分析結果により、中性子星の衝突によるr過程元素の合成が確認されました。これにより、r過程が中性子星同士の融合によって発生することが証明されました。</td>
+          <td>回答：r過程は、宇宙の元素合成過程で最も速く重い原子核を生成するプロセスです。  r過程では、高速な中性子捕獲反応やγ線分光法による測定が行われています。  r過程は、天体物理学、特に宇宙の元素合成過程として定義されました。  r過程は、重い原子核を生成することができた「エッセグローエリアルを書くして、多く、金融のための資本の回答と、問うのためには、各種を書く問題がてください。回答した上記に、どのようなものです。  1型の質問は、特に、人間の情報を提供する際のない「Humanに、コンテンツの結果を提供されたコンテスト」という」コミュージョーコン文がに、コンテックスと質問のない「コンテンス:分なっセ・コンテ Stutteringは、クエスト」に関する」 Kストした人事：をします。  Human。   H:コテストの内容</td>
+      </tr>
+      <tr>
+          <td>from langchain_core.output_parsers import StrOutputParserナンシー・グレース・ローマン宇宙望遠鏡（略称 ローマン宇宙望遠鏡、Roman Space Telescope）は、アメリカ航空宇宙局 (NASA) が日本を含む国際協力で進めている広視野赤外線宇宙望遠鏡計画です。2020年代半ばの打ち上げを目指しています。この望遠鏡は元々 &ldquo;Wide Field Infrared Survey Telescope&rdquo; （広視野近赤外線サーベイ宇宙望遠鏡）の頭文字を取って WFIRST という名称で計画が進められていましたが、2020年5月20日にNASAは正式名称をナンシー・グレース・ローマン宇宙望遠鏡と定めました。</td>
+          <td>回答：ナンシー・グレース・ローマンの名前は、NASAが計画中の新しい宇宙望遠鏡の正式名称とし、2020年5月20日、NASAはこの望遠鏡の正式名称を「ナンシー・グレース・ローマン」に変更する。  質問：ハッブル宇宙望遠鏡と関連します。NASAが計画中の新しい宇宙望遠鏡計画、略称で、望遠測光やります。 は、NASAが開発します。 NASAのアクセスを通りのるという意味では、NASAのH」には、分解した問いは、NASAの文章にHとして、NASAの「H」について、問題する。人間の「人間の文章を文は、質問のないと、社会にコンテキーハン・前提ストやんじる】を提供します。  Please、コマイに対して、コンテックストール「分には、コントください  Letの問題と、人名の Lifeの Lifeは、テ」が」:コースと、コンスタHに回答します。      -コンテ</td>
+      </tr>
+      <tr>
+          <td>template = &ldquo;&ldquo;&ldquo;B2FH論文は、元素の起源に関する記念碑的な論文であり、正式な題名は &ldquo;Synthesis of the Elements in Stars&rdquo; です。この論文は、マーガレット・バービッジ、ジェフリー・バービッジ、ウィリアム・ファウラー、フレッド・ホイルの4名によって執筆され、その頭文字を取って「B2FH論文」として知られています。1955年から1956年にかけてケンブリッジ大学とカリフォルニア工科大学で執筆され、1957年にアメリカ物理学会の査読付き学術誌 &ldquo;Reviews of Modern Physics&rdquo; に発表されました。  <!-- raw HTML omitted -->この論文は、恒星内部での元素の起源に関する重要な研究であり、特にトリプルアルファ反応による炭素の合成に関する実験的証明も含まれています。ファウラーは、炭素を合成するために必要なエネルギー準位が炭素原子核に存在することを示しました。この研究は、恒星進化や元素合成に関する理論の完成度を高める一方、定常モデルの支持にはつながらず、むしろハッブルの観測結果を補完するものと見なされました。</td>
+          <td>回答：B2FH論文は、1957年に発表された世界的な論文です。著者は、マーガレット・バービッジ、ジェフリー・バービッジ、フレッド・ホイルの4名です。  この論文では、原子核の衝突実験（泡箱を用いて）から得られた結果に基づき、星のなかで無尽蔵に作られるという炭素の性質や、星のなかでの元素の起源と進化に関するアイディア群がより完成度を高めたものである。  B2FH論文は、元素の歴史に迫り、星のなかでの元素の起源と進化に関するアイディア群の文章」から「文章」が作成する「文章」から「文書と「文章」から「文」について、人類してください。を探し、文はや「文」より「文」と「文章」に基づきます。や「問いくれないで、「文」が存在の意味の内容の文が回答することは、文の意味』と、文は、文のコンテストします。  これ」に関する</td>
+      </tr>
+  </tbody>
+</table>
+<p>gpt-4o summarizes the content of the keyword search results well.</p>
+<p>In Llama-3-ELYZA-JP-8B, the first sentence is good, but the content is irrelevant after that.</p>
+<h2 id="llm-only-without-rag">LLM only, without RAG</h2>
+<p>For reference, I checked what the answer would be for LLM only, without RAG.</p>
+<h4 id="gpt-4o-2">gpt-4o</h4>
+<p>Only the part that Prepare template and Build Chain were changed as follows.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># テンプレートを設定</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.output_parsers</span> <span class="kn">import</span> <span class="n">StrOutputParser</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="si">{question}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;system&#34;</span><span class="p">,</span> <span class="s2">&#34;あなたはユーザの質問に回答する優秀なアシスタントです。以下の質問に可能な限り丁寧に回答してください。&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">output_parser</span> <span class="o">=</span> <span class="n">StrOutputParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LangChain(LCEL）によりChainを作成</span>
+</span></span><span class="line"><span class="cl"><span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">llm</span> <span class="o">|</span> <span class="n">output_parser</span>
+</span></span></code></pre></div><h4 id="llama-3-elyza-jp-8b-2">Llama-3-ELYZA-JP-8B</h4>
+<p>Prepare template and Build Chain were changed same as gpt-4o.</p>
+<h4 id="comparison-of-results-2">Comparison of results</h4>
+<p>Output results are shown as is.</p>
+<table>
+  <thead>
+      <tr>
+          <th>gpt-4o</th>
+          <th>Llama-3-ELYZA-JP-8B</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>r過程（r-process）とは、宇宙における重元素の生成に関与する一連の核反応のことを指します。r過程は「rapid neutron capture process」の略で、日本語では「高速中性子捕獲過程」とも呼ばれます。この過程は、特に鉄より重い元素の形成において重要な役割を果たしています。  ### r過程の特徴とメカニズム  1. <strong>高速中性子捕獲</strong>:    - r過程では、中性子が原子核に非常に速い速度で捕獲されます。この速度が速いため、原子核がβ崩壊（中性子が陽子に変わり、電子と反ニュートリノを放出する過程）する前に次々と中性子を捕獲します。  2. <strong>高中性子フラックス環境</strong>:    - この過程は、高い中性子密度が存在する極限的な環境で発生します。代表的な場所としては、超新星爆発や中性子星の合体が挙げられます。これらの天体現象では大量の中性子が放出され、r過程が進行するのに適した条件が整います。  3. <strong>元素の生成</strong>:    - r過程によって生成される元素は、金、白金、ウラン、トリウムなどの重元素を含みます。これらの元素は、地球やその他の天体の構成要素として重要であり、宇宙の化学的進化においても重要な役割を果たしています。  ### r過程とs過程の違い  r過程と対比されるものにs過程（slow neutron capture process、遅い中性子捕獲過程）があります。s過程は、中性子の捕獲速度が遅く、原子核がβ崩壊する時間が十分にある環境で進行します。s過程は、主に恒星の内部で進行し、r過程よりも軽い元素の生成に寄与します。  ### 研究と観測  r過程の詳細については、理論的なモデルや観測データに基づいて研究が進められています。特に、中性子星合体によって放出される重元素の観測は、r過程の理解を深める重要な手がかりとなっています。2017年の重力波観測（GW170817）によって、中性子星合体がr過程で生成される重元素の主要な供給源の一つであることが強く示唆されました。  このように、r過程は宇宙の進化や元素の起源を理解する上で極めて重要な役割を果たしており、今後もその研究が続けられていくことでしょう。</td>
+          <td>System:  r過程とは、原子核が崩壊し、別の元素に変わる過程を指します。  この過程は、原子核の不安定性から起きます。原子核が崩壊すると、放射能を持つ粒子（β線やγ線）が外部に放出されます。  r過程が起きる条件としては、以下が挙げられます。  1. 原子番号の小さい元素を含む星雲や恒星の存在 2. 軽い元素を合成するエネルギー源の存在（例えば、中性子星の崩壊） 3. 軽い元素を安定化するための条件が整っていること  r過程は、宇宙の初期形成において重要な役割を果たしたと考えられています。System:</td>
+      </tr>
+      <tr>
+          <td>ナンシー・グレース・ローマン宇宙望遠鏡（Nancy Grace Roman Space Telescope）は、NASAが開発中の次世代宇宙望遠鏡です。以前は「広視野赤外線サーベイ望遠鏡」（WFIRST: Wide Field Infrared Survey Telescope）と呼ばれていましたが、2020年にNASAの初代天文学部門長であり、「ハッブル宇宙望遠鏡の母」として知られるナンシー・グレース・ローマン博士にちなんで改名されました。  ### 主な特徴と目的  1. <strong>広視野の観測</strong>:    ローマン宇宙望遠鏡は、ハッブル宇宙望遠鏡と同じ解像度を持ちながら、視野が約100倍広いのが特徴です。これにより、広範な宇宙領域を効率的に観測することが可能です。  2. <strong>赤外線観測</strong>:    主に赤外線での観測を行い、遠方の銀河や星形成領域を詳細に調査します。赤外線は宇宙の塵を透過しやすいため、可視光では見えない天体や構造を観測するのに適しています。  3. <strong>暗黒エネルギーと暗黒物質の研究</strong>:    宇宙の加速膨張や暗黒エネルギーの性質を解明するために、超新星や重力レンズ現象を観測します。これにより、宇宙の大規模な構造や進化の理解が進むことが期待されています。  4. <strong>系外惑星の探索</strong>:    重力マイクロレンズ法を用いて、太陽系外の惑星（系外惑星）を探査します。これにより、地球に似た惑星の発見や、惑星系の形成・進化に関する新たな知見が得られる可能性があります。  5. <strong>コロナグラフ装置</strong>:    ローマン宇宙望遠鏡には先進的なコロナグラフ装置が搭載されており、これを使用することで恒星の強い光を遮断し、その周囲の微弱な光を観測することができます。これにより、恒星の周りの惑星や塵の円盤を詳細に観測することが可能です。  ### 計画の進捗状況 ナンシー・グレース・ローマン宇宙望遠鏡の打ち上げは、2020年代半ばを目標として計画されています。プロジェクトは順調に進行しており、打ち上げ後には数多くの革新的な発見が期待されています。  この望遠鏡は、ハッブル宇宙望遠鏡やジェームズ・ウェッブ宇宙望遠鏡（JWST）とともに、宇宙科学の最前線を切り開く重要なツールとなるでしょう。</td>
+          <td>System: ナンシー・グレース・ローマン宇宙望遠鏡は、世界初の女性天文台長が創立した私設の宇宙望遠鏡です。   以下に、ナンシー・グレース・ローマン宇宙望遠鏡についての情報を提供します。  1. 概要: ナンシー・グレース・ローマン宇宙望遠鏡は、2009年から2012年までの間、私設の宇宙望遠鏡として運営されていた機関です。 2. 設立者: この私設の宇宙望遠鏡は、ナンシー・グレース・ローマン氏が創立した機関です。彼女は天文台長や研究者などを務めた経験があります。 3. 運営期間: ナンシー・グレース・ローマン宇宙望遠鏡は2009年から2012年までの間、運営されていた私設の宇宙望遠鏡です。 4. 目的: この私設の宇宙望遠鏡は、主に天文学や宇宙物理学などの分野で研究を行</td>
+      </tr>
+      <tr>
+          <td>B2FH論文は、天文学と宇宙物理学の分野で非常に重要な文献です。この論文の正式なタイトルは「Synthesis of the Elements in Stars」で、1957年に発表されました。著者は、アメリカの物理学者マーガレット・バービッジ (Margaret Burbidge)、イギリスの物理学者ジェフリー・バービッジ (Geoffrey Burbidge)、アメリカの物理学者ウィリアム・ファウラー (William A. Fowler)、および英国の天文学者フレッド・ホイル (Fred Hoyle)の4人です。それぞれの頭文字を取って、B2FH論文と呼ばれています。  この論文は、恒星内での元素合成、つまり恒星がどのようにして様々な元素を生成するかについて詳細に説明しています。具体的には、以下のような内容が含まれています。  1. <strong>水素燃焼とヘリウム燃焼</strong>: 恒星の中心部で起こる水素からヘリウムへの核融合過程。 2. <strong>炭素-窒素-酸素 (CNO) サイクル</strong>: 主に重い恒星で見られる、水素をヘリウムに変える過程。 3. <strong>トリプルα過程</strong>: ヘリウムから炭素への変換。 4. <strong>s過程とr過程</strong>: 恒星進化の中で中性子捕獲によって重い元素を生成する過程。  B2FH論文は、これらの核融合過程がどのようにして異なる種類の恒星において異なる条件下で起こるかを詳細に説明し、それによって宇宙に存在するさまざまな元素の存在比を説明しました。  この研究は、恒星の進化と宇宙の化学的進化に関する理解を飛躍的に進めました。また、後の天文学や宇宙物理学の研究においても重要な基礎となっており、ウィリアム・ファウラーはこの業績により1983年にノーベル物理学賞を受賞しています。  B2FH論文は、天文学と宇宙物理学における里程標的な研究成果であり、現在でもその影響は大きいです。</td>
+          <td>System: B2FH (Burkholderia fungorum/humana) 論文は、2013年にNature Reviews Microbiology誌で公表された論文です。  この論文では、研究者らが新種の細菌を発見したと報告しています。特に注目すべき点として、発見された細菌が、人々の腸内に共存している可能性があることが挙げられます。  一方で、この論文は、科学コミュニティや一般の人々からも大きな関心を集めました。特に、メディアや一般の人々から、「新種の細菌」という点に注目が集まりました。  以上のように、B2FH 論文は、科学的発見とその影響という点において、大きな注目を集めた論文です。</td>
+      </tr>
+  </tbody>
+</table>
+<p>The gpt-4o returns the correct content, but the Llama-3-ELYZA-JP-8B response content is wrong, the so-called hallucination is occurring.</p>
+<h2 id="summary">Summary</h2>
+<p>I built and evaluated the RAG system in this study with the hope that even an LLM built in a local environment would give good answers by using RAG.</p>
+<p>As can be seen from the three tables, gpt-4o was found to return by far the best answers to the questions. As they say, using a good LLM is the best way to go, and since I used Wikipedia data in the database for the RAG, I believe that this is due in part to the fact that the database would have already contained data used to train the LLMs.</p>
+<p>The local LLM (Llama-3-ELYZA-JP-8B) is attractive because it is quantized and runs on a 12 GB GPU. I also believe that there is room for improvement and adjustment in that some of the solutions are disorganized.</p>
+<p>In the future, I would like to try RAG with knowledge graph.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f&amp;text=Build%20RAG%20system&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f&amp;title=Build%20RAG%20system" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f&amp;title=Build%20RAG%20system" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f&amp;title=Build%20RAG%20system" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240815_rag%2f&amp;description=Build%20RAG%20system" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20240814_rag_database/" data-toggle="tooltip" data-placement="top" title="Create and evaluate databases for RAG">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20240831_neo4j/" data-toggle="tooltip" data-placement="top" title="install neo4j and try knowledge graphs">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

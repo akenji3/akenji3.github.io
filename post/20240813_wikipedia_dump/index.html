@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>WikipediaダンプデータからRAG向けテキストデータ作成 - </title>
+
+  <meta name="description" content="モチベーション
+LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。
+ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240813_wikipedia_dump\/",
+          "name": "Wikipediaダンプデータから rag向けテキストデータ作成"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "WikipediaダンプデータからRAG向けテキストデータ作成",
+  "description" : "モチベーション LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。\nここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  3221 ,
+  "datePublished" : "2024-08-13T00:00:00\u002b00:00",
+  "dateModified" : "2024-08-13T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240813_wikipedia_dump\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="WikipediaダンプデータからRAG向けテキストデータ作成" />
+<meta property="og:description" content="モチベーション
+LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。
+ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240813_wikipedia_dump/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="WikipediaダンプデータからRAG向けテキストデータ作成" />
+  <meta name="twitter:description" content="モチベーション
+LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。
+ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>WikipediaダンプデータからRAG向けテキストデータ作成</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;August 13, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。</p>
+<p>ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://dumps.wikimedia.org/jawiki/">Index of /jawiki/</a>     日本語のwikipedia dumpのトップページ。今回自分は、「20240720」ディレクトリ配下のデータを使用した。</li>
+<li><a href="https://www.yakupro.info/entry/programming-wikipedia-data">Wikipediaの特定カテゴリの記事のみを取得する</a>    自分が実施しようと考えていたことが掲載されているページ。大いに参考にさせてもらった、感謝。</li>
+<li><a href="https://qiita.com/tekunikaruza_jp/items/93d3267a444acef470d9">Wikipediaの特定カテゴリ以下の記事だけを取得する（サブカテゴリの取得）</a>    最初自分もMySQL（MariaDB）にwikipediaデータ、カテゴリ、ページ情報を格納して、検索することを試そうとした。mariadbのコンテナをdocker-compose.ymlで起動し、jawikiという名前のデータベースを作成し、category, categorylinks, pageテーブルまでは作成したが、検索用SQL作成するあたりで挫けた。</li>
+<li><a href="https://github.com/attardi/wikiextractor">attardi/wikiextractor</a>    wikiダンプデータを整形するツールを紹介しているページ。</li>
+<li><a href="https://qiita.com/hqze-omochi/items/b3d2d9439bfca51f4c75">Python3.7のWikiExtractor3.0.4で起こるImportError</a>   wikiダンプデータ整形ツールでエラーが発生した場合の対処が紹介されている。</li>
+<li><a href="https://ja.wikipedia.org/wiki/Wikipedia:PetScan">Wikipedia:PetScan</a>    wikipediaの記事カテゴリー（およびサブカテゴリ）を検索し、条件に合った記事を情報（タイトルやページID）を得るツールのページ。</li>
+</ol>
+<h2 id="手順">手順</h2>
+<h4 id="jawikiダンプデータのダウンロード">jawikiダンプデータのダウンロード</h4>
+<p>情報源 1.で示した、~/jawiki/20240720/配下の「jawiki-20240720-pages-articles.xml.bz2」を作業用のディレクトリにダウンロードする。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ ls -l
+</span></span><span class="line"><span class="cl">-rw-rw-r--  <span class="m">1</span> kenji kenji <span class="m">4189767963</span>  7月 <span class="m">29</span> 22:03 jawiki-20240720-pages-articles.xml.bz2
+</span></span></code></pre></div><h4 id="ダンプデータを整形">ダンプデータを整形</h4>
+<p>情報源4.から得た「WikiExtractor.py」を使って、ダウンロードしたbz2ファイルを整形する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ python3 WikiExtractor.py -b 500K -o jawiki jawiki-20240720-pages-articles.xml.bz2
+</span></span></code></pre></div><p>次のようなエラーが発生した。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">  File <span class="s2">&#34;/ext/nfs/workspace/wikipedia/WikiExtractor.py&#34;</span>, line 66, in &lt;module&gt;
+</span></span><span class="line"><span class="cl">    from .extract import Extractor, ignoreTag, define_template, acceptedNamespaces
+</span></span><span class="line"><span class="cl">ImportError: attempted relative import with no known parent package
+</span></span></code></pre></div><p>ここで、ネットで検索したところ情報源5.がヒットしたので、次のように必要なパッケージをインストールした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install python3-pip
+</span></span><span class="line"><span class="cl">$ pip3 install wikiextractor
+</span></span></code></pre></div><p>改めて、次のコマンドにより、jawikiディレクトリに「AA」から「DB」ディレクトリが作成され、その配下にwiki_00からwiki_99まで100個のテキストファイルが格納されている。「DB」配下のみwiki_28まで。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ python3 -m wikiextractor.WikiExtractor -b 500K -o jawiki jawiki-20240720-pages-articles.xml.bz2
+</span></span></code></pre></div><p>自分の環境では、約28分掛かった。</p>
+<h4 id="興味あるカテゴリーのページidを得る--petscan">興味あるカテゴリーのページIDを得る 〜 PetScan</h4>
+<p>情報源6.を開いて、左上の「PetScanを開く」で開かれるツール。今回は「カテゴリ」と「出力」タブのみを使用する。</p>
+<h5 id="考え方">考え方</h5>
+<p>カテゴリーとしては、「天体物理学」と「天文学」を考えていたのだが、カテゴリ深度（サブカテゴリの深さ）をどの程度にするかは、得られるタイトルを見て決めた。天体物理学はカテゴリ深度：4、天文学はカテゴリ深度：2とした。</p>
+<h5 id="検索条件">検索条件</h5>
+<p>上記の考え方をもとに、次のように設定した。</p>
+<p>「カテゴリ」タグでは、言語：ja、カテゴリ：天体物理学|4 天文学|2、組み合わせ：ユニオン（和集合）</p>
+<p>複数カテゴリを選ぶ時は、カテゴリ深度で指定はせず、カテゴリで、各カテゴリ毎に指定する。
+「出力」タブで、出力形式：CSVを選ぶ。</p>
+<p>「カテゴリ」タブの左下の「実行」をクリックすると、「ダウンロード.csv」がダウンロードされる。</p>
+<p>自分は、これをastronomy.csvにrenameした。</p>
+<h4 id="テキスト化プログラム">テキスト化プログラム</h4>
+<p>ここまでで、抽出すべきページIDはastronomy.csvの「pageid」列に格納されており、テキストデータは、「jawiki」ディレクトリ配下に格納されている。</p>
+<p>以下に紹介するプログラムは、以下の2つの仮定で作られている。</p>
+<ul>
+<li>「jakiki」配下の「AA」から「DB」に格納されているwiki_??ファイル中のdocidは、昇順となっている。</li>
+<li>「astronomy.csv」の「pageid」列も昇順となっている。</li>
+</ul>
+<h5 id="ヘッダ">ヘッダ</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># jawikiのダンプデータから、天文関連のカテゴリー（天体物理学、天文学）のページを抽出し、テキスト化する。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 次のことが事前に準備された状態で、このプログラムは動作する。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># jawikiのタンプデータは、&#34;WIKI_PATH&#34;で与えられたディレクトリ配下のAAからDBディレクトリ内に内に</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># wiki_00-wiki_99という名前のファイルに分割して格納されている。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 抽出すべきカテゴリーに属するページは、PetScanを使って、&#34;INTEREST_PAGES&#34;の&#34;pageid&#34;列として抽出されている。</span>
+</span></span></code></pre></div><h5 id="ファイルリストページidリストを作成">ファイルリスト、ページIDリストを作成</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">glob</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">csv</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">WIKI_PATH</span> <span class="o">=</span> <span class="s2">&#34;jawiki&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">INTEREST_PAGES</span> <span class="o">=</span> <span class="s2">&#34;astronomy.csv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">EXTRACT</span> <span class="o">=</span> <span class="s2">&#34;textdb&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 対象ディレクトリ配下のファイルリストを作成</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ページ番号が昇順になるように、ファイルリストはソートしておく。</span>
+</span></span><span class="line"><span class="cl"><span class="n">file_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">dir_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">WIKI_PATH</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dir_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_list</span> <span class="o">+=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">WIKI_PATH</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;/*&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 抽出すべきページのリストを作成</span>
+</span></span><span class="line"><span class="cl"><span class="n">pageid_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">INTEREST_PAGES</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">csvreader</span><span class="p">)</span>  <span class="c1"># skip header</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># namespaceがNullの記事のみを使う。　それ以外はスキップする。</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># それ以外はサブカテゴリー等であり、その配下については、&#34;pageid&#34;が昇順が保証されない。</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&#34;&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pageid_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;抽出する記事数:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span></code></pre></div><p>実行結果は次のとおり。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="n">抽出する記事数</span><span class="p">:</span><span class="mi">13842</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span></code></pre></div><h5 id="記事を抽出する関数">記事を抽出する関数</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 次のような構造からid/url/title/本文を抽出するための、正規表現を準備。</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&lt;doc id=&#34;5&#34; url=&#34;https://ja.wikipedia.org/wiki?curid=5&#34; title=&#34;アンパサンド&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">アンパサンド
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">アンパサンド（&amp;amp;, ）は、並立助詞「…と…」を意味する記号である。・・・・
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">&lt;/doc&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">doc_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;doc id=.+?&lt;/doc&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">head_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;doc id=.+?&#34;&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">id_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;id=&#34;\d+&#34;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">url_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;url=&#34;.+?&#34;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">title_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;title=&#34;.+&#34;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ファイルパスで与えられたブロックを読み込み</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 記事（article）のリストを返す。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 改行は取り除く。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_article_list</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">block_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">block_data</span> <span class="o">=</span> <span class="n">block_data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">doc_re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">block_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;doc&#34;で与えられた一つの記事（article)から</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># id/url/title/text(本文）を抽出し、それらを返す。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 本文は、記事タイトルが冒頭にあるので、それを飛ばす（[len(title):])。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_article</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head</span> <span class="o">=</span> <span class="n">head_re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">id_tag</span> <span class="o">=</span> <span class="n">id_re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">doc_id</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="n">id_tag</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">doc_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc_id</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url_tag</span> <span class="o">=</span> <span class="n">url_re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="n">url_tag</span><span class="o">.</span><span class="n">group</span><span class="p">()[</span><span class="nb">len</span><span class="p">(</span><span class="s2">&#34;url=&#34;</span><span class="p">):]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title_tag</span> <span class="o">=</span> <span class="n">title_re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">doc_title</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#34;.+&#34;&#39;</span><span class="p">,</span><span class="n">title_tag</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">title</span> <span class="o">=</span> <span class="n">doc_title</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    text = doc.replace(head.group(), &#39;&#39;).rstrip(&#39;&lt;/doc&gt;&#39;)[len(title):]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">text</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">head</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;&lt;/doc&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># タイトルが重複しないケースがある。</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># その場合、1つ目のタイトルをスキップすることはしない。</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">):(</span><span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">))]</span> <span class="o">==</span> <span class="n">title</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">):]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">doc_id</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">text</span>
+</span></span></code></pre></div><h5 id="メインループ">メインループ</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Wikipediaダンプデータ中の&#34;docid&#34;が事前に準備したカテゴリに属する&#34;pageid&#34;と一致した記事を出力する。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力は、write()ではなく、print()を使う。テキスト出力の場合、print()の方が扱いやすい。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ff</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">EXTRACT</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">no</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">pageid</span> <span class="o">=</span> <span class="n">pageid_list</span><span class="p">[</span><span class="n">no</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">id_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">no_page_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">get_article_list</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">docid</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">get_article</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">id_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">docid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">docid</span> <span class="o">&lt;</span> <span class="n">pageid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">docid</span> <span class="o">==</span> <span class="n">pageid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">ff</span><span class="p">)</span>  <span class="c1"># write text into file</span>
+</span></span><span class="line"><span class="cl">            <span class="n">no</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pageid</span> <span class="o">=</span> <span class="n">pageid_list</span><span class="p">[</span><span class="n">no</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">docid</span> <span class="o">&gt;</span> <span class="n">pageid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 常に、docid &lt;= pageid が保たれていること。</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># この場合は、pageidが見つからなかった。</span>
+</span></span><span class="line"><span class="cl">            <span class="n">no_page_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pageid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">no</span> <span class="o">+=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pageid</span> <span class="o">=</span> <span class="n">pageid_list</span><span class="p">[</span><span class="n">no</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ff</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">processing_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;processing_time(sec): &#34;</span><span class="p">,</span> <span class="n">processing_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;全記事数:</span><span class="si">{}</span><span class="se">\t</span><span class="s2">抽出した記事数:</span><span class="si">{}</span><span class="se">\t</span><span class="s2">未検出記事数:</span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">id_list</span><span class="p">),</span> <span class="n">no</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">no_page_list</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">80</span><span class="p">)</span>
+</span></span></code></pre></div><p>実行結果は次のとおり。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">processing_time</span><span class="p">(</span><span class="n">sec</span><span class="p">):</span>  <span class="mf">70.98843002319336</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span><span class="line"><span class="cl"><span class="n">全記事数</span><span class="p">:</span><span class="mi">2304095</span>	<span class="n">抽出した記事数</span><span class="p">:</span><span class="mi">13837</span>	<span class="n">未検出記事数</span><span class="p">:</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">================================================================================</span>
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>今回作成した「textdb」という名前のテキストファイルを使って、今後RAGのベクトルDBに格納していく。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f&amp;text=Wikipedia%e3%83%80%e3%83%b3%e3%83%97%e3%83%87%e3%83%bc%e3%82%bf%e3%81%8b%e3%82%89RAG%e5%90%91%e3%81%91%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e4%bd%9c%e6%88%90&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f&amp;title=Wikipedia%e3%83%80%e3%83%b3%e3%83%97%e3%83%87%e3%83%bc%e3%82%bf%e3%81%8b%e3%82%89RAG%e5%90%91%e3%81%91%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e4%bd%9c%e6%88%90" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f&amp;title=Wikipedia%e3%83%80%e3%83%b3%e3%83%97%e3%83%87%e3%83%bc%e3%82%bf%e3%81%8b%e3%82%89RAG%e5%90%91%e3%81%91%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e4%bd%9c%e6%88%90" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f&amp;title=Wikipedia%e3%83%80%e3%83%b3%e3%83%97%e3%83%87%e3%83%bc%e3%82%bf%e3%81%8b%e3%82%89RAG%e5%90%91%e3%81%91%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e4%bd%9c%e6%88%90" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240813_wikipedia_dump%2f&amp;description=Wikipedia%e3%83%80%e3%83%b3%e3%83%97%e3%83%87%e3%83%bc%e3%82%bf%e3%81%8b%e3%82%89RAG%e5%90%91%e3%81%91%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%87%e3%83%bc%e3%82%bf%e4%bd%9c%e6%88%90" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240704_numpy_v2/" data-toggle="tooltip" data-placement="top" title="llama-cpp-python 〜 numpyバージョンアップの影響">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20240814_rag_database/" data-toggle="tooltip" data-placement="top" title="RAG向けデータベースを作成・評価">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/post/</link>
+    <description>Recent content in Posts on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connecting to a Python development environment in a remote Docker container from VSCode</title>
+      <link>https://akenji3.github.io/en/post/20260103_uv-docker/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260103_uv-docker/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Until now, I&amp;rsquo;ve been launching JupyterLab containers on a remote workstation equipped with a GPU, connecting via browser from my local MacBook Air to develop Python code. For example, see &lt;a href=&#34;https://akenji3.github.io/en/post/20241201_python3.11/&#34;&gt;this article&lt;/a&gt;.&#xA;Recently, since I&amp;rsquo;ve been using VSCode frequently, I tried connecting to the same Python development environment on the GPU-equipped remote workstation from VSCode.&lt;/p&gt;&#xA;&lt;h2 id=&#34;information-sources&#34;&gt;Information Sources&lt;/h2&gt;&#xA;&lt;p&gt;I usually build things by referencing online information, but this time I built it while asking Claude.&#xA;That said, I did consult the &lt;a href=&#34;https://pytorch.org/&#34;&gt;PyTorch&lt;/a&gt; page to verify compatibility between the CUDA version and the torch installation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Capturing the Galaxy with RicoRem(Ricoh&#39;s remote telescope)</title>
+      <link>https://akenji3.github.io/en/post/20251115_astrophoto/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20251115_astrophoto/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Astronomy is one of my hobbies, and I&amp;rsquo;ve always wanted to take my telescope to places with good stargazing conditions—places free from light pollution. Remote telescopes are the means to fulfill that dream. I recently learned about one such service, RicoRem(Ricoh&amp;rsquo;s remote telescope). I promptly became a member and captured NGC 300. I obtained monochrome images using LRGB filters. This post summarizes my experience up to synthesizing the monochrome images.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Ollama on MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A month ago, I uploaded an &lt;a href=&#34;https://akenji3.github.io/en/post/20250622_lmstudio/&#34;&gt;article&lt;/a&gt; in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing LM Studio on my MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I bought a MacBook Air (M4) in March. I wanted to run LLM locally, so I set the memory to the maximum 32GB, and finally was able to try local LLM with LM Studio, although I could not find much time for it because I started working in Kanda in April and I was busy with various events on weekends.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install ubuntu 24.04 LTS</title>
+      <link>https://akenji3.github.io/en/post/20250325_ubuntu2404/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250325_ubuntu2404/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.&lt;/p&gt;&#xA;&lt;p&gt;I usually installed from the Japanese Remix ISO image, but since this version &lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;Japanese Remix is not released&lt;/a&gt;, I downloaded the image from Canonical&amp;rsquo;s page and installed it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simulation of 2D flow over cylinder</title>
+      <link>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Two months ago &lt;a href=&#34;https://akenji3.github.io/en/post/20250123_unsteady_laminar/&#34;&gt;in this post&lt;/a&gt;, laminar flow around a 2D circular cylinder (Laminar Flow), using the governing equations for each of the ST and VP forms, The simulation was performed using the governing equations for each of the ST form and VP form.&lt;/p&gt;&#xA;&lt;p&gt;Since then, we have simulated the flow around a 2-D cylinder in the time range 0 to 60 seconds for various parameters, and the results are summarized here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using LLM based on DeepSeek-R1-Distill-Qwen-14B/32B with additional Japanese language training</title>
+      <link>https://akenji3.github.io/en/post/20250128_deepseek-ca/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250128_deepseek-ca/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been studying PINNs and related OpenFOAM for a while, but yesterday there was a big news in LLM area and I decided to use Deep Seek-R1 which had an impact not only on LLM area but also on stock prices. Since I could not use it as it is in my environment, I used a compacted LLM with quantization.&lt;/p&gt;&#xA;&lt;p&gt;This time, I used Ollama and Open WebUI to use the quantized model from a browser, and I will summarize the contents.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Improved OpenFOAM environment</title>
+      <link>https://akenji3.github.io/en/post/20250127_openfoam_env/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250127_openfoam_env/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;As mentioned in a recent &lt;a href=&#34;https://akenji3.github.io/en/post/20250124_karmanvortex/&#34;&gt;posting&lt;/a&gt;, I am conducting a tutorial on flow around a 2-dimensional cylinder. While conducting this tutorial, I was unable to use pyFoamPlotWatcher.py and gnuplot in my environment. In this post, I summarize how to improve them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Karman Vortex with OpenFOAM</title>
+      <link>https://akenji3.github.io/en/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using those models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of &lt;a href=&#34;https://akenji3.github.io/en/post/20250111_laminarflow/&#34;&gt;this post&lt;/a&gt;, I was thinking of trying to predict the Karman&amp;rsquo;s vortex street using the PINNs method.&lt;/p&gt;&#xA;&lt;p&gt;In the course of my research, I learned from &lt;a href=&#34;https://arxiv.org/abs/2306.00230&#34;&gt;this paper&lt;/a&gt; that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman&amp;rsquo;s vortex in OpenFOAM first.&lt;/p&gt;&#xA;&lt;p&gt;This post is a summary of my simulation of the Karman&amp;rsquo;s vortex in OpenFOAM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Differences in governing equations - Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250123_unsteady_laminar/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250123_unsteady_laminar/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In my previous post, I summarized the learning and inference results from PINNs for Laminar Flow (laminar flow) in the unsteady state, using the governing equations of ST (Stress Tensor) form. The results were different from those in the referenced paper.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NEW:Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250121_unsteady/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250121_unsteady/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20250115_unsteady/&#34;&gt;previous post&lt;/a&gt;, I reproduced the Laminar Flow of the transition state in PINNs using the governing equations of the VP form with reference to the paper, but the results were very different from the values in the reference paper. This time, I also performed it with the governing equations of ST form, and I will summarize the results in this post.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unexplained results - Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250115_unsteady/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250115_unsteady/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I recently posted what was obtained by PINNs for &lt;a href=&#34;https://akenji3.github.io/en/post/20250111_laminarflow/&#34;&gt;steady-state laminar flow&lt;/a&gt;. This time, I applied the PINNs method to unsteady laminar flows. The results of this time are not correct and different from the results of the referenced paper. I am investigating the cause, but I do not know.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 Steady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/en/post/20250111_laminarflow/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250111_laminarflow/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have been trying to simulate steady state laminar flows with PINNs since the end of last year, but I was stumped by the derivation of the Navier Stokes (NS) equations of Cauchy stress tensor type. I coded PINNs with the governing equations based on the Velocity-pressure type NS equations. I got a result that looks like it, and I will summarize it in this post.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Walking around OpenFOAM (and ParaView)</title>
+      <link>https://akenji3.github.io/en/post/20250107_stl/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250107_stl/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Continuing from yesterday, I tried the book example (Chapter 4 of the book). It was quite interesting.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try cavity (OpenFOAM tutorial)</title>
+      <link>https://akenji3.github.io/en/post/20250106_cavity/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250106_cavity/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Yesterday, I installed OpenFOAM and ParaView and tried to simulate and visualize a Poiseuille flow (Hagen-poiseuille flow). This time, I followed the book and ran &amp;ldquo;cavity&amp;rdquo; from the OpenFOAM built-in tutorial.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try OpenFOAM and ParaView</title>
+      <link>https://akenji3.github.io/en/post/20250105_openfoam/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250105_openfoam/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can&amp;rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).&lt;/p&gt;&#xA;&lt;p&gt;I decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs - Burgers Equation</title>
+      <link>https://akenji3.github.io/en/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Recently, I summarized the &lt;a href=&#34;https://akenji3.github.io/en/post/20241219_massspringdamper/&#34;&gt;mass, spring, and damper problem&lt;/a&gt; with PINNs. This time, I&amp;rsquo;ve worked on the Burgers&amp;rsquo; equation and summarized it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs - Mass, Spring, and Damper Problem</title>
+      <link>https://akenji3.github.io/en/post/20241219_massspringdamper/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241219_massspringdamper/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I tried PINNs (Physics-Informed Neural Networks) with &lt;a href=&#34;https://akenji3.github.io/en/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt; over a year ago, After that, it was completely untouched. I have heard Riken/Matsuoka-san&amp;rsquo;s talk at a recent seminar (AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-2024/&#34;&gt;here&lt;/a&gt;), I decided to study it again and tried to implement PINNs using a physically understandable problem as an example.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building GraphRAG with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Create JupyterLab container with python version 3.11</title>
+      <link>https://akenji3.github.io/en/post/20241201_python3.11/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241201_python3.11/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I was trying a graph RAG and got an error “TypeError: ‘NoneType’ object is not iterable”. I did a lot of research, but could not find the direct cause of the error and just could not get around it. The python version of the container I was using at the time was 3.10.12. The version of python in the article I was referring to was 3.11.0, so I decided to update the python version of the container to 3.11 as a trial.&lt;/p&gt;&#xA;&lt;p&gt;This post summarizes the creation of the JupyterLab container with a python version of 3.11.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating knowledge graphs with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I created a knowledge graph as a starting point for building a RAG system. After trying several different LLMs, only gpt-4o and gpt-4o-mini worked properly. In a recent &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt;, I summarized the installation and activation of ollama.&lt;/p&gt;&#xA;&lt;p&gt;I created a knowledge graph using ollama this time, and I summarize its contents here. I hope this will be helpful, as I got into a bit of trouble in some areas.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Conversing with ollama&#39;s LLM via Open WebUI as front end</title>
+      <link>https://akenji3.github.io/en/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Yesterday in &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt; I summarized launching ollama in a docker container and using LLMs from JupyterLab. In this post, I summarize launching Open WebUI in a container and using it as a front end to connect from a browser at hand to use ollama&amp;rsquo;s LLMs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running LLMs in a local environment using ollama</title>
+      <link>https://akenji3.github.io/en/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240929_mistralai/&#34;&gt;this post&lt;/a&gt;, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in &lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hybrid GraphRAG using neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Continuing with &lt;a href=&#34;https://akenji3.github.io/en/post/20241109_graphrag/&#34;&gt;this post&lt;/a&gt; from yesterday, I summarized the construction of a GraphRAG system using hybrid search.&lt;/p&gt;&#xA;&lt;p&gt;I had imagined connecting pipes “|” like LangChain&amp;rsquo;s LCEL, but it was not what I had imagined. Please check it out below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GraphRAG using the neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;In this post&lt;/a&gt;, I created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I have tried to build a RAG system easily using the neo4j library.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building GraphRAG with Amazon Neptune and LangChain (not yet completed)</title>
+      <link>https://akenji3.github.io/en/post/20241102_neptune/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241102_neptune/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with &lt;a href=&#34;https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448&#34;&gt;this book&lt;/a&gt;. Since I&amp;rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a RAG system using the HyDE method</title>
+      <link>https://akenji3.github.io/en/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I built a RAG using HyDE (Hypothetical Document Embeddings), a method to improve RAGs.&#xA;This post summarizes my trial of HyDE. The LLM used was gpt-4o-mini to keep costs down.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Can MistaralAI&#39;s model be used for Knowledge graphs?</title>
+      <link>https://akenji3.github.io/en/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Half a month ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I tried six LLMs for using the Knowledge Graph. As I wrote there, the LLMs available at this time are OpenAI and Mistral.　So, I tried to run MistarlAI&amp;rsquo;s LLM on my PC (local environment). In fact, I found that it is not usable for the knowledge graph.&#xA;In this post, I tried to use MistaralAI via Langchain via API to see if it can be used in the knowledge graph.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First steps to RAG using knowledge graphs</title>
+      <link>https://akenji3.github.io/en/post/20240916_kgrag/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240916_kgrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A while ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240831_neo4j/&#34;&gt;this post&lt;/a&gt;, I described how I installed neo4j in a local environment (as a docker container) in order to use the knowledge graph.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try PLaMo Beta Version</title>
+      <link>https://akenji3.github.io/en/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240901_plamo/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I read &lt;a href=&#34;https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html&#34;&gt;this article&lt;/a&gt; on August 8th. According to the article, a subsidiary of Preferred Networks (PFE) will start offering a free trial of LLM, which has Japanese language performance that exceeds GPT-4, prior to offering a commercial version.&lt;/p&gt;&#xA;&lt;p&gt;I immediately applied for the free trial, received an email of acceptance, and waited for the notification of account issuance. I had received the notification e-mail on August 9th, but I had overlooked it and completely forgot that I had applied for it. Recently, after reading &lt;a href=&#34;https://www.watch.impress.co.jp/docs/news/1619221.html&#34;&gt;this post&lt;/a&gt;, I remembered about the free trial, rechecked my email, and found the account notification.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will summarize what I tried of the free trial version.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>install neo4j and try knowledge graphs</title>
+      <link>https://akenji3.github.io/en/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;So far, we have built &lt;a href=&#34;https://akenji3.github.io/en/post/20240815_rag/&#34;&gt;RAG system&lt;/a&gt; using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read &lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;this article&lt;/a&gt; and became interested in the knowledge graph and decided to try it myself.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build RAG system</title>
+      <link>https://akenji3.github.io/en/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.&lt;/p&gt;&#xA;&lt;p&gt;The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Create and evaluate databases for RAG</title>
+      <link>https://akenji3.github.io/en/post/20240814_rag_database/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240814_rag_database/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;Create a databases that can be used by RAG from the &lt;a href=&#34;https://akenji3.github.io/en/post/20240813_wikipedia_dump/&#34;&gt;text data created&lt;/a&gt; yesterday, prepare a few specific strings, and search and evaluate them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating text data for RAG from Wikipedia dump data</title>
+      <link>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>llama-cpp-python - impact of numpy version upgrade</title>
+      <link>https://akenji3.github.io/en/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240704_numpy_v2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/numpy/numpy/releases&#34;&gt;NumPy 2.0.0&lt;/a&gt; was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.&lt;/p&gt;&#xA;&lt;p&gt;This article summarizes my responses to the two errors I recently experienced.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dealing-with-errors-related-to-numpy-200&#34;&gt;Dealing with errors related to NumPy 2.0.0&lt;/h2&gt;&#xA;&lt;h4 id=&#34;background&#34;&gt;Background&lt;/h4&gt;&#xA;&lt;p&gt;I recently decided to learn RAG properly, I purchased a japanese book called &lt;a href=&#34;https://www.amazon.co.jp/dp/427423195X&#34;&gt;LLM fine tuning and RAG&lt;/a&gt;. The book uses langchain, so I decided to create a docker container for jupyterlab that incorporates the langchain library.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try RAG with LlamaIndex</title>
+      <link>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240506_llamaserver/&#34;&gt;this post&lt;/a&gt; where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex.&lt;/p&gt;&#xA;&lt;p&gt;Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try the Chatbot UI</title>
+      <link>https://akenji3.github.io/en/post/20240506_llamaserver/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240506_llamaserver/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240503_llama-cpp-python/&#34;&gt;a recent post&lt;/a&gt;, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &amp;ldquo;about the future&amp;rdquo; I would like to try to build a system that can chat like ChatGPT.&lt;/p&gt;&#xA;&lt;p&gt;This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running Elyza models on GPU using llama-cpp-python</title>
+      <link>https://akenji3.github.io/en/post/20240503_llama-cpp-python/</link>
+      <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240503_llama-cpp-python/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.&lt;/p&gt;&#xA;&lt;p&gt;The content includes some of my mistakes, as I got into some areas due to my lack of understanding.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Measuring OpenMPI performance again using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have changed the hostfile that determines the order of OpenMPI execution nodes and re-measured OpenMPI performance on the Himeno benchmark as &lt;a href=&#34;https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/&#34;&gt;this article&lt;/a&gt; I posted it. After posting, I thought about it again and decided to use objective figures instead of my own judgments based on CPU and clock performance.&lt;/p&gt;&#xA;&lt;p&gt;So this time, I decided to measure the performance of each individual workstation (node), and then decide the order of hostfile according to the results, and measure them again.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Re-measure OpenMPI performance using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A month ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240223_himenobenchmpi/&#34;&gt;this post&lt;/a&gt;, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rayleigh-Taylor Instability - Athena&#43;&#43; Tutorial 4 Additional Assignment</title>
+      <link>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240310_visit_tutorial4/&#34;&gt;this article&lt;/a&gt;, I posted about my work on tutorial 4 of Athena++. Here, I post my work on the Rayleigh-Taylor instability challenge in 3D.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;Visualization of 3D magnetohydrodynamic simulation results computed in parallel in &lt;a href=&#34;https://akenji3.github.io/en/post/20240307_athena_tutorial4/&#34;&gt;this post&lt;/a&gt;. The visualization is done with VisIt 3.3.3 running on a Mac.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240307_athena_tutorial4/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240307_athena_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Up to &lt;a href=&#34;https://akenji3.github.io/en/post/20240223_himenobenchmpi/&#34;&gt;this article&lt;/a&gt; posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 &amp;ldquo;Running 3D MHD with OpenMP and MPI&amp;rdquo; of Athena++ on multiple nodes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>easuring OpenMPI performance using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240223_himenobenchmpi/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240223_himenobenchmpi/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;As I stated in &lt;a href=&#34;https://akenji3.github.io/en/post/20240222_openmpi_en/&#34;&gt;this post&lt;/a&gt; yesterday, I was able to run a program using OpenMPI on a Docker container running on multiple nodes. I wanted to find out how much performance I could improve by using OpenMPI, so I decided to benchmark it.&#xA;Actually, I had some difficulties this time as well, and I would be happy if that part is helpful for others.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Run Docker containers implementing OpenMPI on multiple nodes</title>
+      <link>https://akenji3.github.io/en/post/20240222_openmpi/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240222_openmpi/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;As previously mentioned in &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena&amp;#43;&amp;#43;_en/&#34;&gt;this post&lt;/a&gt;, I am moving forward with the goal of running Athena++ on multiple nodes. As a preliminary step, I have attempted to run a Docker container with OpenMPI configured on multiple nodes. I will post a summary of what I have done, as I had some difficulties and it may be helpful to others.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Run the Athena&#43;&#43; tutorial</title>
+      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In a &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena&amp;#43;&amp;#43;_en/&#34;&gt;previous post&lt;/a&gt;, I summarized the contents of the first tutorial &amp;ldquo;1D Hydorodynamics and MHD&amp;rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
+      <link>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have been interested in trying out astrophysics-related simulations for some time, and had been checking out ENZO, GADGET, GIZMO, and others. I happened to know Athena, and when I looked into it, I found that Associate Professor Kengo Tomita of Tohoku University maintains a Japanese page and has some information in Japanese, so I decided to give it a try.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarize the process of installing and running the tutorial, and post it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Execution of a Japanese LLM by Quantization</title>
+      <link>https://akenji3.github.io/en/post/20240102_quantization/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240102_quantization/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20231230_japanesellms_en/&#34;&gt;this article&lt;/a&gt;, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Run Japanese LLMs on an on-premise environment</title>
+      <link>https://akenji3.github.io/en/post/20231230_japanesellms/</link>
+      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20231230_japanesellms/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Looking back on the year 2023, it was a year in which many Japanese LLMs (Large Language Models) were released. I have tried to run some of them in my home environment, so I will summarize them here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modify CNN training code to work with Horovod</title>
+      <link>https://akenji3.github.io/en/post/20231104_horovod_modifycnn/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20231104_horovod_modifycnn/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;With &lt;a href=&#34;https://akenji3.github.io/en/post/20231014_horovodindocker_en/&#34;&gt;Try Horovod in Docker&lt;/a&gt;, you can now use Horovod in your own environment (on-premises) and in a Docker environment. The next thing to do is to modify the training code running on a single server to apply it to distributed training using Horovod! For starters, I modified a relatively simple CNN code to allow distributed learning using Horovod, which is summarized in the following article.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try Horovod in Docker</title>
+      <link>https://akenji3.github.io/en/post/20231014_horovodindocker/</link>
+      <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20231014_horovodindocker/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been interested in Distributed Training for about a year. I have been experimenting with a distributed learning framework called Horovod on multiple TITAN-V-capable machines. I finally got a distributed training sample working, so I am posting it here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Uninstall Rootless Docker</title>
+      <link>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In May of this year, I posted an article &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;Building Rootless Docker&lt;/a&gt;, but for some reason I decided to uninstall rootless docker. The following is a summary of the uninstallation procedure.&#xA;I will post the details of the circumstances that led to the uninstallation of rootless docker later.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Trying NVIDIA Modulus - Introduction to PINNs</title>
+      <link>https://akenji3.github.io/en/post/20230918_modulus_install/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230918_modulus_install/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Over a month ago, I became interested in NVIDIA Modulus at the &lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;How to Speed Up Simulation with AI Surrogate Models?&lt;/a&gt; seminar I attended, I became interested in NVIDIA Modulus, so I bought the book and started studying it.&#xA;As a prerequisite for future study of Modulus, I installed Modulus in my environment, so I summarized the installation process as &amp;ldquo;Introduction to PINNs&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>running rinna 3.6b on a docker container</title>
+      <link>https://akenji3.github.io/en/post/20230814_rinna36b/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230814_rinna36b/</guid>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;&#xA;&lt;p&gt;I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.&lt;/p&gt;&#xA;&lt;p&gt;I ran into some problems in doing so, which are summarized below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install ubuntu 22.04 LTS</title>
+      <link>https://akenji3.github.io/en/post/20230709_ubuntu2024_install/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230709_ubuntu2024_install/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has been a year since Ubuntu 22.04 LTS Jammy Jellyfish was released, and I decided to switch from my previous 20.04 to 22.04, thinking that I would be able to get used to the various software and other features.&lt;/p&gt;&#xA;&lt;p&gt;I installed ubuntu 22.04 Japanese Remix on several workstations so that I can use Japanese easily. I have gotten a bit stuck trying to install ubuntu 22.04 on a NVIDIA GPU-equipped workstation, so here is the situation and how I responded.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build a private docker registry</title>
+      <link>https://akenji3.github.io/en/post/20230503_privateregistry/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230503_privateregistry/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;a previous post&lt;/a&gt; I summarized how to start a docker container in user mode.&lt;/p&gt;&#xA;&lt;p&gt;When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.&lt;/p&gt;&#xA;&lt;p&gt;In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a Rootless Docker</title>
+      <link>https://akenji3.github.io/en/post/20230502_rootlessdocker/</link>
+      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230502_rootlessdocker/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been using singularity containers instead of docker. the reason I have avoided using docker is that it requires root privileges to launch containers. I don&amp;rsquo;t have to worry about it because I&amp;rsquo;m running it at home.&lt;/p&gt;&#xA;&lt;p&gt;I forgot the reason why, but I found out that docker has a rootless mode that allows you to run docker in normal user mode, so I decided to give it a try this time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Speed-up Learning and inference on Pytorch</title>
+      <link>https://akenji3.github.io/en/post/20230318_pytorch_speed-up/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230318_pytorch_speed-up/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In my home environment where I use NFS to store JupyterLab notebooks, I measured the performance when the NFS server is a RaspberryPi or HP Z240, and found that in the learning loop (state in which epochs are stacked), there is no significant difference whether the NB is stored on an NFS server or locally. I found that there was no significant difference between NBs stored on an NFS server or locally.&lt;/p&gt;&#xA;&lt;p&gt;Therefore, I have challenged to speed up the learning process, and I summarize the progress/results here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About the Galaxy Morphological Classification Dataset</title>
+      <link>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230223_galaxy_dataset/</guid>
+      <description>&lt;h2 id=&#34;in-the-beginning&#34;&gt;In the beginning&lt;/h2&gt;&#xA;&lt;p&gt;In the five articles from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; to &lt;a href=&#34;https://akenji3.github.io/en/post/20230219_galaxy_vit_2_en/&#34;&gt;this article&lt;/a&gt; Galaxy shape(morphological) classification was performed using CNN (VGG16, ResNet) and ViT.&#xA;In this article, I would like to consider the dataset used for the galaxy morphological classification, as I would like to re-examine the dataset when analyzing errors in the future.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 2）</title>
+      <link>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</link>
+      <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230109_galaxy_vit_1_en/&#34;&gt;this article&lt;/a&gt;, we performed galaxy shape classification using the Vision Transformer (ViT) of Transformer&amp;rsquo;s adaptation to image processing. This time, we performed the same classification using a model already trained as a model for ViT.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (ViT)（Part 1）</title>
+      <link>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;this article&lt;/a&gt; at the end of last year, we mentioned that we performed galaxy shape classification with CNN (VGG16, ResNet). In this article, we will perform galaxy shape classification with a Transformer-based Vison Transformer (ViT).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN) (Part 1)</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have been studying Deep Learning for a while and thought I would try it out in my field of interest. I like astronomy and am particularly interested in stellar evolution, the formation of elements, and galaxy formation and evolution. I tried to classify the shape of galaxies, which seemed to be relatively easy to do.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 2）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_2/</guid>
+      <description>&lt;p&gt;Continued from &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_en/&#34;&gt;previous&lt;/a&gt; article.&lt;/p&gt;&#xA;&lt;p&gt;Why doesn&amp;rsquo;t the training/testing error improve after repeated epochs?&#xA;The results of various attempts to answer this question are summarized below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Galaxy Shape Classification by Deep Learning (CNN)（Part 3）</title>
+      <link>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/</guid>
+      <description>&lt;p&gt;Continued from previous article.&lt;/p&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20221230_galaxy_cnn_2_en/&#34;&gt;the previous&lt;/a&gt;, we studied with VGG16, but this time we will use ResNet for the model.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a GPU Cluster with Kubernetes - the First Steps</title>
+      <link>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;About a month ago, I wrote an article about building a GPU cluster using kubernetes in &lt;a href=&#34;https://akenji3.github.io/post/20220821_kubernetes/&#34;&gt;this article&lt;/a&gt;. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&amp;rsquo;ll summarize it here.&lt;/p&gt;&#xA;&lt;p&gt;In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &amp;ldquo;the first step&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Change display resolution - xrandr BadMatch support</title>
+      <link>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20220914_xrandr_badmatch/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Immediately after installing Ubuntu, the display resolution was set to 1368x768.&#xA;The screen was inconveniently small when working with multiple terminals open, and since I had connected to a display (JAPANNEXT JN-MD-IPS1562FHDR) that can display 1920x1080, I wanted to display it in that resolution.&lt;/p&gt;&#xA;&lt;p&gt;I tried to change the resolution, but got into a bit of trouble, so here is a summary of the process.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.bioerrorlog.work/entry/change-resolution&#34;&gt;Ubuntuディスプレイ解像度の変更|1920x1080&lt;/a&gt;  Reading this information, it seems that it is easy to change the resolution using the xrandr command, and it only takes a few minutes of work. I thought it would only take a few minutes to change the display resolution, so I started to work on it.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/xrandr#Permanently_adding_undetected_resolutions&#34;&gt;4.3 Permanently adding undetected resolutions&lt;/a&gt;  This is the page I referred to when editing xorg.conf.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://forums.developer.nvidia.com/t/external-monitor-cant-set-desired-resolution/197753&#34;&gt;External Monitor, can&amp;rsquo;t set desired resolution&lt;/a&gt;  *This page solved the problem.&#xA;I tried many things without success, and after searching the net further, I finally found an article about the same phenomenon I was experiencing.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/leeseungcheol/edid-generator&#34;&gt;edid-generator&lt;/a&gt;  Github page referenced from the above page.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/NVIDIA/Troubleshooting#xrandr_BadMatch&#34;&gt;19 xrandr BadMatch&lt;/a&gt;  Why xrandr is a BadMatch.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/xrandr#EDID_checksum_is_invalid&#34;&gt;4.2.1 EDID checksum is invalid&lt;/a&gt;  An article about EDID related to the above.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://kodi.wiki/view/Archive:Creating_and_using_edid.bin_via_xorg.conf&#34;&gt;Archive:Creating and using edid.bin via xorg.conf&lt;/a&gt;  An article about edid.bin from xorg. conf to use edid.bin via xorg.conf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;&#xA;&lt;h3 id=&#34;normal-way&#34;&gt;Normal way&lt;/h3&gt;&#xA;&lt;p&gt;To change the resolution of the display, go to &amp;ldquo;Settings&amp;rdquo; -&amp;gt; &amp;ldquo;Display&amp;rdquo; and specify the resolution, but in my environment, there is no 1920x1080 entry in this list!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GPU cluster construction with Kubernetes (not yet completed)</title>
+      <link>https://akenji3.github.io/en/post/20220821_kubernetes/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20220821_kubernetes/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I took on the challenge of creating a GPU cluster using multiple workstations I have set up at home to study Kubernetes.&lt;/p&gt;&#xA;&lt;p&gt;It was a hurdle for me, as I was new to Kubernetes. This is because I had to learn from the documentation whether the operations were necessary only during installation or when building the cluster (during operation).&lt;/p&gt;&#xA;&lt;p&gt;As it stands, the GPU cluster is not operational!　This document is incomplete.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Publish a static blog created by Hugo on GitHub Pages</title>
+      <link>https://akenji3.github.io/en/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;&#xA;&lt;p&gt;I had been thinking of the place to compile and store some researches and trials I had done on my field of interest. I decided to use mark downs to describe them, because I&amp;rsquo;d like to be able to rerecence pages on the internet, display source files such as shell script, and even express formulas.&lt;/p&gt;&#xA;&lt;p&gt;When I was thinking about it, GigHub comes to mind and I decided to store and publish it on GitHub Pages.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

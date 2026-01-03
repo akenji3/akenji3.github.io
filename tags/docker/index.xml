@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/docker/</link>
+    <description>Recent content in Docker on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCodeからリモートdockerコンテナのpython開発環境に接続</title>
+      <link>https://akenji3.github.io/post/20260103_uv-docker/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260103_uv-docker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えば&lt;a href=&#34;https://akenji3.github.io/post/20241201_python3.11/&#34;&gt;この記事&lt;/a&gt;。&#xA;最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker,SingularityをUbuntu20.04にインストール</title>
+      <link>https://akenji3.github.io/post/20210904_docker_singularity_install/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_docker_singularity_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210405_ubuntu2004_install/&#34;&gt;以前この記事&lt;/a&gt;でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Run the Athena&#43;&#43; tutorial - </title>
+
+  <meta name="description" content="Introduction
+In a previous post, I summarized the contents of the first tutorial &ldquo;1D Hydorodynamics and MHD&rdquo; after installing Athena&#43;&#43;. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240211_athena_tutorial2-3\/",
+          "name": "Run the athena tutorial"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Run the Athena\u002b\u002b tutorial",
+  "description" : "Introduction In a previous post, I summarized the contents of the first tutorial \u0026ldquo;1D Hydorodynamics and MHD\u0026rdquo; after installing Athena\u002b\u002b. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.\n",
+  "inLanguage" : "en",
+  "wordCount":  883 ,
+  "datePublished" : "2024-02-11T00:00:00\u002b00:00",
+  "dateModified" : "2024-02-11T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240211_athena_tutorial2-3\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Run the Athena&#43;&#43; tutorial" />
+<meta property="og:description" content="Introduction
+In a previous post, I summarized the contents of the first tutorial &ldquo;1D Hydorodynamics and MHD&rdquo; after installing Athena&#43;&#43;. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Run the Athena&#43;&#43; tutorial" />
+  <meta name="twitter:description" content="Introduction
+In a previous post, I summarized the contents of the first tutorial &ldquo;1D Hydorodynamics and MHD&rdquo; after installing Athena&#43;&#43;. This post is a continuation of that post and …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20240211_athena_tutorial2-3/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Run the Athena&#43;&#43; tutorial</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 11, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240211_athena_tutorial2-3/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>In a <a href="https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/">previous post</a>, I summarized the contents of the first tutorial &ldquo;1D Hydorodynamics and MHD&rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.</p>
+<h2 id="sources">Sources.</h2>
+<ol>
+<li><a href="https://github.com/PrincetonUniversity/athena/wiki/Tutorial">Tutorial</a> Tutorial from the official Athena++ page. I ran &ldquo;2. 2D MHD&rdquo; and &ldquo;3. Modifying the Input File&rdquo; this time.</li>
+<li><a href="https://www.astr.tohoku.ac.jp/~tomida/athena/tutorial.html">Athena++ Tutorial</a> This is a Japanese page maintained by Dr. Tomita.</li>
+<li>[Installing and Starting VisIt](<a href="https://visit-sphinx-github-user-manual.readthedocs.io/en/v3.3.3/getting_started/Installing_VisIt">https://visit-sphinx-github-user-manual.readthedocs.io/en/v3.3.3/getting_started/Installing_VisIt</a>. html) The installation page of VisIt, a visualization software. The version I installed is 3.3.3.</li>
+<li><a href="https://visit-dav.github.io/visit-website/">VisIt</a>    &ldquo;latest release&rdquo; in &ldquo;Download Now&rdquo; on this page.  That is <a href="https://visit-dav.github.io/visit-website/releases-as-tables/#latest">here</a> I download &ldquo;Series 3.3(latest)&rdquo;.</li>
+<li><a href="https://www.astro.phys.s.chiba-u.ac.jp/cans/doc/application_OTvortex.html">Orszag-Tang vortex problem</a> A page describing the physical aspects regarding the tutorial &ldquo;2D MHD&rdquo;. Chiba University has released a magnetohydrodynamic simulation code called <a href="https://www.astro.phys.s.chiba-u.ac.jp/cans/doc/index.html">CANS+</a>.</li>
+</ol>
+<h2 id="execution-details">Execution details</h2>
+<h3 id="install-visit-visualization-software">Install VisIt, visualization software</h3>
+<p>Install the visualization software called VisIt that will be used from now on.</p>
+<h4 id="installation-on-ubuntu">Installation on Ubuntu</h4>
+<p>To install on Ubuntu, download the Ubuntu20 tgz from the table in Series 3.3, as described in Source 4.</p>
+<p>Subsequent operations follow &ldquo;1.2. Installing on Linux&rdquo; in Source 3.</p>
+<h4 id="installation-on-mac">Installation on Mac</h4>
+<p>To install on a Mac, download the Mac 12.6 dmg from the table in Series 3.3, open the dmg, and copy it to Applications.</p>
+<h3 id="2d-orszag-tang-vortex">2D Orszag Tang Vortex</h3>
+<h4 id="code-generation-and-make">code generation and make</h4>
+<p>First, start the docker container created in the previous <a href="https://akenji3.github.io/en/post/20240203_athena&#43;&#43;_en/">post</a>. The following is the operation in the docker container. The working directory in the container is the same as in the previous post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># python configure.py --prob orszag_tang -b --flux hlld</span>
+</span></span><span class="line"><span class="cl">  Your Athena++ distribution has now been configured with the following options:
+</span></span><span class="line"><span class="cl">  Problem generator:            orszag_tang
+</span></span><span class="line"><span class="cl">  Coordinate system:            cartesian
+</span></span><span class="line"><span class="cl">  Equation of state:            adiabatic
+</span></span><span class="line"><span class="cl">  Riemann solver:               hlld
+</span></span><span class="line"><span class="cl">  Magnetic fields:              ON
+</span></span><span class="line"><span class="cl">  Number of scalars:            <span class="m">0</span>
+</span></span><span class="line"><span class="cl">  Number of chemical species:   <span class="m">0</span>
+</span></span><span class="line"><span class="cl">  Special relativity:           OFF
+</span></span><span class="line"><span class="cl">  General relativity:           OFF
+</span></span><span class="line"><span class="cl">  Radiative Transfer:           OFF
+</span></span><span class="line"><span class="cl">  Implicit Radiation:           OFF
+</span></span><span class="line"><span class="cl">  Cosmic Ray Transport:         OFF
+</span></span><span class="line"><span class="cl">  Frame transformations:        OFF
+</span></span><span class="line"><span class="cl">  Self-Gravity:                 OFF
+</span></span><span class="line"><span class="cl">  Super-Time-Stepping:          OFF
+</span></span><span class="line"><span class="cl">  Chemistry:                    OFF
+</span></span><span class="line"><span class="cl">  KIDA rates:                   OFF
+</span></span><span class="line"><span class="cl">  ChemRadiation:                OFF
+</span></span><span class="line"><span class="cl">  chem_ode_solver:              OFF
+</span></span><span class="line"><span class="cl">  Debug flags:                  OFF
+</span></span><span class="line"><span class="cl">  Code coverage flags:          OFF
+</span></span><span class="line"><span class="cl">  Linker flags:
+</span></span><span class="line"><span class="cl">  Floating-point precision:     double
+</span></span><span class="line"><span class="cl">  Number of ghost cells:        <span class="m">2</span>
+</span></span><span class="line"><span class="cl">  MPI parallelism:              OFF
+</span></span><span class="line"><span class="cl">  OpenMP parallelism:           OFF
+</span></span><span class="line"><span class="cl">  FFT:                          OFF
+</span></span><span class="line"><span class="cl">  HDF5 output:                  OFF
+</span></span><span class="line"><span class="cl">  Compiler:                     g++
+</span></span><span class="line"><span class="cl">  Compilation command:          g++  -O3 -std<span class="o">=</span>c++11
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># make clean</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># make</span>
+</span></span></code></pre></div><h4 id="working-directory">working directory</h4>
+<p>The working directory in the container is the same as in the previous post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># pwd</span>
+</span></span><span class="line"><span class="cl">/workdir/kenji/t2
+</span></span><span class="line"><span class="cl"><span class="c1"># cp ../../athena/inputs/mhd/athinput.orszag-tang .</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ls -l</span>
+</span></span><span class="line"><span class="cl">total <span class="m">4</span>
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> root root <span class="m">1745</span> Feb  <span class="m">8</span> 07:31 athinput.orszag-tang
+</span></span></code></pre></div><h4 id="execution">execution</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ../../athena/bin/athena -i athinput.orszag-tang</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Setup complete, entering main loop...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">cycle</span><span class="o">=</span><span class="m">0</span> <span class="nv">time</span><span class="o">=</span>0.0000000000000000e+00 <span class="nv">dt</span><span class="o">=</span>3.6118630426454975e-04
+</span></span><span class="line"><span class="cl"><span class="nv">cycle</span><span class="o">=</span><span class="m">1</span> <span class="nv">time</span><span class="o">=</span>3.6118630426454975e-04 <span class="nv">dt</span><span class="o">=</span>3.6109645019044242e-04
+</span></span><span class="line"><span class="cl">・・・（略）・・・
+</span></span><span class="line"><span class="cl"><span class="nv">cycle</span><span class="o">=</span><span class="m">3562</span> <span class="nv">time</span><span class="o">=</span>9.9978638766687489e-01 <span class="nv">dt</span><span class="o">=</span>2.1361233312511274e-04
+</span></span><span class="line"><span class="cl"><span class="nv">cycle</span><span class="o">=</span><span class="m">3563</span> <span class="nv">time</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">dt</span><span class="o">=</span>2.6597077446314599e-04
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Terminating on <span class="nb">time</span> limit
+</span></span><span class="line"><span class="cl"><span class="nv">time</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">cycle</span><span class="o">=</span><span class="m">3563</span>
+</span></span><span class="line"><span class="cl"><span class="nv">tlim</span><span class="o">=</span>1.0000000000000000e+00 <span class="nv">nlim</span><span class="o">=</span>-1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">zone-cycles <span class="o">=</span> <span class="m">890750000</span>
+</span></span><span class="line"><span class="cl">cpu <span class="nb">time</span> <span class="nv">used</span>  <span class="o">=</span> 5.8290348500000005e+02
+</span></span><span class="line"><span class="cl">zone-cycles/cpu_second <span class="o">=</span> 1.5281260498897170e+06
+</span></span></code></pre></div><h4 id="visualization">Visualization</h4>
+<p>For visualization from a Mac, the working directory described above was NFS mounted from a Mac so that the generated vtk files could be referenced.</p>
+<p>The visualization procedure was performed as described in &ldquo;Visualize and analyze the results.&rdquo; in Source 1.</p>
+<p><img src="/images/20240211_Athena_Tutorial2-3/Orszag-Tang_500.png" alt="Orszag -Tang500"></p>
+<h3 id="change-input-file-parameter-file">Change Input file (parameter file)</h3>
+<h4 id="change-the-resolution">Change the resolution</h4>
+<p>The third tutorial in Sources 1. and 2. shows an example of changing the grid resolution from 200 to 400, but the actual parameter file included in the Athena++ I installed was set to 500. I reduced the resolution to 200 and ran the simulation.</p>
+<p>Also, in the tutorial, when I changed only nx1 and nx2 of &ldquo;mesh&rdquo; block, the following error occurred.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ../../athena/bin/athena -i athinput.orszag-tang_low</span>
+</span></span><span class="line"><span class="cl"><span class="c1">### FATAL ERROR in Mesh constructor</span>
+</span></span><span class="line"><span class="cl">the Mesh must be evenly divisible by the MeshBlock
+</span></span></code></pre></div><p>I found that nx1 and nx2 of &ldquo;meshblock&rdquo; block also need to be changed.</p>
+<h4 id="add-output-items">Add output items</h4>
+<p>Athen++ can output not only basic variables (primitive variables, density/velocity/pressure/magnetic field, etc.) but also invariant variables (conservative variables, mass density/momentum, etc.).</p>
+<p>To do so, add the following to the &ldquo;output&rdquo; block</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">&lt;output3&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">file_type</span>  <span class="o">=</span> vtk       <span class="c1"># VTK data dump</span>
+</span></span><span class="line"><span class="cl"><span class="nv">variable</span>   <span class="o">=</span> cons      <span class="c1"># variables to be output</span>
+</span></span><span class="line"><span class="cl"><span class="nv">id</span>         <span class="o">=</span> cons      <span class="c1"># file ID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">dt</span>         <span class="o">=</span> 0.01      <span class="c1"># time increment between outputs</span>
+</span></span></code></pre></div><p>At this time, if the id of the &ldquo;output2&rdquo; block is also changed as follows, the output file OrszangTnag.block0.out2.????? .vtk is changed to OrszangTnag.block0.prim.????? .vtk.</p>
+<h3 id="relationship-between-resolution-and-execution-speed">Relationship between resolution and execution speed</h3>
+<p>The default grid resolution was 500. As noted above, the grid resolution was set to 200. The following is an image visualized with a grid resolution of 200.</p>
+<p><img src="/images/20240211_Athena_Tutorial2-3/Orszag-Tang_200.png" alt="Orszag-Tang_200"></p>
+<p>You can see that the resolution is rough compared to the first 500.</p>
+<p>Furthermore, the following table compares the execution time (cpu time used) with 250, half of 500.</p>
+<table>
+  <thead>
+      <tr>
+          <th>number of grids</th>
+          <th>cpu time use (sec)</th>
+          <th>cycle</th>
+          <th>ratio of measured value vs. 500</th>
+          <th>theoretical value vs. 500</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>500</td>
+          <td>583</td>
+          <td>3563</td>
+          <td>-</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>250</td>
+          <td>70</td>
+          <td>1728</td>
+          <td>8.3</td>
+          <td>8.4←2x2x2.1</td>
+      </tr>
+      <tr>
+          <td>200</td>
+          <td>36</td>
+          <td>1368</td>
+          <td>16.2</td>
+          <td>16.3←2.5x2.5x2.6</td>
+      </tr>
+  </tbody>
+</table>
+<p>In the above table, &ldquo;cpu time use&rdquo; and &ldquo;cycle&rdquo; are the output results. The colomn &ldquo;ratio of measured values vs. 500&rdquo; is the ratio of 250 and 200 to 500 when the ratio is 1. The theoretical value is the value obtained by multiplying the grid ratio by the ratio of the number of time increments shown in &ldquo;cycle&rdquo;.</p>
+<p>The measured and theoretical values appear to be in good agreement.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f&amp;text=Run%20the%20Athena%2b%2b%20tutorial&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Run%20the%20Athena%2b%2b%20tutorial" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Run%20the%20Athena%2b%2b%20tutorial" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f&amp;title=Run%20the%20Athena%2b%2b%20tutorial" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240211_athena_tutorial2-3%2f&amp;description=Run%20the%20Athena%2b%2b%20tutorial" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/" data-toggle="tooltip" data-placement="top" title="Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20240222_openmpi/" data-toggle="tooltip" data-placement="top" title="Run Docker containers implementing OpenMPI on multiple nodes">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Install ubuntu 24.04 LTS - </title>
+
+  <meta name="description" content="Introduction
+It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.
+I usually installed from the Japanese Remix ISO image, but since this version Japanese Remix is not released, I downloaded the image from Canonical&rsquo;s page and installed it."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250325_ubuntu2404\/",
+          "name": "Install ubuntu 24.04 lts"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Install ubuntu 24.04 LTS",
+  "description" : "Introduction It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.\nI usually installed from the Japanese Remix ISO image, but since this version Japanese Remix is not released, I downloaded the image from Canonical\u0026rsquo;s page and installed it.\n",
+  "inLanguage" : "en",
+  "wordCount":  1365 ,
+  "datePublished" : "2025-03-25T00:00:00\u002b00:00",
+  "dateModified" : "2025-03-25T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250325_ubuntu2404\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Install ubuntu 24.04 LTS" />
+<meta property="og:description" content="Introduction
+It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.
+I usually installed from the Japanese Remix ISO image, but since this version Japanese Remix is not released, I downloaded the image from Canonical&rsquo;s page and installed it.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20250325_ubuntu2404/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Install ubuntu 24.04 LTS" />
+  <meta name="twitter:description" content="Introduction
+It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.
+I usually …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20250325_ubuntu2404/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Install ubuntu 24.04 LTS</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 25, 2025
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250325_ubuntu2404/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.</p>
+<p>I usually installed from the Japanese Remix ISO image, but since this version <a href="https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix">Japanese Remix is not released</a>, I downloaded the image from Canonical&rsquo;s page and installed it.</p>
+<h2 id="sources">Sources.</h2>
+<ol>
+<li>
+<p><a href="https://pc.watch.impress.co.jp/docs/column/ubuntu/1590461.html">Thorough explanation of the new installer of Ubuntu 24.04 LTS</a> - An article written by Ubuntu Japanese Team. The installation procedure is explained in an easy-to-understand manner.</p>
+</li>
+<li>
+<p><a href="https://jp.ubuntu.com/download">Get Ubuntu</a> - Download the ISO image here</p>
+</li>
+<li>
+<p>インストール後に実施／設定すること。インストール後の設定に関する記事。以下は参考にはしたが、自分が設定した内容については、後程説明する。</p>
+<ul>
+<li><a href="https://zenn.dev/sprout2000/articles/8ea4a77d81583a">Ten things to set up after installing Ubuntu 22.04</a></li>
+<li><a href="https://tai-kun.dev/bin/ubuntu24.04-toto/">What to do after installing Ubuntu 24.04</a></li>
+<li><a href="https://e-frontier.systems/2024/07/5708/">What to do after installing Ubuntu 24.04</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://qiita.com/yu_uk/items/522cc91856a7262f343f">How to install Docker on Ubuntu 24.04</a> - I installed Docker by referring here. Also refer to the installation instructions in <a href="https://docs.docker.com/engine/install/ubuntu/">the original here</a>.</p>
+</li>
+<li>
+<p><a href="https://qiita.com/murakamixi/items/5f6cf5c1ab6b4090f64a">docker: Error response from daemon: could not select device driver &quot;&quot; with capabilities: [[gpu]].ERRO[0000] error waiting for container: context canceledを解決する</a>  -  This page shows the countermeasure for the error “docker: Error response from daemon: could not select device driver ‘’ with capabilities: [[gpu]]” when running a container that uses a GPU.</p>
+</li>
+</ol>
+<h2 id="installation-environment">Installation environment</h2>
+<p>Install Ubuntu 24.04 on jupiter, saisei, and europe in the following configuration diagram.</p>
+<p><img src="/images/20250325_Ubuntu2404/20250324_%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E6%A7%8B%E6%88%90%E5%9B%B3.png" alt="SystemConfig"></p>
+<h2 id="ubuntu-2404-installation-instructions">Ubuntu 24.04 installation instructions</h2>
+<h4 id="prepare-boot-usb-to-install">Prepare boot USB to install</h4>
+<p>I created an installation USB on my Mac. I downloaded the ISO file from source 2. and used balenaEtcher to create the boot USB.</p>
+<h4 id="installation">Installation</h4>
+<p>Insert the USB created above and boot from USB in BIOS settings. After that, I installed almost following the default instructions, referring to source 1. Since I am using HHKB(US), I made sure to select US keyboard when setting up the keyboard, and to specify the proprietary software installation.</p>
+<p>The installation took about 15 to 20 minutes. Follow the instructions to unplug the USB cable and press “Enter” to reboot.</p>
+<h4 id="around-the-gpu">Around the GPU</h4>
+<p>Once the installation is complete, “nvidia-smi” and “NVIDIA Settings” are ready to use.</p>
+<p>By the way, the version confirmed by nvidia-smi is as follows.</p>
+<ul>
+<li>Driver Version: 550.120</li>
+<li>CUDA Version: 12.4</li>
+</ul>
+<h4 id="error">Error</h4>
+<p>I installed Ubuntu 24.04 on 3 workstations, but during installation on one of them (saisei), I got an error message saying “something is wrong” and could not install Ubuntu 24.04. I tried 3 times, but all failed. So I installed Ubuntu 22.04LTS again and then updated to 24.04 through a distribution upgrade. I looked at the logs but could not figure out why I got the “something is wrong” error.</p>
+<h2 id="インストール後の設定">インストール後の設定</h2>
+<p>以下は何も自分の好みで設定している。以下を参考に自分の好みに従って設定して欲しい。</p>
+<h4 id="set-up-around-the-desktop">Set up around the desktop</h4>
+<h5 id="set-up-your-desktop-and-mouse">Set up your desktop and mouse</h5>
+<p>Settings -&gt; ubuntu Desktop</p>
+<p>​			-&gt; Show home folder OFF</p>
+<p>​			-&gt; Dock -&gt; Automatically hide Dock ON</p>
+<p>​			-&gt; Panel Mode OFF</p>
+<p>​			-&gt; Icon size 32</p>
+<p>​			-&gt; Dock movement settings -&gt; Show Trash OFF</p>
+<p>​		-&gt; Mouse -&gt; “Natural Scroll</p>
+<h5 id="stop-displaying-japanese-in-home-directory">Stop displaying Japanese in home directory</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nv">LANG</span><span class="o">=</span>C xdg-user-dirs-gtk-update
+</span></span></code></pre></div><h5 id="shorten-the-prompts">Shorten the prompts.</h5>
+<p>In the .bashrc PS1 settings string, change w → W (3 places).</p>
+<h4 id="install-chrome">Install Chrome</h4>
+<p>Using Firefox, follow the steps below to install Chrome.</p>
+<ol>
+<li>download Chrome for Linux from the chrome page.
+Select 64-bit.deb and “Accept and Install”.</li>
+<li>in Files, click the *.deb file in the Downloads directory, right-drag, select “Open in App Center”, and execute “Install”.</li>
+<li>now you are in the App Center, select Google Chrome and launch it.
+After that, sync with the Chrome function and you will have the same environment as the other devices.</li>
+</ol>
+<h4 id="configure-network">Configure network</h4>
+<h5 id="install-ifconfig">Install ifconfig</h5>
+<p>Set up a static IP address for each workstation.</p>
+<p>Install ifconfig to verify IP addresses.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install net-tools
+</span></span></code></pre></div><h5 id="configure-your-network-using">Configure your network using</h5>
+<ol>
+<li>Open “Settings”  -&gt; “Network”.</li>
+<li>Click on the properties (◉) of the already connected Ethernet to open it.
+In the case of jupiter, enp1s0 is the adapter name.</li>
+<li>Open the “IPv4” tab</li>
+<li>select “Manual” for IPv4 method (4)</li>
+<li>set the address, netmask, and gateway</li>
+<li>set DNS IP address (if necessary)</li>
+<li>finish with “Apply”.
+At this stage, the settings made in 3 to 5 are reflected.</li>
+</ol>
+<h5 id="install-open-ssh-server">Install Open SSH server</h5>
+<p>Install Open SSH server to connect via ssh from another machine (in my case, my Mac).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install openssh-server
+</span></span><span class="line"><span class="cl">$ sudo systemctl status ssh
+</span></span></code></pre></div><p>The above configuration will allow the Mac client to connect via ssh. If you have connected via ssh before, you will get the following message: Delete the corresponding entry in the file $HOME/.ssh/know_hosts.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span></span><span class="line"><span class="cl">@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+</span></span><span class="line"><span class="cl">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</span></span><span class="line"><span class="cl">・・・ abbreviation used below ・・・
+</span></span></code></pre></div><h5 id="nfs-mount">NFS mount</h5>
+<p>In my environment, the RaspberryPI and europe file systems are shared from other machines by NFS mounts. Therefore, install an NFS client.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install nfs-common
+</span></span></code></pre></div><p>Set up /etc/fstab with the information to mount NFS. The following was added to the end of /etc/fstab.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">tail</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
+</span></span><span class="line"><span class="cl"><span class="mf">192.168</span><span class="o">.</span><span class="mf">11.9</span><span class="p">:</span><span class="o">/</span><span class="k">export</span><span class="o">/</span><span class="n">nfs</span>  <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">nfs</span>    <span class="n">nfs</span>
+</span></span><span class="line"><span class="cl"><span class="mf">192.168</span><span class="o">.</span><span class="mf">11.8</span><span class="p">:</span><span class="o">/</span><span class="n">ext</span><span class="o">/</span><span class="n">nfs</span>  <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">nfs2</span>    <span class="n">nfs</span>
+</span></span></code></pre></div><p>With the configuration up to this point, NFS mounting is possible.</p>
+<h4 id="settings-around-input">Settings around input</h4>
+<h5 id="setting-up-japanese-environment">Setting up Japanese environment</h5>
+<h5 id="installing-and-configuring-emacs">Installing and configuring emacs</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo apt install emacs-nox
+</span></span></code></pre></div><p>For emacs configuration, ~/.emacs.d should be configured with the following init.el. To avoid backup files being created in the working directory while editing, create a ~/.ehist directory and set up backup files there.</p>
+<h2 id="install-docker">Install Docker</h2>
+<h4 id="installation-1">Installation</h4>
+<p>Install Docker, referring to Source 4. The details of the installation are omitted, so please refer to Source 4.</p>
+<p>I did not set up the Docker to run as a general user, but this time I set up the following. Until now, I had to “sudo docker &hellip;” and enter my password, but with this setting, sudo and password are no longer necessary.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo usermod -aG docker <span class="nv">$USER</span>
+</span></span></code></pre></div><h4 id="error-with-container-to-use-gpu">Error with container to use GPU</h4>
+<p>When I tried to start a container to use jupyterlab and PINNs, I got the following error.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker: Error response from daemon: could not <span class="k">select</span> device driver <span class="s2">&#34;&#34;</span> with capabilities: <span class="o">[[</span>gpu<span class="o">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Run <span class="s1">&#39;docker run --help&#39;</span> <span class="k">for</span> more information
+</span></span></code></pre></div><p>Referring to source 5., installing the NVIDIA Container Toolkit solved the problem.</p>
+<h2 id="summary">Summary</h2>
+<p>So far, I have migrated to 16.04 and installed LTS about every two years. The major flow of installation has not changed, but the installation around GPU has become much lighter.</p>
+<p>I am concerned that I do not know the cause of the error that occurred during the installation of one of the three machines, but I took a detour, but now I can use it, so let&rsquo;s say it is good for the time being.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f&amp;text=Install%20ubuntu%2024.04%20LTS&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f&amp;title=Install%20ubuntu%2024.04%20LTS" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f&amp;title=Install%20ubuntu%2024.04%20LTS" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f&amp;title=Install%20ubuntu%2024.04%20LTS" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250325_ubuntu2404%2f&amp;description=Install%20ubuntu%2024.04%20LTS" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/" data-toggle="tooltip" data-placement="top" title="Simulation of 2D flow over cylinder">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20250622_lmstudio/" data-toggle="tooltip" data-placement="top" title="Installing LM Studio on my MacBook Air">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

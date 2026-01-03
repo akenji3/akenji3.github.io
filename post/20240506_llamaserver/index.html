@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Chatbot UIを試す - </title>
+
+  <meta name="description" content="はじめに
+先日の投稿では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。
+今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240506_llamaserver\/",
+          "name": "Chatbot uiを試す"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Chatbot UIを試す",
+  "description" : "はじめに 先日の投稿では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。\n今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2274 ,
+  "datePublished" : "2024-05-06T00:00:00\u002b00:00",
+  "dateModified" : "2024-05-06T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240506_llamaserver\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Chatbot UIを試す" />
+<meta property="og:description" content="はじめに
+先日の投稿では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。
+今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240506_llamaserver/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Chatbot UIを試す" />
+  <meta name="twitter:description" content="はじめに
+先日の投稿では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。
+今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20240506_llamaserver/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Chatbot UIを試す</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;May 6, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240506_llamaserver/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p><a href="https://akenji3.github.io/post/20240503_llama-cpp-python/">先日の投稿</a>では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。</p>
+<p>今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。</p>
+<h2 id="完成イメージ">完成イメージ</h2>
+<p>次のような構成でシステムを構築した。</p>
+<p><img src="/images/20240506_LlamaServer/20240506_SystemConfiguration.png" alt="SystemConfiguration"></p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://www.munenick.me/blog/llama-cpp-python-chatbot-ui">llama-cpp-pythonとChatbot UIで複数のローカルLLMをChatGPTライクなWebUIから扱う</a>    システム全体像を掴むため役に立った。</li>
+<li><a href="https://github.com/mckaywrigley/chatbot-ui">Chatbot UI</a>    ChatGPTのAPIをWeb UIで提供するツールのgithubページ。現時点ではv2にアップデートされている。v1はレガシー・ブランチにある。</li>
+<li><a href="https://hyper-text.org/archives/2024/01/chatbot_ui_hosted_vercel/">Chatbot UI （オープンソースの ChatGPT UI クローン） を Vercel でホストする</a>    上記を実行した内容を日本語で紹介しているページ。</li>
+<li><a href="https://blog.curegit.jp/posts/ai/nlp/elyza-jp-13b-server/">ELYZA Japanese LLaMA 2 13B を WEB デプロイ</a>   今回の作業の中で、自分が最も参考にしたページ。</li>
+<li><a href="https://www.zenryoku-kun.com/post/node-ubuntu">【WSL2】Ubuntuで最新版のNode.jsをインストールする方法</a>    nodeのバージョンアップの手順を参考にしたページ。</li>
+</ol>
+<h2 id="llama-server">Llama-server</h2>
+<p>冒頭掲載した「System Configuration」右側の部分である。「ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf」のようなLLMは、中央のサーバのディスクに格納し、そこをNFSマウントしている。</p>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>コンテナ起動時に、モデルを選べるように「-model」オプションはCMDに書き、デフォルトで「ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf」を使うようにしている。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># OpenAI互換サーバを構築する</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># llama-cpp-python[server]をインストールしたコンテナ</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Set bash as the default shell</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">SHELL</span><span class="o">=</span>/bin/bash<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Build with some basic utilities</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	build-essential python3-pip apt-utils vim <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    git git-lfs curl unzip wget<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># alias python=&#39;python3&#39;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> ln -s /usr/bin/python3 /usr/bin/python<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install llama-cpp-python[server] with cuBLAS on</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nv">CMAKE_ARGS</span><span class="o">=</span><span class="s2">&#34;-DLLAMA_CUBLAS=on&#34;</span> <span class="nv">FORCE_CMAKE</span><span class="o">=</span><span class="m">1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	pip install llama-cpp-python<span class="o">[</span>server<span class="o">]</span> --force-reinstall --no-cache-dir<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create the directory stored models</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /models</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Launch llama_cpp server</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;python3&#34;</span><span class="p">,</span> <span class="s2">&#34;-m&#34;</span><span class="p">,</span> <span class="s2">&#34;llama_cpp.server&#34;</span><span class="p">,</span> <span class="s2">&#34;--chat_format&#34;</span><span class="p">,</span> <span class="s2">&#34;llama-2&#34;</span><span class="p">,</span> <span class="s2">&#34;--n_gpu_layers&#34;</span><span class="p">,</span> <span class="s2">&#34;-1&#34;</span><span class="p">,</span> <span class="s2">&#34;--host&#34;</span><span class="p">,</span> <span class="s2">&#34;0.0.0.0&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># set default model</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--model&#34;</span><span class="p">,</span> <span class="s2">&#34;ELYZA-japanese-Llama-2-7b-fast-instruct-q4_K_M.gguf&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h4 id="コンテナをビルト">コンテナをビルト</h4>
+<p>上記のDockerfileのあるディレクトリで、次のようにコンテナをビルトする。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker build -t llama-server .
+</span></span></code></pre></div><h4 id="コンテナを起動">コンテナを起動</h4>
+<p>作成されたコンテナは次のように起動する。以下で分かる通り、LLMは/mnt/nfs2/modelsに格納されている。実体はNFSマウント先にある。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MODEL_DIR</span><span class="o">=</span>/mnt/nfs2/models
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">sudo docker run --rm --gpus all -v <span class="si">${</span><span class="nv">MODEL_DIR</span><span class="si">}</span>:/models -p 8000:8000 llama-server:latest
+</span></span></code></pre></div><h2 id="webフロントエンド">Webフロントエンド</h2>
+<p>実はこの部分は少し苦労した。</p>
+<p>当初、npmやbrewをインストールした後、情報源2.に従って、Webフロントエンド（Chatbot-ui）を構築しようと考えていた。Dockerコンテナにすることも考えているので、brewのインストールは自分のノウハウではちょっと難しそうに思った。</p>
+<p>そこで、情報源4.にしたがって、legacyブランチをcloneして、構築することにした。そこには、Dockerfileもあるので、簡単に構築できるだろうと考えていた。</p>
+<p>次のとおり、legacyブランチをcloneした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ git clone -b legacy https://github.com/mckaywrigley/chatbot-ui.git
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> chatbot-ui
+</span></span></code></pre></div><h4 id="コンテナをビルト-1">コンテナをビルト</h4>
+<p>chatbot-uiディレクトリのDockerfileから次のようにコンテナをビルトした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker build -t chatgpt-ui ./
+</span></span></code></pre></div><h4 id="コンテナを起動-1">コンテナを起動</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker run --rm -e <span class="nv">OPENAI_API_KEY</span><span class="o">=</span>fake_key -p 3000:3000 chatgpt-ui:latest
+</span></span></code></pre></div><p>Llama-severと接続しない。恐らく、デフォルトの「http://localhost:8000」に接続しようとしていると思われうる。コンテナ起動時に「-e OPENAI_API_HOST=&ldquo;http://192.168.11.4:8000&rdquo;」を指定したが上手くいかない。</p>
+<p>Webフロントエンド部分のコンテナ化は、一旦諦め、情報源4.の手順に従って、npmから起動するようにした。その手順をいかに説明する。</p>
+<h4 id="物理環境上にwebフロントエンドを構築">物理環境上にWebフロントエンドを構築</h4>
+<p>フロントエンドを構築するために必要なnpmを物理環境にインストールする。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo apt install npm
+</span></span></code></pre></div><p>その後は、情報源4.に従って、次の通り実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ npm i
+</span></span><span class="line"><span class="cl">$ npm audit fix --force
+</span></span><span class="line"><span class="cl">$ cp .env.local.example .env.local
+</span></span></code></pre></div><p>.env.localに以下を追加する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Chatbot UI</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPENAI_API_HOST</span><span class="o">=</span><span class="s2">&#34;http://192.168.11.4:8000&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>fake_key
+</span></span><span class="line"><span class="cl"><span class="nv">DEFAULT_SYSTEM_PROMPT</span><span class="o">=</span><span class="s2">&#34;あなたは誠実で優秀な日本人のアシスタントです。&#34;</span>
+</span></span></code></pre></div><h4 id="webフロントエンドを起動">Webフロントエンドを起動</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ npm run dev
+</span></span></code></pre></div><p>次のようなエラーが出ていた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/home/kenji/tmp/chatbot-ui/node_modules/next/dist/lib/picocolors.js:134
+</span></span><span class="line"><span class="cl">const <span class="o">{</span> env, stdout <span class="o">}</span> <span class="o">=</span> <span class="o">((</span><span class="nv">_globalThis</span> <span class="o">=</span> globalThis<span class="o">)</span> <span class="o">==</span> null ? void <span class="m">0</span> : _globalThis.process<span class="o">)</span> ?? <span class="o">{}</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                                                                                             ^
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">SyntaxError: Unexpected token <span class="s1">&#39;?&#39;</span>
+</span></span></code></pre></div><p>提供ソースでエラーが出るとは通常考え難いので、nodeのバージョンが古いのではないかと考え、次の手順を実行した。</p>
+<h4 id="エラー対応--nodeの更新">エラー対応 〜 nodeの更新</h4>
+<p>情報源5.に従って、次のようにnodeを最新版に更新した。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ node -v
+</span></span><span class="line"><span class="cl">v12.22.9
+</span></span><span class="line"><span class="cl">$ sudo npm install -g n
+</span></span><span class="line"><span class="cl">$ sudo n lts
+</span></span><span class="line"><span class="cl">  installing : node-v20.12.2
+</span></span><span class="line"><span class="cl">（略）
+</span></span><span class="line"><span class="cl">         old : /usr/bin/node
+</span></span><span class="line"><span class="cl">         new : /usr/local/bin/node
+</span></span><span class="line"><span class="cl">（略）
+</span></span><span class="line"><span class="cl">$ node -v
+</span></span><span class="line"><span class="cl">v12.22.9
+</span></span></code></pre></div><p>ここで、再起動する。再起動後は、次のとおり最新版に更新されている。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ node -v
+</span></span><span class="line"><span class="cl">v20.12.2
+</span></span></code></pre></div><h4 id="node更新後webフロントエンドを起動">node更新後、Webフロントエンドを起動</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ npm run dev
+</span></span></code></pre></div><h2 id="ブラウザから接続">ブラウザから接続</h2>
+<p>自分は、MacBookProのChromeで、「http://192.168.11.8:3000」とWebフロントエンドに接続すると、LLMとつながって、会話できるようなった。</p>
+<p>会話の開始。日本語になった最初の会話が意味不明。</p>
+<p>自分がLLMに必ず聞く質問「rプロセスについての説明」を投げてみた。</p>
+<p><img src="/images/20240506_LlamaServer/20240506_ScreenShot_1.png" alt="ScreenShot_1"></p>
+<p>英語で聞いてみた。</p>
+<p><img src="/images/20240506_LlamaServer/20240506_ScreenShot_2.png" alt="ScreenShot2"></p>
+<p>英語の方が詳しくて正確な回答。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>少しトラブったところもあったが、ローカル環境で、ChatGPTライクなシステムが構築できた。</p>
+<p>今後、次のことに挑戦したい。</p>
+<ul>
+<li>Webフロントエンドのコンテナ化、およびv2対応</li>
+<li>LLMの切り替え</li>
+<li>RAGとの連携</li>
+</ul>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f&amp;text=Chatbot%20UI%e3%82%92%e8%a9%a6%e3%81%99&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f&amp;title=Chatbot%20UI%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f&amp;title=Chatbot%20UI%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f&amp;title=Chatbot%20UI%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240506_llamaserver%2f&amp;description=Chatbot%20UI%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240503_llama-cpp-python/" data-toggle="tooltip" data-placement="top" title="Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20240525_llamaindex_rag/" data-toggle="tooltip" data-placement="top" title="LlamaIndexを使ってRAGを試す">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

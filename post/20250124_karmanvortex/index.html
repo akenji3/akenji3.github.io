@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>OpenFOAMによるカルマン渦 - </title>
+
+  <meta name="description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
+この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20250124_karmanvortex\/",
+          "name": "Open foamによるカルマン渦"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "OpenFOAMによるカルマン渦",
+  "description" : "モチベーション 昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。\n調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。\nこの投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1620 ,
+  "datePublished" : "2025-01-24T00:00:00\u002b00:00",
+  "dateModified" : "2025-01-24T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250124_karmanvortex\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="OpenFOAMによるカルマン渦" />
+<meta property="og:description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。
+この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250124_karmanvortex/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="OpenFOAMによるカルマン渦" />
+  <meta name="twitter:description" content="モチベーション
+昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。こちらの投稿の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。
+調べていく内に、この論文で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ず …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20250124_karmanvortex/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>OpenFOAMによるカルマン渦</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 24, 2025に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250124_karmanvortex/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。<a href="https://akenji3.github.io/post/20250111_laminarflow/">こちらの投稿</a>の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。</p>
+<p>調べていく内に、<a href="https://arxiv.org/abs/2306.00230">この論文</a>で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。</p>
+<p>この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://arxiv.org/abs/2306.00230">Predictive Limitations of Physics-Informed Neural Networks in Vortex Shedding</a>  -  この概要に、「データを持たないPINNは渦の放出を予測できないことを発見した」とあった。その後にデータ駆動型PINNは、学習データを使っている間のみ渦はできるとも。本文読むのはハードルが高そう！</li>
+<li><a href="https://github.com/barbagroup/jcs_paper_pinn">barbagroup/jsc_paper_pinn</a>  -  上記論文の筆者らのgithubのページ。論文の原稿以外に、PetIBMという流体ソルバーとModulusを使う場合のデータがまとめられている。筆者らは、PINNsとしては<a href="https://github.com/NVIDIA/modulus">Modulus</a>を使って検証したようだ。</li>
+<li><a href="https://takun-physics.net/1494/">OpenFOAMで2次元円柱まわりの流体解析 （力学的相似性の検証）</a>  - レイノルズ数Reにより流れのパターンが決定するということを異なるサイズのモデルで検証した内容。</li>
+<li><a href="https://blog.sam-mousavi.com/2024/06/understanding-the-von-karman-vortex-street-with-openfoam-11/">Understanding the von Karman Vortex Street with OpenFOAM 11</a>  -  OpenFOAMを使ってカルマン渦を理解するとの内容のブログ記事。筆者は、化学工学の研究者とのこと。</li>
+<li><a href="https://github.com/SamMousaviES/Karman-Vortex-Street">von Karman Vortex Street Simulation with OpenFOAM 11</a>  -  上記ブログ記事のGithub。OpenFOAMのデータがダウンロードできる。</li>
+<li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a>  -  このページに「2D Circular cylinder - Vortex shedding」というチュートリアルがある。OpenFOAM.comによって管理されているwikiページの一部。このチュートリアルは、&ldquo;First glimpse&rdquo; seriesの一部である&quot;Fourth simulation - Vortex shedding&quot;である。また、&ldquo;3 weeks&rdquo; seriesの&quot;Day 8&quot;のturbulence modelingの一部でもある。</li>
+</ol>
+<h2 id="チュートリアルを実行">チュートリアルを実行</h2>
+<p>OpenFOAMに関する情報源3.から6.の中から、直ぐに試せる情報源6.のチュートリアルを実施することにした。必要なファイルをダウンロードして、実行した手順は、次のとおりである。</p>
+<h4 id="必要ファイルのダウンロード">必要ファイルのダウンロード</h4>
+<p>情報源6.のページの「You can download the case files at the following」のリンクから「vortex_shedding.tar.gz」をダウンロードして、解凍する。</p>
+<h5 id="使用した事例">使用した事例</h5>
+<p>解凍すると、「README.CASES」というテキストを開いて、各事例の説明を読み「c14」（Re=10000、turbulent model）を実行することにした。c14ディレクトリをOpenFOAMでアクセスできる領域にコピーする。</p>
+<h4 id="c14を実行">c14を実行</h4>
+<p>「README.FIRST」に従って、コマンドを実行すると、カルマン渦をParaViewで見ることができる。</p>
+<p>「pimpleFoam | tee log」が時間掛かる。自分の環境（Xeon E5-1620 3.6GHz 64GBメモリ）では、約30分掛かった。</p>
+<h4 id="paraviewで可視化">ParaViewで可視化</h4>
+<p>「c14」ディレクトリに「c14.foam」ファイルを作成した後、ParaViewで開く。</p>
+<p>以下の動画は、ParaViewでタイムステップの結果をアニメーション表示し、その画面を録画したもの。</p>
+<p><img src="/images/20250124_vortex/20250124_vortex.gif" alt="Vortex"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>先人が公開しているファイルを利用することで、非常に簡単に、自分の環境でカルマン渦のシミュレーション結果を得ることができた。先人の努力に改めて感謝。</p>
+<p>今回ダウンロードしたチュートリアルのケースには、層流も入っていたので、OpenFOAMの結果とPINNsの結果を比較してみたい。その後、レイノルズ数を上げて、双子渦の発生をOpenFOAMで確かめ、PINNsではどうなるかを試してみたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;text=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;title=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250124_karmanvortex%2f&amp;description=OpenFOAM%e3%81%ab%e3%82%88%e3%82%8b%e3%82%ab%e3%83%ab%e3%83%9e%e3%83%b3%e6%b8%a6" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20250123_unsteady_laminar/" data-toggle="tooltip" data-placement="top" title="支配方程式の違い 〜 Unsteady-state Laminar Flow">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20250127_openfoam_env/" data-toggle="tooltip" data-placement="top" title="OpenFOAM環境を改善">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/categories/</link>
+    <description>Recent content in Categories on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software</title>
+      <link>https://akenji3.github.io/en/categories/software/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/categories/software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Astronomy</title>
+      <link>https://akenji3.github.io/en/categories/astronomy/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/categories/astronomy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Learning</title>
+      <link>https://akenji3.github.io/en/categories/deep-learning/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/categories/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Astro-Ph</title>
+      <link>https://akenji3.github.io/en/categories/astro-ph/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/categories/astro-ph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Service</title>
+      <link>https://akenji3.github.io/en/categories/service/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/categories/service/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

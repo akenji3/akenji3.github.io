@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>OpenMPIをインストール - </title>
+
+  <meta name="description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20211226_openmpi_install\/",
+          "name": "Open mpiをインストール"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "OpenMPIをインストール",
+  "description" : "モチベーション 分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。 ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1436 ,
+  "datePublished" : "2021-12-26T00:00:00\u002b00:00",
+  "dateModified" : "2021-12-26T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "OpenMPI" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211226_openmpi_install\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="OpenMPIをインストール" />
+<meta property="og:description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211226_openmpi_install/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="OpenMPIをインストール" />
+  <meta name="twitter:description" content="モチベーション
+分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>OpenMPIをインストール</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;December 26, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。
+ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。</p>
+<h2 id="はじめに---typora正式版リリース有償化">はじめに - Typora正式版リリース（有償化）</h2>
+<p>久しぶりに、記事を書こうかと、Typoraを起動すると、バージョンアップするか聞かれたので、バージョンアップしたところ、起動時にライセンスキーの入力を求められた。遂に有償になったかと思いネット上を検索する。2021年11月23日に正式版がリリースされ、有料化された。</p>
+<p>税抜きで14.99$で、日本円で税込で2,000円弱。PayPalで支払い、ライセンスキーを入力した。</p>
+<p>バージョンは、1.0.5（6032）となっていた。</p>
+<h2 id="参考資料">参考資料</h2>
+<p>SingularityからOpenMPIを使う場合に、どのようなインストール形態になるのか、そのように構築すれば良いのか分からなかったので、次の記事を参考にした。</p>
+<ul>
+<li>
+<p><a href="https://www.slideshare.net/htsst/singularity-85959573">Singularityで分散深層学習</a></p>
+<p>上記スライドの13ページには、次の二つの方式を説明していた。</p>
+<ol>
+<li>
+<p>ホストのMPIをコンテナ側に見せる（コンテナのメリットが薄い）</p>
+</li>
+<li>
+<p>コンテナ内にMPIをインストールし、コンテナの外からキックする。</p>
+<p>この場合、ホスト側と同じMPIを使用し、Buildも同じにする必要がある、との記載があった。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="https://sylabs.io/guides/3.8/user-guide/mpi.html">Singularity本家のページ</a></p>
+<p>上記のページでは、次の二つのアプローチがあると。</p>
+<ol>
+<li>
+<p>Host MPI、Hybridモデル</p>
+<p>上記の2.の方式のことだと理解。</p>
+</li>
+<li>
+<p>Bindモデル</p>
+<p>上記の1.の方式のことだと理解。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="方向性">方向性</h2>
+<p>前節・参考資料を参考に、Hybridモデルでインストールすることにした。
+上記本家のページには、テスト用のアプリケーションプログラムも掲載されていたので、Singularityアプリとしてそのテストアプリケーションを動かすところまでを今回のゴールとする。</p>
+<h2 id="ホストにopenmpiをインストール">ホストにOpenMPIをインストール</h2>
+<p><a href="https://www.open-mpi.org/software/ompi/v4.1/">OpenMPIのダウンロードページ</a>から最新の4.1をホスト・ホームディレクトリのDownloadsにダウンロードし、その後、次の手順でOpenMPIをコンパイル、インストールした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">$</span> <span class="n">cd</span> <span class="o">~/</span><span class="n">Downloads</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="n">tar</span> <span class="o">-</span><span class="n">xjf</span> <span class="n">openmpi</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="n">cd</span> <span class="n">openmpi</span><span class="o">-</span><span class="mf">4.1</span><span class="o">.</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">prefix</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">ompi</span>
+</span></span><span class="line"><span class="cl"><span class="o">$</span> <span class="n">make</span> <span class="n">all</span> <span class="n">install</span>
+</span></span></code></pre></div><p>上記では、makeの最終版の/opt/ompiにインストール（コピー）する際に次のようにエラーとなる。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/usr/bin/mkdir -p &#39;/opt/ompi/share/openmpi/amca-param-sets&#39;
+</span></span><span class="line"><span class="cl">/usr/bin/mkdir: ディレクトリ `/opt/ompi&#39; を作成できません: 許可がありません
+</span></span></code></pre></div><p>そこで、次でインストールを強行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo make install
+</span></span></code></pre></div><p>ホストの.bashrcで、/opt/ompi/binにパスを通しておく。</p>
+<h2 id="singularity版のテストアプリケーションを構築">Singularity版のテストアプリケーションを構築</h2>
+<p>参考資料を示した、Singulariy本家のページから、mpitest.cとmpi_test.defをダウンロードし、次の手順でsingularityアプリを構築する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ sudo singularity build mpi_test.sif mpi_test.def
+</span></span></code></pre></div><p>出来上がったsifファイルを次の様にして実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ mpirun -n 4 singularity run mpi_test.sif /opt/mpitest
+</span></span><span class="line"><span class="cl">Hello, I am rank 3/4
+</span></span><span class="line"><span class="cl">Hello, I am rank 0/4
+</span></span><span class="line"><span class="cl">Hello, I am rank 1/4
+</span></span><span class="line"><span class="cl">Hello, I am rank 2/4
+</span></span></code></pre></div><p>自分の実行環境では、8スロットでは動作しないので、上記の通り「-n 4」で実行した。</p>
+<h2 id="今後について">今後について</h2>
+<p>上記の手順で、MPIを使ったアプリケーションをSingularityコンテナとして動作させることができたので、今後は、別のアプリケーションの実行などを試してみたい。</p>
+<p>出来上がったsifファイルは、約1,600MB（1.6GB）と巨大、これで良いのか、ちょっと疑問。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/openmpi/">OpenMPI</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;text=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;title=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211226_openmpi_install%2f&amp;description=OpenMPI%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211024_hpc_sdk_singularity/" data-toggle="tooltip" data-placement="top" title="NVIDIA HPC SDKをSingularityコンテナ化する">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20211231_sagemakerstudiolab/" data-toggle="tooltip" data-placement="top" title="Amazon SageMaker Studio Labを試す">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

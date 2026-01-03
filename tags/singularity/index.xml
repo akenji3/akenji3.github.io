@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Singularity on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/singularity/</link>
+    <description>Recent content in Singularity on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/singularity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NVIDIA HPC SDKをSingularityコンテナ化する</title>
+      <link>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「&lt;a href=&#34;https://developer.nvidia.com/hpc-sdk&#34;&gt;NVIDIA HPC SDK&lt;/a&gt;」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jupyterlabのsingularityコンテナを作る</title>
+      <link>https://akenji3.github.io/post/20210905_definition_file/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210905_definition_file/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前の &lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;この記事&lt;/a&gt;で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。&lt;/p&gt;&#xA;&lt;p&gt;今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker,SingularityをUbuntu20.04にインストール</title>
+      <link>https://akenji3.github.io/post/20210904_docker_singularity_install/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_docker_singularity_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210405_ubuntu2004_install/&#34;&gt;以前この記事&lt;/a&gt;でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>jupyterlabをsingularityコンテナで起動する</title>
+      <link>https://akenji3.github.io/post/20200810_jupyterlab/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
+      <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;コンテナは、dockerも作成するが、通常使用としてはsingularityとする。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

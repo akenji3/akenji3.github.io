@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Amazon SageMaker Studio Labを試す - </title>
+
+  <meta name="description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20211231_sagemakerstudiolab\/",
+          "name": "Amazon sage maker studio labを試す"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Amazon SageMaker Studio Labを試す",
+  "description" : "モチベーション 自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。\nこの記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1191 ,
+  "datePublished" : "2021-12-31T00:00:00\u002b00:00",
+  "dateModified" : "2021-12-31T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "AWS, jupyterlab" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211231_sagemakerstudiolab\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Amazon SageMaker Studio Labを試す" />
+<meta property="og:description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211231_sagemakerstudiolab/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Amazon SageMaker Studio Labを試す" />
+  <meta name="twitter:description" content="モチベーション
+自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（こちらやこちら）。そうは言っても、GCPから提供されているGoogle Colaboratoryを使ったこともある。
+この記事では、最近発表されたAmazon SageMaker Studio Labを試してみたので、使えるようになるまでの手順や使った感想をまとめたい。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Amazon SageMaker Studio Labを試す</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;December 31, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（<a href="https://akenji3.github.io/post/20200810_jupyterlab/">こちら</a>や<a href="https://akenji3.github.io/post/20210905_definition_file/">こちら</a>）。そうは言っても、GCPから提供されている<a href="https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja">Google Colaboratory</a>を使ったこともある。</p>
+<p>この記事では、最近発表された<a href="https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/">Amazon SageMaker Studio Lab</a>を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。</p>
+<h2 id="参考情報">参考情報</h2>
+<ul>
+<li><a href="https://atmarkit.itmedia.co.jp/ait/articles/2112/20/news035.html">atmarkITの記事</a>　この記事でSageMaker Studio Labのことを初めて知る。</li>
+<li><a href="https://dev.classmethod.jp/articles/sagemaker-studio-lab-free/">DevelopersIOの記事</a>　公開直後に書かれた記事、こちらのページの様々な記事はとても参考になる。</li>
+<li>こちらの<a href="https://tech.opst.co.jp/2021/12/03/sagemaker-studio-lab-%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/">SageMaker Studio Labを触ってみた</a>　マシンスペックを確かめたりするのに役立った。Git連携についても記載があり、後々参考になりそう。</li>
+</ul>
+<h2 id="使えるようになるまで">使えるようになるまで</h2>
+<h3 id="アカウントの取得">アカウントの取得</h3>
+<p>先ずは、<a href="https://studiolab.sagemaker.aws/">こちらのページ</a>から「Request free account」ボタンをクリックし、メールアドレス、氏名等の必要事項を記入し、送信（Submit request）する。</p>
+<p>「Verify your email」とのタイトルのメールが直ぐに届くので、ボタンをクリックすると直ぐに「Account request confirmed」とのメールが届く。そこには待ち行列（wait list）に加えたとあったので、次にメールが来るまで待つ。</p>
+<p>自分の場合は、約12時間後に「Account request approved」とメールが届いたいので、そこに書かれているリンクからメールアドレス、パスワード、ユーザ名を入力すると、「Verify your email」、「Your account is ready」とのメールによりアカウントが使えるようになった。</p>
+<p>多少記憶が曖昧だけど、以上のように何度かやりとりして、アカウントが取得できた。</p>
+<h3 id="ログインと終了">ログインと終了</h3>
+<p>作成したアカウントにログインすると次のような画面が表示され、SageMaker Studio Labが使えるようなる。<img src="/images/20211231_SageMakerStudioLab/20211227_AfterLogin.png" alt="ログイン直後"></p>
+<p>上記の画面で、「CPU /GPU」を選んで、「Start runtime」を押すと、その右側の丸い「Open project」の色が変わるので、クリックすると、ブラウザの新たなタブで、Jupyterlabが使える。</p>
+<p>終了時は、jupyterlabメニューの「logout」で終わった後、上記のページで、「Stop runtime」すると終了する。</p>
+<p>以降、<a href="https://studiolab.sagemaker.aws/">このページ</a>からsign inする。</p>
+<h2 id="使ってみる">使ってみる</h2>
+<h3 id="課題">課題</h3>
+<p>9月、10月に取り組んだラビット・チャレンジの<a href="https://akenji3.github.io/post/20210925_alexnet/">この課題</a>に取り組むことにする。</p>
+<h3 id="共通関数の扱い">共通関数の扱い</h3>
+<p>メインの処理で使用する共通関数（common, dataフォルダに格納されている）をSageMaker Studio Labにアップし、メイン処理の前に、以下を実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 共通関数の格納フォルダのパス
+</span></span><span class="line"><span class="cl">import sys
+</span></span><span class="line"><span class="cl">sys.path.append(&#39;/common&#39;)
+</span></span><span class="line"><span class="cl">sys.path.append(&#39;/data&#39;)
+</span></span></code></pre></div><p>メイン処理は、上記の課題で使ったものをそのまま使用する。</p>
+<p>実行結果は、次のとおり。<img src="/images/20211231_SageMakerStudioLab/20211231_Alexnet_result.jpg" alt="Alexnet_result"></p>
+<p>以前試したのと同様、高い正解率で収束していることがわかる。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/aws/">AWS</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/jupyterlab/">jupyterlab</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;text=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;title=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211231_sagemakerstudiolab%2f&amp;description=Amazon%20SageMaker%20Studio%20Lab%e3%82%92%e8%a9%a6%e3%81%99" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20200810_jupyterlab/">jupyterlabをsingularityコンテナで起動する</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211226_openmpi_install/" data-toggle="tooltip" data-placement="top" title="OpenMPIをインストール">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/" data-toggle="tooltip" data-placement="top" title="DCGANで人物画像を生成">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

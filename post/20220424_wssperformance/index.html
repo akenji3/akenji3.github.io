@@ -1,0 +1,610 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>RTX A4000とGTX 1080との実行速度比較 - </title>
+
+  <meta name="description" content="モチベーション
+この記事でDCGANを実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
+また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。
+今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20220424_wssperformance\/",
+          "name": "Rtx a4000と gtx 1080との実行速度比較"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "RTX A4000とGTX 1080との実行速度比較",
+  "description" : "モチベーション この記事でDCGANを実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。 また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。\n今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1564 ,
+  "datePublished" : "2022-04-23T00:00:00\u002b00:00",
+  "dateModified" : "2022-04-23T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "GPU, RTX A4000, GTX 1080, DCGAN" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20220424_wssperformance\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="RTX A4000とGTX 1080との実行速度比較" />
+<meta property="og:description" content="モチベーション
+この記事でDCGANを実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
+また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。
+今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20220424_wssperformance/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="RTX A4000とGTX 1080との実行速度比較" />
+  <meta name="twitter:description" content="モチベーション
+この記事でDCGANを実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
+また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。
+今回は、GTX 1080／RTX …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>RTX A4000とGTX 1080との実行速度比較</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;April 23, 2022に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p><a href="https://akenji3.github.io/post/20220422_rtx_a4000/">この記事</a>で<a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/">DCGAN</a>を実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。
+また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。</p>
+<p>今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。</p>
+<h2 id="実行環境">実行環境</h2>
+<p>先ず最初に断っておくべきこととして、厳密な意味での性能比較ではなく、自身の使っている環境下で同じアプリの実行時間の差異を計測したものであること。</p>
+<p>自分の実行環境は、次の図のとおり。</p>
+<p><img src="/images/20220423_Performance/20220423_SystemDiagram.png" alt="SystemDiagram"></p>
+<p>singularityコンテナ（.sifファイル）およびjupyterlabのnotebook（ipynbファイル）は、Raspberry PiのSSD（USB接続）に格納し、各ワークステーションからNFSマウント。</p>
+<p>singuralityコンテナを起動する際に、NFSマウントしているnotebookを使うか、ローカルディレクトリのnotebookを使うかは、次の起動コマンドで「&ndash;bind」オプションを使って切り分けている。
+ここで「COMMON_AREA」はNFSマウント先である。（.bashrcで定義済）</p>
+<h4 id="1nfsマウントのnotebookを使用">1）NFSマウントのnotebookを使用</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">export</span> <span class="n">SINGULARITYENV_CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">$</span><span class="p">{</span><span class="n">COMMON_AREA</span><span class="p">}</span><span class="o">/</span><span class="n">jupyterlab</span><span class="p">:</span><span class="o">/</span><span class="n">workdir</span> <span class="o">$</span><span class="p">{</span><span class="n">COMMON_AREA</span><span class="p">}</span><span class="o">/</span><span class="n">sifs</span><span class="o">/</span><span class="n">pytorch</span><span class="o">-</span><span class="n">lab</span><span class="o">.</span><span class="n">sif</span>
+</span></span></code></pre></div><h4 id="2ローカルディレクトのnotebookを使用">2）ローカルディレクトのnotebookを使用</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">export</span> <span class="n">SINGULARITYENV_CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">$</span><span class="p">{</span><span class="n">HOME</span><span class="p">}</span><span class="o">/</span><span class="n">jupyterlab</span><span class="p">:</span><span class="o">/</span><span class="n">workdir</span> <span class="o">$</span><span class="p">{</span><span class="n">COMMON_AREA</span><span class="p">}</span><span class="o">/</span><span class="n">sifs</span><span class="o">/</span><span class="n">pytorch</span><span class="o">-</span><span class="n">lab</span><span class="o">.</span><span class="n">sif</span>
+</span></span></code></pre></div><h2 id="計測したアプリ">計測したアプリ</h2>
+<p>計測した実アプリは、これまでも何度も述べてきたこの<a href="https://akenji3.github.io/post/20220318_dcgan_tutorial/">DCGAN</a>の中で、学習エポック全体の実行時間を計測した。次のように学習ループの前にタイマーをセットし、ループ終了時の時間との差により実行時間とした。</p>
+<p>このコードの前で、使用するセレブのイメージデータをデータセットにし、データローダを実行している。また「import time」を追加している。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># === Training Loop ===</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Lists to keep track of progress</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">G_losses</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">D_losses</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">iters</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Starging Training Loop...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># 実行時間計測開始</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For each epoch</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># For each batch in the dataloader</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="p">,</span><span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># (1) Update D network; maximize log(D(x))+log(1-D(G(z)))</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Train with all-real batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">netD</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>  <span class="c1"># Sets gradients of all model parameters to zero.</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Format batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">real_cpu</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b_size</span> <span class="o">=</span> <span class="n">real_cpu</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">b_size</span><span class="p">,),</span> <span class="n">real_label</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Forward pass real batch through D</span>
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">real_cpu</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate loss on all-reaal batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errD_real</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate gradients for D in backward pass</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errD_real</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D_x</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Train with all-fake batch</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Generate batch of latent vectors</span>
+</span></span><span class="line"><span class="cl">        <span class="n">noise</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">b_size</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Generate fake image batch with G</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fake</span> <span class="o">=</span> <span class="n">netG</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">fake_label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Classify all fake batch with D</span>
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate D&#39;s loss on the all-fake batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errD_fake</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate the gradients for this batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errD_fake</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D_G_z1</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Add the gradients from the all-real and all-fake batch</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errD</span> <span class="o">=</span> <span class="n">errD_real</span> <span class="o">+</span> <span class="n">errD_fake</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Update</span>
+</span></span><span class="line"><span class="cl">        <span class="n">optimizerD</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># (2) Update G network: maximize log(D(G(z)))</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">netG</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">label</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">real_label</span><span class="p">)</span>  <span class="c1"># fake labels are real for generator cost</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Since we just updated D, perform another foward passs all-fake batch through D</span>
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">fake</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate G&#39;s loss based on this output</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errG</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculate gradients for G</span>
+</span></span><span class="line"><span class="cl">        <span class="n">errG</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D_G_z2</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Update</span>
+</span></span><span class="line"><span class="cl">        <span class="n">optimizerG</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Output training stats</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">][</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">]</span><span class="se">\t</span><span class="s1">Loss_D: </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">Loss_G: </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">D(x): </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">D(G(z)): </span><span class="si">%.4f</span><span class="s1"> / </span><span class="si">%.4f</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">                  <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">errD</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">errG</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">D_x</span><span class="p">,</span> <span class="n">D_G_z1</span><span class="p">,</span> <span class="n">D_G_z2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">        <span class="c1"># Save losses for plotting later</span>
+</span></span><span class="line"><span class="cl">        <span class="n">G_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errG</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">D_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errD</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Check how the generator is doing by saving G&#39;s output on fixed_noise</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">iters</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">((</span><span class="n">epoch</span> <span class="o">==</span> <span class="n">num_epochs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">                <span class="n">fake</span> <span class="o">=</span> <span class="n">netG</span><span class="p">(</span><span class="n">fixed_noise</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">img_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">fake</span><span class="p">,</span><span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">iters</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl"><span class="n">lapse_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;実行時間 </span><span class="si">{:8.2f}</span><span class="s2">秒&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lapse_time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;-&#34;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="計測結果">計測結果</h2>
+<p>notebookをNFSマウント先とローカルディレクトリにおいて、各々を3回実行した平均値（秒）は、以下の通り。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th>NFS経由</th>
+          <th>ローカル</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">ワークステーション S</td>
+          <td>4648</td>
+          <td>4223</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">ワークステーション M</td>
+          <td>2051</td>
+          <td>833</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/images/20220423_Performance/20220424_PerformanceGraph.png" alt="PerformanceGraph"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>最初に断った通り、同じ環境下でGPUのみの差を表す性能測定ではない。条件も異なるワークステーションでの実行時間を比較したものではあるが、RTX A4000を搭載したワークステーションMが実行速度は、2〜5倍向上している。2倍は価格差を吸収できていないが、5倍だったら価格差分の実行速度向上と言える。</p>
+<p>RTX 1080を使っている範囲では、NFSを利用してもネットワークは律速（ボトルネック）にならないが、A4000においては、ネットワーク等のI/O性能が全体の律速となっている。</p>
+<p>NFSの性能を今後測定してみたい。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/gpu/">GPU</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/rtx-a4000/">RTX A4000</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/gtx-1080/">GTX 1080</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/dcgan/">DCGAN</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f&amp;text=RTX%20A4000%e3%81%a8GTX%201080%e3%81%a8%e3%81%ae%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f&amp;title=RTX%20A4000%e3%81%a8GTX%201080%e3%81%a8%e3%81%ae%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f&amp;title=RTX%20A4000%e3%81%a8GTX%201080%e3%81%a8%e3%81%ae%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f&amp;title=RTX%20A4000%e3%81%a8GTX%201080%e3%81%a8%e3%81%ae%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20220424_wssperformance%2f&amp;description=RTX%20A4000%e3%81%a8GTX%201080%e3%81%a8%e3%81%ae%e5%ae%9f%e8%a1%8c%e9%80%9f%e5%ba%a6%e6%af%94%e8%bc%83" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20220422_rtx_a4000/">NVIDIA RTX A4000 (sm_86)上でPytorchを使う</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20220422_rtx_a4000/" data-toggle="tooltip" data-placement="top" title="NVIDIA RTX A4000 (sm_86)上でPytorchを使う">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20220505_disk_rw/" data-toggle="tooltip" data-placement="top" title="ローカルディスク／NFSファイルのリード・ライト実行速度比較">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

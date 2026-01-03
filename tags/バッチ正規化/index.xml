@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>バッチ正規化 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/%E3%83%90%E3%83%83%E3%83%81%E6%AD%A3%E8%A6%8F%E5%8C%96/</link>
+    <description>Recent content in バッチ正規化 on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 24 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/%E3%83%90%E3%83%83%E3%83%81%E6%AD%A3%E8%A6%8F%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>バッチ正規化の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_batchnormalization/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_batchnormalization/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section1：バッチ正規化」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

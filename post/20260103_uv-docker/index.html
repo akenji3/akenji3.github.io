@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>VSCodeからリモートdockerコンテナのpython開発環境に接続 - </title>
+
+  <meta name="description" content="モチベーション
+これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えばこの記事。
+最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20260103_uv-docker\/",
+          "name": "Vscodeからリモートdockerコンテナのpython開発環境に接続"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "VSCodeからリモートdockerコンテナのpython開発環境に接続",
+  "description" : "モチベーション これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えばこの記事。 最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1814 ,
+  "datePublished" : "2026-01-03T00:00:00\u002b00:00",
+  "dateModified" : "2026-01-03T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "VSCode, python, docker" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20260103_uv-docker\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="VSCodeからリモートdockerコンテナのpython開発環境に接続" />
+<meta property="og:description" content="モチベーション
+これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えばこの記事。
+最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20260103_uv-docker/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="VSCodeからリモートdockerコンテナのpython開発環境に接続" />
+  <meta name="twitter:description" content="モチベーション
+これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えばこの記事。
+最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20260103_uv-docker/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>VSCodeからリモートdockerコンテナのpython開発環境に接続</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 3, 2026に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20260103_uv-docker/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えば<a href="https://akenji3.github.io/post/20241201_python3.11/">この記事</a>。
+最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。</p>
+<h2 id="情報源">情報源</h2>
+<p>いつもは、ネットの情報を参考に試しているが、今回はClaudeに聞きなが構築した。
+そうは言ってもCUDAバージョンとtorchインストールとの整合性確認のため、<a href="https://pytorch.org/">PyTorch</a>のページは参考にした。</p>
+<p>最初は、次のようなプロンプトから始めた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">GPU搭載（NVIDIA driver version:580.95.05）のubuntuサーバで、dockerコンテナにuvでpython環境を構築したい。フレームワークはpytorchとして、docker コンテナを作成するDockerfileを提示してください。
+</span></span></code></pre></div><p>pythonのパッケージ管理ツールとして<a href="https://note.com/npaka/n/n44c54312fb04">uv</a>を使っている。</p>
+<h2 id="構築">構築</h2>
+<h3 id="サーバ側">サーバ側</h3>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>Claudeの回答を参考に以下のDockerfileを作成した。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># NVIDIA CUDAベースイメージを使用</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> nvidia/cuda:12.4.0-runtime-ubuntu22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 環境変数の設定</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">PYTHONUNBUFFERED</span><span class="o">=</span><span class="m">1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">HOME</span><span class="o">=</span>/root<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 作業ディレクトリの設定</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /workspace</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 必要なパッケージのインストール</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    curl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    git <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    build-essential <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    ca-certificates <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    wget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># uvのインストール</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> curl -LsSf https://astral.sh/uv/install.sh <span class="p">|</span> sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Pythonのインストール（フルパス指定で確実に）</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /root/.local/bin/uv python install 3.11<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 仮想環境の作成</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> /root/.local/bin/uv venv /opt/venv --python 3.11<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># PATHを一度にまとめて設定（これが重要）</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;/opt/venv/bin:/root/.local/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="nv">VIRTUAL_ENV</span><span class="o">=</span><span class="s2">&#34;/opt/venv&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># インストール確認</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> uv --version <span class="o">&amp;&amp;</span> python --version<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># PyTorchとその依存関係をインストール</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># よく使うライブラリもインストール</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> uv pip install <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    numpy <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    pandas <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    matplotlib <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    jupyter <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    ipython <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    tqdm <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    scikit-learn <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    scipy <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    seaborn <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    plotly<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Jupyter Notebookのポートを公開</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8888</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># .bashrcに仮想環境のアクティベートを追加</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s1">&#39;source /opt/venv/bin/activate&#39;</span> &gt;&gt; /root/.bashrc<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h4 id="コンテナをビルド">コンテナをビルド</h4>
+<p>Dockerfileのあるディレクトリで次を実行して、dockerコンテナを作成。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker build -t pytorch-uv ./
+</span></span></code></pre></div><h4 id="コンテナを起動">コンテナを起動</h4>
+<p>次のコマンで、ビルドしたコンテナを起動。以下はシェルプロにしている。NB_DIRは各々の環境に応じて変更して欲しい。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NB_DIR</span><span class="o">=</span>/mnt/nfs2
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">sudo docker run --gpus all -it --rm  -v <span class="si">${</span><span class="nv">NB_DIR</span><span class="si">}</span>:/workspace -p 8888:8888 pytorch-uv:latest
+</span></span></code></pre></div><h3 id="クライアント側">クライアント側</h3>
+<p>クライアント側での作業の前提として、VS Codeは既にインストール済みであり、サーバ側とはsshで接続できる状態であること。</p>
+<h4 id="vs-code拡張機能をインストール">VS Code拡張機能をインストール</h4>
+<p>VSCodeに次の拡張機能をインストールする。</p>
+<ul>
+<li>Remote-SSH</li>
+<li>Docker</li>
+<li>Dev Containers</li>
+</ul>
+<h4 id="ssh接続の設定">SSH接続の設定</h4>
+<p>VS Codeを起動し、次の手順でSSH接続の設定（~/.ssh/configに）する。</p>
+<ol>
+<li>コマンドパレットを開く（Cmd+Shift+p）</li>
+<li>Remote-SSH: Connect to Host&hellip;（Remote-SSH: ホストに接続する）を選ぶ</li>
+<li>Configure SSH Hosts&hellip;（SSHホストを構成する）を選択して、~/.ssh/configを編集する</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Host host-name
+</span></span><span class="line"><span class="cl">    HostName IP-address
+</span></span><span class="line"><span class="cl">    User user-name
+</span></span><span class="line"><span class="cl">    IdentityFile ~/.ssh/id_rsa
+</span></span><span class="line"><span class="cl">    Port 22
+</span></span><span class="line"><span class="cl">    ForwardAgent yes
+</span></span></code></pre></div><p>host-name、IP-addressとuser-nameの部分は、各自の環境に合わせて欲しい。</p>
+<h4 id="ホストに接続">ホストに接続</h4>
+<p>VS Code上で、次の手順でホストに接続する。</p>
+<ol>
+<li>コマンドパレットで、Remote-SSH: Connect to Host&hellip;（Remote-SSH: ホストに接続する）を選ぶ</li>
+<li>上記で設定したhost-nameを選択</li>
+<li>sshでホストに接続しようとして、パスワードを求められるので、パスワードを入力</li>
+<li>新しいVS Codeウィンドウが開く</li>
+</ol>
+<h4 id="コンテナに接続">コンテナに接続</h4>
+<ol>
+<li>コマンドパレットで、Dev Containers: Attach Running Container&hellip;（実行中のコンテナにアタッチ）を選ぶ</li>
+<li>起動中の目的のコンテナを選択</li>
+<li>新しいVS Codeウィンドウが開き、コンテナ内部に接続される</li>
+</ol>
+<h4 id="pythonバージョンの確認変更">pythonバージョンの確認・変更</h4>
+<p>Dockerfileで構築したpythonが使われていない場合（自分は、ここでハマった）は、次の手順で、コンテナのpythonを使うようにする。</p>
+<ol>
+<li>VS Code右下のpythonバージョン表示をクリック</li>
+<li>/opt/venv/bin/pythonを選択</li>
+</ol>
+<h2 id="まとめ">まとめ</h2>
+<p>Claudeをお供にpython開発環境を構築した。ネットを調べる代わりに、エラーが出たらその状況を正確にClaudeに伝えると、解決策が提示されるので、比較的簡単に環境構築が出来た。</p>
+<p>次に、この開発環境を使って、昨年の今頃取り組んでいたPINNを実行してみる。</p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/vscode/">VSCode</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/python/">python</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f&amp;text=VSCode%e3%81%8b%e3%82%89%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88docker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%aepython%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%81%ab%e6%8e%a5%e7%b6%9a&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f&amp;title=VSCode%e3%81%8b%e3%82%89%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88docker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%aepython%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%81%ab%e6%8e%a5%e7%b6%9a" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f&amp;title=VSCode%e3%81%8b%e3%82%89%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88docker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%aepython%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%81%ab%e6%8e%a5%e7%b6%9a" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f&amp;title=VSCode%e3%81%8b%e3%82%89%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88docker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%aepython%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%81%ab%e6%8e%a5%e7%b6%9a" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260103_uv-docker%2f&amp;description=VSCode%e3%81%8b%e3%82%89%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88docker%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%aepython%e9%96%8b%e7%99%ba%e7%92%b0%e5%a2%83%e3%81%ab%e6%8e%a5%e7%b6%9a" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20210904_docker_singularity_install/">Docker,SingularityをUbuntu20.04にインストール</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20251115_astrophoto/" data-toggle="tooltip" data-placement="top" title="リコリモで銀河を撮影">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

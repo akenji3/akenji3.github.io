@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/post/</link>
+    <description>Recent content in Posts on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCodeからリモートdockerコンテナのpython開発環境に接続</title>
+      <link>https://akenji3.github.io/post/20260103_uv-docker/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260103_uv-docker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えば&lt;a href=&#34;https://akenji3.github.io/post/20241201_python3.11/&#34;&gt;この記事&lt;/a&gt;。&#xA;最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>リコリモで銀河を撮影</title>
+      <link>https://akenji3.github.io/post/20251115_astrophoto/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20251115_astrophoto/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;天文が趣味の一つであり、星を見る環境が良い所（いわゆる光害がない所）に自分の望遠鏡を持ちたいと思っていた。その夢を叶える手段がリモート望遠鏡。その一つのリコリモを最近知った。早速会員になって、NGC300を撮影した。LRGBフィルタのモノクロ画像を得た。モノクロ画像を合成するまで体験をこの投稿にまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにGeminiCLIとClaude Desktopをインストール</title>
+      <link>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</link>
+      <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;最近は、仕事でも個人的にも企画案の抽出、素案から文章の作成、逆に文章の要約などにChatGPTを使ってきた。コーディングなどにもAI/LLMを活用しようと考えて、個人のPCにGemini CLIなどをインストールし、使い始めたところである。この投稿では、インストールと使っての感想などをまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにOllamaをインストール</title>
+      <link>https://akenji3.github.io/post/20250721_ollama_on_mba-m4/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250721_ollama_on_mba-m4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;1ヶ月前、MacBook AirにLM Studioをインストールして、ローカルLLMを試す&lt;a href=&#34;https://akenji3.github.io/post/20250622_lmstudio/&#34;&gt;記事&lt;/a&gt;をアップした。今回は、OllamaでローカルLLMを試した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにLM Studioをインストール</title>
+      <link>https://akenji3.github.io/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;これまで使っていたMacBook Proは2016年製、そろそろ買い替え時期と考えていた。MacBook Air（M4）を3月に購入した。ローカルでLLMを動かしたかったので、メモリは最大の32GBにした。4月から神田で働き始めたことや休日は色々な行事で忙しく、なかなか時間が取れなかったが、ようやくLM StudioでローカルLLMを試すことが出来た。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugoブログ環境の移行</title>
+      <link>https://akenji3.github.io/post/20250506_migratehugo/</link>
+      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250506_migratehugo/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;新たなPCを購入し、それに伴って、これまでの環境の移行をしている。これまでIT技術に関して、自分が体験、学習したことをhugo（テーマはbeautifulhugoを使って）GitHub Pagesにまとめていた。その移行に予想外に時間が掛かって、半日程度要したので、経緯を簡単にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ubuntu 24.04 LTSをインストール</title>
+      <link>https://akenji3.github.io/post/20250325_ubuntu2404/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250325_ubuntu2404/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで24.04に移行することにした。&lt;/p&gt;&#xA;&lt;p&gt;いつもは、日本語RemixのISOイメージからインストールしていたが、このバージョンから&lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;日本語Remixはリリースされない&lt;/a&gt;とのことなので、Canonicalのページからイメージをダウンロードし、インストールした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2次元円柱後流のシミュレーション</title>
+      <link>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;2ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20250123_unsteady_laminar/&#34;&gt;この投稿&lt;/a&gt;では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。&lt;/p&gt;&#xA;&lt;p&gt;それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う</title>
+      <link>https://akenji3.github.io/post/20250128_deepseek-ca/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250128_deepseek-ca/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。&lt;/p&gt;&#xA;&lt;p&gt;今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAM環境を改善</title>
+      <link>https://akenji3.github.io/post/20250127_openfoam_env/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250127_openfoam_env/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日の&lt;a href=&#34;https://akenji3.github.io/post/20250124_karmanvortex/&#34;&gt;投稿&lt;/a&gt;で述べたとおり、2次元の円柱周りの流れのチュートリアルを実施している。このチュートリアルを実施していて、自分の環境では、pyFoamPlotWatcher.py、gnuplotが使えなかった。この投稿では、それらの改善策についてまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAMによるカルマン渦</title>
+      <link>https://akenji3.github.io/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;こちらの投稿&lt;/a&gt;の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。&lt;/p&gt;&#xA;&lt;p&gt;調べていく内に、&lt;a href=&#34;https://arxiv.org/abs/2306.00230&#34;&gt;この論文&lt;/a&gt;で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>支配方程式の違い 〜 Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250123_unsteady_laminar/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250123_unsteady_laminar/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>新・Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250121_unsteady/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250121_unsteady/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20250115_unsteady/&#34;&gt;前回の投稿&lt;/a&gt;では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>原因不明の結果 〜 Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250115_unsteady/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250115_unsteady/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日、&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;定常状態の層流&lt;/a&gt;についてPINNsで求められた内容を投稿した。今回は、非定常な層流についてPINNsの手法を適用した。今回の結果は、参考にした論文の結果とも異なり、正しい結果ではない。原因を調べているが、分かっていない。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 Steady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250111_laminarflow/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250111_laminarflow/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年末から定常状態の層流について、PINNsでシミュレーションしようとしていた。Cauchy stress tensor型のNS（Navier Stokes）方程式の導出が分からず、つまずいていた。一旦、Velocity-pressure型のNS方程式をベースとした支配方程式で、PINNsをコーディングした。それらしい結果が得られたので、この投稿でまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAM（とParaView）の歩き方</title>
+      <link>https://akenji3.github.io/post/20250107_stl/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250107_stl/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日に引き続いて、書籍の例題（書籍の第4章）を試した。なかなか興味深かった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>cavity（OpenFOAMのチュートリアル）を試す</title>
+      <link>https://akenji3.github.io/post/20250106_cavity/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250106_cavity/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAMとParaViewを試す</title>
+      <link>https://akenji3.github.io/post/20250105_openfoam/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250105_openfoam/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。&lt;/p&gt;&#xA;&lt;p&gt;流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 バーガース方程式</title>
+      <link>https://akenji3.github.io/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日、PINNsで&lt;a href=&#34;https://akenji3.github.io/post/20241219_massspringdamper/&#34;&gt;質点・ばね・ダンパー問題&lt;/a&gt;をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 質点・バネ・ダンパー問題</title>
+      <link>https://akenji3.github.io/post/20241219_massspringdamper/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241219_massspringdamper/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;一年以上も前に、&lt;a href=&#34;https://akenji3.github.io/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt;を使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-2024/&#34;&gt;こちら&lt;/a&gt;のイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ollamaを使ってGraphRAGを構築</title>
+      <link>https://akenji3.github.io/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>pythonバージョンが3.11のJupyterLabコンテナを作成</title>
+      <link>https://akenji3.github.io/post/20241201_python3.11/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241201_python3.11/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;graph RAGを試していて、「TypeError: &amp;lsquo;NoneType&amp;rsquo; object is not iterable」とのエラーが発生した。色々と調べたが、直接の原因が分からず、どうしてもエラーを回避することができなかった。その時に使用していたコンテナのpythonのバージョンは3.10.12であった。参考にしていた記事のpythonのバージョンは3.11.0となっていたので、試しにコンテナのpythonのバージョンを3.11にアップデートすることにした。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、pythonバージョンが3.11のJupyterLabコンテナを作成した内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ollamaでknowledge graphを作成</title>
+      <link>https://akenji3.github.io/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;こちらの投稿&lt;/a&gt;では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;では、ollamaをインストールし起動したことをまとめた。&lt;/p&gt;&#xA;&lt;p&gt;今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Open WebUIをフロントエンドにしてollamaのLLMと会話する</title>
+      <link>https://akenji3.github.io/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ollamaを使ってローカル環境でLLMを動かす</title>
+      <link>https://akenji3.github.io/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240929_mistralai/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、&lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;この記事&lt;/a&gt;のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。&lt;/p&gt;&#xA;&lt;p&gt;自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったハイブリッドGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241109_graphrag/&#34;&gt;この投稿&lt;/a&gt;の続きで、ハイブリッドな検索を使ったGraphRAGシステムの構築をまとめた。&lt;/p&gt;&#xA;&lt;p&gt;LangChainのLCELのようにパイプ「｜」を繋げていくイメージで考えていたが、想像していたものとは違った。以下で確かめて欲しい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Amazon NeptuneとLangChainでGraphRAGを構築（未完成）</title>
+      <link>https://akenji3.github.io/post/20241102_neptune/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241102_neptune/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、Neo4jとLangChainでGraphRAGを試しに構築した。自分は、&lt;a href=&#34;https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448&#34;&gt;この本&lt;/a&gt;でbedrockを勉強中。せっかくAWSに触れ始めたので、AWS上にGraphRAGを構築することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HyDE手法によるRAGシステムを構築</title>
+      <link>https://akenji3.github.io/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;HyDE（Hypothetical Document Embeddings）というRAGを改善する手法を使ったRAGを構築した。&#xA;この投稿では、HyDEを試した内容をまとめた。&#xA;使用するLLMは、コストを抑えるためgpt-4o-miniを使用した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MistaralAIのモデルがKnowledge graphsに使えるか？</title>
+      <link>https://akenji3.github.io/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;半月前の&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。&#xA;この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>knowledge graphsを使ったRAGへ初めの一歩</title>
+      <link>https://akenji3.github.io/post/20240916_kgrag/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240916_kgrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;少し前の&lt;a href=&#34;https://akenji3.github.io/post/20240831_neo4j/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うため、neo4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PLaMo β版を試す</title>
+      <link>https://akenji3.github.io/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240901_plamo/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;8/8に&lt;a href=&#34;https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html&#34;&gt;この記事&lt;/a&gt;を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE）が、商用版提供に先駆けて無料トライアルの提供開始すると。&lt;/p&gt;&#xA;&lt;p&gt;早速、無料トライアルに申し込んで、受付完了のメールを受け取って、アカウント発行の通知を待っていた。通知メールは、8/9に受け取っていたのだが、自分が見過ごしてしまって、申し込んだこともすっかり忘れていた。最近、&lt;a href=&#34;https://www.watch.impress.co.jp/docs/news/1619221.html&#34;&gt;この記事&lt;/a&gt;を読んで、無料トライアルの件を思い出し、メールを再確認し、アカウント通知を見つけた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、無料トライアル版を試した内容をまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jをインストールしてknowledge graphsを試す</title>
+      <link>https://akenji3.github.io/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、FAISSやBM25を使って&lt;a href=&#34;https://akenji3.github.io/post/20240815_rag/&#34;&gt;RAGシステム&lt;/a&gt;を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot;k&amp;quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま&lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;この記事&lt;/a&gt;を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RAGシステムを構築</title>
+      <link>https://akenji3.github.io/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。&lt;/p&gt;&#xA;&lt;p&gt;使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RAG向けデータベースを作成・評価</title>
+      <link>https://akenji3.github.io/post/20240814_rag_database/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240814_rag_database/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日作成した&lt;a href=&#34;https://akenji3.github.io/post/20240813_wikipedia_dump/&#34;&gt;テキストデータ&lt;/a&gt;からRAGで使えるデータベースを作成し、数個の特定文字列を用意し、それを検索して評価する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WikipediaダンプデータからRAG向けテキストデータ作成</title>
+      <link>https://akenji3.github.io/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>llama-cpp-python 〜 numpyバージョンアップの影響</title>
+      <link>https://akenji3.github.io/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240704_numpy_v2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/numpy/numpy/releases&#34;&gt;NumPy 2.0.0&lt;/a&gt;が6月16日にリリースされた。先日、lang-chainを使ってRAGを試してみようとして、dockerコンテナをビルドする際にエラーとなって初めて気付いた。その後、llama-cpp-pythonを組み込む際にCMakeでエラーが発生した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LlamaIndexを使ってRAGを試す</title>
+      <link>https://akenji3.github.io/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;Chatbot UIを試した&lt;a href=&#34;https://akenji3.github.io/post/20240506_llamaserver/&#34;&gt;この投稿&lt;/a&gt;で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。&lt;/p&gt;&#xA;&lt;p&gt;実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chatbot UIを試す</title>
+      <link>https://akenji3.github.io/post/20240506_llamaserver/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240506_llamaserver/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240503_llama-cpp-python/&#34;&gt;先日の投稿&lt;/a&gt;では、llama-cpp-pythonを使ってローカル環境でELYZA 7Bモデルを動かした。その投稿で「今後について」ChatGPTのように会話できるシステムの構築に挑戦したいと述べた。&lt;/p&gt;&#xA;&lt;p&gt;今回、ChatGPTのように会話できるシステムをdockerコンテナで構築したので、その内容をここにまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elyzaモデルをllama-cpp-pythonを使ってGPUで動かす</title>
+      <link>https://akenji3.github.io/post/20240503_llama-cpp-python/</link>
+      <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240503_llama-cpp-python/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;LLMを手元のワークステーション（GPUのメモリ12〜16GB）で動かすには量子化が必須となる。この投稿では、llama-cpp-pythonを使って、GPU資源を最大限に活用することに挑戦したので、その内容をまとめる。&lt;/p&gt;&#xA;&lt;p&gt;自分の理解不足のためハマったところもあるので、自分が失敗した箇所も含めた内容となっている。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を再々測定する</title>
+      <link>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、&lt;a href=&#34;https://akenji3.github.io/post/20240317_himenobenchmpi_2/&#34;&gt;この記事&lt;/a&gt;として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。&lt;/p&gt;&#xA;&lt;p&gt;そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する</title>
+      <link>https://akenji3.github.io/post/20240317_himenobenchmpi_2/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240317_himenobenchmpi_2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;1ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この投稿&lt;/a&gt;で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題</title>
+      <link>https://akenji3.github.io/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240310_visit_tutorial4/&#34;&gt;この記事&lt;/a&gt;ではAthena++のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240307_athena_tutorial4/&#34;&gt;この投稿&lt;/a&gt;で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240307_athena_tutorial4/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先月投稿した&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この記事&lt;/a&gt;までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿では、上記で作成したDockerコンテナを使って、Athena++のチュートリアル4「3次元磁気流体シミュレーションと並列計算」をマルチノードで実行させる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を測定する</title>
+      <link>https://akenji3.github.io/post/20240223_himenobenchmpi/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240223_himenobenchmpi/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20240222_openmpi/&#34;&gt;この投稿&lt;/a&gt;の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。&#xA;実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenMPIを実装したDockerコンテナを複数ノードで実行する</title>
+      <link>https://akenji3.github.io/post/20240222_openmpi/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240222_openmpi/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena&amp;#43;&amp;#43;/&#34;&gt;このポスト&lt;/a&gt;で述べたように、Athena++をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Athena&#43;&#43;のチュートリアルを実行する</title>
+      <link>https://akenji3.github.io/post/20240211_athena_tutorial2-3/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240211_athena_tutorial2-3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;以前の&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena&amp;#43;&amp;#43;/&#34;&gt;ポスト&lt;/a&gt;で、Athena++をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>宇宙物理学用磁気流体シュミレーションコードAthena&#43;&#43;を試す</title>
+      <link>https://akenji3.github.io/post/20240203_athena&#43;&#43;/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240203_athena&#43;&#43;/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;以前から宇宙物理関連のシミュレーションを試してみたいと思っていて、enzo、gadget、gizmo等を調べていた。たまたまAthenaを知り、調べてみると東北大学の富田賢吾准教授が日本語のページを管理されており、日本語の情報もあるので、試してみることにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、インストールしてチュートリアルを実行するところまでをまとめたのでポストする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>量子化による日本語LLMの実行</title>
+      <link>https://akenji3.github.io/post/20240102_quantization/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240102_quantization/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20231230_japanesellms/&#34;&gt;この記事&lt;/a&gt;において量子化については、否定的な言い方で終わったが、少し調べてみると興味深い領域であると思い直し、量子化について実験したので、その内容をここにまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>日本語LLMをオンプレミス環境で実行する</title>
+      <link>https://akenji3.github.io/post/20231230_japanesellms/</link>
+      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231230_japanesellms/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;2023年を振り返ってみると、多くの日本語LLM（Large Language Models）がリリースされた一年だった。自分もいくつかの日本語LLMを自宅の環境で動作させてみたので、ここにまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CNN訓練コードをHorovodで使えるように変更する</title>
+      <link>https://akenji3.github.io/post/20231104_horovod_modifycnn/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231104_horovod_modifycnn/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20231014_horovodindocker/&#34;&gt;Horovod in Dockerを試す&lt;/a&gt;で、自分の環境（オンプレミス）で、Docker環境下でHorovodを使えるようになった。次にやるべきことは、一台のサーバで動作する学習コードをHorovodを使った分散学習に適用するように変更することだ！手始めに比較的簡単なCNNコードをHorovodを使って分散学習できるように変更したので、以下記事にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Horovod in Dockerを試す</title>
+      <link>https://akenji3.github.io/post/20231014_horovodindocker/</link>
+      <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231014_horovodindocker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rootless dockerをアンインストール</title>
+      <link>https://akenji3.github.io/post/20231013_rootlessdockeruninstall/</link>
+      <pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231013_rootlessdockeruninstall/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;今年5月に&lt;a href=&#34;https://akenji3.github.io/post/20230502_rootlessdocker/&#34;&gt;Rootless Dockerを構築&lt;/a&gt;という記事を投稿したが、とある事情でrootless dockerをアンインストールすることにした。以下にアンインストールの手順をまとめた。&#xA;rootless dockerをアンインストールするに至るとある事情については、後日改めて投稿する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NVIDIA Modulusを試す　〜　PINNsことはじめ</title>
+      <link>https://akenji3.github.io/post/20230918_modulus_install/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230918_modulus_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;１ヶ月以上前に、受講した「&lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;AIサロゲートモデルでシミュレーションを高速化する方法とは？&lt;/a&gt;」セミナーで、NVIDIA Modulusに興味を持ったので、書籍を買って勉強を始めた。&#xA;Modulusを今後勉強する前提として、自分の環境にModulusをインストールしたので、「PINNsことはじめ」としてインストール回りのことをまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>rinna 3.6bをdockerから使う</title>
+      <link>https://akenji3.github.io/post/20230814_rinna36b/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230814_rinna36b/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;日本語に大規模言語モデル（LLM）を試してみたくて、5月にリリースされたrinnaを使ってみた。インストールの手間を省くため、dockerコンテナ環境下でrinnaを実行した。&lt;/p&gt;&#xA;&lt;p&gt;その際にハマったこともあったので以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ubuntu 22.04 LTSをインストール</title>
+      <link>https://akenji3.github.io/post/20230709_ubuntu2204_install/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230709_ubuntu2204_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Ubuntu 22.04 LTS Jammy Jellyfishがリリースされて一年を経過しており、様々なソフトウェアも含めてこなれて来ているだろうと考え、これまで使っていた20.04から22.04に乗り換えることにした。&lt;/p&gt;&#xA;&lt;p&gt;自分は日本語を簡単に使えるようにするため、ubuntu 22.04 日本語Remixを複数のワークステーションにインストールした。NVIDIA GPU搭載のワークステーションにubuntu 22.04をインストールしようとして、少しはまったことがあるので、以下にその状況と対応を紹介する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>プライベートなdockerレジストリを構築</title>
+      <link>https://akenji3.github.io/post/20230503_privateregistry/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230503_privateregistry/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20230502_rootlessdocker/&#34;&gt;以前の投稿&lt;/a&gt;でユーザモードでdockerコンテナを起動する方法をまとめた。&lt;/p&gt;&#xA;&lt;p&gt;複数のPC（WorkStation、以下WS）を使う場合、複数WS間でコンテナを共有する仕組みをどう実現するかを考える必要がある。singularityの場合には、sifファイルをNFSサーバに格納し、それを他のWSから使えば良かった。&lt;/p&gt;&#xA;&lt;p&gt;dockerの場合には、自宅のネットワーク内にプライベートなレジストリを立てて、運用すれば良いと考え、レジストリ・サーバを構築することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rootless Dockerを構築</title>
+      <link>https://akenji3.github.io/post/20230502_rootlessdocker/</link>
+      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230502_rootlessdocker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、dockerではなくsingularityコンテナを使っていた。dockerの利用を避けていたのは、コンテナ起動にroot権限が必要となるから。自宅での運用なので気にすることはないのだけど。&lt;/p&gt;&#xA;&lt;p&gt;きっかけは忘れてのだけど、dockerに通常のユーザモードで実行できるrootlessモードというのがあることを知ったので、今回試してみることにする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pytorchでの学習／推論の高速化について</title>
+      <link>https://akenji3.github.io/post/20230318_pytorch_speed-up/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230318_pytorch_speed-up/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;JupyterLabのnotebookの格納先をNFSとしている自宅の環境で、NFSサーバをRaspberryPiもしくはHP Z240とした際の性能測定していて、学習ループ（epochを重ねている状態）では、NBの格納先がNFSサーバ、ローカルでも大差ないことが分かった。&lt;/p&gt;&#xA;&lt;p&gt;そこで、学習を高速化することにチャレンジしたので、その経過／結果をここにまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>銀河形状分類のデータセットについて</title>
+      <link>https://akenji3.github.io/post/20230223_galaxy_dataset/</link>
+      <pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230223_galaxy_dataset/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn/&#34;&gt;この記事&lt;/a&gt;から&lt;a href=&#34;https://akenji3.github.io/post/20230219_galaxy_vit_2/&#34;&gt;この記事&lt;/a&gt;までの5編で、銀河の形状分類をCNN（VGG16、ResNet）、ViTを使って行った。&#xA;今後エラーの分析を行うに際して、データセットから改めて再検討したいと思い、この記事で、銀河分類に使うデータセットについて考えてみたい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning（ViT）による銀河形状分類（その2）</title>
+      <link>https://akenji3.github.io/post/20230219_galaxy_vit_2/</link>
+      <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230219_galaxy_vit_2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20230109_galaxy_vit_1/&#34;&gt;この記事&lt;/a&gt;で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning (ViT) による銀河形状分類（その1）</title>
+      <link>https://akenji3.github.io/post/20230109_galaxy_vit_1/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230109_galaxy_vit_1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年末の&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn/&#34;&gt;この記事&lt;/a&gt;で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning (CNN) による銀河形状分類（その1）</title>
+      <link>https://akenji3.github.io/post/20221230_galaxy_cnn/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221230_galaxy_cnn/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Deep Learningを少し勉強してきて、自分の興味ある分野で使ってみることができなかと思い試した。自分は天文が好きで中でも恒星の進化・元素の生成、それから銀河形成・進化に興味を持っている。比較的簡単にできそうな銀河の形状分類にチャレンジした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning (CNN) による銀河形状分類（その2）</title>
+      <link>https://akenji3.github.io/post/20221230_galaxy_cnn_2/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221230_galaxy_cnn_2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn/&#34;&gt;前回&lt;/a&gt;の記事の続き。&lt;/p&gt;&#xA;&lt;p&gt;epochを重ねても訓練／テスト誤差が改善しないのはどうしてだろうか？&#xA;この疑問に対して、色々と試した結果を以下にまとめている。&lt;/p&gt;&#xA;&lt;h2 id=&#34;銀河イメージ&#34;&gt;銀河イメージ&lt;/h2&gt;&#xA;&lt;p&gt;今回使用した、Galaxy10 DECals Datasetがどのようなデータかここで見てみたい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning (CNN) による銀河形状分類（その3）</title>
+      <link>https://akenji3.github.io/post/20221230_galaxy_cnn_3/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221230_galaxy_cnn_3/</guid>
+      <description>&lt;p&gt;（その2）の記事の続き。&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn_2/&#34;&gt;前回&lt;/a&gt;は、VGG16で学習をしたが、今回はモデルにResNetを使ってみる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Diffusersの訓練時間による、TITAN VとRTX A4000比較</title>
+      <link>https://akenji3.github.io/post/20221030_training_diffusers/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221030_training_diffusers/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;少し前に、&lt;a href=&#34;https://akenji3.github.io/post/20221010_stablediffuser/&#34;&gt;この記事&lt;/a&gt;でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。&#xA;この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークをTITAN Vで実行</title>
+      <link>https://akenji3.github.io/post/20221029_himenobenchontitanv/</link>
+      <pubDate>Sat, 29 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221029_himenobenchontitanv/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先週、NVIDIA TITAN Vをヤフオクで入手した。その実力次第を知るため、姫野ベンチをOpenACCでコンパイル・実行した。対象のGPUは初代TITAN、GTX 1080、RTX A4000、および今回入手したTITAN Vで、各単精度、倍精度での実行結果を測定した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stable Diffusion with Diffusers</title>
+      <link>https://akenji3.github.io/post/20221010_stablediffuser/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221010_stablediffuser/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先月、&lt;a href=&#34;https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html&#34;&gt;@ITの記事&lt;/a&gt;で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubernetesでGPUクラスタ構築 〜 初めの一歩</title>
+      <link>https://akenji3.github.io/post/20220919_kubernetes_1st_step/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220919_kubernetes_1st_step/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;約1ヵ月前に、&lt;a href=&#34;https://akenji3.github.io/post/20220821_kubernetes/&#34;&gt;この記事&lt;/a&gt;でkubernetesを使ってGPUクラスタを構築する記事を書いた。この時はGPUポッドがPending状態で動作しなかった。その後、とある方の助言もあって何とか動くようになったので、ここにまとめる。&lt;/p&gt;&#xA;&lt;p&gt;自分の環境では、あるノードを起動しないとGPUポッドが立ち上がらないという問題もあるし、更にノード内のGPU指定、更にノードの指定など、想定していることも出来ていないので、「はじめの一歩」とした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ディスプレイ解像度を変更 〜 xrandr BadMatchへの対応</title>
+      <link>https://akenji3.github.io/post/20220914_xrandr_badmatch/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220914_xrandr_badmatch/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;Ubuntuをインストールした直後、ディプレイの解像度が1368x768になっていた。&#xA;端末（Terminal）を複数開いて作業する際の画面が狭く不便であったこと、せっかく1920x1080が表示できるディスプレイ（JAPANNEXT JN-MD-IPS1562FHDR）に接続しているのでそのサイズで表示させたかった。&lt;/p&gt;&#xA;&lt;p&gt;解像度を変更しようとしたが、少しハマったので、経緯をここにまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KubernetesでGPUクラスタ構築（未完成）</title>
+      <link>https://akenji3.github.io/post/20220821_kubernetes/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220821_kubernetes/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;Kubernetesの勉強を兼ねて、自宅に設定している複数のワークステーションを使って、GPUクラスタを作ることにチャレンジ。&lt;/p&gt;&#xA;&lt;p&gt;Kubernetesを初めて触った自分には、ハードルが高かった。というのもインストール時にのみ必要な操作か、（運用時の）クラスタ構築時に必要な操作か、を切り分けを資料で学びながらのインストールとなったので。&lt;/p&gt;&#xA;&lt;p&gt;現状では、GPUクラスタは動作していない！　この資料は、未完成です。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ServerCatを試す</title>
+      <link>https://akenji3.github.io/post/20220612_servercat/</link>
+      <pubDate>Sun, 12 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220612_servercat/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、&lt;a href=&#34;https://japan.zdnet.com/article/35187907/&#34;&gt;この記事&lt;/a&gt;を読んで、今回紹介するServerCatを試してみようと思った。&lt;/p&gt;&#xA;&lt;p&gt;ポイントはiOS/MacOSから監視できるという点。&lt;del&gt;自分はMacOS版しか試していない。&lt;/del&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ローカルディスク／NFSファイルのリード・ライト実行速度比較</title>
+      <link>https://akenji3.github.io/post/20220505_disk_rw/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220505_disk_rw/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20220424_wssperformance/&#34;&gt;この記事&lt;/a&gt;で、DCGANのアプリの実行時間を測定した、その際に、notebookをローカルディレクトリ、NFSマウント先に配置して実行速度を測定した。性能が高いGPUを使った場合、ローカルに比較してNFS経由が遅かったので、ローカルファイルとNFSファイルのリード／ライトで、どの程度の差があるのか性能測定した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RTX A4000とGTX 1080との実行速度比較</title>
+      <link>https://akenji3.github.io/post/20220424_wssperformance/</link>
+      <pubDate>Sat, 23 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220424_wssperformance/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20220422_rtx_a4000/&#34;&gt;この記事&lt;/a&gt;で&lt;a href=&#34;https://akenji3.github.io/post/20220318_dcgan_tutorial/&#34;&gt;DCGAN&lt;/a&gt;を実行し、これまで使っていたGTX 1080と比べ、新たに導入したRTX A4000が、体感的に速くなったと書いた。&#xA;また、自分の環境では、jupyterlabのnotebookをNFSサーバーに置いて、複数のサーバから使っている（同時実行は無しとの運用で）。以前から、notebookをローカル環境に置くと速くなると感じていた。&lt;/p&gt;&#xA;&lt;p&gt;今回は、GTX 1080／RTX A4000、NFS／ローカルの組み合わせで、実アプリの実行速度を計測する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NVIDIA RTX A4000 (sm_86)上でPytorchを使う</title>
+      <link>https://akenji3.github.io/post/20220422_rtx_a4000/</link>
+      <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220422_rtx_a4000/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日、&lt;a href=&#34;https://www.gdep.co.jp/&#34;&gt;ジーデップ・アドバンス&lt;/a&gt;（以下、GDEP）より、NVIDIA RTX A4000を購入した。GDEPは法人メインの取引だと思ってたので、個人購入可能かを質問し、可能と分かったので、何回かやり取り（見積り、入金）の後、先日入手した。&lt;/p&gt;&#xA;&lt;p&gt;早速A4000を使って、&lt;a href=&#34;https://akenji3.github.io/post/20220318_dcgan_tutorial/&#34;&gt;このDCGAN&lt;/a&gt;を試した。自分の環境で、A4000上でPytorchを使ったら、少しハマった。状況、原因、対応などについて、ここにまとめる。タイトルにある「sm_86」は今回のキーワード！&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【失敗】Ubuntu 20.04でのChrome Remote Desktop</title>
+      <link>https://akenji3.github.io/post/20220416_chromeremotedesktop/</link>
+      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220416_chromeremotedesktop/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;とある方から、自宅のサーバを自宅外からアクセス手段として、Chrome Remote Desktopを使っていると聞いたことに、インスパイアされ、自分も挑戦してみることにした。&#xA;自分は未だリモートデスクトップを使えていないので、この記事は動いていないで終わる。失敗も記録しておこうかと思い、この記事を作成した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DCGANで人物画像を生成</title>
+      <link>https://akenji3.github.io/post/20220318_dcgan_tutorial/</link>
+      <pubDate>Fri, 18 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220318_dcgan_tutorial/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;JDLA E資格の学習は終わった。学習中にGANに興味を持った。GeneratorとDiscriminatorに競わせる、noiseから画像を生成するという点が興味深い。チュートリアルを見ながら手を動かしてみることにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Amazon SageMaker Studio Labを試す</title>
+      <link>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（&lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;こちら&lt;/a&gt;や&lt;a href=&#34;https://akenji3.github.io/post/20210905_definition_file/&#34;&gt;こちら&lt;/a&gt;）。そうは言っても、GCPから提供されている&lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja&#34;&gt;Google Colaboratory&lt;/a&gt;を使ったこともある。&lt;/p&gt;&#xA;&lt;p&gt;この記事では、最近発表された&lt;a href=&#34;https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/&#34;&gt;Amazon SageMaker Studio Lab&lt;/a&gt;を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenMPIをインストール</title>
+      <link>https://akenji3.github.io/post/20211226_openmpi_install/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211226_openmpi_install/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;分散処理の実験をやってみたかったので、かねてからインストールしようと思っていたOpenMPIをインストールする。&#xA;ホスト上のアプリケーションから使えるだけでなく、Singularityで動作するアプリケーションでOpenMPIを使えるようにする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NVIDIA HPC SDKをSingularityコンテナ化する</title>
+      <link>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211024_hpc_sdk_singularity/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;High Performance Computing用にコンパイラやGPU対応のライブラリ、ミドルウェアをパッケージとしてまとめている「&lt;a href=&#34;https://developer.nvidia.com/hpc-sdk&#34;&gt;NVIDIA HPC SDK&lt;/a&gt;」がある。このNVIDIA HPC SDKをSingularityコンテナとして利用したかったので、Singularityコンテナ作成手順をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深層学習day3・day4レポート</title>
+      <link>https://akenji3.github.io/post/20211002_deeplearningday3-4/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211002_deeplearningday3-4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;前回の&lt;a href=&#34;https://akenji3.github.io/post/20210924_deeplearningday1-2/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。&lt;/p&gt;&#xA;&lt;p&gt;この記事がこのラビットチャレンジのレポートのシリーズ最終回である。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GRUの実装演習</title>
+      <link>https://akenji3.github.io/post/20211002_gru/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211002_gru/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section3：GRU」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>再帰型ニューラルネットワークの概念の実装演習</title>
+      <link>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section1：再帰型ニューラルネットワークの概念」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>最新のCNNの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_alexnet/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_alexnet/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section5：最新のCNN」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>畳み込みニューラルネットネットワークの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section4：畳み込みニューラルネットワーク」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>深層学習day1・day2レポート</title>
+      <link>https://akenji3.github.io/post/20210924_deeplearningday1-2/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_deeplearningday1-2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210919_machinelearning/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲で、今回は「深層学習 day1およびday2」についてまとめたものである。「深層学習 day1およびday2」は、入力層、中間層、出力層、勾配降下法、誤差逆伝播などの深層学習の基本的な部分、および畳み込みニューラルネットワーク（Convolutional Neural Network; CNN）が範囲である。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>バッチ正規化の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_batchnormalization/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_batchnormalization/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section1：バッチ正規化」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>過学習の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_overfitting/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_overfitting/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section3：過学習」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>学習率最適化手法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_optimizer/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_optimizer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>活性化関数の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_activationfunction/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_activationfunction/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section2：活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>誤差逆伝播法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_backpropagation/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_backpropagation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>入力層〜中間層の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_input-output-layer/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_input-output-layer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section1：入力層〜中間層」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>機械学習レポート</title>
+      <link>https://akenji3.github.io/post/20210919_machinelearning/</link>
+      <pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210919_machinelearning/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;に引き続き、JDLA E資格のシラバスの範囲をまとめたもので、今回は「機械学習」に関するもの。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ブログ記事でインライン形式の数式を表示させる</title>
+      <link>https://akenji3.github.io/post/20210912_display_inline_math/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210912_display_inline_math/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;で数式を使った記事を書いた。この時2つの問題が起こった。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;インライン形式で記述した数式が表示されない。ディスプレイ形式では表示されている。&lt;/li&gt;&#xA;&lt;li&gt;ディスプレイ形式の場合に、alignで複数行にならない。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここでは、上記の解決策をアップする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>応用数学レポート</title>
+      <link>https://akenji3.github.io/post/20210911_appliedmathematics/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210911_appliedmathematics/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;JDLA E資格のシラバスの範囲をまとめ、ここに何回か掲載する。この記事は「応用数学」についてのもの。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jupyterlabのsingularityコンテナを作る</title>
+      <link>https://akenji3.github.io/post/20210905_definition_file/</link>
+      <pubDate>Sun, 05 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210905_definition_file/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前の &lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;この記事&lt;/a&gt;で、dockerコンテナからsingularityコンテナを作成し、jupyterlabをsingularityコンテナで動かす記事を書いた。&lt;/p&gt;&#xA;&lt;p&gt;今回、singularityへの理解を深めるため、definitionファイルからsingularityコンテナを作成した。この記事は、その際の情報をまとめたもの。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker,SingularityをUbuntu20.04にインストール</title>
+      <link>https://akenji3.github.io/post/20210904_docker_singularity_install/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_docker_singularity_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210405_ubuntu2004_install/&#34;&gt;以前この記事&lt;/a&gt;でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Githubの認証方式が変更に！！！</title>
+      <link>https://akenji3.github.io/post/20210904_github_authentication/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_github_authentication/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;久しぶりに、このgithubのブログページに記事をアップしようとしたら、エラーとなって、記事がアップできなかった。&lt;/p&gt;&#xA;&lt;p&gt;githubの認証方式が変更になったようで、自分は、以下のように対応して、記事がアップできるようになった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 20.04をHP Z620にクリーン・インストール</title>
+      <link>https://akenji3.github.io/post/20210405_ubuntu2004_install/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210405_ubuntu2004_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;2年前の2019年2月にヤフオクで、購入したHP Z620 Workstation。購入後、 Ubuntu 18.04をインストールして、Docker, Singularity,コミュニティ版のPGIコンパイラーをインストールして、遊んで来た。&lt;/p&gt;&#xA;&lt;p&gt;今回、リリース後1年経つUbuntu 20.04をクリーン・インストール（まっさらな状態からのインストール）することにした。&#xA;自分自身の備忘のため、ここに記事としてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>YAML front matter</title>
+      <link>https://akenji3.github.io/post/20201116_yaml_front_matter/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20201116_yaml_front_matter/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;久しぶりに、記事を書こうとして、マークアップエディタ（Typora）を起動するも、記事書けない。というのも、冒頭にタイトル、日付、タグ付けの入れ方を忘れたのだ。&lt;/p&gt;&#xA;&lt;p&gt;3ヶ月も経つと、以前にやったことを忘れてしまう。そのためのこのブログなので、細かいことも書いておこうと思い、今回は、ブログ記事の冒頭、いわゆる「YAML front matter」について簡単にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hugoで設定３種</title>
+      <link>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;&#xA;&lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;記事の画像ファイルを埋め込む&lt;/li&gt;&#xA;&lt;li&gt;記事をカテゴリ（category）で分類する&lt;/li&gt;&#xA;&lt;li&gt;ブログトップでの記事要約（summary）を短くする&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>MESA(Modules for Experiments in Stellar Astrophysics)のインストール</title>
+      <link>https://akenji3.github.io/post/20200813_mesa_install/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200813_mesa_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;我々のまわりを構成している物質（原子）のほとんどは、夜空に輝く星（恒星）の進化過程でその内部で核融合反応により作られたものだ。天文学に興味を持った頃、そのような事実を知って、とっても興味を持った。自分の体を構成する炭素、今飲んでいる水を構成する酸素など、全て恒星が作ったものだと。その興味そのまま、今に至っている。&lt;/p&gt;&#xA;&lt;p&gt;星の進化をシミュレーションするソフトウェアが、今回のテーマであるMESA(Modules for Experiments in Stellar Astrophysics)だ。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raspberry PiのディスクをNFSマウントして使う</title>
+      <link>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200812_raspberrypi_nfs/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;家で複数のPC、ワークステーションを使う場合、情報共有のためNASを利用するかと思う。自分も既にRaspberry Piにsambaをインストールして、NASとして使っている。&lt;/p&gt;&#xA;&lt;p&gt;文書の共有はNASで十分だけど、linuxで（CGIの端末から）使う場合にローカルディスクと同様に使いたいと思っていた。&lt;/p&gt;&#xA;&lt;p&gt;今回、上記のRaspberry Piに新たに外部ディスク（480GBのSSD）を追加して、NFSマウント先として運用する事にした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
+      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h1&gt;&#xA;&lt;p&gt;自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>jupyterlabをsingularityコンテナで起動する</title>
+      <link>https://akenji3.github.io/post/20200810_jupyterlab/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200810_jupyterlab/</guid>
+      <description>&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Jupyterlabコンテナをサーバで起動し、リモートのMBPでjupyterlabを使う&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;コンテナは、dockerも作成するが、通常使用としてはsingularityとする。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

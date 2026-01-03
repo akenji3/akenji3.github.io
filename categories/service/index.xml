@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Service on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/categories/service/</link>
+    <description>Recent content in Service on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/categories/service/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon SageMaker Studio Labを試す</title>
+      <link>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</link>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211231_sagemakerstudiolab/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;自分でオンプレミスでサーバを構築して、そこでJupyterlabサーバを設定してメインに使っている（&lt;a href=&#34;https://akenji3.github.io/post/20200810_jupyterlab/&#34;&gt;こちら&lt;/a&gt;や&lt;a href=&#34;https://akenji3.github.io/post/20210905_definition_file/&#34;&gt;こちら&lt;/a&gt;）。そうは言っても、GCPから提供されている&lt;a href=&#34;https://colab.research.google.com/notebooks/welcome.ipynb?hl=ja&#34;&gt;Google Colaboratory&lt;/a&gt;を使ったこともある。&lt;/p&gt;&#xA;&lt;p&gt;この記事では、最近発表された&lt;a href=&#34;https://aws.amazon.com/jp/blogs/news/now-in-preview-amazon-sagemaker-studio-lab-a-free-service-to-learn-and-experiment-with-ml/&#34;&gt;Amazon SageMaker Studio Lab&lt;/a&gt;を試してみたので、使えるようになるまでの手順や使った感想をまとめたい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ブログ記事でインライン形式の数式を表示させる</title>
+      <link>https://akenji3.github.io/post/20210912_display_inline_math/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210912_display_inline_math/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20210911_appliedmathematics/&#34;&gt;この記事&lt;/a&gt;で数式を使った記事を書いた。この時2つの問題が起こった。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;インライン形式で記述した数式が表示されない。ディスプレイ形式では表示されている。&lt;/li&gt;&#xA;&lt;li&gt;ディスプレイ形式の場合に、alignで複数行にならない。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;ここでは、上記の解決策をアップする。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Githubの認証方式が変更に！！！</title>
+      <link>https://akenji3.github.io/post/20210904_github_authentication/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_github_authentication/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;久しぶりに、このgithubのブログページに記事をアップしようとしたら、エラーとなって、記事がアップできなかった。&lt;/p&gt;&#xA;&lt;p&gt;githubの認証方式が変更になったようで、自分は、以下のように対応して、記事がアップできるようになった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GitHub Pagesにブログを公開 - 静的サイトジェネレータ・Hugo使用</title>
+      <link>https://akenji3.github.io/post/20200811_blog_ongithub/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200811_blog_ongithub/</guid>
+      <description>&lt;h1 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h1&gt;&#xA;&lt;p&gt;自分の興味ある分野について調査したり、試したりした内容をまとめ、保管する場所を考えていた。記述する際には、インターネットのページ参照、シェルプロなどのソースファイルの表示、更には数式も表現できるなどを考えて、マークダウンで記述する事にした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>install neo4j and try knowledge graphs - </title>
+
+  <meta name="description" content="Motivation
+So far, we have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.
+In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20240831_neo4j\/",
+          "name": "Install neo4j and try knowledge graphs"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "install neo4j and try knowledge graphs",
+  "description" : "Motivation So far, we have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.\nIn this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.\n",
+  "inLanguage" : "en",
+  "wordCount":  532 ,
+  "datePublished" : "2024-08-31T00:00:00\u002b00:00",
+  "dateModified" : "2024-08-31T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20240831_neo4j\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="install neo4j and try knowledge graphs" />
+<meta property="og:description" content="Motivation
+So far, we have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read this article and became interested in the knowledge graph and decided to try it myself.
+In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20240831_neo4j/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="install neo4j and try knowledge graphs" />
+  <meta name="twitter:description" content="Motivation
+So far, we have built RAG system using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20240831_neo4j/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>install neo4j and try knowledge graphs</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 31, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240831_neo4j/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>So far, we have built <a href="https://akenji3.github.io/en/post/20240815_rag/">RAG system</a> using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read <a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">this article</a> and became interested in the knowledge graph and decided to try it myself.</p>
+<p>In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.</p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li><a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">Increasing the Accuracy of RAG Applications with the Knowledge Graph</a> The article that led me to know about the Knowledge Graph.</li>
+<li><a href="https://note.com/ippei_suzuki_us/n/nad1063fcfb0a">Knowledge Graph: Technical Overview and Applications</a> An article by the author of the above article explaining the Knowledge Graph.</li>
+<li><a href="https://neo4j.com/">neo4j</a> The home page of neio4j. You can use the cloud service “neo4j auraDB” from “Get Started for Free” on this page.</li>
+<li><a href="https://neo4j.com/docs/operations-manual/current/docker/introduction/">Getting started with Neo4j in Docker</a> The introduction part of Docker in the documentation page.</li>
+<li><a href="https://hub.docker.com/_/neo4j">dockerhub</a> The dockerhub page that provides Docker Officaial Image of neo4j. There is also a link in the introduction document page above.</li>
+<li><a href="https://neo4j.com/licensing/">Neo4j Licensing</a> Explains the license of Neo4j, which is available in Community Edition and Enterprise Edition. Community Edition is licensed under GPL v3.</li>
+<li>[Simple Graph Database Setup with Neo4j and Docker Compose](<a href="https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-">https://medium.com/@matthewghannoum/simple-graph-database-setup-with-neo4j-</a> and-docker-compose-061253593b5a) I used the Docker Compose on this page to start the container.</li>
+</ol>
+<h2 id="launch-containers">Launch containers</h2>
+<h4 id="docker-composeyml">docker-compose.yml</h4>
+<p>I created docker-compose.yml under $HOME directory as follows, referring to the source 7.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/home/kenji/workspace/neo4j
+</span></span><span class="line"><span class="cl">$ cat docker-compose.yml
+</span></span><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  neo4j:
+</span></span><span class="line"><span class="cl">    container_name: neo4j
+</span></span><span class="line"><span class="cl">    image: neo4j:latest
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 7474:7474
+</span></span><span class="line"><span class="cl">      - 7687:7687
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">NEO4J_AUTH</span><span class="o">=</span>neo4j/password
+</span></span><span class="line"><span class="cl">      - <span class="nv">NEO4J_apoc_export_file_enabled</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">NEO4J_apoc_import_file_enabled</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">NEO4J_apoc_import_file_use__neo4j__config</span><span class="o">=</span><span class="nb">true</span>
+</span></span><span class="line"><span class="cl">      - <span class="nv">NEO4J_PLUGINS</span><span class="o">=[</span><span class="s2">&#34;apoc&#34;</span>, <span class="s2">&#34;graph-data-science&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - ./neo4j_db/data:/data
+</span></span></code></pre></div><h4 id="start-neo4j">Start neo4j</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/home/kenji/workspace/neo4j
+</span></span><span class="line"><span class="cl">$ sudo docker compose up -d
+</span></span></code></pre></div><h4 id="connecting-to-neo4j-from-the-local-environment">Connecting to neo4j from the local environment</h4>
+<p>Type “http://localhost:7474/” in a browser on the machine where the neo4j container is running to connect to neo4j.</p>
+<p>The first time you connect, you will be asked to enter a password, so set a password and change “password” in docker-compose.yml.</p>
+<h4 id="connect-to-neo4j-from-another-machine">Connect to neo4j from another machine</h4>
+<p>From a browser on another machine connected to the network, type “http://192.168.11.8:7474/” to connect to neo4j.　Of course, change the “192.168.11.8” part according to your environment.</p>
+<h2 id="try-using-neo4j-from-a-browser">Try using neo4j from a browser</h2>
+<h4 id="try-neo4j-with-live-data">Try Neo4j with live data</h4>
+<p>First, start the container on the neo4j server. Start neo4j as described in “Starting neo4j”.</p>
+<p>Connect to neo4j from a browser as described in &ldquo;Connect to neo4j from thelocal environment/another machine”.</p>
+<p><img src="/images/20240831_neo4j/20240831_neo4j.png" alt="neo4j"></p>
+<p>Click on “Open guide” under “Try Neo4j with live data” in the center to try it out.</p>
+<p>When the side menu opens, click “Next” to proceed one by one. Click the Cypher query box in the side menu, and the query will be copied to the prompt line on the right side.</p>
+<p>It took me about 30 minutes to an hour to try the whole process.</p>
+<h2 id="the-future">The future</h2>
+<p>Cypher is similar to SQL in atmosphere, but it is different and I don&rsquo;t understand it, but I can get an idea of what it is like by trying it out as described above.</p>
+<p>I would like to build a RAG system with it in the future.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f&amp;text=install%20neo4j%20and%20try%20knowledge%20graphs&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f&amp;title=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20240831_neo4j%2f&amp;description=install%20neo4j%20and%20try%20knowledge%20graphs" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20240815_rag/" data-toggle="tooltip" data-placement="top" title="Build RAG system">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20240901_plamo/" data-toggle="tooltip" data-placement="top" title="Try PLaMo Beta Version">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

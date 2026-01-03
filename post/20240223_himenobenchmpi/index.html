@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>姫野ベンチマークを使ってOpenMPIの性能を測定する - </title>
+
+  <meta name="description" content="モチベーション
+昨日のこの投稿の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。
+実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20240223_himenobenchmpi\/",
+          "name": "姫野ベンチマークを使って open mpiの性能を測定する"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "姫野ベンチマークを使ってOpenMPIの性能を測定する",
+  "description" : "モチベーション 昨日のこの投稿の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。 実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2336 ,
+  "datePublished" : "2024-02-23T00:00:00\u002b00:00",
+  "dateModified" : "2024-02-23T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20240223_himenobenchmpi\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="姫野ベンチマークを使ってOpenMPIの性能を測定する" />
+<meta property="og:description" content="モチベーション
+昨日のこの投稿の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。
+実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20240223_himenobenchmpi/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="姫野ベンチマークを使ってOpenMPIの性能を測定する" />
+  <meta name="twitter:description" content="モチベーション
+昨日のこの投稿の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。
+実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>姫野ベンチマークを使ってOpenMPIの性能を測定する</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 23, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>昨日の<a href="https://akenji3.github.io/post/20240222_openmpi/">この投稿</a>の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。
+実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://i.riken.jp/supercom/documents/himenobmt/">姫野ベンチマーク</a>    姫野ベンチマークの本家のページ。</li>
+<li><a href="https://horovod.readthedocs.io/en/stable/mpi_include.html">Horovod with MPI</a>   今回苦労した点についてもこのページに答えがあった。</li>
+<li><a href="https://qiita.com/Yasushi-Shinohara/items/6b597110609e5020eb12">OpenMPI(v3.1.3)で複数ノードに渡る並列化ができなくて困っていた問題の解決法</a>   多分自分と同じ現象及び解決策が出ている。ただし、このページは物理マシンでの解決方法。</li>
+</ol>
+<h2 id="ダウンロード1台のマシンで実行">ダウンロード、1台のマシンで実行</h2>
+<h4 id="ダウンロード">ダウンロード</h4>
+<p>ダウンロードページから「C＋MPI, static allocate version」をダウンロードする。lzhで圧縮してあるので、jlha-utilsパッケージをインストールして、ダウンロードしたlzhファイルを解凍する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo apt install jlha-utils
+</span></span><span class="line"><span class="cl">$ lha x cc_himenobmtxp_mpi.lzh
+</span></span></code></pre></div><p>解凍から、1台のマシンで実行するまでは、ダウンロードページの「How to use」の説明の通り。</p>
+<p>自分は、解凍したファイルを/ext/nfs/athena++/himeno配下にコピーして、そこで作業した。<a href="https://akenji3.github.io/post/20240222_openmpi/">昨日説明</a>した通り、この領域は、他のノードからNFSマウントされている。</p>
+<p>これ以降はdockerコンテナでの作業である。paramset.shには実行権を付与した。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># pwd</span>
+</span></span><span class="line"><span class="cl">/workdir/himeno
+</span></span><span class="line"><span class="cl"><span class="c1"># mv param.h param.h.org</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ./paramset.sh M 1 1 2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># cp Makefile.sample Makefile</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ls -l</span>
+</span></span><span class="line"><span class="cl">total <span class="m">44</span>
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>   <span class="m">251</span> Feb <span class="m">22</span> 12:24 Makefile
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>   <span class="m">251</span> Feb <span class="m">22</span> 12:20 Makefile.sample
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>  <span class="m">4414</span> Feb <span class="m">22</span> 12:19 cc_himenobmtxp_mpi.lzh
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span> <span class="m">13099</span> Feb <span class="m">22</span> 12:20 himenoBMTxps.c
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> root root   <span class="m">196</span> Feb <span class="m">22</span> 12:23 param.h
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>   <span class="m">202</span> Feb <span class="m">22</span> 12:20 param.h.org
+</span></span><span class="line"><span class="cl">-rwxrwxr-x <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>  <span class="m">2079</span> Feb <span class="m">22</span> 12:20 paramset.sh
+</span></span><span class="line"><span class="cl"><span class="c1"># make</span>
+</span></span></code></pre></div><p>makeでwarningが出力されるが、bmtというa.outができるので、1台のマシンで実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># mpirun -np 2 ./bmt</span>
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Sequential version array size
+</span></span><span class="line"><span class="cl"> <span class="nv">mimax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">mjmax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">mkmax</span> <span class="o">=</span> <span class="m">257</span>
+</span></span><span class="line"><span class="cl">Parallel version array size
+</span></span><span class="line"><span class="cl"> <span class="nv">mimax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">mjmax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">mkmax</span> <span class="o">=</span> <span class="m">131</span>
+</span></span><span class="line"><span class="cl"><span class="nv">imax</span> <span class="o">=</span> <span class="m">128</span> <span class="nv">jmax</span> <span class="o">=</span> <span class="m">128</span> <span class="nv">kmax</span> <span class="o">=</span><span class="m">129</span>
+</span></span><span class="line"><span class="cl">I-decomp <span class="o">=</span> <span class="m">1</span> J-decomp <span class="o">=</span> <span class="m">1</span> K-decomp <span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"> Start rehearsal measurement process.
+</span></span><span class="line"><span class="cl"> Measure the performance in <span class="m">3</span> times.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> MFLOPS: 9847.792258 time<span class="o">(</span>s<span class="o">)</span>: 0.041767 1.667103e-03
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> Now, start the actual measurement process.
+</span></span><span class="line"><span class="cl"> The loop will be excuted in <span class="m">4309</span> <span class="nb">times</span>
+</span></span><span class="line"><span class="cl"> This will take about one minute.
+</span></span><span class="line"><span class="cl"> Wait <span class="k">for</span> a <span class="k">while</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cpu : 64.531007 sec.
+</span></span><span class="line"><span class="cl">Loop executed <span class="k">for</span> <span class="m">4309</span> <span class="nb">times</span>
+</span></span><span class="line"><span class="cl">Gosa : 1.978532e-04 
+</span></span><span class="line"><span class="cl">MFLOPS measured : 9155.072245
+</span></span><span class="line"><span class="cl">Score based on Pentium III 600MHz : 110.515116
+</span></span></code></pre></div><p>ここまで来れば、昨日の経験もあるので、複数ノードでbenchmarkを動かすことは簡単だと思った。</p>
+<h4 id="同時実行のプロセスを増やす">同時実行のプロセスを増やす</h4>
+<p>ここまでで、2プロセスを1台のマシンで実行させることができたので、次は4プロセスを実行させることにした。そのために次を実行した。パラメータの意味は、ダウンロードページを参照されたい。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># cat hosts.txt</span>
+</span></span><span class="line"><span class="cl">europe
+</span></span><span class="line"><span class="cl">ganymede
+</span></span><span class="line"><span class="cl">jupiter
+</span></span><span class="line"><span class="cl"><span class="c1"># ./paramset.sh M 1 2 2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># make</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mpirun --hostfile hosts.txt -mca plm_rsh_args &#34;-p 12345&#34; -np 4 $(pwd)/bmt</span>
+</span></span></code></pre></div><p>結果は次のとおり。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Invalid number of PE
+</span></span><span class="line"><span class="cl">Please check partitioning pattern or number of PE
+</span></span></code></pre></div><p>この時のPEがどんな値なのか（期待値は1x2x2=4）を調べるため、エラーを出している部分に、以下を追加してみた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">	<span class="nf">printf</span><span class="p">(</span><span class="s">&#34;PE=%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">npe</span><span class="p">);</span>
+</span></span></code></pre></div><p>そしてmakeした時に気づいた！　param.hが更新されても、himenoBMTxps.cはコンパイルされず（himenoBMTxps.oは更新されず）bmtが作られていた。次のようようにすれば上手くいく。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ./paramset.sh M 1 2 2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># make clean</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># make</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># mpirun --hostfile hosts.txt -mca plm_rsh_args &#34;-p 12345&#34; -np 4 $(pwd)/bmt</span>
+</span></span></code></pre></div><h2 id="複数ノードでの実行">複数ノードでの実行</h2>
+<p>プロセス数を2、4、8、16、32、64と変化させてbenchmarkを実行することにした。計算サイズはLにする。</p>
+<p>最初にプロセス数を中間の8として実行した。事前に「./maramset.sh L 2 2 2」を実行してparam.hを更新し、その後「make clean」、「make」を実行しているが、この部分の記述は省略する。また、この時のmyhostsは、前出のhosts.txtと同じである。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># mpirun -np 8 --hostfile myhosts -mca plm_rsh_args &#34;-p 12345&#34; -oversubscribe $(pwd)/bmt</span>
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl"><span class="o">[</span>ganymede<span class="o">][[</span>22394,1<span class="o">]</span>,4<span class="o">][</span>../../../../../../opal/mca/btl/tcp/btl_tcp_endpoint.c:625:mca_btl_tcp_endpoint_recv_connect_ack<span class="o">]</span> received unexpected process identifier <span class="o">[[</span>22394,1<span class="o">]</span>,7<span class="o">]</span>
+</span></span></code></pre></div><p>「received unexpected process identifier」で検索してヒットしたのが、情報源3.のページである。</p>
+<p>このページの解決法「実行時のオプションに<code>--mca btl_tcp_if_include eth0</code>を追加」を読んで、情報源2.を思い出し、次のようにして解決できた。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># mpirun -np 8 --hostfile myhosts -mca plm_rsh_args &#34;-p 12345&#34; -mca btl_tcp_if_exclude lo,docker0 $(pwd)/bmt</span>
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Authorization required, but no authorization protocol specified
+</span></span><span class="line"><span class="cl">Sequential version array size
+</span></span><span class="line"><span class="cl"> <span class="nv">mimax</span> <span class="o">=</span> <span class="m">257</span> <span class="nv">mjmax</span> <span class="o">=</span> <span class="m">257</span> <span class="nv">mkmax</span> <span class="o">=</span> <span class="m">513</span>
+</span></span><span class="line"><span class="cl">Parallel version array size
+</span></span><span class="line"><span class="cl"> <span class="nv">mimax</span> <span class="o">=</span> <span class="m">131</span> <span class="nv">mjmax</span> <span class="o">=</span> <span class="m">131</span> <span class="nv">mkmax</span> <span class="o">=</span> <span class="m">259</span>
+</span></span><span class="line"><span class="cl"><span class="nv">imax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">jmax</span> <span class="o">=</span> <span class="m">129</span> <span class="nv">kmax</span> <span class="o">=</span><span class="m">257</span>
+</span></span><span class="line"><span class="cl">I-decomp <span class="o">=</span> <span class="m">2</span> J-decomp <span class="o">=</span> <span class="m">2</span> K-decomp <span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"> Start rehearsal measurement process.
+</span></span><span class="line"><span class="cl"> Measure the performance in <span class="m">3</span> times.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> MFLOPS: 19912.780454 time<span class="o">(</span>s<span class="o">)</span>: 0.168541 8.841949e-04
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> Now, start the actual measurement process.
+</span></span><span class="line"><span class="cl"> The loop will be excuted in <span class="m">1067</span> <span class="nb">times</span>
+</span></span><span class="line"><span class="cl"> This will take about one minute.
+</span></span><span class="line"><span class="cl"> Wait <span class="k">for</span> a <span class="k">while</span>
+</span></span><span class="line"><span class="cl">（以下省略）
+</span></span></code></pre></div><p>今回も、Horovod in Dockerの経験が役に立った。</p>
+<h2 id="性能測定">性能測定</h2>
+<p>以下の計測では、5台のマシンを使って測定した。この時のhostfileは次のとおり。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># cat myhosts</span>
+</span></span><span class="line"><span class="cl">europe
+</span></span><span class="line"><span class="cl">jupiter
+</span></span><span class="line"><span class="cl">ganymede
+</span></span><span class="line"><span class="cl">saisei
+</span></span><span class="line"><span class="cl">mokusei
+</span></span></code></pre></div><h4 id="slot指定なし">slot指定なし</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">np</th>
+          <th style="text-align: center">MFLOPS</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">9,177</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">11,267</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">20,501</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">16</td>
+          <td style="text-align: center">20,111</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">32</td>
+          <td style="text-align: center">20,607</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">64</td>
+          <td style="text-align: center">8,411</td>
+      </tr>
+  </tbody>
+</table>
+<p>np=8でサチっているのは、おかしいのではないかと考えた。以下の表（各マシンのスペックの抜粋）から分かるとおり、5台のマシンの物理コア数（# of CPU x # of core）の合計は26なので、16がピークでサチると考えていた。</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>jupiter</th>
+          <th>ganymede</th>
+          <th>saisei</th>
+          <th>mokusei</th>
+          <th>europe</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CPU</td>
+          <td>Xeon(R) CPU E5-1620 @ 3.60GHz</td>
+          <td>Xeon(R) CPU E5-2620 @ 2.00GHz</td>
+          <td>Xeon(R) CPU E5-2643 @ 3.30GHz</td>
+          <td>Xeon(R) CPU E5-2609 @ 2.40GHz</td>
+          <td>eon(R) CPU E3-1270 v5 @ 3.60GHz</td>
+      </tr>
+      <tr>
+          <td># of  CPU</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td># of core</td>
+          <td>4</td>
+          <td>6</td>
+          <td>4</td>
+          <td>4</td>
+          <td>4</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="slot指定あり">slot指定あり</h4>
+<p>hostfileに各マシンの物理コア数をslotとして記載してみることにした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># cat myhosts</span>
+</span></span><span class="line"><span class="cl">europe <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl">jupiter <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl">ganymede <span class="nv">slots</span><span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="cl">saisei <span class="nv">slots</span><span class="o">=</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl">mokusei <span class="nv">slots</span><span class="o">=</span><span class="m">8</span>
+</span></span></code></pre></div><p>実行結果は次のとおり。想定していた傾向の結果である。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">np</th>
+          <th style="text-align: center">MFLOPS</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">9,171</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">11,234</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">20,413</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">16</td>
+          <td style="text-align: center">29,589</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">32</td>
+          <td style="text-align: center">23,018</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">64</td>
+          <td style="text-align: center">9,216</td>
+      </tr>
+  </tbody>
+</table>
+<p>測定結果をグラフにすると次のとおり。</p>
+<p><img src="/images/20240223_HimenoBench/20240223_himeno_bench.png" alt="HimenoBench"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>物理コア数までは、並列処理するプロセス数が増えれば性能も向上するものと考えていたが、そのような結果を得ることができた。slot指定の有無によりプロセス数のピークに差が出ることの理由は分からない。</p>
+<p>今回計算サイズは「L」として測定したが、計算サイズの違いがどのように影響するのかは、今後調べてみたい。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f&amp;text=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f&amp;title=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20240223_himenobenchmpi%2f&amp;description=%e5%a7%ab%e9%87%8e%e3%83%99%e3%83%b3%e3%83%81%e3%83%9e%e3%83%bc%e3%82%af%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6OpenMPI%e3%81%ae%e6%80%a7%e8%83%bd%e3%82%92%e6%b8%ac%e5%ae%9a%e3%81%99%e3%82%8b" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20240222_openmpi/" data-toggle="tooltip" data-placement="top" title="OpenMPIを実装したDockerコンテナを複数ノードで実行する">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20240307_athena_tutorial4/" data-toggle="tooltip" data-placement="top" title="３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

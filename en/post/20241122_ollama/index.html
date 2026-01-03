@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Running LLMs in a local environment using ollama - </title>
+
+  <meta name="description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
+I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20241122_ollama\/",
+          "name": "Running llms in a local environment using ollama"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Running LLMs in a local environment using ollama",
+  "description" : "Motivation In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.\nI would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.\n",
+  "inLanguage" : "en",
+  "wordCount":  1273 ,
+  "datePublished" : "2024-11-22T00:00:00\u002b00:00",
+  "dateModified" : "2024-11-22T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20241122_ollama\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Running LLMs in a local environment using ollama" />
+<meta property="og:description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in this post.
+I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20241122_ollama/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Running LLMs in a local environment using ollama" />
+  <meta name="twitter:description" content="Motivation
+In this post, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20241122_ollama/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Running LLMs in a local environment using ollama</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on November 22, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20241122_ollama/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in <a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">this post</a>.</p>
+<p>I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.</p>
+<h2 id="information-sources">Information sources</h2>
+<ol>
+<li><a href="https://hub.docker.com/r/ollama/ollama">ollama/ollama</a>  -  Information from dockerhub.</li>
+<li><a href="https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image">Ollama is now available as an official Docker image</a>  -  Information on installing ollama as a docker container on ollama&rsquo;s blog post.</li>
+<li><a href="https://bhrtaym-blog.com/?p=536">Experience with Ollama! Gemma2-2b-jpn opens up a new era of Japanese AI applications</a>  -  Information on installing gemma2 Japanese version with ollama.</li>
+<li><a href="https://zenn.dev/hellorusk/books/e56548029b391f/viewer/ollama5">Running Google&rsquo;s Japanese version of Gemma 2 2B with Ollama</a>  -  Also information on installing gemma2 Japanese version with ollama.</li>
+<li><a href="https://zenn.dev/buenotheebiten/articles/7c351b06494be0">Select LLM in local environment and run it with LangChain.</a>  -  I found it helpful to have a list of ollama CLI commands. I also checked 4 LLMs with the code in this article.</li>
+<li><a href="">OllamaLLM Connection refused&hellip;</a>  - I used this as a reference when I was checking the code in JupyterLab and got a connection refused error.</li>
+<li><a href="https://zenn.dev/yuta_enginner/articles/b0945dea44acb3">From installation to Japanese model introduction</a>  -  I referred to this when I incorporated the GGUF file into ollama.</li>
+</ol>
+<h2 id="install-ollama">Install ollama</h2>
+<h4 id="create-docker-composeyml">Create docker-compose.yml</h4>
+<p>I created the following yaml, referring to the command line for starting docker containers in sources 1. and 2.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ollama</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">ollama/ollama</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">ollama</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;11434:11434&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./ollama:/root/.ollama</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">reservations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">devices</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">nvidia</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">gpu]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span></code></pre></div><p>The host&rsquo;s &lsquo;&rsquo;. /ollama&quot; directory under an NFS mount. Thinking that by doing so, it can be shared with another GPU machine.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/mnt/nfs2/workspace/ollama
+</span></span><span class="line"><span class="cl">$ ls -l
+</span></span><span class="line"><span class="cl">合計 <span class="m">8</span>
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">325</span> 11月 <span class="m">21</span> 18:33 docker-compose.yml
+</span></span><span class="line"><span class="cl">drwxrwxr-x <span class="m">3</span> kenji kenji <span class="m">4096</span> 11月 <span class="m">22</span> 15:28 ollama
+</span></span><span class="line"><span class="cl">$ sudo docker compose up -d
+</span></span></code></pre></div><p>Start the ollama container as described above.</p>
+<h4 id="download-and-run-the-llm-model">(download and) run the LLM model</h4>
+<p>Enter the container started above and run the model in the container using the ollama command as follows</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker <span class="nb">exec</span> -it ollama /bin/bash
+</span></span><span class="line"><span class="cl"><span class="c1"># ollama --version</span>
+</span></span><span class="line"><span class="cl">ollama version is 0.4.2
+</span></span><span class="line"><span class="cl"><span class="c1"># ollama run schroneko/gemma-2-2b-jpn-it</span>
+</span></span></code></pre></div><h4 id="execution-results">Execution Results</h4>
+<p>The sample from Source 3. was used as-is and executed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt;&gt;&gt; 日本の四季について端的にわかりやすく教えて
+</span></span><span class="line"><span class="cl">日本の四季は、大きく分けて**春、夏、秋、冬**の４つの季節があります。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">* **春:**  桜の花が咲き乱れる季節です。暖かくなり、植物が芽吹きます。
+</span></span><span class="line"><span class="cl">* **夏:**  暑く、日差しが強くなります。海や湖で泳ぎ、屋外で遊びます。
+</span></span><span class="line"><span class="cl">* **秋:**  紅葉が美しい季節です。気温が下がり、冷たい風が吹きます。
+</span></span><span class="line"><span class="cl">* **冬:**  寒く、雪が降ることがあります。冬スポーツを楽しんだり、暖房で体を温めたりし
+</span></span><span class="line"><span class="cl">ます。
+</span></span></code></pre></div><h2 id="using-ollama-model-from-jupyterlab">Using ollama model from JupyterLab</h2>
+<p>I added “pip install ollama, langchain-ollama” to In the Dockerfile introduced in <a href="https://akenji3.github.io/en/post/20240929_mistralai/">this post</a>, then build  JupyterLab Docker container. The Dockerfile will eventually be reviewed, but more on that later.</p>
+<h4 id="executable-code">Executable code</h4>
+<p>I ran the code from the JupyterLab container, referring to the code in source 5.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_core.prompts</span> <span class="kn">import</span> <span class="n">ChatPromptTemplate</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">langchain_ollama.llms</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&#34;http://192.168.11.4:11434&#34;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&#34;schroneko/gemma-2-2b-jpn-it&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># PROMPT</span>
+</span></span><span class="line"><span class="cl"><span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;Question: </span><span class="si">{question}</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Answer: ステップバイステップで考えてみましょう。&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CHAIN</span>
+</span></span><span class="line"><span class="cl"><span class="n">chain</span> <span class="o">=</span> <span class="n">prompt</span> <span class="o">|</span> <span class="n">model</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&#34;question&#34;</span><span class="p">:</span> <span class="s2">&#34;美味しいパスタの作り方は?&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span></code></pre></div><p>The key point is the base_url of the OllamaLLM() argument. This is based on source 6. If base_url is not specified, a connection refused error occurs.</p>
+<h4 id="incorporate-gguf-file-as-a-model">Incorporate gguf file as a model</h4>
+<p>Referring to source 7., download “Q8-0” from <a href="https://huggingface.co/mradermacher/Llama-3-neoAI-8B-Chat-v0.1-GGUF">this list</a> on huggingface and Prepared a Modelfile.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ wget https://huggingface.co/mradermacher/Llama-3-neoAI-8B-Chat-v0.1-GGUF/resolve/main<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>/Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
+</span></span><span class="line"><span class="cl">$ cat Modelfile
+</span></span><span class="line"><span class="cl">FROM ./Llama-3-neoAI-8B-Chat-v0.1.Q8_0.gguf
+</span></span></code></pre></div><p>The above work is done under the ollama directory in the yaml file description. Then you can access the gguf file and modelfile from the container.</p>
+<p>Enter the ollama container (by &ldquo;docker exec&rdquo; already described) and create the model by the ollama command.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">＃ollama create neoai-8b-chat -f Modelfile
+</span></span></code></pre></div><h4 id="what-i-noticed">What I noticed.</h4>
+<ol>
+<li>If I pull the model in the ollama container, it seems to run when the JupyterLab code connects the model (OllamaLLM) and I can access it.</li>
+<li>When you change the model in JupyterLab, it seems to stop and run the model on the ollama side.</li>
+<li>When I enter the container and do “ollama stop model”, it seems to be releasing GPU memory.</li>
+</ol>
+<h2 id="review-jupyterlab-container">Review JupyterLab container</h2>
+<p>Now the ollama container can do LLM processing on the backend. So far, I have embedded llama-cpp-python in the JupyterLab container. From now on, llama-cpp-python is no longer required in the JupyterLab container, simplifying the JupyterLab container.</p>
+<h4 id="dockerfile-for-jupyterlab-container">Dockerfile for JupyterLab container</h4>
+<p>The simplified Dockerfile is as follows</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Docker image with JupyterLab available.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Installed the necessary packages for the NoteBooks I have created so far.</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Set bash as the default shell</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">SHELL</span><span class="o">=</span>/bin/bash<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Build with some basic utilities</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt update <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> apt install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        wget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        bzip2 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        git <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        git-lfs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        curl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        unzip <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        file <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        xz-utils <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        sudo <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        python3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        python3-pip <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        apt-get autoremove -y <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        rm -rf /usr/local/src/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># alias python=&#39;python3&#39;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> ln -s /usr/bin/python3 /usr/bin/python<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> pip install --upgrade pip setuptools <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install torch torchvision torchaudio <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>         --index-url https://download.pytorch.org/whl/cu121 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install jupyterlab matplotlib pandas scikit-learn ipywidgets <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install transformers accelerate sentencepiece einops <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install auto-gptq optimum <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain bitsandbytes protobuf <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-community langchain_openai wikipedia <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-huggingface unstructured html2text rank-bm25 janome <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-chroma sudachipy sudachidict_full <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install langchain-experimental neo4j <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install json-repair langchain-mistralai <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install mysql-connector-python <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install ragas datasets neo4j-graphrag <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install pypdf tiktoken sentence_transformers faiss-gpu trafilatura <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> pip install ollama langchain-ollama<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create a working directory</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /workdir</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Port number in container side</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8888</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;jupyter-lab&#34;</span><span class="p">,</span> <span class="s2">&#34;--ip=0.0.0.0&#34;</span><span class="p">,</span> <span class="s2">&#34;--port=8888&#34;</span><span class="p">,</span> <span class="s2">&#34;--no-browser&#34;</span><span class="p">,</span> <span class="s2">&#34;--allow-root&#34;</span><span class="p">,</span> <span class="s2">&#34;--NotebookApp.token=&#39;&#39;&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;--notebook-dir=/workdir&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><h2 id="summary">Summary</h2>
+<p>By separating the JupyterLab container and the ollama container, I was able to separate the coding part (front end) from the part that handles the LLM model (back end), which is structurally cleaner. I think this will be a good result when creating applications that use LLM models in the future.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;text=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;title=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20241122_ollama%2f&amp;description=Running%20LLMs%20in%20a%20local%20environment%20using%20ollama" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20241110_hybridgraphrag/" data-toggle="tooltip" data-placement="top" title="Hybrid GraphRAG using neo4j library">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20241123_openwebui/" data-toggle="tooltip" data-placement="top" title="Conversing with ollama&#39;s LLM via Open WebUI as front end">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

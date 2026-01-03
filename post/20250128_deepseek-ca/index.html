@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う - </title>
+
+  <meta name="description" content="モチベーション
+しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。
+今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20250128_deepseek-ca\/",
+          "name": "Deep seek r1 distill qwen 14 b 32 bをベースに日本語追加学習を行った llmを使う"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "DeepSeek-R1-Distill-Qwen-14B\/32Bをベースに日本語追加学習を行ったLLMを使う",
+  "description" : "モチベーション しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。\n今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  1466 ,
+  "datePublished" : "2025-01-28T00:00:00\u002b00:00",
+  "dateModified" : "2025-01-28T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250128_deepseek-ca\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う" />
+<meta property="og:description" content="モチベーション
+しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。
+今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250128_deepseek-ca/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う" />
+  <meta name="twitter:description" content="モチベーション
+しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。
+今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにし …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20250128_deepseek-ca/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;January 28, 2025に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250128_deepseek-ca/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="モチベーション">モチベーション</h2>
+<p>しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。</p>
+<p>今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://ascii.jp/elem/000/004/247/4247681/">ChatGPT超えの中国AI「DeepSeek-R1」の衝撃</a>  -  ascii.jpより。DeepSeek-R1の記事の一例として引用。</li>
+<li><a href="https://x.com/CyberAgent_PR/status/1883783524836413468?mx=2">サイバーエージェントからの発表</a>  -  DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語データで追加学習を行ったLLMを公開したとのサーバーエージェントからの発表。</li>
+<li><a href="https://huggingface.co/mmnga/cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-gguf">mmnga/cyberagent-DeepSeek-R1-Distill-Qwen-14B-japanese-gguf</a>  - 上記のサイバーエージェント版を量子化されたモデル。HugginFaceに公開。</li>
+<li><a href="https://akenji3.github.io/post/20241123_openwebui/">Open WebUIをフロントエンドにしてollamaのLLMと会話する</a>  -  自分が2ヶ月前にまとめた内容であるが、すっかり忘れていて、思い出すのに苦労した。Open WebUIは、OllamaサーバとWebブラウザとの間をよしなに繋げてくれる。</li>
+<li><a href="https://akenji3.github.io/post/20241122_ollama/">ollamaを使ってローカル環境でLLMを動かす</a>  -  上記の投稿の前日の記事で、OllamaをDockerで動かす内容である。</li>
+</ol>
+<h2 id="手順">手順</h2>
+<h4 id="モデルのダウンロード">モデルのダウンロード</h4>
+<p>情報源3.で公開されている量子化モデルで、4-bitの「Q 4_K_M」を以下のコマンドでダウンロードした。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ wget https://huggingface.co/mmnga/cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-gguf/resolve/main/cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+</span></span></code></pre></div><h4 id="ollamaサーバへの組み込み">Ollamaサーバへの組み込み</h4>
+<p>先ずは、情報源5.の「docker-compose.ymlを作成」で示している通り、ollamaを起動する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker compose up -d
+</span></span></code></pre></div><p>次に、「LLMモデルを（ダウンロードし）実行」の通り、上記で起動したollamaコンテナに入る。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo docker <span class="nb">exec</span> -it ollama /bin/bash
+</span></span></code></pre></div><p>以下は、コンテナ内での操作である。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># cd /root/.ollama</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ls -l</span>
+</span></span><span class="line"><span class="cl">total <span class="m">8777476</span>
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span>         <span class="m">68</span> Jan <span class="m">28</span> 05:20 Modelfile
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> <span class="m">1000</span> <span class="m">1000</span> <span class="m">8988110464</span> Jan <span class="m">28</span> 05:19 cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+</span></span><span class="line"><span class="cl"><span class="c1"># cat Modelfile</span>
+</span></span><span class="line"><span class="cl">FROM ./cyberagent-DeepSeek-R1-Distill-Qwen-14B-Japanese-Q4_K_M.gguf
+</span></span></code></pre></div><p>上記の通り、ダウンロードしたモデル（.gguファイル）とModelfileをコンテナから参照できるように準備しておく。ここまで準備が出来たら、以下のコマンドで、ollamaサーバに組み込む。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># ollama create cyberagent-DS-14b-japanese -f Modelfile</span>
+</span></span></code></pre></div><p>組み込みの部分は、情報源5.の「ggufファイルをモデルとして組み込む」も併せて参照されたい。</p>
+<h4 id="open-webuiを起動">Open WebUIを起動</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ ls -l
+</span></span><span class="line"><span class="cl">drwxrwxr-x <span class="m">5</span> kenji kenji <span class="m">4096</span> 11月 <span class="m">23</span> 11:19 data
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> kenji kenji  <span class="m">243</span> 11月 <span class="m">26</span> 08:33 docker-compose.yml
+</span></span><span class="line"><span class="cl">$ cat docker-compose.yml
+</span></span><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  open-webui:
+</span></span><span class="line"><span class="cl">    image: ghcr.io/open-webui/open-webui:main
+</span></span><span class="line"><span class="cl">    container_name: open-webui
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">OLLAMA_BASE_URL</span><span class="o">=</span>http://192.168.11.4:11434
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - ./data:/app/backend/data
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 3000:8080
+</span></span><span class="line"><span class="cl">$ sudo docker compose up -d
+</span></span></code></pre></div><p>Open WebUI起動の部分は、情報源4.の「Open WebUIを起動」も併せて参照されたい。</p>
+<h4 id="webブラウザから接続">Webブラウザから接続</h4>
+<p>ここまでの操作で、Ollamaサーバ、Open WebUIがそれぞれ立ち上がっているので、手元のブラウザから「http://192.168.11.8:3000/」と入力すると、Open WebUIの起動画面が表示される。名前、メールアドレス、パスワードを入力すると、質問を受け付ける画面となる。</p>
+<p>接続したら、左上の部分で、LLMモデルを変更して質問する。以下は回答部分の抜粋。</p>
+<p><img src="/images/20250128_DeepSeek-CA/20250128_Browser.png" alt="Browser"></p>
+<h2 id="まとめ">まとめ</h2>
+<p>質問への回答の量にびっくりしたが、他の質問を投げてみたところ、比較的コンパクトな回答であった。</p>
+<p>今話題のDeepSeek-R1のCyber Agentによる日本語版の量子化されたモデルを試した。2ヶ月までに構築したOllama、Open WebUIのシステムを使ったが、モデルへの組み込むや、起動手順など、忘れていることが多く、過去にまとめておいたことが助けになった。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;text=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;title=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250128_deepseek-ca%2f&amp;description=DeepSeek-R1-Distill-Qwen-14B%2f32B%e3%82%92%e3%83%99%e3%83%bc%e3%82%b9%e3%81%ab%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%bf%bd%e5%8a%a0%e5%ad%a6%e7%bf%92%e3%82%92%e8%a1%8c%e3%81%a3%e3%81%9fLLM%e3%82%92%e4%bd%bf%e3%81%86" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20250127_openfoam_env/" data-toggle="tooltip" data-placement="top" title="OpenFOAM環境を改善">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20250321_2d_flowovercylinder/" data-toggle="tooltip" data-placement="top" title="2次元円柱後流のシミュレーション">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/python/</link>
+    <description>Recent content in Python on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connecting to a Python development environment in a remote Docker container from VSCode</title>
+      <link>https://akenji3.github.io/en/post/20260103_uv-docker/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260103_uv-docker/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Until now, I&amp;rsquo;ve been launching JupyterLab containers on a remote workstation equipped with a GPU, connecting via browser from my local MacBook Air to develop Python code. For example, see &lt;a href=&#34;https://akenji3.github.io/en/post/20241201_python3.11/&#34;&gt;this article&lt;/a&gt;.&#xA;Recently, since I&amp;rsquo;ve been using VSCode frequently, I tried connecting to the same Python development environment on the GPU-equipped remote workstation from VSCode.&lt;/p&gt;&#xA;&lt;h2 id=&#34;information-sources&#34;&gt;Information Sources&lt;/h2&gt;&#xA;&lt;p&gt;I usually build things by referencing online information, but this time I built it while asking Claude.&#xA;That said, I did consult the &lt;a href=&#34;https://pytorch.org/&#34;&gt;PyTorch&lt;/a&gt; page to verify compatibility between the CUDA version and the torch installation.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

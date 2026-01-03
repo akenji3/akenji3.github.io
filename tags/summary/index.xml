@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Summary on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/summary/</link>
+    <description>Recent content in Summary on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/summary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugoで設定３種</title>
+      <link>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</link>
+      <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20200814_hugo_image_category_summary/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;GitHub PagesとHugoで記事を書き始めたのが、数日前。&lt;/p&gt;&#xA;&lt;p&gt;何通かポスト（記事を書いて）して、次の3つのことがやりたくなって、ちょっと試してできるようになったので、記事としてまとめる。&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;記事の画像ファイルを埋め込む&lt;/li&gt;&#xA;&lt;li&gt;記事をカテゴリ（category）で分類する&lt;/li&gt;&#xA;&lt;li&gt;ブログトップでの記事要約（summary）を短くする&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

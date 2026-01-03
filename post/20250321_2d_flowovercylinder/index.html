@@ -1,0 +1,1123 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>2次元円柱後流のシミュレーション - </title>
+
+  <meta name="description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20250321_2d_flowovercylinder\/",
+          "name": "2次元円柱後流のシミュレーション"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "2次元円柱後流のシミュレーション",
+  "description" : "はじめに 2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。\nそれ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。\n",
+  "inLanguage" : "ja",
+  "wordCount":  5634 ,
+  "datePublished" : "2025-03-21T00:00:00\u002b00:00",
+  "dateModified" : "2025-03-21T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20250321_2d_flowovercylinder\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="2次元円柱後流のシミュレーション" />
+<meta property="og:description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20250321_2d_flowovercylinder/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="2次元円柱後流のシミュレーション" />
+  <meta name="twitter:description" content="はじめに
+2ヶ月前のこの投稿では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。
+それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/">en</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>2次元円柱後流のシミュレーション</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 21, 2025に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/" lang="en">en</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>2ヶ月前の<a href="https://akenji3.github.io/post/20250123_unsteady_laminar/">この投稿</a>では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。</p>
+<p>それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。</p>
+<h2 id="情報源">情報源</h2>
+<ol>
+<li><a href="https://www.mdpi.com/1996-1073/16/12/4558">Physics-Informed Neural Networks for Low Reynolds Number Flows over Cylinder</a>  -  この論文の計算領域を参考に進めた。壁の境界条件は、Figure 4.の説明文に「the freestream baoundary condition of 1 m/s」とあった。Figure 9.の図と共に、隠れ層のレイア数についての記述も参考になった。ソースコードは無いが、流体の支配方程式の説明を読む限りVP型で解いているようだ。Figure 2.の全体像のInputには、時間$t$の記述はあるが、時間軸は無い。</li>
+<li><a href="https://arxiv.org/abs/2205.14249">Experience report of physics-informed neural networks in fluid simulations: pitfalls and frustration</a>  -  この論文の境界条件、隠れ層のノード数、レイア（層）数について参考にした。なお、この論文は、少し前に投稿した<a href="https://akenji3.github.io/post/20250124_karmanvortex/">OpenFOAMによるカルマン渦</a>の情報源1.と同じ筆者で、そのペーパーより約1年前に書かれたもの。</li>
+<li><a href="https://wiki.openfoam.com/Vortex_shedding_by_Joel_Guerrero_2D">Vortex shedding by Joel Guerrero 2D</a> - このページに「2D Circular cylinder - Vortex shedding」というチュートリアルがある。初めは、このチュートリアルの計算領域に合わせて、PINNsでシミュレーションした。このページについては、<a href="https://akenji3.github.io/post/20250124_karmanvortex/">OpenFOAMによるカルマン渦</a>との投稿の情報源6.で紹介している。</li>
+<li><a href="https://zenn.dev/ksttr/scraps/603a18a5b0ebc2">PINN工夫まとめ</a>  -  PINNで学習が上手くいかない時のヒントとなる資料へのリンク。ここを起点として、「failure mode」について色々と調べた。</li>
+</ol>
+<h2 id="経緯">経緯</h2>
+<p>次のような経緯でパラメータを変更した。結果の判断基準は、速度場／圧力場の時間経緯を見て、自然なものを感性で判断。OpenFOAMの出力などと比較すべきであったが、今回はそこまで出来なかった。</p>
+<h5 id="1-計算領域の変更">1. 計算領域の変更</h5>
+<p>最初は、シミュレーション結果を比較するために、<a href="https://akenji3.github.io/post/20250124_karmanvortex/">OpenFOAM</a>の情報源6.のチュートリアルの計算領域に合わせて開始した。良い結果は得られず、コードに誤りがあるか確認のために一旦、<a href="https://akenji3.github.io/post/20250115_unsteady/">この投稿</a>での計算領域でシミュレーションを実施した。その結果、ST formでの実施の方が、より良い結果となったので、以降ST formで実行することにした。</p>
+<p>計算領域についは、情報源1.に合わせ、円柱の後ろを長く取った。上下の壁はnon-slip条件（u方向、v方向ともにゼロ）とし、OUTLETでの圧力ゼロの境界条件とした。U_max=5（Re=200）の場合は、速度場については、比較的に良い結果が得られたが、圧力場はy方向に傾きのある結果となった。U_max=1（Re=40)の場合は、速度場、圧力場ともに大きく乱れた結果。</p>
+<p>上下の壁は、slip条件（u方向は、U_maxの値、v方向はゼロ）とすると、速度場、圧力場、共に比較的良い結果を示した。</p>
+<h5 id="2-隠れ層の変更隠れ層を増やす">2. 隠れ層の変更（隠れ層を増やす）</h5>
+<p>ST formでシミュレーションした結果、u, v速度成分は、比較的に良い結果を示していたが、円柱前面（INLET側）に伸びていた（私はこれをノーズと呼ぶ）のが気になって、調べていたら、情報源1.の図9.の説明に、「隠れ層が10の場合は、先端部が正確に再現できない」との記述があった。隠れ層を増やすことにした。</p>
+<h5 id="3-収束しないことへの対応">3. 収束しないことへの対応</h5>
+<p>隠れ層を50ノード×13層で実施していたが、50ノード×20層、25層で実施した。そうすると、20,000回ループ（epoch=20000）でも、INLETとWALLの誤差が1.0から動かず、収束しない現象となった。</p>
+<p>情報源4.を参考にしながら、誤差（損失項）の重み付け、ネットワークを「xavier」で初期化等の対応策を試行錯誤した。</p>
+<p>結果的には、50ノードx25層の隠れ層で、epoch=50000で実行すると、20,000回を過ぎたあたりで、INLETとWALLの誤差は1.0から激減し、収束傾向を示すようになった。そのモデルで推論した結果は、速度場、圧力場共に期待している内容とは異なっていた。特に速度場は、本来v方向に傾いているのだが、u方向に傾いていた。</p>
+<h5 id="4-隠れ層の変更ノード数を増やす">4. 隠れ層の変更（ノード数を増やす）</h5>
+<p>50ノードであまりよい結果がえられなかったので、情報源2.を参考に、256ノード／512ノードx6層／8層で試してみた。最終的に、256ノードx8層が一番よい結果となった。</p>
+<h2 id="パラメータ">パラメータ</h2>
+<p>経緯で述べたように、隠れ層、境界条件、計算点（collocation point）、繰り返し回数（epoch）等を色々と変更いたが、以下のコードでは、次のようなパラメータ設定でシミュレーションをおこなった。</p>
+<p>collocation pointについては、「問題領域（変数、定数）を設定」部分のコードを参照してほしい。</p>
+<table>
+  <thead>
+      <tr>
+          <th>パラメータ</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>隠れ層</td>
+          <td>256ｘ256ノード<!-- raw HTML omitted -->8層</td>
+      </tr>
+      <tr>
+          <td>INLET</td>
+          <td>1.0 （x方向にU_max=1.0m/sの流れ）</td>
+      </tr>
+      <tr>
+          <td>WALL（上下の境界）</td>
+          <td>slip条件（x方向にU_maxの流れ）</td>
+      </tr>
+      <tr>
+          <td>OUTLET</td>
+          <td>圧力ゼロ</td>
+      </tr>
+      <tr>
+          <td>epoch</td>
+          <td>100,000回</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="コード">コード</h2>
+<p><a href="https://akenji3.github.io/post/20250115_unsteady/">こちらの投稿</a>と同じ部分もあるが、改めてコードを掲載する。</p>
+<h4 id="パッケージをimport">パッケージをimport</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">lr_scheduler</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Normalize</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyDOE</span> <span class="kn">import</span> <span class="n">lhs</span>  <span class="c1"># Latin Hypercube Sampling (LHS)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">subprocess</span>
+</span></span></code></pre></div><h4 id="cudaを使っていることの確認">CUDAを使っていることの確認</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Exit if not run on cuda</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exit because of running on cpu</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">os</span><span class="o">.</span><span class="n">_exit</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">EX_OK</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span>  <span class="c1"># device is used later</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># We are running on cuda</span>
+</span></span><span class="line"><span class="cl"><span class="n">cmd</span> <span class="o">=</span> <span class="s2">&#34;nvidia-smi --query-gpu=name --format=csv,noheader&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Running on&#34;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</span></span></code></pre></div><p>ごく稀にCUDAを認識できずにCPUで実行することがるので、CUDAが認識できなければ、実行を止めるようにした。</p>
+<h4 id="関数を定義">関数を定義</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Remove points inside the cylinder from collocation points</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  Find the distance between the center of the cylinder (xc, yc) and a point,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  and delete anything less than the cylinder radius (r).</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">Remove_inCylinder</span><span class="p">(</span><span class="n">coor</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([((</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">xc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">yc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="n">coor</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">coor</span><span class="p">[</span><span class="n">distance</span> <span class="o">&gt;</span> <span class="n">r</span><span class="p">,</span> <span class="p">:]</span>
+</span></span></code></pre></div><h4 id="レイノルズ数を定義">レイノルズ数を定義</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Define Re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">U_max</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># flow velocity</span>
+</span></span><span class="line"><span class="cl"><span class="n">mu</span> <span class="o">=</span> <span class="mf">0.0005</span>
+</span></span><span class="line"><span class="cl"><span class="n">rho</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Re=200=(uxD)/nu=(1x0.1)/0.0005, nu=mu/rho</span>
+</span></span></code></pre></div><h4 id="問題領域変数定数を定義">問題領域（変数、定数）を定義</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Define variables to represent computation domains</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Some constants</span>
+</span></span><span class="line"><span class="cl"><span class="n">IC_samples</span> <span class="o">=</span> <span class="mi">5000</span>
+</span></span><span class="line"><span class="cl"><span class="n">wall_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+</span></span><span class="line"><span class="cl"><span class="n">cylinder_samples</span> <span class="o">=</span> <span class="mi">5000</span>
+</span></span><span class="line"><span class="cl"><span class="n">inlet_samples</span> <span class="o">=</span> <span class="mi">2000</span>
+</span></span><span class="line"><span class="cl"><span class="n">outlet_samples</span> <span class="o">=</span> <span class="mi">2000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Domain bounds</span>
+</span></span><span class="line"><span class="cl"><span class="n">xmin</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">ymin</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">tmin</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">xmax</span> <span class="o">=</span> <span class="mf">4.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">ymax</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">tmax</span> <span class="o">=</span> <span class="mf">60.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">lb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmin</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># cylinder</span>
+</span></span><span class="line"><span class="cl"><span class="n">dia</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># diameter</span>
+</span></span><span class="line"><span class="cl"><span class="n">radi</span> <span class="o">=</span> <span class="n">dia</span><span class="o">/</span><span class="mf">2.0</span>  <span class="c1"># radius</span>
+</span></span><span class="line"><span class="cl"><span class="n">xcent</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># center in x-axis</span>
+</span></span><span class="line"><span class="cl"><span class="n">ycent</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># cneter in y-axis</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># constants for refinement area and near wall area</span>
+</span></span><span class="line"><span class="cl"><span class="n">xrefmin</span> <span class="o">=</span> <span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">yrefmin</span> <span class="o">=</span> <span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">xrefmax</span> <span class="o">=</span> <span class="mf">3.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">yrefmax</span> <span class="o">=</span> <span class="mf">1.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">near_w</span> <span class="o">=</span> <span class="mf">0.2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Inital Condition: </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  (u, v, p) = (0, 0, 0)　at t= 0, x ∈ [xmin, xmax], y ∈ [ymin, ymax]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">xy_IC</span> <span class="o">=</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">IC_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_IC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">IC_samples</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">IC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">xy_IC</span><span class="p">,</span> <span class="n">t_IC</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">IC</span> <span class="o">=</span> <span class="n">Remove_inCylinder</span><span class="p">(</span><span class="n">IC</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="n">xcent</span><span class="p">,</span> <span class="n">yc</span><span class="o">=</span><span class="n">ycent</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">radi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># define floor and ceiling, we called wall</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   celling(x,y,t): (xmin, ymin ,tmin)-(xmax, ymax, tmax)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   floor(x,y,t): (xmin, ymin, tmin)-(xmax, ymin, tmax)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># N.B. we give the constant flow at the wall.</span>
+</span></span><span class="line"><span class="cl"><span class="n">CEILING</span> <span class="o">=</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">tmin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">wall_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_CEILING</span> <span class="o">=</span> <span class="n">CEILING</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_CEILING</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_CEILING</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_CEILING</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">U_max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_CEILING</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">u_CEILING</span>
+</span></span><span class="line"><span class="cl"><span class="n">CEILING</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">CEILING</span><span class="p">,</span> <span class="n">u_CEILING</span><span class="p">,</span> <span class="n">v_CEILING</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">FLOOR</span> <span class="o">=</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">wall_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_FLOOR</span> <span class="o">=</span> <span class="n">FLOOR</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_FLOOR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_FLOOR</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_FLOOR</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">U_max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_FLOOR</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">*</span> <span class="n">u_FLOOR</span>
+</span></span><span class="line"><span class="cl"><span class="n">FLOOR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">FLOOR</span><span class="p">,</span> <span class="n">u_FLOOR</span><span class="p">,</span> <span class="n">v_FLOOR</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">WALL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">CEILING</span><span class="p">,</span> <span class="n">FLOOR</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define cylinder surface</span>
+</span></span><span class="line"><span class="cl"><span class="n">rt_CYLD</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">tmin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">tmax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">cylinder_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_CYLD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">radi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">rt_CYLD</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="n">xcent</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_CYLD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">radi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rt_CYLD</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="n">ycent</span>
+</span></span><span class="line"><span class="cl"><span class="n">CYLD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_CYLD</span><span class="p">,</span> <span class="n">y_CYLD</span><span class="p">,</span> <span class="n">rt_CYLD</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define INLET</span>
+</span></span><span class="line"><span class="cl"><span class="n">INLET</span> <span class="o">=</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">inlet_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_INLET</span> <span class="o">=</span> <span class="n">INLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_INLET</span> <span class="o">=</span> <span class="n">INLET</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_INLET</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y_INLET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_INLET</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">U_max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_INLET</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">u_INLET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">INLET</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">INLET</span><span class="p">,</span> <span class="n">u_INLET</span><span class="p">,</span> <span class="n">v_INLET</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define OUTLET</span>
+</span></span><span class="line"><span class="cl"><span class="n">OUTLET</span> <span class="o">=</span> <span class="p">[</span><span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">tmin</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">tmax</span><span class="p">]</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">outlet_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define Collocation points, with refinement near the wall</span>
+</span></span><span class="line"><span class="cl"><span class="n">collo_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+</span></span><span class="line"><span class="cl"><span class="n">refine_samples</span> <span class="o">=</span> <span class="mi">5000</span>
+</span></span><span class="line"><span class="cl"><span class="n">near_samples</span> <span class="o">=</span> <span class="mi">2000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">xyt_Collo = lb + (ub - lb) * lhs(3, collo_samples)
+</span></span></span><span class="line"><span class="cl"><span class="s2">xyt_refine = [xrefmin, yrefmin, tmin] + [xrefmax-xrefmin, yrefmax-xrefmin, tmax] * lhs(3, refine_samples)
+</span></span></span><span class="line"><span class="cl"><span class="s2">xyt_floor = [xmin, ymin, tmin] + [xmax, near_w, tmax] * lhs(3, near_samples)
+</span></span></span><span class="line"><span class="cl"><span class="s2">xyt_ceiling = [xmin, ymax-near_w, tmin] + [xmax, near_w, tmax] * lhs(3, near_samples)
+</span></span></span><span class="line"><span class="cl"><span class="s2">Collo = np.concatenate((xyt_Collo, xyt_refine, xyt_floor, xyt_ceiling), 0)
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">collo_samples</span> <span class="o">=</span> <span class="mi">20000</span>
+</span></span><span class="line"><span class="cl"><span class="n">Collo</span> <span class="o">=</span> <span class="n">lb</span> <span class="o">+</span> <span class="p">(</span><span class="n">ub</span> <span class="o">-</span> <span class="n">lb</span><span class="p">)</span> <span class="o">*</span> <span class="n">lhs</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">collo_samples</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Collo</span> <span class="o">=</span> <span class="n">Remove_inCylinder</span><span class="p">(</span><span class="n">Collo</span><span class="p">,</span> <span class="n">xc</span><span class="o">=</span><span class="n">xcent</span><span class="p">,</span> <span class="n">yc</span><span class="o">=</span><span class="n">ycent</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">radi</span><span class="p">)</span>
+</span></span></code></pre></div><p>計算領域（Collocation）で、円柱の周りや壁周辺のポイントの効果が疑問だったので、削除した。</p>
+<h4 id="collocaion-pointを可視化">collocaion pointを可視化</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Visualize the collocation points in (x, y, t）</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2D</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Collo</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">Collo</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;greenyellow&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">IC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">IC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">WALL</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">INLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Collocation points&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3D</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#ax2.set_aspect(&#39;equal&#39;)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_box_aspect</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Collo</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">Collo</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">Collo</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;greenyellow&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">WALL</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">WALL</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">INLET</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">INLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Collocation points&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="学習で使う変数をtensor化">学習で使う変数をtensor化</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Define collocation, INLET, OUTLET, and WALL variables as torch.tensor</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">Collo</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">Collo</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">Collo</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x_IC</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">IC</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_IC</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">IC</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_IC</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">IC</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">INLET</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x_OUTLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_OUTLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_OUTLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">OUTLET</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">u_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">v_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">WALL</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x_CYLD</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_CYLD</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_CYLD</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">CYLD</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="全結合層のネットワーククラスを作成">全結合層のネットワーククラスを作成</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># define p_NN class</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">p_NN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#        self.activation = nn.ReLU()        </span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">input_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">layers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        # xavier initialization
+</span></span></span><span class="line"><span class="cl"><span class="s2">        for i in range(len(self.hidden_layers)):
+</span></span></span><span class="line"><span class="cl"><span class="s2">            nn.init.xavier_normal_(self.hidden_layers[i].weight.data, gain=1.0)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            nn.init.zeros_(self.hidden_layers[i].bias.data)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_layer</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_layers</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">(</span><span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">neural_net</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">psi</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s11</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s22</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s12</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">psi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s11</span><span class="p">,</span> <span class="n">s22</span><span class="p">,</span> <span class="n">s12</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">net_uvp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">t</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">psi</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s11</span><span class="p">,</span> <span class="n">s22</span><span class="p">,</span> <span class="n">s12</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neural_net</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="n">gradients</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s11</span><span class="p">,</span> <span class="n">s22</span><span class="p">,</span> <span class="n">s12</span>
+</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">net_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">s11</span><span class="p">,</span> <span class="n">s22</span><span class="p">,</span> <span class="n">s12</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>       
+</span></span><span class="line"><span class="cl">        <span class="n">u_x</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u_y</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u_t</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s11_x</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">s11</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s12_y</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">s12</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fu</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="n">u_t</span> <span class="o">+</span> <span class="n">rho</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">u_x</span> <span class="o">+</span> <span class="n">v</span><span class="o">*</span><span class="n">u_y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">s11_x</span> <span class="o">+</span> <span class="n">s12_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">v_x</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v_y</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v_t</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s12_x</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">s12</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s22_y</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">(</span><span class="n">s22</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fv</span> <span class="o">=</span> <span class="n">rho</span><span class="o">*</span><span class="n">v_t</span> <span class="o">+</span> <span class="n">rho</span><span class="o">*</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">v_x</span> <span class="o">+</span> <span class="n">v</span><span class="o">*</span><span class="n">v_y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">s12_x</span> <span class="o">+</span> <span class="n">s22_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">fxx</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span> <span class="o">+</span> <span class="n">mu</span><span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">u_x</span> <span class="o">-</span> <span class="n">s11</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fyy</span> <span class="o">=</span> <span class="o">-</span><span class="n">p</span> <span class="o">+</span> <span class="n">mu</span><span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">v_y</span> <span class="o">-</span> <span class="n">s22</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fxy</span> <span class="o">=</span> <span class="n">mu</span><span class="o">*</span><span class="p">(</span><span class="n">u_y</span> <span class="o">+</span> <span class="n">v_x</span><span class="p">)</span> <span class="o">-</span> <span class="n">s12</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fp</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="p">(</span><span class="n">s11</span> <span class="o">+</span> <span class="n">s22</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fu</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">fxx</span><span class="p">,</span> <span class="n">fyy</span><span class="p">,</span> <span class="n">fxy</span><span class="p">,</span> <span class="n">fp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>  <span class="c1"># no tensor is passed, return no tensor</span>
+</span></span><span class="line"><span class="cl">        <span class="n">xx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">yy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">pp</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">tt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">u</span> <span class="o">=</span> <span class="n">uu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v</span> <span class="o">=</span> <span class="n">vv</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cpu&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span>
+</span></span></code></pre></div><p>xavierでネットワークの初期化を試みたが、効果が無かったので、コメントアウトしている。</p>
+<h4 id="微分関数を定義">微分関数を定義</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Differentiation by pytorch</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># return dy/dx</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">gradients</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">grad</span><span class="p">(</span><span class="n">y</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">x</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">grad_outputs</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">create_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span></code></pre></div><h4 id="モデルを作成インスタンス化">モデルを作成（インスタンス化）</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create a Model</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  Input: (x, y, t)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  hidden: 20-layer　ｘ　50-node</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#  Output: (phi, p, s1, s2, s3)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+20*[50]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+13*[50]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+14*[50]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+15*[50]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+10*[50]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+[32]+[64]+[128]+[128]+[64]+[32]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+[32]+[64]+[128]+[256]+[256]+[128]+[64]+[32]+[5]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#uv_layers = [3]+15*[60]+[5]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">uv_layers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="o">+</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">p_NN</span><span class="p">(</span><span class="n">uv_layers</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="損失関数最適化関数を定義">損失関数、最適化関数を定義</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Loss function: Mean Square Error</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss_func</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Optimizer: Adam(Adaptive moment estimation)</span>
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">scheduler</span> <span class="o">=</span> <span class="n">lr_scheduler</span><span class="o">.</span><span class="n">ExponentialLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+</span></span></code></pre></div><p>前回同様、loss_func()は使っていない。学習率を変化させる関数を追加。</p>
+<h4 id="学習ループの時間計測のためタイマーをスタート">学習ループの時間計測のためタイマーをスタート</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#　Measure processing time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="学習ループ">学習ループ</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># learning Loop</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Lamb_iw</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lamb_ot</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num_epoch</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># epoch count</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Epoch</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Learning_rate</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fv</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fu</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fxx</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fyy</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fxy</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_fp</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_PINN</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_TOTAL</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_IC</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_WALL</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_CYLD</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_INLET</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Loss_OUTLET</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epoch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Epoch </span><span class="se">\t</span><span class="s2"> Learning-rate </span><span class="se">\t</span><span class="s2"> Loss_Total </span><span class="se">\t</span><span class="s2"> Loss_PINN </span><span class="se">\t</span><span class="s2"> Loss_IC </span><span class="se">\t</span><span class="s2"> Loss_WALL </span><span class="se">\t</span><span class="s2"> Loss_CYLD </span><span class="se">\t</span><span class="s2"> Loss_INLET </span><span class="se">\t</span><span class="s2"> Loss_OUTLET&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fu</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">fxx</span><span class="p">,</span> <span class="n">fyy</span><span class="p">,</span> <span class="n">fxy</span><span class="p">,</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_f</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">y_c</span><span class="p">,</span> <span class="n">t_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fu</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fv</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fxx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fxx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fyy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fyy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fxy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fxy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_fp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">fp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_PINN</span> <span class="o">=</span> <span class="n">loss_fu</span> <span class="o">+</span> <span class="n">loss_fv</span> <span class="o">+</span> <span class="n">loss_fxx</span> <span class="o">+</span> <span class="n">loss_fyy</span> <span class="o">+</span> <span class="n">loss_fxy</span> <span class="o">+</span> <span class="n">loss_fp</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">u_ic</span><span class="p">,</span> <span class="n">v_ic</span><span class="p">,</span> <span class="n">p_ic</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x_IC</span><span class="p">,</span> <span class="n">y_IC</span><span class="p">,</span> <span class="n">t_IC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_IC</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">u_ic</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v_ic</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_ic</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">u_wall</span><span class="p">,</span> <span class="n">v_wall</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x_WALL</span><span class="p">,</span> <span class="n">y_WALL</span><span class="p">,</span> <span class="n">t_WALL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    loss_WALL = torch.mean(u_wall**2) + torch.mean(v_wall**2)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_WALL</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_wall</span> <span class="o">-</span> <span class="n">u_WALL</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">v_wall</span> <span class="o">-</span> <span class="n">v_WALL</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">u_cyld</span><span class="p">,</span> <span class="n">v_cyld</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x_CYLD</span><span class="p">,</span> <span class="n">y_CYLD</span><span class="p">,</span> <span class="n">t_CYLD</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_CYLD</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">u_cyld</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v_cyld</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">u_inlet</span><span class="p">,</span> <span class="n">v_inlet</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x_INLET</span><span class="p">,</span> <span class="n">y_INLET</span><span class="p">,</span> <span class="n">t_INLET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_INLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">u_inlet</span> <span class="o">-</span> <span class="n">u_INLET</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">v_inlet</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">p_outlet</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">net_uvp</span><span class="p">(</span><span class="n">x_OUTLET</span><span class="p">,</span> <span class="n">y_OUTLET</span><span class="p">,</span> <span class="n">t_OUTLET</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss_OUTLET</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p_outlet</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Apply zero-gradient condition at OUTLET</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    x_OUTLET.requres_grad = True</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    y_OUTLET.requres_grad = True</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    u_outlet, v_outlet, _, _, _, _ = model.net_uvp(x_OUTLET, y_OUTLET, t_OUTLET)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    u_outlet_x = gradients(u_outlet, x_OUTLET)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    v_outlet_x = gradients(v_outlet, x_OUTLET)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    loss_OUTLET = torch.mean(u_outlet_x**2) + torch.mean(v_outlet_x**2)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">loss_TOTAL</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss_PINN</span> <span class="o">+</span> <span class="n">loss_IC</span> <span class="o">+</span> <span class="n">loss_CYLD</span> <span class="o">+</span> <span class="n">loss_OUTLET</span><span class="p">)</span> <span class="o">*</span> <span class="n">Lamb_ot</span> <span class="o">+</span> <span class="p">(</span><span class="n">loss_WALL</span> <span class="o">+</span> <span class="n">loss_INLET</span><span class="p">)</span> <span class="o">*</span> <span class="n">Lamb_iw</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">loss_TOTAL</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Epoch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Learning_rate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scheduler</span><span class="o">.</span><span class="n">get_last_lr</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fu</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fv</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fxx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fxx</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fyy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fyy</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fxy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fxy</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_fp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_fp</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_PINN</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_PINN</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_TOTAL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_TOTAL</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_IC</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_IC</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_WALL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_WALL</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_CYLD</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_CYLD</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_INLET</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_INLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Loss_OUTLET</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_OUTLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">1000</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">scheduler</span><span class="o">.</span><span class="n">get_last_lr</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_TOTAL</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_PINN</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_IC</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_WALL</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_CYLD</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_INLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nb">format</span><span class="p">(</span><span class="n">loss_OUTLET</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="s2">&#34;.4E&#34;</span><span class="p">),</span> <span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="p">)</span>
+</span></span></code></pre></div><p>壁のnon-slip条件、OUTLETでの速度勾配ゼロはコメントアウト。</p>
+<h4 id="学習ループ終了したのでタイマーをストップ">学習ループ終了したので、タイマーをストップ</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">processing_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;#&#34;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;processing_time(sec): &#34;</span><span class="p">,</span> <span class="n">processing_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;#&#34;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="損失を可視化">損失を可視化</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Draw loss curves</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_TOTAL</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Total loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_PINN</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PINN loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_IC</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_WALL</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;WALL loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_INLET</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;INLET loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Loss_OUTLET</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;OUTLET loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;epoch&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;loss curves and learning rate&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;14&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Epoch</span><span class="p">,</span> <span class="n">Learning_rate</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Learning Rate&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Learning Rate&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="速度場と圧力場を可視化">速度場と圧力場を可視化</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># File output function</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;rainbow&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">s</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">make_aFrame</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    i: frame number: 0-100
+</span></span></span><span class="line"><span class="cl"><span class="s2">    x, y: 2d computational domain
+</span></span></span><span class="line"><span class="cl"><span class="s2">    u, v, p: predicted u, v, p
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    norm = Normalize(vmin=0, vmax=1.2)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    cp = ax1.scatter(x, y, c=u, alpha=alpha, edgecolors=&#39;none&#39;, cmap=cmap, marker=marker, s=s, norm=norm)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cp</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;u(m/s)  at </span><span class="si">{:07.03f}</span><span class="s1">s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#    norm = Normalize(vmin=-0.6, vmax=0.6)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    cp = ax2.scatter(x, y, c=v, alpha=alpha, edgecolors=&#39;none&#39;, cmap=cmap, marker=&#39;o&#39;, s=s, norm=norm)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;v(m/s)  at </span><span class="si">{:07.03f}</span><span class="s1">s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#    norm = Normalize(vmin=0, vmax=2.5)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    cp = ax3.scatter(x, y, c=p, alpha=alpha, edgecolors=&#39;none&#39;, cmap=cmap, marker=&#39;o&#39;, s=s, norm=norm)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cp</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Pressure(pa)  at </span><span class="si">{:07.03f}</span><span class="s1">s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Speed and Pressure field at Epoch:</span><span class="si">{:06}</span><span class="s1"> Time:</span><span class="si">{:07.03f}</span><span class="s1">s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./output/uvp_</span><span class="si">{:06}</span><span class="s1">_</span><span class="si">{:07.03f}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span><span class="n">t</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">output_uvp</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Output u, v, p at each time step</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_collo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_collo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_collo</span><span class="p">,</span> <span class="n">y_collo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_collo</span><span class="p">,</span> <span class="n">y_collo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_collo</span> <span class="o">=</span> <span class="n">x_collo</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_collo</span> <span class="o">=</span> <span class="n">y_collo</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Remove cylinder internals</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dst</span> <span class="o">=</span> <span class="p">((</span><span class="n">x_collo</span> <span class="o">-</span> <span class="n">xcent</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y_collo</span> <span class="o">-</span> <span class="n">ycent</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_collo</span> <span class="o">=</span> <span class="n">x_collo</span><span class="p">[</span><span class="n">dst</span> <span class="o">&gt;=</span> <span class="n">radi</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_collo</span> <span class="o">=</span> <span class="n">y_collo</span><span class="p">[</span><span class="n">dst</span> <span class="o">&gt;=</span> <span class="n">radi</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">x_collo</span> <span class="o">=</span> <span class="n">x_collo</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_collo</span> <span class="o">=</span> <span class="n">y_collo</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t_collo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">x_collo</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Time step loop</span>
+</span></span><span class="line"><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">tt</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="o">+</span><span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">count</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">t_collo</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">u_pred</span><span class="p">,</span> <span class="n">v_pred</span><span class="p">,</span> <span class="n">p_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_collo</span><span class="p">,</span> <span class="n">y_collo</span><span class="p">,</span> <span class="n">t_collo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">make_aFrame</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="n">x_collo</span><span class="p">,</span> <span class="n">y_collo</span><span class="p">,</span> <span class="n">u_pred</span><span class="p">,</span> <span class="n">v_pred</span><span class="p">,</span> <span class="n">p_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span></code></pre></div><h4 id="円柱の周りの3点の圧力を可視化">円柱の周りの3点の圧力を可視化</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">output_pressures</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Predict the time evolution of pressure </span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># at the pressure measurement point (virtual pressure probe)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t_probe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x1</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xcent</span><span class="o">-</span><span class="n">radi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x2</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xcent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x3</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">xcent</span><span class="o">+</span><span class="n">radi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y1</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">ycent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y2</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">ycent</span><span class="o">+</span><span class="n">radi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y3</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">ycent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x3</span> <span class="o">=</span> <span class="n">x3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y3</span> <span class="o">=</span> <span class="n">y3</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t_probe</span> <span class="o">=</span> <span class="n">t_probe</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:,</span> <span class="kc">None</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">p3</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">t_probe</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_probe</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;at P1(front-end of cylinder)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    ax1.set_ylim([-0.5, 2.5])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time(s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure(Pa)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_probe</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;at P2(upper-end of cylinder)&#39;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">#    ax2.set_ylim([-0.5, 2.5])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time(s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure(Pa)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_probe</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;at P3(back-end of cylinder)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#    ax3.set_ylim([-0.5, 2.5])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time(s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure(Pa)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Pressure time histories at Epoch:</span><span class="si">{:06}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./output/pressure_</span><span class="si">{:06}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="可視化関数を呼び出す">可視化関数を呼び出す</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># output the currnet state of p_NET()</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_pressures</span><span class="p">(</span><span class="n">num_epoch</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_uvp</span><span class="p">(</span><span class="n">num_epoch</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="可視化">可視化</h2>
+<h4 id="学習状況">学習状況</h4>
+<p><img src="/images/20250321_2D_FlowOverCylinder/20250314_016_LossCurve.png" alt="LossCurve"></p>
+<p>上のグラフからも分かるように、4000から11000エポックまで、WALLとINLETの誤差が1.0に留まったままとなっている。この現象は、隠れ層が深くなると（例えば50ノード・25層で）、20000エポックを過ぎても収束傾向が見られなかった。</p>
+<h4 id="100000回実行後の速度場圧力場">100,000回実行後の速度場・圧力場</h4>
+<p>epoch=100000で実行した、速度場、圧力場のpngファイルを動画（gifファイル）したのがこれである。（オリジナルは13.8MBだったので、サイズを小さくし圧縮したもの）</p>
+<p><img src="/images/20250321_2D_FlowOverCylinder/uvp_resize_compress.gif" alt="uvp_resize_compress"></p>
+<h4 id="100000回未満の速度場圧力場">100,000回未満の速度場・圧力場</h4>
+<p>誤差曲線から分かるとおり、20,000回を過ぎた辺りで、誤差が収束しているように見えたので、20,000回、50,000回で学習した結果が次のとおり。シミュレーションの最後（60秒後）のスナップショットである。</p>
+<h5 id="20000回">20,000回</h5>
+<p><img src="/images/20250321_2D_FlowOverCylinder/uvp_020000_060.000.png" alt="uvp20K"></p>
+<h5 id="50000回">50,000回</h5>
+<p><img src="/images/20250321_2D_FlowOverCylinder/uvp_050000_060.000.png" alt="uvp50K"></p>
+<p>圧力場に注目してほしい。圧力場の傾き（勾配）は、x軸方向に向かって0に近づいていくのだが、20,000回、50,000回ではその傾向が見られない。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>円柱の周りの2次元流を課題とした理由は、円柱の後ろにカルマン渦（vortex shedding）を見たかったのだが、<a href="https://akenji3.github.io/post/20250124_karmanvortex/">OpenFOAMによるカルマン渦</a>で紹介したとおり、PINNsでは渦はできないと知った。そうであるならば、今後の研究を調べフォローするため、渦はできないまでも、PINNsでのシミュレーション環境（コード）を構築しようと思っていた。</p>
+<p>自分のシミュレーション結果は、OpenFoamの渦発生より時間的に前の流れと比べると、円柱前面（INLET方向）のノーズが出来ることが課題である。隠れ層を増やしても改善されず、収束困難性を示す傾向となった。</p>
+<p>また、誤差曲線で収束したように見えても、圧力場は期待通りの結果を示すまでにはepoch回数を大きく増やす必要があることが分かった。</p>
+<p>今回、ネット上で色々と関連情報を調べる上で、PerplexityとnotebookLMが非常に役に立った。Perplexityは、ネット上から調べたいペーパーなどにアクセスする斥候的な役割、notebookLMはペーパーの内容の概要を知り、更には詳細を調べる参謀的な役割と切り分けて使った。notebookLMは英語のペーパーの内容を理解する時間を1桁以上縮める効果があったと思う。</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f&amp;text=2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f&amp;title=2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f&amp;title=2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f&amp;title=2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20250321_2d_flowovercylinder%2f&amp;description=2%e6%ac%a1%e5%85%83%e5%86%86%e6%9f%b1%e5%be%8c%e6%b5%81%e3%81%ae%e3%82%b7%e3%83%9f%e3%83%a5%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20250128_deepseek-ca/" data-toggle="tooltip" data-placement="top" title="DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20250325_ubuntu2404/" data-toggle="tooltip" data-placement="top" title="ubuntu 24.04 LTSをインストール">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

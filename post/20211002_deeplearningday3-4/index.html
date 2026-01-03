@@ -1,0 +1,954 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>深層学習day3・day4レポート - </title>
+
+  <meta name="description" content="はじめに
+前回のこの記事に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。
+この記事がこのラビットチャレンジのレポートのシリーズ最終回である。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20211002_deeplearningday3-4\/",
+          "name": "深層学習day3・day4レポート"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "深層学習day3・day4レポート",
+  "description" : "はじめに 前回のこの記事に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。\nこの記事がこのラビットチャレンジのレポートのシリーズ最終回である。\n",
+  "inLanguage" : "ja",
+  "wordCount":  12176 ,
+  "datePublished" : "2021-10-17T00:00:00\u002b00:00",
+  "dateModified" : "2021-10-17T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "深層学習" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20211002_deeplearningday3-4\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="深層学習day3・day4レポート" />
+<meta property="og:description" content="はじめに
+前回のこの記事に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。
+この記事がこのラビットチャレンジのレポートのシリーズ最終回である。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20211002_deeplearningday3-4/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="深層学習day3・day4レポート" />
+  <meta name="twitter:description" content="はじめに
+前回のこの記事に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。
+この記事がこのラビットチャレンジのレポートのシリーズ最終回である。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>深層学習day3・day4レポート</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;October 17, 2021に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>前回の<a href="https://akenji3.github.io/post/20210924_deeplearningday1-2/">この記事</a>に引き続き、JDLA E資格のシラバスの範囲で、「深層学習 day3およびday4」についてまとめたものである。今回の範囲は、RNN、LSTM、Seq2seq、強化学習、Transformerなど深層学習を言語処理などの応用分野への適用につながる興味深い領域である。</p>
+<p>この記事がこのラビットチャレンジのレポートのシリーズ最終回である。</p>
+<h2 id="参考文献">参考文献</h2>
+<p>以下は、自分が学習する際に手元において参考にしている書籍である。</p>
+<ul>
+<li>ゼロから作るDeep Learning②　斎藤康毅著　オライリー・ジャパン<br>
+→ 前回のレポートで参考文献にあげた「ゼロから作るDeep Learning」の続編で、自然言語処理に関するもの。前作と同じように、実際にコードを動かしながら学べる。</li>
+<li>深層学習　Ian Goodfellow, Yoshua Bengio, AronCourville 著　岩澤有祐、鈴木雅大、中山浩太郎、松尾豊　監訳　ドワンゴ<br>
+→ Deep Learningの教科書的書籍。上記書籍で若干説明不足の数学的背景が追える。前回も言ったが、自分は部分的にしか参照できていない。</li>
+<li>深層強化学習入門　伊藤多一、今津義充、須藤広大、仁ノ平将人、川崎悠介、酒井裕企、魏崇哲 著　翔泳社<br>
+→ 深層学習の基礎（CNN、RNN、LSTM）、強化学習の基礎（Q学習、方策勾配法、Actor-Critic法）、および具体的な応用例3つの実装・解説。こちらも手を動かしながら学べる。</li>
+<li>最強囲碁AI アルファ碁解体新書　大槻知史 著　翔泳社<br>
+→ アルファ碁に関する論文を噛み砕き、アルファ碁で利用されている深層学習、強化学習、モンテカルロ木探索の仕組みを解説した書籍。</li>
+</ul>
+<h1 id="深層学習day3">深層学習day3</h1>
+<h2 id="section1再帰型ニューラルネットワークの概念">Section1：再帰型ニューラルネットワークの概念</h2>
+<h3 id="概要">概要</h3>
+<h4 id="rnnと時系列データ">RNNと時系列データ</h4>
+<p>再帰型ニューラルネットワーク（Recurrent Neural Network; RNN）は<strong>時系列データ</strong>に対応可能なニューラルネットワークである。</p>
+<p>時系列データとは、時間的順序を追って一定間隔ごとに観測され、しかも相互に統計的依存関係が認められるようなdーたの系列をいう。具体的には、次のようなデータである。</p>
+<ul>
+<li>音声データ</li>
+<li>テキストデータ</li>
+</ul>
+<h4 id="rnnの特徴">RNNの特徴</h4>
+<p>RNNの特徴は、時系列モデルを扱うには、初期の状態と過去の時間t-1の状態を保持し、そこから次の時間でのtを再帰的に求める再帰構造を持っていることである。</p>
+<h4 id="bptt">BPTT</h4>
+<p>Backpropagation Trough Time（BPTT）は、RNNにおいてのパラメータ調整方法の一種（誤差逆伝播法の一種）である。</p>
+<h3 id="確認テスト">確認テスト</h3>
+<h4 id="rnnの3つの重みについて">RNNの3つの重みについて</h4>
+<p>RNNのネットワークには大きく分けて3つの重みがある、以下の 2つ以外の重みについて説明する。</p>
+<ul>
+<li>入力から現在の中間層を定義するのに掛けられる重み：$W_{(in)}$</li>
+<li>中間層から出力を定義する際に掛けられる重み：$W_{(out)}$</li>
+</ul>
+<p>→ 前の中間層から現在の中間層に掛けられる重み： $W$である。</p>
+<h4 id="連鎖律を用いてdzdxを求める">連鎖律を用いてdz/dxを求める</h4>
+<p>$$
+\begin{align}
+z &amp;= t^2 \\
+t &amp;= x + y
+\end{align}
+$$</p>
+<p>上記の時に、連鎖律を用いて、$\frac{dz}{dx}$を求める。
+$$
+\frac{dz}{dx} = \frac{dz}{dt}\frac{dt}{dx} = 2t \times 1=2(x+y)
+$$</p>
+<h4 id="rnn出力式">RNN出力式</h4>
+<p>下図の$y_1$を$S_0,S_1,W_{in},W,W_{out}$を用いて表す。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20210926_RNN_Weight.png" alt="RNN_Weight"></p>
+<p>以下の通りである。但し、$g(x)$はシグモイド関数である。
+$$
+\begin{align}
+S_1 &amp;= W_{in} x_1 + W S_0 + b \\
+y_1 &amp;= g(W_{out} S_1+c)
+\end{align}
+$$</p>
+<h3 id="演習チャレンジ">演習チャレンジ</h3>
+<h4 id="再帰的に文全体の表現ベクトルを得るプログラム">再帰的に文全体の表現ベクトルを得るプログラム</h4>
+<p>空欄を埋めたコードを以下に示す。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v</span> <span class="o">=</span> <span class="n">node</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="n">travearse</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="n">traverse</span><span class="p">(</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">])</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">v</span> <span class="o">=</span> <span class="n">_activation</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">])))</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">v</span>
+</span></span></code></pre></div><p>隣接単語（表現ベクトル）から表現ベクトルを作るという処理は、隣接している表現 left と right を合わせたものを特徴量としてそこに重みを掛けることで実現する。したがって、W.dot(np.concatenate([left, right]))である。</p>
+<h3 id="実装演習">実装演習</h3>
+<p>RNNの実装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20210926_recurrentneuralnetwork/">こちらの記事</a>に掲載。</p>
+<h2 id="section2lstm">Section2：LSTM</h2>
+<h3 id="概要-1">概要</h3>
+<h4 id="lstmとは">LSTMとは</h4>
+<h5 id="rnnの課題解決策">RNNの課題・解決策</h5>
+<p>時間列を遡れば遡るほど、勾配が損失していく。そのため、長い時系列の学習が困難となる。構造自体を変えて勾配損失を解決したものがLSTMである。</p>
+<h5 id="勾配損失問題とは">勾配損失問題とは</h5>
+<p>誤差逆伝播法が下位層に進んでいくに連れて、勾配がどんどん緩やかになっていく。そのため、勾配降下法による更新では、下位層のパラメータがほとんど変わら図、訓練は最適値に収束しなくなる。</p>
+<h5 id="勾配爆発">勾配爆発</h5>
+<p>一方、勾配爆発とは、勾配が層を逆伝播するごとに指数関数的に大きくなっていくことを言う。勾配爆発を防ぐために、勾配クリッピングを行い、しきい値を超えたら勾配のノルムをしきい値に正規化する、ということもある。</p>
+<h5 id="lstm全体図">LSTM全体図</h5>
+<p><img src="/images/20210926_DeepLearning3-4/20211002_LSTM_big-picture.png" alt="LSTM_big-picture"></p>
+<h4 id="cecconstant-error-carousel">CEC（Constant Error Carousel）</h4>
+<p>LSTM全体図において、中間層にあるCEC(constant error carousel)が重要。RNNの問題点は、中間層に記憶を溜め込むわけだが、そのときに中間層が増えれば増えるほどに学習の過程で勾配が小さくなっていき勾配消失が起きてしまう。CECでは記憶することだけをもたせて、学習は分離する。そうすることで勾配がどんどん小さくなることを防ぐ。</p>
+<p>CECの課題は、入力データについて、時間依存度に関係なく重みが一律である。つまり、ニューラルネットワークの学習特性がないことである。</p>
+<h4 id="入力ゲートと出力ゲート">入力ゲートと出力ゲート</h4>
+<p>入力ゲートは、CECに「どのような記憶のさせ方するか」を伝える。前のユニットの入力から受け取る割合を調整する。</p>
+<p>出力ゲートは、CECに「どのような記憶の取り出し方をするか」を伝える。前のユニットの出力をどの程度受け取るかを調整する。</p>
+<p>入力ゲート、出力ゲートを追加することで、それぞれのゲートへの入力値の重みを、重み行列$\boldsymbol{W},\boldsymbol{U}$で可変可能とする。これにより、前述したCECの課題を解決できる。</p>
+<h4 id="忘却ゲート">忘却ゲート</h4>
+<p>CECは、過去の情報が全て保存されており、過去の情報が要らなくなった場合、削除することはできず、保存され続ける。そのため、過去の情報が要らなくなった（インプットが大きな変化をした）場合に、メモリセルで記憶した内容を忘れることを学習する。</p>
+<h4 id="覗き穴結合">覗き穴結合</h4>
+<p>除き台結合とは、CEC自身の値に、重み行列を介して伝播可能にした構造を言う。実際にはあまり大きな効果の改善は見られないとのこと。</p>
+<h3 id="確認テスト-1">確認テスト</h3>
+<h4 id="シグモイド関数を微分した時入力値がゼロの時の最大値は">シグモイド関数を微分した時、入力値がゼロの時の最大値は？</h4>
+<p>シグモイド関数、およびその微分は、次の通り。
+$$
+\begin{align}
+f(x) &amp;= \frac{1}{1+\exp(-x)} \\
+f&rsquo;(x) &amp;= (1-f(x))f(x)
+\end{align}
+$$
+したがって、$f&rsquo;(0)=(1-f(0))f(0)=0.25$となる。（$f(0)=0.5$であることより）</p>
+<h4 id="特定の言葉が予測に影響を及ぼさない場合に作用するゲートは">特定の言葉が予測に影響を及ぼさない場合に作用するゲートは？</h4>
+<p>以下の文章にLSTMに入力し空欄に当てはまる単語を予測したいとする。文中の「とても」という言葉は空欄の予測において無くなっても影響を及ぼさないと考えられるか。このような場合、どのゲートが作用すると考えられるか。
+「映画面白かったね。ところで、とてもお腹が空いたから何か＿＿。」</p>
+<p>→ 　忘却ゲート</p>
+<h3 id="実装演習-1">実装演習</h3>
+<p>本節では、実装演習は無し。</p>
+<h2 id="section3gru">Section3：GRU</h2>
+<h3 id="概要-2">概要</h3>
+<h4 id="gruとは">GRUとは</h4>
+<p>従来のLSTMでは、パラメータが多数存在していたため、計算負荷が大きかった。しかし、GRUでは、そのパラメータを大幅に削減し、精度は同等またはそれ以上が望めるようになった構造である。</p>
+<p>計算負荷が低いことがメリットである。</p>
+<h4 id="gruの全体像">GRUの全体像</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211002_RGU_big-picture.png" alt="GRU_big-picture"></p>
+<h3 id="確認テスト-2">確認テスト</h3>
+<h4 id="lstmとcecが抱える課題は">LSTMとCECが抱える課題は？</h4>
+<p>LSTMにおいては、入力ゲート、出力ゲート、忘却ゲート、CEC、と４つの部品から構成され、パラメータが多く、計算量が多い。</p>
+<p>CECは、勾配が1で学習能力がない。</p>
+<h4 id="lstmとgruの違いは">LSTMとGRUの違いは？</h4>
+<p>LSTMは、入力ゲート、出力ゲート、忘却ゲート＋CECで構成される。一方、GRUは更新ゲート、リセットゲートの２つで構成される。従って、パラメータの数はLSTMよりGRUのほうが少ないので、計算量が少なくて良い。</p>
+<h3 id="実装演習-2">実装演習</h3>
+<p>GRUの実装演習の結果、考察などについては、<a href="https://akenji3.github.io/post/20211002_gru/">こちらの記事</a>に記載。</p>
+<h2 id="section4双方向rnn">Section4：双方向RNN</h2>
+<h3 id="概要-3">概要</h3>
+<p>双方向RNNとは、過去の情報だけでなく、未来の情報を加味することで、精度を向上させるためのモデルである。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211002_BiDirectionalRNN_big-picture.png" alt="BiDirecitionalRNN_big-picture"></p>
+<p>文章の推敲や機械翻訳などで使われている。</p>
+<h3 id="演習チャレンジ-1">演習チャレンジ</h3>
+<p><img src="/images/20210926_DeepLearning3-4/20211002_BiDirectionalRNN_drill.png" alt="BiDirecitionalRNN_drill"></p>
+<p>双方向RNNでは、順方向と逆方向に伝播した時の中間層表現をあわせたものが特徴量となるので、正解は(4)であり、該当行は以下の通り。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">hs</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">h_f</span><span class="p">,</span> <span class="n">h_b</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">h_f</span><span class="p">,</span> <span class="n">h_b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hs_f</span><span class="p">,</span> <span class="n">hs_b</span><span class="p">)]</span>
+</span></span></code></pre></div><h3 id="実装演習-3">実装演習</h3>
+<p>本節では、実装演習は無し。</p>
+<h2 id="section5seq2seq">Section5：Seq2Seq</h2>
+<h3 id="概要-4">概要</h3>
+<h4 id="seq2seqとは">Seq2seqとは</h4>
+<p>Seq 2seqは、Encoder-Decoderモデルの一種のことである。時系列データを入力にとって、時系列データを出力するモデルである。</p>
+<p>具体的な用途は、機械対話や機械翻訳などに使用されている。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211002_Seq2seq_big-picutre.png" alt="Seq2seq_big-picture"></p>
+<p>Seq2seqの課題は、一問一答しかできない。すなわち、問に対して文脈も何もなく、ただ応答が行われ続ける。</p>
+<p>この課題を解決する手法が、後述するHREDである。</p>
+<h4 id="encoder-rnn">Encoder RNN</h4>
+<p>ユーザーがインプットしたテキストデータを単語などのトークンに区切って渡す構造である。</p>
+<h5 id="taking">Taking</h5>
+<p>文章を単語などのトークン毎に分割し、トークン毎のIDに分割する。</p>
+<h5 id="embedding">Embedding</h5>
+<p>IDから、そのトークンを表す分散表現ベクトルに変換する。</p>
+<h5 id="encoder-rnn-1">Encoder RNN</h5>
+<p>ベクトルを順番にRNNに入力していく。</p>
+<h4 id="decoder-rnn">Decoder RNN</h4>
+<p>システムがアウトプットデータを丹後などのトークン毎に生成する構造である。</p>
+<h4 id="hredhierarchical-recurrent-encoder-decoder">HRED（Hierarchical Recurrent Encoder-Decoder）</h4>
+<p>過去のn-1個の発話から次の発話を生成する。Seq2seqでは、会話の文脈無視で応答がなされたが、HREDでは、前の単語の流れに即して生成されるため、より人間らしい文章が生成される。</p>
+<h5 id="hredの課題">HREDの課題</h5>
+<p>HREDは確率的な多様性が字面にしかなく、会話の「流れ」のような多様性がない。同じコンテキスト（発話リスト）を与えても、答えの内容が毎回会話の流れとしては同じものしか出せない。また、HREDは短く情報量に乏しい答えをしがちである。</p>
+<h4 id="vhred-latent-variable-hierarchical-recurrent-encoder-decoder">VHRED (Latent Variable Hierarchical Recurrent Encoder-Decoder)</h4>
+<p>HREDの課題をVAEの潜在変数の概念を追加することで解決した構造である。</p>
+<h4 id="vaevariational-auto-encoder">VAE（Variational Auto-Encoder）</h4>
+<h5 id="オートエンコーダ">オートエンコーダ</h5>
+<p>教師なし学習の一つ。そのため学習時の入力データは訓練データのみで教師データは利用しない。</p>
+<h5 id="オートエンコーダの構造">オートエンコーダの構造</h5>
+<p>入力データから潜在変数$z$に変換するニューラルネットワークをEncoder、逆に潜在変数$z$をインプットとして元画像を復元するニューラルネットワークをDecoder、から構成される。</p>
+<p>オートエンコーダを使うと次元削減が行える。$z$の次元が入力データより小さい場合、次元削減と見なすことができる。</p>
+<h3 id="確認テスト-3">確認テスト</h3>
+<h4 id="seq2seqについて説明している選択肢は">seq2seqについて説明している選択肢は？</h4>
+<ol>
+<li>時刻に関して順方向と逆方向のRNNを構成し、それら2つの中間層表現を特徴量として利用するものである。</li>
+<li>RNNを用いたEncoder-Decoderモデルの一種であり、機械翻訳などのモデルに使われる。</li>
+<li>構文木などの木構造に対し、隣接単語から表現ベクトル（フレーズ）を作るという演算を再帰的に行い（重みは共通）、分全体の表現ベクトルを得るニューラルネットワークである。</li>
+<li>RNNの一種であり、単純なRNNにおいて問題になる勾配損失問題をCECとゲートの概念を導入することで解決したものである。</li>
+</ol>
+<p>正解は2である。（1は双方向RNN、3は構文木、4はLSTMに関する説明である）</p>
+<h4 id="seq2seqとhredhredとvhredの違いを簡潔に述べよ">seq2seqとHRED、HREDとVHREDの違いを簡潔に述べよ</h4>
+<h5 id="seq2seqとhredの違い">seq2seqとHREDの違い</h5>
+<p>Seq2Seqは一問一答しかできない(問に対して文脈も何もなく、ただ応答が行われ続ける) が、HREDは過去n−1個の発話から文脈に応じた回答ができる。</p>
+<h5 id="hredとvhredの違い">HREDとVHREDの違い</h5>
+<p>HREDは発話に多様性がなく情報量に乏しいが(うん、そうだねなど単調になる) 、VHREDはそれらの課題を解決し、文脈を保持しながら多様性ある発話ができる。</p>
+<h4 id="vaeに関する説明文中の空欄下線部分に言葉を埋め説明文を完成させる">VAEに関する説明文中の空欄（下線部分）に言葉を埋め、説明文を完成させる</h4>
+<p>「自己符号化器の潜在変数に<!-- raw HTML omitted -->確率変数<!-- raw HTML omitted -->を導入したもの。」</p>
+<h3 id="実装演習-4">実装演習</h3>
+<p>本節では、実装演習は無し。</p>
+<h2 id="section6word2vec">Section6：Word2vec</h2>
+<h3 id="概要-5">概要</h3>
+<p>RNNでは、単語のような可変長の文字列をNNに与えることはできない。固定長形式で単語を表現する必要がある。</p>
+<p>word2vecは、学習データからボキャブラリを作成するものである。</p>
+<p>例えば、次のような文章があった場合のボキャブラリは次のようになる。</p>
+<p>​		I want to eat apples. I like apples.	→	{apples, eat, I, like, to, want}</p>
+<p>applesを入力する場合、入力層には以下のベクトルが入力される。本来は辞書の単語数だけone-hotベクトルができる。</p>
+<p>1,,,apples</p>
+<p>0,,,eat</p>
+<p>0,,,I</p>
+<p>0,,,like</p>
+<p>0,,,to</p>
+<p>…</p>
+<p>このように表現することにより、大規模データの分散表現の学習が、現実的な計算速度とメモリ量で実現可能となる。</p>
+<h3 id="確認テスト-4">確認テスト</h3>
+<p>確認テストなし。</p>
+<h3 id="実装演習-5">実装演習</h3>
+<p>実装実習なし。</p>
+<h2 id="section7attention-mechanism">Section7：Attention Mechanism</h2>
+<h3 id="概要-6">概要</h3>
+<p>Seq2seqの問題は長い文章への対応が難しいことである。Seq2seqでは、2単語でも100単語でも、固定次元ベクトルの中に入力しなければならない。</p>
+<p>そのため、文章が長くなるほどそのシーケンスの内部表現の次元も大きくなっていく仕組みが必要となる。</p>
+<p>Attention Mechanism（Attention機構）は、「入力と出力のどの単語が関連しているのか」の関連度を学習する仕組みである。</p>
+<h3 id="確認テスト-5">確認テスト</h3>
+<h4 id="rnnword2vecseq2seqattentionの違いを簡潔に述べよ">RNN、Word2Vec、Seq2Seq、Attentionの違いを簡潔に述べよ</h4>
+<h5 id="rnn">RNN</h5>
+<p>時系列データを処理するのに適したネットワーク。</p>
+<h5 id="word2vec">Word2Vec</h5>
+<p>単語の分散表現ベクトルを得る手法。</p>
+<h5 id="seq2seq">Seq2Seq</h5>
+<p>ある時系列データから別の時系列データを得る手法。</p>
+<h5 id="attention">Attention</h5>
+<p>時系列データの中身それぞれに重みをつける手法。</p>
+<h3 id="実装演習-6">実装演習</h3>
+<p>実装実習なし。</p>
+<h1 id="深層学習day4">深層学習day4</h1>
+<h2 id="section1強化学習">Section1：強化学習</h2>
+<h3 id="概要-7">概要</h3>
+<h4 id="強化学習とは">強化学習とは</h4>
+<p>長期的に報酬を最大化できるように環境の中で行動を選択できるエージェントを作ることを目標とする機械学習の一分野である。</p>
+<p>行動の結果として与えられる利益（報酬）をもとに、行動を決定する原理を改善していく仕組みである。</p>
+<h4 id="強化学習イメージ">強化学習イメージ</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211003_EnforcedLearning_big-picture.png" alt="20211003_EnforcedLearning_big-picture"></p>
+<h4 id="強化学習の応用例">強化学習の応用例</h4>
+<p>マーケテイングの場合、次のように対応する。</p>
+<ul>
+<li>
+<p>環境：会社の販売促進部。</p>
+</li>
+<li>
+<p>エージェント：プロフィールと購入履歴に基づいて、キャンペーンメールを送る顧客を決めるソフトウェアのこと。</p>
+</li>
+<li>
+<p>行動：顧客ごとに送信、非送信のふたつの行動を選ぶこと。</p>
+</li>
+<li>
+<p>報酬：【負の報酬】キャンペーンのコスト
+　　　【正の報酬】キャンペーンで生み出されると推測される売り上げ</p>
+</li>
+</ul>
+<h4 id="検索と利用のトレードオフ">検索と利用のトレードオフ</h4>
+<p>環境について事前に完璧な知識があれば、最適な行動を予測し決定することは可能である。先のマーケティングの例では、どのような顧客にキャンペーンメールを送信すると、どのような行動を行うのかが既知である状況。</p>
+<p>しかしながら、強化学習の場合、上記仮定は成り立たないとする。不完全な知識を元に行動しながら、データを収集。最適な行動を見つけていく。</p>
+<p>過去データからベストな行動をとり続けるともっとベストな行動をとれず、未知な行動のみをとり続けると過去のデータを生かせないという関係がある。</p>
+<h4 id="強化学習の差分">強化学習の差分</h4>
+<p>強化学習と通常の教師あり、教師なし学習の違いについて述べる。</p>
+<ul>
+<li>教師あり、教師なし学習では、データに含まれるパターンを見つけ出し、予測するのが目標。</li>
+<li>強化学習では、優れた方策を見つけるのが目標。</li>
+</ul>
+<h4 id="価値関数">価値関数</h4>
+<p>価値関数には次の 2種類がある。</p>
+<ul>
+<li>状態価値関数：ある状態の価値に注目する</li>
+<li>行動価値関数：状態と価値の組み合わせた価値に注目する</li>
+</ul>
+<h4 id="方策関数">方策関数</h4>
+<p>方策ベースの強化学習において、エージェントがどんな行動をとるのかを決める関数のこと。</p>
+<h4 id="方策勾配法">方策勾配法</h4>
+<p>方策をモデル化して最適化する手法であり、次のように定義される。
+$$
+\theta^{(t+1)} = \theta^{(t)} + \epsilon \nabla J(\theta)
+$$
+上記の定義に対応し、行動価値関数$Q(s,a)$の定義を行い、次の方策勾配定理が成り立つ。
+$$
+\nabla_{\theta} J(\theta) = \mathbb{E}<em>{\pi</em>{\theta}}[(\nabla_{\theta}\log \pi_{\theta}(a|s)Q^{\pi}(s,a))]
+$$</p>
+<h3 id="確認テスト-6">確認テスト</h3>
+<p>なし。</p>
+<h3 id="実装演習-7">実装演習</h3>
+<p>なし。</p>
+<h2 id="section2alphago">Section2：AlphaGo</h2>
+<h3 id="概要-8">概要</h3>
+<p>AlphaGoにAlphaGo LeeとAlphaGo Zeroがある。</p>
+<h4 id="alphago-lee">AlphaGo Lee</h4>
+<p>AlphaGo LeeはPolicyNetとValueNetの２つのネットワークが登場し、ともに畳み込みニューラルネットワークになっている。PolicyNetが強化学習での方策関数で、ValueNetが価値関数である。PolicyNetでは、48チャンネルある19×19の盤面の特徴を入力し、19×19マスの着手予想確率が出力される。ValueNetでは、49チャンネルある19×19の盤面の特徴を入力し、現局面の勝率を-1～1で表したものが出力される。</p>
+<p>AlphaGoの学習は次のステップで行われる。</p>
+<ol>
+<li>教師あり学習によるRollOutPolicyとPolicyNetの学習</li>
+<li>強化学習によるPolicyNetの学習</li>
+<li>強化学習によるValueNetの学習</li>
+</ol>
+<h4 id="alphago-zero">AlphaGo Zero</h4>
+<p>教師あり学習を一切なくし、最低限のルールのみを与えて、あとは報酬が最大になるようにゼロから学習させたモデルである。AlphaGo Zeroは3日でAlphaGo Leeの強さを超えた。人間の経験則を教えないで学ばせた方が、未知の手が生み出されて良いことを示唆している。</p>
+<h4 id="alphago-leeとalphago-zeroの違い">AlphaGo LeeとAlphaGo Zeroの違い</h4>
+<ol>
+<li>教師あり学習を一切行わず、強化学習のみで作成</li>
+<li>特徴入力からヒューリスティックな要素を排除し、石の配列のみにした</li>
+<li>PolicyNetとValueNetを一つのネットワークに統合した</li>
+<li>Residual Netを導入した</li>
+<li>モンテカルロ木探索からRollOutシミュレーションをなくした</li>
+</ol>
+<h3 id="確認テスト-7">確認テスト</h3>
+<p>なし。</p>
+<h3 id="実装演習-8">実装演習</h3>
+<p>なし。</p>
+<h2 id="section3軽量化高速化技術">Section3：軽量化・高速化技術</h2>
+<h3 id="概要-9">概要</h3>
+<h4 id="分散深層学習">分散深層学習</h4>
+<p>深層学習は多くのデータを使用したり、パラメータ調整のために多くの時間を使用したりするため、高速な計算が求められる。複数の計算資源（ワーカー）を使用し、並列的にニューラルネットを構成することで、効率の良い学習を行うことが必要となる。そのための代表的な技術としては次の通り。</p>
+<ul>
+<li>データ並列化</li>
+<li>モデル並列化</li>
+<li>GPUによる高速技術</li>
+</ul>
+<h4 id="データ並列化">データ並列化</h4>
+<p>親モデルを各ワーカー（計算資源）に子モデルとしてコピーする。データを分割し、各ワーカーごと計算させ、最終的にデータをマージする手法。同期型と非同期型がある。</p>
+<h5 id="同期型">同期型</h5>
+<p>各ワーカーが計算が終わるのを待ち、全ワーカーの勾配が出たところで勾配の平均を計算し、親モデルのパラメータを更新する</p>
+<h5 id="非同期型">非同期型</h5>
+<p>各ワーカーはお互いの計算を待たずに、各子モデルごとに更新を行う。学習が終わった子モデルはパラメータサーバにpushされる。新たに学習を始める時は、パラメータサーバからpopしたモデルに対して学習していく。</p>
+<h5 id="同期型と非同期型の比較">同期型と非同期型の比較</h5>
+<ul>
+<li>処理のスピードは、お互いのワーカーの計算を待たない非同期型の方が早い。</li>
+<li>非同期型は最新のモデルのパラメータを利用できないので、学習が不安定になりやすい。</li>
+<li>現在は同期型の方が精度が良いことが多いので、主流となっている。</li>
+</ul>
+<h4 id="モデル並列化">モデル並列化</h4>
+<p>親モデルを各ワーカーに分割し、それぞれのモデルを学習させる。全てのデータで学習が終わった後で、一つのモデルに復元する。モデルが大きいときはモデル並列化を、データが多い時はデータ並列化をすると良い。</p>
+<p>モデルのパラメータ数が多いほど、スピードアップの効率も向上する。</p>
+<h4 id="gpuによる高速化">GPUによる高速化</h4>
+<p>GPUは元々グラフィック描画のため、比較的低性能なコアを多数用意することで、グラフィック描画を高速処理するためのプロセッサユニットである。ニューラルネットの学習は単純な行列計算が多く、グラフィック描画処理においてもアフィン変換など行列計算が多用され類似性が高く、GPUと相性が良い。</p>
+<p>NVIDIAがCUDAというGPU上で並列コンピューティングを行うためのプラットフォームを開発し、GPGPU（General Purpos on GPU）として2010年頃から脚光を浴び始めた。丁度、2012年ILSVRCでAlexNetでもGPUが処理の分散・高速化のため使われ、今日では深層学習でGPUが当然のように用いられている。</p>
+<h4 id="モデルの軽量化">モデルの軽量化</h4>
+<p>モデルの軽量化とは、モデルの精度を維持しつつパラメータや演算回数を低減するための手法の総称である。モデルの軽量化は、モバイル、IOT機器において有効な手法である。</p>
+<p>軽量化の代表的な手法として、次の3つがある。</p>
+<ul>
+<li>量子化</li>
+<li>蒸留</li>
+<li>プルーニング</li>
+</ul>
+<h5 id="量子化quantization">量子化（Quantization）</h5>
+<p>ネットワークが大きくなると大量のパラメータが必要となり、学習や推論に多くのメモリと演算処理が必要となる。そのため、パラメータを64ビット（FP64）浮動小数点ではななく、32ビット（FP32）などより精度を落として表現し、メモリと演算処理の削減を行う。</p>
+<p>NVIDIAの最新GPU（Ampereアーキテクチャ）では、テンソル演算に特化したTF32（19ビットで表現）というフォーマットをサポートし、メモリの圧縮、処理高速化を図っている。</p>
+<h5 id="蒸留distillation">蒸留（Distillation）</h5>
+<p>精度の高いモデルはニューロンの規模が大きなモデルになっている。そのため、推論に多くのメモリと演算処理が必要となる。規模の大きなモデルの知識を使い軽量なモデルの作成を行うことを蒸留という。</p>
+<p>蒸留は、教師モデルと生徒モデルの 2つで構成される。</p>
+<ul>
+<li>教師モデル　予測精度の高い、複雑なモデルやアンサンブルされたモデル</li>
+<li>生徒モデル　教師モデルをもとに作られる軽量なモデル。</li>
+</ul>
+<h5 id="プルーニングpruning">プルーニング（Pruning）</h5>
+<p>ネットワークが大きくなると大量のパラメータが必要となるが全てのニューロンの計算が精度に寄与しているわけではない。モデルの精度への寄与が少ないニューロンを削減することでモデルの軽量化、高速が図る手法がプルーニングである。</p>
+<h3 id="確認テスト-8">確認テスト</h3>
+<p>なし。</p>
+<h3 id="実装演習-9">実装演習</h3>
+<p>なし。</p>
+<h2 id="section4応用技術">Section4：応用技術</h2>
+<h3 id="概要-10">概要</h3>
+<h4 id="mobilenet">MobileNet</h4>
+<p><a href="https://arxiv.org/pdf/1704.04861.pdf">MobileNets</a>では畳み込み層の内積回数とパラメータ数を減らすことで、推論速度の改善を実現している。そのため、次の2つがコアなアイディアとなっている。</p>
+<ul>
+<li>Depthwise separable convolutionsで計算量を削減</li>
+<li>精度と速度のトレードオフを調整するハイパパラメータの導入</li>
+</ul>
+<h4 id="densenet">DenseNet</h4>
+<p><a href="https://arxiv.org/pdf/1608.06993.pdf">Dense Net</a>はResNetを改善したモデルで、従来よりコンパクトなモデルにもかかわらず、高い性能を持つことが特徴である。ショートカット接続をたくさん入れることで、層間の情報伝達をしやすくしている。</p>
+<p>特徴はDense Blockという部分があるのが特徴である。このブロックを通るたびに、画像のチャネルがどんどん増えていく。具体的には、前スライドで計算した出力に入力特徴マップを足し合わせる。チャネル数が増えすぎても困るので、畳み込み層とプーリング層でチャネル数を減らす動作を行う。</p>
+<h4 id="batch-norm-layer">Batch Norm Layer</h4>
+<p>レイヤー間を流れるデータの分布を、ミニバッチ単位で平均0、分散1になるように正規化する手法。Batch Normalizationはニューラルネットワークにおいて学習時間の短縮や初期値への依存低減、過学習の抑制などの効果がある。</p>
+<p>問題点として、Batch sizeが小さい条件下では、学習が収束しないことがあり、代わりにLayerNormなどの正規化手法が使われることが多い。</p>
+<h4 id="layer-norm">Layer Norm</h4>
+<p>BatchNormとLayerNormでは、正規化の仕方が異なる。</p>
+<ul>
+<li>BatchNormは複数の同チャネルごとに正規化する。</li>
+<li>LayerNormでは画像ごとに正規化を行う。入力データのスケールや、重み行列のスケール・シフトに対してロバストになることが知られている。</li>
+</ul>
+<h4 id="instance-norm">Instance Norm</h4>
+<p>Instance Normは、各サンプルの各チャネルごとに正規化を行う。</p>
+<h4 id="wavenet">Wavenet</h4>
+<p>Wavenetは音声生成モデルとなる。時系列データに対して畳み込み（Dilated convolution）を適用している。層が深くなるにつれて畳み込むリンクを離すということを行っている。これによってより長い範囲の情報をうまく使えるようにしている。</p>
+<h3 id="確認テスト-9">確認テスト</h3>
+<h4 id="mobilenetのアーキテクチャ">MobileNetのアーキテクチャ</h4>
+<ul>
+<li>Depthwise Separable Convolutionという手法を用いて計算量を削減している。通常の畳み込みが空間方向とチェネル方向の計算を同時に行うのに対して、Depthwise Separable ConvolutionではそれらをDepthwise ConvolutionとPointwise Convolutionと呼ばれる演算によって個別に行う。</li>
+<li>Depthwise Convolutionはチャネル毎に空間方向に畳み込む。すなわち、チャネル毎に$D_k\times D_k\times 1$のサイズのフィルターをそれぞれ用いて計算を行うため、その計算量は__（$H \times W \times C \times K \times K$）__となる。</li>
+<li>次にDepthwise Convolutionの出力をPointwise Convolutionによってチャネル方向に畳み込む。すなわち、出力チャネル毎に$1\times 1 \times M$サイズのフィルタをそれぞれ用いて計算を行うため、その計算量は__（$H \times W \times C \times M$）__となる。</li>
+</ul>
+<h4 id="wavenet-1">Wavenet</h4>
+<p>深層学習を用いて結合確率を学習する際に、効率的に学習が行えるアーキテクチャを提案したことがWaveNetの大きな貢献の一つである。</p>
+<p>提案された新しいConvolution型アーキテクチャは（<strong>Dilated causal convolution</strong>）と呼ばれ、結合確率を効率的に学習できるようになっている。</p>
+<p>__(Dilated causal convolution)<strong>を用いた際の大きな利点は、単純なConvolution layerと比べて</strong>（パラメータ数に対する受容野が広い）__ことである。</p>
+<h3 id="実装演習-10">実装演習</h3>
+<p>なし。</p>
+<h2 id="section5transformer">Section5：Transformer</h2>
+<h3 id="概要-11">概要</h3>
+<p>本セクションでは、Encoder-Decoderモデル（Seq2seq )、Transformerを学び、BERTを理解することが狙いである。</p>
+<h4 id="seq2seq-1">Seq2seq</h4>
+<ul>
+<li>Seq2seqは、系列（sequence）を入力として、系列を出力するものであり、Encoder-Decoderモデルとも呼ばれる。</li>
+<li>入力系列がEncode（内部状態に変換）され、内部状態からDecode（系列を変換）する。</li>
+<li>系列情報の例
+<ul>
+<li>翻訳（英語　→ 日本語）</li>
+<li>音声認識（波形　→ テキスト）</li>
+<li>チャットボット（テキスト　→ テキスト）</li>
+</ul>
+</li>
+</ul>
+<p>下図のように、2つのRNNが連結されている。左側のRNNがEncoder、右側のRNNがDecoderである。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_Seq2SeqModel.png" alt="Seq2SeqModel"></p>
+<h5 id="encoder">Encoder</h5>
+<p>入力として自然文が与えられると、内部状態ベクトル$\boldsymbol{h}$が出力される。</p>
+<h6 id="decoder">Decoder</h6>
+<p>隠れ状態の初期値にEncoder側から$\boldsymbol{h}$を受け取る。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_Seq2SeqModel2.png" alt="Seq2SeqModel2"></p>
+<p>Decoderのoutput側に正解を当てれば教師あり学習がEnd2endで行える。</p>
+<h4 id="transformer">Transformer</h4>
+<h5 id="encoder-decoderモデルの問題点">Encoder-Decoderモデルの問題点</h5>
+<p>Encoder-Decoderモデル（ニューラル機械翻訳）は、翻訳元の内容をひとつのベクトルで表現しており、文が長くなると表現力が足りなくなる。</p>
+<h5 id="attention注意機構">Attention（注意機構）</h5>
+<p>上記のSeq2seqの問題を解決したのが、Attention付きSeq2seqである。</p>
+<p>AttentionはそれまでEncoder部分から作られる固定長ベクトルが最後の部分しか利用されていなかった点に着目し、各単語が入力される際に出力される固定長ベクトルをすべて利用することで</p>
+<ol>
+<li>単語の数と同じ数だけの固定長ベクトルを獲得することができ（文章の長さに応じた情報量を獲得することができる）</li>
+<li>そのことで各単語間の照応関係（アライメント）を獲得すること</li>
+</ol>
+<p>を可能にした。（これは、各単語を入力したときに出力される固定長ベクトルには、最後に入力された単語の情報が強く反映される傾向があることを利用したものである。）</p>
+<h5 id="transformer-1">Transformer</h5>
+<p>2017年6月、Googleから<a href="https://arxiv.org/abs/1706.03762">Attention is All You Need</a>との論文が発表された。日本語による解説記事は<a href="https://deeplearning.hatenablog.com/entry/transformer">このページ</a>。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_TransformerModule.png" alt="TransformerModule"></p>
+<p>Transformerは、RNNやCNNを使わずAttentionのみ使用したニューラル翻訳である。わずかな訓練で圧倒的な性能を達成（WMT'14 の BLEU スコアは英仏: 41.0, 英独: 28.4 で第 1 位）した。</p>
+<h3 id="確認テスト-10">確認テスト</h3>
+<p>なし。</p>
+<h3 id="実装演習-11">実装演習</h3>
+<p>なし。</p>
+<h2 id="section6物体検知セグメンテーション">Section6：物体検知・セグメンテーション</h2>
+<h3 id="概要-12">概要</h3>
+<h4 id="広義の物体認識タスク">広義の物体認識タスク</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_ImageRecognitionTasks.png" alt="ImageRecognitionTasks"></p>
+<h4 id="代表的データセット">代表的データセット</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_DataSet.png" alt="DataSet"></p>
+<h4 id="分類問題における評価指標">分類問題における評価指標</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_ConfusionMatrix.png" alt="ConfusionMatrix"></p>
+<h4 id="iouintersection-over-union">IoU（Intersection over Union）</h4>
+<p>物体検出においてはクラスラベルだけでなく、物体位置の予測精度も評価したいので、それをConfusion Matrixの要素を用いて表現したものをIoU（Intersection over Union）である。IoUの定義は、以下の通り。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_IoU_Definition.png" alt="IoU_Definition"></p>
+<h4 id="mapmean-average-precision">mAP（mean Average Precision）</h4>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_mAP_Definition.png" alt="aAP_Definition"></p>
+<h4 id="物体検出のフレームワーク">物体検出のフレームワーク</h4>
+<ul>
+<li>2段階検出器（Two-stage detector）</li>
+<li>方向療育の検出とクラス推定を別々に行う</li>
+<li>相対的に精度が高い傾向</li>
+<li>相対的に計算量が大きく推論も遅い傾向</li>
+<li>1段階検出器（One-stage detector）
+<ul>
+<li>候補領域の検出とクラス推定を同時に行う</li>
+<li>颯太的に精度が低い傾向</li>
+<li>相対的に計算量が小さく推論も早い傾向</li>
+</ul>
+</li>
+</ul>
+<h4 id="ssdsingle-shot-detector">SSD（Single Shot Detector）</h4>
+<p>SSD（Single Shot Detector）の肝となるのは、「<strong>デフォルトボックス（default boxes）</strong>」という長方形の「枠」である。
+一枚の画像をSSDに読ませ、その中のどこに何があるのか予測させるとき、SSDは画像上に大きさや形の異なるデフォルトボックスを<strong>8732個</strong>乗せ、その枠ごとに予測値を計算する。</p>
+<p>ILSVRC CLS-LOCデータセットで事前に訓練された、下図の<a href="https://arxiv.org/abs/1409.1556">VGG16</a>をベースにしている。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_VGG16_Network.png" alt="VGG16_Network"></p>
+<p>SSDのネットワークアーキテクチャは、下図の通りである。</p>
+<p><img src="/images/20210926_DeepLearning3-4/20211017_SSD_Network.png" alt="SSD_Network"></p>
+<h4 id="sssemantic-segmentation">SS（Semantic Segmentation）</h4>
+<h5 id="アップサンプリングの壁">アップサンプリングの壁</h5>
+<p>コンボリューション＋プーリングを経ることで解像度が下がっていくので、SSを行うためにはアップサンプリングが必要になる。</p>
+<p>そもそも、プーリングなんてしなければよいのでは？　という疑問が湧く！　以下はその答えである。</p>
+<ul>
+<li>正しく認識するためには受容野にある程度の大きさが必要</li>
+<li>受容野を広げるためには、以下の2つのやり方がある
+<ul>
+<li>深いConvolution層を用意する</li>
+<li>プーリング（ストライド）</li>
+</ul>
+</li>
+</ul>
+<p>深いConvolution層を用意すると、演算量の増大、大容量メモリを必要となる。</p>
+<h3 id="確認テスト-11">確認テスト</h3>
+<p>なし。</p>
+<h3 id="実装演習-12">実装演習</h3>
+<p>なし。</p>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92/">深層学習</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f&amp;text=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day3%e3%83%bbday4%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day3%e3%83%bbday4%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day3%e3%83%bbday4%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f&amp;title=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day3%e3%83%bbday4%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20211002_deeplearningday3-4%2f&amp;description=%e6%b7%b1%e5%b1%a4%e5%ad%a6%e7%bf%92day3%e3%83%bbday4%e3%83%ac%e3%83%9d%e3%83%bc%e3%83%88" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20211002_gru/">GRUの実装演習</a></li>
+                
+                    <li><a href="/post/20210926_recurrentneuralnetwork/">再帰型ニューラルネットワークの概念の実装演習</a></li>
+                
+                    <li><a href="/post/20210925_alexnet/">最新のCNNの実装演習</a></li>
+                
+                    <li><a href="/post/20210925_convolutionalneuralnetwork/">畳み込みニューラルネットネットワークの実装演習</a></li>
+                
+                    <li><a href="/post/20210924_deeplearningday1-2/">深層学習day1・day2レポート</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20211002_gru/" data-toggle="tooltip" data-placement="top" title="GRUの実装演習">&larr; 前ページ</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/post/20211024_hpc_sdk_singularity/" data-toggle="tooltip" data-placement="top" title="NVIDIA HPC SDKをSingularityコンテナ化する">次ページ &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

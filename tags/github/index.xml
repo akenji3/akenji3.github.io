@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/github/</link>
+    <description>Recent content in Github on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Githubの認証方式が変更に！！！</title>
+      <link>https://akenji3.github.io/post/20210904_github_authentication/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210904_github_authentication/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;久しぶりに、このgithubのブログページに記事をアップしようとしたら、エラーとなって、記事がアップできなかった。&lt;/p&gt;&#xA;&lt;p&gt;githubの認証方式が変更になったようで、自分は、以下のように対応して、記事がアップできるようになった。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

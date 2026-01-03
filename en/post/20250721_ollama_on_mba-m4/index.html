@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Install Ollama on MacBook Air - </title>
+
+  <meta name="description" content="Introduction
+A month ago, I uploaded an article in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250721_ollama_on_mba-m4\/",
+          "name": "Install ollama on MAC book air"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Install Ollama on MacBook Air",
+  "description" : "Introduction A month ago, I uploaded an article in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.\n",
+  "inLanguage" : "en",
+  "wordCount":  1816 ,
+  "datePublished" : "2025-07-21T00:00:00\u002b00:00",
+  "dateModified" : "2025-07-21T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250721_ollama_on_mba-m4\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Install Ollama on MacBook Air" />
+<meta property="og:description" content="Introduction
+A month ago, I uploaded an article in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Install Ollama on MacBook Air" />
+  <meta name="twitter:description" content="Introduction
+A month ago, I uploaded an article in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20250721_ollama_on_mba-m4/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Install Ollama on MacBook Air</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 21, 2025
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250721_ollama_on_mba-m4/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="introduction">Introduction</h2>
+<p>A month ago, I uploaded an <a href="https://akenji3.github.io/en/post/20250622_lmstudio/">article</a> in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.</p>
+<h2 id="related-information">Related Information</h2>
+<ol>
+<li><a href="https://qiita.com/youtoy/items/d921bfa19794e328c7e1">Local LLM on Mac mini with M4: A light test of Gemma 3 with Ollama</a> - An article about trying a local LLM on M4.</li>
+<li><a href="https://ollama.com/">Get up and running with large language models.</a> - Official Ollama page. Download from here.</li>
+<li><a href="https://akenji3.github.io/post/20241122_ollama/">Using ollama to run LLM in a local environment</a> - My own blog from 8 months ago about integrating Ollama into a Docker container and running a local LLM in an ubuntu environment. My own blog from 8 months ago. I was working on (and addicted to) RAG and Knowledge Graph back then.</li>
+<li><a href="https://akenji3.github.io/post/20241123_openwebui/">Conversing with ollama&rsquo;s LLM with Open WebUI as frontend</a> - A continuation of the above blog, I put OpenWebUI on the front of Ollama&rsquo;s container and This blog is a continuation of the above blog, which put OpenWebUI on the front of Ollama&rsquo;s container so that it can be used like ChatGPT.</li>
+<li><a href="https://www.docker.com/products/docker-desktop/">docker.desktop</a> - Official Docker Desktop page. Download the installer for Mac here (Download for Mac - Apple Silicon).</li>
+</ol>
+<h2 id="installation">Installation</h2>
+<h4 id="download-and-install">Download and Install</h4>
+<p>Download the installer (Ollama.dmg) for macOS from the official Ollama page in Related Information 2. Run the installer and navigate to the application folder in the GUI to complete the installation.</p>
+<h4 id="download-and-run-the-llm-model">Download and run the LLM model</h4>
+<p>According to source 1., the post-installation screen plane was shown here, but I don&rsquo;t know if I missed it or didn&rsquo;t notice it, but I ran the following in the terminal.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">% ollama run llama3.2 
+</span></span></code></pre></div><h4 id="ollama-was-running-in-the-background">Ollama was running in the background.</h4>
+<p>Later, I noticed that the Ollama icon was displayed in the menu bar. Ollama was running in the background. right click on the icon between OneDrive and Bluetooth and select “Setting&hellip;” from the menu. from the right-click menu of the icon between OneDrive and Bluetooth, the following setting screen appears.</p>
+<p><img src="/images/20250720_Ollama/Ollama_Settings.png" alt="Ollama_menu-bar"></p>
+<h2 id="try-a-local-llm">Try a local LLM</h2>
+<h4 id="interacting-with-llama32">Interacting with llama3.2</h4>
+<p>Since we downloaded and ran llama3.2 in the previous section, let&rsquo;s try interacting with it directly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt;&gt;&gt; あなたの名前を教えて
+</span></span><span class="line"><span class="cl">私の名前はAIDAです。私はAI powered のコンパニオンなので、人間と交流できるよ
+</span></span><span class="line"><span class="cl">うに設計されています。私には多くの知識がありますが、自分で判断して行動するこ
+</span></span><span class="line"><span class="cl">とができます。私は、さまざまなトピックについての情報を提供し、質問に答え、対
+</span></span><span class="line"><span class="cl">話を続けるために使用できます。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; モデル名は？
+</span></span><span class="line"><span class="cl">私は「JAX-2021」モデルです。これは、2021 年にリリースされた AI モデルの名前
+</span></span><span class="line"><span class="cl">です。私が持つ知識とスキルは、このモデルの基盤になっています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; 作成者は？
+</span></span><span class="line"><span class="cl">私は OpenAI の <span class="s2">&#34;Chatbots&#34;</span> プロジェクトの下で開発されています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">オープンAI（OpenAI）は、人工知能を推進する非営利の組織です。オープンAI は、
+</span></span><span class="line"><span class="cl">人工智慧を使用してコンピューターシステムやその他のシステムを作成し、研究を行
+</span></span><span class="line"><span class="cl">っています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">私が使用している「Chatbots」プロジェクトは、コミュニケーションと人間とのイン
+</span></span><span class="line"><span class="cl">タラクションに関する研究に重点を置いており、これらの技術を開発して利用するこ
+</span></span><span class="line"><span class="cl">との潜在的なアプリケーションを探しています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; 開発元は？
+</span></span><span class="line"><span class="cl">私は Meta AI の下で開発されています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Meta AIは、人工知能と machine learning を使用したソフトウェアとサービスを開
+</span></span><span class="line"><span class="cl">発する会社です。Meta AI は、コンピューターの知識や能力を高めるための技術を研
+</span></span><span class="line"><span class="cl">究し、開発しています。これらの技術を使用して、Chatbots やコミュニケーション
+</span></span><span class="line"><span class="cl">システムなどのシステムを作成します。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; Send a message <span class="o">(</span>/? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>
+</span></span></code></pre></div><p>Quick response, didn&rsquo;t feel slow.</p>
+<h4 id="interacting-with-gemma3">Interacting with gemma3</h4>
+<p>I threw the same content to gemma3.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt;&gt;&gt; あなたの名前を教えて
+</span></span><span class="line"><span class="cl">私はGemmaです。Google DeepMindによってトレーニングされた大規模言語モデルです
+</span></span><span class="line"><span class="cl">。オープンウェイトモデルとして、広く一般に公開されています。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; モデル名は？
+</span></span><span class="line"><span class="cl">私のモデル名はGemmaです。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; 作成者は？
+</span></span><span class="line"><span class="cl">私はGoogle DeepMindによってトレーニングされました。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; 開発元は？
+</span></span><span class="line"><span class="cl">私はGoogle DeepMindによって開発されました。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; 
+</span></span></code></pre></div><p>Response seems to be about the same or slightly faster than llama3.2. The response is simple (too simple!). .</p>
+<h4 id="download-and-run-gemma3-for-12b-model">Download and run gemma3 for 12b model</h4>
+<p>Since the MacBook Air M4 has 32GB, it seems to be able to run a slightly larger model of gemma3, so I downloaded and ran the 12b model below.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% ollama run gemma3:12b
+</span></span></code></pre></div><p>I threw the same question but the 12b model has the same simple answer. Slightly slower, I guess!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt;&gt;&gt; /show info
+</span></span><span class="line"><span class="cl">  Model
+</span></span><span class="line"><span class="cl">    architecture        gemma3    
+</span></span><span class="line"><span class="cl">    parameters          12.2B     
+</span></span><span class="line"><span class="cl">    context length      <span class="m">131072</span>    
+</span></span><span class="line"><span class="cl">    embedding length    <span class="m">3840</span>      
+</span></span><span class="line"><span class="cl">    quantization        Q4_K_M    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Capabilities
+</span></span><span class="line"><span class="cl">    completion    
+</span></span><span class="line"><span class="cl">    vision        
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Parameters
+</span></span><span class="line"><span class="cl">    top_k          <span class="m">64</span>                 
+</span></span><span class="line"><span class="cl">    top_p          0.95               
+</span></span><span class="line"><span class="cl">    stop           <span class="s2">&#34;&lt;end_of_turn&gt;&#34;</span>    
+</span></span><span class="line"><span class="cl">    temperature    <span class="m">1</span>                  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  License
+</span></span><span class="line"><span class="cl">    Gemma Terms of Use                  
+</span></span><span class="line"><span class="cl">    Last modified: February 21, <span class="m">2024</span>    
+</span></span><span class="line"><span class="cl">    ...                                 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt;&gt;&gt; Send a message <span class="o">(</span>/? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>
+</span></span></code></pre></div><h4 id="pulled-llms">pulled LLMs</h4>
+<p>So far, the local LLMs that have been pulled are as follows.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% ollama list
+</span></span><span class="line"><span class="cl">NAME               ID              SIZE      MODIFIED     
+</span></span><span class="line"><span class="cl">gemma3:12b         f4031aab637d    8.1 GB    <span class="m">18</span> hours ago    
+</span></span><span class="line"><span class="cl">gemma3:latest      a2af6cc3eb7f    3.3 GB    <span class="m">20</span> hours ago    
+</span></span><span class="line"><span class="cl">llama3.2:latest    a80c4f17acd5    2.0 GB    <span class="m">20</span> hours ago
+</span></span></code></pre></div><h2 id="using-open-webui-on-mac">Using Open WebUI on Mac</h2>
+<p>To run Open WebUI, you need Docker, so install Docker Desktop first. (There is also a way to run Open WebUI without Docker, <a href="https://www.itflashcards.com/blog/ja/ollama-open-webui/">see here</a>. For alternative tools to Docker Desktop, see <a href="https://zenn.dev/cloud_ace/articles/docker-desktop-verification">here</a>.)</p>
+<h4 id="install-docker-desktop">Install Docker Desktop</h4>
+<p>Download the installer (Docker.dmg) for Apple Silicon from the official Docker Desktop page in Related Information 5. Run the installer and navigate to the application folder in the GUI to complete the installation.
+On the “Welcome to Docker” screen, you will be asked if you are a Work or Personal user, enter your password, and the setup is complete.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% docker --version 
+</span></span><span class="line"><span class="cl">Docker version 28.3.2, build 578ccf6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">% docker run hello-world
+</span></span><span class="line"><span class="cl">Unable to find image <span class="s1">&#39;hello-world:latest&#39;</span> locally
+</span></span><span class="line"><span class="cl">latest: Pulling from library/hello-world
+</span></span><span class="line"><span class="cl">c9c5fd25a1bd: Pull <span class="nb">complete</span> 
+</span></span><span class="line"><span class="cl">Digest: sha256:ec153840d1e635ac434fab5e377081f17e0e15afab27beb3f726c3265039cfff
+</span></span><span class="line"><span class="cl">Status: Downloaded newer image <span class="k">for</span> hello-world:latest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Hello from Docker!
+</span></span><span class="line"><span class="cl">This message shows that your installation appears to be working correctly.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To generate this message, Docker took the following steps:
+</span></span><span class="line"><span class="cl"> 1. The Docker client contacted the Docker daemon.
+</span></span><span class="line"><span class="cl"> 2. The Docker daemon pulled the <span class="s2">&#34;hello-world&#34;</span> image from the Docker Hub.
+</span></span><span class="line"><span class="cl">    <span class="o">(</span>arm64v8<span class="o">)</span>
+</span></span><span class="line"><span class="cl"> 3. The Docker daemon created a new container from that image which runs the
+</span></span><span class="line"><span class="cl">    executable that produces the output you are currently reading.
+</span></span><span class="line"><span class="cl"> 4. The Docker daemon streamed that output to the Docker client, which sent it
+</span></span><span class="line"><span class="cl">    to your terminal.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To try something more ambitious, you can run an Ubuntu container with:
+</span></span><span class="line"><span class="cl"> $ docker run -it ubuntu bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Share images, automate workflows, and more with a free Docker ID:
+</span></span><span class="line"><span class="cl"> https://hub.docker.com/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">For more examples and ideas, visit:
+</span></span><span class="line"><span class="cl"> https://docs.docker.com/get-started/
+</span></span></code></pre></div><p>Docker Desktop seems to be working fine!</p>
+<h4 id="launching-open-webui-container">Launching open-webui container</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% docker run -d -p 3000:8080 --add-host<span class="o">=</span>host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+</span></span></code></pre></div><h4 id="connect-to-open-webui-from-a-browser">Connect to open-webui from a browser</h4>
+<p>Type “http://localhost:3000/” in your browser to connect to Open WebUI. The first time, you need to enter your e-mail address, password, etc. You can enter them at random!</p>
+<p><img src="/images/20250720_Ollama/OpenWebUI.png" alt="OpenWebUI"></p>
+<p>I feel like it took a little longer initially than when I asked the question directly from the Ollama prompt.</p>
+<p>You can also change the model from OpenWebUI.</p>
+<h4 id="changing-an-llm">Changing an LLM</h4>
+<p>Click [v] to the right of the name of the currently running model in the upper left corner to see a list of available models (pulled by Ollama) from which you can switch.</p>
+<p><img src="/images/20250720_Ollama/ChangeModel.png" alt="ChangeModel"></p>
+<h2 id="summary">Summary.</h2>
+<p>As I mentioned in <a href="https://akenji3.github.io/post/20250622_lmstudio/">LM Studio post</a>, it is great to be able to use local LLM on a MacBook Air laptop with reasonably satisfactory speed and response content.</p>
+<p>I had them create a draft training curriculum, and while the response time is slower than ChatGPT, it is not at a level where it is unusable. As for the content of the responses, after digging into the questions a few times, we were able to get a satisfactory level of response.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f&amp;text=Install%20Ollama%20on%20MacBook%20Air&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f&amp;title=Install%20Ollama%20on%20MacBook%20Air" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f&amp;title=Install%20Ollama%20on%20MacBook%20Air" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f&amp;title=Install%20Ollama%20on%20MacBook%20Air" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250721_ollama_on_mba-m4%2f&amp;description=Install%20Ollama%20on%20MacBook%20Air" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20250622_lmstudio/" data-toggle="tooltip" data-placement="top" title="Installing LM Studio on my MacBook Air">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20251115_astrophoto/" data-toggle="tooltip" data-placement="top" title="Capturing the Galaxy with RicoRem(Ricoh&#39;s remote telescope)">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

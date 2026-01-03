@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/python/</link>
+    <description>Recent content in Python on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VSCodeからリモートdockerコンテナのpython開発環境に接続</title>
+      <link>https://akenji3.github.io/post/20260103_uv-docker/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260103_uv-docker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、GPUを搭載したリモートのワークステーションでJupyterLabコンテナを起動し、手元のMacBook Airからブラウザで接続して、pythonコードを開発して来た。例えば&lt;a href=&#34;https://akenji3.github.io/post/20241201_python3.11/&#34;&gt;この記事&lt;/a&gt;。&#xA;最近はVSCodeを良く使っているので、VSCodeから同じようにGPU搭載のリモートワークステーション上のpython開発環境に接続するようにしてみた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

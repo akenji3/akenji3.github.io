@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitor on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/monitor/</link>
+    <description>Recent content in Monitor on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 12 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/monitor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ServerCatを試す</title>
+      <link>https://akenji3.github.io/post/20220612_servercat/</link>
+      <pubDate>Sun, 12 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20220612_servercat/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前から、自宅に設置しているワークステーションの状態を監視する良い機能（ソフトウェア）がないか？とおもっていた。先日、&lt;a href=&#34;https://japan.zdnet.com/article/35187907/&#34;&gt;この記事&lt;/a&gt;を読んで、今回紹介するServerCatを試してみようと思った。&lt;/p&gt;&#xA;&lt;p&gt;ポイントはiOS/MacOSから監視できるという点。&lt;del&gt;自分はMacOS版しか試していない。&lt;/del&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Try OpenFOAM and ParaView - </title>
+
+  <meta name="description" content="Motivation
+I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can&rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).
+I decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/en\/post\/20250105_openfoam\/",
+          "name": "Try open foam and para view"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Try OpenFOAM and ParaView",
+  "description" : "Motivation I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can\u0026rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).\nI decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples.\n",
+  "inLanguage" : "en",
+  "wordCount":  1380 ,
+  "datePublished" : "2025-01-05T00:00:00\u002b00:00",
+  "dateModified" : "2025-01-05T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/en\/post\/20250105_openfoam\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Try OpenFOAM and ParaView" />
+<meta property="og:description" content="Motivation
+I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can&rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).
+I decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples.">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/en/post/20250105_openfoam/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Try OpenFOAM and ParaView" />
+  <meta name="twitter:description" content="Motivation
+I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/en/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/en/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/en/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/en/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/en/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://akenji3.github.io/post/20250105_openfoam/">ja</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/en/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Try OpenFOAM and ParaView</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 5, 2025
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20250105_openfoam/" lang="ja">ja</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="motivation">Motivation</h2>
+<p>I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can&rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).</p>
+<p>I decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples.</p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li>
+<p><a href="https://qiita.com/takaf05/items/7b46b4fa2bfce858a047">How to Create an OpenFOAM Docker Image</a> - was very helpful in creating an OpenFOAM docker image.</p>
+</li>
+<li>
+<p><a href="https://www.paraview.org/">ParaView</a> - I downloaded the package for Mac from the “DOWNLOAD” page.</p>
+</li>
+<li>
+<p><a href="https://www.xsim.info/articles/OpenFOAM/Tutorials.html">OpenFOAM Tutorial List</a> - Explanation of the tutorial. I couldn&rsquo;t understand it from this explanation alone, and I couldn&rsquo;t enter the world of OpenFOAM and ParaView.</p>
+</li>
+<li>
+<p><a href="https://zenn.dev/knowhere_imai/articles/92fd4841650356">Introduction to OpenFOAM: Simulation of Planar Poiseuille Flow</a> - By following the information here, I was able to understand a little about the world of OpenFOAM and ParaView.</p>
+</li>
+<li>
+<p><a href="https://github.com/Raocp/PINN-laminar-flow">Raocp/PINN-laminar-flow</a> - I am trying to work on PINNs, and this is the page I am referring to. I am stumped because I don&rsquo;t understand the introduction of equations (3) and (4) in the paper here.</p>
+</li>
+</ol>
+<h2 id="installation">Installation</h2>
+<h4 id="system-configuration">System configuration</h4>
+<p>My environment for testing OpenFOAM and ParaView is as follows: OpenFOAM is run on a server in a docker container, and the output is viewed from a Mac using an NFS mount, and displayed in ParaView.</p>
+<p><img src="/images/20250105_OpenFOAM/20250105_OpenFOAM.png" alt="SysConf"></p>
+<h4 id="dockerfile">Dockerfile</h4>
+<p>I created an OpenFOAM container with the following Dockerfile, referring to sources 1.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ubuntu:22.04</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install any extra things we might need</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                vim <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                ssh <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                sudo <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                wget <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                software-properties-common <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                rm -rf /var/lib/apt/lists/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        lv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        htop <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        neofetch <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        curl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        git <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        rm -rf /var/lib/apt/lists/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> curl https://dl.openfoam.com/add-debian-repo.sh <span class="p">|</span> bash<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> apt-get install -y openfoam2406-default <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    rm -rf /var/lib/apt/lists/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Create a new user called foam</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> useradd --user-group --create-home --shell /bin/bash foam <span class="p">;</span><span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        <span class="nb">echo</span> <span class="s2">&#34;foam ALL=(ALL) NOPASSWD:ALL&#34;</span> &gt;&gt; /etc/sudoers<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> foam</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /home/foam</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;source /usr/lib/openfoam/openfoam2406/etc/bashrc&#34;</span> &gt;&gt; ~/.bashrc<span class="err">
+</span></span></span></code></pre></div><p>At first, when I ran the OpenFOAM tutorial as root user, the following error occurred, so I added the “foam” user creation part with reference to sources 1.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">--&gt; FOAM FATAL IO ERROR: <span class="o">(</span>openfoam-2406 <span class="nv">patch</span><span class="o">=</span>241212<span class="o">)</span>
+</span></span><span class="line"><span class="cl">This code should not be executed by someone with administrator rights <span class="k">for</span> security reasons.
+</span></span></code></pre></div><h4 id="container-execution">Container Execution</h4>
+<p>The container created is executed as follows, sharing data between the container and the host. Note that $(OPENFOAM_DIR) is the NFS mounted area.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">OPENFOAM_DIR</span><span class="o">=</span>/mnt/nfs2/workspace/openfoam
+</span></span><span class="line"><span class="cl">sudo docker run -it --rm -v <span class="si">${</span><span class="nv">OPENFOAM_DIR</span><span class="si">}</span>:/home/foam openfoam bash
+</span></span></code></pre></div><h4 id="installing-paraview">Installing ParaView</h4>
+<p>From the ParaView page shown in Sources 2, I opened the download page, downloaded “ParaView-5.13.1-MPI-OSX10.15-Python3.10-x86_64.dmg” for Mac, and installed it.</p>
+<h2 id="running-the-simulation">Running the simulation</h2>
+<p>I thought that just running the built-in tutorial code would not be enough to understand OpenFOAM, so I actually created the necessary files myself, referring to sources 4.</p>
+<h4 id="creating-the-mesh">Creating the mesh</h4>
+<p>In executing the Poiseuille flow assignment, I created a “try” directory, and under that directory I created system and constant directories.</p>
+<p>Under the system directory, we created “controlDict” and “blockMeshDict”. Then, in the “try” directory, blockMesh was executed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openfoam2406:~/try/
+</span></span><span class="line"><span class="cl">foam$ blockMesh
+</span></span><span class="line"><span class="cl">/*---------------------------------------------------------------------------*<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> <span class="o">=========</span>                 <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> <span class="se">\\</span>      /  F ield         <span class="p">|</span> OpenFOAM: The Open Source CFD Toolbox           <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="se">\\</span>    /   O peration     <span class="p">|</span> Version:  <span class="m">2406</span>                                  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="se">\\</span>  /    A nd           <span class="p">|</span> Website:  www.openfoam.com                      <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    <span class="se">\\</span>/     M anipulation  <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="se">\*</span>---------------------------------------------------------------------------*/
+</span></span><span class="line"><span class="cl">Build  : _9bfe8264-20241212 <span class="nv">OPENFOAM</span><span class="o">=</span><span class="m">2406</span> <span class="nv">patch</span><span class="o">=</span><span class="m">241212</span> <span class="nv">version</span><span class="o">=</span><span class="m">2406</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">(</span>omitted in the middle<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Writing polyMesh with <span class="m">0</span> cellZones
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">Mesh Information
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">  boundingBox: <span class="o">(</span><span class="m">0</span> <span class="m">0</span> 0<span class="o">)</span> <span class="o">(</span>0.3 0.1 0.01<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  nPoints: <span class="m">2562</span>
+</span></span><span class="line"><span class="cl">  nCells: <span class="m">1200</span>
+</span></span><span class="line"><span class="cl">  nFaces: <span class="m">4880</span>
+</span></span><span class="line"><span class="cl">  nInternalFaces: <span class="m">2320</span>
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">Patches
+</span></span><span class="line"><span class="cl">----------------
+</span></span><span class="line"><span class="cl">  patch <span class="m">0</span> <span class="o">(</span>start: <span class="m">2320</span> size: 20<span class="o">)</span> name: inlet
+</span></span><span class="line"><span class="cl">  patch <span class="m">1</span> <span class="o">(</span>start: <span class="m">2340</span> size: 20<span class="o">)</span> name: outlet
+</span></span><span class="line"><span class="cl">  patch <span class="m">2</span> <span class="o">(</span>start: <span class="m">2360</span> size: 120<span class="o">)</span> name: fixedWalls
+</span></span><span class="line"><span class="cl">  patch <span class="m">3</span> <span class="o">(</span>start: <span class="m">2480</span> size: 2400<span class="o">)</span> name: frontAndBack
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openfoam2406:~/try/
+</span></span></code></pre></div><p>The created mesh is visualized in ParaView as follows</p>
+<p><img src="/images/20250105_OpenFOAM/20250105_Poiseuille_mesh.png" alt="mesh"></p>
+<h4 id="preparation">Preparation</h4>
+<p>Create “fvSchemes” and “fvSolution” under the “system” directory. Next, create “p” and “U” under the “0” directory. Finally, create “transportProperties” under the “constant” directory. In the sources 4., “physicalProperties” was used, but in my environment, “transportProperties” worked well.</p>
+<h4 id="simulation-run">Simulation Run</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openfoam2406:~/try/
+</span></span><span class="line"><span class="cl">foam$ icoFoam
+</span></span><span class="line"><span class="cl">/*---------------------------------------------------------------------------*<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="p">|</span> <span class="o">=========</span>                 <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> <span class="se">\\</span>      /  F ield         <span class="p">|</span> OpenFOAM: The Open Source CFD Toolbox           <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>  <span class="se">\\</span>    /   O peration     <span class="p">|</span> Version:  <span class="m">2406</span>                                  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   <span class="se">\\</span>  /    A nd           <span class="p">|</span> Website:  www.openfoam.com                      <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    <span class="se">\\</span>/     M anipulation  <span class="p">|</span>                                                 <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="se">\*</span>---------------------------------------------------------------------------*/
+</span></span><span class="line"><span class="cl">Build  : _9bfe8264-20241212 <span class="nv">OPENFOAM</span><span class="o">=</span><span class="m">2406</span> <span class="nv">patch</span><span class="o">=</span><span class="m">241212</span> <span class="nv">version</span><span class="o">=</span><span class="m">2406</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">(</span>omitted in the middle<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">Time</span> <span class="o">=</span> 0.5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Courant Number mean: 0.276748 max: 0.412884
+</span></span><span class="line"><span class="cl">smoothSolver:  Solving <span class="k">for</span> Ux, Initial <span class="nv">residual</span> <span class="o">=</span> 0.00027116, Final <span class="nv">residual</span> <span class="o">=</span> 6.3461e-06, No Iterations <span class="m">8</span>
+</span></span><span class="line"><span class="cl">smoothSolver:  Solving <span class="k">for</span> Uy, Initial <span class="nv">residual</span> <span class="o">=</span> 0.322225, Final <span class="nv">residual</span> <span class="o">=</span> 9.39342e-06, No Iterations <span class="m">21</span>
+</span></span><span class="line"><span class="cl">DICPCG:  Solving <span class="k">for</span> p, Initial <span class="nv">residual</span> <span class="o">=</span> 4.17235e-06, Final <span class="nv">residual</span> <span class="o">=</span> 6.96067e-07, No Iterations <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="nb">time</span> step continuity errors : sum <span class="nb">local</span> <span class="o">=</span> 6.48502e-09, <span class="nv">global</span> <span class="o">=</span> -7.71682e-10, <span class="nv">cumulative</span> <span class="o">=</span> -2.34105e-05
+</span></span><span class="line"><span class="cl">DICPCG:  Solving <span class="k">for</span> p, Initial <span class="nv">residual</span> <span class="o">=</span> 3.49567e-06, Final <span class="nv">residual</span> <span class="o">=</span> 5.00111e-07, No Iterations <span class="m">8</span>
+</span></span><span class="line"><span class="cl"><span class="nb">time</span> step continuity errors : sum <span class="nb">local</span> <span class="o">=</span> 4.65936e-09, <span class="nv">global</span> <span class="o">=</span> 3.79253e-10, <span class="nv">cumulative</span> <span class="o">=</span> -2.34101e-05
+</span></span><span class="line"><span class="cl"><span class="nv">ExecutionTime</span> <span class="o">=</span> 0.63 s  <span class="nv">ClockTime</span> <span class="o">=</span> <span class="m">3</span> s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">End
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">openfoam2406:~/try/
+</span></span><span class="line"><span class="cl">foam$ 
+</span></span></code></pre></div><p>Now, create “try.foam”  (execute “$ touch try.foam”) under “try” directory.</p>
+<p>The directories and files created for reference is as follows.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> kenji kenji <span class="m">4096</span>  1月  <span class="m">5</span> 14:08 <span class="m">0</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">3</span> kenji kenji <span class="m">4096</span>  1月  <span class="m">5</span> 14:02 constant
+</span></span><span class="line"><span class="cl">drwxr-xr-x <span class="m">2</span> kenji kenji <span class="m">4096</span>  1月  <span class="m">5</span> 14:11 system
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji    <span class="m">0</span>  1月  <span class="m">5</span> 13:19 tri.foam
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji   <span class="m">482</span>  1月  <span class="m">5</span> 14:08 0/U
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji   <span class="m">675</span>  1月  <span class="m">5</span> 14:05 0/p
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji   <span class="m">208</span>  1月  <span class="m">5</span> 14:02 constant/transportProperties
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji  <span class="m">1337</span>  1月  <span class="m">5</span> 12:56 system/blockMeshDict
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji   <span class="m">410</span>  1月  <span class="m">5</span> 12:51 system/controlDict
+</span></span><span class="line"><span class="cl">-rw-rw-r-- <span class="m">1</span> kenji kenji   <span class="m">377</span>  1月  <span class="m">5</span> 14:11 system/fvSchemes
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> kenji kenji   <span class="m">384</span>  1月  <span class="m">5</span> 13:16 system/fvSolution
+</span></span></code></pre></div><p>The U and p visualized in ParaView are as follows</p>
+<p><img src="/images/20250105_OpenFOAM/20250105_Poiseuille_U.png" alt="U"></p>
+<p><img src="/images/20250105_OpenFOAM/20250105_Poiseuille_p.png" alt="p"></p>
+<h2 id="summary">Summary</h2>
+<p>I installed OpenFOAM and ParaView and ran the tutorial to try them out, as I was stuck with PINNs, and realized that I had made a mistake in starting with OpenFOAM and ParaView lightly.</p>
+<p>After installing OpenFOAM and ParaView, I set up the various files for the “Poiseuille flow” simulation as an example, ran the simulation, and visualized the results. Through this process, I was able to understand a little about the sequence of steps. However, I do not have enough understanding of fluid dynamics to be able to evaluate the contents of the settings and the simulation results. I would like to deepen my understanding as much as possible.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f&amp;text=Try%20OpenFOAM%20and%20ParaView&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f&amp;title=Try%20OpenFOAM%20and%20ParaView" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f&amp;title=Try%20OpenFOAM%20and%20ParaView" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f&amp;title=Try%20OpenFOAM%20and%20ParaView" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fen%2fpost%2f20250105_openfoam%2f&amp;description=Try%20OpenFOAM%20and%20ParaView" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/en/post/20241227_burgersequation/" data-toggle="tooltip" data-placement="top" title="PINNs - Burgers Equation">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://akenji3.github.io/en/post/20250106_cavity/" data-toggle="tooltip" data-placement="top" title="Try cavity (OpenFOAM tutorial)">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/en/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.147.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

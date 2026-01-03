@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>実装演習 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/</link>
+    <description>Recent content in 実装演習 on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 02 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/%E5%AE%9F%E8%A3%85%E6%BC%94%E7%BF%92/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GRUの実装演習</title>
+      <link>https://akenji3.github.io/post/20211002_gru/</link>
+      <pubDate>Sat, 02 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20211002_gru/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section3：GRU」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>再帰型ニューラルネットワークの概念の実装演習</title>
+      <link>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210926_recurrentneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day3の「Section1：再帰型ニューラルネットワークの概念」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>最新のCNNの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_alexnet/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_alexnet/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section5：最新のCNN」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>畳み込みニューラルネットネットワークの実装演習</title>
+      <link>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</link>
+      <pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210925_convolutionalneuralnetwork/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section4：畳み込みニューラルネットワーク」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>バッチ正規化の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_batchnormalization/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_batchnormalization/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section1：バッチ正規化」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>過学習の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_overfitting/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_overfitting/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section3：過学習」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>学習率最適化手法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210924_optimizer/</link>
+      <pubDate>Fri, 24 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210924_optimizer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day2の「Section2：学習率最適化手法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>活性化関数の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_activationfunction/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_activationfunction/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section2：活性化関数」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>誤差逆伝播法の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_backpropagation/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_backpropagation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section5：誤差逆伝播法」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>入力層〜中間層の実装演習</title>
+      <link>https://akenji3.github.io/post/20210923_input-output-layer/</link>
+      <pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20210923_input-output-layer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;深層学習day1の「Section1：入力層〜中間層」の実装演習を以下にまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
