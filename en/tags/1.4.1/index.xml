@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Siril on akenji&#39;s lab</title>
-    <link>https://akenji3.github.io/en/tags/siril/</link>
-    <description>Recent content in Siril on akenji&#39;s lab</description>
+    <title>1.4.1 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/1.4.1/</link>
+    <description>Recent content in 1.4.1 on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://akenji3.github.io/en/tags/siril/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://akenji3.github.io/en/tags/1.4.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LRGB stacking processing in Siril 1.4.1 on Mac</title>
       <link>https://akenji3.github.io/en/post/20260223_stacking_siril141/</link>
       <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://akenji3.github.io/en/post/20260223_stacking_siril141/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Three months ago, I wrote an article on color compositing LRGB images captured with RicoRem-Ricoh&amp;rsquo;s remote telescope (&lt;a href=&#34;https://akenji3.github.io/en/post/20251115_astrophoto/%29&#34;&gt;https://akenji3.github.io/en/post/20251115_astrophoto/)&lt;/a&gt;. Targeting NGC 1566, I stacked multiple images exposed with each LRGB filter. For my own reference as well, I summarize the processing steps here.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;h2 id=&#34;related-information&#34;&gt;Related Information&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.astrophotography.jp/&#34;&gt;Ricorimo&lt;/a&gt; - Used the 50cm telescope at Siding Spring Observatory in Australia. Ricorimo images can be downloaded not only as raw data but also as calibrated data with dark and flat corrections applied. Calibrated data was used.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://siril.org/&#34;&gt;Siril&lt;/a&gt; - The astro-imaging software used this time. Stacking was done using Siril 1.4.1 running on a MacBook Air. Just checked the homepage, and it seems 1.4.2 was released on 2/18!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://chatgpt.com/&#34;&gt;ChatGPT&lt;/a&gt; - Used this to plan the observation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://claude.ai/&#34;&gt;Claude&lt;/a&gt; - Used this to process and compile the images. Quickly created shell scripts, speeding up the process.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;image-processing&#34;&gt;Image Processing&lt;/h2&gt;&#xA;&lt;h3 id=&#34;stacking-procedure&#34;&gt;Stacking Procedure&lt;/h3&gt;&#xA;&lt;h4 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h4&gt;&#xA;&lt;h5 id=&#34;target--exposure-times&#34;&gt;Target &amp;amp; Exposure Times&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Target    NGC1566&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Capturing the Galaxy with RicoRem(Ricoh&#39;s remote telescope)</title>
-      <link>https://akenji3.github.io/en/post/20251115_astrophoto/</link>
-      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://akenji3.github.io/en/post/20251115_astrophoto/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Astronomy is one of my hobbies, and I&amp;rsquo;ve always wanted to take my telescope to places with good stargazing conditions—places free from light pollution. Remote telescopes are the means to fulfill that dream. I recently learned about one such service, RicoRem(Ricoh&amp;rsquo;s remote telescope). I promptly became a member and captured NGC 300. I obtained monochrome images using LRGB filters. This post summarizes my experience up to synthesizing the monochrome images.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

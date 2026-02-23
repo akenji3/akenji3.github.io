@@ -6,8 +6,15 @@
     <description>Recent content in Software on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LRGB stacking processing in Siril 1.4.1 on Mac</title>
+      <link>https://akenji3.github.io/en/post/20260223_stacking_siril141/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260223_stacking_siril141/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Three months ago, I wrote an article on color compositing LRGB images captured with RicoRem-Ricoh&amp;rsquo;s remote telescope (&lt;a href=&#34;https://akenji3.github.io/en/post/20251115_astrophoto/%29&#34;&gt;https://akenji3.github.io/en/post/20251115_astrophoto/)&lt;/a&gt;. Targeting NGC 1566, I stacked multiple images exposed with each LRGB filter. For my own reference as well, I summarize the processing steps here.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;h2 id=&#34;related-information&#34;&gt;Related Information&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.astrophotography.jp/&#34;&gt;Ricorimo&lt;/a&gt; - Used the 50cm telescope at Siding Spring Observatory in Australia. Ricorimo images can be downloaded not only as raw data but also as calibrated data with dark and flat corrections applied. Calibrated data was used.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://siril.org/&#34;&gt;Siril&lt;/a&gt; - The astro-imaging software used this time. Stacking was done using Siril 1.4.1 running on a MacBook Air. Just checked the homepage, and it seems 1.4.2 was released on 2/18!&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://chatgpt.com/&#34;&gt;ChatGPT&lt;/a&gt; - Used this to plan the observation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://claude.ai/&#34;&gt;Claude&lt;/a&gt; - Used this to process and compile the images. Quickly created shell scripts, speeding up the process.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;image-processing&#34;&gt;Image Processing&lt;/h2&gt;&#xA;&lt;h3 id=&#34;stacking-procedure&#34;&gt;Stacking Procedure&lt;/h3&gt;&#xA;&lt;h4 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h4&gt;&#xA;&lt;h5 id=&#34;target--exposure-times&#34;&gt;Target &amp;amp; Exposure Times&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Target    NGC1566&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Connecting to a Python development environment in a remote Docker container from VSCode</title>
       <link>https://akenji3.github.io/en/post/20260103_uv-docker/</link>
