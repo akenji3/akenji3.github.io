@@ -23,7 +23,7 @@
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Until now, I&amp;rsquo;ve been launching JupyterLab containers on a remote workstation equipped with a GPU, connecting via browser from my local MacBook Air to develop Python code. For example, see &lt;a href=&#34;https://akenji3.github.io/en/post/20241201_python3.11/&#34;&gt;this article&lt;/a&gt;.&#xA;Recently, since I&amp;rsquo;ve been using VSCode frequently, I tried connecting to the same Python development environment on the GPU-equipped remote workstation from VSCode.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>imulation of a Two-Dimensional Cylinder Wake by Claude</title>
+      <title>Simulation of a Two-Dimensional Cylinder Wake by Claude</title>
       <link>https://akenji3.github.io/en/post/20260103_pinn-claude/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://akenji3.github.io/en/post/20260103_pinn-claude/</guid>
