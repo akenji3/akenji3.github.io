@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Mac上のSiril 1.4.1でのLRGBスタッキング処理 - </title>
+
+  <meta name="description" content="はじめに
+3ヶ月前リコリモで撮影したLRGB画像をカラー合成する記事を書いた。NGC1566を対象に、LRGB各フィルターで露光した複数の画像を合成（スタッキング）処理を行った。自身の備忘も兼ね、処理内容をここにまとめる。
+関連情報
+
+リコリモ - オーストラリア サイディング・スプリングの50cmの望遠鏡を使った。リコリモの画像は、rawデータだけでなく、ダーク補正・フラット補正済みのキャリブレーション済みのデータもダウンロードできる。キャリブレーション済みのデータを使っている。
+Siril - 今回使用した天体画像処理ソフトウェア。MacBook Air上で動作する、Siril 1.4.1を使ってスタッキングする。先程、ホームページを見ると、2/18に1.4.2がリリースされているようだ！
+ChatGPT - これを使って観測計画を立てた。
+Claude - これを使って、画像処理を進めて、まとめた。シェルプロをサクッと作ることができ、スピードアップ。
+
+画像処理
+スタッキング手順
+前提
+対象・撮影時間
+
+
+対象	NGC1566"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20260223_stacking_siril141\/",
+          "name": "Mac上の siril 1.4.1での lrgbスタッキング処理"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Mac上のSiril 1.4.1でのLRGBスタッキング処理",
+  "description" : "はじめに 3ヶ月前リコリモで撮影したLRGB画像をカラー合成する記事を書いた。NGC1566を対象に、LRGB各フィルターで露光した複数の画像を合成（スタッキング）処理を行った。自身の備忘も兼ね、処理内容をここにまとめる。\n関連情報 リコリモ - オーストラリア サイディング・スプリングの50cmの望遠鏡を使った。リコリモの画像は、rawデータだけでなく、ダーク補正・フラット補正済みのキャリブレーション済みのデータもダウンロードできる。キャリブレーション済みのデータを使っている。 Siril - 今回使用した天体画像処理ソフトウェア。MacBook Air上で動作する、Siril 1.4.1を使ってスタッキングする。先程、ホームページを見ると、2\/18に1.4.2がリリースされているようだ！ ChatGPT - これを使って観測計画を立てた。 Claude - これを使って、画像処理を進めて、まとめた。シェルプロをサクッと作ることができ、スピードアップ。 画像処理 スタッキング手順 前提 対象・撮影時間 対象\tNGC1566\n",
+  "inLanguage" : "ja",
+  "wordCount":  2186 ,
+  "datePublished" : "2026-02-23T00:00:00\u002b00:00",
+  "dateModified" : "2026-02-23T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "siril, 1.4.1, RicoRemo" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20260223_stacking_siril141\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Mac上のSiril 1.4.1でのLRGBスタッキング処理" />
+<meta property="og:description" content="はじめに
+3ヶ月前リコリモで撮影したLRGB画像をカラー合成する記事を書いた。NGC1566を対象に、LRGB各フィルターで露光した複数の画像を合成（スタッキング）処理を行った。自身の備忘も兼ね、処理内容をここにまとめる。
+関連情報
+
+リコリモ - オーストラリア サイディング・スプリングの50cmの望遠鏡を使った。リコリモの画像は、rawデータだけでなく、ダーク補正・フラット補正済みのキャリブレーション済みのデータもダウンロードできる。キャリブレーション済みのデータを使っている。
+Siril - 今回使用した天体画像処理ソフトウェア。MacBook Air上で動作する、Siril 1.4.1を使ってスタッキングする。先程、ホームページを見ると、2/18に1.4.2がリリースされているようだ！
+ChatGPT - これを使って観測計画を立てた。
+Claude - これを使って、画像処理を進めて、まとめた。シェルプロをサクッと作ることができ、スピードアップ。
+
+画像処理
+スタッキング手順
+前提
+対象・撮影時間
+
+
+対象	NGC1566">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20260223_stacking_siril141/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="Mac上のSiril 1.4.1でのLRGBスタッキング処理" />
+  <meta name="twitter:description" content="はじめに
+3ヶ月前リコリモで撮影したLRGB画像をカラー合成する記事を書いた。NGC1566を対象に、LRGB各フィルターで露光した複数の画像を合成（スタッキング）処理を行った。自身の備忘も兼ね、処理内容をここにまとめる。
+関連情報
+
+リコリモ - オーストラリア サイディング・スプリングの50cmの望遠鏡を使った。リコリモの画像は、rawデータだけでなく、ダーク補正・フラット補正済みのキャリブ …">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Mac上のSiril 1.4.1でのLRGBスタッキング処理</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 23, 2026に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>3ヶ月前リコリモで撮影したLRGB画像をカラー合成する<a href="https://akenji3.github.io/post/20251115_astrophoto/">記事</a>を書いた。NGC1566を対象に、LRGB各フィルターで露光した複数の画像を合成（スタッキング）処理を行った。自身の備忘も兼ね、処理内容をここにまとめる。</p>
+<h2 id="関連情報">関連情報</h2>
+<ol>
+<li><a href="https://www.astrophotography.jp/">リコリモ</a> - オーストラリア サイディング・スプリングの50cmの望遠鏡を使った。リコリモの画像は、rawデータだけでなく、ダーク補正・フラット補正済みのキャリブレーション済みのデータもダウンロードできる。キャリブレーション済みのデータを使っている。</li>
+<li><a href="https://siril.org/">Siril</a> - 今回使用した天体画像処理ソフトウェア。MacBook Air上で動作する、Siril 1.4.1を使ってスタッキングする。先程、ホームページを見ると、2/18に1.4.2がリリースされているようだ！</li>
+<li><a href="https://chatgpt.com/">ChatGPT</a> - これを使って観測計画を立てた。</li>
+<li><a href="https://claude.ai/">Claude</a> - これを使って、画像処理を進めて、まとめた。シェルプロをサクッと作ることができ、スピードアップ。</li>
+</ol>
+<h2 id="画像処理">画像処理</h2>
+<h3 id="スタッキング手順">スタッキング手順</h3>
+<h4 id="前提">前提</h4>
+<h5 id="対象撮影時間">対象・撮影時間</h5>
+<ul>
+<li>
+<p>対象	NGC1566</p>
+</li>
+<li>
+<p>L画像	2026/1/21 22:10:44-22:49:26 各180秒・10枚</p>
+</li>
+<li>
+<p>R画像	2026/1/21 22:49:57-22:59:37 各120秒・4枚</p>
+</li>
+<li>
+<p>G画像	2026/1/21 23:00:07-23:09:50 各120秒・4枚</p>
+</li>
+<li>
+<p>B画像	2026/1/21 23:10:20-23:20:01 各120秒・4枚　※不良画像1枚除外してスタッキング処理</p>
+</li>
+</ul>
+<h5 id="ディレクトリ構成">ディレクトリ構成</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NGC1566/
+</span></span><span class="line"><span class="cl">  └── lights/
+</span></span><span class="line"><span class="cl">      ├── calibrated-...-Luminance-...-001.fit
+</span></span><span class="line"><span class="cl">      ├── calibrated-...-Luminance-...-002.fit
+</span></span><span class="line"><span class="cl">      ├── calibrated-...-Red-...-001.fit
+</span></span><span class="line"><span class="cl">      ├── calibrated-...-Green-...-001.fit
+</span></span><span class="line"><span class="cl">      └── calibrated-...-Blue-...-001.fit
+</span></span></code></pre></div><h5 id="処理後の目標構成">処理後の目標構成</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NGC1566/
+</span></span><span class="line"><span class="cl">  ├── L_stacked.fit
+</span></span><span class="line"><span class="cl">  ├── R_stacked.fit
+</span></span><span class="line"><span class="cl">  ├── G_stacked.fit
+</span></span><span class="line"><span class="cl">  ├── B_stacked.fit
+</span></span><span class="line"><span class="cl">  ├── lights/
+</span></span><span class="line"><span class="cl">  ├── L/
+</span></span><span class="line"><span class="cl">  ├── R/
+</span></span><span class="line"><span class="cl">  ├── G/
+</span></span><span class="line"><span class="cl">  └── B/
+</span></span></code></pre></div><hr>
+<h4 id="ステップ1-ファイル名の一括変更とディレクトリ分類">ステップ1: ファイル名の一括変更とディレクトリ分類</h4>
+<h5 id="1-1-シェルスクリプトの作成">1-1. シェルスクリプトの作成</h5>
+<p>ターミナルで以下を実行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~/workspace/astro-image/NGC1566
+</span></span><span class="line"><span class="cl">nano rename_move_lrgb.sh
+</span></span></code></pre></div><h5 id="1-2-スクリプト内容">1-2. スクリプト内容</h5>
+<p>以下の内容を貼り付け：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 作業ディレクトリの確認</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&#34;lights&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Error: &#39;lights&#39; directory not found!&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 必要なディレクトリを作成</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Checking and creating directories...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> dir in L R G B<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        mkdir <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Created directory: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Directory already exists: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># lightsディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> lights
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Starting LRGB file renaming and moving...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 関数：リネームと移動</span>
+</span></span><span class="line"><span class="cl">rename_and_move<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">filter</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">prefix</span><span class="o">=</span><span class="nv">$2</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">count</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> file in calibrated-*-<span class="si">${</span><span class="nv">filter</span><span class="si">}</span>-*.fit<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># ファイル名から番号を抽出（macOS対応）</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">number</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="p">|</span> sed -E <span class="s1">&#39;s/.*-([0-9]{3})\.fit$/\1/&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">newname</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">${</span><span class="nv">number</span><span class="si">}</span><span class="s2">.fit&#34;</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># リネームして親ディレクトリの該当フォルダに移動</span>
+</span></span><span class="line"><span class="cl">            mv <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="s2">&#34;../</span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">newname</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;Moved: </span><span class="nv">$file</span><span class="s2"> -&gt; </span><span class="si">${</span><span class="nv">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">newname</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">((</span>count++<span class="o">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="nv">$count</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Warning: No </span><span class="si">${</span><span class="nv">filter</span><span class="si">}</span><span class="s2"> files found&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Processed </span><span class="si">${</span><span class="nv">count</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">filter</span><span class="si">}</span><span class="s2"> files&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 各フィルターを処理</span>
+</span></span><span class="line"><span class="cl">rename_and_move <span class="s2">&#34;Luminance&#34;</span> <span class="s2">&#34;L&#34;</span>
+</span></span><span class="line"><span class="cl">rename_and_move <span class="s2">&#34;Red&#34;</span> <span class="s2">&#34;R&#34;</span>
+</span></span><span class="line"><span class="cl">rename_and_move <span class="s2">&#34;Green&#34;</span> <span class="s2">&#34;G&#34;</span>
+</span></span><span class="line"><span class="cl">rename_and_move <span class="s2">&#34;Blue&#34;</span> <span class="s2">&#34;B&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 元のディレクトリに戻る</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=============================&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;All LRGB files processed successfully!&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;File distribution:&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;  L/ : </span><span class="k">$(</span>ls -1 L/*.fit 2&gt;/dev/null <span class="p">|</span> wc -l <span class="p">|</span> tr -d <span class="s1">&#39; &#39;</span><span class="k">)</span><span class="s2"> files&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;  R/ : </span><span class="k">$(</span>ls -1 R/*.fit 2&gt;/dev/null <span class="p">|</span> wc -l <span class="p">|</span> tr -d <span class="s1">&#39; &#39;</span><span class="k">)</span><span class="s2"> files&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;  G/ : </span><span class="k">$(</span>ls -1 G/*.fit 2&gt;/dev/null <span class="p">|</span> wc -l <span class="p">|</span> tr -d <span class="s1">&#39; &#39;</span><span class="k">)</span><span class="s2"> files&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;  B/ : </span><span class="k">$(</span>ls -1 B/*.fit 2&gt;/dev/null <span class="p">|</span> wc -l <span class="p">|</span> tr -d <span class="s1">&#39; &#39;</span><span class="k">)</span><span class="s2"> files&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;=============================&#34;</span>
+</span></span></code></pre></div><p>保存方法：</p>
+<ul>
+<li><code>Ctrl + O</code> で保存</li>
+<li><code>Ctrl + X</code> で終了</li>
+</ul>
+<h5 id="1-3-スクリプトの実行">1-3. スクリプトの実行</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 実行権限を付与</span>
+</span></span><span class="line"><span class="cl">chmod +x rename_move_lrgb.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 実行</span>
+</span></span><span class="line"><span class="cl">./rename_move_lrgb.sh
+</span></span></code></pre></div><h6 id="パラメータ説明">パラメータ説明</h6>
+<ul>
+<li><code>sed -E 's/.*-([0-9]{3})\.fit$/\1/'</code>
+<ul>
+<li><code>-E</code>: 拡張正規表現を使用</li>
+<li><code>.*-([0-9]{3})\.fit$</code>: ファイル名末尾の3桁数字を抽出</li>
+<li><code>\1</code>: マッチした数字部分を出力</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="ステップ2-sirilでの位置合わせとスタッキング">ステップ2: Sirilでの位置合わせとスタッキング</h4>
+<h5 id="2-1-lチャンネルluminanceの処理">2-1. Lチャンネル（Luminance）の処理</h5>
+<h6 id="1-sirilを起動しコマンドラインで以下を実行">(1) Sirilを起動し、コマンドラインで以下を実行：</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Lディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/workspace/astro-image/NGC1566/L
+</span></span></code></pre></div><p><strong>パラメータ説明：</strong></p>
+<ul>
+<li><code>cd</code>: Change Directory - 作業ディレクトリを変更</li>
+</ul>
+<h6 id="2-位置合わせregistration">(2) 位置合わせ（Registration）</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">register L_ -prefix<span class="o">=</span>r_
+</span></span></code></pre></div><p><strong>パラメータ説明：</strong></p>
+<ul>
+<li><code>L_</code>: 処理対象ファイルのパターン（L_001.fit, L_002.fit&hellip;を自動検出）</li>
+<li><code>-prefix=r_</code>: 出力ファイルのプレフィックス（r_L_001.fit, r_L_002.fit&hellip;が作成される）</li>
+</ul>
+<p><strong>処理内容：</strong></p>
+<ul>
+<li>デフォルトで <code>Global Star Alignment (deep-sky)</code> 法を使用</li>
+<li>各画像から星を検出し、位置を合わせる</li>
+<li>変換方法: Shift + Rotation（平行移動と回転）</li>
+<li>すべてのファイルが基準画像（通常は最初の画像）に合わせて位置調整される</li>
+</ul>
+<h6 id="3-スタッキングstacking">(3) スタッキング（Stacking）</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stack r_L_ rej <span class="m">3</span> <span class="m">3</span> -norm<span class="o">=</span>additive -out<span class="o">=</span>../L_stacked
+</span></span></code></pre></div><p><strong>パラメータ説明：</strong></p>
+<ul>
+<li><code>r_L_</code>: スタック対象ファイルのパターン（位置合わせ済みファイル）</li>
+<li><code>rej 3 3</code>: ピクセル除去方法
+<ul>
+<li><code>rej</code>: Winsorized Sigma Clipping を使用</li>
+<li>最初の <code>3</code>: 下側のシグマ値（低い値を除去する閾値）</li>
+<li>2番目の <code>3</code>: 上側のシグマ値（高い値を除去する閾値）</li>
+<li>3σを超える異常値（ホットピクセル、宇宙線など）を除去</li>
+</ul>
+</li>
+<li><code>-norm=additive</code>: 正規化方法
+<ul>
+<li><code>additive</code>: 加算的正規化（各画像の明るさを揃える）</li>
+<li>他のオプション: <code>mul</code>（乗算）, <code>none</code>（正規化なし）</li>
+</ul>
+</li>
+<li><code>-out=../L_stacked</code>: 出力ファイル名
+<ul>
+<li><code>../</code>: 親ディレクトリに出力</li>
+<li>拡張子 <code>.fit</code> は自動付加される</li>
+</ul>
+</li>
+</ul>
+<p><strong>処理内容：</strong></p>
+<ul>
+<li>平均スタック（Average stacking）がデフォルト</li>
+<li>ノイズを低減し、信号対雑音比（SNR）を向上</li>
+<li>異常値を除去してクリーンな画像を生成</li>
+</ul>
+<h5 id="2-2-rチャンネルredの処理">2-2. Rチャンネル（Red）の処理</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Rディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../R
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 位置合わせ</span>
+</span></span><span class="line"><span class="cl">register R_ -prefix<span class="o">=</span>r_
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># スタッキング</span>
+</span></span><span class="line"><span class="cl">stack r_R_ rej <span class="m">3</span> <span class="m">3</span> -norm<span class="o">=</span>additive -out<span class="o">=</span>../R_stacked
+</span></span></code></pre></div><h5 id="2-3-gチャンネルgreenの処理">2-3. Gチャンネル（Green）の処理</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Gディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../G
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 位置合わせ</span>
+</span></span><span class="line"><span class="cl">register G_ -prefix<span class="o">=</span>r_
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># スタッキング</span>
+</span></span><span class="line"><span class="cl">stack r_G_ rej <span class="m">3</span> <span class="m">3</span> -norm<span class="o">=</span>additive -out<span class="o">=</span>../G_stacked
+</span></span></code></pre></div><h5 id="2-4-bチャンネルblueの処理">2-4. Bチャンネル（Blue）の処理</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Bディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../B
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 位置合わせ</span>
+</span></span><span class="line"><span class="cl">register B_ -prefix<span class="o">=</span>r_
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># スタッキング</span>
+</span></span><span class="line"><span class="cl">stack r_B_ rej <span class="m">3</span> <span class="m">3</span> -norm<span class="o">=</span>additive -out<span class="o">=</span>../B_stacked
+</span></span></code></pre></div><hr>
+<h4 id="ステップ3-結果の確認">ステップ3: 結果の確認</h4>
+<h5 id="3-1-出力ファイルの確認">3-1. 出力ファイルの確認</h5>
+<p>親ディレクトリ（NGC1566/）に以下のファイルが作成されているか確認：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /Users/araikenji/workspace/astro-image/NGC1566
+</span></span><span class="line"><span class="cl">ls -lh *.fit
+</span></span></code></pre></div><p>期待される出力：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">L_stacked.fit
+</span></span><span class="line"><span class="cl">R_stacked.fit
+</span></span><span class="line"><span class="cl">G_stacked.fit
+</span></span><span class="line"><span class="cl">B_stacked.fit
+</span></span></code></pre></div><h5 id="3-2-スタッキング結果の品質確認">3-2. スタッキング結果の品質確認</h5>
+<p>Sirilでログを確認：</p>
+<ul>
+<li>ピクセル除去率が 0.5% - 2% 程度であれば正常</li>
+<li>除去率が高すぎる場合（&gt;5%）は、sigma値の調整が必要な場合あり</li>
+</ul>
+<hr>
+<h3 id="lrgb合成">LRGB合成</h3>
+<p>この記事の「画像処理」手順の各フィルター画像に、先程出力された、[LRGB]_stacked.fitを使う。
+この部分についても、コマンドラインで実施できるようになったら、別途まとめていきたい。</p>
+<hr>
+<h2 id="まとめ">まとめ</h2>
+<p>上記の手順で得られた画像：</p>
+<p><img src="/Users/araikenji/workspace/blog/static/images/20260223_Stacking_Sirril141/NGC1566.png" alt="NGC1566"></p>
+<p>次の対象は、暗黒帯を持つ銀河、更にSNレムナントを撮ってみたい。</p>
+<hr>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/siril/">siril</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/1.4.1/">1.4.1</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/ricoremo/">RicoRemo</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f&amp;text=Mac%e4%b8%8a%e3%81%aeSiril%201.4.1%e3%81%a7%e3%81%aeLRGB%e3%82%b9%e3%82%bf%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0%e5%87%a6%e7%90%86&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f&amp;title=Mac%e4%b8%8a%e3%81%aeSiril%201.4.1%e3%81%a7%e3%81%aeLRGB%e3%82%b9%e3%82%bf%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0%e5%87%a6%e7%90%86" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f&amp;title=Mac%e4%b8%8a%e3%81%aeSiril%201.4.1%e3%81%a7%e3%81%aeLRGB%e3%82%b9%e3%82%bf%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0%e5%87%a6%e7%90%86" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f&amp;title=Mac%e4%b8%8a%e3%81%aeSiril%201.4.1%e3%81%a7%e3%81%aeLRGB%e3%82%b9%e3%82%bf%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0%e5%87%a6%e7%90%86" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260223_stacking_siril141%2f&amp;description=Mac%e4%b8%8a%e3%81%aeSiril%201.4.1%e3%81%a7%e3%81%aeLRGB%e3%82%b9%e3%82%bf%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0%e5%87%a6%e7%90%86" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20251115_astrophoto/">リコリモで銀河を撮影</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20260103_pinn-claude/" data-toggle="tooltip" data-placement="top" title="Claudeによる2次元円柱後流のシミュレーション">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

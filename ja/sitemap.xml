@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://akenji3.github.io/</loc>
-    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,8 +15,11 @@
                 href="https://akenji3.github.io/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/tags/1.4.1/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://akenji3.github.io/categories/</loc>
-    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -26,6 +29,74 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/categories/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/post/20260223_stacking_siril141/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://akenji3.github.io/post/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/post/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/tags/ricoremo/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ricoremo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ricoremo/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/tags/siril/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/siril/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/siril/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/categories/software/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/categories/software/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/categories/software/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/tags/</loc>
+    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/post/20260103_pinn-claude/</loc>
@@ -54,19 +125,6 @@
                 href="https://akenji3.github.io/tags/docker/"
                 />
   </url><url>
-    <loc>https://akenji3.github.io/post/</loc>
-    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/post/"
-                />
-  </url><url>
     <loc>https://akenji3.github.io/tags/python/</loc>
     <lastmod>2026-01-03T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -78,32 +136,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/python/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/categories/software/</loc>
-    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/categories/software/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/categories/software/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/tags/</loc>
-    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/tags/vscode/</loc>
@@ -156,32 +188,6 @@
                 rel="alternate"
                 hreflang="ja"
                 href="https://akenji3.github.io/tags/ngc300/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/tags/ricoremo/</loc>
-    <lastmod>2025-11-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/ricoremo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/ricoremo/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/tags/siril/</loc>
-    <lastmod>2025-11-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/siril/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/siril/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/post/20251115_astrophoto/</loc>
