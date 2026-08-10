@@ -6,8 +6,15 @@
     <description>Recent content in Software on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/en/categories/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20260809_Changing MacBook Air keyboard shortcuts</title>
+      <link>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</guid>
+      <description>&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;&#xA;&lt;p&gt;I use a Mac at home but a Windows PC at work. After using a PC at the office on weekdays, I often mix up the keyboard shortcuts for copying and pasting (e.g., Ctrl-c vs. Cmd-c) when I switch to my Mac at home. Conversely, on Mondays at the office, I sometimes reflexively press Cmd+c. Incidentally, I use an HHK (US layout) keyboard in both environments.&lt;/p&gt;&#xA;&lt;p&gt;I decided to remap the Mac shortcuts Cmd-c/v/x/z/a/s/f to Ctrl-c/v/x/z/a/s/f. To achieve this, I used an application called Karabiner-Elements.&lt;/p&gt;&#xA;&lt;p&gt;During the setup process, I consulted ChatGPT to verify the steps and check how to handle any potential issues.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>LRGB stacking processing in Siril 1.4.1 on Mac</title>
       <link>https://akenji3.github.io/en/post/20260223_stacking_siril141/</link>
