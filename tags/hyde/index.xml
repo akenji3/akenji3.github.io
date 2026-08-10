@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HyDE on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/hyde/</link>
+    <description>Recent content in HyDE on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/hyde/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HyDE手法によるRAGシステムを構築</title>
+      <link>https://akenji3.github.io/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;HyDE（Hypothetical Document Embeddings）というRAGを改善する手法を使ったRAGを構築した。&#xA;この投稿では、HyDEを試した内容をまとめた。&#xA;使用するLLMは、コストを抑えるためgpt-4o-miniを使用した。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

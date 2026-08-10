@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athena on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/athena/</link>
+    <description>Recent content in Athena on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/athena/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rayleigh-Taylor不安定性　〜　Athena&#43;&#43;チュートリアル4追加課題</title>
+      <link>https://akenji3.github.io/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240310_visit_tutorial4/&#34;&gt;この記事&lt;/a&gt;ではAthena++のチュートリアル4に取り組んだことを投稿した。ここでは、3次元におけるRayleigh-Taylor不安定性の課題に挑戦したので、その内容を投稿する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>シミュレーション結果の可視化　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240307_athena_tutorial4/&#34;&gt;この投稿&lt;/a&gt;で並列計算した3次元磁気流体シミュレーション結果を可視化する。可視化はMac上で動作するVisIt 3.3.3で行う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>３次元磁気流体シミュレーションと並列計算　〜　Athena&#43;&#43;チュートリアル4</title>
+      <link>https://akenji3.github.io/post/20240307_athena_tutorial4/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240307_athena_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先月投稿した&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この記事&lt;/a&gt;までで、OpenMPIをDockerコンテナに組み込み、マルチノードで並列計算できることは確認できた。この投稿では、上記で作成したDockerコンテナを使って、Athena++のチュートリアル4「3次元磁気流体シミュレーションと並列計算」をマルチノードで実行させる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Athena&#43;&#43;のチュートリアルを実行する</title>
+      <link>https://akenji3.github.io/post/20240211_athena_tutorial2-3/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240211_athena_tutorial2-3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;以前の&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena&amp;#43;&amp;#43;/&#34;&gt;ポスト&lt;/a&gt;で、Athena++をインストールして最初のチュートリアル「1D Hydorodynamics and MHD」を実行した内容をまとめた。本ポストはその続きで、ビジュアル化などを行うチュートリアルを実行したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>宇宙物理学用磁気流体シュミレーションコードAthena&#43;&#43;を試す</title>
+      <link>https://akenji3.github.io/post/20240203_athena&#43;&#43;/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240203_athena&#43;&#43;/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;以前から宇宙物理関連のシミュレーションを試してみたいと思っていて、enzo、gadget、gizmo等を調べていた。たまたまAthenaを知り、調べてみると東北大学の富田賢吾准教授が日本語のページを管理されており、日本語の情報もあるので、試してみることにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、インストールしてチュートリアルを実行するところまでをまとめたのでポストする。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

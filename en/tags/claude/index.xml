@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claude on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/claude/</link>
+    <description>Recent content in Claude on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/claude/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simulation of a Two-Dimensional Cylinder Wake by Claude</title>
+      <link>https://akenji3.github.io/en/post/20260103_pinn-claude/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260103_pinn-claude/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Around this time last year, I spent two months working on a simulation of a two-dimensional cylindrical wake using PINNs. I hadn&amp;rsquo;t finished working on &lt;a href=&#34;https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/&#34;&gt;this article&lt;/a&gt;.&#xA;This time, since I built a &lt;a href=&#34;https://akenji3.github.io/en/post/20260103_uv-docker/&#34;&gt;new Python development environment&lt;/a&gt;, I decided to tackle this theme as an example project, with Claude as my companion.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modulus on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/modulus/</link>
+    <description>Recent content in Modulus on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/modulus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NVIDIA Modulusを試す　〜　PINNsことはじめ</title>
+      <link>https://akenji3.github.io/post/20230918_modulus_install/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230918_modulus_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;１ヶ月以上前に、受講した「&lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;AIサロゲートモデルでシミュレーションを高速化する方法とは？&lt;/a&gt;」セミナーで、NVIDIA Modulusに興味を持ったので、書籍を買って勉強を始めた。&#xA;Modulusを今後勉強する前提として、自分の環境にModulusをインストールしたので、「PINNsことはじめ」としてインストール回りのことをまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

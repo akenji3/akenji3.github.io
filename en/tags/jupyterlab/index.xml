@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JupyterLab on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/jupyterlab/</link>
+    <description>Recent content in JupyterLab on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/jupyterlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create JupyterLab container with python version 3.11</title>
+      <link>https://akenji3.github.io/en/post/20241201_python3.11/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241201_python3.11/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I was trying a graph RAG and got an error “TypeError: ‘NoneType’ object is not iterable”. I did a lot of research, but could not find the direct cause of the error and just could not get around it. The python version of the container I was using at the time was 3.10.12. The version of python in the article I was referring to was 3.11.0, so I decided to update the python version of the container to 3.11 as a trial.&lt;/p&gt;&#xA;&lt;p&gt;This post summarizes the creation of the JupyterLab container with a python version of 3.11.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/install/</link>
+    <description>Recent content in Install on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 31 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/install/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>install neo4j and try knowledge graphs</title>
+      <link>https://akenji3.github.io/en/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;So far, we have built &lt;a href=&#34;https://akenji3.github.io/en/post/20240815_rag/&#34;&gt;RAG system&lt;/a&gt; using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read &lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;this article&lt;/a&gt; and became interested in the knowledge graph and decided to try it myself.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

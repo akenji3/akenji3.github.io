@@ -12,7 +12,7 @@
  
 
 
-      <title>Gpu - </title>
+      <title>GPU - </title>
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -34,13 +34,13 @@
 }
 </script>
 
-<meta property="og:title" content="Gpu" />
+<meta property="og:title" content="GPU" />
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/en/tags/gpu/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="Gpu" />
+  <meta name="twitter:title" content="GPU" />
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -209,7 +209,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="tags-heading">
               
-                <h1>Gpu</h1>
+                <h1>GPU</h1>
               
               
                 <hr class="small">
@@ -231,6 +231,220 @@
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/en/post/20240704_numpy_v2/">
+        <h2 class="post-title">llama-cpp-python - impact of numpy version upgrade</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on July 4, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240704_numpy_v2/" lang="ja">ja</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="introduction">Introduction.</h2>
+<p><a href="https://github.com/numpy/numpy/releases">NumPy 2.0.0</a> was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.</p>
+<p>This article summarizes my responses to the two errors I recently experienced.</p>
+<h2 id="dealing-with-errors-related-to-numpy-200">Dealing with errors related to NumPy 2.0.0</h2>
+<h4 id="background">Background</h4>
+<p>I recently decided to learn RAG properly, I purchased a japanese book called <a href="https://www.amazon.co.jp/dp/427423195X">LLM fine tuning and RAG</a>. The book uses langchain, so I decided to create a docker container for jupyterlab that incorporates the langchain library.</p>
+        <a href="https://akenji3.github.io/en/post/20240704_numpy_v2/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/en/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/llama-cpp-python/">llama-cpp-python</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/gpu/">GPU</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/numpy/">numpy</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/en/post/20240506_llamaserver/">
+        <h2 class="post-title">Try the Chatbot UI</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 6, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240506_llamaserver/" lang="ja">ja</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="introduction">Introduction</h2>
+<p>In <a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/">a recent post</a>, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &ldquo;about the future&rdquo; I would like to try to build a system that can chat like ChatGPT.</p>
+<p>This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.</p>
+        <a href="https://akenji3.github.io/en/post/20240506_llamaserver/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/en/tags/chatbot-ui/">Chatbot UI</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/llama-cpp-python/">llama-cpp-python</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/gpu/">GPU</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/">
+        <h2 class="post-title">Running Elyza models on GPU using llama-cpp-python</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on May 3, 2024
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20240503_llama-cpp-python/" lang="ja">ja</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="motivation">Motivation</h2>
+<p>Quantization is essential to run LLM on the local workstation (12-16 GB of GPU memory). In this post, I summarize my attempt to maximize GPU resources using llama-cpp-python.</p>
+<p>The content includes some of my mistakes, as I got into some areas due to my lack of understanding.</p>
+        <a href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/en/tags/elyza/">Elyza</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/llama-cpp-python/">llama-cpp-python</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/gpu/">GPU</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/">
+        <h2 class="post-title">Building a GPU Cluster with Kubernetes - the First Steps</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 19, 2022
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;Other languages: <a href="https://akenji3.github.io/post/20220919_kubernetes_1st_step/" lang="ja">ja</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="introduction">Introduction</h2>
+<p>About a month ago, I wrote an article about building a GPU cluster using kubernetes in <a href="https://akenji3.github.io/post/20220821_kubernetes/">this article</a>. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&rsquo;ll summarize it here.</p>
+<p>In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &ldquo;the first step&rdquo;.</p>
+        <a href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/en/tags/cluster/">cluster</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/kubernetes/">kubernetes</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/en/tags/gpu/">gpu</a>&nbsp;
+         
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://akenji3.github.io/en/post/20220821_kubernetes/">

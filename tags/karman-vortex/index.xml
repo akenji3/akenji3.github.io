@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Karman Vortex on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/karman-vortex/</link>
+    <description>Recent content in Karman Vortex on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/karman-vortex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenFOAMによるカルマン渦</title>
+      <link>https://akenji3.github.io/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;こちらの投稿&lt;/a&gt;の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。&lt;/p&gt;&#xA;&lt;p&gt;調べていく内に、&lt;a href=&#34;https://arxiv.org/abs/2306.00230&#34;&gt;この論文&lt;/a&gt;で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

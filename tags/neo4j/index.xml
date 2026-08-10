@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neo4j on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/neo4j/</link>
+    <description>Recent content in Neo4j on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/neo4j/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ollamaを使ってGraphRAGを構築</title>
+      <link>https://akenji3.github.io/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ollamaでknowledge graphを作成</title>
+      <link>https://akenji3.github.io/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;こちらの投稿&lt;/a&gt;では、RAGシステム構築の手始めとして、ナレッジグラフを作成した。数種のLLMを試して、gpt-4oとgpt-4o-miniだけが正常に動作した。最近の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;では、ollamaをインストールし起動したことをまとめた。&lt;/p&gt;&#xA;&lt;p&gt;今回ollamaを使ってナレッジグラフを作成したので、その内容をここにまとめる。少しハマったところもあるので、参考になればと思う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったハイブリッドGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241109_graphrag/&#34;&gt;この投稿&lt;/a&gt;の続きで、ハイブリッドな検索を使ったGraphRAGシステムの構築をまとめた。&lt;/p&gt;&#xA;&lt;p&gt;LangChainのLCELのようにパイプ「｜」を繋げていくイメージで考えていたが、想像していたものとは違った。以下で確かめて欲しい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MistaralAIのモデルがKnowledge graphsに使えるか？</title>
+      <link>https://akenji3.github.io/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;半月前の&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。&#xA;この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>knowledge graphsを使ったRAGへ初めの一歩</title>
+      <link>https://akenji3.github.io/post/20240916_kgrag/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240916_kgrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;少し前の&lt;a href=&#34;https://akenji3.github.io/post/20240831_neo4j/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うため、neo4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jをインストールしてknowledge graphsを試す</title>
+      <link>https://akenji3.github.io/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、FAISSやBM25を使って&lt;a href=&#34;https://akenji3.github.io/post/20240815_rag/&#34;&gt;RAGシステム&lt;/a&gt;を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot;k&amp;quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま&lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;この記事&lt;/a&gt;を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

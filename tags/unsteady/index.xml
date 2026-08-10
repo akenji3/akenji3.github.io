@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unsteady on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/unsteady/</link>
+    <description>Recent content in Unsteady on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/unsteady/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>支配方程式の違い 〜 Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250123_unsteady_laminar/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250123_unsteady_laminar/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>新・Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250121_unsteady/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250121_unsteady/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20250115_unsteady/&#34;&gt;前回の投稿&lt;/a&gt;では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

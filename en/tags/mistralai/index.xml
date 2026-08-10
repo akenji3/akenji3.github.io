@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MistralAi on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/mistralai/</link>
+    <description>Recent content in MistralAi on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/mistralai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Can MistaralAI&#39;s model be used for Knowledge graphs?</title>
+      <link>https://akenji3.github.io/en/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Half a month ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I tried six LLMs for using the Knowledge Graph. As I wrote there, the LLMs available at this time are OpenAI and Mistral.　So, I tried to run MistarlAI&amp;rsquo;s LLM on my PC (local environment). In fact, I found that it is not usable for the knowledge graph.&#xA;In this post, I tried to use MistaralAI via Langchain via API to see if it can be used in the knowledge graph.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

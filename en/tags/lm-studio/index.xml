@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LM Studio on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/lm-studio/</link>
+    <description>Recent content in LM Studio on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/lm-studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing LM Studio on my MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I bought a MacBook Air (M4) in March. I wanted to run LLM locally, so I set the memory to the maximum 32GB, and finally was able to try local LLM with LM Studio, although I could not find much time for it because I started working in Kanda in April and I was busy with various events on weekends.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

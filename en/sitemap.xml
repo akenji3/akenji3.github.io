@@ -41,6 +41,58 @@
                 href="https://akenji3.github.io/en/categories/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/chatgpt/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/chatgpt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/chatgpt/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/ctrl-vs-cmd/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ctrl-vs-cmd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ctrl-vs-cmd/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/karabiner-elements/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/karabiner-elements/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/karabiner-elements/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/macbook-air/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/macbook-air/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/macbook-air/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/</loc>
     <lastmod>2026-08-08T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -65,6 +117,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/software/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/</loc>
+    <lastmod>2026-08-08T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/tags/1.4.1/</loc>
@@ -119,17 +184,30 @@
                 href="https://akenji3.github.io/en/tags/siril/"
                 />
   </url><url>
-    <loc>https://akenji3.github.io/en/tags/</loc>
-    <lastmod>2026-02-23T00:00:00+00:00</lastmod>
+    <loc>https://akenji3.github.io/en/tags/2d-cylinder-flow/</loc>
+    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://akenji3.github.io/tags/"
+                href="https://akenji3.github.io/tags/2d-cylinder-flow/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://akenji3.github.io/en/tags/"
+                href="https://akenji3.github.io/en/tags/2d-cylinder-flow/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/claude/</loc>
+    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/claude/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/claude/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20260103_uv-docker/</loc>
@@ -156,6 +234,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/tags/docker/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/pinns/</loc>
+    <lastmod>2026-01-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/pinns/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/pinns/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/tags/python/</loc>
@@ -249,6 +340,19 @@
                 href="https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/ollama/</loc>
+    <lastmod>2025-07-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ollama/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ollama/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20250622_lmstudio/</loc>
     <lastmod>2025-06-22T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -260,6 +364,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20250622_lmstudio/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/lm-studio/</loc>
+    <lastmod>2025-06-22T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/lm-studio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/lm-studio/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/24.04-lts/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/24.04-lts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/24.04-lts/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20250325_ubuntu2404/</loc>
@@ -275,6 +405,32 @@
                 href="https://akenji3.github.io/en/post/20250325_ubuntu2404/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/ubuntu/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ubuntu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ubuntu/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/failure-mode/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/failure-mode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/failure-mode/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -286,6 +442,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20250321_2d_flowovercylinder/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/deepseek/</loc>
+    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/deepseek/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/deepseek/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/open-webui/</loc>
+    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/open-webui/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/open-webui/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20250128_deepseek-ca/</loc>
@@ -301,6 +483,19 @@
                 href="https://akenji3.github.io/en/post/20250128_deepseek-ca/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/gnuplot/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gnuplot/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gnuplot/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20250127_openfoam_env/</loc>
     <lastmod>2025-01-27T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -312,6 +507,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20250127_openfoam_env/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/openfoam/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/openfoam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/openfoam/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/pyfoam/</loc>
+    <lastmod>2025-01-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/pyfoam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/pyfoam/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/karman-vortex/</loc>
+    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/karman-vortex/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/karman-vortex/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20250124_karmanvortex/</loc>
@@ -338,6 +572,58 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20250123_unsteady_laminar/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/laminar-flows/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/laminar-flows/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/laminar-flows/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/st/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/st/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/st/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/unsteady/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/unsteady/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/unsteady/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/vp/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/vp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/vp/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20250121_unsteady/</loc>
@@ -379,6 +665,45 @@
                 href="https://akenji3.github.io/en/post/20250111_laminarflow/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/cfd/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cfd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cfd/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/paraview/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/paraview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/paraview/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/stl-file/</loc>
+    <lastmod>2025-01-07T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/stl-file/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/stl-file/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20250107_stl/</loc>
     <lastmod>2025-01-07T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -390,6 +715,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20250107_stl/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/cavity/</loc>
+    <lastmod>2025-01-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cavity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cavity/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20250106_cavity/</loc>
@@ -418,6 +756,19 @@
                 href="https://akenji3.github.io/en/post/20250105_openfoam/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/burgers-equation/</loc>
+    <lastmod>2024-12-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/burgers-equation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/burgers-equation/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20241227_burgersequation/</loc>
     <lastmod>2024-12-27T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -429,6 +780,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20241227_burgersequation/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/mass-spring-damper-model/</loc>
+    <lastmod>2024-12-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/mass-spring-damper-model/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/mass-spring-damper-model/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20241219_massspringdamper/</loc>
@@ -457,6 +821,58 @@
                 href="https://akenji3.github.io/en/post/20241202_graphrag-ollama/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/gemma2/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gemma2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gemma2/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/graphrag/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/graphrag/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/graphrag/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/llama3.2/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/llama3.2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/llama3.2/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/neo4j/</loc>
+    <lastmod>2024-12-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/neo4j/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/neo4j/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20241201_python3.11/</loc>
     <lastmod>2024-12-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -468,6 +884,58 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20241201_python3.11/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/dockerfile/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/dockerfile/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/dockerfile/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/jupyterlab/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/jupyterlab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/jupyterlab/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/python-3.11/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/python-3.11/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/python-3.11/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/ubuntu22.04/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ubuntu22.04/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ubuntu22.04/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20241127_kgwithollama/</loc>
@@ -483,6 +951,19 @@
                 href="https://akenji3.github.io/en/post/20241127_kgwithollama/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/knowledge-graphs/</loc>
+    <lastmod>2024-11-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/knowledge-graphs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/knowledge-graphs/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20241123_openwebui/</loc>
     <lastmod>2024-11-23T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -494,6 +975,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20241123_openwebui/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/llm/</loc>
+    <lastmod>2024-11-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/llm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/llm/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20241122_ollama/</loc>
@@ -522,6 +1016,32 @@
                 href="https://akenji3.github.io/en/post/20241110_hybridgraphrag/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/hybridretriever/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/hybridretriever/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/hybridretriever/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/neo4j_graphrag/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/neo4j_graphrag/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/neo4j_graphrag/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20241109_graphrag/</loc>
     <lastmod>2024-11-09T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -533,6 +1053,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20241109_graphrag/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/amazon-neptune/</loc>
+    <lastmod>2024-11-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/amazon-neptune/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/amazon-neptune/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20241102_neptune/</loc>
@@ -548,6 +1081,19 @@
                 href="https://akenji3.github.io/en/post/20241102_neptune/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/langchain/</loc>
+    <lastmod>2024-11-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/langchain/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/langchain/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20241027_hyde/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -559,6 +1105,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20241027_hyde/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/gpt-4o-mini/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gpt-4o-mini/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gpt-4o-mini/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/hyde/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/hyde/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/hyde/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/rag/</loc>
+    <lastmod>2024-10-27T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/rag/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/rag/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240929_mistralai/</loc>
@@ -574,6 +1159,19 @@
                 href="https://akenji3.github.io/en/post/20240929_mistralai/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/mistralai/</loc>
+    <lastmod>2024-09-29T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/mistralai/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/mistralai/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240916_kgrag/</loc>
     <lastmod>2024-09-16T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -587,6 +1185,32 @@
                 href="https://akenji3.github.io/en/post/20240916_kgrag/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/plamo/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/plamo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/plamo/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/preferred-networks/</loc>
+    <lastmod>2024-09-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/preferred-networks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/preferred-networks/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240901_plamo/</loc>
     <lastmod>2024-09-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -598,6 +1222,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240901_plamo/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/install/</loc>
+    <lastmod>2024-08-31T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/install/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/install/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240831_neo4j/</loc>
@@ -626,6 +1263,32 @@
                 href="https://akenji3.github.io/en/post/20240815_rag/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/llama-3-elyza/</loc>
+    <lastmod>2024-08-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/llama-3-elyza/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/llama-3-elyza/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/bm25/</loc>
+    <lastmod>2024-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/bm25/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/bm25/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240814_rag_database/</loc>
     <lastmod>2024-08-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -637,6 +1300,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240814_rag_database/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/database/</loc>
+    <lastmod>2024-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/database/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/database/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/evaluate/</loc>
+    <lastmod>2024-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/evaluate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/evaluate/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/vector/</loc>
+    <lastmod>2024-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/vector/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/vector/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</loc>
@@ -652,6 +1354,45 @@
                 href="https://akenji3.github.io/en/post/20240813_wikipedia_dump/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/wikipedia/</loc>
+    <lastmod>2024-08-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/wikipedia/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/wikipedia/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/gpu/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/gpu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/gpu/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/llama-cpp-python/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/llama-cpp-python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/llama-cpp-python/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240704_numpy_v2/</loc>
     <lastmod>2024-07-04T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -663,6 +1404,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240704_numpy_v2/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/numpy/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/numpy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/numpy/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/llamaindex/</loc>
+    <lastmod>2024-05-25T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/llamaindex/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/llamaindex/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</loc>
@@ -678,6 +1445,19 @@
                 href="https://akenji3.github.io/en/post/20240525_llamaindex_rag/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/chatbot-ui/</loc>
+    <lastmod>2024-05-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/chatbot-ui/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/chatbot-ui/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240506_llamaserver/</loc>
     <lastmod>2024-05-06T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -689,6 +1469,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240506_llamaserver/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/elyza/</loc>
+    <lastmod>2024-05-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/elyza/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/elyza/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240503_llama-cpp-python/</loc>
@@ -704,6 +1497,32 @@
                 href="https://akenji3.github.io/en/post/20240503_llama-cpp-python/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/benchmark/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/benchmark/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/benchmark/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/himeno/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/himeno/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/himeno/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/</loc>
     <lastmod>2024-03-20T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -715,6 +1534,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/openmpi/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/openmpi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/openmpi/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</loc>
@@ -730,6 +1562,58 @@
                 href="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/astrophysics/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/astrophysics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/astrophysics/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/athena/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/athena/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/athena/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/magnetohydrodynamic/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/magnetohydrodynamic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/magnetohydrodynamic/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/rayleigh-taylor-instability/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/rayleigh-taylor-instability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/rayleigh-taylor-instability/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</loc>
     <lastmod>2024-03-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -741,6 +1625,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20240315_rayleigh-taylor/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/simulation/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/simulation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/simulation/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/tutorial/</loc>
+    <lastmod>2024-03-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/tutorial/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/tutorial/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/visit/</loc>
+    <lastmod>2024-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/visit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/visit/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</loc>
@@ -834,6 +1757,58 @@
                 href="https://akenji3.github.io/en/post/20240102_quantization/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/japanese-llm/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/japanese-llm/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/japanese-llm/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/quantize/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/quantize/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/quantize/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/titan-v/</loc>
+    <lastmod>2024-01-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/titan-v/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/titan-v/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/rtx-a4000/</loc>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/rtx-a4000/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/rtx-a4000/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20231230_japanesellms/</loc>
     <lastmod>2023-12-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -845,6 +1820,58 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20231230_japanesellms/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/titan-v/</loc>
+    <lastmod>2023-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/titan-v/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/titan-v/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/cnn/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cnn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cnn/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/distributed-training/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/distributed-training/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/distributed-training/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/horovod/</loc>
+    <lastmod>2023-11-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/horovod/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/horovod/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20231104_horovod_modifycnn/</loc>
@@ -873,6 +1900,19 @@
                 href="https://akenji3.github.io/en/post/20231014_horovodindocker/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/rootless/</loc>
+    <lastmod>2023-10-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/rootless/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/rootless/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/</loc>
     <lastmod>2023-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -886,6 +1926,19 @@
                 href="https://akenji3.github.io/en/post/20231013_rootlessdockeruninstall/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/modulus/</loc>
+    <lastmod>2023-09-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/modulus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/modulus/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20230918_modulus_install/</loc>
     <lastmod>2023-09-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -897,6 +1950,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20230918_modulus_install/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/ngc-catalog/</loc>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/ngc-catalog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/ngc-catalog/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/rinna/</loc>
+    <lastmod>2023-08-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/rinna/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/rinna/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20230814_rinna36b/</loc>
@@ -915,6 +1994,19 @@
     <loc>https://akenji3.github.io/en/post/20230709_ubuntu2024_install/</loc>
     <lastmod>2023-07-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/nvidia-gpu/</loc>
+    <lastmod>2023-07-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/nvidia-gpu/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/nvidia-gpu/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20230503_privateregistry/</loc>
     <lastmod>2023-05-03T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -926,6 +2018,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20230503_privateregistry/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/private-registry/</loc>
+    <lastmod>2023-05-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/private-registry/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/private-registry/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20230502_rootlessdocker/</loc>
@@ -952,6 +2057,45 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/categories/deep-learning/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/morphological/</loc>
+    <lastmod>2023-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/morphological/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/morphological/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/pytorch/</loc>
+    <lastmod>2023-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/pytorch/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/pytorch/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/speed-up/</loc>
+    <lastmod>2023-03-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/speed-up/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/speed-up/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20230318_pytorch_speed-up/</loc>
@@ -993,6 +2137,32 @@
                 href="https://akenji3.github.io/en/categories/astro-ph/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/dataset/</loc>
+    <lastmod>2023-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/dataset/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/dataset/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/galaxy/</loc>
+    <lastmod>2023-02-23T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/galaxy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/galaxy/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20230219_galaxy_vit_2/</loc>
     <lastmod>2023-02-19T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -1004,6 +2174,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20230219_galaxy_vit_2/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/vit/</loc>
+    <lastmod>2023-02-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/vit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/vit/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/post/20230109_galaxy_vit_1/</loc>
@@ -1058,6 +2241,32 @@
                 href="https://akenji3.github.io/en/post/20221230_galaxy_cnn_3/"
                 />
   </url><url>
+    <loc>https://akenji3.github.io/en/tags/resnet/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/resnet/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/resnet/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/vgg16/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/vgg16/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/vgg16/"
+                />
+  </url><url>
     <loc>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</loc>
     <lastmod>2022-09-19T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -1069,6 +2278,32 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/cluster/</loc>
+    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/cluster/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/cluster/"
+                />
+  </url><url>
+    <loc>https://akenji3.github.io/en/tags/kubernetes/</loc>
+    <lastmod>2022-09-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://akenji3.github.io/tags/kubernetes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://akenji3.github.io/en/tags/kubernetes/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/tags/badmatch/</loc>
@@ -1110,19 +2345,6 @@
                 href="https://akenji3.github.io/en/tags/nvidia/"
                 />
   </url><url>
-    <loc>https://akenji3.github.io/en/tags/ubuntu/</loc>
-    <lastmod>2022-09-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/ubuntu/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/ubuntu/"
-                />
-  </url><url>
     <loc>https://akenji3.github.io/en/tags/xrandr/</loc>
     <lastmod>2022-09-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -1136,32 +2358,6 @@
                 href="https://akenji3.github.io/en/tags/xrandr/"
                 />
   </url><url>
-    <loc>https://akenji3.github.io/en/tags/cluster/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/cluster/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/cluster/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/en/tags/gpu/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/gpu/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/gpu/"
-                />
-  </url><url>
     <loc>https://akenji3.github.io/en/post/20220821_kubernetes/</loc>
     <lastmod>2022-08-21T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -1173,19 +2369,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://akenji3.github.io/en/post/20220821_kubernetes/"
-                />
-  </url><url>
-    <loc>https://akenji3.github.io/en/tags/kubernetes/</loc>
-    <lastmod>2022-08-21T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://akenji3.github.io/tags/kubernetes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://akenji3.github.io/en/tags/kubernetes/"
                 />
   </url><url>
     <loc>https://akenji3.github.io/en/tags/github-pages/</loc>

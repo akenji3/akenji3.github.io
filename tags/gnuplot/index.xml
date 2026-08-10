@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gnuplot on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/gnuplot/</link>
+    <description>Recent content in Gnuplot on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/gnuplot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenFOAM環境を改善</title>
+      <link>https://akenji3.github.io/post/20250127_openfoam_env/</link>
+      <pubDate>Mon, 27 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250127_openfoam_env/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日の&lt;a href=&#34;https://akenji3.github.io/post/20250124_karmanvortex/&#34;&gt;投稿&lt;/a&gt;で述べたとおり、2次元の円柱周りの流れのチュートリアルを実施している。このチュートリアルを実施していて、自分の環境では、pyFoamPlotWatcher.py、gnuplotが使えなかった。この投稿では、それらの改善策についてまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

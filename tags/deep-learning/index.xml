@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 30 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diffusersの訓練時間による、TITAN VとRTX A4000比較</title>
+      <link>https://akenji3.github.io/post/20221030_training_diffusers/</link>
+      <pubDate>Sun, 30 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221030_training_diffusers/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;少し前に、&lt;a href=&#34;https://akenji3.github.io/post/20221010_stablediffuser/&#34;&gt;この記事&lt;/a&gt;でStable Diffusionについて紹介した。また、この記事では、NVIDIA TITAN VとRTX A4000との実行時間比較を行った。&#xA;この記事では、Stable Difffusionの学習時間で、TITAN VとA4000との実行時間比較を行う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stable Diffusion with Diffusers</title>
+      <link>https://akenji3.github.io/post/20221010_stablediffuser/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20221010_stablediffuser/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先月、&lt;a href=&#34;https://atmarkit.itmedia.co.jp/ait/articles/2209/16/news041.html&#34;&gt;@ITの記事&lt;/a&gt;で、Stable Diffusionという画像生成系のAIソフトを初めて知った。画像生成系は結果が目に見えるので、インパクトがある。Stable Diffusionについては、該当の記事を読んでいただければと思う。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、Diffusersというライブラリを使って簡単にStable Diffusionを試せるjupyter-labを作成したので、紹介する。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

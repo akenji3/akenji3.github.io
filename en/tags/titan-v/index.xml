@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TITAN-V&#34; on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/titan-v/</link>
+    <description>Recent content in TITAN-V&#34; on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/titan-v/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Execution of a Japanese LLM by Quantization</title>
+      <link>https://akenji3.github.io/en/post/20240102_quantization/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240102_quantization/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20231230_japanesellms_en/&#34;&gt;this article&lt;/a&gt;, I ended on a negative note about quantization, but after a little research I reconsidered it as an interesting area and experimented with quantization, which I I summarize it here.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

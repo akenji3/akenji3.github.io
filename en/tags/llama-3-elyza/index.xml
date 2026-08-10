@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Llama-3-ELYZA on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/llama-3-elyza/</link>
+    <description>Recent content in Llama-3-ELYZA on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/llama-3-elyza/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build RAG system</title>
+      <link>https://akenji3.github.io/en/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.&lt;/p&gt;&#xA;&lt;p&gt;The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GraphRAG on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/graphrag/</link>
+    <description>Recent content in GraphRAG on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/graphrag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ollamaを使ってGraphRAGを構築</title>
+      <link>https://akenji3.github.io/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;ローカル環境でナレッジグラフを作成し、GraphRAG環境を構築に着手して、既に1週間が経過。ようやくまともに動く状態になった。この投稿は、ローカル環境に構築したOllama、neo4jを使ったGraphRACについて、まとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったハイブリッドGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241109_graphrag/&#34;&gt;この投稿&lt;/a&gt;の続きで、ハイブリッドな検索を使ったGraphRAGシステムの構築をまとめた。&lt;/p&gt;&#xA;&lt;p&gt;LangChainのLCELのようにパイプ「｜」を繋げていくイメージで考えていたが、想像していたものとは違った。以下で確かめて欲しい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>neo4jライブラリを使ったGraphRAG</title>
+      <link>https://akenji3.github.io/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、neo4jを用いてナレッジグラフを作成し、ナレッジグラフを外部情報とするRAGシステムを構築した。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、neo4jライブラリを使って、簡単にRAGシステムを構築する方法を試したので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Amazon NeptuneとLangChainでGraphRAGを構築（未完成）</title>
+      <link>https://akenji3.github.io/post/20241102_neptune/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241102_neptune/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、Neo4jとLangChainでGraphRAGを試しに構築した。自分は、&lt;a href=&#34;https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448&#34;&gt;この本&lt;/a&gt;でbedrockを勉強中。せっかくAWSに触れ始めたので、AWS上にGraphRAGを構築することにした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

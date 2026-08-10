@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Private Registry on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/private-registry/</link>
+    <description>Recent content in Private Registry on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/private-registry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build a private docker registry</title>
+      <link>https://akenji3.github.io/en/post/20230503_privateregistry/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230503_privateregistry/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20230502_rootlessdocker_en/&#34;&gt;a previous post&lt;/a&gt; I summarized how to start a docker container in user mode.&lt;/p&gt;&#xA;&lt;p&gt;When using multiple PCs (WorkStation, hereafter WS), it is necessary to consider how to realize a mechanism to share containers among multiple WS. In the case of singularity, we could store sif files on an NFS server and use them from other WS.&lt;/p&gt;&#xA;&lt;p&gt;In case of docker, I decided to build a registry server, thinking that I could set up a private registry in my home network and operate it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

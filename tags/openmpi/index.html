@@ -12,7 +12,7 @@
  
 
 
-      <title>OpenMPI - </title>
+      <title>Openmpi - </title>
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -34,13 +34,13 @@
 }
 </script>
 
-<meta property="og:title" content="OpenMPI" />
+<meta property="og:title" content="Openmpi" />
 <meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
 <meta property="og:url" content="https://akenji3.github.io/tags/openmpi/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="akenji&#39;s lab" />
 
-  <meta name="twitter:title" content="OpenMPI" />
+  <meta name="twitter:title" content="Openmpi" />
   <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -111,6 +111,10 @@
         
           
             <li>
+              
+                
+                  <a href="https://akenji3.github.io/en/tags/openmpi/">en</a>
+                
               
             </li>
           
@@ -205,7 +209,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="tags-heading">
               
-                <h1>OpenMPI</h1>
+                <h1>Openmpi</h1>
               
               
                 <hr class="small">
@@ -227,6 +231,218 @@
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
         <div class="posts-list">
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/">
+        <h2 class="post-title">姫野ベンチマークを使ってOpenMPIの性能を再々測定する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 20, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、<a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/">この記事</a>として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。</p>
+<p>そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。</p>
+        <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/himeno/">Himeno</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/benchmark/">benchmark</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/">
+        <h2 class="post-title">姫野ベンチマークを使ってOpenMPIの性能を再測定する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 17, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>1ヶ月前の<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。</p>
+        <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/himeno/">Himeno</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/benchmark/">benchmark</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">
+        <h2 class="post-title">姫野ベンチマークを使ってOpenMPIの性能を測定する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 23, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240223_himenobenchmpi/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p>昨日の<a href="https://akenji3.github.io/post/20240222_openmpi/">この投稿</a>の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。
+実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。</p>
+        <a href="https://akenji3.github.io/post/20240223_himenobenchmpi/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/himeno/">Himeno</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/benchmark/">benchmark</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240222_openmpi/">
+        <h2 class="post-title">OpenMPIを実装したDockerコンテナを複数ノードで実行する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;February 22, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240222_openmpi/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p>以前<a href="https://akenji3.github.io/post/20240203_athena&#43;&#43;/">このポスト</a>で述べたように、Athena++をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。</p>
+        <a href="https://akenji3.github.io/post/20240222_openmpi/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+         
+    </div>
+    
+
+</article>
           
             <article class="post-preview">
     <a href="https://akenji3.github.io/post/20211226_openmpi_install/">

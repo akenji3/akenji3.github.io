@@ -6,8 +6,15 @@
     <description>Recent content in Install on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/tags/install/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>neo4jをインストールしてknowledge graphsを試す</title>
+      <link>https://akenji3.github.io/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;これまで、FAISSやBM25を使って&lt;a href=&#34;https://akenji3.github.io/post/20240815_rag/&#34;&gt;RAGシステム&lt;/a&gt;を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&amp;quot;k&amp;quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま&lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;この記事&lt;/a&gt;を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Docker,SingularityをUbuntu20.04にインストール</title>
       <link>https://akenji3.github.io/post/20210904_docker_singularity_install/</link>

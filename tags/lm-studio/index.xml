@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LM Studio on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/lm-studio/</link>
+    <description>Recent content in LM Studio on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 22 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/lm-studio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook AirにLM Studioをインストール</title>
+      <link>https://akenji3.github.io/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;これまで使っていたMacBook Proは2016年製、そろそろ買い替え時期と考えていた。MacBook Air（M4）を3月に購入した。ローカルでLLMを動かしたかったので、メモリは最大の32GBにした。4月から神田で働き始めたことや休日は色々な行事で忙しく、なかなか時間が取れなかったが、ようやくLM StudioでローカルLLMを試すことが出来た。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MistralAi on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/mistralai/</link>
+    <description>Recent content in MistralAi on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 29 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/mistralai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MistaralAIのモデルがKnowledge graphsに使えるか？</title>
+      <link>https://akenji3.github.io/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;半月前の&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。&#xA;この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

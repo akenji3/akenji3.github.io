@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu22.04 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/ubuntu22.04/</link>
+    <description>Recent content in Ubuntu22.04 on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/ubuntu22.04/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pythonバージョンが3.11のJupyterLabコンテナを作成</title>
+      <link>https://akenji3.github.io/post/20241201_python3.11/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241201_python3.11/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;graph RAGを試していて、「TypeError: &amp;lsquo;NoneType&amp;rsquo; object is not iterable」とのエラーが発生した。色々と調べたが、直接の原因が分からず、どうしてもエラーを回避することができなかった。その時に使用していたコンテナのpythonのバージョンは3.10.12であった。参考にしていた記事のpythonのバージョンは3.11.0となっていたので、試しにコンテナのpythonのバージョンを3.11にアップデートすることにした。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、pythonバージョンが3.11のJupyterLabコンテナを作成した内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

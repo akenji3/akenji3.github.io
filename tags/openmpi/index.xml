@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>OpenMPI on akenji&#39;s lab</title>
+    <title>Openmpi on akenji&#39;s lab</title>
     <link>https://akenji3.github.io/tags/openmpi/</link>
-    <description>Recent content in OpenMPI on akenji&#39;s lab</description>
+    <description>Recent content in Openmpi on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/tags/openmpi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を再々測定する</title>
+      <link>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240320_himenobenchmpi_3/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、&lt;a href=&#34;https://akenji3.github.io/post/20240317_himenobenchmpi_2/&#34;&gt;この記事&lt;/a&gt;として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。&lt;/p&gt;&#xA;&lt;p&gt;そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を再測定する</title>
+      <link>https://akenji3.github.io/post/20240317_himenobenchmpi_2/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240317_himenobenchmpi_2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;1ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20240223_himenobenchmpi/&#34;&gt;この投稿&lt;/a&gt;で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>姫野ベンチマークを使ってOpenMPIの性能を測定する</title>
+      <link>https://akenji3.github.io/post/20240223_himenobenchmpi/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240223_himenobenchmpi/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20240222_openmpi/&#34;&gt;この投稿&lt;/a&gt;の通り、複数ノード上で動作しているDockerコンテナでOpenMPIを使ったプログラムを動かせるようになった。OpenMPIによってどのぐらい性能が向上するのかを調べたくなったので、ベンチマークすることにした。&#xA;実は、今回も少し苦労した点があり、その部分が他の方の参考になれば嬉しい。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenMPIを実装したDockerコンテナを複数ノードで実行する</title>
+      <link>https://akenji3.github.io/post/20240222_openmpi/</link>
+      <pubDate>Thu, 22 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240222_openmpi/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;以前&lt;a href=&#34;https://akenji3.github.io/post/20240203_athena&amp;#43;&amp;#43;/&#34;&gt;このポスト&lt;/a&gt;で述べたように、Athena++をマルチノードで動かすことをゴールに進めている。その前段階として、OpenMPIを設定したDockerコンテナを複数ノードで実行させることを試みた。自分としては、少し苦労した点もあり、他の方にも参考になるかもしれないので、今回実施したことをまとめ投稿する。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>OpenMPIをインストール</title>
       <link>https://akenji3.github.io/post/20211226_openmpi_install/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rayleigh-Taylor Instability on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/rayleigh-taylor-instability/</link>
+    <description>Recent content in Rayleigh-Taylor Instability on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/rayleigh-taylor-instability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rayleigh-Taylor Instability - Athena&#43;&#43; Tutorial 4 Additional Assignment</title>
+      <link>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240310_visit_tutorial4/&#34;&gt;this article&lt;/a&gt;, I posted about my work on tutorial 4 of Athena++. Here, I post my work on the Rayleigh-Taylor instability challenge in 3D.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

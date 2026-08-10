@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PINNs on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/pinns/</link>
+    <description>Recent content in PINNs on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 03 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/pinns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claudeによる2次元円柱後流のシミュレーション</title>
+      <link>https://akenji3.github.io/post/20260103_pinn-claude/</link>
+      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260103_pinn-claude/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年の今頃から2ヶ月間、PINNsを使った2次元円柱後流のシミュレーションに取り組んだ。&lt;a href=&#34;https://akenji3.github.io/post/20250321_2d_flowovercylinder/&#34;&gt;この記事&lt;/a&gt;を最後に取り組んでいなかった。&#xA;今回、&lt;a href=&#34;https://akenji3.github.io/post/20260103_uv-docker/&#34;&gt;新たなpython開発環境&lt;/a&gt;を構築したので、その例題としてこのテーマに取り組むことにした、今回はClaudeをお供に。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2次元円柱後流のシミュレーション</title>
+      <link>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250321_2d_flowovercylinder/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;2ヶ月前の&lt;a href=&#34;https://akenji3.github.io/post/20250123_unsteady_laminar/&#34;&gt;この投稿&lt;/a&gt;では、2次元円柱の周りの層流（Laminar Flow）について、ST formとVP formの各々の支配方程式を使って、シミュレーションした。&lt;/p&gt;&#xA;&lt;p&gt;それ以降、時間範囲0〜60秒間の2次元円柱の周りの流れについて、種々のパラメータを変えてシミュレーションしたので、その結果をここでまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAMによるカルマン渦</title>
+      <link>https://akenji3.github.io/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨年末からPINNsを勉強し、2次元の流体に関してPINNs手法でモデルを学習し、そのモデルを使って予測させて来た。なかなか参考にした論文の結果を示さず苦労もした。&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;こちらの投稿&lt;/a&gt;の「まとめ」でも書いた通りPINNs手法でカルマン渦の予測をしてみようと考えていた。&lt;/p&gt;&#xA;&lt;p&gt;調べていく内に、&lt;a href=&#34;https://arxiv.org/abs/2306.00230&#34;&gt;この論文&lt;/a&gt;で「データを持たないPINNsは渦の放出を予測できない」との記述を知った。そうであるならば、先ずはOpenFOAMでカルマン渦のシミュレーションを行なってみようと考えた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿は、OpenFOAMでカルマン渦をシミュレーションした内容をまとめたものである。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>支配方程式の違い 〜 Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250123_unsteady_laminar/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250123_unsteady_laminar/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;前回の投稿で、遷移状態のLaminar Flow（層流）について、ST型（Stress Tensor form）型の支配方程式を使って、PINNsによる学習と推論結果をまとめた。結果は、参考にしている論文の結果と違ったものになった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>新・Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250121_unsteady/</link>
+      <pubDate>Tue, 21 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250121_unsteady/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20250115_unsteady/&#34;&gt;前回の投稿&lt;/a&gt;では、論文の内容を参考に遷移状態のLaminar Flowについて、VP型の支配方程式を使ってPINNsで再現するも、参考論文の値と大きく異なった結果となったことを述べた。今回ST型の支配方程式でも実施したので、その結果をこの投稿でまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>原因不明の結果 〜 Unsteady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250115_unsteady/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250115_unsteady/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日、&lt;a href=&#34;https://akenji3.github.io/post/20250111_laminarflow/&#34;&gt;定常状態の層流&lt;/a&gt;についてPINNsで求められた内容を投稿した。今回は、非定常な層流についてPINNsの手法を適用した。今回の結果は、参考にした論文の結果とも異なり、正しい結果ではない。原因を調べているが、分かっていない。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 Steady-state Laminar Flow</title>
+      <link>https://akenji3.github.io/post/20250111_laminarflow/</link>
+      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250111_laminarflow/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年末から定常状態の層流について、PINNsでシミュレーションしようとしていた。Cauchy stress tensor型のNS（Navier Stokes）方程式の導出が分からず、つまずいていた。一旦、Velocity-pressure型のNS方程式をベースとした支配方程式で、PINNsをコーディングした。それらしい結果が得られたので、この投稿でまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 バーガース方程式</title>
+      <link>https://akenji3.github.io/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;先日、PINNsで&lt;a href=&#34;https://akenji3.github.io/post/20241219_massspringdamper/&#34;&gt;質点・ばね・ダンパー問題&lt;/a&gt;をまとめた。今回はバーガース方程式を取り組んだので、その内容をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PINNs 〜 質点・バネ・ダンパー問題</title>
+      <link>https://akenji3.github.io/post/20241219_massspringdamper/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241219_massspringdamper/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;一年以上も前に、&lt;a href=&#34;https://akenji3.github.io/post/20230918_modulus_install/&#34;&gt;NVIDIA Modulus&lt;/a&gt;を使って、PINNs（Physics-Informed Neural Networks）を試したが、その後全く手付かずだった。最近のセミナーで理研・松岡さんの講演（AI for Science; &lt;a href=&#34;https://www.nvidia.com/ja-jp/events/ai-summit/&#34;&gt;こちら&lt;/a&gt;とか&lt;a href=&#34;https://biz.amd-heroes.jp/amd-hpc-ai-2024/&#34;&gt;こちら&lt;/a&gt;のイベントでの講演）を聴講して、改めて勉強してみようと思い、物理的にも理解し易い問題を例にして、PINNsの実装に挑戦した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NVIDIA Modulusを試す　〜　PINNsことはじめ</title>
+      <link>https://akenji3.github.io/post/20230918_modulus_install/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230918_modulus_install/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;１ヶ月以上前に、受講した「&lt;a href=&#34;https://nvidia.connpass.com/event/284942/&#34;&gt;AIサロゲートモデルでシミュレーションを高速化する方法とは？&lt;/a&gt;」セミナーで、NVIDIA Modulusに興味を持ったので、書籍を買って勉強を始めた。&#xA;Modulusを今後勉強する前提として、自分の環境にModulusをインストールしたので、「PINNsことはじめ」としてインストール回りのことをまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

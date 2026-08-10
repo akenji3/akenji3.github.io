@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RAG on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/rag/</link>
+    <description>Recent content in RAG on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HyDE手法によるRAGシステムを構築</title>
+      <link>https://akenji3.github.io/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;HyDE（Hypothetical Document Embeddings）というRAGを改善する手法を使ったRAGを構築した。&#xA;この投稿では、HyDEを試した内容をまとめた。&#xA;使用するLLMは、コストを抑えるためgpt-4o-miniを使用した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RAGシステムを構築</title>
+      <link>https://akenji3.github.io/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日までに、Wikipediaから天文関連の項目を抽出し、RAG向けにベクトルデータベースとキーワードベースを作成した。ここでは、それらのデータベースを使って、RAGシステムを構築する。&lt;/p&gt;&#xA;&lt;p&gt;使用するLLMは、ChatGPT（gpt-4o）とLlama-3-ELYZA-JP-8Bを使う。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RAG向けデータベースを作成・評価</title>
+      <link>https://akenji3.github.io/post/20240814_rag_database/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240814_rag_database/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日作成した&lt;a href=&#34;https://akenji3.github.io/post/20240813_wikipedia_dump/&#34;&gt;テキストデータ&lt;/a&gt;からRAGで使えるデータベースを作成し、数個の特定文字列を用意し、それを検索して評価する。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WikipediaダンプデータからRAG向けテキストデータ作成</title>
+      <link>https://akenji3.github.io/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LlamaIndexを使ってRAGを試す</title>
+      <link>https://akenji3.github.io/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;Chatbot UIを試した&lt;a href=&#34;https://akenji3.github.io/post/20240506_llamaserver/&#34;&gt;この投稿&lt;/a&gt;で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。&lt;/p&gt;&#xA;&lt;p&gt;実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/llm/</link>
+    <description>Recent content in LLM on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conversing with ollama&#39;s LLM via Open WebUI as front end</title>
+      <link>https://akenji3.github.io/en/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Yesterday in &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt; I summarized launching ollama in a docker container and using LLMs from JupyterLab. In this post, I summarize launching Open WebUI in a container and using it as a front end to connect from a browser at hand to use ollama&amp;rsquo;s LLMs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running LLMs in a local environment using ollama</title>
+      <link>https://akenji3.github.io/en/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240929_mistralai/&#34;&gt;this post&lt;/a&gt;, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in &lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try PLaMo Beta Version</title>
+      <link>https://akenji3.github.io/en/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240901_plamo/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I read &lt;a href=&#34;https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html&#34;&gt;this article&lt;/a&gt; on August 8th. According to the article, a subsidiary of Preferred Networks (PFE) will start offering a free trial of LLM, which has Japanese language performance that exceeds GPT-4, prior to offering a commercial version.&lt;/p&gt;&#xA;&lt;p&gt;I immediately applied for the free trial, received an email of acceptance, and waited for the notification of account issuance. I had received the notification e-mail on August 9th, but I had overlooked it and completely forgot that I had applied for it. Recently, after reading &lt;a href=&#34;https://www.watch.impress.co.jp/docs/news/1619221.html&#34;&gt;this post&lt;/a&gt;, I remembered about the free trial, rechecked my email, and found the account notification.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will summarize what I tried of the free trial version.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating text data for RAG from Wikipedia dump data</title>
+      <link>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try RAG with LlamaIndex</title>
+      <link>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240506_llamaserver/&#34;&gt;this post&lt;/a&gt; where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex.&lt;/p&gt;&#xA;&lt;p&gt;Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

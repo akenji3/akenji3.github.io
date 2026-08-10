@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open WebUI on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/open-webui/</link>
+    <description>Recent content in Open WebUI on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/open-webui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepSeek-R1-Distill-Qwen-14B/32Bをベースに日本語追加学習を行ったLLMを使う</title>
+      <link>https://akenji3.github.io/post/20250128_deepseek-ca/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250128_deepseek-ca/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;しばらく、PINNsやそれに関連したOpenFOAMを勉強していたが、昨日LLM界隈で大きなニュースがあった。LLM界隈だけでなく株価にも影響するインパクトがあったDeep Seek-R1を使ってみることにした。そのままでは自分の環境では使えないので、量子化によりコンパクトされたLLMを使った。&lt;/p&gt;&#xA;&lt;p&gt;今回、量子化モデルをOllamaとOpen WebUIを使ってブラウザから使うようにしたので、その内容をまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Open WebUIをフロントエンドにしてollamaのLLMと会話する</title>
+      <link>https://akenji3.github.io/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chatbot UI on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/chatbot-ui/</link>
+    <description>Recent content in Chatbot UI on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/chatbot-ui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Try the Chatbot UI</title>
+      <link>https://akenji3.github.io/en/post/20240506_llamaserver/</link>
+      <pubDate>Mon, 06 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240506_llamaserver/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240503_llama-cpp-python/&#34;&gt;a recent post&lt;/a&gt;, I ran the ELYZA 7B model in a local environment using llama-cpp-python. In that post, I mentioned that &amp;ldquo;about the future&amp;rdquo; I would like to try to build a system that can chat like ChatGPT.&lt;/p&gt;&#xA;&lt;p&gt;This time, I built a system that can chat like ChatGPT on a docker container, and I summarize its contents here.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

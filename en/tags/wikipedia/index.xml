@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wikipedia on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/wikipedia/</link>
+    <description>Recent content in Wikipedia on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/wikipedia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating text data for RAG from Wikipedia dump data</title>
+      <link>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

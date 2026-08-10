@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CFD on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/cfd/</link>
+    <description>Recent content in CFD on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/cfd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenFOAM（とParaView）の歩き方</title>
+      <link>https://akenji3.github.io/post/20250107_stl/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250107_stl/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日に引き続いて、書籍の例題（書籍の第4章）を試した。なかなか興味深かった。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>cavity（OpenFOAMのチュートリアル）を試す</title>
+      <link>https://akenji3.github.io/post/20250106_cavity/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250106_cavity/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日、OpenFOAMとParaViewをインストールして、ポアズイユ流れ（Hagen-poiseuille flow）をシミュレーション・可視化を試してみた。今回は書籍に従って、OpenFOAM組込みのチュートリアルの中からcavityを実行してみた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OpenFOAMとParaViewを試す</title>
+      <link>https://akenji3.github.io/post/20250105_openfoam/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250105_openfoam/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;昨年末からPINNsに取り組んで2つの課題に挑戦した。今後は流体力学分野の問題を選定して取り組もうと考えている。実は円柱周りの非圧縮流をテーマに取り組んでいるのだが、モデルのアウトプットを微分方程式に関連付ける部分（PINNsの肝の部分）が分からず１週間停滞中。&lt;/p&gt;&#xA;&lt;p&gt;流体力学分野に取り組むのならOpenFOAMを少し勉強しようと考え、OpenFOAM、ParaViewをインストールし、例題を試した。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

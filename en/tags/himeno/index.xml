@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Himeno on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/himeno/</link>
+    <description>Recent content in Himeno on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 20 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/himeno/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Measuring OpenMPI performance again using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have changed the hostfile that determines the order of OpenMPI execution nodes and re-measured OpenMPI performance on the Himeno benchmark as &lt;a href=&#34;https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/&#34;&gt;this article&lt;/a&gt; I posted it. After posting, I thought about it again and decided to use objective figures instead of my own judgments based on CPU and clock performance.&lt;/p&gt;&#xA;&lt;p&gt;So this time, I decided to measure the performance of each individual workstation (node), and then decide the order of hostfile according to the results, and measure them again.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Re-measure OpenMPI performance using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</link>
+      <pubDate>Sun, 17 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A month ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240223_himenobenchmpi/&#34;&gt;this post&lt;/a&gt;, I measured the performance of OpenMPI with the HIMENO benchmark. My friend who saw that post pointed out some improvements regarding the order of the hostfile. In this post, I summarized the results of the performance measurement again after modifying the hostfile.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>easuring OpenMPI performance using the HIMENO benchmark</title>
+      <link>https://akenji3.github.io/en/post/20240223_himenobenchmpi/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240223_himenobenchmpi/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;As I stated in &lt;a href=&#34;https://akenji3.github.io/en/post/20240222_openmpi_en/&#34;&gt;this post&lt;/a&gt; yesterday, I was able to run a program using OpenMPI on a Docker container running on multiple nodes. I wanted to find out how much performance I could improve by using OpenMPI, so I decided to benchmark it.&#xA;Actually, I had some difficulties this time as well, and I would be happy if that part is helpful for others.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

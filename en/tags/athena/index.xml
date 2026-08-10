@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athena on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/athena/</link>
+    <description>Recent content in Athena on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/athena/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rayleigh-Taylor Instability - Athena&#43;&#43; Tutorial 4 Additional Assignment</title>
+      <link>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</link>
+      <pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240315_rayleigh-taylor/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240310_visit_tutorial4/&#34;&gt;this article&lt;/a&gt;, I posted about my work on tutorial 4 of Athena++. Here, I post my work on the Rayleigh-Taylor instability challenge in 3D.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;Visualization of 3D magnetohydrodynamic simulation results computed in parallel in &lt;a href=&#34;https://akenji3.github.io/en/post/20240307_athena_tutorial4/&#34;&gt;this post&lt;/a&gt;. The visualization is done with VisIt 3.3.3 running on a Mac.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>3D Magnetohydrodynamic Simulation and Parallel Computing - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240307_athena_tutorial4/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240307_athena_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Up to &lt;a href=&#34;https://akenji3.github.io/en/post/20240223_himenobenchmpi/&#34;&gt;this article&lt;/a&gt; posted last month, I have confirmed that OpenMPI can be embedded in a Docker container and used for parallel computing on multiple nodes. In this post, I will use the Docker container created above to run tutorial 4 &amp;ldquo;Running 3D MHD with OpenMP and MPI&amp;rdquo; of Athena++ on multiple nodes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Run the Athena&#43;&#43; tutorial</title>
+      <link>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</link>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240211_athena_tutorial2-3/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;In a &lt;a href=&#34;https://akenji3.github.io/en/post/20240203_athena&amp;#43;&amp;#43;_en/&#34;&gt;previous post&lt;/a&gt;, I summarized the contents of the first tutorial &amp;ldquo;1D Hydorodynamics and MHD&amp;rdquo; after installing Athena++. This post is a continuation of that post and summarizes the contents of the tutorial that was executed to perform visualization and other tasks.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try Athena&#43;&#43;, a magnetohydrodynamic simulation code for astrophysics</title>
+      <link>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</link>
+      <pubDate>Sat, 03 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240203_athena&#43;&#43;/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I have been interested in trying out astrophysics-related simulations for some time, and had been checking out ENZO, GADGET, GIZMO, and others. I happened to know Athena, and when I looked into it, I found that Associate Professor Kengo Tomita of Tohoku University maintains a Japanese page and has some information in Japanese, so I decided to give it a try.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarize the process of installing and running the tutorial, and post it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

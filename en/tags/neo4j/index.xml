@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neo4j on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/neo4j/</link>
+    <description>Recent content in Neo4j on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/neo4j/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building GraphRAG with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating knowledge graphs with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I created a knowledge graph as a starting point for building a RAG system. After trying several different LLMs, only gpt-4o and gpt-4o-mini worked properly. In a recent &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt;, I summarized the installation and activation of ollama.&lt;/p&gt;&#xA;&lt;p&gt;I created a knowledge graph using ollama this time, and I summarize its contents here. I hope this will be helpful, as I got into a bit of trouble in some areas.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hybrid GraphRAG using neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Continuing with &lt;a href=&#34;https://akenji3.github.io/en/post/20241109_graphrag/&#34;&gt;this post&lt;/a&gt; from yesterday, I summarized the construction of a GraphRAG system using hybrid search.&lt;/p&gt;&#xA;&lt;p&gt;I had imagined connecting pipes “|” like LangChain&amp;rsquo;s LCEL, but it was not what I had imagined. Please check it out below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GraphRAG using the neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;In this post&lt;/a&gt;, I created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I have tried to build a RAG system easily using the neo4j library.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Can MistaralAI&#39;s model be used for Knowledge graphs?</title>
+      <link>https://akenji3.github.io/en/post/20240929_mistralai/</link>
+      <pubDate>Sun, 29 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240929_mistralai/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Half a month ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I tried six LLMs for using the Knowledge Graph. As I wrote there, the LLMs available at this time are OpenAI and Mistral.　So, I tried to run MistarlAI&amp;rsquo;s LLM on my PC (local environment). In fact, I found that it is not usable for the knowledge graph.&#xA;In this post, I tried to use MistaralAI via Langchain via API to see if it can be used in the knowledge graph.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First steps to RAG using knowledge graphs</title>
+      <link>https://akenji3.github.io/en/post/20240916_kgrag/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240916_kgrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A while ago in &lt;a href=&#34;https://akenji3.github.io/en/post/20240831_neo4j/&#34;&gt;this post&lt;/a&gt;, I described how I installed neo4j in a local environment (as a docker container) in order to use the knowledge graph.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I would like to summarize the contents of the simple knowledge graph that I built and used as a RAG, referring to an article on the Internet. I titled this post as first steps because I did exactly what the article on the internet said.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>install neo4j and try knowledge graphs</title>
+      <link>https://akenji3.github.io/en/post/20240831_neo4j/</link>
+      <pubDate>Sat, 31 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240831_neo4j/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;So far, we have built &lt;a href=&#34;https://akenji3.github.io/en/post/20240815_rag/&#34;&gt;RAG system&lt;/a&gt; using FAISS and BM25. Although vector search is relatively easy to construct, there are cases where the necessary information is not found in “k” documents, and I was looking for ways to improve the accuracy. I happened to read &lt;a href=&#34;https://note.com/ippei_suzuki_us/n/n4670c893829a&#34;&gt;this article&lt;/a&gt; and became interested in the knowledge graph and decided to try it myself.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I will summarize the process of installing nao4j in my local environment and trying to use it from a browser in order to use the knowledge graph.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

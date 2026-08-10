@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacBook Air on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/macbook-air/</link>
+    <description>Recent content in MacBook Air on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/macbook-air/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20260809_Changing MacBook Air keyboard shortcuts</title>
+      <link>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</guid>
+      <description>&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;&#xA;&lt;p&gt;I use a Mac at home but a Windows PC at work. After using a PC at the office on weekdays, I often mix up the keyboard shortcuts for copying and pasting (e.g., Ctrl-c vs. Cmd-c) when I switch to my Mac at home. Conversely, on Mondays at the office, I sometimes reflexively press Cmd+c. Incidentally, I use an HHK (US layout) keyboard in both environments.&lt;/p&gt;&#xA;&lt;p&gt;I decided to remap the Mac shortcuts Cmd-c/v/x/z/a/s/f to Ctrl-c/v/x/z/a/s/f. To achieve this, I used an application called Karabiner-Elements.&lt;/p&gt;&#xA;&lt;p&gt;During the setup process, I consulted ChatGPT to verify the steps and check how to handle any potential issues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Ollama on MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A month ago, I uploaded an &lt;a href=&#34;https://akenji3.github.io/en/post/20250622_lmstudio/&#34;&gt;article&lt;/a&gt; in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing LM Studio on my MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I bought a MacBook Air (M4) in March. I wanted to run LLM locally, so I set the memory to the maximum 32GB, and finally was able to try local LLM with LM Studio, although I could not find much time for it because I started working in Kanda in April and I was busy with various events on weekends.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ParaView on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/paraview/</link>
+    <description>Recent content in ParaView on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/paraview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Walking around OpenFOAM (and ParaView)</title>
+      <link>https://akenji3.github.io/en/post/20250107_stl/</link>
+      <pubDate>Tue, 07 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250107_stl/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Continuing from yesterday, I tried the book example (Chapter 4 of the book). It was quite interesting.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try cavity (OpenFOAM tutorial)</title>
+      <link>https://akenji3.github.io/en/post/20250106_cavity/</link>
+      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250106_cavity/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Yesterday, I installed OpenFOAM and ParaView and tried to simulate and visualize a Poiseuille flow (Hagen-poiseuille flow). This time, I followed the book and ran &amp;ldquo;cavity&amp;rdquo; from the OpenFOAM built-in tutorial.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try OpenFOAM and ParaView</title>
+      <link>https://akenji3.github.io/en/post/20250105_openfoam/</link>
+      <pubDate>Sun, 05 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250105_openfoam/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been working on PINNs since the end of last year and have attempted two problems. I am planning to select and work on problems in the field of fluid dynamics. In fact, I am working on incompressible flow around a cylinder, but I have been stuck for a week because I can&amp;rsquo;t figure out how to relate the output of the model to the differential equations (the key part of PINNs).&lt;/p&gt;&#xA;&lt;p&gt;I decided to learn a bit of OpenFOAM if I am going to work on the fluid dynamics area, so I installed OpenFOAM, ParaView, and tried the examples.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

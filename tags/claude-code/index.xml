@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Claude Code on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/claude-code/</link>
+    <description>Recent content in Claude Code on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 11 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/claude-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook AirにGeminiCLIとClaude Desktopをインストール</title>
+      <link>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</link>
+      <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;最近は、仕事でも個人的にも企画案の抽出、素案から文章の作成、逆に文章の要約などにChatGPTを使ってきた。コーディングなどにもAI/LLMを活用しようと考えて、個人のPCにGemini CLIなどをインストールし、使い始めたところである。この投稿では、インストールと使っての感想などをまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

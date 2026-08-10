@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChatGPT on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/chatgpt/</link>
+    <description>Recent content in ChatGPT on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20260809_Changing MacBook Air keyboard shortcuts</title>
+      <link>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20260809_changing_mba_keyboard-shortcuts/</guid>
+      <description>&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;&#xA;&lt;p&gt;I use a Mac at home but a Windows PC at work. After using a PC at the office on weekdays, I often mix up the keyboard shortcuts for copying and pasting (e.g., Ctrl-c vs. Cmd-c) when I switch to my Mac at home. Conversely, on Mondays at the office, I sometimes reflexively press Cmd+c. Incidentally, I use an HHK (US layout) keyboard in both environments.&lt;/p&gt;&#xA;&lt;p&gt;I decided to remap the Mac shortcuts Cmd-c/v/x/z/a/s/f to Ctrl-c/v/x/z/a/s/f. To achieve this, I used an application called Karabiner-Elements.&lt;/p&gt;&#xA;&lt;p&gt;During the setup process, I consulted ChatGPT to verify the steps and check how to handle any potential issues.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building a RAG system using the HyDE method</title>
+      <link>https://akenji3.github.io/en/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I built a RAG using HyDE (Hypothetical Document Embeddings), a method to improve RAGs.&#xA;This post summarizes my trial of HyDE. The LLM used was gpt-4o-mini to keep costs down.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build RAG system</title>
+      <link>https://akenji3.github.io/en/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.&lt;/p&gt;&#xA;&lt;p&gt;The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

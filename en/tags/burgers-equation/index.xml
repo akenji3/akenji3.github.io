@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Burgers&#39; Equation on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/burgers-equation/</link>
+    <description>Recent content in Burgers&#39; Equation on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/burgers-equation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PINNs - Burgers Equation</title>
+      <link>https://akenji3.github.io/en/post/20241227_burgersequation/</link>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241227_burgersequation/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Recently, I summarized the &lt;a href=&#34;https://akenji3.github.io/en/post/20241219_massspringdamper/&#34;&gt;mass, spring, and damper problem&lt;/a&gt; with PINNs. This time, I&amp;rsquo;ve worked on the Burgers&amp;rsquo; equation and summarized it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

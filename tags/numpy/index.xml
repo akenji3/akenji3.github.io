@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Numpy on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/numpy/</link>
+    <description>Recent content in Numpy on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/numpy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>llama-cpp-python 〜 numpyバージョンアップの影響</title>
+      <link>https://akenji3.github.io/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240704_numpy_v2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/numpy/numpy/releases&#34;&gt;NumPy 2.0.0&lt;/a&gt;が6月16日にリリースされた。先日、lang-chainを使ってRAGを試してみようとして、dockerコンテナをビルドする際にエラーとなって初めて気付いた。その後、llama-cpp-pythonを組み込む際にCMakeでエラーが発生した。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

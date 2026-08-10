@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Numpy on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/numpy/</link>
+    <description>Recent content in Numpy on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/numpy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>llama-cpp-python - impact of numpy version upgrade</title>
+      <link>https://akenji3.github.io/en/post/20240704_numpy_v2/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240704_numpy_v2/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/numpy/numpy/releases&#34;&gt;NumPy 2.0.0&lt;/a&gt; was released on June 16. I first noticed it the other day when I tried RAG with using langchain and got an error when building the docker container. Later, I encountered another error in CMake when trying to incorporate llama-cpp-python.&lt;/p&gt;&#xA;&lt;p&gt;This article summarizes my responses to the two errors I recently experienced.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dealing-with-errors-related-to-numpy-200&#34;&gt;Dealing with errors related to NumPy 2.0.0&lt;/h2&gt;&#xA;&lt;h4 id=&#34;background&#34;&gt;Background&lt;/h4&gt;&#xA;&lt;p&gt;I recently decided to learn RAG properly, I purchased a japanese book called &lt;a href=&#34;https://www.amazon.co.jp/dp/427423195X&#34;&gt;LLM fine tuning and RAG&lt;/a&gt;. The book uses langchain, so I decided to create a docker container for jupyterlab that incorporates the langchain library.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

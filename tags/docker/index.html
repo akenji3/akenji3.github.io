@@ -285,8 +285,8 @@
 </article>
           
             <article class="post-preview">
-    <a href="https://akenji3.github.io/post/20210904_docker_singularity_install/">
-        <h2 class="post-title">Docker,SingularityをUbuntu20.04にインストール</h2>
+    <a href="https://akenji3.github.io/post/20250325_ubuntu2404/">
+        <h2 class="post-title">ubuntu 24.04 LTSをインストール</h2>
         
         
         
@@ -296,7 +296,7 @@
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;September 4, 2021に投稿
+  <i class="fas fa-calendar"></i>&nbsp;March 25, 2025に投稿
   
   
   
@@ -305,7 +305,7 @@
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
     
   
-  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20250325_ubuntu2404/" lang="en">en</a>
 </span>
 
 
@@ -313,8 +313,9 @@
     <div class="post-entry">
         
         <h2 id="はじめに">はじめに</h2>
-<p><a href="https://akenji3.github.io/post/20210405_ubuntu2004_install/">以前この記事</a>でWorkstationにUbuntu 20.04をクリーンインストールしたことを書いた。そのWorkstationにDocker, Singularityをインストールしたので、自身のメモのため、以下に記事としてまとめる。</p>
-        <a href="https://akenji3.github.io/post/20210904_docker_singularity_install/" class="post-read-more">[続きを読む]</a>
+<p>Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで24.04に移行することにした。</p>
+<p>いつもは、日本語RemixのISOイメージからインストールしていたが、このバージョンから<a href="https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix">日本語Remixはリリースされない</a>とのことなので、Canonicalのページからイメージをダウンロードし、インストールした。</p>
+        <a href="https://akenji3.github.io/post/20250325_ubuntu2404/" class="post-read-more">[続きを読む]</a>
         
     </div>
 
@@ -325,13 +326,444 @@
        <a href="https://akenji3.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
         
        
-       <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
+       <a href="https://akenji3.github.io/tags/24.04-lts/">24.04 LTS</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20241123_openwebui/">
+        <h2 class="post-title">Open WebUIをフロントエンドにしてollamaのLLMと会話する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;November 23, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241123_openwebui/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>昨日の<a href="https://akenji3.github.io/post/20241122_ollama/">この投稿</a>でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。</p>
+        <a href="https://akenji3.github.io/post/20241123_openwebui/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/open-webui/">Open WebUI</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/ollama/">ollama</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/llm/">LLM</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20241122_ollama/">
+        <h2 class="post-title">ollamaを使ってローカル環境でLLMを動かす</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;November 22, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20241122_ollama/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p><a href="https://akenji3.github.io/post/20240929_mistralai/">この投稿</a>で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、<a href="https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4">この記事</a>のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。</p>
+<p>自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。</p>
+        <a href="https://akenji3.github.io/post/20241122_ollama/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/ollama/">ollama</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/llm/">LLM</a>&nbsp;
         
        
        <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
         
        
-       <a href="https://akenji3.github.io/tags/singularity/">singularity</a>&nbsp;
+       <a href="https://akenji3.github.io/tags/gemma2/">gemma2</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240929_mistralai/">
+        <h2 class="post-title">MistaralAIのモデルがKnowledge graphsに使えるか？</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 29, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240929_mistralai/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p>半月前の<a href="https://akenji3.github.io/post/20240916_kgrag/">この投稿</a>で、ナレッジグラフを使うために、6つのLLMを試した。そこで書いた通り、現時点で使えるLLMは、OpenAIとMistralである。　そこで、MistarlAIのLLMを自分のPC（ローカル環境）で動かしてみた。実際には、ナレッジグラフには使えないことが分かった。
+この投稿では、Langchain経由でMistaralAIをAPI経由で使って、ナレッジグラフで使えるか試してみたので、その内容をまとめた。</p>
+        <a href="https://akenji3.github.io/post/20240929_mistralai/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/neo4j/">neo4j</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/knowledge-graphs/">knowledge graphs</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">Docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/mistralai/">MistralAi</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240916_kgrag/">
+        <h2 class="post-title">knowledge graphsを使ったRAGへ初めの一歩</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 16, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240916_kgrag/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>少し前の<a href="https://akenji3.github.io/post/20240831_neo4j/">この投稿</a>で、ナレッジグラフを使うため、neo4jをローカル環境（dockerコンテナとして）インストールしたことについて述べた。</p>
+<p>この投稿ではネット記事を参考にしながら、簡単なナレッジグラフを構築し、RAGとして使用してみたので、その内容についてまとめたい。今回はネット記事をそのまま試したので初めの一歩とした。</p>
+        <a href="https://akenji3.github.io/post/20240916_kgrag/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/neo4j/">neo4j</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/knowledge-graphs/">knowledge graphs</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">Docker</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240831_neo4j/">
+        <h2 class="post-title">neo4jをインストールしてknowledge graphsを試す</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;August 31, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240831_neo4j/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="モチベーション">モチベーション</h2>
+<p>これまで、FAISSやBM25を使って<a href="https://akenji3.github.io/post/20240815_rag/">RAGシステム</a>を構築した。ベクトル検索は比較的簡単に構築できるが、必要な情報が&quot;k&quot;個の文書にない場合もあり、精度向上策を調べていた。たまたま<a href="https://note.com/ippei_suzuki_us/n/n4670c893829a">この記事</a>を読んで、ナレッジグラフに興味を持って、自分でも試してみようと思った。</p>
+<p>この投稿では、ナレッジグラフを使うため、nao4jをローカル環境にインストールし、ブラウザから使ってみるまでをまとめる。</p>
+        <a href="https://akenji3.github.io/post/20240831_neo4j/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/neo4j/">neo4j</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/knowledge-graphs/">knowledge graphs</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/install/">install</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">Docker</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240704_numpy_v2/">
+        <h2 class="post-title">llama-cpp-python 〜 numpyバージョンアップの影響</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;July 4, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240704_numpy_v2/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p><a href="https://github.com/numpy/numpy/releases">NumPy 2.0.0</a>が6月16日にリリースされた。先日、lang-chainを使ってRAGを試してみようとして、dockerコンテナをビルドする際にエラーとなって初めて気付いた。その後、llama-cpp-pythonを組み込む際にCMakeでエラーが発生した。</p>
+        <a href="https://akenji3.github.io/post/20240704_numpy_v2/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/llama-cpp-python/">llama-cpp-python</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/gpu/">GPU</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/numpy/">numpy</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/">
+        <h2 class="post-title">姫野ベンチマークを使ってOpenMPIの性能を再々測定する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 20, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240320_himenobenchmpi_3/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>OpenMPI実行ノードの順番を決めるhostfileを変更して、姫野ベンチマークでOpenMPIの性能を再測定したことを、<a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/">この記事</a>として投稿した。投稿後、改めて考えてみて、CPU、クロックの性能から自分が判断するのではなく、客観的な数値で判断することにした。</p>
+<p>そこで今回、個々のワークステーション（ノード）の性能を測定し、その結果に従ってhostfileの順序を決め、再々測定することにした。</p>
+        <a href="https://akenji3.github.io/post/20240320_himenobenchmpi_3/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/himeno/">Himeno</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/benchmark/">benchmark</a>&nbsp;
+         
+    </div>
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/">
+        <h2 class="post-title">姫野ベンチマークを使ってOpenMPIの性能を再測定する</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;March 17, 2024に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  &nbsp;&bull;&nbsp;翻訳：<a href="https://akenji3.github.io/en/post/20240317_himenobenchmpi_2/" lang="en">en</a>
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <h2 id="はじめに">はじめに</h2>
+<p>1ヶ月前の<a href="https://akenji3.github.io/post/20240223_himenobenchmpi/">この投稿</a>で、姫野ベンチマークによるOpenMPIの性能を測定した。その記事を見た先輩からhostfileの順番について改善点を指摘していただいた。この投稿では、hostfileを修正して再度性能測定した結果をまとめた。</p>
+        <a href="https://akenji3.github.io/post/20240317_himenobenchmpi_2/" class="post-read-more">[続きを読む]</a>
+        
+    </div>
+
+    
+    <div class="blog-tags">
+        
+       
+       <a href="https://akenji3.github.io/tags/openmpi/">openmpi</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/docker/">docker</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/himeno/">Himeno</a>&nbsp;
+        
+       
+       <a href="https://akenji3.github.io/tags/benchmark/">benchmark</a>&nbsp;
          
     </div>
     
@@ -339,6 +771,15 @@
 </article>
           
         </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="https://akenji3.github.io/tags/docker/page/2/">古いページ &rarr;</a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>

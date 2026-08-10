@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ViT on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/vit/</link>
+    <description>Recent content in ViT on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/vit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deep Learning（ViT）による銀河形状分類（その2）</title>
+      <link>https://akenji3.github.io/post/20230219_galaxy_vit_2/</link>
+      <pubDate>Sun, 19 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230219_galaxy_vit_2/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20230109_galaxy_vit_1/&#34;&gt;この記事&lt;/a&gt;で、Transformerの画像処理への適応のVision Transformer (ViT)を用いて、銀河形状分類を行った。今回は、ViTのモデルとして既に学習済みのモデルを使って同じ分類を行った。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deep Learning (ViT) による銀河形状分類（その1）</title>
+      <link>https://akenji3.github.io/post/20230109_galaxy_vit_1/</link>
+      <pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20230109_galaxy_vit_1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨年末の&lt;a href=&#34;https://akenji3.github.io/post/20221230_galaxy_cnn/&#34;&gt;この記事&lt;/a&gt;で、銀河形状の分類をCNN（VGG16, ResNet）を行ったことを述べた。今回は、銀河形状分類をTransformerを用いたVison Transformer（ViT）で行う。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

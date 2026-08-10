@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Karman Vortex on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/karman-vortex/</link>
+    <description>Recent content in Karman Vortex on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/karman-vortex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Karman Vortex with OpenFOAM</title>
+      <link>https://akenji3.github.io/en/post/20250124_karmanvortex/</link>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250124_karmanvortex/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;Since the end of last year, I have been studying PINNs, learning models using the PINNs method for 2-dimensional fluids, and using those models to make inferences. It was not easy to show the results of the paper I referred to, and I had some difficulties. As I wrote in the “Summary” section of &lt;a href=&#34;https://akenji3.github.io/en/post/20250111_laminarflow/&#34;&gt;this post&lt;/a&gt;, I was thinking of trying to predict the Karman&amp;rsquo;s vortex street using the PINNs method.&lt;/p&gt;&#xA;&lt;p&gt;In the course of my research, I learned from &lt;a href=&#34;https://arxiv.org/abs/2306.00230&#34;&gt;this paper&lt;/a&gt; that “data-free PINNs are unable to predict vortex shedding”. If that is the case, I decided to try simulating the Karman&amp;rsquo;s vortex in OpenFOAM first.&lt;/p&gt;&#xA;&lt;p&gt;This post is a summary of my simulation of the Karman&amp;rsquo;s vortex in OpenFOAM.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

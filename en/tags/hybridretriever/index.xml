@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HybridRetriever on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/hybridretriever/</link>
+    <description>Recent content in HybridRetriever on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/hybridretriever/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid GraphRAG using neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Continuing with &lt;a href=&#34;https://akenji3.github.io/en/post/20241109_graphrag/&#34;&gt;this post&lt;/a&gt; from yesterday, I summarized the construction of a GraphRAG system using hybrid search.&lt;/p&gt;&#xA;&lt;p&gt;I had imagined connecting pipes “|” like LangChain&amp;rsquo;s LCEL, but it was not what I had imagined. Please check it out below.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

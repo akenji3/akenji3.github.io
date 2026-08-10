@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Llama3.2 on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/llama3.2/</link>
+    <description>Recent content in Llama3.2 on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/llama3.2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building GraphRAG with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

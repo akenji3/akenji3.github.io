@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>24.04 LTS on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/24.04-lts/</link>
+    <description>Recent content in 24.04 LTS on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/24.04-lts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu 24.04 LTSをインストール</title>
+      <link>https://akenji3.github.io/post/20250325_ubuntu2404/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250325_ubuntu2404/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;Ubuntu 24.04 LTS Noble Numbatがリリースされて、もう少しで1年が経つ。充分に安定していると思われるので、22.04からクリーンインストールで24.04に移行することにした。&lt;/p&gt;&#xA;&lt;p&gt;いつもは、日本語RemixのISOイメージからインストールしていたが、このバージョンから&lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;日本語Remixはリリースされない&lt;/a&gt;とのことなので、Canonicalのページからイメージをダウンロードし、インストールした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

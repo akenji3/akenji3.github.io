@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog&#34; on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/blog/</link>
+    <description>Recent content in Blog&#34; on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugoブログ環境の移行</title>
+      <link>https://akenji3.github.io/post/20250506_migratehugo/</link>
+      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250506_migratehugo/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;新たなPCを購入し、それに伴って、これまでの環境の移行をしている。これまでIT技術に関して、自分が体験、学習したことをhugo（テーマはbeautifulhugoを使って）GitHub Pagesにまとめていた。その移行に予想外に時間が掛かって、半日程度要したので、経緯を簡単にまとめる。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

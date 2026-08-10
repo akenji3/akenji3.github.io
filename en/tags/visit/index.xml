@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VisIt on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/visit/</link>
+    <description>Recent content in VisIt on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/visit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visualization of Simulation Results - Athena&#43;&#43; Tutorial 4</title>
+      <link>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240310_visit_tutorial4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;Visualization of 3D magnetohydrodynamic simulation results computed in parallel in &lt;a href=&#34;https://akenji3.github.io/en/post/20240307_athena_tutorial4/&#34;&gt;this post&lt;/a&gt;. The visualization is done with VisIt 3.3.3 running on a Mac.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacBook Air on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/macbook-air/</link>
+    <description>Recent content in MacBook Air on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/macbook-air/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook Airのショートカットキー変更</title>
+      <link>https://akenji3.github.io/post/20260809_changing_mba_keyboard-shortcuts/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260809_changing_mba_keyboard-shortcuts/</guid>
+      <description>&lt;h3 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h3&gt;&#xA;&lt;p&gt;家ではMacを使っているが、会社ではWindows PCを使っている。平日会社でPC操作をした後、家でMacを使うと、ファイルのコピペのショートカットキー（Ctrl-c/Cmd-c等）の操作をよく間違える。逆に月曜日会社で思わず、Cmd+cとしてしまう。因みに家でも会社でもキーボードはHHK（US配列）を使っている。&lt;/p&gt;&#xA;&lt;p&gt;MacのCmd-c/v/x/z/a/s/fをCtrl-c/v/x/z/a/s/fに変更することにした。そのために、Karabiner -Elementsというアプリを使った。&lt;/p&gt;&#xA;&lt;p&gt;実施に当たっては、ChatGPTとの会話して、手順および困った時の対応を確認した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにGeminiCLIとClaude Desktopをインストール</title>
+      <link>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</link>
+      <pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250811_geminicli_claudedesktop/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;最近は、仕事でも個人的にも企画案の抽出、素案から文章の作成、逆に文章の要約などにChatGPTを使ってきた。コーディングなどにもAI/LLMを活用しようと考えて、個人のPCにGemini CLIなどをインストールし、使い始めたところである。この投稿では、インストールと使っての感想などをまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにOllamaをインストール</title>
+      <link>https://akenji3.github.io/post/20250721_ollama_on_mba-m4/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250721_ollama_on_mba-m4/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;1ヶ月前、MacBook AirにLM Studioをインストールして、ローカルLLMを試す&lt;a href=&#34;https://akenji3.github.io/post/20250622_lmstudio/&#34;&gt;記事&lt;/a&gt;をアップした。今回は、OllamaでローカルLLMを試した。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacBook AirにLM Studioをインストール</title>
+      <link>https://akenji3.github.io/post/20250622_lmstudio/</link>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20250622_lmstudio/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;これまで使っていたMacBook Proは2016年製、そろそろ買い替え時期と考えていた。MacBook Air（M4）を3月に購入した。ローカルでLLMを動かしたかったので、メモリは最大の32GBにした。4月から神田で働き始めたことや休日は色々な行事で忙しく、なかなか時間が取れなかったが、ようやくLM StudioでローカルLLMを試すことが出来た。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Horovod on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/horovod/</link>
+    <description>Recent content in Horovod on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 04 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/horovod/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CNN訓練コードをHorovodで使えるように変更する</title>
+      <link>https://akenji3.github.io/post/20231104_horovod_modifycnn/</link>
+      <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231104_horovod_modifycnn/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20231014_horovodindocker/&#34;&gt;Horovod in Dockerを試す&lt;/a&gt;で、自分の環境（オンプレミス）で、Docker環境下でHorovodを使えるようになった。次にやるべきことは、一台のサーバで動作する学習コードをHorovodを使った分散学習に適用するように変更することだ！手始めに比較的簡単なCNNコードをHorovodを使って分散学習できるように変更したので、以下記事にまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Horovod in Dockerを試す</title>
+      <link>https://akenji3.github.io/post/20231014_horovodindocker/</link>
+      <pubDate>Sat, 14 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20231014_horovodindocker/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;一年ぐらい前から分散学習（Distributed Training）に興味を持っていた。そのため複数のTITAN-Vが使えるマシンを用意し、Horovodという分散学習フレームワークを試していた。この度ようやく分散学習サンプルを動かすことが出来たので、ここに投稿する。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

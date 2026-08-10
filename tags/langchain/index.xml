@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LangChain on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/langchain/</link>
+    <description>Recent content in LangChain on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 02 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/langchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon NeptuneとLangChainでGraphRAGを構築（未完成）</title>
+      <link>https://akenji3.github.io/post/20241102_neptune/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241102_neptune/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240916_kgrag/&#34;&gt;この投稿&lt;/a&gt;では、Neo4jとLangChainでGraphRAGを試しに構築した。自分は、&lt;a href=&#34;https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448&#34;&gt;この本&lt;/a&gt;でbedrockを勉強中。せっかくAWSに触れ始めたので、AWS上にGraphRAGを構築することにした。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WikipediaダンプデータからRAG向けテキストデータ作成</title>
+      <link>https://akenji3.github.io/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

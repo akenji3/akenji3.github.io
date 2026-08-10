@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RAG on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/rag/</link>
+    <description>Recent content in RAG on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a RAG system using the HyDE method</title>
+      <link>https://akenji3.github.io/en/post/20241027_hyde/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241027_hyde/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I built a RAG using HyDE (Hypothetical Document Embeddings), a method to improve RAGs.&#xA;This post summarizes my trial of HyDE. The LLM used was gpt-4o-mini to keep costs down.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build RAG system</title>
+      <link>https://akenji3.github.io/en/post/20240815_rag/</link>
+      <pubDate>Thu, 15 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240815_rag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;By yesterday, I had extracted astronomy-related entries from Wikipedia and created a vector database and keyword base for RAG. Here, I will use those databases to build the RAG system.&lt;/p&gt;&#xA;&lt;p&gt;The LLMs used are ChatGPT (gpt-4o) and Llama-3-ELYZA-JP-8B.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Create and evaluate databases for RAG</title>
+      <link>https://akenji3.github.io/en/post/20240814_rag_database/</link>
+      <pubDate>Wed, 14 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240814_rag_database/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction.&lt;/h2&gt;&#xA;&lt;p&gt;Create a databases that can be used by RAG from the &lt;a href=&#34;https://akenji3.github.io/en/post/20240813_wikipedia_dump/&#34;&gt;text data created&lt;/a&gt; yesterday, prepare a few specific strings, and search and evaluate them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating text data for RAG from Wikipedia dump data</title>
+      <link>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I am experimenting with RAG using LangChain and was thinking about what to use for data for checking and decided to use wikipedia dump data. Since the volume of the whole is large, I decided to use data from the astronomy-related categories that I am interested in.&lt;/p&gt;&#xA;&lt;p&gt;Here, I summarized a series of steps to extract only specific categories of data from the wikipedia dump data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Try RAG with LlamaIndex</title>
+      <link>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240506_llamaserver/&#34;&gt;this post&lt;/a&gt; where I tested Chatbot UI, I mentioned that one of my future challenges is to work with RAG (Retrieval Augmented Generation). In this post, I summarized how to achieve RAG using LlamaIndex.&lt;/p&gt;&#xA;&lt;p&gt;Actually, I tried RAG using Langchain late last year. Since then, I have heard a lot of keywords with LlamaIndex, so I decided to realize RAG using LlamaIndex this time.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

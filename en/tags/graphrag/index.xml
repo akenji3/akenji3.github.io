@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GraphRAG on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/graphrag/</link>
+    <description>Recent content in GraphRAG on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/graphrag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building GraphRAG with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hybrid GraphRAG using neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241110_hybridgraphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Continuing with &lt;a href=&#34;https://akenji3.github.io/en/post/20241109_graphrag/&#34;&gt;this post&lt;/a&gt; from yesterday, I summarized the construction of a GraphRAG system using hybrid search.&lt;/p&gt;&#xA;&lt;p&gt;I had imagined connecting pipes “|” like LangChain&amp;rsquo;s LCEL, but it was not what I had imagined. Please check it out below.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GraphRAG using the neo4j library</title>
+      <link>https://akenji3.github.io/en/post/20241109_graphrag/</link>
+      <pubDate>Sat, 09 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241109_graphrag/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;&lt;strong&gt;Introduction.&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;In this post&lt;/a&gt;, I created a knowledge graph using neo4j and built a RAG system using the knowledge graph as external information.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I have tried to build a RAG system easily using the neo4j library.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building GraphRAG with Amazon Neptune and LangChain (not yet completed)</title>
+      <link>https://akenji3.github.io/en/post/20241102_neptune/</link>
+      <pubDate>Sat, 02 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241102_neptune/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I built GraphRAG with Neo4j and LangChain on a trial basis. I am studying bedrock with &lt;a href=&#34;https://www.amazon.co.jp/Amazon-Bedrock-%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-AWS%E6%B7%B1%E6%8E%98%E3%82%8A%E3%82%AC%E3%82%A4%E3%83%89-%E5%BE%A1%E7%94%B0/dp/4815626448&#34;&gt;this book&lt;/a&gt;. Since I&amp;rsquo;ve just started touching AWS, I decided to build GraphRAG on AWS.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

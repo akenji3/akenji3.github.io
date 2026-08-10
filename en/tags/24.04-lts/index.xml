@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>24.04 LTS on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/24.04-lts/</link>
+    <description>Recent content in 24.04 LTS on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/24.04-lts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install ubuntu 24.04 LTS</title>
+      <link>https://akenji3.github.io/en/post/20250325_ubuntu2404/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250325_ubuntu2404/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has been almost a year since Ubuntu 24.04 LTS Noble Numbat was released. Since it seems to be stable enough, I decided to migrate from 22.04 to 24.04 with a clean install.&lt;/p&gt;&#xA;&lt;p&gt;I usually installed from the Japanese Remix ISO image, but since this version &lt;a href=&#34;https://www.ubuntulinux.jp/News/ubuntu2404-ja-remix&#34;&gt;Japanese Remix is not released&lt;/a&gt;, I downloaded the image from Canonical&amp;rsquo;s page and installed it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

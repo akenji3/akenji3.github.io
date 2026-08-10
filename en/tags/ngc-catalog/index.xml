@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NGC CATALOG on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/ngc-catalog/</link>
+    <description>Recent content in NGC CATALOG on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/ngc-catalog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>running rinna 3.6b on a docker container</title>
+      <link>https://akenji3.github.io/en/post/20230814_rinna36b/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20230814_rinna36b/</guid>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;&#xA;&lt;p&gt;I wanted to try out a large-scale language model (LLM) for Japanese, so I used rinna, which was released in May. To save installation time, I ran rinna under a docker container environment.&lt;/p&gt;&#xA;&lt;p&gt;I ran into some problems in doing so, which are summarized below.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

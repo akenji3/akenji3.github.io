@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/tags/llm/</link>
+    <description>Recent content in LLM on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open WebUIをフロントエンドにしてollamaのLLMと会話する</title>
+      <link>https://akenji3.github.io/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;昨日の&lt;a href=&#34;https://akenji3.github.io/post/20241122_ollama/&#34;&gt;この投稿&lt;/a&gt;でollamaをdockerコンテナで起動し、JupyterLabからLLMを使うことについてまとめた。この投稿では、Open WebUIをコンテナで立ち上げ、それをフロントエンドとして、手元のブラウザから接続して、ollamaのLLMを使うことについてまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ollamaを使ってローカル環境でLLMを動かす</title>
+      <link>https://akenji3.github.io/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20240929_mistralai/&#34;&gt;この投稿&lt;/a&gt;で、ナレッジグラフを構築できるLLMは、OpenAIとMistral（何もAPI経由）であると述べた。ネットでは、&lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;この記事&lt;/a&gt;のようにollamaを使ってGraphRAG環境を構築している事例を見かけるようになった。&lt;/p&gt;&#xA;&lt;p&gt;自分もローカル環境でナレッジグラフを構築することにチャレンジしたい。今回の投稿では、ollamaをインストールするまでをまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PLaMo β版を試す</title>
+      <link>https://akenji3.github.io/post/20240901_plamo/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240901_plamo/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;8/8に&lt;a href=&#34;https://www.itmedia.co.jp/aiplus/articles/2408/07/news143.html&#34;&gt;この記事&lt;/a&gt;を読んだ。それによると、GPT-4を超える日本語性能を持つLLMをPreferred Networksの子会社（PFE）が、商用版提供に先駆けて無料トライアルの提供開始すると。&lt;/p&gt;&#xA;&lt;p&gt;早速、無料トライアルに申し込んで、受付完了のメールを受け取って、アカウント発行の通知を待っていた。通知メールは、8/9に受け取っていたのだが、自分が見過ごしてしまって、申し込んだこともすっかり忘れていた。最近、&lt;a href=&#34;https://www.watch.impress.co.jp/docs/news/1619221.html&#34;&gt;この記事&lt;/a&gt;を読んで、無料トライアルの件を思い出し、メールを再確認し、アカウント通知を見つけた。&lt;/p&gt;&#xA;&lt;p&gt;この投稿では、無料トライアル版を試した内容をまとめる。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>WikipediaダンプデータからRAG向けテキストデータ作成</title>
+      <link>https://akenji3.github.io/post/20240813_wikipedia_dump/</link>
+      <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240813_wikipedia_dump/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;LangChainを使ってRAGを試しているのだが、確認用に使用するデータに何を使おうかと考えていたところ、wikipediaのダンプデータを使うことにした。全体ではボリュームを大きいので、自分の興味のある天文関係のカテゴリーのデータを使うことにした。&lt;/p&gt;&#xA;&lt;p&gt;ここでは、wikipediaダンプデータから特定のカテゴリーのデータのみを取り出す一連の手順をまとめた。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LlamaIndexを使ってRAGを試す</title>
+      <link>https://akenji3.github.io/post/20240525_llamaindex_rag/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20240525_llamaindex_rag/</guid>
+      <description>&lt;h2 id=&#34;モチベーション&#34;&gt;モチベーション&lt;/h2&gt;&#xA;&lt;p&gt;Chatbot UIを試した&lt;a href=&#34;https://akenji3.github.io/post/20240506_llamaserver/&#34;&gt;この投稿&lt;/a&gt;で、今後挑戦したいことの一つにRAG（Retrieval Augmented Generation）との連携と述べた。この投稿ではLlamaIndexを使ってRAGを実現する方法についてまとめた。&lt;/p&gt;&#xA;&lt;p&gt;実は昨年末にLangchainを使ってRAGを試してみた。その後、LlamaIndexとのキーワードを良く聞いてきたので、今回LlamaIndexを使ってRAGを実現することにした。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

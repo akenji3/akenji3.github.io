@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ollama on akenji&#39;s lab</title>
+    <link>https://akenji3.github.io/en/tags/ollama/</link>
+    <description>Recent content in Ollama on akenji&#39;s lab</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://akenji3.github.io/en/tags/ollama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Ollama on MacBook Air</title>
+      <link>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250721_ollama_on_mba-m4/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A month ago, I uploaded an &lt;a href=&#34;https://akenji3.github.io/en/post/20250622_lmstudio/&#34;&gt;article&lt;/a&gt; in which I installed LM Studio on a MacBook Air and tried local LLM. This time, I tried local LLM with Ollama.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using LLM based on DeepSeek-R1-Distill-Qwen-14B/32B with additional Japanese language training</title>
+      <link>https://akenji3.github.io/en/post/20250128_deepseek-ca/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20250128_deepseek-ca/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;I have been studying PINNs and related OpenFOAM for a while, but yesterday there was a big news in LLM area and I decided to use Deep Seek-R1 which had an impact not only on LLM area but also on stock prices. Since I could not use it as it is in my environment, I used a compacted LLM with quantization.&lt;/p&gt;&#xA;&lt;p&gt;This time, I used Ollama and Open WebUI to use the quantized model from a browser, and I will summarize the contents.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building GraphRAG with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</link>
+      <pubDate>Mon, 02 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241202_graphrag-ollama/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;It has already been a week since I created the knowledge graph in my local environment and started building the GraphRAG environment. It is finally in a decent working condition. This post is a summary of GraphRAC using Ollama and neo4j that I built in my local environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating knowledge graphs with ollama</title>
+      <link>https://akenji3.github.io/en/post/20241127_kgwithollama/</link>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241127_kgwithollama/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240916_kgrag/&#34;&gt;this post&lt;/a&gt;, I created a knowledge graph as a starting point for building a RAG system. After trying several different LLMs, only gpt-4o and gpt-4o-mini worked properly. In a recent &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt;, I summarized the installation and activation of ollama.&lt;/p&gt;&#xA;&lt;p&gt;I created a knowledge graph using ollama this time, and I summarize its contents here. I hope this will be helpful, as I got into a bit of trouble in some areas.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Conversing with ollama&#39;s LLM via Open WebUI as front end</title>
+      <link>https://akenji3.github.io/en/post/20241123_openwebui/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241123_openwebui/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Yesterday in &lt;a href=&#34;https://akenji3.github.io/en/post/20241122_ollama/&#34;&gt;this post&lt;/a&gt; I summarized launching ollama in a docker container and using LLMs from JupyterLab. In this post, I summarize launching Open WebUI in a container and using it as a front end to connect from a browser at hand to use ollama&amp;rsquo;s LLMs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Running LLMs in a local environment using ollama</title>
+      <link>https://akenji3.github.io/en/post/20241122_ollama/</link>
+      <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20241122_ollama/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;&#xA;&lt;p&gt;In &lt;a href=&#34;https://akenji3.github.io/en/post/20240929_mistralai/&#34;&gt;this post&lt;/a&gt;, I mentioned that the LLMs that can build knowledge graphs are OpenAI and Mistral (via API). On the Internet, I have seen examples of GraphRAG environments being built using ollama, as in &lt;a href=&#34;https://qiita.com/satken2/items/ea3ddc5f273d43cd63d4&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I would like to try to build a knowledge graph using LLM in a local environment. In this post, I will summarize the process of installing ollama.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

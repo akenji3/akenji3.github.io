@@ -6,8 +6,15 @@
     <description>Recent content in Cluster on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/en/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a GPU Cluster with Kubernetes - the First Steps</title>
+      <link>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/en/post/20220919_kubernetes_1st_step/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;About a month ago, I wrote an article about building a GPU cluster using kubernetes in &lt;a href=&#34;https://akenji3.github.io/post/20220821_kubernetes/&#34;&gt;this article&lt;/a&gt;. At that time, the GPU pod was in Pending state and did not work. After that, I managed to get it to work thanks to the advice of a certain person, so I&amp;rsquo;ll summarize it here.&lt;/p&gt;&#xA;&lt;p&gt;In my environment, there is a problem that the GPU pod does not start up until a certain node is started, and furthermore, I have not been able to specify GPUs in a node, specify nodes, and so on, which is what I assumed, so I decided to call it &amp;ldquo;the first step&amp;rdquo;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GPU cluster construction with Kubernetes (not yet completed)</title>
       <link>https://akenji3.github.io/en/post/20220821_kubernetes/</link>
