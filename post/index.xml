@@ -6,8 +6,15 @@
     <description>Recent content in Posts on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dev ContainersによるVSCode開発環境構築</title>
+      <link>https://akenji3.github.io/post/20260829_devcontainer/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/post/20260829_devcontainer/</guid>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://akenji3.github.io/post/20260103_uv-docker/&#34;&gt;この記事&lt;/a&gt;では、GPU搭載のリモートワークステーションで動くdockerコンテナに手元のVSCodeからSSH接続して、GPUを使うpython開発環境について投稿した。一旦は、自分なりに構築したが、もっと改善点があるのではないかと考え、生成AIを使って改善したことについて述べる。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>MacBook Airのショートカットキー変更</title>
       <link>https://akenji3.github.io/post/20260809_changing_mba_keyboard-shortcuts/</link>

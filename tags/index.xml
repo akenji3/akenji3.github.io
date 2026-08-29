@@ -6,8 +6,50 @@
     <description>Recent content in Tags on akenji&#39;s lab</description>
     <generator>Hugo</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://akenji3.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CUDA</title>
+      <link>https://akenji3.github.io/tags/cuda/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/cuda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dev Containers</title>
+      <link>https://akenji3.github.io/tags/dev-containers/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/dev-containers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://akenji3.github.io/tags/python/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Remote SSH</title>
+      <link>https://akenji3.github.io/tags/remote-ssh/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/remote-ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uv</title>
+      <link>https://akenji3.github.io/tags/uv/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/uv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VSCode</title>
+      <link>https://akenji3.github.io/tags/vscode/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://akenji3.github.io/tags/vscode/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ChatGPT</title>
       <link>https://akenji3.github.io/tags/chatgpt/</link>
@@ -83,20 +125,6 @@
       <link>https://akenji3.github.io/tags/pinns/</link>
       <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://akenji3.github.io/tags/pinns/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://akenji3.github.io/tags/python/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://akenji3.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>VSCode</title>
-      <link>https://akenji3.github.io/tags/vscode/</link>
-      <pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://akenji3.github.io/tags/vscode/</guid>
       <description></description>
     </item>
     <item>
