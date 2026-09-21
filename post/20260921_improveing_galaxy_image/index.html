@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>久々のリコリモで銀河撮影 〜 銀河画像を改善 - </title>
+
+  <meta name="description" content="はじめに
+リコリモでの天体撮影は、観測装置メンテナンスのため4ヶ月間中断してたが、ようやく最近再開された。天候に恵まれ一週間前に撮影ができた。この週末画像処理を行ったので、その結果をまとめる。スクリプトで自動的に画像を得る手順、およびGUIで改善する部分に注目されたい。"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "akenji\u0027s lab",
+    
+    "url": "https:\/\/akenji3.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/akenji3.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/akenji3.github.io\/post\/20260921_improveing_galaxy_image\/",
+          "name": "久々のリコリモで銀河撮影 〜 銀河画像を改善"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "久々のリコリモで銀河撮影 〜 銀河画像を改善",
+  "description" : "はじめに リコリモでの天体撮影は、観測装置メンテナンスのため4ヶ月間中断してたが、ようやく最近再開された。天候に恵まれ一週間前に撮影ができた。この週末画像処理を行ったので、その結果をまとめる。スクリプトで自動的に画像を得る手順、およびGUIで改善する部分に注目されたい。\n",
+  "inLanguage" : "ja",
+  "wordCount":  2643 ,
+  "datePublished" : "2026-09-21T00:00:00\u002b00:00",
+  "dateModified" : "2026-09-21T00:00:00\u002b00:00",
+  "image" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "RicoRemo, NGC1097, siril" ],
+  "mainEntityOfPage" : "https:\/\/akenji3.github.io\/post\/20260921_improveing_galaxy_image\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/akenji3.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/akenji3.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="久々のリコリモで銀河撮影 〜 銀河画像を改善" />
+<meta property="og:description" content="はじめに
+リコリモでの天体撮影は、観測装置メンテナンスのため4ヶ月間中断してたが、ようやく最近再開された。天候に恵まれ一週間前に撮影ができた。この週末画像処理を行ったので、その結果をまとめる。スクリプトで自動的に画像を得る手順、およびGUIで改善する部分に注目されたい。">
+<meta property="og:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+<meta property="og:url" content="https://akenji3.github.io/post/20260921_improveing_galaxy_image/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="akenji&#39;s lab" />
+
+  <meta name="twitter:title" content="久々のリコリモで銀河撮影 〜 銀河画像を改善" />
+  <meta name="twitter:description" content="はじめに
+リコリモでの天体撮影は、観測装置メンテナンスのため4ヶ月間中断してたが、ようやく最近再開された。天候に恵まれ一週間前に撮影ができた。この週末画像処理を行ったので、その結果をまとめる。スクリプトで自動的に画像を得る手順、およびGUIで改善する部分に注目されたい。">
+  <meta name="twitter:image" content="https://akenji3.github.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link href='https://akenji3.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.147.1">
+  <link rel="alternate" href="https://akenji3.github.io/index.xml" type="application/rss+xml" title="akenji&#39;s lab"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://akenji3.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://akenji3.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://akenji3.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXWYJXF48"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TGXWYJXF48');
+        }
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">メニューを切り替え</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://akenji3.github.io/">akenji&#39;s lab</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Categories" href="/categories">Categories</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="akenji&#39;s lab" href="https://akenji3.github.io/">
+            <img class="avatar-img" src="https://akenji3.github.io/img/avatar-icon.png" alt="akenji&#39;s lab" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>久々のリコリモで銀河撮影 〜 銀河画像を改善</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;September 21, 2026に投稿
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h2 id="はじめに">はじめに</h2>
+<p>リコリモでの天体撮影は、観測装置メンテナンスのため4ヶ月間中断してたが、ようやく最近再開された。天候に恵まれ一週間前に撮影ができた。この週末画像処理を行ったので、その結果をまとめる。スクリプトで自動的に画像を得る手順、およびGUIで改善する部分に注目されたい。</p>
+<h2 id="関連情報">関連情報</h2>
+<p>リコリモ、sirilについては以前の<a href="https://akenji3.github.io/post/20251115_astrophoto/">この記事</a>に関連リンクがある。</p>
+<h2 id="画像処理">画像処理</h2>
+<h4 id="1-撮影対象の選択経緯">1. 撮影対象の選択・経緯</h4>
+<p>散光星雲、銀河で撮影対象をChatGPTを使いながら決めていった。先ずは、散光星雲からはタランチュラ星雲（NGC2070）を対象に選び、次の候補は、棒渦巻銀河・NGC1097を対象と考えた。</p>
+<p>タランチュラ星雲は、Hα/SII/OIIIフィルターを使ったSHOナローバンドで撮影しようと9/13に観測予約を入れた。NGC1097は、LRGB + Hαで撮影することとし、翌日9/14に予約を入れた。</p>
+<p>結果、9/13は天候の関係で撮影できず、リベンジで、9/16, 17に分けて予約したが、両日ともダメであった。NGC1097は、計画通り9/14に撮影ができた。</p>
+<p>Sirilの使い方に慣れていない自分への備忘録も兼ねて、NGC1097の画像処理をここにまとめることにした。</p>
+<h4 id="2-撮影データ">2. 撮影データ</h4>
+<p><strong>撮影対象</strong>： NGC1097（RA: 02h 46m 19s、DEC: -30° 16&rsquo; 30&quot;）</p>
+<table>
+  <thead>
+      <tr>
+          <th>フィルター</th>
+          <th>日時（AEST）</th>
+          <th>露光時間（秒）</th>
+          <th>撮影枚数（枚）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>L</td>
+          <td>2026/09/14 02:21:26-03:11:36<!-- raw HTML omitted -->04:45:30-04:47:30</td>
+          <td>120</td>
+          <td>21</td>
+      </tr>
+      <tr>
+          <td>R</td>
+          <td>2026/09/14 03:57:28-04:18:22<!-- raw HTML omitted -->04:55:48-04:58:48</td>
+          <td>180</td>
+          <td>7</td>
+      </tr>
+      <tr>
+          <td>G</td>
+          <td>2026/09/14 03:36:03-03:56:57<!-- raw HTML omitted -->04:51:58-04:54:58</td>
+          <td>180</td>
+          <td>7</td>
+      </tr>
+      <tr>
+          <td>B</td>
+          <td>2026/09/14 03:12:07-03:35:32<!-- raw HTML omitted -->04:48:18-04:51:18</td>
+          <td>180</td>
+          <td>7</td>
+      </tr>
+      <tr>
+          <td>Ha</td>
+          <td>2026/09/14 04:18:52-04:44:58<!-- raw HTML omitted -->04:59:36-05:10:21</td>
+          <td>300</td>
+          <td>6</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="3-前処理">3. 前処理</h4>
+<h5 id="1-作業ディレクトリを準備">(1) 作業ディレクトリを準備</h5>
+<p>この記事のスクリプトを参考に各フィルタの画像をL/R/G/B/Haディレクトに配置。</p>
+<p>更に作業用のディレクトを作成する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% mkdir -p work_L work_R work_G work_B work_Ha align_input align_work registered
+</span></span></code></pre></div><p>ここで、次のような構造となっている。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NGC1097/
+</span></span><span class="line"><span class="cl">  L/       L_001.fit, L_002.fit, ...
+</span></span><span class="line"><span class="cl">  R/       R_001.fit, R_002.fit, ...
+</span></span><span class="line"><span class="cl">  G/       G_001.fit, G_002.fit, ...
+</span></span><span class="line"><span class="cl">  B/       B_001.fit, B_002.fit, ...
+</span></span><span class="line"><span class="cl">  Ha/      Ha_001.fit, Ha_002.fit, ...
+</span></span><span class="line"><span class="cl">  work_L/
+</span></span><span class="line"><span class="cl">  work_R/
+</span></span><span class="line"><span class="cl">  work_G/
+</span></span><span class="line"><span class="cl">  work_B/
+</span></span><span class="line"><span class="cl">  work_Ha/
+</span></span><span class="line"><span class="cl">  align_input/
+</span></span><span class="line"><span class="cl">  align_work/
+</span></span><span class="line"><span class="cl">  registered/
+</span></span><span class="line"><span class="cl">  01_stack.ssf
+</span></span><span class="line"><span class="cl">  02_align_rgb.ssf
+</span></span><span class="line"><span class="cl">  03_lrgb.ssf
+</span></span><span class="line"><span class="cl">  04_ha_lrgb.ssf
+</span></span></code></pre></div><p>0[1-4]_*ssfはsiril用のスクリプトで各々次の通り。</p>
+<h6 id="01_stackssf--各フィルタの画像をスタッキングする">01_stack.ssf 〜 各フィルタの画像をスタッキングする</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">requires</span> <span class="mf">1.4</span><span class="o">.</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">setext</span> <span class="n">fit</span>
+</span></span><span class="line"><span class="cl"><span class="n">set32bits</span>
+</span></span><span class="line"><span class="cl"><span class="n">setcompress</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># L</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">L</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">L</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">work_L</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">work_L</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">L</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span> <span class="n">r_L</span> <span class="n">rej</span> <span class="n">w</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">-</span><span class="n">norm</span><span class="o">=</span><span class="n">add</span> <span class="o">-</span><span class="mi">32</span><span class="n">b</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">L_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">L_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">mirrorx</span> <span class="o">-</span><span class="n">bottomup</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">L_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">align_input</span><span class="o">/</span><span class="n">channel_00001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># R</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">R</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">R</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">work_R</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">work_R</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">R</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span> <span class="n">r_R</span> <span class="n">rej</span> <span class="n">w</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">-</span><span class="n">norm</span><span class="o">=</span><span class="n">add</span> <span class="o">-</span><span class="mi">32</span><span class="n">b</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">R_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">R_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">mirrorx</span> <span class="o">-</span><span class="n">bottomup</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">R_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">align_input</span><span class="o">/</span><span class="n">channel_00002</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># G</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">G</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">G</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">work_G</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">work_G</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">G</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span> <span class="n">r_G</span> <span class="n">rej</span> <span class="n">w</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">-</span><span class="n">norm</span><span class="o">=</span><span class="n">add</span> <span class="o">-</span><span class="mi">32</span><span class="n">b</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">G_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">G_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">mirrorx</span> <span class="o">-</span><span class="n">bottomup</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">G_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">align_input</span><span class="o">/</span><span class="n">channel_00003</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># B</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">B</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">B</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">work_B</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">work_B</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">B</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span> <span class="n">r_B</span> <span class="n">rej</span> <span class="n">w</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">-</span><span class="n">norm</span><span class="o">=</span><span class="n">add</span> <span class="o">-</span><span class="mi">32</span><span class="n">b</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">B_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">B_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">mirrorx</span> <span class="o">-</span><span class="n">bottomup</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">B_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">align_input</span><span class="o">/</span><span class="n">channel_00004</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Ha</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">Ha</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">Ha</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">work_Ha</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">work_Ha</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">Ha</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span> <span class="n">r_Ha</span> <span class="n">rej</span> <span class="n">w</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">-</span><span class="n">norm</span><span class="o">=</span><span class="n">add</span> <span class="o">-</span><span class="mi">32</span><span class="n">b</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">Ha_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">..</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">Ha_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">mirrorx</span> <span class="o">-</span><span class="n">bottomup</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">Ha_stacked</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">align_input</span><span class="o">/</span><span class="n">channel_00005</span>
+</span></span></code></pre></div><h6 id="02_align_rgbssf--スタックした画像の位置合わせrgb合成">02_align_rgb.ssf 〜 スタックした画像の位置合わせ・RGB合成</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">requires</span> <span class="mf">1.4</span><span class="o">.</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">setext</span> <span class="n">fit</span>
+</span></span><span class="line"><span class="cl"><span class="n">set32bits</span>
+</span></span><span class="line"><span class="cl"><span class="n">setcompress</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">align_input</span>
+</span></span><span class="line"><span class="cl"><span class="nb">convert</span> <span class="n">master</span> <span class="o">-</span><span class="n">out</span><span class="o">=../</span><span class="n">align_work</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">align_work</span>
+</span></span><span class="line"><span class="cl"><span class="n">register</span> <span class="n">master</span> <span class="o">-</span><span class="mi">2</span><span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="n">seqapplyreg</span> <span class="n">master</span> <span class="o">-</span><span class="n">framing</span><span class="o">=</span><span class="nb">min</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">r_master_00001</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="o">../</span><span class="n">registered</span><span class="o">/</span><span class="n">L_registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">r_master_00002</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="o">../</span><span class="n">registered</span><span class="o">/</span><span class="n">R_registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">r_master_00003</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="o">../</span><span class="n">registered</span><span class="o">/</span><span class="n">G_registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">r_master_00004</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="o">../</span><span class="n">registered</span><span class="o">/</span><span class="n">B_registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">r_master_00005</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="o">../</span><span class="n">registered</span><span class="o">/</span><span class="n">Ha_registered</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">../</span><span class="n">registered</span>
+</span></span><span class="line"><span class="cl"><span class="n">rgbcomp</span> <span class="n">R_registered</span> <span class="n">G_registered</span> <span class="n">B_registered</span> <span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="n">RGB_linear</span>
+</span></span></code></pre></div><h6 id="03_lrgbssf--lrgb合成">03_lrgb.ssf 〜 LRGB合成</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">requires</span> <span class="mf">1.4</span><span class="o">.</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">setext</span> <span class="n">fit</span>
+</span></span><span class="line"><span class="cl"><span class="n">set32bits</span>
+</span></span><span class="line"><span class="cl"><span class="n">setcompress</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">RGB_linear</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">RGB_stretched</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">L_registered</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">L_stretched</span>
+</span></span><span class="line"><span class="cl"><span class="n">rgbcomp</span> <span class="o">-</span><span class="n">lum</span><span class="o">=</span><span class="n">L_stretched</span> <span class="n">RGB_stretched</span> <span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="n">LRGB</span>
+</span></span></code></pre></div><h6 id="04_ha_lrgbssf--ha混合haをrに線形マッチし赤へ20混合">04_ha_lrgb.ssf 〜 Ha混合（HaをRに線形マッチし、赤へ20%混合）</h6>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">requires</span> <span class="mf">1.4</span><span class="o">.</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">setext</span> <span class="n">fit</span>
+</span></span><span class="line"><span class="cl"><span class="n">set32bits</span>
+</span></span><span class="line"><span class="cl"><span class="n">setcompress</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">cd</span> <span class="n">registered</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">RGB_linear</span>
+</span></span><span class="line"><span class="cl"><span class="n">split</span> <span class="n">R_base</span> <span class="n">G_base</span> <span class="n">B_base</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">Ha_registered</span>
+</span></span><span class="line"><span class="cl"><span class="n">linear_match</span> <span class="n">R_base</span> <span class="mf">0.001</span> <span class="mf">0.8</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">Ha_matched</span>
+</span></span><span class="line"><span class="cl"><span class="n">pm</span> <span class="s2">&#34;0.8*$R_base$+0.2*$Ha_matched$&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">R_Ha</span>
+</span></span><span class="line"><span class="cl"><span class="n">rgbcomp</span> <span class="n">R_Ha</span> <span class="n">G_base</span> <span class="n">B_base</span> <span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="n">HaRGB_linear</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaRGB_linear</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">HaRGB_stretched</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">L_registered</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">L_stretched</span>
+</span></span><span class="line"><span class="cl"><span class="n">rgbcomp</span> <span class="o">-</span><span class="n">lum</span><span class="o">=</span><span class="n">L_stretched</span> <span class="n">HaRGB_stretched</span> <span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="n">HaLRGB</span>
+</span></span></code></pre></div><h4 id="4-スクリプト実行">4. スクリプト実行</h4>
+<p>前処理で準備した、各フィルタ毎の撮影画像をスタッキング、合成する。</p>
+<h5 id="1-フィルタ別スタッキング">(1) フィルタ別スタッキング</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% /Applications/Siril.app/Contents/MacOS/siril-cli -d <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span> -s <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/01_stack.ssf&#34;</span>
+</span></span></code></pre></div><h5 id="2-フィルタ間の位置合わせrgb合成">(2) フィルタ間の位置合わせ・RGB合成</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% /Applications/Siril.app/Contents/MacOS/siril-cli -d <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span> -s <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/02_align_rgb.ssf&#34;</span>
+</span></span></code></pre></div><p>ここで作成される<code>L_registered.fit</code>はGUIでの背景補正で使用する。</p>
+<h5 id="3-lrgb合成">(3) LRGB合成</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% /Applications/Siril.app/Contents/MacOS/siril-cli -d <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span> -s <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/03_lrgb.ssf&#34;</span>
+</span></span></code></pre></div><p><code>LRGB.fit</code>がスクリプト実行により作成されるLRGB画像。</p>
+<h5 id="4-ha混合">(4) Ha混合</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% /Applications/Siril.app/Contents/MacOS/siril-cli -d <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span> -s <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/04_ha_lrgb.ssf&#34;</span>
+</span></span></code></pre></div><p><code>HaLRGB.fit</code>がスクリプト実行により作成されるHaを混合した画像。</p>
+<p>ここで作成される<code>HaRGB_linear.fit</code>はGUI操作（背景補正）で使用する。</p>
+<p>スクリプトで作成される画像<code>LRGB.fit</code>、<code>HaLRGB.fit</code>は、バックグランドの暗さ不足で、モヤがかかっているようなので、GUIで背景補正を施す。</p>
+<h4 id="5-guiよる調整背景補正">5. GUIよる調整（背景補正）</h4>
+<h5 id="1-使用ファイル">(1) 使用ファイル</h5>
+<p><code>registered</code> フォルダ内の、次の2枚を使います。</p>
+<table>
+  <thead>
+      <tr>
+          <th>ファイル</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>HaRGB_linear.fit</code></td>
+          <td>Hαを赤へ混ぜた、ストレッチ前のカラー画像</td>
+      </tr>
+      <tr>
+          <td><code>L_registered.fit</code></td>
+          <td>位置合わせ済みの、ストレッチ前のL画像</td>
+      </tr>
+  </tbody>
+</table>
+<h5 id="2-sirilで作業ディレクトリ指定カラー画像を読み込む">(2) Sirilで作業ディレクトリ指定、カラー画像を読み込む</h5>
+<p>Sirilを起動し、画面下部のコマンド入力欄に、次を入力して作業ディレクトリを指定。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd &#34;(ProperPathTo)/NGC1097/registered&#34;
+</span></span></code></pre></div><p>続けて、次を1行ずつ実行し、カラー画像を読み込む。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">setext</span> <span class="n">fit</span>
+</span></span><span class="line"><span class="cl"><span class="n">set32bits</span>
+</span></span><span class="line"><span class="cl"><span class="n">setcompress</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaRGB_linear</span>
+</span></span></code></pre></div><p>HaRGB_linearを読み込むも、明るい星は表示されるが、銀河は表示されない。</p>
+<p>ここで、Siril画面の下部中央の「線形」のプルダウンメニューから、「自動イコライゼーション」を選ぶ。</p>
+<h5 id="3-hargbの背景を補正">(3) Ha+RGBの背景を補正</h5>
+<p>Siril上部メニューの「画像処理」→「Background Extraction」を開く。「バックグラウンド抽出」で次の通り設定する。</p>
+<table>
+  <thead>
+      <tr>
+          <th>設定項目</th>
+          <th>最初に試す設定</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>補間方法</td>
+          <td><strong>RBF</strong></td>
+      </tr>
+      <tr>
+          <td>Smoothing／平滑化</td>
+          <td><strong>0.5、または50%</strong></td>
+      </tr>
+      <tr>
+          <td>Samples per line／1行あたりのサンプル数</td>
+          <td><strong>10</strong></td>
+      </tr>
+      <tr>
+          <td>Grid tolerance／許容値</td>
+          <td><strong>1.0</strong></td>
+      </tr>
+      <tr>
+          <td>修正／Correction</td>
+          <td><strong>引き算／Subtraction</strong></td>
+      </tr>
+      <tr>
+          <td>Keep all samples／全サンプルを保持</td>
+          <td>オフ</td>
+      </tr>
+  </tbody>
+</table>
+<p>設定後、「生成」を押すと、画面上に小さな四角が並ぶ。空の背景だけに小さな四角を置く。すなわち、g銀河の中心、渦巻きの腕、腕の外側に広がる淡い光の部分、明るい星やその周辺の光のにじみに重なる部分、等の小さな四角は消す。（右クリックで削除、左クリックで追加できる）</p>
+<h5 id="4-補正結果を確認確定保存">(4) 補正結果を確認・確定・保存</h5>
+<p>「バックグラウンドを計算」を押す。</p>
+<p>補正結果を確認し、良ければ「適用」で確定する。</p>
+<p>Sirilのコマンドラインに以下を入力し、別名で保存する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">save HaRGB_bg_linear
+</span></span></code></pre></div><h5 id="5-l画像にも同様に背景補正">(5) L画像にも同様に背景補正</h5>
+<p>コマンドラインに次を実行し、L画像を読み込む。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">L_registered</span>
+</span></span></code></pre></div><p>「自動イコライゼーション」にし、手順(3)、(4)を実行して背景抽出を行う。</p>
+<p>以下で、別名で保存する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">save L_bg_linear
+</span></span></code></pre></div><h5 id="6-背景目標値010でストレッチする">(6) 背景目標値0.10で、ストレッチする</h5>
+<p>コマンドラインに以下を1行ずつ実行する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaRGB_bg_linear</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span> <span class="o">-</span><span class="mf">2.8</span> <span class="mf">0.10</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">HaRGB_bg_stretched_010</span>
+</span></span></code></pre></div><p>同様にL画像。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">L_bg_linear</span>
+</span></span><span class="line"><span class="cl"><span class="n">autostretch</span> <span class="o">-</span><span class="mf">2.8</span> <span class="mf">0.10</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span> <span class="n">L_bg_stretched_010</span>
+</span></span></code></pre></div><p>ここで「自動イコライゼーション」を「線形」に戻す。</p>
+<h5 id="7-ha混合のlrgbを再合成">(7) Ha混合のLRGBを再合成</h5>
+<p>コマンドラインで次を実行。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">rgbcomp</span> <span class="o">-</span><span class="n">lum</span><span class="o">=</span><span class="n">L_bg_stretched_010</span> <span class="n">HaRGB_bg_stretched_010</span> <span class="o">-</span><span class="n">out</span><span class="o">=</span><span class="n">HaLRGB_bg_010</span>
+</span></span><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaLRGB_bg_010</span>
+</span></span></code></pre></div><p>再合成した結果を確認する。</p>
+<p>暗すぎた場合は、(6)の手順で、0.10を0.15に変えて試す。この時、末尾の010を015とする。</p>
+<h5 id="8-背景をもう少し暗くする">(8) 背景をもう少し暗くする</h5>
+<p>次の手順で中間調を調整する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaLRGB_bg_010</span>
+</span></span><span class="line"><span class="cl"><span class="n">mtf</span> <span class="mi">0</span> <span class="mf">0.55</span> <span class="mi">1</span>
+</span></span></code></pre></div><p>mtfの3つの数値の意味は次のとおり。</p>
+<p>3つの数字は、順に黒点・中間調・白点です。</p>
+<table>
+  <thead>
+      <tr>
+          <th>値</th>
+          <th>意味</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>0</code></td>
+          <td>黒点を動かさない</td>
+      </tr>
+      <tr>
+          <td><code>0.55</code></td>
+          <td>中間調を少し暗くする</td>
+      </tr>
+      <tr>
+          <td><code>1</code></td>
+          <td>白点を動かさない</td>
+      </tr>
+  </tbody>
+</table>
+<h5 id="9-結果を保存">(9) 結果を保存</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">save HaLRGB_bg_final
+</span></span></code></pre></div><p>PNGで保存するには、次のとおり</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="nb">load</span> <span class="n">HaLRGB_bg_final</span>
+</span></span><span class="line"><span class="cl"><span class="n">savepng</span> <span class="n">NGC1097_HaLRGB_bg_final</span>
+</span></span></code></pre></div><h2 id="結果">結果</h2>
+<p>以上の手順で得られたPNGは次の通り。</p>
+<p><img src="/Users/araikenji/workspace/blog/static/images/20260921_NGC1097/NGC1097_HaLRGB_bg_final.png" alt="NGC1097"></p>
+<p>銀河をアップした画像。</p>
+<p><img src="/Users/araikenji/workspace/blog/static/images/20260921_NGC1097/NGC1097_pub.png" alt="NGC1097_close"></p>
+<p>以下課題かな！？</p>
+<ul>
+<li>Hα領域の表現を改善</li>
+<li>銀河中心部の内部構造を表現する、白くつぶれかけている部分を改善</li>
+</ul>
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="https://akenji3.github.io/tags/ricoremo/">RicoRemo</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/ngc1097/">NGC1097</a>&nbsp;
+            
+              
+              <a href="https://akenji3.github.io/tags/siril/">siril</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f&amp;text=%e4%b9%85%e3%80%85%e3%81%ae%e3%83%aa%e3%82%b3%e3%83%aa%e3%83%a2%e3%81%a7%e9%8a%80%e6%b2%b3%e6%92%ae%e5%bd%b1%20%e3%80%9c%20%e9%8a%80%e6%b2%b3%e7%94%bb%e5%83%8f%e3%82%92%e6%94%b9%e5%96%84&amp;via=" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f&amp;title=%e4%b9%85%e3%80%85%e3%81%ae%e3%83%aa%e3%82%b3%e3%83%aa%e3%83%a2%e3%81%a7%e9%8a%80%e6%b2%b3%e6%92%ae%e5%bd%b1%20%e3%80%9c%20%e9%8a%80%e6%b2%b3%e7%94%bb%e5%83%8f%e3%82%92%e6%94%b9%e5%96%84" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f&amp;title=%e4%b9%85%e3%80%85%e3%81%ae%e3%83%aa%e3%82%b3%e3%83%aa%e3%83%a2%e3%81%a7%e9%8a%80%e6%b2%b3%e6%92%ae%e5%bd%b1%20%e3%80%9c%20%e9%8a%80%e6%b2%b3%e7%94%bb%e5%83%8f%e3%82%92%e6%94%b9%e5%96%84" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f&amp;title=%e4%b9%85%e3%80%85%e3%81%ae%e3%83%aa%e3%82%b3%e3%83%aa%e3%83%a2%e3%81%a7%e9%8a%80%e6%b2%b3%e6%92%ae%e5%bd%b1%20%e3%80%9c%20%e9%8a%80%e6%b2%b3%e7%94%bb%e5%83%8f%e3%82%92%e6%94%b9%e5%96%84" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fakenji3.github.io%2fpost%2f20260921_improveing_galaxy_image%2f&amp;description=%e4%b9%85%e3%80%85%e3%81%ae%e3%83%aa%e3%82%b3%e3%83%aa%e3%83%a2%e3%81%a7%e9%8a%80%e6%b2%b3%e6%92%ae%e5%bd%b1%20%e3%80%9c%20%e9%8a%80%e6%b2%b3%e7%94%bb%e5%83%8f%e3%82%92%e6%94%b9%e5%96%84" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">も参照してください</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/20260223_stacking_siril141/">Mac上のSiril 1.4.1でのLRGBスタッキング処理</a></li>
+                
+                    <li><a href="/post/20251115_astrophoto/">リコリモで銀河を撮影</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://akenji3.github.io/post/20260829_devcontainer/" data-toggle="tooltip" data-placement="top" title="Dev ContainersによるVSCode開発環境構築">&larr; 前ページ</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://akenji3.github.io/">akenji&#39;s lab</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          起動力に<a href="https://gohugo.io">Hugo v0.147.1</a> &nbsp;&bull;&nbsp; テーマに<a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>に基づいている<a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="https://akenji3.github.io/js/main.js"></script>
+<script src="https://akenji3.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://akenji3.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
